@@ -1,0 +1,41 @@
+site_name: 'Micropython'
+nav:
+  - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
+  - Micropython:
+    - Introduction: 01-intro.md
+    - Boards: 02-boards.md
+    - Blink: 03-blink.md
+    - Servo: 04-servo.md
+  - Glossary: glossary.md
+  - References: references.md
+  - Contact: contact.md
+
+site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
+site_author: 'Dan McCreary'
+repo_name: 'micropython repo'
+repo_url: 'https://github.com/CoderDojoTC/micropython'
+
+# CoderDojo Standards from here down
+edit_uri: 'blob/master/docs'
+theme:
+  name: material
+  logo: img/coderdojo-logo.png
+  palette:
+    primary: '#642580'
+    accent: '#41BAC1'
+  feature:
+    tabs: true
+  custom_dir: 'theme'
+  include_sidebar: true
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+  - codehilite:
+      linenums: true
+plugins:
+    - search
+markdown_extensions:
+  - codehilite:
+      linenums: true
