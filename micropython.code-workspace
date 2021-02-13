@@ -7,7 +7,9 @@
 	"settings": {
 		"cSpell.words": [
 			"Micropython",
-			"Thonny"
+			"Thonny",
+			"pico",
+			"thonney"
 		]
 	}
 }

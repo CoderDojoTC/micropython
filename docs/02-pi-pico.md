@@ -26,9 +26,13 @@ It features:
 ![](img/pi-pico-pinout.png)
 * [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
 
-## Steps on Mac
+Pins are numbered 0-29, and 26-29 have ADC capabilities
+Pin IO modes are: Pin.IN, Pin.OUT, Pin.ALT
+Pin pull modes are: Pin.PULL_UP, Pin.PULL_DOWN
 
-1. Download the MicroPython UF2 file by clicking the button below.
+## Steps To Get Micropython Running on the Mac
+
+1. Download the MicroPython UF2 file.
 2. Push and hold the BOOTSEL button and plug your Pico into the USB port of your Raspberry Pi or other computer. Release the BOOTSEL button after your Pico is connected.
 It will mount as a Mass Storage Device called RPI-RP2.
 3. Drag and drop the MicroPython UF2 file onto the RPI-RP2 volume. Your  Pico will reboot. You are now running MicroPython.

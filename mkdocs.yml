@@ -4,6 +4,8 @@ nav:
   - Micropython:
     - Introduction: 01-intro.md
     - Boards: 02-boards.md
+    - Raspberry Pi Pico: 02-pi-pico.md
+    - Thonny IDE: 02c-thonney.md
     - Blink: 03-blink.md
     - Servo: 04-servo.md
   - Glossary: glossary.md

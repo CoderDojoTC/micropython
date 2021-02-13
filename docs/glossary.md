@@ -50,6 +50,13 @@ The Pico pinout has
 #### RP2040 chip
 A custom chip created by the [Raspberry Pi Foundation](raspberry-pi-foundation) to power the [Raspberry Pi Pico](#raspberry-pi-pico).
 
+#### Thonny
+A lightweight Python IDE ideal for writing simple Python programs for first time users.
+
+Thonny runs on Mac, Windows and Linux.
+
+* [Thonny web site](https://thonny.org/)
+
 ### UF2 File
 The file that must be uploaded into the Raspberry Pi Pico folder to allow it to be used.
 
