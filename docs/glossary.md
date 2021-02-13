@@ -57,7 +57,7 @@ Thonny runs on Mac, Windows and Linux.
 
 * [Thonny web site](https://thonny.org/)
 
-### UF2 File
+#### UF2 File
 The file that must be uploaded into the Raspberry Pi Pico folder to allow it to be used.
 
 The file name format looks like this:
