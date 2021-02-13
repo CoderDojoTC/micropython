@@ -1,4 +1,21 @@
 # Micropython Glossary of Terms
+<!-- Link to this by using [TERM](glossary#term-id 
+The format is used to generate a concept graph for this course
+-->
+
+#### BOOTSEL
+A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
+
+![](img/boot-selection.png)
+
+* Also known as: Boot Selection
+
+#### Castellated Edge
+Plated through holes or vias located in the edges of a printed circuit board that make it easier to solder onto another circuit board.
+
+![](img/castellated-edge.png)
+
+The word "Castellated" means having grooves or slots on an edge and is derived from the turrets of a castle.
 
 #### ESP32
 A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
@@ -10,17 +27,37 @@ Typical costs for the ESP32 is
 * [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
 * [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
 
-#### Raspberry Pi Foundation
+#### Micropython
+A set of Python libraries and tools developed specifically for microcontrollers.
 
+Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
+
+#### Raspberry Pi Foundation
+The company that builds the Raspberry Pi hardware and provides some software.
 
 #### Raspberry Pi Pico
 A microcontroller designed by the Raspberry Pi foundation for doing real-time control systems.
 
-The Pico was 
+The Pico was introduces in 2020 with a retail list price of $4.  It was a key development because it used a custom chip that had 100 times the RAM of an Arduino Nano.
 
 #### Pico Pinout
+The Pico pinout has
 
 ![](img/pi-pico-pinout.png)
+
+* [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
+
+#### RP2040 chip
+A custom chip created by the [Raspberry Pi Foundation](raspberry-pi-foundation) to power the [Raspberry Pi Pico](#raspberry-pi-pico).
+
+### UF2 File
+The file that must be uploaded into the Raspberry Pi Pico folder to allow it to be used.
+
+The file name format looks like this:
+
+```rp2-pico-20210205-unstable-v1.14-8-g1f800cac3.uf2```
+
+
 
 #### Unicorn
 MicroPython on Unicorn is completely open source Micropython emulator

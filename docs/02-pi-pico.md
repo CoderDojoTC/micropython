@@ -18,8 +18,13 @@ The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberr
 * 8 × Programmable I/O (PIO) state machines for custom peripheral support
 
 ## Pico Pinout
+The pinout diagram for the Raspberry Pi.
 
+It features: 
+* 26 × multi-function GPIO pins
+* 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM 
 ![](img/pi-pico-pinout.png)
+* [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
 
 ## Steps on Mac
 
