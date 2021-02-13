@@ -1,6 +1,7 @@
 site_name: 'Micropython'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
+  - Micropython Home: index.md
   - Micropython:
     - Introduction: 01-intro.md
     - Boards: 02-boards.md
