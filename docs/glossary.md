@@ -10,6 +10,18 @@ Typical costs for the ESP32 is
 * [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
 * [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
 
+#### Raspberry Pi Foundation
+
+
+#### Raspberry Pi Pico
+A microcontroller designed by the Raspberry Pi foundation for doing real-time control systems.
+
+The Pico was 
+
+#### Pico Pinout
+
+![](img/pi-pico-pinout.png)
+
 #### Unicorn
 MicroPython on Unicorn is completely open source Micropython emulator
 
