@@ -330,8 +330,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#bootsel" class="md-nav__link">
+    BOOTSEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#castellated-edge" class="md-nav__link">
+    Castellated Edge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32" class="md-nav__link">
     ESP32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython" class="md-nav__link">
+    Micropython
   </a>
   
 </li>
@@ -358,9 +379,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rp2040-chip" class="md-nav__link">
+    RP2040 chip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uf2-file" class="md-nav__link">
+    UF2 File
+  </a>
+  
+    <nav class="md-nav" aria-label="UF2 File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -429,8 +470,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#bootsel" class="md-nav__link">
+    BOOTSEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#castellated-edge" class="md-nav__link">
+    Castellated Edge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32" class="md-nav__link">
     ESP32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython" class="md-nav__link">
+    Micropython
   </a>
   
 </li>
@@ -457,9 +519,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rp2040-chip" class="md-nav__link">
+    RP2040 chip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uf2-file" class="md-nav__link">
+    UF2 File
+  </a>
+  
+    <nav class="md-nav" aria-label="UF2 File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -481,6 +563,20 @@
                 
                 
                 <h1 id="micropython-glossary-of-terms">Micropython Glossary of Terms</h1>
+<!-- Link to this by using [TERM](glossary#term-id 
+The format is used to generate a concept graph for this course
+-->
+
+<h4 id="bootsel">BOOTSEL</h4>
+<p>A button on the pico that when pressed during power up will allow you to mount the device as a USB device.</p>
+<p><img alt="" src="../img/boot-selection.png" /></p>
+<ul>
+<li>Also known as: Boot Selection</li>
+</ul>
+<h4 id="castellated-edge">Castellated Edge</h4>
+<p>Plated through holes or vias located in the edges of a printed circuit board that make it easier to solder onto another circuit board.</p>
+<p><img alt="" src="../img/castellated-edge.png" /></p>
+<p>The word "Castellated" means having grooves or slots on an edge and is derived from the turrets of a castle.</p>
 <h4 id="esp32">ESP32</h4>
 <p>A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.</p>
 <p>Typical costs for the ESP32 is </p>
@@ -490,12 +586,26 @@
 <li><a href="https://www.sparkfun.com/products/13907">Sample on Sparkfun</a> $21</li>
 <li><a href="http://docs.micropython.org/en/latest/esp32/quickref.html">ESP32 Quick Reference</a></li>
 </ul>
+<h4 id="micropython">Micropython</h4>
+<p>A set of Python libraries and tools developed specifically for microcontrollers.</p>
+<p>Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.</p>
 <h4 id="raspberry-pi-foundation">Raspberry Pi Foundation</h4>
+<p>The company that builds the Raspberry Pi hardware and provides some software.</p>
 <h4 id="raspberry-pi-pico">Raspberry Pi Pico</h4>
 <p>A microcontroller designed by the Raspberry Pi foundation for doing real-time control systems.</p>
-<p>The Pico was </p>
+<p>The Pico was introduces in 2020 with a retail list price of $4.  It was a key development because it used a custom chip that had 100 times the RAM of an Arduino Nano.</p>
 <h4 id="pico-pinout">Pico Pinout</h4>
+<p>The Pico pinout has</p>
 <p><img alt="" src="../img/pi-pico-pinout.png" /></p>
+<ul>
+<li><a href="https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf">Pinout PDF</a></li>
+</ul>
+<h4 id="rp2040-chip">RP2040 chip</h4>
+<p>A custom chip created by the <a href="raspberry-pi-foundation">Raspberry Pi Foundation</a> to power the <a href="#raspberry-pi-pico">Raspberry Pi Pico</a>.</p>
+<h3 id="uf2-file">UF2 File</h3>
+<p>The file that must be uploaded into the Raspberry Pi Pico folder to allow it to be used.</p>
+<p>The file name format looks like this:</p>
+<p><code>rp2-pico-20210205-unstable-v1.14-8-g1f800cac3.uf2</code></p>
 <h4 id="unicorn">Unicorn</h4>
 <p>MicroPython on Unicorn is completely open source Micropython emulator</p>
 <ul>
