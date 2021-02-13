@@ -18,7 +18,7 @@
     
     
       
-        <title>Getting Started with the Raspberry Pi Pico - Micropython</title>
+        <title>Raspberry Pi Pico - Micropython</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Getting Started with the Raspberry Pi Pico
+              Raspberry Pi Pico
             
           </span>
         </div>
@@ -217,12 +217,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
       
       <label class="md-nav__link" for="nav-2">
         Micropython
@@ -255,6 +257,116 @@
     <li class="md-nav__item">
       <a href="../02-boards/" class="md-nav__link">
         Boards
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Raspberry Pi Pico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Raspberry Pi Pico
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#specs" class="md-nav__link">
+    Specs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pico-pinout" class="md-nav__link">
+    Pico Pinout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-get-micropython-running-on-the-mac" class="md-nav__link">
+    Steps To Get Micropython Running on the Mac
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-thonny" class="md-nav__link">
+    Using Thonny
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started-guide" class="md-nav__link">
+    Getting Started Guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#book-pdf" class="md-nav__link">
+    Book PDF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02c-thonney.md" class="md-nav__link">
+        Thonny IDE
       </a>
     </li>
   
@@ -377,8 +489,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps-on-mac" class="md-nav__link">
-    Steps on Mac
+  <a href="#steps-to-get-micropython-running-on-the-mac" class="md-nav__link">
+    Steps To Get Micropython Running on the Mac
   </a>
   
 </li>
@@ -459,9 +571,12 @@
 * 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM 
 <img alt="" src="../img/pi-pico-pinout.png" />
 * <a href="https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf">Pinout PDF</a></p>
-<h2 id="steps-on-mac">Steps on Mac</h2>
+<p>Pins are numbered 0-29, and 26-29 have ADC capabilities
+Pin IO modes are: Pin.IN, Pin.OUT, Pin.ALT
+Pin pull modes are: Pin.PULL_UP, Pin.PULL_DOWN</p>
+<h2 id="steps-to-get-micropython-running-on-the-mac">Steps To Get Micropython Running on the Mac</h2>
 <ol>
-<li>Download the MicroPython UF2 file by clicking the button below.</li>
+<li>Download the MicroPython UF2 file.</li>
 <li>Push and hold the BOOTSEL button and plug your Pico into the USB port of your Raspberry Pi or other computer. Release the BOOTSEL button after your Pico is connected.
 It will mount as a Mass Storage Device called RPI-RP2.</li>
 <li>Drag and drop the MicroPython UF2 file onto the RPI-RP2 volume. Your  Pico will reboot. You are now running MicroPython.</li>
@@ -516,6 +631,41 @@ Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../02-boards/" title="Boards" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Boards
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Blink
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
