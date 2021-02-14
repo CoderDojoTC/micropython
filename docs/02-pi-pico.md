@@ -23,12 +23,33 @@ The pinout diagram for the Raspberry Pi.
 It features: 
 * 26 × multi-function GPIO pins
 * 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM 
-![](img/pi-pico-pinout.png)
+<!-- pi-pico-pinout.png) -->
+
+Raspberry Pi Pico’s 40 pins with pin 1 in the upper right corner with the USB connector at the top.  The pin numbers are incremented as you go counterclockwise around the board.  You go down the left side and then continue up on the right side until you get to pin 40 in the upper right corner.
+
+![Raspberry Pi Pico Pins](img/pico-pins.png)
+
+The diagram above shows the top view where pins 1, 2 and 40 are printed next to the pins.
+
 * [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
+
+Next to each pin is the primary label of what the pin does.  Pins 3, 8, 13, 18, 23, 28, 33 and 38 with the black background are all GND pins.
 
 Pins are numbered 0-29, and 26-29 have ADC capabilities
 Pin IO modes are: Pin.IN, Pin.OUT, Pin.ALT
 Pin pull modes are: Pin.PULL_UP, Pin.PULL_DOWN
+
+| Label | Name | Description |
+|-------|------|-------------|
+|V3|3.3 volts power|A source of 3.3 V power, the same voltage your Pico runs at internally, generated from the VSYS input. This power supply can be switched on and off using the 3V3_EN pin above it, which also switches your Pico off.|
+|VSYS|~2-5 volts power|A pin directly connected to your Pico’s internal power supply, which cannot be switched off without also switching Pico off.|
+VBUS|5 volts power|A source of 5 V power taken from your Pico’s micro USB port, and used to power hardware which needs more than 3.3 V.|
+|GND|0 volts ground|A ground connection, used to complete a circuit connected to a power source. Several of these pins are dotted around your Pico to make wiring easier.
+|GPxx|General-purpose input/output pin number ‘xx|The GPIO pins available for your program, labelled ‘GP0’ through to ‘GP28’.|
+|GPxx_ADCx|General-purpose input/output pin number ‘xx’, with analogue input number ‘x’|A GPIO pin which ends in ‘ADC’ and a number can be used as an analogue input as well as a digital input or output – but not both at the same time.|
+|ADC_VREF|Analogue-to-digital converter (ADC) voltage reference|A special input pin which sets a reference voltage for any analogue inputs.|
+|AGND|Analogue-to-digital converter (ADC) 0 volts ground|A special ground connection for use with the ADC_VREF pin.|
+|RUN|Enables or disables your Pico|The RUN header is used to start and stop your Pico from another microcontroller.|
 
 ## Steps To Get Micropython Running on the Mac
 
