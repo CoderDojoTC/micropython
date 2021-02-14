@@ -2,13 +2,13 @@ site_name: 'Micropython'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Micropython Home: index.md
-  - Micropython:
-    - Introduction: 01-intro.md
-    - Boards: 02-boards.md
-    - Raspberry Pi Pico: 02-pi-pico.md
-    - Thonny IDE: 02c-thonney.md
-    - Blink: 03-blink.md
-    - Servo: 04-servo.md
+  - Introduction: 01-intro.md
+  - Microcontrollers: 01a-microcontrollers.md
+  - Boards: 02-boards.md
+  - Raspberry Pi Pico: 02-pi-pico.md
+  - Thonny IDE: 02c-thonny.md
+  - Blink: 03-blink.md
+  - Servo: 04-servo.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md

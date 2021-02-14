@@ -6,6 +6,8 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"LEDs",
+			"Microcontroller",
 			"Micropython",
 			"Thonny",
 			"pico",

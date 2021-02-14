@@ -2,7 +2,7 @@
 
 ![Micropython logo](img/micropython-logo.png)
 
-This GitHub repository is for sharing teaching resources to teach Micropython 12-14 years old.
+This GitHub repository is for sharing teaching resources to teach Micropython 10-16 years old.
 
 ## Course Outline
 
