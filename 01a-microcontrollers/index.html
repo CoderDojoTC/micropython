@@ -18,7 +18,7 @@
     
     
       
-        <title>Introduction - Micropython</title>
+        <title>Microcontrollers - Micropython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-micropython" class="md-skip">
+        <a href="#microcontrollers" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Microcontrollers
             
           </span>
         </div>
@@ -233,6 +233,22 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
     
   
   
@@ -244,12 +260,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
+          Microcontrollers
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Introduction
+        Microcontrollers
       </a>
       
         
@@ -266,15 +282,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intended-audience" class="md-nav__link">
-    Intended Audience
+  <a href="#what-is-physical-computing" class="md-nav__link">
+    What is Physical Computing?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#license-of-content" class="md-nav__link">
-    License of Content
+  <a href="#how-microcontrollsers-are-used" class="md-nav__link">
+    How Microcontrollsers are Used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-a-microcontroller" class="md-nav__link">
+    Programming a Microcontroller
   </a>
   
 </li>
@@ -283,22 +306,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01a-microcontrollers/" class="md-nav__link">
-        Microcontrollers
-      </a>
     </li>
   
 
@@ -456,15 +463,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intended-audience" class="md-nav__link">
-    Intended Audience
+  <a href="#what-is-physical-computing" class="md-nav__link">
+    What is Physical Computing?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#license-of-content" class="md-nav__link">
-    License of Content
+  <a href="#how-microcontrollsers-are-used" class="md-nav__link">
+    How Microcontrollsers are Used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-a-microcontroller" class="md-nav__link">
+    Programming a Microcontroller
   </a>
   
 </li>
@@ -481,31 +495,65 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/01-intro.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/01a-microcontrollers.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="introduction-to-micropython">Introduction to MicroPython</h1>
-<p>Welcome to the CoderDojo course on MicroPython.</p>
-<p>This course is about <a href="https://en.wikipedia.org/wiki/MicroPython">MicroPython</a>, a variation of the popular <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> programming language that is used to program <a href="https://en.wikipedia.org/wiki/Microcontroller">microcontrollers</a>.  </p>
-<h4 id="intended-audience">Intended Audience</h4>
-<p>Our target audience is students age 10-16 that are in Junior High or High School that have basic keyboarding skills.  For example, students will need to be able to select, copy and paste text from the examples into their own code.</p>
-<p>This course is appropriate for students that already have a basic understanding of the Python programming language.  We strongly suggest you take the <a href="https://www.coderdojotc.org/python/trinket/00-introduction/">Introduction to Python Programming CoderDojo Course</a> if you are not familiar with Python.</p>
-<ul>
-<li>What is Micropython</li>
-<li>Why we love it</li>
-<li>Virtual emulators</li>
-<li>Hardware</li>
-<li>Costs</li>
-<li>Connections</li>
-</ul>
-<h2 id="license-of-content">License of Content</h2>
-<p>Our intent is to allow teachers around the world to integrate MicroPython into their courses without any fees.  We want you to be able to use this content freely with a few conditions: you give us attribution and you don't resell our content for profit.</p>
-<p>Note that we use the same Creative Commons licensing as the Raspberry Pi Foundation and the CoderDojo Foundation:</p>
-<p><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution NonCommercial ShareAlike</a></p>
-<p>This means you are free to reuse and remix this content for non-commercial educational purposes as long as you keep the attribution.</p>
-<p>You may also use the content on this site to train your own language models as long as those language models are not sold for commercial profit.</p>
+                <h1 id="microcontrollers">Microcontrollers</h1>
+<p>This lesson is an overview of microcontrollers and their role in teaching [physical computing(https://en.wikipedia.org/wiki/Physical_computing).</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Microcontroller">microcontrollers</a> is a small low-cost computer used to control physical devices such as LED, servos and motors.  Microcontroller boards typically cost around $4 to $6 and are an ideal way to learn about computer science because you can use them to build fun projects.  For example you can control a row of LEDs, move a robot and sense the world around us with a variety of light, sound and motion sensors.</p>
+<p>In the past, microcontrollers were difficult for younger students to program.  They were also too expensive for every student to purchase and take home.  A typical Arduino kit could easily cost over $20 and required you to learn C to program it.</p>
+<p>Today, microcontrollsers such as the <a href="https://www.raspberrypi.org/products/raspberry-pi-pico/">Raspberry Pi Pico</a> and the <a href="https://en.wikipedia.org/wiki/ESP32">ESP32</a> cost as little as two dollars.  And these devices are designed to be programmed in Python, the most popular programming language for students.</p>
+<h2 id="what-is-physical-computing">What is Physical Computing?</h2>
+<p>Physical Computing is a field of study that can sense and respond to the world around us.  Unlike programming a cell phone or a laptop computer, our focus is reading sensor values and quickly responding to changes.  Physical Computing is widely used to teach principals of computer science because students can create their own projects and express creativity such a controlling the patterns of lights or creating complex sounds.</p>
+<h2 id="how-microcontrollsers-are-used">How Microcontrollsers are Used</h2>
+<p>Microcontrollers do three things:</p>
+<ol>
+<li>They read sensor values of the world around them</li>
+<li>They transform this data into useful representations</li>
+<li>They send outputs to devices that control the world such as LEDs and motors as well as displays</li>
+</ol>
+<p>Here is a general diagram to think about when you are designing microcontroller systems:
+<img alt="Microcontroller Architecture" src="../img/microcontroller-arch.png" /></p>
+<p>Here is a specific example instance of what inputs and outputs might do.
+<img alt="Microcontroller Architecture Example" src="../img/microcontroller-arch-example.png" /></p>
+<h2 id="programming-a-microcontroller">Programming a Microcontroller</h2>
+<p>In this class, we will use the MicroPython to program our Microcontrollers.  Our programs will usually have the following structure:</p>
+<ol>
+<li>Imports: Specify the right Python libraries</li>
+<li>Setup: Setup initial data structures</li>
+<li>Main loop: Continuously monitor inputs and take actions</li>
+</ol>
+<p>The following is a small example of this code in Micropython:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1"># Import Section</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Setup Section</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># Main Loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Almost all our programs will start with the <code>import machine</code> line.  This tells the system that we need to gather all the libraries that understand our physical machine.</p>
                 
               
               
@@ -524,7 +572,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href=".." title="Micropython Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -533,19 +581,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Micropython Home
+                  Introduction
                 </span>
               </div>
             </a>
           
           
-            <a href="../01a-microcontrollers/" title="Microcontrollers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../02-boards/" title="Boards" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Microcontrollers
+                  Boards
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
