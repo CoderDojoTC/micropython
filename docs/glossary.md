@@ -3,6 +3,13 @@
 The format is used to generate a concept graph for this course
 -->
 
+#### Ampy
+A micropython command line utility to interact with a CircuitPython or MicroPython board over a serial connection.
+
+Ampy is meant to be a simple command line tool to manipulate files and run code on a CircuitPython or MicroPython board over its serial connection. With ampy you can send files from your computer to the board's file system, download files from a board to your computer, and even send a Python script to a board to be executed.
+
+Note that ampy by design is meant to be simple and does not support advanced interaction like a shell or terminal to send input to a board. Check out other MicroPython tools like rshell or mpfshell for more advanced interaction with boards.
+
 #### BOOTSEL
 A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
 
@@ -32,6 +39,13 @@ A set of Python libraries and tools developed specifically for microcontrollers.
 
 Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
 
+#### MPG Shell
+A simple micropython shell based file explorer for ESP8266 and WiPy Micropython based devices.
+
+The shell is a helper for up/downloading files to the ESP8266 (over serial line and Websockets) and WiPy (serial line and telnet). It basically offers commands to list and upload/download files on the flash FS of the device.
+
+[GitHub Repo for MPFShell](https://github.com/wendlers/mpfshell)
+
 #### Raspberry Pi Foundation
 The company that builds the Raspberry Pi hardware and provides some software.
 
@@ -49,6 +63,15 @@ The Pico pinout has
 
 #### RP2040 chip
 A custom chip created by the [Raspberry Pi Foundation](raspberry-pi-foundation) to power the [Raspberry Pi Pico](#raspberry-pi-pico).
+
+#### rshell
+A simple micropython shell which runs on the host and uses MicroPython's raw-REPL to send python snippets to the pyboard in order to get filesystem information, and to copy files to and from MicroPython's filesystem.
+
+It also has the ability to invoke the regular REPL, so rshell can be used as a terminal emulator as well.
+
+Note: With rshell you can disable USB Mass Storage and still copy files into and out of your pyboard.
+
+[RShell GitHub Repo](https://github.com/dhylands/rshell)
 
 #### Thonny
 A lightweight Python IDE ideal for writing simple Python programs for first time users.
