@@ -30,3 +30,27 @@ while True:
     led.low()
     time.sleep(0.5)
 ```
+
+## Builtin LED
+
+![](img/builtin-led.png)
+
+```py
+import machine
+import utime
+led_onboard = machine.Pin(25, machine.Pin.OUT)
+while True:
+  led_onboard.value(1)
+  utime.sleep(5)
+  led_onboard.value(0)
+  utime.sleep(5)
+  ```
+
+```py
+import machine
+import utime
+led_onboard = machine.Pin(25, machine.Pin.OUT)
+while True:
+    led_onboard.toggle()
+    utime.sleep(5)
+```

@@ -6,16 +6,28 @@ The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberr
 * RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom
 * Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz
 * 264KB of SRAM, and 2MB of on-board Flash memory
+* Support for up to 16MB of off-chip Flash memory via dedicated QSPI bus
+* DMA controller
+* Interpolator and integer divider peripherals
 * Castellated module allows soldering direct to carrier boards
-* USB 1.1 with device and host support
+* USB 1.1 and PHY with device and host support
 * Low-power sleep and dormant modes
 * Drag-and-drop programming using mass storage over USB
 * 26 × multi-function GPIO pins
-* 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM channels
+* 3 12 bit analogue inputs
+* 16 controllable PWM channels
+* 2 SPI, 2 I2C, and 2 UART channels
 * Accurate clock and timer on-chip
+* 8 Raspberry Pi Programmable I/O (PIO) state machines
 * Temperature sensor
 * Accelerated floating-point libraries on-chip
 * 8 × Programmable I/O (PIO) state machines for custom peripheral support
+* Created using the TSMC 40LP manufacturing process
+* USB mass-storage boot mode with UF2 support, for drag-and-drop programming
+
+## USB Cable
+The Raspberry Pi Pico uses a USB-micro connector.
+![usb-micro-to-c](usb-micro-to-c.png) - image from ebay
 
 ## Pico Pinout
 The pinout diagram for the Raspberry Pi.
@@ -66,6 +78,15 @@ Thonny is a free lightweight Python development tool.
 3. Configure Thonny to use the Pico interpreter
 4. Test using the help() function
 5. Test by running a blink application
+
+## Using the Onboard LED
+
+```py
+from machine import Pin
+import utime
+led_onboard = machine.Pin(25, machine.Pin.OUT)
+led_onboard.value(1)
+```
 
 ```py
 from machine import Pin

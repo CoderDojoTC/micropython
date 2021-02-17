@@ -10,6 +10,7 @@
 			"Microcontroller",
 			"Micropython",
 			"Thonny",
+			"UART",
 			"pico",
 			"thonney"
 		]
