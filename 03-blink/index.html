@@ -366,6 +366,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#builtin-led" class="md-nav__link">
+    Builtin LED
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -438,6 +445,22 @@
   
 
     
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-colophon/" class="md-nav__link">
+        Colophon
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -483,6 +506,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#builtin-led" class="md-nav__link">
+    Builtin LED
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -500,12 +530,12 @@
                   </a>
                 
                 
-                <h1 id="blink-in-micropython">Blink in Micropython</h1>
-<h2 id="overview">Overview</h2>
+                <h1 id="blink-in-micropython">Blink in Micropython<a class="headerlink" href="#blink-in-micropython" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>In this lab, we will use Micropython to make an LED blink on and off using Python. We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.</p>
-<h2 id="virual-lab">Virual Lab</h2>
+<h2 id="virual-lab">Virual Lab<a class="headerlink" href="#virual-lab" title="Permanent link">&para;</a></h2>
 <p><a href="http://micropython.org/unicorn/">Unicorn Emulator</a></p>
-<h2 id="sample-program">Sample Program</h2>
+<h2 id="sample-program">Sample Program<a class="headerlink" href="#sample-program" title="Permanent link">&para;</a></h2>
 <p>This program has two parts.  The first part is often called the preamble - this code gets executed once and loads the right libraries and initializes global variables.</p>
 <p>The second part is the main event loop.  This program continues to run until the device is powered down or reset.</p>
 <p>The <code>import machine</code> statement is required to define the characteristics of our physical machine.  The <code>import time</code> library is required for the python sleep function.</p>
@@ -531,6 +561,43 @@
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="builtin-led">Builtin LED<a class="headerlink" href="#builtin-led" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/builtin-led.png" /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="n">led_onboard</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="n">led_onboard</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="err">```</span>
+
+<span class="err">```</span><span class="n">py</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
                 
