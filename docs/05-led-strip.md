@@ -1,5 +1,11 @@
 # LED Strip
 
+!!! Note
+    The current version of the runtime (rp2-pico-20210205-unstable-v1.14-8-g1f800cac3) accidentally dropped the array module.  To run this you will need to use [this](https://github.com/robert-hh/micropython/blob/rp2_fat/ports/rp2/build/firmware.uf2)
+    See issue [Issue 6837: rp2 port no module named array](https://github.com/micropython/micropython/issues/6837).  This should be fixed in a day or two.
+
+    Feb. 20th, 2021. - Dan
+
 ## Circuit connections
 
 ![](img/led-strip-connections.png)
@@ -12,13 +18,12 @@
 
 
 
-
 ## Parameters
 
 ```py
-NUM_LEDS = 13
-PIN_NUM = 22
-brightness = 0.2
+NUM_LEDS = 60
+PIN_NUM = 1
+brightness = 1
 ```
 
 ## full code
@@ -30,7 +35,7 @@ from machine import Pin
 import rp2
 
 # Configure the number of WS2812 LEDs.
-NUM_LEDS = 13
+NUM_LEDS = 60
 PIN_NUM = 22
 brightness = 0.2
 
@@ -131,7 +136,7 @@ rainbow_cycle(0)
 
 ## References
 
-https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html
+[Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico](https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html) - HTML page, sample code and video
 
 
 [rp2 port no module named array](https://github.com/micropython/micropython/issues/6837)
