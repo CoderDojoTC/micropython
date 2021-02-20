@@ -18,7 +18,7 @@
     
     
       
-        <title>Boards - Micropython</title>
+        <title>Temperature - Micropython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#micropython-boards" class="md-skip">
+        <a href="#using-the-builtin-temperature-sensor" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Boards
+              Temperature
             
           </span>
         </div>
@@ -265,70 +265,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Boards
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02-boards/" class="md-nav__link">
         Boards
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#esp32" class="md-nav__link">
-    ESP32
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raspberry-pi-pico" class="md-nav__link">
-    Raspberry Pi Pico
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cables" class="md-nav__link">
-    Cables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-machine-statistics" class="md-nav__link">
-    Getting Machine Statistics
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -404,11 +345,56 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../03-temperature/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Temperature
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Temperature
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-temperature" class="md-nav__link">
+    Reading the temperature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-the-temperature" class="md-nav__link">
+    Logging the Temperature
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -550,29 +536,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#esp32" class="md-nav__link">
-    ESP32
+  <a href="#reading-the-temperature" class="md-nav__link">
+    Reading the temperature
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#raspberry-pi-pico" class="md-nav__link">
-    Raspberry Pi Pico
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cables" class="md-nav__link">
-    Cables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-machine-statistics" class="md-nav__link">
-    Getting Machine Statistics
+  <a href="#logging-the-temperature" class="md-nav__link">
+    Logging the Temperature
   </a>
   
 </li>
@@ -589,22 +561,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/02-boards.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/03-temperature.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="micropython-boards">Micropython Boards<a class="headerlink" href="#micropython-boards" title="Permanent link">&para;</a></h1>
-<p>Technically, any computer that has at least 16K of RAM can run Micropython.</p>
-<h2 id="esp32">ESP32<a class="headerlink" href="#esp32" title="Permanent link">&para;</a></h2>
-<p><a href="../glossary/#ESP32">ESP32</a> - $5 to $21</p>
-<h2 id="raspberry-pi-pico">Raspberry Pi Pico<a class="headerlink" href="#raspberry-pi-pico" title="Permanent link">&para;</a></h2>
-<p><a href="">Raspberry Pi Pico</a>(../glossary.md#ESP32) - $4</p>
-<h2 id="cables">Cables<a class="headerlink" href="#cables" title="Permanent link">&para;</a></h2>
-<h2 id="getting-machine-statistics">Getting Machine Statistics<a class="headerlink" href="#getting-machine-statistics" title="Permanent link">&para;</a></h2>
+                <h1 id="using-the-builtin-temperature-sensor">Using the Builtin Temperature Sensor<a class="headerlink" href="#using-the-builtin-temperature-sensor" title="Permanent link">&para;</a></h1>
+<h2 id="reading-the-temperature">Reading the temperature<a class="headerlink" href="#reading-the-temperature" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="n">help</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
+   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="logging-the-temperature">Logging the Temperature<a class="headerlink" href="#logging-the-temperature" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="o">.</span><span class="n">CORE_TEMP</span><span class="p">)</span>
+<span class="n">conversion_factor</span> <span class="o">=</span> <span class="mf">3.3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">65535</span><span class="p">)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temps.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
+   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
+   <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+   <span class="n">file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+   <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
                 
@@ -625,7 +627,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../01a-microcontrollers/" title="Microcontrollers" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -634,19 +636,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Microcontrollers
+                  Blink
                 </span>
               </div>
             </a>
           
           
-            <a href="../02b-accessories/" title="Acessories" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../04-servo/" title="Servo" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Acessories
+                  Servo
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
