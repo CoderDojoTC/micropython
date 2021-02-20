@@ -1,38 +1,11 @@
-# LED Strip
-
-## Circuit connections
-
-![](img/led-strip-connections.png)
-
-|LED Strip|Pico Name|Pico Pin|Description|
-|---------|---------|--------|-----------|
-|GND|GND|3|Ground|Third from top on the left with USB on top|
-|5v|VBUS|40|Voltage from the USB bus.  Top right with USB on top|
-|Data|GP0|1|Topmost left with USB on top|
-
-
-
-
-## Parameters
-
-```py
-NUM_LEDS = 13
-PIN_NUM = 22
-brightness = 0.2
-```
-
-## full code
-```py
-# Example using PIO to drive a set of WS2812 LEDs.
-
 import array, time
 from machine import Pin
 import rp2
 
 # Configure the number of WS2812 LEDs.
-NUM_LEDS = 13
-PIN_NUM = 22
-brightness = 0.2
+NUM_LEDS = 24
+PIN_NUM = 1
+brightness = 1.0
 
 @rp2.asm_pio(sideset_init=rp2.PIO.OUT_LOW, out_shiftdir=rp2.PIO.SHIFT_LEFT, autopull=True, pull_thresh=24)
 def ws2812():
@@ -127,7 +100,3 @@ for color in COLORS:
 
 print("rainbow")
 rainbow_cycle(0)
-```
-
-## References
-https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html
