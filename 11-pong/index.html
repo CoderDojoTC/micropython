@@ -18,7 +18,7 @@
     
     
       
-        <title>Servo - Micropython</title>
+        <title>Pong - Micropython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#micropython-servo-lab" class="md-skip">
+        <a href="#pong" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Servo
+              Pong
             
           </span>
         </div>
@@ -361,20 +361,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../04-servo/" class="md-nav__link">
         Servo
       </a>
-      
     </li>
   
 
@@ -509,6 +500,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-list" class="md-nav__link">
+    Part list
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -519,28 +525,49 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/04-servo.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/11-pong.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="micropython-servo-lab">Micropython Servo Lab<a class="headerlink" href="#micropython-servo-lab" title="Permanent link">&para;</a></h1>
-<p>TBD</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">pyb</span>
-
-<span class="c1"># The pyboard has four simple servo connections</span>
-<span class="n">servo</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">Servo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">servo</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+                <h1 id="pong">Pong<a class="headerlink" href="#pong" title="Permanent link">&para;</a></h1>
+<p>Using a low-cost OLED device you can write a pong game.</p>
+<h2 id="part-list">Part list<a class="headerlink" href="#part-list" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Part Name</th>
+<th>Price</th>
+<th>Link</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi Pico</td>
+<td>$4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Breadboard</td>
+<td>$2</td>
+<td>link</td>
+<td>400 tie breadboard</td>
+</tr>
+<tr>
+<td>2 Potentiometers</td>
+<td>$1 each</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Raspberry Pi Pico</li>
+<li>2 potentimeters</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=W6Yr9gv2dTQ">YouTube Video</a></p>
                 
               
               
@@ -555,41 +582,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../03-temperature/" title="Temperature" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Temperature
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../05-led-strip/" title="LED Strip" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  LED Strip
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
