@@ -5,12 +5,16 @@ nav:
   - Introduction: 01-intro.md
   - Microcontrollers: 01a-microcontrollers.md
   - Boards: 02-boards.md
+  - Acessories: 02b-accessories.md
   - Raspberry Pi Pico: 02-pi-pico.md
   - Thonny IDE: 02c-thonny.md
   - Blink: 03-blink.md
+  - Temperature: 03-temperature.md
   - Servo: 04-servo.md
+  - LED Strip: 05-led-strip.md
+  - Display: 10-display.md
   - Glossary: glossary.md
-  - References: references.md
+  - References: 29-references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
 

@@ -8,6 +8,10 @@ Technically, any computer that has at least 16K of RAM can run Micropython.
 ## Raspberry Pi Pico
 [Raspberry Pi Pico]()(../glossary.md#ESP32) - $4
 
+## Cables
+
+
+
 ## Getting Machine Statistics
 
 ```

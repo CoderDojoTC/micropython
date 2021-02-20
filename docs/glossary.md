@@ -10,6 +10,13 @@ Ampy is meant to be a simple command line tool to manipulate files and run code 
 
 Note that ampy by design is meant to be simple and does not support advanced interaction like a shell or terminal to send input to a board. Check out other MicroPython tools like rshell or mpfshell for more advanced interaction with boards.
 
+#### Analog to Digital Converter
+A component that takes an analogue signal and changes it to a digital one.
+
+Every ADC has two parameters, its [resolution](#resolution), measured in digital bits, and its [channels](#channels), or how many analogue signals it can accept and convert at once.
+
+* Also know as: ADC
+
 #### BOOTSEL
 A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
 
