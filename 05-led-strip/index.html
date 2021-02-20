@@ -284,7 +284,7 @@
   
     <li class="md-nav__item">
       <a href="../02b-accessories/" class="md-nav__link">
-        Acessories
+        Accessories
       </a>
     </li>
   
@@ -410,8 +410,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#circuit-connections" class="md-nav__link">
+    Circuit connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
-    parameters
+    Parameters
   </a>
   
 </li>
@@ -543,8 +550,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#circuit-connections" class="md-nav__link">
+    Circuit connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
-    parameters
+    Parameters
   </a>
   
 </li>
@@ -581,7 +595,39 @@
                 
                 
                 <h1 id="led-strip">LED Strip<a class="headerlink" href="#led-strip" title="Permanent link">&para;</a></h1>
-<h2 id="parameters">parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<h2 id="circuit-connections">Circuit connections<a class="headerlink" href="#circuit-connections" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/led-strip-connections.png" /></p>
+<table>
+<thead>
+<tr>
+<th>LED Strip</th>
+<th>Pico Name</th>
+<th>Pico Pin</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>3</td>
+<td>Ground</td>
+</tr>
+<tr>
+<td>5v</td>
+<td>VBUS</td>
+<td>40</td>
+<td>Voltage from the USB bus.  Top right with USB on top</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>GP0</td>
+<td>1</td>
+<td>Topmost left with USB on top</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">13</span>
