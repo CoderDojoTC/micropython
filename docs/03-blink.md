@@ -15,6 +15,25 @@ The second part is the main event loop.  This program continues to run until the
 
 The ```import machine``` statement is required to define the characteristics of our physical machine.  The ```import time``` library is required for the python sleep function.
 
+## Blinking the Builtin LED
+This lab is the perfect place to start since you only need the Pico and a micro USB cable.
+
+The pico has a single built in LED wired to GPIO 25.
+
+![](img/builtin-led.png)
+
+This program will blink the built-in LED on and off every 1/4 of a second.
+```py
+import machine
+import utime
+led_onboard = machine.Pin(25, machine.Pin.OUT)
+while True:
+    led_onboard.toggle()
+    utime.sleep(.25)
+```
+If you save the file as main.py, this program will run when the pico starts up without the BOOTSEL being pressed.
+
+
 Here is the code that will blink an LED that is connected to PIN GIO16, which is in the upper right corner of the Pico.
 
 ```py
@@ -31,20 +50,7 @@ while True:
     time.sleep(0.5)
 ```
 
-## Builtin LED
 
-![](img/builtin-led.png)
-
-```py
-import machine
-import utime
-led_onboard = machine.Pin(25, machine.Pin.OUT)
-while True:
-  led_onboard.value(1)
-  utime.sleep(5)
-  led_onboard.value(0)
-  utime.sleep(5)
-  ```
 
 ```py
 import machine

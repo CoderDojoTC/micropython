@@ -130,4 +130,8 @@ rainbow_cycle(0)
 ```
 
 ## References
+
 https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html
+
+
+[rp2 port no module named array](https://github.com/micropython/micropython/issues/6837)
