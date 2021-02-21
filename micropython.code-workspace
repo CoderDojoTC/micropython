@@ -7,11 +7,15 @@
 	"settings": {
 		"cSpell.words": [
 			"Creary",
+			"Framebuffers",
 			"LEDs",
 			"Microcontroller",
 			"Micropython",
 			"Thonny",
 			"UART",
+			"codehilite",
+			"coderdojo",
+			"linenums",
 			"oled",
 			"pico",
 			"thonney"

@@ -1,4 +1,4 @@
-site_name: 'Micropython'
+site_name: 'MicroPython'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Micropython Home: index.md
@@ -12,13 +12,13 @@ nav:
   - Temperature: 03-temperature.md
   - Servo: 04-servo.md
   - LED Strip: 05-led-strip.md
-  - Display: 10-display.md
-  - OLED Display: oled-display.md
+  - Displays: 10-displays.md
+  - OLED Display: 11-oled-display.md
   - OLED Ping: 11-oled-ping.md
   - OLED Pong: 11-pong.md
   - Debugging: 28-debugging.md
   - Glossary: glossary.md
-  - References: 29-references.md
+  - References: references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
 
