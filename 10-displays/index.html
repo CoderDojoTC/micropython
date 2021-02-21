@@ -18,7 +18,7 @@
     
     
       
-        <title>Display - Micropython</title>
+        <title>Displays - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#display" class="md-skip">
+        <a href="#adding-a-display-to-your-project" class="md-skip">
           Skip to content
         </a>
       
@@ -79,7 +79,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Micropython" class="md-header-nav__button md-logo" aria-label="Micropython">
+    <a href=".." title="MicroPython" class="md-header-nav__button md-logo" aria-label="MicroPython">
       
   <img src="../img/coderdojo-logo.png" alt="logo">
 
@@ -91,13 +91,13 @@
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
-            Micropython
+            MicroPython
           </span>
         </div>
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Display
+              Displays
             
           </span>
         </div>
@@ -171,12 +171,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Micropython" class="md-nav__button md-logo" aria-label="Micropython">
+    <a href=".." title="MicroPython" class="md-nav__button md-logo" aria-label="MicroPython">
       
   <img src="../img/coderdojo-logo.png" alt="logo">
 
     </a>
-    Micropython
+    MicroPython
   </label>
   
     <div class="md-nav__source">
@@ -404,12 +404,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Display
+          Displays
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Display
+        Displays
       </a>
       
         
@@ -426,16 +426,91 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssd1306-module" class="md-nav__link">
-    ssd1306 module
+  <a href="#concepts" class="md-nav__link">
+    Concepts
   </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#draw-commands" class="md-nav__link">
+    Draw Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framebuffers" class="md-nav__link">
+    Framebuffers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I2C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    SPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#types-of-displays" class="md-nav__link">
+    Types of Displays
   </a>
+  
+    <nav class="md-nav" aria-label="Types of Displays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    Summary Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lcd" class="md-nav__link">
+    LCD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oled" class="md-nav__link">
+    OLED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tft-displays" class="md-nav__link">
+    TFT Displays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -443,6 +518,54 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-oled-display/" class="md-nav__link">
+        OLED Display
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-oled-ping/" class="md-nav__link">
+        OLED Ping
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-pong/" class="md-nav__link">
+        OLED Pong
+      </a>
     </li>
   
 
@@ -488,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../29-references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         References
       </a>
     </li>
@@ -552,16 +675,91 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssd1306-module" class="md-nav__link">
-    ssd1306 module
+  <a href="#concepts" class="md-nav__link">
+    Concepts
   </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#draw-commands" class="md-nav__link">
+    Draw Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framebuffers" class="md-nav__link">
+    Framebuffers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I2C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    SPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#types-of-displays" class="md-nav__link">
+    Types of Displays
   </a>
+  
+    <nav class="md-nav" aria-label="Types of Displays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    Summary Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lcd" class="md-nav__link">
+    LCD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oled" class="md-nav__link">
+    OLED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tft-displays" class="md-nav__link">
+    TFT Displays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -577,17 +775,61 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/10-display.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/10-displays.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="display">Display<a class="headerlink" href="#display" title="Permanent link">&para;</a></h1>
-<h2 id="ssd1306-module">ssd1306 module<a class="headerlink" href="#ssd1306-module" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
-<p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>
+                <h1 id="adding-a-display-to-your-project">Adding A Display to Your Project<a class="headerlink" href="#adding-a-display-to-your-project" title="Permanent link">&para;</a></h1>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<h3 id="draw-commands">Draw Commands<a class="headerlink" href="#draw-commands" title="Permanent link">&para;</a></h3>
+<h3 id="framebuffers">Framebuffers<a class="headerlink" href="#framebuffers" title="Permanent link">&para;</a></h3>
+<p>Memory requirements</p>
+<p>128X64 Example</p>
+<h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h3>
+<h3 id="i2c">I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h3>
+<p>Pros: Simple four wire interface</p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Purpose</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="spi">SPI<a class="headerlink" href="#spi" title="Permanent link">&para;</a></h3>
+<p>Example: 128X64 pixel monochrome displays</p>
+<h2 id="types-of-displays">Types of Displays<a class="headerlink" href="#types-of-displays" title="Permanent link">&para;</a></h2>
+<h3 id="summary-table">Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Display Type</th>
+<th>Cost</th>
+<th>Links</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lcd">LCD<a class="headerlink" href="#lcd" title="Permanent link">&para;</a></h3>
+<h3 id="oled">OLED<a class="headerlink" href="#oled" title="Permanent link">&para;</a></h3>
+<h3 id="tft-displays">TFT Displays<a class="headerlink" href="#tft-displays" title="Permanent link">&para;</a></h3>
                 
               
               
@@ -621,13 +863,13 @@
             </a>
           
           
-            <a href="../glossary/" title="Glossary" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../11-oled-display/" title="OLED Display" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Glossary
+                  OLED Display
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

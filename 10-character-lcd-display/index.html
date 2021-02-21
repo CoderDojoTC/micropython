@@ -18,7 +18,7 @@
     
     
       
-        <title>Temperature - MicroPython</title>
+        <title>Character LCD Display - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-the-builtin-temperature-sensor" class="md-skip">
+        <a href="#character-lcd-display" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Temperature
+              Character LCD Display
             
           </span>
         </div>
@@ -345,56 +345,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Temperature
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../03-temperature/" class="md-nav__link">
         Temperature
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#reading-the-temperature" class="md-nav__link">
-    Reading the temperature
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-the-temperature" class="md-nav__link">
-    Logging the Temperature
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -600,15 +555,76 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reading-the-temperature" class="md-nav__link">
-    Reading the temperature
+  <a href="#connections" class="md-nav__link">
+    connections
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging-the-temperature" class="md-nav__link">
-    Logging the Temperature
+  <a href="#address-scanner" class="md-nav__link">
+    Address Scanner
+  </a>
+  
+    <nav class="md-nav" aria-label="Address Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanner-code" class="md-nav__link">
+    Scanner Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanner-result" class="md-nav__link">
+    Scanner Result
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-to-the-lcd" class="md-nav__link">
+    Hello To The LCD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1602-lcd" class="md-nav__link">
+    1602 LCD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1306-module" class="md-nav__link">
+    ssd1306 module
+  </a>
+  
+    <nav class="md-nav" aria-label="ssd1306 module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hd44780-drivers" class="md-nav__link">
+    HD44780 Drivers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -625,31 +641,49 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/03-temperature.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/10-character-lcd-display.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-the-builtin-temperature-sensor">Using the Builtin Temperature Sensor<a class="headerlink" href="#using-the-builtin-temperature-sensor" title="Permanent link">&para;</a></h1>
-<h2 id="reading-the-temperature">Reading the temperature<a class="headerlink" href="#reading-the-temperature" title="Permanent link">&para;</a></h2>
+                <h1 id="character-lcd-display">Character LCD Display<a class="headerlink" href="#character-lcd-display" title="Permanent link">&para;</a></h1>
+<h2 id="connections">connections<a class="headerlink" href="#connections" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/i2c-display-connections.png" /></p>
+<h2 id="address-scanner">Address Scanner<a class="headerlink" href="#address-scanner" title="Permanent link">&para;</a></h2>
+<h3 id="scanner-code">Scanner Code<a class="headerlink" href="#scanner-code" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
-   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
-   <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="logging-the-temperature">Logging the Temperature<a class="headerlink" href="#logging-the-temperature" title="Permanent link">&para;</a></h2>
+<h3 id="scanner-result">Scanner Result<a class="headerlink" href="#scanner-result" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
+<span class="o">[</span><span class="m">39</span><span class="o">]</span>
+&gt;&gt;&gt; 
+</code></pre></div>
+</td></tr></table>
+<h2 id="hello-to-the-lcd">Hello To The LCD<a class="headerlink" href="#hello-to-the-lcd" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x7C</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x2D</span><span class="s1">&#39;</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="1602-lcd">1602 LCD<a class="headerlink" href="#1602-lcd" title="Permanent link">&para;</a></h2>
+<p><a href="https://forum.micropython.org/viewtopic.php?t=2858">MicroPython Forum on 1602 LCDs</a></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -660,19 +694,41 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="o">.</span><span class="n">CORE_TEMP</span><span class="p">)</span>
-<span class="n">conversion_factor</span> <span class="o">=</span> <span class="mf">3.3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">65535</span><span class="p">)</span>
-<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temps.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
-   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
-   <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
-   <span class="n">file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-   <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">i2clcd</span>
+
+<span class="n">lcd</span> <span class="o">=</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">i2clcd</span><span class="p">(</span><span class="n">i2c_bus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">i2c_addr</span><span class="o">=</span><span class="mh">0x27</span><span class="p">,</span> <span class="n">lcd_width</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># fill a line by the text</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">print_line</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">print_line</span><span class="p">(</span><span class="s1">&#39;world!&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;RIGHT&#39;</span><span class="p">)</span>
+
+<span class="c1"># print text at the current cursor position</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">move_cursor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">)</span>
+
+<span class="c1"># custom character</span>
+<span class="n">char_celsius</span> <span class="o">=</span> <span class="p">(</span><span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">write_CGRAM</span><span class="p">(</span><span class="n">char_celsius</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">move_cursor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;CGRAM: &#39;</span> <span class="o">+</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">CGRAM_CHR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="ssd1306-module">ssd1306 module<a class="headerlink" href="#ssd1306-module" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
+<h3 id="hd44780-drivers">HD44780 Drivers<a class="headerlink" href="#hd44780-drivers" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/dhylands/python_lcd">Dave Hylands HD44780 Drivers in Python</a></p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
+<p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>
+<p><a href="https://learn.adafruit.com/character-lcds">Adafruit LCD Guide</a></p>
                 
               
               
@@ -687,41 +743,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Blink
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../04-servo/" title="Servo" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Servo
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

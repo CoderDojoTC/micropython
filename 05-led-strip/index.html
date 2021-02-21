@@ -18,7 +18,7 @@
     
     
       
-        <title>LED Strip - Micropython</title>
+        <title>LED Strip - MicroPython</title>
       
     
     
@@ -79,7 +79,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Micropython" class="md-header-nav__button md-logo" aria-label="Micropython">
+    <a href=".." title="MicroPython" class="md-header-nav__button md-logo" aria-label="MicroPython">
       
   <img src="../img/coderdojo-logo.png" alt="logo">
 
@@ -91,7 +91,7 @@
       <div class="md-header-nav__ellipsis">
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
-            Micropython
+            MicroPython
           </span>
         </div>
         <div class="md-header-nav__topic">
@@ -171,12 +171,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Micropython" class="md-nav__button md-logo" aria-label="Micropython">
+    <a href=".." title="MicroPython" class="md-nav__button md-logo" aria-label="MicroPython">
       
   <img src="../img/coderdojo-logo.png" alt="logo">
 
     </a>
-    Micropython
+    MicroPython
   </label>
   
     <div class="md-nav__source">
@@ -454,8 +454,56 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-display/" class="md-nav__link">
-        Display
+      <a href="../10-displays/" class="md-nav__link">
+        Displays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-oled-display/" class="md-nav__link">
+        OLED Display
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-oled-ping/" class="md-nav__link">
+        OLED Ping
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-pong/" class="md-nav__link">
+        OLED Pong
       </a>
     </li>
   
@@ -502,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../29-references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         References
       </a>
     </li>
@@ -611,6 +659,12 @@
                 
                 
                 <h1 id="led-strip">LED Strip<a class="headerlink" href="#led-strip" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current version of the runtime (rp2-pico-20210205-unstable-v1.14-8-g1f800cac3) accidentally dropped the array module.  To run this you will need to use <a href="https://github.com/robert-hh/micropython/blob/rp2_fat/ports/rp2/build/firmware.uf2">this</a>
+See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue 6837: rp2 port no module named array</a>.  This should be fixed in a day or two.</p>
+<p>Feb. 20th, 2021. - Dan</p>
+</div>
 <h2 id="circuit-connections">Circuit connections<a class="headerlink" href="#circuit-connections" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../img/led-strip-connections.png" /></p>
 <table>
@@ -646,9 +700,9 @@
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">PIN_NUM</span> <span class="o">=</span> <span class="mi">22</span>
-<span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.2</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">PIN_NUM</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">brightness</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="full-code">full code<a class="headerlink" href="#full-code" title="Permanent link">&para;</a></h2>
@@ -762,7 +816,7 @@
 <span class="kn">import</span> <span class="nn">rp2</span>
 
 <span class="c1"># Configure the number of WS2812 LEDs.</span>
-<span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">PIN_NUM</span> <span class="o">=</span> <span class="mi">22</span>
 <span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.2</span>
 
@@ -862,7 +916,7 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<p>https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html</p>
+<p><a href="https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html">Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico</a> - HTML page, sample code and video</p>
 <p><a href="https://github.com/micropython/micropython/issues/6837">rp2 port no module named array</a></p>
                 
               
@@ -897,13 +951,13 @@
             </a>
           
           
-            <a href="../10-display/" title="Display" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../10-displays/" title="Displays" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Display
+                  Displays
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
