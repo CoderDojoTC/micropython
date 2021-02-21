@@ -6,11 +6,13 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Creary",
 			"LEDs",
 			"Microcontroller",
 			"Micropython",
 			"Thonny",
 			"UART",
+			"oled",
 			"pico",
 			"thonney"
 		]

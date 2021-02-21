@@ -13,6 +13,9 @@ nav:
   - Servo: 04-servo.md
   - LED Strip: 05-led-strip.md
   - Display: 10-display.md
+  - OLED Display: oled-display.md
+  - OLED Ping: 11-oled-ping.md
+  - OLED Pong: 11-pong.md
   - Debugging: 28-debugging.md
   - Glossary: glossary.md
   - References: 29-references.md
