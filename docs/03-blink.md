@@ -23,6 +23,7 @@ The pico has a single built in LED wired to GPIO 25.
 ![](img/builtin-led.png)
 
 This program will blink the built-in LED on and off every 1/4 of a second.
+
 ```py
 import machine
 import utime
@@ -31,6 +32,7 @@ while True:
     led_onboard.toggle()
     utime.sleep(.25)
 ```
+
 If you save the file as main.py, this program will run when the pico starts up without the BOOTSEL being pressed.
 
 

@@ -79,6 +79,18 @@ Thonny is a free lightweight Python development tool.
 4. Test using the help() function
 5. Test by running a blink application
 
+
+![Thonny Micropython Firmware Update](thonny-micropython-firmware-update.png)
+```
+Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
+Writing to /Volumes/RPI-RP2/firmware
+100%
+Waiting for the port...
+Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
+
+Done!
+```
+
 ## Using the Onboard LED
 
 ```py

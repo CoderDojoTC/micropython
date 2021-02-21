@@ -1,5 +1,20 @@
 # OLED Display
 
+## I2C Scanner
+```py
+import machine
+sda=machine.Pin(0)
+scl=machine.Pin(1)
+i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+print(i2c.scan())
+```
+
+returns: [60]
+
+## Install SSD1306 Module
+
+![](img/install-ssd1306.png)
+
 ## ssd1306 module
 
 [SSD1306 Library](https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py) - click the RAW button and then right click to do a "Save As"

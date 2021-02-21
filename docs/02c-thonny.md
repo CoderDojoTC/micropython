@@ -67,6 +67,29 @@ You can save a python file in Thonny to either the Pico or to your local compute
 
 first stop execution of any program you are running.
 
+## Downloading the Firmware
+After you start up Thonny there will be a button in the lower right corner.
+
+After you click on it you will see the following:
+```
+Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
+Writing to /Volumes/RPI-RP2/firmware
+100%
+Waiting for the port...
+Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
+
+Done!
+```
+
+## Version
+After you press play the following will appear in the console.
+
+```sh
+MicroPython v1.13-290-g556ae7914 on 2021-01-21; Raspberry Pi Pico with RP2040
+Type "help()" for more information.
+>>> %Run -c $EDITOR_CONTENT
+```
+
 ## Background on Thonny
 
 Micropython was originally developed by Damien George and first released in 2014.  Some support of Thonny is being done the [University of Tartu Institute of Computer Science](https://www.cs.ut.ee/en) in Estonia.  Several features were sponsored by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation)
