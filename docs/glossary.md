@@ -41,6 +41,13 @@ Typical costs for the ESP32 is
 * [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
 * [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
 
+#### Framebuffer
+A region of your microcontroller RAM that stores a bitmap image of your display.
+
+For a 128X64 monochrome display this would be 128 * 64 = 8,192 bits or 1,024 bytes (1K).  Color displays must store up to 8 bytes per color for each color (red, green and blue).
+
+* [Wikipedia page on Framebuffer](https://en.wikipedia.org/wiki/Framebuffer)
+
 #### Micropython
 A set of Python libraries and tools developed specifically for microcontrollers.
 
