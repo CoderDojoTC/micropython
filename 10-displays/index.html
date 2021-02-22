@@ -434,15 +434,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#draw-commands" class="md-nav__link">
-    Draw Commands
+  <a href="#framebuffers" class="md-nav__link">
+    Framebuffers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#framebuffers" class="md-nav__link">
-    Framebuffers
+  <a href="#basic-draw-functions" class="md-nav__link">
+    Basic Draw Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-list-of-drawing-functions" class="md-nav__link">
+    Full list of Drawing Functions
   </a>
   
 </li>
@@ -683,15 +690,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#draw-commands" class="md-nav__link">
-    Draw Commands
+  <a href="#framebuffers" class="md-nav__link">
+    Framebuffers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#framebuffers" class="md-nav__link">
-    Framebuffers
+  <a href="#basic-draw-functions" class="md-nav__link">
+    Basic Draw Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-list-of-drawing-functions" class="md-nav__link">
+    Full list of Drawing Functions
   </a>
   
 </li>
@@ -782,9 +796,151 @@
                 
                 <h1 id="adding-a-display-to-your-project">Adding A Display to Your Project<a class="headerlink" href="#adding-a-display-to-your-project" title="Permanent link">&para;</a></h1>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="draw-commands">Draw Commands<a class="headerlink" href="#draw-commands" title="Permanent link">&para;</a></h3>
 <h3 id="framebuffers">Framebuffers<a class="headerlink" href="#framebuffers" title="Permanent link">&para;</a></h3>
+<p>A framebuffer is a copy of the display that is resident within the microcontroller.  It must be as large as the display.  For a 128X64 monochrome display this would be 128 * 64 = 8192 bits or 1,024 bytes (1K).</p>
 <p>Memory requirements</p>
+<h3 id="basic-draw-functions">Basic Draw Functions<a class="headerlink" href="#basic-draw-functions" title="Permanent link">&para;</a></h3>
+<p>For our beginning labs we will just do some basic drawing. We will start out with just three functions: fill, text and show.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill</td>
+<td>Fill the display with white or black</td>
+<td>0=black and 1=white</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Draw text</td>
+<td>String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)</td>
+</tr>
+<tr>
+<td>show</td>
+<td>Show the display</td>
+<td>Send the current frame buffer to the display.  You must do this after you make and changes to the Framebuffer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="full-list-of-drawing-functions">Full list of Drawing Functions<a class="headerlink" href="#full-list-of-drawing-functions" title="Permanent link">&para;</a></h3>
+<p>Every drawing library might have slightly different functions.  But we can quickly see the functions that we want by using the dir() function on the SSD1306_I2C class.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">SSD1306_I2C</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+<p>This returns the following list:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span> <span class="s1">&#39;__bases__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;blit&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;fill_rect&#39;</span><span class="p">,</span> <span class="s1">&#39;hline&#39;</span><span class="p">,</span> <span class="s1">&#39;invert&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;vline&#39;</span><span class="p">,</span> <span class="s1">&#39;init_display&#39;</span><span class="p">,</span> <span class="s1">&#39;write_cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">,</span> <span class="s1">&#39;poweroff&#39;</span><span class="p">,</span> <span class="s1">&#39;poweron&#39;</span><span class="p">,</span> <span class="s1">&#39;contrast&#39;</span><span class="p">,</span> <span class="s1">&#39;write_data&#39;</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
+<p>The following are relevant for the SSD1306_I2C display.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blit</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fill</td>
+<td>Fill</td>
+<td>Fill with black (0) or white(1)</td>
+</tr>
+<tr>
+<td>fill_rect</td>
+<td>Fill a rectangle</td>
+<td></td>
+</tr>
+<tr>
+<td>hline</td>
+<td>Draw a horizontal line</td>
+<td></td>
+</tr>
+<tr>
+<td>invert</td>
+<td>invert the display</td>
+<td></td>
+</tr>
+<tr>
+<td>line</td>
+<td>draw a line at any angle</td>
+<td></td>
+</tr>
+<tr>
+<td>pixel</td>
+<td>Draw a single point on the screen</td>
+<td></td>
+</tr>
+<tr>
+<td>rect</td>
+<td>Draw an empty rectangle</td>
+<td></td>
+</tr>
+<tr>
+<td>scroll</td>
+<td>Scroll the display</td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>Write text at a point</td>
+<td></td>
+</tr>
+<tr>
+<td>vline</td>
+<td>Draw a Vertical Line</td>
+<td>vline(y0, x, y1, 1)</td>
+</tr>
+<tr>
+<td>init_display</td>
+<td>Initialize the display</td>
+<td></td>
+</tr>
+<tr>
+<td>write_cmd</td>
+<td>Write a command to the display</td>
+<td></td>
+</tr>
+<tr>
+<td>show</td>
+<td>Update the display from the frame buffer</td>
+<td></td>
+</tr>
+<tr>
+<td>poweroff</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>poweron</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>contrast</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>write_data</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>128X64 Example</p>
 <h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h3>
 <h3 id="i2c">I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h3>
