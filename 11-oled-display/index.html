@@ -522,6 +522,26 @@
     Using the 7-wire SPI interface
   </a>
   
+    <nav class="md-nav" aria-label="Using the 7-wire SPI interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi-terms" class="md-nav__link">
+    SPI Terms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample code
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -756,6 +776,26 @@
     Using the 7-wire SPI interface
   </a>
   
+    <nav class="md-nav" aria-label="Using the 7-wire SPI interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi-terms" class="md-nav__link">
+    SPI Terms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample code
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -987,6 +1027,50 @@
 <li>VCC - Connect to the 3.3V Out pin 36</li>
 <li>GND - pin 38 or 3 any other GND pin</li>
 </ol>
+<h3 id="spi-terms">SPI Terms<a class="headerlink" href="#spi-terms" title="Permanent link">&para;</a></h3>
+<p>Master Out Slave In (MOSI)</p>
+<p>We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)</p>
+<h2 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">&para;</a></h2>
+<p>width and height define the size of the display
+spi is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
+dc is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
+res is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+cs is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">ssd1306</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">400000</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># pin 0 - SCL</span>
+<span class="c1"># pin 1 - SDA</span>
+<span class="c1"># From: https://github.com/robert-hh/SH1106</span>
+<span class="c1"># display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)</span>
+<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo Rocks!&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/robert-hh/SH1106">robert-hh's SH1106 Driver</a></p>
 <p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>

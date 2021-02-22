@@ -801,6 +801,10 @@
 <p>Memory requirements</p>
 <h3 id="basic-draw-functions">Basic Draw Functions<a class="headerlink" href="#basic-draw-functions" title="Permanent link">&para;</a></h3>
 <p>For our beginning labs we will just do some basic drawing. We will start out with just three functions: fill, text and show.</p>
+<p>Let's assume that we call our oled "oled" using the following line:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <table>
 <thead>
 <tr>
@@ -811,12 +815,12 @@
 </thead>
 <tbody>
 <tr>
-<td>fill</td>
+<td>oled.fill(0)</td>
 <td>Fill the display with white or black</td>
 <td>0=black and 1=white</td>
 </tr>
 <tr>
-<td>text</td>
+<td>oled.text("Hello",</td>
 <td>Draw text</td>
 <td>String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)</td>
 </tr>
