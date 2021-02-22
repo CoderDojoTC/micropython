@@ -166,8 +166,11 @@ From the documentation:
 
 !!! From Raspberry Pi Pico Documentation
     **spi** is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
+
     **dc** is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
+
     **res** is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+    
     **cs** is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
 
 ```py
