@@ -538,8 +538,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample code
+  <a href="#sample-nonworking-spi-code" class="md-nav__link">
+    Sample Nonworking SPI Code
   </a>
   
 </li>
@@ -792,8 +792,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample code
+  <a href="#sample-nonworking-spi-code" class="md-nav__link">
+    Sample Nonworking SPI Code
   </a>
   
 </li>
@@ -1030,12 +1030,15 @@
 <h3 id="spi-terms">SPI Terms<a class="headerlink" href="#spi-terms" title="Permanent link">&para;</a></h3>
 <p>Master Out Slave In (MOSI)</p>
 <p>We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)</p>
-<h2 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">&para;</a></h2>
-<p>width and height define the size of the display
-spi is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
-dc is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
-res is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
-cs is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.</p>
+<h2 id="sample-nonworking-spi-code">Sample Nonworking SPI Code<a class="headerlink" href="#sample-nonworking-spi-code" title="Permanent link">&para;</a></h2>
+<p>From the documentation:</p>
+<div class="admonition from raspberry pi pico documentation">
+<p class="admonition-title">From</p>
+<p><strong>spi</strong> is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
+<strong>dc</strong> is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
+<strong>res</strong> is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+<strong>cs</strong> is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.</p>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
