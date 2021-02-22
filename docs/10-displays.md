@@ -8,12 +8,19 @@ A framebuffer is a copy of the display that is resident within the microcontroll
 Memory requirements
 
 ### Basic Draw Functions
+
 For our beginning labs we will just do some basic drawing. We will start out with just three functions: fill, text and show.
+
+Let's assume that we call our oled "oled" using the following line:
+
+```py
+oled = SSD1306_I2C(128, 64, i2c)
+```
 
 |Function|Description|Parameters|
 |--------|-----------|----------|
-|fill|Fill the display with white or black|0=black and 1=white|
-|text|Draw text|String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)|
+|oled.fill(0)|Fill the display with white or black|0=black and 1=white|
+|oled.text("Hello",|Draw text|String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)|
 |show|Show the display|Send the current frame buffer to the display.  You must do this after you make and changes to the Framebuffer.
 
 ### Full list of Drawing Functions

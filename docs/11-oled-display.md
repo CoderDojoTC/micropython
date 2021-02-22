@@ -154,6 +154,40 @@ The seven wires on the back of the SPI OLED screens are the following as read fr
 6. VCC - Connect to the 3.3V Out pin 36
 7. GND - pin 38 or 3 any other GND pin
 
+### SPI Terms
+Master Out Slave In (MOSI)
+
+
+We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)
+
+## Sample code
+
+width and height define the size of the display
+spi is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
+dc is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
+res is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+cs is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+
+```py
+import machine
+import ssd1306
+spi = machine.SPI(0, baudrate=400000, sck=Pin(2), mosi=Pin(1))
+
+# pin 0 - SCL
+# pin 1 - SDA
+# From: https://github.com/robert-hh/SH1106
+# display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)
+DC = machine.Pin(5)
+RES = machine.Pin(6)
+CS = machine.Pin(4)
+oled = ssd1306.SSD1306_SPI(128, 64, spi, DC, RES, CS)
+oled.fill(0)
+oled.text('CoderDojo Rocks!', 0, 0, 1)
+oled.show()
+
+print('Done')
+```
+
 ## References
 
 [robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
