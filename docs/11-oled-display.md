@@ -160,13 +160,15 @@ Master Out Slave In (MOSI)
 
 We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)
 
-## Sample code
+## Sample Nonworking SPI Code
 
-width and height define the size of the display
-spi is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
-dc is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
-res is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
-cs is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+From the documentation:
+
+!!! From Raspberry Pi Pico Documentation
+    **spi** is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
+    **dc** is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
+    **res** is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
+    **cs** is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
 
 ```py
 import machine
