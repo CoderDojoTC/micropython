@@ -518,12 +518,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-7-wire-spi-interface" class="md-nav__link">
-    Using the 7-wire SPI interface
+  <a href="#the-spi-interface" class="md-nav__link">
+    The SPI interface
   </a>
   
-    <nav class="md-nav" aria-label="Using the 7-wire SPI interface">
+    <nav class="md-nav" aria-label="The SPI interface">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pico-pins" class="md-nav__link">
+    Pico Pins
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#spi-terms" class="md-nav__link">
@@ -772,12 +779,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-7-wire-spi-interface" class="md-nav__link">
-    Using the 7-wire SPI interface
+  <a href="#the-spi-interface" class="md-nav__link">
+    The SPI interface
   </a>
   
-    <nav class="md-nav" aria-label="Using the 7-wire SPI interface">
+    <nav class="md-nav" aria-label="The SPI interface">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pico-pins" class="md-nav__link">
+    Pico Pins
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#spi-terms" class="md-nav__link">
@@ -1015,18 +1029,59 @@
 <p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
 <h2 id="ssd1306-vs-sh1106">SSD1306 vs. SH1106<a class="headerlink" href="#ssd1306-vs-sh1106" title="Permanent link">&para;</a></h2>
 <p>There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.</p>
-<h2 id="using-the-7-wire-spi-interface">Using the 7-wire SPI interface<a class="headerlink" href="#using-the-7-wire-spi-interface" title="Permanent link">&para;</a></h2>
+<h2 id="the-spi-interface">The SPI interface<a class="headerlink" href="#the-spi-interface" title="Permanent link">&para;</a></h2>
 <p>The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.</p>
 <p>The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:</p>
+<p><img alt="" src="../img/oled-back-connections.png" /></p>
 <ol>
 <li>CS - Chip Select - pin 4</li>
 <li>DC - Data/Command - pin 5</li>
 <li>RES - Reset - pin 6</li>
-<li>SDA - Data - pin 1</li>
-<li>SCL - Clock - pin 2</li>
+<li>SDA - Data - SPIO TX GP7 pin 10</li>
+<li>SCL - Clock - Connect to SPIO SCK GP6 pin 9</li>
 <li>VCC - Connect to the 3.3V Out pin 36</li>
 <li>GND - pin 38 or 3 any other GND pin</li>
 </ol>
+<h3 id="pico-pins">Pico Pins<a class="headerlink" href="#pico-pins" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err"># Sample code sections</span>
+<span class="err"> 28 # ------------ SPI ------------------</span>
+<span class="err"> 29 # Pin Map SPI</span>
+<span class="err"> 30 # - 3v - xxxxxx - Vcc</span>
+<span class="err"> 31 # - G - xxxxxx - Gnd</span>
+<span class="err"> 32 # - D7 - GPIO 13 - Din / MOSI fixed</span>
+<span class="err"> 33 # - D5 - GPIO 14 - Clk / Sck fixed</span>
+<span class="err"> 34 # - D8 - GPIO 4 - CS (optional, if the only connected device)</span>
+<span class="err"> 35 # - D2 - GPIO 5 - D/C</span>
+<span class="err"> 36 # - D1 - GPIO 2 - Res</span>
+</code></pre></div>
+</td></tr></table>
+<p>SCK is the clock - hook this to the oled SCL
+MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA</p>
+<p>From the SDK:
+https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf
+Section 3.7</p>
+<ol>
+<li>SPI0_SCK - pin 6</li>
+<li>SPI0_MOSI - pin 7</li>
+<li>SPI0_MISO - pin 8</li>
+</ol>
+<p>This contradicts p122 in GET STARTED WITH MICROPYTHON ON RASPBERRY PI PICO</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">spi_sck=machine.Pin(2)</span>
+<span class="err">spi_tx=machine.Pin(3)</span>
+<span class="err">spi_rx=machine.Pin(4)</span>
+</code></pre></div>
+</td></tr></table>
 <h3 id="spi-terms">SPI Terms<a class="headerlink" href="#spi-terms" title="Permanent link">&para;</a></h3>
 <p>Master Out Slave In (MOSI)</p>
 <p>We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)</p>
@@ -1055,21 +1110,61 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
 <span class="kn">import</span> <span class="nn">ssd1306</span>
-<span class="n">spi</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">400000</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
-<span class="c1"># pin 0 - SCL</span>
-<span class="c1"># pin 1 - SDA</span>
 <span class="c1"># From: https://github.com/robert-hh/SH1106</span>
 <span class="c1"># display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)</span>
-<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1">#MOSI=machine.Pin(7)</span>
+<span class="c1">#SCK=machine.Pin(6)</span>
+<span class="c1">#spi = machine.SPI(0, baudrate=400000, sck=SCK, mosi=MOSI)</span>
+<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="c1"># spi_rx=machine.Pin(4)</span>
+<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
+
+<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
 <span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+
+<span class="c1"># flash all pixels on</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
 <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo Rocks!&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># flash the LED to show end</span>
+<span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -1079,6 +1174,7 @@
 <p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
 <p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>
 <p>https://github.com/robert-hh/SH1106/blob/master/sh1106.py</p>
+<p><a href="https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306">DIY More OLED Product Description</a></p>
                 
               
               
