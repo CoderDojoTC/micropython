@@ -353,22 +353,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-create-a-conda-environment-for-esp32" class="md-nav__link">
-    Step 2: Create a Conda Environment for ESP32
+  <a href="#step-2-create-a-python-conda-environment-for-esp32" class="md-nav__link">
+    Step 2: Create a Python Conda Environment for ESP32
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-install-the-esptool" class="md-nav__link">
-    Step #: Install the esptool
+  <a href="#step-3-install-the-esptool" class="md-nav__link">
+    Step #3: Install the esptool
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reflash-the-esp32" class="md-nav__link">
-    Reflash the ESP32
+  <a href="#step-4-erase-the-old-firmware" class="md-nav__link">
+    Step 4: Erase the Old Firmware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-download-the-new-firmware" class="md-nav__link">
+    Step 5: Download the New Firmware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-reflash-the-new-esp32-firmware" class="md-nav__link">
+    Step 6: Reflash the new ESP32 Firmware
   </a>
   
 </li>
@@ -678,22 +692,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-create-a-conda-environment-for-esp32" class="md-nav__link">
-    Step 2: Create a Conda Environment for ESP32
+  <a href="#step-2-create-a-python-conda-environment-for-esp32" class="md-nav__link">
+    Step 2: Create a Python Conda Environment for ESP32
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-install-the-esptool" class="md-nav__link">
-    Step #: Install the esptool
+  <a href="#step-3-install-the-esptool" class="md-nav__link">
+    Step #3: Install the esptool
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reflash-the-esp32" class="md-nav__link">
-    Reflash the ESP32
+  <a href="#step-4-erase-the-old-firmware" class="md-nav__link">
+    Step 4: Erase the Old Firmware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-download-the-new-firmware" class="md-nav__link">
+    Step 5: Download the New Firmware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-reflash-the-new-esp32-firmware" class="md-nav__link">
+    Step 6: Reflash the new ESP32 Firmware
   </a>
   
 </li>
@@ -766,28 +794,44 @@
 <p>Mac: 
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/establish-serial-connection.html
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/raw/master/MicroPython_BUILD/firmware/MicroPython_LoBo_esp32_all.zip</p>
-<h2 id="step-2-create-a-conda-environment-for-esp32">Step 2: Create a Conda Environment for ESP32<a class="headerlink" href="#step-2-create-a-conda-environment-for-esp32" title="Permanent link">&para;</a></h2>
+<h2 id="step-2-create-a-python-conda-environment-for-esp32">Step 2: Create a Python Conda Environment for ESP32<a class="headerlink" href="#step-2-create-a-python-conda-environment-for-esp32" title="Permanent link">&para;</a></h2>
 <p>This is so we don't mess up other Python projects on your system.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>conda create -n esp32 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda activate esp32
 </code></pre></div>
 </td></tr></table>
-<h2 id="step-install-the-esptool">Step #: Install the esptool<a class="headerlink" href="#step-install-the-esptool" title="Permanent link">&para;</a></h2>
-<p>$ pip3 install esptool
+<h2 id="step-3-install-the-esptool">Step #3: Install the esptool<a class="headerlink" href="#step-3-install-the-esptool" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>$ pip3 install esptool
 Collecting esptool
-  Downloading esptool-3.0.tar.gz (149 kB)
-     |████████████████████████████████| 149 kB 2.9 MB/s 
+  Downloading esptool-3.0.tar.gz <span class="o">(</span><span class="m">149</span> kB<span class="o">)</span>
+     <span class="p">|</span>████████████████████████████████<span class="p">|</span> <span class="m">149</span> kB <span class="m">2</span>.9 MB/s 
      ...
 Installing collected packages: pycparser, six, cffi, reedsolo, pyserial, ecdsa, cryptography, bitstring, esptool
-Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16.1 esptool-3.0 pycparser-2.20 pyserial-3.5 reedsolo-1.5.4 six-1.15.0</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">```</span><span class="n">sh</span>
-<span class="n">esptool</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">port</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span> <span class="n">erase_flash</span>
+Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16.1 esptool-3.0 pycparser-2.20 pyserial-3.5 reedsolo-1.5.4 six-1.15.0
 </code></pre></div>
 </td></tr></table>
-<p>https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares</p>
-<h2 id="reflash-the-esp32">Reflash the ESP32<a class="headerlink" href="#reflash-the-esp32" title="Permanent link">&para;</a></h2>
+<h2 id="step-4-erase-the-old-firmware">Step 4: Erase the Old Firmware<a class="headerlink" href="#step-4-erase-the-old-firmware" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+</code></pre></div>
+</td></tr></table>
+<h2 id="step-5-download-the-new-firmware">Step 5: Download the New Firmware<a class="headerlink" href="#step-5-download-the-new-firmware" title="Permanent link">&para;</a></h2>
+<p>Get the ESP32_All prebuilt binary:</p>
+<p><a href="https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares">https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares
+</a></p>
+<h2 id="step-6-reflash-the-new-esp32-firmware">Step 6: Reflash the new ESP32 Firmware<a class="headerlink" href="#step-6-reflash-the-new-esp32-firmware" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">cd</span> esp32_all/
+../flash.sh -p /dev/cu.SLAB_USBtoUART
+</code></pre></div>
+</td></tr></table>
+<p>this will run...</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
