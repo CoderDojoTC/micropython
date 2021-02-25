@@ -7,6 +7,7 @@ nav:
   - Boards: 02-boards.md
   - Accessories: 02b-accessories.md
   - Raspberry Pi Pico: 02-pi-pico.md
+  - ESP32: 02-esp32.md
   - Thonny IDE: 02c-thonny.md
   - Blink: 03-blink.md
   - Temperature: 03-temperature.md
