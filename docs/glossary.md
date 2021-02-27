@@ -48,10 +48,20 @@ For a 128X64 monochrome display this would be 128 * 64 = 8,192 bits or 1,024 byt
 
 * [Wikipedia page on Framebuffer](https://en.wikipedia.org/wiki/Framebuffer)
 
+#### I2C
+A communications protocol common in microcontroller-based systems, particularly for interfacing with sensors, memory devices and liquid crystal displays.
+
+I2C is similar to SPI, it's a synchronous protocol because it uses a clock line.
+
+* Also Known as: Inter-integrated Circuit
+* See also: [SPI](#spi)
+
 #### Micropython
 A set of Python libraries and tools developed specifically for microcontrollers.
 
 Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
+
+* See also: [CircuitPython](#circuitpython)
 
 #### MPG Shell
 A simple micropython shell based file explorer for ESP8266 and WiPy Micropython based devices.
@@ -86,6 +96,12 @@ It also has the ability to invoke the regular REPL, so rshell can be used as a t
 Note: With rshell you can disable USB Mass Storage and still copy files into and out of your pyboard.
 
 [RShell GitHub Repo](https://github.com/dhylands/rshell)
+
+### SPI
+An interface bus commonly used to send data between microcontrollers and small peripherals such as sensors, displays and SD cards. SPI uses separate clock and data lines, along with a select line to choose the device you wish to talk to.
+
+Also known as: Serial Peripheral Interface
+See also: [I2C](#i2c)
 
 #### Thonny
 A lightweight Python IDE ideal for writing simple Python programs for first time users.

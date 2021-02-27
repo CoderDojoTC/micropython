@@ -1,11 +1,16 @@
-# OLED Display
+# OLED SSD1306 Examples
+
+We use small OLED displays in many of our labs because:
+
+1. They are **inexpensive** (around $4).
+2. They are **easy to connect** via SPI.  Just four wires: GND, VCC, Clock and Data.
+3. They have a **large area** to display feedback.  Most of them are 128X64 pixels.
+4. Once you get the drivers installed (not always easy) they are **easy to program**.  You only need to initialize the device and run the oled.fill(), oled.text() and oled.show() functions.
+5. OLEDs, unlike LCDs, have **high contrast over a large range of input voltages**.  This means that as your batteries slowly discharge, your OLEDs will keep their high-quality contrast.
+6. There is plenty of **sample code and tutorials** available.
+
 
 The first step is to find out what type of display graphics chip is used in your OLED.
-
-There are two common versions:
-
-1. SSD1306 - this is the most popular and versatile.  It can be used to drive many different types and sizes of OLEDs.  The SSD1306 can be used with both the simple 4 wire I2C interface as well as the slightly faster 7 wire SPI interface.  These devices have only four wires labeled VCC, GND, SDA and SCL.  SDA is for data and SCL is for the clock.
-2, SH1106 - this is less popular version and supports the 4-wire I2C interface.
 
 
 
@@ -25,11 +30,14 @@ returns: [60]
 ## Using the SSD1306 with I2C Interfaces
 
 ### Add the ssd1306 Python Module
-You can now use the Thonny "Tools -> Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.
+
+You can now use the Thonny "Tools -> Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  
 
 ![](img/thonny-add-ssd1306.png)
 
-## Hello World
+If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.
+
+## I2C Hello World
 
 ```py
 import machine
@@ -91,7 +99,6 @@ for i in range(1, 51): # count 1 to 50
 print('done')
 ```
 
-
 ## Animated Box
 This draws a title and four lines around a drawing area.  It then draws boxes that move to the right.
 
@@ -143,6 +150,9 @@ There is only one small difference between SSD1306 and SH1106: The SH1106 contro
 
 ## The SPI interface
 The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.
+
+### SPI Baudrate
+https://raspberrypi.github.io/pico-sdk-doxygen/group__hardware__spi.html#ga37f4c04ce4165ac8c129226336a0b66c
 
 The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:
 

@@ -16,7 +16,7 @@ This course is appropriate for students that already have a basic understanding 
 * Connections
 
 ## License of Content
-Our intent is to allow teachers around the world to integrate MicroPython into their courses without any fees.  We want you to be able to use this content freely with a few conditions: you give us attribution and you don't resell our content for profit.
+Our intent is to allow teachers and mentors around the world to integrate MicroPython into their courses without any fees.  We want you to be able to use this content freely with a few conditions: you give us attribution and you don't resell our content for profit.
 
 Note that we use the same Creative Commons licensing as the Raspberry Pi Foundation and the CoderDojo Foundation:
 
