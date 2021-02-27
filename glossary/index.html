@@ -427,8 +427,24 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-display/" class="md-nav__link">
-        OLED Display
+      <a href="../11-oled-ssd1306-examples/" class="md-nav__link">
+        OLED SSD1306 Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-oled-pot/" class="md-nav__link">
+        OLED Pot
       </a>
     </li>
   
@@ -564,6 +580,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I2C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#micropython" class="md-nav__link">
     Micropython
   </a>
@@ -613,23 +636,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    SPI
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#thonny" class="md-nav__link">
     Thonny
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#uf2-file" class="md-nav__link">
     UF2 File
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -756,6 +792,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I2C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#micropython" class="md-nav__link">
     Micropython
   </a>
@@ -805,23 +848,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    SPI
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#thonny" class="md-nav__link">
     Thonny
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#uf2-file" class="md-nav__link">
     UF2 File
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -882,9 +938,19 @@ The format is used to generate a concept graph for this course
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Framebuffer">Wikipedia page on Framebuffer</a></li>
 </ul>
+<h4 id="i2c">I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h4>
+<p>A communications protocol common in microcontroller-based systems, particularly for interfacing with sensors, memory devices and liquid crystal displays.</p>
+<p>I2C is similar to SPI, it's a synchronous protocol because it uses a clock line.</p>
+<ul>
+<li>Also Known as: Inter-integrated Circuit</li>
+<li>See also: <a href="#spi">SPI</a></li>
+</ul>
 <h4 id="micropython">Micropython<a class="headerlink" href="#micropython" title="Permanent link">&para;</a></h4>
 <p>A set of Python libraries and tools developed specifically for microcontrollers.</p>
 <p>Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.</p>
+<ul>
+<li>See also: <a href="#circuitpython">CircuitPython</a></li>
+</ul>
 <h4 id="mpg-shell">MPG Shell<a class="headerlink" href="#mpg-shell" title="Permanent link">&para;</a></h4>
 <p>A simple micropython shell based file explorer for ESP8266 and WiPy Micropython based devices.</p>
 <p>The shell is a helper for up/downloading files to the ESP8266 (over serial line and Websockets) and WiPy (serial line and telnet). It basically offers commands to list and upload/download files on the flash FS of the device.</p>
@@ -907,6 +973,10 @@ The format is used to generate a concept graph for this course
 <p>It also has the ability to invoke the regular REPL, so rshell can be used as a terminal emulator as well.</p>
 <p>Note: With rshell you can disable USB Mass Storage and still copy files into and out of your pyboard.</p>
 <p><a href="https://github.com/dhylands/rshell">RShell GitHub Repo</a></p>
+<h3 id="spi">SPI<a class="headerlink" href="#spi" title="Permanent link">&para;</a></h3>
+<p>An interface bus commonly used to send data between microcontrollers and small peripherals such as sensors, displays and SD cards. SPI uses separate clock and data lines, along with a select line to choose the device you wish to talk to.</p>
+<p>Also known as: Serial Peripheral Interface
+See also: <a href="#i2c">I2C</a></p>
 <h4 id="thonny">Thonny<a class="headerlink" href="#thonny" title="Permanent link">&para;</a></h4>
 <p>A lightweight Python IDE ideal for writing simple Python programs for first time users.</p>
 <p>Thonny runs on Mac, Windows and Linux.</p>

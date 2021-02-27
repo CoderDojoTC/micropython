@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED Display - MicroPython</title>
+        <title>OLED SSD1306 Examples - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oled-display" class="md-skip">
+        <a href="#oled-ssd1306-examples" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED Display
+              OLED SSD1306 Examples
             
           </span>
         </div>
@@ -436,12 +436,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          OLED Display
+          OLED SSD1306 Examples
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        OLED Display
+        OLED SSD1306 Examples
       </a>
       
         
@@ -485,8 +485,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello World
+  <a href="#i2c-hello-world" class="md-nav__link">
+    I2C Hello World
   </a>
   
 </li>
@@ -542,6 +542,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#spi-baudrate" class="md-nav__link">
+    SPI Baudrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pico-pins" class="md-nav__link">
     Pico Pins
   </a>
@@ -578,6 +585,22 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-oled-pot/" class="md-nav__link">
+        OLED Pot
+      </a>
     </li>
   
 
@@ -746,8 +769,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello World
+  <a href="#i2c-hello-world" class="md-nav__link">
+    I2C Hello World
   </a>
   
 </li>
@@ -803,6 +826,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#spi-baudrate" class="md-nav__link">
+    SPI Baudrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pico-pins" class="md-nav__link">
     Pico Pins
   </a>
@@ -847,18 +877,22 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/11-oled-display.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/11-oled-ssd1306-examples.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="oled-display">OLED Display<a class="headerlink" href="#oled-display" title="Permanent link">&para;</a></h1>
-<p>The first step is to find out what type of display graphics chip is used in your OLED.</p>
-<p>There are two common versions:</p>
+                <h1 id="oled-ssd1306-examples">OLED SSD1306 Examples<a class="headerlink" href="#oled-ssd1306-examples" title="Permanent link">&para;</a></h1>
+<p>We use small OLED displays in many of our labs because:</p>
 <ol>
-<li>SSD1306 - this is the most popular and versatile.  It can be used to drive many different types and sizes of OLEDs.  The SSD1306 can be used with both the simple 4 wire I2C interface as well as the slightly faster 7 wire SPI interface.  These devices have only four wires labeled VCC, GND, SDA and SCL.  SDA is for data and SCL is for the clock.
-2, SH1106 - this is less popular version and supports the 4-wire I2C interface.</li>
+<li>They are <strong>inexpensive</strong> (around $4).</li>
+<li>They are <strong>easy to connect</strong> via SPI.  Just four wires: GND, VCC, Clock and Data.</li>
+<li>They have a <strong>large area</strong> to display feedback.  Most of them are 128X64 pixels.</li>
+<li>Once you get the drivers installed (not always easy) they are <strong>easy to program</strong>.  You only need to initialize the device and run the oled.fill(), oled.text() and oled.show() functions.</li>
+<li>OLEDs, unlike LCDs, have <strong>high contrast over a large range of input voltages</strong>.  This means that as your batteries slowly discharge, your OLEDs will keep their high-quality contrast.</li>
+<li>There is plenty of <strong>sample code and tutorials</strong> available.</li>
 </ol>
+<p>The first step is to find out what type of display graphics chip is used in your OLED.</p>
 <h2 id="i2c-scanner">I2C Scanner<a class="headerlink" href="#i2c-scanner" title="Permanent link">&para;</a></h2>
 <p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -875,9 +909,10 @@
 <p>returns: [60]</p>
 <h2 id="using-the-ssd1306-with-i2c-interfaces">Using the SSD1306 with I2C Interfaces<a class="headerlink" href="#using-the-ssd1306-with-i2c-interfaces" title="Permanent link">&para;</a></h2>
 <h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module<a class="headerlink" href="#add-the-ssd1306-python-module" title="Permanent link">&para;</a></h3>
-<p>You can now use the Thonny "Tools -&gt; Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.</p>
+<p>You can now use the Thonny "Tools -&gt; Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  </p>
 <p><img alt="" src="../img/thonny-add-ssd1306.png" /></p>
-<h2 id="hello-world">Hello World<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h2>
+<p>If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.</p>
+<h2 id="i2c-hello-world">I2C Hello World<a class="headerlink" href="#i2c-hello-world" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1047,6 +1082,8 @@
 <p>There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.</p>
 <h2 id="the-spi-interface">The SPI interface<a class="headerlink" href="#the-spi-interface" title="Permanent link">&para;</a></h2>
 <p>The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.</p>
+<h3 id="spi-baudrate">SPI Baudrate<a class="headerlink" href="#spi-baudrate" title="Permanent link">&para;</a></h3>
+<p>https://raspberrypi.github.io/pico-sdk-doxygen/group__hardware__spi.html#ga37f4c04ce4165ac8c129226336a0b66c</p>
 <p>The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:</p>
 <p><img alt="" src="../img/oled-back-connections.png" /></p>
 <ol>
@@ -1224,13 +1261,13 @@ Section 3.7</p>
             </a>
           
           
-            <a href="../11-oled-ping/" title="OLED Ping" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../12-oled-pot/" title="OLED Pot" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  OLED Ping
+                  OLED Pot
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
