@@ -18,6 +18,7 @@
 			"linenums",
 			"oled",
 			"pico",
+			"saleae",
 			"thonney"
 		]
 	}
