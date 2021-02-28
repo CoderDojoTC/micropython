@@ -18,7 +18,7 @@
     
     
       
-        <title>Colophon - MicroPython</title>
+        <title>Debugging SPI - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#colophone" class="md-skip">
+        <a href="#debugging-spi" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Colophon
+              Debugging SPI
             
           </span>
         </div>
@@ -505,11 +505,110 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../29-debugging-spi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Debugging SPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Debugging SPI
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oled-spi-settings" class="md-nav__link">
+    OLED SPI settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-logic-analyzer" class="md-nav__link">
+    Setting up a Logic Analyzer
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a Logic Analyzer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-spi-analyser" class="md-nav__link">
+    Setup SPI Analyser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-spi-channel-settings" class="md-nav__link">
+    Configure SPI Channel Settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-a-working-device" class="md-nav__link">
+    Check a Working Device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-data-clock-and-res" class="md-nav__link">
+    Viewing Data Clock and RES
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing Data Clock and RES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock-period" class="md-nav__link">
+    Clock Period
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -569,20 +668,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../30-colophon/" class="md-nav__link">
         Colophon
       </a>
-      
     </li>
   
 
@@ -605,6 +695,82 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oled-spi-settings" class="md-nav__link">
+    OLED SPI settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-logic-analyzer" class="md-nav__link">
+    Setting up a Logic Analyzer
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a Logic Analyzer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-spi-analyser" class="md-nav__link">
+    Setup SPI Analyser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-spi-channel-settings" class="md-nav__link">
+    Configure SPI Channel Settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-a-working-device" class="md-nav__link">
+    Check a Working Device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-data-clock-and-res" class="md-nav__link">
+    Viewing Data Clock and RES
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing Data Clock and RES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock-period" class="md-nav__link">
+    Clock Period
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -615,25 +781,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/30-colophon.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/29-debugging-spi.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="colophone">Colophone<a class="headerlink" href="#colophone" title="Permanent link">&para;</a></h1>
-<p>We are mostly a group of unpaid volunteers without a large budget for distributed content management software.  However, we still want to provide a great user experience for both our mentors and our students.  So we use free open-source tools whenever we can.  Here is how we built this site.</p>
-<ul>
-<li>Our content language is <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>.</li>
-<li>We use <a href="https://python-markdown.github.io/">Python Markdown</a> to parse our content.</li>
-<li>We convert Markdown to HTML with <a href="https://www.mkdocs.org/">mkdocs</a>.</li>
-<li>Our user interface theme is<a href="https://squidfunk.github.io/mkdocs-material/">Mkdocs Material</a>.  We use an extensive number of Material user interface components.</li>
-<li>Our software version control system is <a href="https://git-scm.com/">git</a></li>
-<li>Our site is hosted on <a href="https://pages.github.com/">GitHub page</a>.</li>
-<li>We use standard code highlighting provided by the mkdocs <a href="https://python-markdown.github.io/extensions/code_hilite/">codehilite</a> extension.</li>
-<li>Our BY-NC-SA content license agreement is created by <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a></li>
-</ul>
-<p>We wish to acknowledge the work of everyone that contributes to open-source projects.  Without these systems this work would not be possible.</p>
-<p>If you would like to contribute lesson we welcome your contribution as a git pull request.  You can read our <a href="https://www.coderdojotc.org/CoderDojoTC/content-authoring-guide/">CoderDojo Twin CitiesAuthoring Guide</a> if you would like to help out.</p>
+                <h1 id="debugging-spi">Debugging SPI<a class="headerlink" href="#debugging-spi" title="Permanent link">&para;</a></h1>
+<p>In this lab we use a logic analyzer to debug the <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> protocol being used to drive a sample OLED device. We will be using the the <a href="https://www.saleae.com/">8 port Saleae Logic Analyser</a>.  The retail cost is about $399.00 although there are lower cost logic analyzer available.</p>
+<h2 id="oled-spi-settings">OLED SPI settings<a class="headerlink" href="#oled-spi-settings" title="Permanent link">&para;</a></h2>
+<p>Our OLED device has seven wires.  In addition to power and ground there a five data connections we will be observing on our logic analyzer.</p>
+<p><img alt="SPI OLED Connections" src="../img/oled-back-connections.png" /></p>
+<ol>
+<li>CS - Chip Select pin 4</li>
+<li>DC - Data/Command - pin 5</li>
+<li>RES - Reset - pin 6</li>
+<li>SDA - Data - SPIO TX GP7 pin 10 (Data from the )</li>
+<li>SCL - Clock - Connect to SPIO SCK GP6 pin 9</li>
+<li>VCC - Connect to the 3.3V Out pin 36</li>
+<li>GND - pin 38 or 3 any other GND pin</li>
+</ol>
+<h2 id="setting-up-a-logic-analyzer">Setting up a Logic Analyzer<a class="headerlink" href="#setting-up-a-logic-analyzer" title="Permanent link">&para;</a></h2>
+<h3 id="setup-spi-analyser">Setup SPI Analyser<a class="headerlink" href="#setup-spi-analyser" title="Permanent link">&para;</a></h3>
+<p><img alt="SPI Logic Analyser Analysis Option" src="../img/spi-logic-analyser.png" /></p>
+<h3 id="configure-spi-channel-settings">Configure SPI Channel Settings<a class="headerlink" href="#configure-spi-channel-settings" title="Permanent link">&para;</a></h3>
+<p><img alt="SPI Logic Analyser Settings" src="../img/spi-logic-analyser-settings.png" /><br/>
+Saleae Logic Analyser SPI Logic Analyser Settings</p>
+<h2 id="check-a-working-device">Check a Working Device<a class="headerlink" href="#check-a-working-device" title="Permanent link">&para;</a></h2>
+<p>The first thing we want to see is what the signals to a working SPI OLED should be.  There are plenty of working drivers for the Arduino, so I hooked one up to the Logic analizer to see what they were.</p>
+<h2 id="viewing-data-clock-and-res">Viewing Data Clock and RES<a class="headerlink" href="#viewing-data-clock-and-res" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/spi-logic-analyser-data-clock-reset.png" /></p>
+<h3 id="clock-period">Clock Period<a class="headerlink" href="#clock-period" title="Permanent link">&para;</a></h3>
+<p>Our Clock (SCL) has 8 positive pulses with a width of .4167 microseconds.  This means that the positve/negative combined width has a period of 2 * .4167 = .8333 microseconds.  This can be converted into a frequency of 1.2 megahertz.</p>
+<p><img alt="" src="../img/spi-logic-analyser-clock-period.png" /></p>
+<p><img alt="" src="../img/spi-logic-analyser-clock-gap.png" /></p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.youtube.com/watch?v=WMV04hzPKuM">Video on how to use the Saleae Logic Analizer</a></p>
+<p>https://www.youtube.com/watch?v=Ak9R4yxQPhs</p>
                 
               
               
@@ -652,7 +835,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../contact/" title="Contact" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../11-pong/" title="OLED Pong" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -661,11 +844,25 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Contact
+                  OLED Pong
                 </span>
               </div>
             </a>
           
+          
+            <a href="../glossary/" title="Glossary" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Glossary
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
           
         </nav>
       </div>
