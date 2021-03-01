@@ -14,12 +14,15 @@ nav:
   - Servo: 04-servo.md
   - LED Strip: 05-led-strip.md
   - Displays: 10-displays.md
-  - OLED SSD1306 Examples: 11-oled-ssd1306-examples.md
+  - OLED SSD1306 I2C: 11-oled-ssd1306-i2c.md
+  - OLED SSD1306 SPI: 11-oled-ssd1306-spi.md
   - OLED Pot: 12-oled-pot.md
   - OLED Ping: 11-oled-ping.md
   - OLED Pong: 11-pong.md
-  - Debugging: 28-debugging.md
-  - Debugging SPI: 29-debugging-spi.md
+  - Debugging:
+    - Debugging Python: 28-debugging.md
+    - Debugging I2C: 29a-debugging-i2c.md
+    - Debugging SPI: 29-debugging-spi.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md

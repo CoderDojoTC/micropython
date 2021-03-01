@@ -272,3 +272,5 @@ https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/
 https://github.com/robert-hh/SH1106/blob/master/sh1106.py
 
 [DIY More OLED Product Description](https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306)
+
+1. [Using I2C Defaults](https://github.com/raspberrypi/pico-micropython-examples/blob/master/i2c/1306oled/i2c_1306oled_using_defaults.py)

@@ -29,12 +29,23 @@ The first thing we want to see is what the signals to a working SPI OLED should 
 ## Viewing Data Clock and RES
 ![](img/spi-logic-analyser-data-clock-reset.png)
 
+![](img/spi-logic-analyser-full.png)<br/>
+All five signals
+
+![](img/spi-logic-analyser-dc-cs.png)<br/>
+DC and CS signals have a larger period.
+
+![](img/spi-logic-analyser-dc-cs-2.png)
+
+1. DC on was 3.668 milliseconds
+
 ### Clock Period
 Our Clock (SCL) has 8 positive pulses with a width of .4167 microseconds.  This means that the positve/negative combined width has a period of 2 * .4167 = .8333 microseconds.  This can be converted into a frequency of 1.2 megahertz.
 
 ![](img/spi-logic-analyser-clock-period.png)
 
 ![](img/spi-logic-analyser-clock-gap.png)
+
 
 ## References
 
