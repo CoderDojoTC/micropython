@@ -18,7 +18,7 @@
     
     
       
-        <title>Debugging I2C - MicroPython</title>
+        <title>Debugging Python - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-i2c-bus" class="md-skip">
+        <a href="#how-to-debug-micropython" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Debugging I2C
+              Debugging Python
             
           </span>
         </div>
@@ -529,18 +529,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../28-debugging-python/" class="md-nav__link">
-        Debugging Python
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -551,10 +539,58 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Debugging Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Debugging I2C
+        Debugging Python
       </a>
       
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#listing-the-modules" class="md-nav__link">
+    Listing the Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython-issues" class="md-nav__link">
+    Micropython issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29a-debugging-i2c/" class="md-nav__link">
+        Debugging I2C
+      </a>
     </li>
   
 
@@ -659,6 +695,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#listing-the-modules" class="md-nav__link">
+    Listing the Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#micropython-issues" class="md-nav__link">
+    Micropython issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -669,13 +727,40 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/29a-debugging-i2c.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/28-debugging-python.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="debugging-i2c-bus">Debugging I2C Bus<a class="headerlink" href="#debugging-i2c-bus" title="Permanent link">&para;</a></h1>
-<p><img alt="" src="../img/logic-analysis-i2c.png" /></p>
+                <h1 id="how-to-debug-micropython">How to Debug Micropython<a class="headerlink" href="#how-to-debug-micropython" title="Permanent link">&para;</a></h1>
+<h2 id="listing-the-modules">Listing the Modules<a class="headerlink" href="#listing-the-modules" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Result:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">__main__          gc                uasyncio/funcs    uos</span>
+<span class="err">_boot             machine           uasyncio/lock     urandom</span>
+<span class="err">_onewire          math              uasyncio/stream   ure</span>
+<span class="err">_rp2              micropython       ubinascii         uselect</span>
+<span class="err">_thread           onewire           ucollections      ustruct</span>
+<span class="err">_uasyncio         rp2               uctypes           usys</span>
+<span class="err">builtins          uasyncio/__init__ uhashlib          utime</span>
+<span class="err">ds18x20           uasyncio/core     uio               uzlib</span>
+<span class="err">framebuf          uasyncio/event    ujson</span>
+<span class="err">Plus any modules on the filesystem</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="micropython-issues">Micropython issues<a class="headerlink" href="#micropython-issues" title="Permanent link">&para;</a></h2>
+<p>https://github.com/micropython/micropython/issues</p>
                 
               
               
@@ -694,7 +779,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../28-debugging-python/" title="Debugging Python" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../11-pong/" title="OLED Pong" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -703,19 +788,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Debugging Python
+                  OLED Pong
                 </span>
               </div>
             </a>
           
           
-            <a href="../29-debugging-spi/" title="Debugging SPI" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../29a-debugging-i2c/" title="Debugging I2C" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Debugging SPI
+                  Debugging I2C
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
