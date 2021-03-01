@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED Pot - MicroPython</title>
+        <title>OLED SSD1306 I2C Examples - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oled-potentiometer-example" class="md-skip">
+        <a href="#oled-ssd1306-i2c-examples" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED Pot
+              OLED SSD1306 I2C Examples
             
           </span>
         </div>
@@ -457,103 +457,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          OLED Pot
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../12-oled-pot/" class="md-nav__link">
         OLED Pot
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#circuit-diagram" class="md-nav__link">
-    Circuit Diagram
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-the-pot" class="md-nav__link">
-    Testing the POT
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the POT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-16-bit-output" class="md-nav__link">
-    Sample 16 bit output
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-the-oled" class="md-nav__link">
-    Testing the OLED
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the OLED">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-the-defaults" class="md-nav__link">
-    Getting the defaults
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-program" class="md-nav__link">
-    Full Program
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -747,62 +655,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#circuit-diagram" class="md-nav__link">
-    Circuit Diagram
+  <a href="#i2c-scanner" class="md-nav__link">
+    I2C Scanner
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
+  <a href="#sh1106-example" class="md-nav__link">
+    SH1106 Example
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-pot" class="md-nav__link">
-    Testing the POT
+  <a href="#counter-example" class="md-nav__link">
+    Counter Example
   </a>
-  
-    <nav class="md-nav" aria-label="Testing the POT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-16-bit-output" class="md-nav__link">
-    Sample 16 bit output
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-oled" class="md-nav__link">
-    Testing the OLED
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the OLED">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-the-defaults" class="md-nav__link">
-    Getting the defaults
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-program" class="md-nav__link">
-    Full Program
+  <a href="#animated-box" class="md-nav__link">
+    Animated Box
   </a>
   
 </li>
@@ -819,37 +694,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/12-oled-pot.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/11-oled-sh1106-i2c.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="oled-potentiometer-example">OLED Potentiometer Example<a class="headerlink" href="#oled-potentiometer-example" title="Permanent link">&para;</a></h1>
-<p>In this lesson, we will use a potentiometer to change the value of an OLED display.  We will use a small SSD1306 OLED with an I2C interface.</p>
-<p>A potentiometer has three wires.  The two outside wires connect to GND and the 3.3 volt output.  The center wire, called the "tap" wire will connect to the pin that converts an continuous analog voltage value into a digital number.</p>
-<p><a href="https://en.wikipedia.org/wiki/Potentiometer">Wikipedia Page on Potentiometer</a></p>
-<h2 id="circuit-diagram">Circuit Diagram<a class="headerlink" href="#circuit-diagram" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="../img/oled-i2c-clock-data.png" /></p>
-<p><img alt="" src="../img/oled-pot-lab-pins.png" /></p>
-<h2 id="sample-code">Sample Code<a class="headerlink" href="#sample-code" title="Permanent link">&para;</a></h2>
-<h2 id="testing-the-pot">Testing the POT<a class="headerlink" href="#testing-the-pot" title="Permanent link">&para;</a></h2>
-<p>Our first task is to find what pin to use for our first Analog to Digital concerter. GP26 is the same as ADC0.  This is pin number 31 on the Pico.</p>
+                <h1 id="oled-ssd1306-i2c-examples">OLED SSD1306 I2C Examples<a class="headerlink" href="#oled-ssd1306-i2c-examples" title="Permanent link">&para;</a></h1>
+<p>We use small OLED displays in many of our labs because:</p>
+<ol>
+<li>They are <strong>inexpensive</strong> (around $4).</li>
+<li>They are <strong>easy to connect</strong> via SPI.  Just four wires: GND, VCC, Clock and Data.</li>
+<li>They have a <strong>large area</strong> to display feedback.  Most of them are 128X64 pixels.</li>
+<li>Once you get the drivers installed (not always easy) they are <strong>easy to program</strong>.  You only need to initialize the device and run the oled.fill(), oled.text() and oled.show() functions.</li>
+<li>OLEDs, unlike LCDs, have <strong>high contrast over a large range of input voltages</strong>.  This means that as your batteries slowly discharge, your OLEDs will keep their high-quality contrast.</li>
+<li>There is plenty of <strong>sample code and tutorials</strong> available.</li>
+</ol>
+<p>The first step is to find out what type of display graphics chip is used in your OLED.</p>
+<h2 id="i2c-scanner">I2C Scanner<a class="headerlink" href="#i2c-scanner" title="Permanent link">&para;</a></h2>
+<p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">pot</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device found at decimal&quot;</span><span class="p">,</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="sample-16-bit-output">Sample 16 bit output<a class="headerlink" href="#sample-16-bit-output" title="Permanent link">&para;</a></h3>
-<p>A 16-bit integer can store 216 (or 65,536) distinct values. In an unsigned representation, these values are the integers between 0 and 65,535.  So we are expecting numbers from 0 to 65,535.</p>
-<p>Sample results as we move the potentiometer from the minimum to the maximum values.</p>
+<p>returns: [60]</p>
+<h2 id="sh1106-example">SH1106 Example<a class="headerlink" href="#sh1106-example" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">import</span> <span class="nn">sh1106</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+
+<span class="n">display</span> <span class="o">=</span> <span class="n">sh1106</span><span class="o">.</span><span class="n">SH1106_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">,</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mh">0x3c</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="counter-example">Counter Example<a class="headerlink" href="#counter-example" title="Permanent link">&para;</a></h2>
+<p>In this example we will updated the display 50 times with a 1/10th of a second pause between each refresh.  A counter will cycle from 1 to 50.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -866,71 +774,27 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">65535</span>
-<span class="err">52844</span>
-<span class="err">31047</span>
-<span class="err">7745</span>
-<span class="err">256</span>
-<span class="err">352</span>
-<span class="err">19140</span>
-<span class="err">41114</span>
-<span class="err">62239</span>
-<span class="err">65535</span>
-<span class="err">57277</span>
-<span class="err">33384</span>
-<span class="err">10114</span>
-<span class="err">352</span>
-<span class="err">288</span>
-<span class="err">19940</span>
-<span class="err">28086</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="testing-the-oled">Testing the OLED<a class="headerlink" href="#testing-the-oled" title="Permanent link">&para;</a></h2>
-<h3 id="getting-the-defaults">Getting the defaults<a class="headerlink" href="#getting-the-defaults" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
-<span class="c1"># i2c=machine.I2C(0)</span>
-<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device found at decimal&quot;</span><span class="p">,</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">i2c</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<p>Results:
-This tells you the default pins and frequency that the I2C bus is running at.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">Device found at decimal [60]</span>
-<span class="err">I2C(0, freq=399361, scl=9, sda=8)</span>
-</code></pre></div>
-</td></tr></table>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">Device found at decimal [60]</span>
-<span class="err">I2C(0, freq=399361, scl=1, sda=0)</span>
-</code></pre></div>
-</td></tr></table>
-<p>This tells us that the default pins are GP9 (row 12) for clock and GP8 (row 11) for data.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
-<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Init I2C using I2C0 defaults SCL on GP9 (12) and SDA on GP8 (11) </span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CoderDojo Rocks&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">):</span> <span class="c1"># count 1 to 50</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear to black</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo Rocks!&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># at x=0, y=0, white on black</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># move 30 pixels horizontal and 20 down from the top</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># update display</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1">#wait 1/10th of a second</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="full-program">Full Program<a class="headerlink" href="#full-program" title="Permanent link">&para;</a></h2>
+<h2 id="animated-box">Animated Box<a class="headerlink" href="#animated-box" title="Permanent link">&para;</a></h2>
+<p>This draws a title and four lines around a drawing area.  It then draws boxes that move to the right.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -944,20 +808,56 @@ This tells you the default pins and frequency that the I2C bus is running at.</p
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
-<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
-<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Init I2C using I2C0 defaults SCL on GP9 (12) and SDA on GP8 (11) </span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">import</span> <span class="nn">sh1106</span>
+<span class="kn">import</span> <span class="nn">utime</span>
 
-<span class="n">POT_PIN</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">POT_PIN</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
-    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">sh1106</span><span class="o">.</span><span class="n">SH1106_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">,</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mh">0x3c</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear to black</span>
+<span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo Rocks&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># at x=0, y=0, white on black</span>
+<span class="c1"># line under title</span>
+<span class="n">display</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># bottom of display</span>
+<span class="n">display</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># left edge</span>
+<span class="n">display</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># right edge</span>
+<span class="n">display</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">118</span><span class="p">):</span>
+    <span class="c1"># box x0, y0, width, height, on</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># draw black behind number</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># update display</span>
+    <span class="c1"># utime.sleep(0.001)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
                 
@@ -974,41 +874,6 @@ This tells you the default pins and frequency that the I2C bus is running at.</p
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../11-oled-ssd1306-spi/" title="OLED SSD1306 SPI" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  OLED SSD1306 SPI
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../11-oled-ping/" title="OLED Ping" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  OLED Ping
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

@@ -427,8 +427,24 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ssd1306-examples/" class="md-nav__link">
-        OLED SSD1306 Examples
+      <a href="../11-oled-ssd1306-i2c/" class="md-nav__link">
+        OLED SSD1306 I2C
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-oled-ssd1306-spi/" class="md-nav__link">
+        OLED SSD1306 SPI
       </a>
     </li>
   
@@ -489,20 +505,52 @@
 
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20" checked>
+      
+      <label class="md-nav__link" for="nav-20">
+        Debugging
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Debugging" data-md-level="1">
+        <label class="md-nav__title" for="nav-20">
+          <span class="md-nav__icon md-icon"></span>
+          Debugging
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
   
     <li class="md-nav__item">
       <a href="../28-debugging.md" class="md-nav__link">
-        Debugging
+        Debugging Python
       </a>
     </li>
   
 
-    
-      
-      
-      
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29a-debugging-i2c/" class="md-nav__link">
+        Debugging I2C
+      </a>
+    </li>
+  
 
-
+          
+            
   
   
     
@@ -609,6 +657,12 @@
   
 </nav>
       
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -810,6 +864,14 @@ Saleae Logic Analyser SPI Logic Analyser Settings</p>
 <p>The first thing we want to see is what the signals to a working SPI OLED should be.  There are plenty of working drivers for the Arduino, so I hooked one up to the Logic analizer to see what they were.</p>
 <h2 id="viewing-data-clock-and-res">Viewing Data Clock and RES<a class="headerlink" href="#viewing-data-clock-and-res" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../img/spi-logic-analyser-data-clock-reset.png" /></p>
+<p><img alt="" src="../img/spi-logic-analyser-full.png" /><br/>
+All five signals</p>
+<p><img alt="" src="../img/spi-logic-analyser-dc-cs.png" /><br/>
+DC and CS signals have a larger period.</p>
+<p><img alt="" src="../img/spi-logic-analyser-dc-cs-2.png" /></p>
+<ol>
+<li>DC on was 3.668 milliseconds</li>
+</ol>
 <h3 id="clock-period">Clock Period<a class="headerlink" href="#clock-period" title="Permanent link">&para;</a></h3>
 <p>Our Clock (SCL) has 8 positive pulses with a width of .4167 microseconds.  This means that the positve/negative combined width has a period of 2 * .4167 = .8333 microseconds.  This can be converted into a frequency of 1.2 megahertz.</p>
 <p><img alt="" src="../img/spi-logic-analyser-clock-period.png" /></p>
@@ -835,7 +897,7 @@ Saleae Logic Analyser SPI Logic Analyser Settings</p>
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../11-pong/" title="OLED Pong" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../29a-debugging-i2c/" title="Debugging I2C" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -844,7 +906,7 @@ Saleae Logic Analyser SPI Logic Analyser Settings</p>
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  OLED Pong
+                  Debugging I2C
                 </span>
               </div>
             </a>
