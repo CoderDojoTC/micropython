@@ -2,29 +2,33 @@ site_name: 'MicroPython'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Micropython Home: index.md
-  - Introduction: 01-intro.md
-  - Microcontrollers: 01a-microcontrollers.md
-  - Boards: 02-boards.md
-  - Accessories: 02b-accessories.md
-  - Raspberry Pi Pico: 02-pi-pico.md
-  - ESP32: 02-esp32.md
-  - Thonny IDE: 02c-thonny.md
-  - Blink: 03-blink.md
-  - Temperature: 03-temperature.md
-  - Servo: 04-servo.md
-  - LED Strip: 05-led-strip.md
-  - Displays: 10-displays.md
-  - OLED SSD1306 I2C: 11-oled-ssd1306-i2c.md
-  - OLED SSD1306 SPI: 11-oled-ssd1306-spi.md
-  - OLED Pot: 12-oled-pot.md
-  - OLED Ping: 11-oled-ping.md
-  - OLED Pong: 11-pong.md
+  - Getting Started:
+    - Introduction: 01-intro.md
+    - Microcontrollers: 01a-microcontrollers.md
+    - Boards: 02-boards.md
+    - Accessories: 02b-accessories.md
+    - Raspberry Pi Pico: 02-pi-pico.md
+    - ESP32: 02-esp32.md
+    - Thonny IDE: 02c-thonny.md
+    - Python Libraries: 01b-libraries.md
+  - MicroPython Examples:
+    - Blink: 03-blink.md
+    - Temperature: 03-temperature.md
+    - Servo: 04-servo.md
+    - LED Strip: 05-led-strip.md
+    - Displays: 10-displays.md
+    - OLED SSD1306 I2C: 11-oled-ssd1306-i2c.md
+    - OLED SSD1306 SPI: 11-oled-ssd1306-spi.md
+    - OLED SH1106 I2C Example: 11-oled-sh1106-i2c.md
+    - OLED Pot: 12-oled-pot.md
+    - OLED Ping: 11-oled-ping.md
+    - OLED Pong: 11-pong.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
     - Debugging SPI: 29-debugging-spi.md
   - Glossary: glossary.md
-  - References: references.md
+  - References: 29-references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
 
