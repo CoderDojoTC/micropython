@@ -890,8 +890,8 @@
                   </a>
                 
                 
-                <h1 id="esp32-ttgo">ESP32 TTGO<a class="headerlink" href="#esp32-ttgo" title="Permanent link">&para;</a></h1>
-<h2 id="step-1-install-the-usb-to-uart-bridge-vcp-drivers">Step 1: Install the USB to UART Bridge VCP Drivers<a class="headerlink" href="#step-1-install-the-usb-to-uart-bridge-vcp-drivers" title="Permanent link">&para;</a></h2>
+                <h1 id="esp32-ttgo">ESP32 TTGO</h1>
+<h2 id="step-1-install-the-usb-to-uart-bridge-vcp-drivers">Step 1: Install the USB to UART Bridge VCP Drivers</h2>
 <p>Follow the directions here:</p>
 <p><a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers">https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers</a></p>
 <p>Test this by running the ``ls -l /dev/cu*``` and verify you see:</p>
@@ -900,21 +900,21 @@
 <p>Mac: 
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/establish-serial-connection.html
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/raw/master/MicroPython_BUILD/firmware/MicroPython_LoBo_esp32_all.zip</p>
-<h2 id="step-2-create-a-python-conda-environment-for-esp32">Step 2: Create a Python Conda Environment for ESP32<a class="headerlink" href="#step-2-create-a-python-conda-environment-for-esp32" title="Permanent link">&para;</a></h2>
+<h2 id="step-2-create-a-python-conda-environment-for-esp32">Step 2: Create a Python Conda Environment for ESP32</h2>
 <p>This is so we don't mess up other Python projects on your system.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>conda create -n esp32 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n esp32 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda activate esp32
 </code></pre></div>
 </td></tr></table>
-<h2 id="step-3-install-the-esptool">Step #3: Install the esptool<a class="headerlink" href="#step-3-install-the-esptool" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h2 id="step-3-install-the-esptool">Step #3: Install the esptool</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>$ pip3 install esptool
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ pip3 install esptool
 Collecting esptool
   Downloading esptool-3.0.tar.gz <span class="o">(</span><span class="m">149</span> kB<span class="o">)</span>
      <span class="p">|</span>████████████████████████████████<span class="p">|</span> <span class="m">149</span> kB <span class="m">2</span>.9 MB/s 
@@ -923,22 +923,22 @@ Installing collected packages: pycparser, six, cffi, reedsolo, pyserial, ecdsa, 
 Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16.1 esptool-3.0 pycparser-2.20 pyserial-3.5 reedsolo-1.5.4 six-1.15.0
 </code></pre></div>
 </td></tr></table>
-<h2 id="step-4-erase-the-old-firmware">Step 4: Erase the Old Firmware<a class="headerlink" href="#step-4-erase-the-old-firmware" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+<h2 id="step-4-erase-the-old-firmware">Step 4: Erase the Old Firmware</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
 </code></pre></div>
 </td></tr></table>
-<h2 id="step-5-download-the-new-firmware">Step 5: Download the New Firmware<a class="headerlink" href="#step-5-download-the-new-firmware" title="Permanent link">&para;</a></h2>
+<h2 id="step-5-download-the-new-firmware">Step 5: Download the New Firmware</h2>
 <p>Get the ESP32_All prebuilt binary:</p>
 <p><a href="https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares">https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares
 </a></p>
-<h2 id="step-6-reflash-the-new-esp32-firmware">Step 6: Reflash the new ESP32 Firmware<a class="headerlink" href="#step-6-reflash-the-new-esp32-firmware" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">cd</span> esp32_all/
+<h2 id="step-6-reflash-the-new-esp32-firmware">Step 6: Reflash the new ESP32 Firmware</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> esp32_all/
 ../flash.sh -p /dev/cu.SLAB_USBtoUART
 </code></pre></div>
 </td></tr></table>
-<p>this will run...</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>this will run...
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -952,7 +952,7 @@ Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16
 12
 13
 14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>$ esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
 esptool.py v3.0
 Serial port /dev/cu.SLAB_USBtoUART
 Connecting........_
@@ -968,14 +968,14 @@ Erasing flash <span class="o">(</span>this may take a <span class="k">while</spa
 Chip erase completed successfully <span class="k">in</span> <span class="m">2</span>.5s
 Hard resetting via RTS pin...
 </code></pre></div>
-</td></tr></table>
-<h2 id="configure-thonny">Configure Thonny<a class="headerlink" href="#configure-thonny" title="Permanent link">&para;</a></h2>
-<h3 id="set-the-serial-port">Set the Serial Port<a class="headerlink" href="#set-the-serial-port" title="Permanent link">&para;</a></h3>
+</td></tr></table></p>
+<h2 id="configure-thonny">Configure Thonny</h2>
+<h3 id="set-the-serial-port">Set the Serial Port</h3>
 <p><img alt="" src="../img/esp32-config-serial-port.png" /></p>
-<h3 id="set-the-interpreter">Set the Interpreter<a class="headerlink" href="#set-the-interpreter" title="Permanent link">&para;</a></h3>
+<h3 id="set-the-interpreter">Set the Interpreter</h3>
 <p><img alt="" src="../img/micropython-esp32.png" /></p>
-<h2 id="run-a-test">Run a test<a class="headerlink" href="#run-a-test" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h2 id="run-a-test">Run a test</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -992,7 +992,7 @@ Hard resetting via RTS pin...
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">display</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">network</span><span class="o">,</span> <span class="nn">utime</span>
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">display</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">network</span><span class="o">,</span> <span class="nn">utime</span>
 
 
 <span class="n">tft</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="n">TFT</span><span class="p">()</span>
@@ -1013,7 +1013,7 @@ Hard resetting via RTS pin...
 </code></pre></div>
 </td></tr></table>
 <p><img alt="" src="../img/color-oled.jpg" /></p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References</h2>
 <p>https://www.instructables.com/TTGO-color-Display-With-Micropython-TTGO-T-display/</p>
                 
               

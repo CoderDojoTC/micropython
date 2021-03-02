@@ -780,14 +780,14 @@
                   </a>
                 
                 
-                <h1 id="micropython-libraries">Micropython Libraries<a class="headerlink" href="#micropython-libraries" title="Permanent link">&para;</a></h1>
+                <h1 id="micropython-libraries">Micropython Libraries</h1>
 <p>When you start up your IDE, it may have a list of python modules built in.  You can list the current modules you have installed by running the <code>help('modules')</code> command.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="micropython-builtin-functions">MicroPython Builtin Functions<a class="headerlink" href="#micropython-builtin-functions" title="Permanent link">&para;</a></h2>
+<h2 id="micropython-builtin-functions">MicroPython Builtin Functions</h2>
 <p>MicroPython is designed to run quickly in a small memory system.  So it has trimmed down many of the standard Python libraries to fit the needs of microcontrollers.  Most of these libraries start with the letter "u" so that you are aware they are designed to run on microcontrollers.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -808,39 +808,39 @@
 19
 20
 21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">cmath – mathematical functions for complex numbers</span>
-<span class="err">gc – control the garbage collector</span>
-<span class="err">math – mathematical functions</span>
-<span class="err">uarray – arrays of numeric data</span>
-<span class="err">uasyncio — asynchronous I/O scheduler</span>
-<span class="err">ubinascii – binary/ASCII conversions</span>
-<span class="err">ucollections – collection and container types</span>
-<span class="err">uerrno – system error codes</span>
-<span class="err">uhashlib – hashing algorithms</span>
-<span class="err">uheapq – heap queue algorithm</span>
-<span class="err">uio – input/output streams</span>
-<span class="err">ujson – JSON encoding and decoding</span>
-<span class="err">uos – basic “operating system” services</span>
-<span class="err">ure – simple regular expressions</span>
-<span class="err">uselect – wait for events on a set of streams</span>
-<span class="err">usocket – socket module</span>
-<span class="err">ussl – SSL/TLS module</span>
-<span class="err">ustruct – pack and unpack primitive data types</span>
-<span class="err">usys – system specific functions</span>
-<span class="err">utime – time related functions</span>
-<span class="err">uzlib – zlib decompression</span>
-<span class="err">_thread – multithreading support</span>
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cmath – mathematical functions for complex numbers
+gc – control the garbage collector
+math – mathematical functions
+uarray – arrays of numeric data
+uasyncio — asynchronous I/O scheduler
+ubinascii – binary/ASCII conversions
+ucollections – collection and container types
+uerrno – system error codes
+uhashlib – hashing algorithms
+uheapq – heap queue algorithm
+uio – input/output streams
+ujson – JSON encoding and decoding
+uos – basic “operating system” services
+ure – simple regular expressions
+uselect – wait for events on a set of streams
+usocket – socket module
+ussl – SSL/TLS module
+ustruct – pack and unpack primitive data types
+usys – system specific functions
+utime – time related functions
+uzlib – zlib decompression
+_thread – multithreading support
 </code></pre></div>
 </td></tr></table>
-<h2 id="micropython-specific-libraries">MicroPython Specific Libraries<a class="headerlink" href="#micropython-specific-libraries" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h2 id="micropython-specific-libraries">MicroPython Specific Libraries</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>btree – simple BTree database
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>btree – simple BTree database
 framebuf — frame buffer manipulation
 machine — functions related to the hardware
 micropython – access and control MicroPython internals
@@ -850,10 +850,10 @@ ucryptolib – cryptographic ciphers
 uctypes – access binary data in a structured way
 </code></pre></div>
 </td></tr></table>
-<h2 id="adding-a-module">Adding a module<a class="headerlink" href="#adding-a-module" title="Permanent link">&para;</a></h2>
+<h2 id="adding-a-module">Adding a module</h2>
 <p>When you are using python and you attempt to use a module that python can't find you will get an error.  You must then use the python pip installer tool to add the new library.</p>
-<h2 id="full-list-of-modules">Full List of modules<a class="headerlink" href="#full-list-of-modules" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<h2 id="full-list-of-modules">Full List of modules</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
   3
   4
@@ -957,7 +957,7 @@ uctypes – access binary data in a structured way
 102
 103
 104
-105</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>Please wait a moment while I gather a list of all available modules...
+105</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Please wait a moment while I gather a list of all available modules...
 
 ESP-test            audioop             filecmp             random
 __future__          base64              fileinput           re

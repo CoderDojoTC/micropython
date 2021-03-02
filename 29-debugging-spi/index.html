@@ -860,9 +860,9 @@
                   </a>
                 
                 
-                <h1 id="debugging-spi">Debugging SPI<a class="headerlink" href="#debugging-spi" title="Permanent link">&para;</a></h1>
+                <h1 id="debugging-spi">Debugging SPI</h1>
 <p>In this lab we use a logic analyzer to debug the <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> protocol being used to drive a sample OLED device. We will be using the the <a href="https://www.saleae.com/">8 port Saleae Logic Analyser</a>.  The retail cost is about $399.00 although there are lower cost logic analyzer available.</p>
-<h2 id="oled-spi-settings">OLED SPI settings<a class="headerlink" href="#oled-spi-settings" title="Permanent link">&para;</a></h2>
+<h2 id="oled-spi-settings">OLED SPI settings</h2>
 <p>Our OLED device has seven wires.  In addition to power and ground there a five data connections we will be observing on our logic analyzer.</p>
 <p><img alt="SPI OLED Connections" src="../img/oled-back-connections.png" /></p>
 <ol>
@@ -874,15 +874,15 @@
 <li>VCC - Connect to the 3.3V Out pin 36</li>
 <li>GND - pin 38 or 3 any other GND pin</li>
 </ol>
-<h2 id="setting-up-a-logic-analyzer">Setting up a Logic Analyzer<a class="headerlink" href="#setting-up-a-logic-analyzer" title="Permanent link">&para;</a></h2>
-<h3 id="setup-spi-analyser">Setup SPI Analyser<a class="headerlink" href="#setup-spi-analyser" title="Permanent link">&para;</a></h3>
+<h2 id="setting-up-a-logic-analyzer">Setting up a Logic Analyzer</h2>
+<h3 id="setup-spi-analyser">Setup SPI Analyser</h3>
 <p><img alt="SPI Logic Analyser Analysis Option" src="../img/spi-logic-analyser.png" /></p>
-<h3 id="configure-spi-channel-settings">Configure SPI Channel Settings<a class="headerlink" href="#configure-spi-channel-settings" title="Permanent link">&para;</a></h3>
+<h3 id="configure-spi-channel-settings">Configure SPI Channel Settings</h3>
 <p><img alt="SPI Logic Analyser Settings" src="../img/spi-logic-analyser-settings.png" /><br/>
 Saleae Logic Analyser SPI Logic Analyser Settings</p>
-<h2 id="check-a-working-device">Check a Working Device<a class="headerlink" href="#check-a-working-device" title="Permanent link">&para;</a></h2>
+<h2 id="check-a-working-device">Check a Working Device</h2>
 <p>The first thing we want to see is what the signals to a working SPI OLED should be.  There are plenty of working drivers for the Arduino, so I hooked one up to the Logic analizer to see what they were.</p>
-<h2 id="viewing-data-clock-and-res">Viewing Data Clock and RES<a class="headerlink" href="#viewing-data-clock-and-res" title="Permanent link">&para;</a></h2>
+<h2 id="viewing-data-clock-and-res">Viewing Data Clock and RES</h2>
 <p><img alt="" src="../img/spi-logic-analyser-data-clock-reset.png" /></p>
 <p><img alt="" src="../img/spi-logic-analyser-full.png" /><br/>
 All five signals</p>
@@ -892,11 +892,11 @@ DC and CS signals have a larger period.</p>
 <ol>
 <li>DC on was 3.668 milliseconds</li>
 </ol>
-<h3 id="clock-period">Clock Period<a class="headerlink" href="#clock-period" title="Permanent link">&para;</a></h3>
+<h3 id="clock-period">Clock Period</h3>
 <p>Our Clock (SCL) has 8 positive pulses with a width of .4167 microseconds.  This means that the positve/negative combined width has a period of 2 * .4167 = .8333 microseconds.  This can be converted into a frequency of 1.2 megahertz.</p>
 <p><img alt="" src="../img/spi-logic-analyser-clock-period.png" /></p>
 <p><img alt="" src="../img/spi-logic-analyser-clock-gap.png" /></p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References</h2>
 <p><a href="https://www.youtube.com/watch?v=WMV04hzPKuM">Video on how to use the Saleae Logic Analizer</a></p>
 <p>https://www.youtube.com/watch?v=Ak9R4yxQPhs</p>
                 

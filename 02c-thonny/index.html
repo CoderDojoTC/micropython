@@ -862,17 +862,17 @@
                   </a>
                 
                 
-                <h1 id="thonny-python-ide">Thonny Python IDE<a class="headerlink" href="#thonny-python-ide" title="Permanent link">&para;</a></h1>
+                <h1 id="thonny-python-ide">Thonny Python IDE</h1>
 <p>A lightweight Python IDE ideal for writing simple Python programs for first time users.</p>
 <p>Thonny has the following screen areas.</p>
-<h2 id="toolbar">Toolbar<a class="headerlink" href="#toolbar" title="Permanent link">&para;</a></h2>
-<h2 id="script-area">Script Area<a class="headerlink" href="#script-area" title="Permanent link">&para;</a></h2>
-<h2 id="python-shell">Python Shell<a class="headerlink" href="#python-shell" title="Permanent link">&para;</a></h2>
-<h2 id="interpreter">Interpreter<a class="headerlink" href="#interpreter" title="Permanent link">&para;</a></h2>
+<h2 id="toolbar">Toolbar</h2>
+<h2 id="script-area">Script Area</h2>
+<h2 id="python-shell">Python Shell</h2>
+<h2 id="interpreter">Interpreter</h2>
 <p>Thonny runs on Mac, Windows and Linux.</p>
-<h4 id="running-help">Running help()<a class="headerlink" href="#running-help" title="Permanent link">&para;</a></h4>
+<h4 id="running-help">Running help()</h4>
 <p>You can enter the help() function in the main script area and then press the Play button.  This will tell you </p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -909,78 +909,78 @@
 35
 36
 37
-38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">MicroPython</span><span class="w"> </span><span class="n">v1</span><span class="mf">.14</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span><span class="p">;</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="nf">Pi</span><span class="w"> </span><span class="n">Pico</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">RP2040</span><span class="w"></span>
-<span class="n">Type</span><span class="w"> </span><span class="ss">&quot;help()&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">.</span><span class="w"></span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">%</span><span class="n">Run</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="err">$</span><span class="n">EDITOR_CONTENT</span><span class="w"></span>
-<span class="n">Welcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">MicroPython</span><span class="err">!</span><span class="w"></span>
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>MicroPython v1.14 on 2021-02-02; Raspberry Pi Pico with RP2040
+Type &quot;help()&quot; for more information.
+&gt;&gt;&gt; %Run -c $EDITOR_CONTENT
+Welcome to MicroPython!
 
-<span class="k">For</span><span class="w"> </span><span class="n">online</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">micropython</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">help</span><span class="o">/</span><span class="p">.</span><span class="w"></span>
+For online help please visit https://micropython.org/help/.
 
-<span class="k">For</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s1">&#39;machine&#39;</span><span class="w"> </span><span class="k">module</span><span class="p">.</span><span class="w">  </span><span class="n">RP2</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="n">commands</span><span class="w"></span>
-<span class="k">are</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s1">&#39;rp2&#39;</span><span class="w"> </span><span class="k">module</span><span class="p">.</span><span class="w"></span>
+For access to the hardware use the &#39;machine&#39; module.  RP2 specific commands
+are in the &#39;rp2&#39; module.
 
-<span class="n">Quick</span><span class="w"> </span><span class="n">overview</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="ow">some</span><span class="w"> </span><span class="nl">objects</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="n">eg</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pin</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">configure</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">p</span><span class="w"></span>
-<span class="w">    </span><span class="nl">methods</span><span class="p">:</span><span class="w"> </span><span class="n">init</span><span class="p">(..),</span><span class="w"> </span><span class="k">value</span><span class="p">(</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">high</span><span class="p">(),</span><span class="w"> </span><span class="n">low</span><span class="p">(),</span><span class="w"> </span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">analog</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pin</span><span class="w"></span>
-<span class="w">    </span><span class="nl">methods</span><span class="p">:</span><span class="w"> </span><span class="n">read_u16</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">PWM</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">PWM</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pin</span><span class="w"></span>
-<span class="w">    </span><span class="nl">methods</span><span class="p">:</span><span class="w"> </span><span class="n">deinit</span><span class="p">(),</span><span class="w"> </span><span class="n">freq</span><span class="p">(</span><span class="o">[</span><span class="n">f</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">duty_u16</span><span class="p">(</span><span class="o">[</span><span class="n">d</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">duty_ns</span><span class="p">(</span><span class="o">[</span><span class="n">d</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">I2C</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">I2C</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nl">methods</span><span class="p">:</span><span class="w"> </span><span class="n">readfrom</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="o">=</span><span class="k">True</span><span class="p">),</span><span class="w"> </span><span class="n">writeto</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="w"></span>
-<span class="w">             </span><span class="n">readfrom_mem</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="n">memaddr</span><span class="p">,</span><span class="w"> </span><span class="n">arg</span><span class="p">),</span><span class="w"> </span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="n">memaddr</span><span class="p">,</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">SPI</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">baudrate</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">SPI</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nl">methods</span><span class="p">:</span><span class="w"> </span><span class="k">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span><span class="w"> </span><span class="k">write</span><span class="o">=</span><span class="mh">0x00</span><span class="p">),</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="n">write_readinto</span><span class="p">(</span><span class="n">wr_buf</span><span class="p">,</span><span class="w"> </span><span class="n">rd_buf</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">machine</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">software</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="k">object</span><span class="w"></span>
-<span class="w">    </span><span class="nl">eg</span><span class="p">:</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="o">=</span><span class="n">lambda</span><span class="w"> </span><span class="nl">t</span><span class="p">:</span><span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="w"></span>
+Quick overview of some objects:
+  machine.Pin(pin) -- get a pin, eg machine.Pin(0)
+  machine.Pin(pin, m, [p]) -- get a pin and configure it for IO mode m, pull mode p
+    methods: init(..), value([v]), high(), low(), irq(handler)
+  machine.ADC(pin) -- make an analog object from a pin
+    methods: read_u16()
+  machine.PWM(pin) -- make a PWM object from a pin
+    methods: deinit(), freq([f]), duty_u16([d]), duty_ns([d])
+  machine.I2C(id) -- create an I2C object (id=0,1)
+    methods: readfrom(addr, buf, stop=True), writeto(addr, buf, stop=True)
+             readfrom_mem(addr, memaddr, arg), writeto_mem(addr, memaddr, arg)
+  machine.SPI(id, baudrate=1000000) -- create an SPI object (id=0,1)
+    methods: read(nbytes, write=0x00), write(buf), write_readinto(wr_buf, rd_buf)
+  machine.Timer(freq, callback) -- create a software timer object
+    eg: machine.Timer(freq=1, callback=lambda t:print(t))
 
-<span class="n">Pins</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">numbered</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">26</span><span class="o">-</span><span class="mi">29</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">ADC</span><span class="w"> </span><span class="n">capabilities</span><span class="w"></span>
-<span class="n">Pin</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="k">are</span><span class="err">:</span><span class="w"> </span><span class="n">Pin</span><span class="p">.</span><span class="ow">IN</span><span class="p">,</span><span class="w"> </span><span class="n">Pin</span><span class="p">.</span><span class="k">OUT</span><span class="p">,</span><span class="w"> </span><span class="n">Pin</span><span class="p">.</span><span class="n">ALT</span><span class="w"></span>
-<span class="n">Pin</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="k">are</span><span class="err">:</span><span class="w"> </span><span class="n">Pin</span><span class="p">.</span><span class="n">PULL_UP</span><span class="p">,</span><span class="w"> </span><span class="n">Pin</span><span class="p">.</span><span class="n">PULL_DOWN</span><span class="w"></span>
+Pins are numbered 0-29, and 26-29 have ADC capabilities
+Pin IO modes are: Pin.IN, Pin.OUT, Pin.ALT
+Pin pull modes are: Pin.PULL_UP, Pin.PULL_DOWN
 
-<span class="n">Useful</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="nl">commands</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">CTRL</span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">interrupt</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">program</span><span class="w"></span>
-<span class="w">  </span><span class="n">CTRL</span><span class="o">-</span><span class="n">D</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">soft</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">board</span><span class="w"></span>
-<span class="w">  </span><span class="n">CTRL</span><span class="o">-</span><span class="n">E</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">enter</span><span class="w"> </span><span class="n">paste</span><span class="w"> </span><span class="n">mode</span><span class="w"></span>
+Useful control commands:
+  CTRL-C -- interrupt a running program
+  CTRL-D -- on a blank line, do a soft reset of the board
+  CTRL-E -- on a blank line, enter paste mode
 
-<span class="k">For</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="k">object</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">help</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"></span>
-<span class="k">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">modules</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span>
+For further help on a specific object, type help(obj)
+For a list of available modules, type help(&#39;modules&#39;)
+&gt;&gt;&gt; 
 </code></pre></div>
 </td></tr></table>
-<h2 id="save-options">Save Options<a class="headerlink" href="#save-options" title="Permanent link">&para;</a></h2>
+<h2 id="save-options">Save Options</h2>
 <p>You can save a python file in Thonny to either the Pico or to your local computer's file system.</p>
 <p><img alt="" src="../img/save-local-pico.png" /></p>
 <p>first stop execution of any program you are running.</p>
-<h2 id="downloading-the-firmware">Downloading the Firmware<a class="headerlink" href="#downloading-the-firmware" title="Permanent link">&para;</a></h2>
+<h2 id="downloading-the-firmware">Downloading the Firmware</h2>
 <p>After you start up Thonny there will be a button in the lower right corner.</p>
-<p>After you click on it you will see the following:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>After you click on it you will see the following:
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">Downloading</span> <span class="mi">465408</span> <span class="n">bytes</span> <span class="n">from</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">raspberrypi</span><span class="o">/</span><span class="n">micropython</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">pico</span><span class="o">-</span><span class="mi">20210120</span><span class="o">/</span><span class="n">pico_micropython_20210121</span><span class="o">.</span><span class="n">uf2</span>
-<span class="n">Writing</span> <span class="n">to</span> <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">RPI</span><span class="o">-</span><span class="n">RP2</span><span class="o">/</span><span class="n">firmware</span>
-<span class="mi">100</span><span class="o">%</span>
-<span class="n">Waiting</span> <span class="k">for</span> <span class="n">the</span> <span class="n">port</span><span class="o">...</span>
-<span class="n">Found</span> <span class="mf">2e8</span><span class="n">a</span><span class="p">:</span><span class="mi">0005</span> <span class="n">at</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">usbmodem0000000000001</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
+Writing to /Volumes/RPI-RP2/firmware
+100%
+Waiting for the port...
+Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
 
-<span class="n">Done</span><span class="o">!</span>
+Done!
 </code></pre></div>
-</td></tr></table>
-<h2 id="version">Version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h2>
+</td></tr></table></p>
+<h2 id="version">Version</h2>
 <p>After you press play the following will appear in the console.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>MicroPython v1.13-290-g556ae7914 on <span class="m">2021</span>-01-21<span class="p">;</span> Raspberry Pi Pico with RP2040
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>MicroPython v1.13-290-g556ae7914 on <span class="m">2021</span>-01-21<span class="p">;</span> Raspberry Pi Pico with RP2040
 Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more information.
 &gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="background-on-thonny">Background on Thonny<a class="headerlink" href="#background-on-thonny" title="Permanent link">&para;</a></h2>
+<h2 id="background-on-thonny">Background on Thonny</h2>
 <p>Micropython was originally developed by Damien George and first released in 2014.  Some support of Thonny is being done the <a href="https://www.cs.ut.ee/en">University of Tartu Institute of Computer Science</a> in Estonia.  Several features were sponsored by the <a href="glossary#raspberry-pi-foundation">Raspberry Pi Foundation</a></p>
 <ul>
 <li><a href="https://thonny.org/">Thonny web site</a></li>

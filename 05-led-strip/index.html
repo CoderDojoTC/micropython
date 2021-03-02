@@ -780,14 +780,14 @@
                   </a>
                 
                 
-                <h1 id="led-strip">LED Strip<a class="headerlink" href="#led-strip" title="Permanent link">&para;</a></h1>
+                <h1 id="led-strip">LED Strip</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The current version of the runtime (rp2-pico-20210205-unstable-v1.14-8-g1f800cac3) accidentally dropped the array module.  To run this you will need to use <a href="https://github.com/robert-hh/micropython/blob/rp2_fat/ports/rp2/build/firmware.uf2">this</a>
 See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue 6837: rp2 port no module named array</a>.  This should be fixed in a day or two.</p>
 <p>Feb. 20th, 2021. - Dan</p>
 </div>
-<h2 id="circuit-connections">Circuit connections<a class="headerlink" href="#circuit-connections" title="Permanent link">&para;</a></h2>
+<h2 id="circuit-connections">Circuit connections</h2>
 <p><img alt="" src="../img/led-strip-connections.png" /></p>
 <table>
 <thead>
@@ -819,16 +819,16 @@ See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue
 </tr>
 </tbody>
 </table>
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h2 id="parameters">Parameters</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">60</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">PIN_NUM</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">brightness</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="full-code">full code<a class="headerlink" href="#full-code" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<h2 id="full-code">full code</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
   3
   4
@@ -931,7 +931,7 @@ See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue
 101
 102
 103
-104</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1"># Example using PIO to drive a set of WS2812 LEDs.</span>
+104</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Example using PIO to drive a set of WS2812 LEDs.</span>
 
 <span class="kn">import</span> <span class="nn">array</span><span class="o">,</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
@@ -1037,7 +1037,7 @@ See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue
 <span class="n">rainbow_cycle</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References</h2>
 <p><a href="https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html">Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico</a> - HTML page, sample code and video</p>
 <p><a href="https://github.com/micropython/micropython/issues/6837">rp2 port no module named array</a></p>
                 

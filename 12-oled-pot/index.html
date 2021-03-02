@@ -846,22 +846,22 @@
                   </a>
                 
                 
-                <h1 id="oled-potentiometer-example">OLED Potentiometer Example<a class="headerlink" href="#oled-potentiometer-example" title="Permanent link">&para;</a></h1>
+                <h1 id="oled-potentiometer-example">OLED Potentiometer Example</h1>
 <p>In this lesson, we will use a potentiometer to change the value of an OLED display.  We will use a small SSD1306 OLED with an I2C interface.</p>
 <p>A potentiometer has three wires.  The two outside wires connect to GND and the 3.3 volt output.  The center wire, called the "tap" wire will connect to the pin that converts an continuous analog voltage value into a digital number.</p>
 <p><a href="https://en.wikipedia.org/wiki/Potentiometer">Wikipedia Page on Potentiometer</a></p>
-<h2 id="circuit-diagram">Circuit Diagram<a class="headerlink" href="#circuit-diagram" title="Permanent link">&para;</a></h2>
+<h2 id="circuit-diagram">Circuit Diagram</h2>
 <p><img alt="" src="../img/oled-i2c-clock-data.png" /></p>
 <p><img alt="" src="../img/oled-pot-lab-pins.png" /></p>
-<h2 id="sample-code">Sample Code<a class="headerlink" href="#sample-code" title="Permanent link">&para;</a></h2>
-<h2 id="testing-the-pot">Testing the POT<a class="headerlink" href="#testing-the-pot" title="Permanent link">&para;</a></h2>
+<h2 id="sample-code">Sample Code</h2>
+<h2 id="testing-the-pot">Testing the POT</h2>
 <p>Our first task is to find what pin to use for our first Analog to Digital concerter. GP26 is the same as ADC0.  This is pin number 31 on the Pico.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="n">pot</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -869,10 +869,10 @@
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="sample-16-bit-output">Sample 16 bit output<a class="headerlink" href="#sample-16-bit-output" title="Permanent link">&para;</a></h3>
+<h3 id="sample-16-bit-output">Sample 16 bit output</h3>
 <p>A 16-bit integer can store 216 (or 65,536) distinct values. In an unsigned representation, these values are the integers between 0 and 65,535.  So we are expecting numbers from 0 to 65,535.</p>
-<p>Sample results as we move the potentiometer from the minimum to the maximum values.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>Sample results as we move the potentiometer from the minimum to the maximum values.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -888,32 +888,32 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">65535</span>
-<span class="err">52844</span>
-<span class="err">31047</span>
-<span class="err">7745</span>
-<span class="err">256</span>
-<span class="err">352</span>
-<span class="err">19140</span>
-<span class="err">41114</span>
-<span class="err">62239</span>
-<span class="err">65535</span>
-<span class="err">57277</span>
-<span class="err">33384</span>
-<span class="err">10114</span>
-<span class="err">352</span>
-<span class="err">288</span>
-<span class="err">19940</span>
-<span class="err">28086</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>65535
+52844
+31047
+7745
+256
+352
+19140
+41114
+62239
+65535
+57277
+33384
+10114
+352
+288
+19940
+28086
 </code></pre></div>
-</td></tr></table>
-<h2 id="testing-the-oled">Testing the OLED<a class="headerlink" href="#testing-the-oled" title="Permanent link">&para;</a></h2>
-<h3 id="getting-the-defaults">Getting the defaults<a class="headerlink" href="#getting-the-defaults" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</td></tr></table></p>
+<h2 id="testing-the-oled">Testing the OLED</h2>
+<h3 id="getting-the-defaults">Getting the defaults</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="c1"># i2c=machine.I2C(0)</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device found at decimal&quot;</span><span class="p">,</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
@@ -922,18 +922,18 @@
 </td></tr></table>
 <p>Results:
 This tells you the default pins and frequency that the I2C bus is running at.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">Device found at decimal [60]</span>
-<span class="err">I2C(0, freq=399361, scl=9, sda=8)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Device found at decimal [60]
+I2C(0, freq=399361, scl=9, sda=8)
 </code></pre></div>
 </td></tr></table>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">Device found at decimal [60]</span>
-<span class="err">I2C(0, freq=399361, scl=1, sda=0)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Device found at decimal [60]
+I2C(0, freq=399361, scl=1, sda=0)
 </code></pre></div>
 </td></tr></table>
 <p>This tells us that the default pins are GP9 (row 12) for clock and GP8 (row 11) for data.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
@@ -941,7 +941,7 @@ This tells you the default pins and frequency that the I2C bus is running at.</p
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
 <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>
@@ -952,8 +952,8 @@ This tells you the default pins and frequency that the I2C bus is running at.</p
 <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="full-program">Full Program<a class="headerlink" href="#full-program" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h2 id="full-program">Full Program</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -966,7 +966,7 @@ This tells you the default pins and frequency that the I2C bus is running at.</p
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
 <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>

@@ -972,7 +972,7 @@
                   </a>
                 
                 
-                <h1 id="oled-ssd1306-examples">OLED SSD1306 Examples<a class="headerlink" href="#oled-ssd1306-examples" title="Permanent link">&para;</a></h1>
+                <h1 id="oled-ssd1306-examples">OLED SSD1306 Examples</h1>
 <p>We use small OLED displays in many of our labs because:</p>
 <ol>
 <li>They are <strong>inexpensive</strong> (around $4).</li>
@@ -983,13 +983,13 @@
 <li>There is plenty of <strong>sample code and tutorials</strong> available.</li>
 </ol>
 <p>The first step is to find out what type of display graphics chip is used in your OLED.</p>
-<h2 id="i2c-scanner">I2C Scanner<a class="headerlink" href="#i2c-scanner" title="Permanent link">&para;</a></h2>
+<h2 id="i2c-scanner">I2C Scanner</h2>
 <p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
@@ -997,13 +997,13 @@
 </code></pre></div>
 </td></tr></table>
 <p>returns: [60]</p>
-<h2 id="using-the-ssd1306-with-i2c-interfaces">Using the SSD1306 with I2C Interfaces<a class="headerlink" href="#using-the-ssd1306-with-i2c-interfaces" title="Permanent link">&para;</a></h2>
-<h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module<a class="headerlink" href="#add-the-ssd1306-python-module" title="Permanent link">&para;</a></h3>
+<h2 id="using-the-ssd1306-with-i2c-interfaces">Using the SSD1306 with I2C Interfaces</h2>
+<h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module</h3>
 <p>You can now use the Thonny "Tools -&gt; Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  </p>
 <p><img alt="" src="../img/thonny-add-ssd1306.png" /></p>
 <p>If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.</p>
-<h2 id="i2c-hello-world">I2C Hello World<a class="headerlink" href="#i2c-hello-world" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h2 id="i2c-hello-world">I2C Hello World</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1013,7 +1013,7 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1028,8 +1028,8 @@
 </td></tr></table>
 <p>After this program runs you should see the text on your OLED display.
 <img alt="" src="oled-hello-world.png" /></p>
-<h2 id="sh1106-example">SH1106 Example<a class="headerlink" href="#sh1106-example" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h2 id="sh1106-example">SH1106 Example</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1043,7 +1043,7 @@
 12
 13
 14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">import</span> <span class="nn">sh1106</span>
 
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1060,9 +1060,9 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="counter-example">Counter Example<a class="headerlink" href="#counter-example" title="Permanent link">&para;</a></h2>
+<h2 id="counter-example">Counter Example</h2>
 <p>In this example we will updated the display 50 times with a 1/10th of a second pause between each refresh.  A counter will cycle from 1 to 50.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1078,7 +1078,7 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 
@@ -1097,9 +1097,9 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="animated-box">Animated Box<a class="headerlink" href="#animated-box" title="Permanent link">&para;</a></h2>
+<h2 id="animated-box">Animated Box</h2>
 <p>This draws a title and four lines around a drawing area.  It then draws boxes that move to the right.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1130,7 +1130,7 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">import</span> <span class="nn">sh1106</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
@@ -1164,15 +1164,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="install-ssd1306-module">Install SSD1306 Module<a class="headerlink" href="#install-ssd1306-module" title="Permanent link">&para;</a></h2>
+<h2 id="install-ssd1306-module">Install SSD1306 Module</h2>
 <p><img alt="" src="../img/install-ssd1306.png" /></p>
-<h2 id="ssd1306-module">ssd1306 module<a class="headerlink" href="#ssd1306-module" title="Permanent link">&para;</a></h2>
+<h2 id="ssd1306-module">ssd1306 module</h2>
 <p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
-<h2 id="ssd1306-vs-sh1106">SSD1306 vs. SH1106<a class="headerlink" href="#ssd1306-vs-sh1106" title="Permanent link">&para;</a></h2>
+<h2 id="ssd1306-vs-sh1106">SSD1306 vs. SH1106</h2>
 <p>There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.</p>
-<h2 id="the-spi-interface">The SPI interface<a class="headerlink" href="#the-spi-interface" title="Permanent link">&para;</a></h2>
+<h2 id="the-spi-interface">The SPI interface</h2>
 <p>The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.</p>
-<h3 id="spi-baudrate">SPI Baudrate<a class="headerlink" href="#spi-baudrate" title="Permanent link">&para;</a></h3>
+<h3 id="spi-baudrate">SPI Baudrate</h3>
 <p>https://raspberrypi.github.io/pico-sdk-doxygen/group__hardware__spi.html#ga37f4c04ce4165ac8c129226336a0b66c</p>
 <p>The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:</p>
 <p><img alt="" src="../img/oled-back-connections.png" /></p>
@@ -1185,8 +1185,8 @@
 <li>VCC - Connect to the 3.3V Out pin 36</li>
 <li>GND - pin 38 or 3 any other GND pin</li>
 </ol>
-<h3 id="pico-pins">Pico Pins<a class="headerlink" href="#pico-pins" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h3 id="pico-pins">Pico Pins</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1195,16 +1195,16 @@
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err"># Sample code sections</span>
-<span class="err"> 28 # ------------ SPI ------------------</span>
-<span class="err"> 29 # Pin Map SPI</span>
-<span class="err"> 30 # - 3v - xxxxxx - Vcc</span>
-<span class="err"> 31 # - G - xxxxxx - Gnd</span>
-<span class="err"> 32 # - D7 - GPIO 13 - Din / MOSI fixed</span>
-<span class="err"> 33 # - D5 - GPIO 14 - Clk / Sck fixed</span>
-<span class="err"> 34 # - D8 - GPIO 4 - CS (optional, if the only connected device)</span>
-<span class="err"> 35 # - D2 - GPIO 5 - D/C</span>
-<span class="err"> 36 # - D1 - GPIO 2 - Res</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code># Sample code sections
+ 28 # ------------ SPI ------------------
+ 29 # Pin Map SPI
+ 30 # - 3v - xxxxxx - Vcc
+ 31 # - G - xxxxxx - Gnd
+ 32 # - D7 - GPIO 13 - Din / MOSI fixed
+ 33 # - D5 - GPIO 14 - Clk / Sck fixed
+ 34 # - D8 - GPIO 4 - CS (optional, if the only connected device)
+ 35 # - D2 - GPIO 5 - D/C
+ 36 # - D1 - GPIO 2 - Res
 </code></pre></div>
 </td></tr></table>
 <p>SCK is the clock - hook this to the oled SCL
@@ -1218,17 +1218,17 @@ Section 3.7</p>
 <li>SPI0_MISO - pin 8</li>
 </ol>
 <p>This contradicts p122 in GET STARTED WITH MICROPYTHON ON RASPBERRY PI PICO</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">spi_sck=machine.Pin(2)</span>
-<span class="err">spi_tx=machine.Pin(3)</span>
-<span class="err">spi_rx=machine.Pin(4)</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>spi_sck=machine.Pin(2)
+spi_tx=machine.Pin(3)
+spi_rx=machine.Pin(4)
 </code></pre></div>
 </td></tr></table>
-<h3 id="spi-terms">SPI Terms<a class="headerlink" href="#spi-terms" title="Permanent link">&para;</a></h3>
+<h3 id="spi-terms">SPI Terms</h3>
 <p>Master Out Slave In (MOSI)</p>
 <p>We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)</p>
-<h2 id="sample-nonworking-spi-code">Sample Nonworking SPI Code<a class="headerlink" href="#sample-nonworking-spi-code" title="Permanent link">&para;</a></h2>
+<h2 id="sample-nonworking-spi-code">Sample Nonworking SPI Code</h2>
 <p>From the documentation:</p>
 <div class="admonition from raspberry pi pico documentation">
 <p class="admonition-title">From</p>
@@ -1237,7 +1237,7 @@ Section 3.7</p>
 <p><strong>res</strong> is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.</p>
 <p><strong>cs</strong> is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.</p>
 </div>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1273,7 +1273,7 @@ Section 3.7</p>
 34
 35
 36
-37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="kn">import</span> <span class="nn">ssd1306</span>
@@ -1312,7 +1312,7 @@ Section 3.7</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References</h2>
 <p><a href="https://github.com/robert-hh/SH1106">robert-hh's SH1106 Driver</a></p>
 <p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
 <p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>

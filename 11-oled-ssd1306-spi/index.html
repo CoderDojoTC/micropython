@@ -490,11 +490,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-the-ssd1306-with-i2c-interfaces" class="md-nav__link">
-    Using the SSD1306 with I2C Interfaces
+  <a href="#using-the-ssd1306-with-spi-interfaces" class="md-nav__link">
+    Using the SSD1306 with SPI Interfaces
   </a>
   
-    <nav class="md-nav" aria-label="Using the SSD1306 with I2C Interfaces">
+    <nav class="md-nav" aria-label="Using the SSD1306 with SPI Interfaces">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -519,13 +519,6 @@
         <li class="md-nav__item">
   <a href="#ssd1306-module" class="md-nav__link">
     ssd1306 module
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd1306-vs-sh1106" class="md-nav__link">
-    SSD1306 vs. SH1106
   </a>
   
 </li>
@@ -763,11 +756,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-the-ssd1306-with-i2c-interfaces" class="md-nav__link">
-    Using the SSD1306 with I2C Interfaces
+  <a href="#using-the-ssd1306-with-spi-interfaces" class="md-nav__link">
+    Using the SSD1306 with SPI Interfaces
   </a>
   
-    <nav class="md-nav" aria-label="Using the SSD1306 with I2C Interfaces">
+    <nav class="md-nav" aria-label="Using the SSD1306 with SPI Interfaces">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -792,13 +785,6 @@
         <li class="md-nav__item">
   <a href="#ssd1306-module" class="md-nav__link">
     ssd1306 module
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd1306-vs-sh1106" class="md-nav__link">
-    SSD1306 vs. SH1106
   </a>
   
 </li>
@@ -834,23 +820,21 @@
                   </a>
                 
                 
-                <h1 id="oled-ssd1306-spi-examples">OLED SSD1306 SPI Examples<a class="headerlink" href="#oled-ssd1306-spi-examples" title="Permanent link">&para;</a></h1>
-<h2 id="using-the-ssd1306-with-i2c-interfaces">Using the SSD1306 with I2C Interfaces<a class="headerlink" href="#using-the-ssd1306-with-i2c-interfaces" title="Permanent link">&para;</a></h2>
-<h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module<a class="headerlink" href="#add-the-ssd1306-python-module" title="Permanent link">&para;</a></h3>
+                <h1 id="oled-ssd1306-spi-examples">OLED SSD1306 SPI Examples</h1>
+<h2 id="using-the-ssd1306-with-spi-interfaces">Using the SSD1306 with SPI Interfaces</h2>
+<h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module</h3>
 <p>You can now use the Thonny "Tools -&gt; Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  </p>
 <p><img alt="" src="../img/thonny-add-ssd1306.png" /></p>
 <p>If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.</p>
-<h2 id="install-ssd1306-module">Install SSD1306 Module<a class="headerlink" href="#install-ssd1306-module" title="Permanent link">&para;</a></h2>
+<h2 id="install-ssd1306-module">Install SSD1306 Module</h2>
 <p><img alt="" src="../img/install-ssd1306.png" /></p>
-<h2 id="ssd1306-module">ssd1306 module<a class="headerlink" href="#ssd1306-module" title="Permanent link">&para;</a></h2>
+<h2 id="ssd1306-module">ssd1306 module</h2>
 <p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
 <p><a href="https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py">SSD1306 Library Searchable</a></p>
-<h2 id="ssd1306-vs-sh1106">SSD1306 vs. SH1106<a class="headerlink" href="#ssd1306-vs-sh1106" title="Permanent link">&para;</a></h2>
-<p>There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.</p>
-<h2 id="the-spi-interface">The SPI interface<a class="headerlink" href="#the-spi-interface" title="Permanent link">&para;</a></h2>
+<h2 id="the-spi-interface">The SPI interface</h2>
 <p>The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.</p>
-<h2 id="displaying-spi-defaults">Displaying SPI Defaults<a class="headerlink" href="#displaying-spi-defaults" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<h2 id="displaying-spi-defaults">Displaying SPI Defaults</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -871,8 +855,7 @@
 19
 20
 21
-22
-23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_SPI</span>
 <span class="c1"># default is data (MOSI) on GP7 and clock (sck) on GP6</span>
 <span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -893,11 +876,10 @@
 <span class="mf">6.</span> <span class="n">VCC</span> <span class="o">-</span> <span class="n">Connect</span> <span class="n">to</span> <span class="n">the</span> <span class="mf">3.3</span><span class="n">V</span> <span class="n">Out</span> <span class="n">pin</span> <span class="mi">36</span>
 <span class="mf">7.</span> <span class="n">GND</span> <span class="o">-</span> <span class="n">pin</span> <span class="mi">38</span> <span class="ow">or</span> <span class="mi">3</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">GND</span> <span class="n">pin</span>
 
-
 <span class="c1">### Pico Pins</span>
 </code></pre></div>
 </td></tr></table>
-<h1 id="sample-code-sections">Sample code sections<a class="headerlink" href="#sample-code-sections" title="Permanent link">&para;</a></h1>
+<h1 id="sample-code-sections">Sample code sections</h1>
 <p>28 # ------------ SPI ------------------
  29 # Pin Map SPI
  30 # - 3v - xxxxxx - Vcc
@@ -906,8 +888,8 @@
  33 # - D5 - GPIO 14 - Clk / Sck fixed
  34 # - D8 - GPIO 4 - CS (optional, if the only connected device)
  35 # - D2 - GPIO 5 - D/C
- 36 # - D1 - GPIO 2 - Res</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 36 # - D1 - GPIO 2 - Res
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -918,24 +900,24 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">SCK</span> <span class="k">is</span> <span class="n">the</span> <span class="n">clock</span> <span class="o">-</span> <span class="n">hook</span> <span class="n">this</span> <span class="k">to</span> <span class="n">the</span> <span class="n">oled</span> <span class="n">SCL</span>
-<span class="n">MOSI</span> <span class="k">is</span> <span class="n">the</span> <span class="n">line</span> <span class="n">taking</span> <span class="k">data</span> <span class="k">from</span> <span class="n">your</span> <span class="n">Pico</span> <span class="k">to</span> <span class="n">the</span> <span class="n">peripheral</span> <span class="n">device</span><span class="p">.</span>  <span class="n">Hook</span> <span class="n">this</span> <span class="k">to</span> <span class="n">SDA</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>* SCK is the clock - hook this to the oled SCL
+* MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA
 
-<span class="k">From</span> <span class="n">the</span> <span class="n">SDK</span><span class="p">:</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">datasheets</span><span class="p">.</span><span class="n">raspberrypi</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">pico</span><span class="o">/</span><span class="n">raspberry</span><span class="o">-</span><span class="n">pi</span><span class="o">-</span><span class="n">pico</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">sdk</span><span class="p">.</span><span class="n">pdf</span>
-<span class="n">Section</span> <span class="mi">3</span><span class="p">.</span><span class="mi">7</span>
+From the SDK:
+https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf
+Section 3.7
 
-<span class="mi">1</span><span class="p">.</span> <span class="n">SPI0_SCK</span> <span class="o">-</span> <span class="n">pin</span> <span class="mi">6</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">SPI0_MOSI</span> <span class="o">-</span> <span class="n">pin</span> <span class="mi">7</span>
-<span class="mi">3</span><span class="p">.</span> <span class="n">SPI0_MISO</span> <span class="o">-</span> <span class="n">pin</span> <span class="mi">8</span>
+1. SPI0_SCK - pin 6
+2. SPI0_MOSI - pin 7
+3. SPI0_MISO - pin 8
 
-<span class="n">This</span> <span class="n">contradicts</span> <span class="n">p122</span> <span class="k">in</span> <span class="k">GET</span> <span class="n">STARTED</span> <span class="k">WITH</span> <span class="n">MICROPYTHON</span> <span class="k">ON</span> <span class="n">RASPBERRY</span> <span class="n">PI</span> <span class="n">PICO</span>
+This contradicts p122 in GET STARTED WITH MICROPYTHON ON RASPBERRY PI PICO
 </code></pre></div>
 </td></tr></table>
-<p>spi_sck=machine.Pin(2)
+spi_sck=machine.Pin(2)
 spi_tx=machine.Pin(3)
-spi_rx=machine.Pin(4)</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+spi_rx=machine.Pin(4)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -981,71 +963,65 @@ spi_rx=machine.Pin(4)</p>
 44
 45
 46
-47
-48
-49
-50
-51
-52</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">We</span> <span class="n">send</span> <span class="n">the</span> <span class="n">data</span> <span class="n">to</span> <span class="n">the</span> <span class="n">SPI</span> <span class="n">RX</span> <span class="p">(</span><span class="n">Receive</span><span class="p">)</span> <span class="n">port</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Pico</span><span class="o">.</span>  <span class="n">These</span> <span class="n">are</span> <span class="n">pin</span> <span class="mi">1</span> <span class="p">(</span><span class="n">GP0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">pin</span> <span class="mi">6</span> <span class="p">(</span><span class="n">GP4</span><span class="p">)</span>
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)
 
-<span class="c1">## Sample Nonworking SPI Code</span>
+## Sample Nonworking SPI Code
 
-<span class="n">From</span> <span class="n">the</span> <span class="n">documentation</span><span class="p">:</span>
+From the documentation:
 
-<span class="err">!!!</span> <span class="n">From</span> <span class="n">Raspberry</span> <span class="n">Pi</span> <span class="n">Pico</span> <span class="n">Documentation</span>
-    <span class="o">**</span><span class="n">spi</span><span class="o">**</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">SPI</span> <span class="nb">object</span><span class="p">,</span> <span class="n">which</span> <span class="n">has</span> <span class="n">to</span> <span class="n">be</span> <span class="n">created</span> <span class="n">beforehand</span> <span class="ow">and</span> <span class="n">tells</span> <span class="n">the</span> <span class="n">ports</span> <span class="k">for</span> <span class="n">SCLJ</span> <span class="ow">and</span> <span class="n">MOSI</span><span class="o">.</span> <span class="n">MISO</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">used</span><span class="o">.</span>
+!!! From Raspberry Pi Pico Documentation
+    **spi** is an SPI object, which has to be created beforehand and tells the ports for SCLJ and MOSI. MISO is not used.
 
-    <span class="o">**</span><span class="n">dc</span><span class="o">**</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">Pin</span> <span class="nb">object</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Data</span><span class="o">/</span><span class="n">Command</span> <span class="n">selection</span><span class="o">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">be</span> <span class="n">initialized</span> <span class="n">by</span> <span class="n">the</span> <span class="n">driver</span><span class="o">.</span>
+    **dc** is the GPIO Pin object for the Data/Command selection. It will be initialized by the driver.
 
-    <span class="o">**</span><span class="n">res</span><span class="o">**</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">Pin</span> <span class="nb">object</span> <span class="k">for</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">connection</span><span class="o">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">be</span> <span class="n">initialized</span> <span class="n">by</span> <span class="n">the</span> <span class="n">driver</span><span class="o">.</span> <span class="n">If</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">needed</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">omitted</span><span class="o">.</span> <span class="n">In</span> <span class="n">this</span> <span class="n">case</span> <span class="n">the</span> <span class="n">default</span> <span class="n">value</span> <span class="n">of</span> <span class="bp">None</span> <span class="n">applies</span><span class="o">.</span>
+    **res** is the GPIO Pin object for the reset connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
 
-    <span class="o">**</span><span class="n">cs</span><span class="o">**</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="n">Pin</span> <span class="nb">object</span> <span class="k">for</span> <span class="n">the</span> <span class="n">CS</span> <span class="n">connection</span><span class="o">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">be</span> <span class="n">initialized</span> <span class="n">by</span> <span class="n">the</span> <span class="n">driver</span><span class="o">.</span> <span class="n">If</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">needed</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">omitted</span><span class="o">.</span> <span class="n">In</span> <span class="n">this</span> <span class="n">case</span> <span class="n">the</span> <span class="n">default</span> <span class="n">value</span> <span class="n">of</span> <span class="bp">None</span> <span class="n">applies</span><span class="o">.</span>
+    **cs** is the GPIO Pin object for the CS connection. It will be initialized by the driver. If it is not needed, it can be set to None or omitted. In this case the default value of None applies.
 
-<span class="sb">``</span><span class="err">`</span><span class="n">py</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="kn">import</span> <span class="nn">ssd1306</span>
-<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+```py
+import machine
+import utime
+import ssd1306
+led = machine.Pin(25, machine.Pin.OUT)
 
-<span class="c1"># From: https://github.com/robert-hh/SH1106</span>
-<span class="c1"># display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)</span>
-<span class="c1">#MOSI=machine.Pin(7)</span>
-<span class="c1">#SCK=machine.Pin(6)</span>
-<span class="c1">#spi = machine.SPI(0, baudrate=400000, sck=SCK, mosi=MOSI)</span>
-<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="c1"># spi_rx=machine.Pin(4)</span>
-<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
+spi_sck=machine.Pin(6)
+spi_tx=machine.Pin(7)
+# spi_rx=machine.Pin(4)
+spi=machine.SPI(0,baudrate=100000,sck=spi_sck, mosi=spi_tx)
 
-<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+CS = machine.Pin(8)
+DC = machine.Pin(9)
+RES = machine.Pin(10)
 
-<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+oled = ssd1306.SSD1306_SPI(128, 64, spi, DC, RES, CS)
 
-<span class="c1"># flash all pixels on</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+# flash all pixels on
+oled.fill(1)
+oled.show()
+utime.sleep(0.5)
 
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;CoderDojo Rocks!&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+oled.fill(0)
+oled.text(&#39;CoderDojo Rocks!&#39;, 0, 0, 1)
+oled.show()
 
-<span class="c1"># flash the LED to show end</span>
-<span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+# flash the LED to show end
+led.high()
+utime.sleep(0.5)
+led.low()
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+print(&#39;Done&#39;)
 </code></pre></div>
-</td></tr></table>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+</td></tr></table></p>
+<h2 id="references">References</h2>
 <p><a href="https://github.com/robert-hh/SH1106">robert-hh's SH1106 Driver</a></p>
 <p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
 <p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>
 <p>https://github.com/robert-hh/SH1106/blob/master/sh1106.py</p>
 <p><a href="https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306">DIY More OLED Product Description</a></p>
+<h2 id="ssd1306">SSD1306</h2>
+<p>https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1306/</p>
+<h2 id="ssd1307">SSD1307</h2>
+<p>https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1307/</p>
                 
               
               

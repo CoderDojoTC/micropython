@@ -998,9 +998,9 @@
                   </a>
                 
                 
-                <h1 id="adding-a-display-to-your-project">Adding A Display to Your Project<a class="headerlink" href="#adding-a-display-to-your-project" title="Permanent link">&para;</a></h1>
+                <h1 id="adding-a-display-to-your-project">Adding A Display to Your Project</h1>
 <p>In the past, the memory available in an standard Arduino Uno (2K bytes) was too small to add high quality displays.  With the arrival of the ESP32 and the Raspberry Pi Pico this has all changed.  These microcontrollers have around 100 times that RAM - typically around 200K bytes.  So we are integrating low-cost OLED displays into many of our CoderDojo projects!</p>
-<h2 id="display-types">Display Types<a class="headerlink" href="#display-types" title="Permanent link">&para;</a></h2>
+<h2 id="display-types">Display Types</h2>
 <p>There are four main types of display technology that use for small microcontrollers.</p>
 <ol>
 <li><strong>LED</strong> - Light Emitting Diode - these are often low-resolution but have larger area.  The start with single color displays but there are also multi-color LED strips and LED matrix displays.</li>
@@ -1013,12 +1013,12 @@
 <img alt="Color OLED" src="../img/color-oled.jpg" />
 240X240 TFT Display</p>
 <p><a href="https://www.ebay.com/itm/Full-Color-LCD-TFT-Display-IPS-7P-SPI-HD-65K-Module-ST7735-Not-OLED-For-Arduino/265047107918">Full Color LCD TFT Display SPI HD 65K Module ST7735</a></p>
-<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<h2 id="concepts">Concepts</h2>
 <p>Before you begin to use these displays, there are a few things to understand to use them effectively.  Based on your project needs, you can use this knowledge to find the right solution for you.</p>
-<h3 id="framebuffers">Framebuffers<a class="headerlink" href="#framebuffers" title="Permanent link">&para;</a></h3>
+<h3 id="framebuffers">Framebuffers</h3>
 <p>A framebuffer is a copy of the display information that is resident within the RAM of the microcontroller.  It must be as large as the display.  For a 128X64 monochrome display this would be 128 * 64 = 8192 bits or 1,024 bytes (1K). A full color 240X240 TFT which uses 8 bits for red, green and blue would require 3 X 8 X 240 X 240 = 1,382,400 bits or 172K bytes.</p>
 <p>Not all all displays need framebuffers.  Some displays can take a series of vector drawing commands such as "draw line" and "draw text".  These displays can be useful if you don't have a large amount of RAM.</p>
-<h2 id="display-chip-types">Display Chip Types<a class="headerlink" href="#display-chip-types" title="Permanent link">&para;</a></h2>
+<h2 id="display-chip-types">Display Chip Types</h2>
 <p>There are two common versions:</p>
 <ol>
 <li><strong>SSD1306</strong> - This is the most popular and versatile chip.  It can be used to drive many different types and sizes of OLEDs.  The SSD1306 can be used with both the simple 4 wire I2C interface as well as the slightly faster 7 wire SPI interface.  These devices have only four wires labeled VCC, GND, SDA and SCL.  SDA is for data and SCL is for the clock.</li>
@@ -1026,13 +1026,13 @@
 <li><strong>ST7735</strong> - This chip is used on larger color TFT displays.</li>
 </ol>
 <p>You can usually look on the back of the display device and see what type of check controls your OLED display.</p>
-<h2 id="communication-protocols">Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permanent link">&para;</a></h2>
+<h2 id="communication-protocols">Communication Protocols</h2>
 <p>In addition to the multiple types of displays and types of chips driving the displays, there are also two options on how you want to communicate between your microcontroller and the display.</p>
 <ol>
 <li><strong>I2C</strong> - This is the most common type and only requires two wires beside power and ground.  Us this as your default unless you display does not support it.</li>
 <li><strong>SPI</strong> - This is a more complex interface and requires up to seven wires.  Some devices only support SPI interfaces.</li>
 </ol>
-<h3 id="basic-draw-functions">Basic Draw Functions<a class="headerlink" href="#basic-draw-functions" title="Permanent link">&para;</a></h3>
+<h3 id="basic-draw-functions">Basic Draw Functions</h3>
 <p>For our beginning labs we will just do some basic drawing. We will start out with just four functions: </p>
 <ol>
 <li>Initialize the display framebuffer memory with the right object class initialization</li>
@@ -1040,10 +1040,10 @@
 <li>Draw white text in the framebuffer memory with the oled.text("Hello World!", 40, 10)</li>
 <li>Send the entire framebuffer to the display over the bus with the oled.show() function.</li>
 </ol>
-<h3 id="initializing-the-framebuffer">Initializing the Framebuffer<a class="headerlink" href="#initializing-the-framebuffer" title="Permanent link">&para;</a></h3>
+<h3 id="initializing-the-framebuffer">Initializing the Framebuffer</h3>
 <p>Let's assume that we have a four wire OLED that uses the popular SSD1306 chip with 128X64 pixels.  We call our oled "oled" using the following line:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
@@ -1074,11 +1074,11 @@
 </tbody>
 </table>
 <p>The full program would look like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -1087,26 +1087,26 @@
 </td></tr></table>
 <p>This would display the following:</p>
 <p><img alt="OLED SPI Hello World" src="../img/oled-hello-world.png" /></p>
-<h3 id="full-list-of-drawing-functions">Full list of Drawing Functions<a class="headerlink" href="#full-list-of-drawing-functions" title="Permanent link">&para;</a></h3>
+<h3 id="full-list-of-drawing-functions">Full list of Drawing Functions</h3>
 <p>Every drawing library might have slightly different functions.  But we can quickly see the functions that we want by using the dir() function on the SSD1306_I2C class.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">SSD1306_I2C</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
-<p>This returns the following list:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+This returns the following list:</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
 <span class="s1">&#39;__bases__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;blit&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;fill_rect&#39;</span><span class="p">,</span> <span class="s1">&#39;hline&#39;</span><span class="p">,</span>
 <span class="s1">&#39;invert&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;vline&#39;</span><span class="p">,</span>
 <span class="s1">&#39;init_display&#39;</span><span class="p">,</span> <span class="s1">&#39;write_cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">,</span> <span class="s1">&#39;poweroff&#39;</span><span class="p">,</span> <span class="s1">&#39;poweron&#39;</span><span class="p">,</span>
 <span class="s1">&#39;contrast&#39;</span><span class="p">,</span> <span class="s1">&#39;write_data&#39;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<p>Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
+Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
 <p>The following are relevant for the SSD1306_I2C display.</p>
 <table>
 <thead>
@@ -1209,8 +1209,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h3>
-<h3 id="i2c">I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h3>
+<h3 id="interfaces">Interfaces</h3>
+<h3 id="i2c">I2C</h3>
 <p>Pros: Simple four wire interface</p>
 <table>
 <thead>
@@ -1228,10 +1228,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="spi">SPI<a class="headerlink" href="#spi" title="Permanent link">&para;</a></h3>
+<h3 id="spi">SPI</h3>
 <p>Example: 128X64 pixel monochrome displays</p>
-<h2 id="types-of-displays">Types of Displays<a class="headerlink" href="#types-of-displays" title="Permanent link">&para;</a></h2>
-<h3 id="summary-table">Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h3>
+<h2 id="types-of-displays">Types of Displays</h2>
+<h3 id="summary-table">Summary Table</h3>
 <table>
 <thead>
 <tr>
@@ -1250,10 +1250,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="lcd">LCD<a class="headerlink" href="#lcd" title="Permanent link">&para;</a></h3>
-<h3 id="oled">OLED<a class="headerlink" href="#oled" title="Permanent link">&para;</a></h3>
-<h3 id="tft-displays">TFT Displays<a class="headerlink" href="#tft-displays" title="Permanent link">&para;</a></h3>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h3 id="lcd">LCD</h3>
+<h3 id="oled">OLED</h3>
+<h3 id="tft-displays">TFT Displays</h3>
+<h2 id="references">References</h2>
 <p><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></p>
                 
               

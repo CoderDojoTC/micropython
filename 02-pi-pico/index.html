@@ -862,9 +862,9 @@
                   </a>
                 
                 
-                <h1 id="getting-started-with-the-raspberry-pi-pico">Getting Started with the Raspberry Pi Pico<a class="headerlink" href="#getting-started-with-the-raspberry-pi-pico" title="Permanent link">&para;</a></h1>
+                <h1 id="getting-started-with-the-raspberry-pi-pico">Getting Started with the Raspberry Pi Pico</h1>
 <p>The Raspberry Pi Pico is a custom silicon microcontroller built by the <a href="glossary#raspberry-pi-foundation">Raspberry Pi Foundation</a> with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as project that require drawing to an OLED display.</p>
-<h2 id="specs">Specs<a class="headerlink" href="#specs" title="Permanent link">&para;</a></h2>
+<h2 id="specs">Specs</h2>
 <ul>
 <li>RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom</li>
 <li>Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz</li>
@@ -888,10 +888,10 @@
 <li>Created using the TSMC 40LP manufacturing process</li>
 <li>USB mass-storage boot mode with UF2 support, for drag-and-drop programming</li>
 </ul>
-<h2 id="usb-cable">USB Cable<a class="headerlink" href="#usb-cable" title="Permanent link">&para;</a></h2>
+<h2 id="usb-cable">USB Cable</h2>
 <p>The Raspberry Pi Pico uses a USB-micro connector.
 <img alt="usb-micro-to-c" src="usb-micro-to-c.png" /> - image from ebay</p>
-<h2 id="pico-pinout">Pico Pinout<a class="headerlink" href="#pico-pinout" title="Permanent link">&para;</a></h2>
+<h2 id="pico-pinout">Pico Pinout</h2>
 <p>The pinout diagram for the Raspberry Pi.</p>
 <p>It features: 
 * 26 × multi-function GPIO pins
@@ -964,14 +964,14 @@ Pin pull modes are: Pin.PULL_UP, Pin.PULL_DOWN</p>
 </tr>
 </tbody>
 </table>
-<h2 id="steps-to-get-micropython-running-on-the-mac">Steps To Get Micropython Running on the Mac<a class="headerlink" href="#steps-to-get-micropython-running-on-the-mac" title="Permanent link">&para;</a></h2>
+<h2 id="steps-to-get-micropython-running-on-the-mac">Steps To Get Micropython Running on the Mac</h2>
 <ol>
 <li>Download the MicroPython UF2 file.</li>
 <li>Push and hold the BOOTSEL button and plug your Pico into the USB port of your Raspberry Pi or other computer. Release the BOOTSEL button after your Pico is connected.
 It will mount as a Mass Storage Device called RPI-RP2.</li>
 <li>Drag and drop the MicroPython UF2 file onto the RPI-RP2 volume. Your  Pico will reboot. You are now running MicroPython.</li>
 </ol>
-<h2 id="using-thonny">Using Thonny<a class="headerlink" href="#using-thonny" title="Permanent link">&para;</a></h2>
+<h2 id="using-thonny">Using Thonny</h2>
 <p>Thonny is a free lightweight Python development tool.</p>
 <ol>
 <li>Download the Thonny Application</li>
@@ -980,33 +980,33 @@ It will mount as a Mass Storage Device called RPI-RP2.</li>
 <li>Test using the help() function</li>
 <li>Test by running a blink application</li>
 </ol>
-<p><img alt="Thonny Micropython Firmware Update" src="thonny-micropython-firmware-update.png" /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p><img alt="Thonny Micropython Firmware Update" src="thonny-micropython-firmware-update.png" />
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">Downloading</span> <span class="mi">465408</span> <span class="n">bytes</span> <span class="n">from</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">raspberrypi</span><span class="o">/</span><span class="n">micropython</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">pico</span><span class="o">-</span><span class="mi">20210120</span><span class="o">/</span><span class="n">pico_micropython_20210121</span><span class="o">.</span><span class="n">uf2</span>
-<span class="n">Writing</span> <span class="n">to</span> <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">RPI</span><span class="o">-</span><span class="n">RP2</span><span class="o">/</span><span class="n">firmware</span>
-<span class="mi">100</span><span class="o">%</span>
-<span class="n">Waiting</span> <span class="k">for</span> <span class="n">the</span> <span class="n">port</span><span class="o">...</span>
-<span class="n">Found</span> <span class="mf">2e8</span><span class="n">a</span><span class="p">:</span><span class="mi">0005</span> <span class="n">at</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">usbmodem0000000000001</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
+Writing to /Volumes/RPI-RP2/firmware
+100%
+Waiting for the port...
+Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
 
-<span class="n">Done</span><span class="o">!</span>
+Done!
 </code></pre></div>
-</td></tr></table>
-<h2 id="using-the-onboard-led">Using the Onboard LED<a class="headerlink" href="#using-the-onboard-led" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</td></tr></table></p>
+<h2 id="using-the-onboard-led">Using the Onboard LED</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="n">led_onboard</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
@@ -1014,7 +1014,7 @@ It will mount as a Mass Storage Device called RPI-RP2.</li>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
 <span class="c1"># right uppermost pin with USB on the left</span>
@@ -1025,11 +1025,11 @@ It will mount as a Mass Storage Device called RPI-RP2.</li>
    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Press the Play Button</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<h3 id="getting-started-guide">Getting Started Guide<a class="headerlink" href="#getting-started-guide" title="Permanent link">&para;</a></h3>
+Press the Play Button</p>
+<h2 id="references">References</h2>
+<h3 id="getting-started-guide">Getting Started Guide</h3>
 <p><a href="https://www.raspberrypi.org/documentation/pico/getting-started/">Raspberry Pi Getting Started</a></p>
-<h3 id="book-pdf">Book PDF<a class="headerlink" href="#book-pdf" title="Permanent link">&para;</a></h3>
+<h3 id="book-pdf">Book PDF</h3>
 <p><a href="https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf"></a>
 Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
 (CC BY-NC-SA 3.0)</p>

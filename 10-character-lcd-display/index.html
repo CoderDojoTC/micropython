@@ -766,45 +766,45 @@
                   </a>
                 
                 
-                <h1 id="character-lcd-display">Character LCD Display<a class="headerlink" href="#character-lcd-display" title="Permanent link">&para;</a></h1>
-<h2 id="connections">connections<a class="headerlink" href="#connections" title="Permanent link">&para;</a></h2>
+                <h1 id="character-lcd-display">Character LCD Display</h1>
+<h2 id="connections">connections</h2>
 <p><img alt="" src="../img/i2c-display-connections.png" /></p>
-<h2 id="address-scanner">Address Scanner<a class="headerlink" href="#address-scanner" title="Permanent link">&para;</a></h2>
-<h3 id="scanner-code">Scanner Code<a class="headerlink" href="#scanner-code" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h2 id="address-scanner">Address Scanner</h2>
+<h3 id="scanner-code">Scanner Code</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="scanner-result">Scanner Result<a class="headerlink" href="#scanner-result" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h3 id="scanner-result">Scanner Result</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
 <span class="o">[</span><span class="m">39</span><span class="o">]</span>
 &gt;&gt;&gt; 
 </code></pre></div>
 </td></tr></table>
-<h2 id="hello-to-the-lcd">Hello To The LCD<a class="headerlink" href="#hello-to-the-lcd" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h2 id="hello-to-the-lcd">Hello To The LCD</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x7C</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x2D</span><span class="s1">&#39;</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="1602-lcd">1602 LCD<a class="headerlink" href="#1602-lcd" title="Permanent link">&para;</a></h2>
+<h2 id="1602-lcd">1602 LCD</h2>
 <p><a href="https://forum.micropython.org/viewtopic.php?t=2858">MicroPython Forum on 1602 LCDs</a></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -821,7 +821,7 @@
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">i2clcd</span>
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">i2clcd</span>
 
 <span class="n">lcd</span> <span class="o">=</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">i2clcd</span><span class="p">(</span><span class="n">i2c_bus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">i2c_addr</span><span class="o">=</span><span class="mh">0x27</span><span class="p">,</span> <span class="n">lcd_width</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">lcd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
@@ -841,11 +841,11 @@
 <span class="n">lcd</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;CGRAM: &#39;</span> <span class="o">+</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">CGRAM_CHR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="ssd1306-module">ssd1306 module<a class="headerlink" href="#ssd1306-module" title="Permanent link">&para;</a></h2>
+<h2 id="ssd1306-module">ssd1306 module</h2>
 <p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
-<h3 id="hd44780-drivers">HD44780 Drivers<a class="headerlink" href="#hd44780-drivers" title="Permanent link">&para;</a></h3>
+<h3 id="hd44780-drivers">HD44780 Drivers</h3>
 <p><a href="https://github.com/dhylands/python_lcd">Dave Hylands HD44780 Drivers in Python</a></p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References</h2>
 <p>https://www.mfitzp.com/article/oled-displays-i2c-micropython/</p>
 <p>https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py</p>
 <p><a href="https://learn.adafruit.com/character-lcds">Adafruit LCD Guide</a></p>
