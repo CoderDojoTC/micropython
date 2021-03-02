@@ -14,18 +14,18 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
-        <title>Character LCD Display - MicroPython</title>
+        <title>Character LCD - MicroPython</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Character LCD Display
+              Character LCD
             
           </span>
         </div>
@@ -198,7 +198,6 @@
       
       
 
-
   
   
   
@@ -214,7 +213,6 @@
       
       
 
-
   
   
   
@@ -229,7 +227,6 @@
       
       
       
-
 
   
   
@@ -358,15 +355,16 @@
       
       
 
-
-  
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
       
       <label class="md-nav__link" for="nav-4">
         MicroPython Examples
@@ -387,6 +385,18 @@
     <li class="md-nav__item">
       <a href="../03-blink/" class="md-nav__link">
         Blink
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-button/" class="md-nav__link">
+        Button
       </a>
     </li>
   
@@ -436,6 +446,124 @@
       <a href="../10-displays/" class="md-nav__link">
         Displays
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Character LCD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Character LCD
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#address-scanner" class="md-nav__link">
+    Address Scanner
+  </a>
+  
+    <nav class="md-nav" aria-label="Address Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanner-code" class="md-nav__link">
+    Scanner Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanner-result" class="md-nav__link">
+    Scanner Result
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-to-the-lcd" class="md-nav__link">
+    Hello To The LCD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1602-lcd" class="md-nav__link">
+    1602 LCD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1306-module" class="md-nav__link">
+    ssd1306 module
+  </a>
+  
+    <nav class="md-nav" aria-label="ssd1306 module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hd44780-drivers" class="md-nav__link">
+    HD44780 Drivers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -522,7 +650,6 @@
       
       
 
-
   
   
   
@@ -580,6 +707,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-ampy/" class="md-nav__link">
+        Ampy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-gpt-outliner/" class="md-nav__link">
+        Content Outliner
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -589,7 +740,6 @@
       
       
       
-
 
   
   
@@ -606,7 +756,6 @@
       
       
 
-
   
   
   
@@ -622,7 +771,6 @@
       
       
 
-
   
   
   
@@ -637,7 +785,6 @@
       
       
       
-
 
   
   
@@ -864,6 +1011,41 @@
         
   <footer class="md-footer">
     
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../10-displays/" title="Displays" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Displays
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../11-oled-ssd1306-i2c/" title="OLED SSD1306 I2C" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  OLED SSD1306 I2C
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
@@ -879,15 +1061,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

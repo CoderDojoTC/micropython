@@ -18,7 +18,7 @@
     
     
       
-        <title>References - MicroPython</title>
+        <title>Button - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#micropython-references" class="md-skip">
+        <a href="#button" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              References
+              Button
             
           </span>
         </div>
@@ -357,12 +357,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
       
       <label class="md-nav__link" for="nav-4">
         MicroPython Examples
@@ -391,11 +393,49 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../03-button/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Button
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Button
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -650,20 +690,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../29-references/" class="md-nav__link">
         References
       </a>
-      
     </li>
   
 
@@ -716,6 +747,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -726,19 +772,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/29-references.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/03-button.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="micropython-references">Micropython References</h1>
+                <h1 id="button">Button</h1>
+<p>In this lesson we will hook a single momentary push button up to our Raspberry Pi Nano.</p>
+<p>You will hook up an LED to GP15.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span> <span class="c1"># input with pull down resistor</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1"># wait 1/10th of a second</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="references">References</h2>
 <ol>
-<li>http://micropython.org/ - home site of the micropython project</li>
-<li>https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf</li>
-<li><a href="https://www.raspberrypi.org/blog/raspberry-pi-silicon-pico-now-on-sale/">Meet Raspberry Silicon: Raspberry Pi Pico now on sale at $4</a> - Raspberry Pi Pico announcement</li>
-<li><a href="https://www.raspberrypi.org/blog/the-journey-to-raspberry-silicon/">The journey to Raspberry Silicon</a> - blog by Liam Fraser - Feb. 8th 2021.  Nice story of how the Raspberry Pi Foundation created the custom silicon chip.</li>
-<li><a href="https://github.com/raspberrypi/pico-tflmicro">TensorFlow Lite Micro for the Pico</a></li>
-<li><a href="https://www.youtube.com/watch?v=O5S1LC5TFiM">Pico Invaders Video</a></li>
+<li><a href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/6">Raspberry Pi Pico Getting Started Guide Lab 6</a></li>
+<li><a href="https://www.youtube.com/watch?v=nPMU10mfFbs">YouTube Video</a></li>
 </ol>
                 
               
@@ -758,7 +824,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../glossary/" title="Glossary" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -767,19 +833,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Glossary
+                  Blink
                 </span>
               </div>
             </a>
           
           
-            <a href="../contact/" title="Contact" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../03-temperature/" title="Temperature" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Contact
+                  Temperature
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
