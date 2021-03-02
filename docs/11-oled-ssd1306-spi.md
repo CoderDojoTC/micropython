@@ -1,6 +1,6 @@
 # OLED SSD1306 SPI Examples
 
-## Using the SSD1306 with I2C Interfaces
+## Using the SSD1306 with SPI Interfaces
 
 ### Add the ssd1306 Python Module
 
@@ -9,10 +9,6 @@ You can now use the Thonny "Tools -> Manage Packages..." menu to add the Python 
 ![](img/thonny-add-ssd1306.png)
 
 If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.
-
-
-
-
 
 
 ## Install SSD1306 Module
@@ -24,9 +20,6 @@ If the Manage Packages menu is disabled, then you will need to go into the shell
 [SSD1306 Library](https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py) - click the RAW button and then right click to do a "Save As"
 
 [SSD1306 Library Searchable](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py)
-
-## SSD1306 vs. SH1106
-There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.
 
 ## The SPI interface
 The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.
@@ -55,7 +48,6 @@ The seven wires on the back of the SPI OLED screens are the following as read fr
 6. VCC - Connect to the 3.3V Out pin 36
 7. GND - pin 38 or 3 any other GND pin
 
-
 ### Pico Pins
 
 ```
@@ -71,8 +63,8 @@ The seven wires on the back of the SPI OLED screens are the following as read fr
  36 # - D1 - GPIO 2 - Res
 ```
 
-SCK is the clock - hook this to the oled SCL
-MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA
+* SCK is the clock - hook this to the oled SCL
+* MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA
 
 From the SDK:
 https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf
@@ -89,9 +81,6 @@ spi_sck=machine.Pin(2)
 spi_tx=machine.Pin(3)
 spi_rx=machine.Pin(4)
 ```
-
-
-
 
 We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)
 
@@ -114,11 +103,6 @@ import utime
 import ssd1306
 led = machine.Pin(25, machine.Pin.OUT)
 
-# From: https://github.com/robert-hh/SH1106
-# display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)
-#MOSI=machine.Pin(7)
-#SCK=machine.Pin(6)
-#spi = machine.SPI(0, baudrate=400000, sck=SCK, mosi=MOSI)
 spi_sck=machine.Pin(6)
 spi_tx=machine.Pin(7)
 # spi_rx=machine.Pin(4)
@@ -158,3 +142,9 @@ https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/
 https://github.com/robert-hh/SH1106/blob/master/sh1106.py
 
 [DIY More OLED Product Description](https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306)
+
+## SSD1306
+https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1306/
+
+## SSD1307
+https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1307/

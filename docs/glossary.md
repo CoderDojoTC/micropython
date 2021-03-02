@@ -70,6 +70,9 @@ The shell is a helper for up/downloading files to the ESP8266 (over serial line 
 
 [GitHub Repo for MPFShell](https://github.com/wendlers/mpfshell)
 
+#### OLED
+Organic polymer light emitting diode.
+
 #### Raspberry Pi Foundation
 The company that builds the Raspberry Pi hardware and provides some software.
 

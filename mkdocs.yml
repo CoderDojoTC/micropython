@@ -45,16 +45,11 @@ theme:
   palette:
     primary: '#642580'
     accent: '#41BAC1'
-  feature:
-    tabs: true
   custom_dir: 'theme'
   include_sidebar: true
 markdown_extensions:
   - admonition
   - footnotes
-  - toc:
-      permalink: true
-  - codehilite:
+  - pymdownx.highlight:
       linenums: true
-plugins:
-    - search
+  - pymdownx.superfences
