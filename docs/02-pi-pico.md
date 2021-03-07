@@ -1,9 +1,12 @@
 # Getting Started with the Raspberry Pi Pico
+
+![](img/raspberry-pi-pico.png)
+
 The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation) with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as project that require drawing to an OLED display.
 
 ## Specs
 
-* RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom
+* RP2040 microcontroller chip designed by Raspberry Pi Foundation
 * Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz
 * 264KB of SRAM, and 2MB of on-board Flash memory
 * Support for up to 16MB of off-chip Flash memory via dedicated QSPI bus
@@ -22,15 +25,17 @@ The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberr
 * Temperature sensor
 * Accelerated floating-point libraries on-chip
 * 8 × Programmable I/O (PIO) state machines for custom peripheral support
-* Created using the TSMC 40LP manufacturing process
+* Created using the TSMC 40LP (40 nano meter low power) manufacturing process
 * USB mass-storage boot mode with UF2 support, for drag-and-drop programming
 
 ## USB Cable
-The Raspberry Pi Pico uses a USB-micro connector.
-![usb-micro-to-c](usb-micro-to-c.png) - image from ebay
+The Raspberry Pi Pico uses a USB-micro connector.  You can purchase USB Micro-B to USB-A or USB-C (Mac) cables on e-bay for under $2 or for $5 at Microcenter.
+![usb-micro-to-c](img/usb-micro-to-c.png) - image from ebay
 
 ## Pico Pinout
-The pinout diagram for the Raspberry Pi.
+The pinout diagram for the Raspberry Pi Pico is shown below.
+
+![Raspberry Pi Pico Pins](img/pico-pins.png)
 
 It features: 
 * 26 × multi-function GPIO pins
@@ -39,11 +44,11 @@ It features:
 
 Raspberry Pi Pico’s 40 pins with pin 1 in the upper right corner with the USB connector at the top.  The pin numbers are incremented as you go counterclockwise around the board.  You go down the left side and then continue up on the right side until you get to pin 40 in the upper right corner.
 
-![Raspberry Pi Pico Pins](img/pico-pins.png)
+When you program the Pico, you use the ```machine.Pin()``` but you always use the GP* number, never the pin number on the board pin numbers.
 
 The diagram above shows the top view where pins 1, 2 and 40 are printed next to the pins.
 
-* [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
+* [Pico Pinout Datasheet PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
 
 Next to each pin is the primary label of what the pin does.  Pins 3, 8, 13, 18, 23, 28, 33 and 38 with the black background are all GND pins.
 
@@ -80,7 +85,7 @@ Thonny is a free lightweight Python development tool.
 5. Test by running a blink application
 
 
-![Thonny Micropython Firmware Update](thonny-micropython-firmware-update.png)
+![Thonny Micropython Firmware Update](img/thonny-micropython-firmware-update.png)
 ```
 Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
 Writing to /Volumes/RPI-RP2/firmware

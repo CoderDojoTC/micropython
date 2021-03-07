@@ -54,7 +54,7 @@ print('Done')
 ```
 
 After this program runs you should see the text on your OLED display.
-![](oled-hello-world.png)
+![](img/oled-hello-world.png)
 
 ## SH1106 Example
 

@@ -13,10 +13,12 @@ nav:
     - Python Libraries: 01b-libraries.md
   - MicroPython Examples:
     - Blink: 03-blink.md
+    - Button: 03-button.md
     - Temperature: 03-temperature.md
     - Servo: 04-servo.md
     - LED Strip: 05-led-strip.md
     - Displays: 10-displays.md
+    - Character LCD: 10-character-lcd-display.md
     - OLED SSD1306 I2C: 11-oled-ssd1306-i2c.md
     - OLED SSD1306 SPI: 11-oled-ssd1306-spi.md
     - OLED SH1106 I2C Example: 11-oled-sh1106-i2c.md
@@ -28,6 +30,8 @@ nav:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
     - Debugging SPI: 29-debugging-spi.md
+    - Ampy: 27-ampy.md
+    - Content Outliner: 40-gpt-outliner.md
   - Glossary: glossary.md
   - References: 29-references.md
   - Contact: contact.md
