@@ -18,7 +18,7 @@
     
     
       
-        <title>Colophon - MicroPython</title>
+        <title>OLED Bounce - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#colophone" class="md-skip">
+        <a href="#oled-bounce" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Colophon
+              OLED Bounce
             
           </span>
         </div>
@@ -361,12 +361,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
       
       <label class="md-nav__link" for="nav-4">
         MicroPython Examples
@@ -479,11 +481,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../10-oled-bounce/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OLED Bounce
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         OLED Bounce
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#draw-a-border" class="md-nav__link">
+    Draw a border
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-ball-bounce-around-inside-the-wall" class="md-nav__link">
+    Make a Ball Bounce Around Inside the Wall
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -653,20 +700,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../30-colophon/" class="md-nav__link">
         Colophon
       </a>
-      
     </li>
   
 
@@ -689,6 +727,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#draw-a-border" class="md-nav__link">
+    Draw a border
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-ball-bounce-around-inside-the-wall" class="md-nav__link">
+    Make a Ball Bounce Around Inside the Wall
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -699,25 +759,179 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/30-colophon.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/10-oled-bounce.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="colophone">Colophone</h1>
-<p>We are mostly a group of unpaid volunteers without a large budget for distributed content management software.  However, we still want to provide a great user experience for both our mentors and our students.  So we use free open-source tools whenever we can.  Here is how we built this site.</p>
-<ul>
-<li>Our content language is <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>.</li>
-<li>We use <a href="https://python-markdown.github.io/">Python Markdown</a> to parse our content.</li>
-<li>We convert Markdown to HTML with <a href="https://www.mkdocs.org/">mkdocs</a>.</li>
-<li>Our user interface theme is<a href="https://squidfunk.github.io/mkdocs-material/">Mkdocs Material</a>.  We use an extensive number of Material user interface components.</li>
-<li>Our software version control system is <a href="https://git-scm.com/">git</a></li>
-<li>Our site is hosted on <a href="https://pages.github.com/">GitHub page</a>.</li>
-<li>We use standard code highlighting provided by the mkdocs <a href="https://python-markdown.github.io/extensions/code_hilite/">codehilite</a> extension.</li>
-<li>Our BY-NC-SA content license agreement is created by <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a></li>
-</ul>
-<p>We wish to acknowledge the work of everyone that contributes to open-source projects.  Without these systems this work would not be possible.</p>
-<p>If you would like to contribute lesson we welcome your contribution as a git pull request.  You can read our <a href="https://www.coderdojotc.org/CoderDojoTC/content-authoring-guide/">CoderDojo Twin CitiesAuthoring Guide</a> if you would like to help out.</p>
+                <h1 id="oled-bounce">OLED Bounce</h1>
+<p>In this lesson, we will draw a box around the edge of the display using the commands that draw horizontal and vertical lines: <code>hline</code> and <code>vline</code>.  Then we will draw a ball that bounces off these edges.</p>
+<h2 id="draw-a-border">Draw a border</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+<span class="c1"># Screen size</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">height</span><span class="o">=</span><span class="mi">64</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># top edge</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># bottom edge</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># left edge</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># right edge</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="make-a-ball-bounce-around-inside-the-wall">Make a Ball Bounce Around Inside the Wall</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+<span class="c1"># Screen size</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">height</span><span class="o">=</span><span class="mi">64</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear to black</span>
+
+<span class="c1"># note that OLEDs have problems with screen burn it - don&#39;t leave this on too long!</span>
+<span class="k">def</span> <span class="nf">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># top edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># bottom edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># left edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># right edge</span>
+
+<span class="c1"># ok, not really a circle - just a square for now</span>
+<span class="k">def</span> <span class="nf">draw_ball</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="c1"># draw a single pixel</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">):</span> <span class="c1"># draw a box of pixels of the right size</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">):</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="c1"># TODO: for size above 4 round the corners</span>
+
+<span class="n">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+<span class="n">ball_size</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># start in the middle of the screen</span>
+<span class="n">current_x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">current_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># start going down to the right</span>
+<span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># delay_time = .0001</span>
+
+<span class="c1"># Bounce forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span> <span class="n">ball_size</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># utime.sleep(delay_time)</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span><span class="n">ball_size</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># reverse at the edges</span>
+    <span class="c1"># left edge test</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># right edge test</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&gt;</span> <span class="n">width</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># top edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># bottom edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&gt;</span> <span class="n">height</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># update the ball</span>
+    <span class="n">current_x</span> <span class="o">=</span> <span class="n">current_x</span> <span class="o">+</span> <span class="n">direction_x</span>
+    <span class="n">current_y</span> <span class="o">=</span> <span class="n">current_y</span> <span class="o">+</span> <span class="n">direction_y</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
@@ -736,7 +950,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../contact/" title="Contact" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../11-oled-sh1106-i2c/" title="OLED SH1106 I2C Example" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -745,11 +959,25 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Contact
+                  OLED SH1106 I2C Example
                 </span>
               </div>
             </a>
           
+          
+            <a href="../12-oled-pot/" title="OLED Pot" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  OLED Pot
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
           
         </nav>
       </div>

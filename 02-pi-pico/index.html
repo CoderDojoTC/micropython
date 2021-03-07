@@ -14,7 +14,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
@@ -22,10 +22,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -198,6 +198,7 @@
       
       
 
+
   
   
   
@@ -213,6 +214,7 @@
       
       
 
+
   
   
   
@@ -227,6 +229,7 @@
       
       
       
+
 
   
   
@@ -457,6 +460,7 @@
       
       
 
+
   
   
   
@@ -485,18 +489,6 @@
     <li class="md-nav__item">
       <a href="../03-blink/" class="md-nav__link">
         Blink
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-button/" class="md-nav__link">
-        Button
       </a>
     </li>
   
@@ -555,18 +547,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-character-lcd-display/" class="md-nav__link">
-        Character LCD
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../11-oled-ssd1306-i2c/" class="md-nav__link">
         OLED SSD1306 I2C
       </a>
@@ -593,6 +573,18 @@
     <li class="md-nav__item">
       <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-oled-bounce/" class="md-nav__link">
+        OLED Bounce
       </a>
     </li>
   
@@ -643,6 +635,7 @@
       
       
       
+
 
   
   
@@ -701,30 +694,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../27-ampy/" class="md-nav__link">
-        Ampy
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../40-gpt-outliner/" class="md-nav__link">
-        Content Outliner
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -734,6 +703,7 @@
       
       
       
+
 
   
   
@@ -750,6 +720,7 @@
       
       
 
+
   
   
   
@@ -765,6 +736,7 @@
       
       
 
+
   
   
   
@@ -779,6 +751,7 @@
       
       
       
+
 
   
   
@@ -902,11 +875,10 @@
                 
                 
                 <h1 id="getting-started-with-the-raspberry-pi-pico">Getting Started with the Raspberry Pi Pico</h1>
-<p><img alt="" src="../img/raspberry-pi-pico.png" /></p>
 <p>The Raspberry Pi Pico is a custom silicon microcontroller built by the <a href="glossary#raspberry-pi-foundation">Raspberry Pi Foundation</a> with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as project that require drawing to an OLED display.</p>
 <h2 id="specs">Specs</h2>
 <ul>
-<li>RP2040 microcontroller chip designed by Raspberry Pi Foundation</li>
+<li>RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom</li>
 <li>Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz</li>
 <li>264KB of SRAM, and 2MB of on-board Flash memory</li>
 <li>Support for up to 16MB of off-chip Flash memory via dedicated QSPI bus</li>
@@ -925,25 +897,24 @@
 <li>Temperature sensor</li>
 <li>Accelerated floating-point libraries on-chip</li>
 <li>8 × Programmable I/O (PIO) state machines for custom peripheral support</li>
-<li>Created using the TSMC 40LP (40 nano meter low power) manufacturing process</li>
+<li>Created using the TSMC 40LP manufacturing process</li>
 <li>USB mass-storage boot mode with UF2 support, for drag-and-drop programming</li>
 </ul>
 <h2 id="usb-cable">USB Cable</h2>
-<p>The Raspberry Pi Pico uses a USB-micro connector.  You can purchase USB Micro-B to USB-A or USB-C (Mac) cables on e-bay for under $2 or for $5 at Microcenter.
-<img alt="usb-micro-to-c" src="../img/usb-micro-to-c.png" /> - image from ebay</p>
+<p>The Raspberry Pi Pico uses a USB-micro connector.
+<img alt="usb-micro-to-c" src="usb-micro-to-c.png" /> - image from ebay</p>
 <h2 id="pico-pinout">Pico Pinout</h2>
-<p>The pinout diagram for the Raspberry Pi Pico is shown below.</p>
-<p><img alt="Raspberry Pi Pico Pins" src="../img/pico-pins.png" /></p>
+<p>The pinout diagram for the Raspberry Pi.</p>
 <p>It features: 
 * 26 × multi-function GPIO pins
 * 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM </p>
 <!-- pi-pico-pinout.png) -->
 
 <p>Raspberry Pi Pico’s 40 pins with pin 1 in the upper right corner with the USB connector at the top.  The pin numbers are incremented as you go counterclockwise around the board.  You go down the left side and then continue up on the right side until you get to pin 40 in the upper right corner.</p>
-<p>When you program the Pico, you use the <code>machine.Pin()</code> but you always use the GP* number, never the pin number on the board pin numbers.</p>
+<p><img alt="Raspberry Pi Pico Pins" src="../img/pico-pins.png" /></p>
 <p>The diagram above shows the top view where pins 1, 2 and 40 are printed next to the pins.</p>
 <ul>
-<li><a href="https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf">Pico Pinout Datasheet PDF</a></li>
+<li><a href="https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf">Pinout PDF</a></li>
 </ul>
 <p>Next to each pin is the primary label of what the pin does.  Pins 3, 8, 13, 18, 23, 28, 33 and 38 with the black background are all GND pins.</p>
 <p>Pins are numbered 0-29, and 26-29 have ADC capabilities
@@ -1021,7 +992,7 @@ It will mount as a Mass Storage Device called RPI-RP2.</li>
 <li>Test using the help() function</li>
 <li>Test by running a blink application</li>
 </ol>
-<p><img alt="Thonny Micropython Firmware Update" src="../img/thonny-micropython-firmware-update.png" />
+<p><img alt="Thonny Micropython Firmware Update" src="thonny-micropython-firmware-update.png" />
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -1139,15 +1110,15 @@ Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
       
     </div>
     
-      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
