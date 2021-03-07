@@ -135,6 +135,8 @@ print('Done')
 
 [robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
 
+[MicroPython SSD1306 Class](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py)
+
 https://www.mfitzp.com/article/oled-displays-i2c-micropython/
 
 https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py

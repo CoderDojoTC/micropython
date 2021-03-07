@@ -2,6 +2,13 @@
 
 In this lab we use a logic analyzer to debug the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) protocol being used to drive a sample OLED device. We will be using the the [8 port Saleae Logic Analyser](https://www.saleae.com/).  The retail cost is about $399.00 although there are lower cost logic analyzer available.
 
+## The SSD1306 SPI OLED Timing Diagram
+The OLED display is a read-only interface.  It does not send any data back to the microcontroller, so there is no MOSI connection.  The data is transmitted on the SDK line when the SCL line goes high.  The CS line must be low for the OLED to be active.
+
+For details, see section 8.1.3 MCU Serial Interface on page 21 of the [SSD1305 132 x 64 Dot Matrix OLED/PLED Segment/Common Driver with Controller](https://cdn-shop.adafruit.com/product-files/2719/2719+DATA.pdf).
+
+![SSD1306 Timing Diagram](ssd1306-spi-timing-diagram.png)
+
 ## OLED SPI settings
 Our OLED device has seven wires.  In addition to power and ground there a five data connections we will be observing on our logic analyzer.
 

@@ -11,15 +11,20 @@
 			"LEDs",
 			"Microcontroller",
 			"Micropython",
+			"OLEDs",
 			"Thonny",
 			"UART",
 			"codehilite",
 			"coderdojo",
+			"hline",
 			"linenums",
 			"oled",
 			"pico",
 			"saleae",
-			"thonney"
-		]
+			"thonney",
+			"utime",
+			"vline"
+		],
+		"editor.fontSize": 10
 	}
 }
