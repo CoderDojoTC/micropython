@@ -553,6 +553,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bounce-on-the-sh1106-display-using-i2c" class="md-nav__link">
+    Bounce on the SH1106 Display using I2C
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -823,6 +830,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bounce-on-the-sh1106-display-using-i2c" class="md-nav__link">
+    Bounce on the SH1106 Display using I2C
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -967,7 +981,8 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">import</span> <span class="nn">sh1106</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
@@ -975,6 +990,7 @@
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
 
+<span class="c1">## note that we can only draw from 0 to 62</span>
 <span class="n">display</span> <span class="o">=</span> <span class="n">sh1106</span><span class="o">.</span><span class="n">SH1106_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">,</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mh">0x3c</span><span class="p">)</span>
 <span class="n">display</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
@@ -997,6 +1013,147 @@
     <span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># update display</span>
     <span class="c1"># utime.sleep(0.001)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="bounce-on-the-sh1106-display-using-i2c">Bounce on the SH1106 Display using I2C</h2>
+<p>This example is a ball that bounces around the inside of a border rectangle.  Is similar to other bounce examples with the exception that you can't draw on the last row of pixels.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="c1"># from ssd1306 import SSD1306_I2C</span>
+<span class="kn">import</span> <span class="nn">sh1106</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+<span class="c1"># Screen size</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">height</span><span class="o">=</span><span class="mi">64</span> <span class="c1"># we could make this be 63 but the init method should use the full value</span>
+<span class="c1"># oled = SSD1306_I2C(width, height, i2c)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">sh1106</span><span class="o">.</span><span class="n">SH1106_I2C</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">i2c</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mh">0x3c</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear to black</span>
+
+<span class="c1"># note that OLEDs have problems with screen burn it - don&#39;t leave this on too long!</span>
+<span class="k">def</span> <span class="nf">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># top edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># bottom edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># left edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># right edge</span>
+
+<span class="c1"># ok, not really a circle - just a square for now</span>
+<span class="k">def</span> <span class="nf">draw_ball</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="c1"># draw a single pixel</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">):</span> <span class="c1"># draw a box of pixels of the right size</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">):</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="c1"># TODO: for size above 4 round the corners</span>
+
+<span class="n">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+<span class="n">ball_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">current_x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">current_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># delay_time = .0001</span>
+
+<span class="c1"># oled.line(0, height-2, width-1, height-2, 1)</span>
+
+<span class="c1"># Bounce forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span> <span class="n">ball_size</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># utime.sleep(delay_time)</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span><span class="n">ball_size</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># reverse at the edges</span>
+    <span class="c1"># left edge test</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># right edge test</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&gt;</span> <span class="n">width</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># top edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># bottom edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&gt;</span> <span class="n">height</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># update the ball</span>
+    <span class="n">current_x</span> <span class="o">=</span> <span class="n">current_x</span> <span class="o">+</span> <span class="n">direction_x</span>
+    <span class="n">current_y</span> <span class="o">=</span> <span class="n">current_y</span> <span class="o">+</span> <span class="n">direction_y</span>
+
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
 </code></pre></div>

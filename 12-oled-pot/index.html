@@ -604,8 +604,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-program" class="md-nav__link">
-    Full Program
+  <a href="#continuous-text-display-on-oled" class="md-nav__link">
+    Continuous Text Display on OLED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barchart-and-text-display-of-pot-value" class="md-nav__link">
+    Barchart and Text Display of Pot Value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gif-of-oled" class="md-nav__link">
+    Gif of OLED
   </a>
   
 </li>
@@ -883,8 +897,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-program" class="md-nav__link">
-    Full Program
+  <a href="#continuous-text-display-on-oled" class="md-nav__link">
+    Continuous Text Display on OLED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barchart-and-text-display-of-pot-value" class="md-nav__link">
+    Barchart and Text Display of Pot Value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gif-of-oled" class="md-nav__link">
+    Gif of OLED
   </a>
   
 </li>
@@ -1012,7 +1040,7 @@ I2C(0, freq=399361, scl=1, sda=0)
 <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="full-program">Full Program</h2>
+<h2 id="continuous-text-display-on-oled">Continuous Text Display on OLED</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1042,6 +1070,112 @@ I2C(0, freq=399361, scl=1, sda=0)
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="barchart-and-text-display-of-pot-value">Barchart and Text Display of Pot Value</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">import</span> <span class="nn">sh1106</span>
+
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pot_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+<span class="c1"># Screen size</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">height</span><span class="o">=</span><span class="mi">64</span>
+<span class="n">half_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># oled = SSD1306_I2C(width, height, i2c)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">sh1106</span><span class="o">.</span><span class="n">SH1106_I2C</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">i2c</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mh">0x3c</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear to black</span>
+
+<span class="c1"># note that OLEDs have problems with screen burn it - don&#39;t leave this on too long!</span>
+<span class="k">def</span> <span class="nf">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># top edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># bottom edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># left edge</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># right edge</span>
+
+<span class="c1"># Takes an input number vale and a range between high-and-low and returns it scaled to the new range</span>
+<span class="c1"># This is similar to the Arduino map() function</span>
+<span class="k">def</span> <span class="nf">valmap</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">istart</span><span class="p">,</span> <span class="n">istop</span><span class="p">,</span> <span class="n">ostart</span><span class="p">,</span> <span class="n">ostop</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ostart</span> <span class="o">+</span> <span class="p">(</span><span class="n">ostop</span> <span class="o">-</span> <span class="n">ostart</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">value</span> <span class="o">-</span> <span class="n">istart</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">istop</span> <span class="o">-</span> <span class="n">istart</span><span class="p">)))</span>
+
+<span class="c1"># draw a horizontal bar</span>
+<span class="k">def</span> <span class="nf">draw_hbar</span><span class="p">(</span><span class="n">inval</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear screen</span>
+    <span class="n">border</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span> <span class="c1"># draw a border</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inval</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># fill with 1</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># wait a bit</span>
+
+<span class="c1"># continuous update</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pot_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pot_pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
+    <span class="c1"># the max value of the input is a 2^16 or 65536</span>
+    <span class="n">pot_scaled</span> <span class="o">=</span> <span class="n">valmap</span><span class="p">(</span><span class="n">pot_val</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pot_val</span><span class="p">,</span> <span class="n">pot_scaled</span><span class="p">)</span>
+    <span class="n">draw_hbar</span><span class="p">(</span><span class="n">pot_scaled</span><span class="p">,</span> <span class="n">half_height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;raw:&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">half_height</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pot_val</span><span class="p">),</span> <span class="mi">30</span><span class="p">,</span> <span class="n">half_height</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;scaled:&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">half_height</span> <span class="o">+</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pot_scaled</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span> <span class="n">half_height</span> <span class="o">+</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</code></pre></div>
+</td></tr></table>
+<h2 id="gif-of-oled">Gif of OLED</h2>
+<p><img alt="" src="../img/pot-oled.gif" /></p>
                 
               
               
