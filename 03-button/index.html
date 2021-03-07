@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED Pong - MicroPython</title>
+        <title>Button - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pong" class="md-skip">
+        <a href="#button" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED Pong
+              Button
             
           </span>
         </div>
@@ -397,11 +397,49 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../03-button/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Button
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Button
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -541,49 +579,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          OLED Pong
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../11-pong/" class="md-nav__link">
         OLED Pong
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#part-list" class="md-nav__link">
-    Part list
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -775,8 +775,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#part-list" class="md-nav__link">
-    Part list
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -793,49 +793,40 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/11-pong.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/03-button.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="pong">Pong</h1>
-<p>Using a low-cost OLED device you can write a pong game.</p>
-<h2 id="part-list">Part list</h2>
-<table>
-<thead>
-<tr>
-<th>Part Name</th>
-<th>Price</th>
-<th>Link</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Raspberry Pi Pico</td>
-<td>$4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Breadboard</td>
-<td>$2</td>
-<td>link</td>
-<td>400 tie breadboard</td>
-</tr>
-<tr>
-<td>2 Potentiometers</td>
-<td>$1 each</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Raspberry Pi Pico</li>
-<li>2 potentimeters</li>
-</ul>
-<p><a href="https://www.youtube.com/watch?v=W6Yr9gv2dTQ">YouTube Video</a></p>
+                <h1 id="button">Button</h1>
+<p>In this lesson we will hook a single momentary push button up to our Raspberry Pi Nano.</p>
+<p>You will hook up an LED to GP15.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span> <span class="c1"># input with pull down resistor</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">button</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1"># wait 1/10th of a second</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/6">Raspberry Pi Pico Getting Started Guide Lab 6</a></li>
+<li><a href="https://www.youtube.com/watch?v=nPMU10mfFbs">YouTube Video</a></li>
+</ol>
                 
               
               
@@ -854,7 +845,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../11-oled-ping/" title="OLED Ping" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -863,19 +854,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  OLED Ping
+                  Blink
                 </span>
               </div>
             </a>
           
           
-            <a href="../28-debugging-python/" title="Debugging Python" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../03-temperature/" title="Temperature" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Debugging Python
+                  Temperature
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

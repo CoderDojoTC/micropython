@@ -513,6 +513,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../03-button/" class="md-nav__link">
+        Button
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../03-temperature/" class="md-nav__link">
         Temperature
       </a>
@@ -551,6 +563,18 @@
     <li class="md-nav__item">
       <a href="../10-displays/" class="md-nav__link">
         Displays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-character-lcd-display/" class="md-nav__link">
+        Character LCD
       </a>
     </li>
   
@@ -703,6 +727,30 @@
     <li class="md-nav__item">
       <a href="../29-debugging-spi/" class="md-nav__link">
         Debugging SPI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-ampy/" class="md-nav__link">
+        Ampy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-gpt-outliner/" class="md-nav__link">
+        Content Outliner
       </a>
     </li>
   
@@ -982,9 +1030,12 @@ Hard resetting via RTS pin...
 </code></pre></div>
 </td></tr></table></p>
 <h2 id="configure-thonny">Configure Thonny</h2>
+<p>You must configure Thonny to use the ESP32.</p>
 <h3 id="set-the-serial-port">Set the Serial Port</h3>
+<p>First, you must tell Thonny how to find the right port.</p>
 <p><img alt="" src="../img/esp32-config-serial-port.png" /></p>
 <h3 id="set-the-interpreter">Set the Interpreter</h3>
+<p>Next, yo must tell Thonny to use the ESP32 interpreter.</p>
 <p><img alt="" src="../img/micropython-esp32.png" /></p>
 <h2 id="run-a-test">Run a test</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1024,7 +1075,8 @@ Hard resetting via RTS pin...
 <span class="n">tft</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">120</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">tft</span><span class="o">.</span><span class="n">textWidth</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">67</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">tft</span><span class="o">.</span><span class="n">fontSize</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">text</span><span class="p">,</span><span class="mh">0xFFFFFF</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p><img alt="" src="../img/color-oled.jpg" /></p>
+<p>You should see the following on the ESP32 display:
+<img alt="" src="../img/color-oled.jpg" /></p>
 <h2 id="references">References</h2>
 <p>https://www.instructables.com/TTGO-color-Display-With-Micropython-TTGO-T-display/</p>
                 
