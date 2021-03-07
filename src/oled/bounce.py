@@ -8,7 +8,8 @@ i2c=machine.I2C(0,sda=sda, scl=scl)
 # Screen size
 width=128
 height=64
-oled = SSD1306_I2C(width, height, i2c)
+# oled = SSD1306_I2C(width, height, i2c)
+display = sh1106.SH1106_I2C(width, height, i2c, Pin(4), 0x3c)
 
 oled.fill(0) # clear to black
 
