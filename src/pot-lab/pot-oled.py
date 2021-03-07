@@ -1,6 +1,7 @@
 import machine
 import utime
-import sh1106
+import ssd1306
+# import sh1106
 
 sda=machine.Pin(0)
 scl=machine.Pin(1)
@@ -11,8 +12,8 @@ i2c=machine.I2C(0,sda=sda, scl=scl)
 width=128
 height=64
 half_height = int(height / 2)
-# oled = SSD1306_I2C(width, height, i2c)
-oled = sh1106.SH1106_I2C(width, height, i2c, machine.Pin(4), 0x3c)
+oled = ssd1306.SSD1306_I2C(width, height, i2c)
+# oled = sh1106.SH1106_I2C(width, height, i2c, machine.Pin(4), 0x3c)
 
 oled.fill(0) # clear to black
 

@@ -164,4 +164,6 @@ while True:
 ```
 ## Gif of OLED
 
-![](img/pot-oled.gif)
+![OLED Pot Small](img/pot-oled.gif)
+
+![OLED Pot Large](img/oled-pot-i2c-large.gif)
