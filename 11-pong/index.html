@@ -580,6 +580,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-right-python-libraries" class="md-nav__link">
+    Getting the Right Python Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-oled" class="md-nav__link">
+    Testing the OLED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-the-border" class="md-nav__link">
+    Drawing the Border
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -781,6 +809,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-right-python-libraries" class="md-nav__link">
+    Getting the Right Python Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-oled" class="md-nav__link">
+    Testing the OLED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-the-border" class="md-nav__link">
+    Drawing the Border
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -799,7 +855,7 @@
                 
                 
                 <h1 id="pong">Pong</h1>
-<p>Using a low-cost OLED device you can write a pong game.</p>
+<p>Using a low-cost OLED device you can write a pong game.  If you use a small 128X64 OLED the price can be around $12.</p>
 <h2 id="part-list">Part list</h2>
 <table>
 <thead>
@@ -814,27 +870,95 @@
 <tr>
 <td>Raspberry Pi Pico</td>
 <td>$4</td>
-<td></td>
-<td></td>
+<td><a href="https://www.microcenter.com/search/search_results.aspx?N=&amp;cat=&amp;Ntt=raspberry+pi+pico&amp;searchButton=search">Microcenter</a></td>
+<td>With 264K RAM it has plenty of room for storing the framebuffer</td>
 </tr>
 <tr>
-<td>Breadboard</td>
+<td>1/2 Size Solderless Breadboard</td>
 <td>$2</td>
 <td>link</td>
 <td>400 tie breadboard</td>
 </tr>
 <tr>
-<td>2 Potentiometers</td>
-<td>$1 each</td>
-<td></td>
-<td></td>
+<td>128X64 OLED</td>
+<td>$5</td>
+<td><a href="https://www.ebay.com/itm/0-96-OLED-LCD-Display-Module-IIC-I2C-Interface-128x64-For-SSD1306-Prof/373470677081">eBay</a></td>
+<td>You can also get larger 2.42" displays for around $20</td>
+</tr>
+<tr>
+<td>2 10K Potentiometers</td>
+<td>$1.5 each</td>
+<td><a href="https://www.ebay.com/itm/10K-OHM-Linear-Taper-Rotary-Potentiometer-10KB-B10K-Pot-With-Wire-Portable-H/303636919492">eBay</a></td>
+<td>You can purchase these in QTY 10 for less.  Use the part number B10K to narrow your search.</td>
+</tr>
+<tr>
+<td>Clear Plastic Box</td>
+<td>$4</td>
+<td><a href="https://www.containerstore.com/s/clear-stackable-rectangle-containers-with-white-lids">The Container Store</a></td>
+<td>Shallow Narrow Stackable Rectangle Clear with Lids 8-1/4" x 3-1/2" x 1-7/8" h.  The link is to the white lids.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Raspberry Pi Pico</li>
-<li>2 potentimeters</li>
-</ul>
+<p><img alt="" src="../img/raspberry-pi-pico.png" /></p>
+<p>Raspberry Pi Pico for $4.</p>
+<p><img alt="" src="../img/oled-i2c.png" /></p>
+<p>OLED with I2C Interface.  Note the pins are VCC, GND, SCL (clock), SDA (data).</p>
+<p><img alt="" src="../img/breadboard.png" /></p>
+<p>1/2 size 400 connector solderless breadboard</p>
+<p><img alt="" src="../img/10k-pot.png" /></p>
+<p>10K potentiometer with pre-soldered connectors.  You will need two of these. You can use a male-to-male header to connect it to the breadboard.</p>
+<h2 id="connections">Connections</h2>
+<ol>
+<li>Connect the GND of the OLED to GND of the Pico</li>
+<li>Connect the VCC of the OLED to 3V3 OUT (physical pin 36)</li>
+<li>Connect the SDA (data) of the OLED to the Pico GP0 (physical pin 1 on the top left with USB up)</li>
+<li>Connect the SCL (clock) of the OLED to GP1 (physical pin 2)</li>
+<li>Connect the center tap of both potentiometers to ADC0 (GP26 - pin 31) and ADC1 (GP27 - pin 32)</li>
+<li>Connect the outer connectors of the potentiometers to VCC and GND</li>
+</ol>
+<h2 id="getting-the-right-python-libraries">Getting the Right Python Libraries</h2>
+<p>To run this program, you will need a MicroPython display driver.  Our display in this example is the popular SSD1306 driver chip.  Your OLED might have a slightly different driver type.</p>
+<p>Here is the line that must be customized for your display:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>from ssd1306 import SSD1306_I2C
+</code></pre></div>
+</td></tr></table>
+<h2 id="testing-the-oled">Testing the OLED</h2>
+<p>This test will verify that your OLED connections are correct.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CoderDojo Rocks&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="drawing-the-border">Drawing the Border</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>def border(width, height):
+    oled.hline(0, 0, width - 1, 1) # top edge
+    oled.hline(0, height - 2, width - 1, 1) # bottom edge
+    oled.vline(0, 0, height - 1, 1) # left edge
+    oled.vline(width - 1, 0, height - 1, 1) # right edge
+</code></pre></div>
+</td></tr></table>
 <p><a href="https://www.youtube.com/watch?v=W6Yr9gv2dTQ">YouTube Video</a></p>
                 
               

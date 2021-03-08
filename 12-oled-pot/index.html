@@ -1032,7 +1032,7 @@ I2C(0, freq=399361, scl=1, sda=0)
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
-<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
 <span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Init I2C using I2C0 defaults SCL on GP9 (12) and SDA on GP8 (11) </span>
 <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
