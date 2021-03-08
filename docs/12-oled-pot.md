@@ -80,7 +80,7 @@ This tells us that the default pins are GP9 (row 12) for clock and GP8 (row 11) 
 from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
 WIDTH  = 128
-HEIGHT = 32
+HEIGHT = 64
 i2c = I2C(0) # Init I2C using I2C0 defaults SCL on GP9 (12) and SDA on GP8 (11) 
 oled = SSD1306_I2C(WIDTH, HEIGHT, i2c)
 oled.fill(0)
@@ -166,4 +166,4 @@ while True:
 
 ![OLED Pot Small](img/pot-oled.gif)
 
-![OLED Pot Large](img/oled-pot-i2c-large.gif)
+![OLED Pot Large Screen](img/oled-pot-i2c-large.gif)

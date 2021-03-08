@@ -13,6 +13,7 @@
 			"Microcontroller",
 			"Micropython",
 			"OLEDs",
+			"Stackable",
 			"Thonny",
 			"UART",
 			"codehilite",
@@ -22,6 +23,7 @@
 			"oled",
 			"pico",
 			"saleae",
+			"solderless",
 			"thonney",
 			"utime",
 			"vline"
