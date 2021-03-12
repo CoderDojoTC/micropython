@@ -23,7 +23,11 @@ nav:
     - OLED SSD1306 SPI: 11-oled-ssd1306-spi.md
     - OLED SH1106 I2C Example: 11-oled-sh1106-i2c.md
 <<<<<<< HEAD
+<<<<<<< HEAD
     - OLED SSD 1306 SPI: 12-oled-spi-demo.md
+=======
+    - OLED Bounce: 10-oled-bounce.md
+>>>>>>> 2442ec0573e07f2829f2b50730b8c04b94d73519
 =======
     - OLED Bounce: 10-oled-bounce.md
 >>>>>>> 2442ec0573e07f2829f2b50730b8c04b94d73519
