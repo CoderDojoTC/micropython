@@ -6,20 +6,28 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Barchart",
 			"Creary",
 			"Framebuffers",
 			"LEDs",
 			"Microcontroller",
 			"Micropython",
+			"OLEDs",
+			"Stackable",
 			"Thonny",
 			"UART",
 			"codehilite",
 			"coderdojo",
+			"hline",
 			"linenums",
 			"oled",
 			"pico",
 			"saleae",
-			"thonney"
-		]
+			"solderless",
+			"thonney",
+			"utime",
+			"vline"
+		],
+		"editor.fontSize": 10
 	}
 }

@@ -34,6 +34,7 @@ uzlib – zlib decompression
 _thread – multithreading support
 ```
 
+
 ## MicroPython Specific Libraries
 
 ```text
@@ -50,6 +51,11 @@ uctypes – access binary data in a structured way
 ## Adding a module
 
 When you are using python and you attempt to use a module that python can't find you will get an error.  You must then use the python pip installer tool to add the new library.
+
+## Getting MicroPython Libraries from PyPi
+
+
+[Filter Only MicroPython Libraries](https://pypi.org/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+Implementation+%3A%3A+MicroPython)
 
 ## Full List of modules
 
