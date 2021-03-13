@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED SSD1306 Examples - MicroPython</title>
+        <title>OLED SSD1306 I2C - MicroPython</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED SSD1306 Examples
+              OLED SSD1306 I2C
             
           </span>
         </div>
@@ -464,13 +464,47 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      
+      <label class="md-nav__link" for="nav-5">
+        OLED Displays
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          OLED Displays
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../11-oled-ssd1306-i2c/" class="md-nav__link">
-        OLED SSD1306 I2C
+      <a href="../01-oled-intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -481,7 +515,191 @@
   
   
     <li class="md-nav__item">
-      <a href="../../12-oled-ssd1306-spi-v1/" class="md-nav__link">
+      <a href="../02-oled-setup/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-oled-drawing/" class="md-nav__link">
+        Drawing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OLED SSD1306 I2C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OLED SSD1306 I2C
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-ssd1306-with-i2c-interfaces" class="md-nav__link">
+    Using the SSD1306 with I2C Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the SSD1306 with I2C Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-the-ssd1306-python-module" class="md-nav__link">
+    Add the ssd1306 Python Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-hello-world" class="md-nav__link">
+    I2C Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sh1106-example" class="md-nav__link">
+    SH1106 Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counter-example" class="md-nav__link">
+    Counter Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animated-box" class="md-nav__link">
+    Animated Box
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-ssd1306-module" class="md-nav__link">
+    Install SSD1306 Module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1306-module" class="md-nav__link">
+    ssd1306 module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1306-vs-sh1106" class="md-nav__link">
+    SSD1306 vs. SH1106
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-spi-interface" class="md-nav__link">
+    The SPI interface
+  </a>
+  
+    <nav class="md-nav" aria-label="The SPI interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi-baudrate" class="md-nav__link">
+    SPI Baudrate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pico-pins" class="md-nav__link">
+    Pico Pins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi-terms" class="md-nav__link">
+    SPI Terms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-nonworking-spi-code" class="md-nav__link">
+    Sample Nonworking SPI Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-oled-ssd1306-spi-v1.md" class="md-nav__link">
         OLED SSD1306 SPI V1
       </a>
     </li>
@@ -493,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../11-oled-ssd1306-spi/" class="md-nav__link">
+      <a href="../11-oled-ssd1306-spi/" class="md-nav__link">
         OLED SSD1306 SPI V2
       </a>
     </li>
@@ -505,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../11-oled-sh1106-i2c/" class="md-nav__link">
+      <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
       </a>
     </li>
@@ -517,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../10-oled-bounce/" class="md-nav__link">
+      <a href="../10-oled-bounce/" class="md-nav__link">
         OLED Bounce
       </a>
     </li>
@@ -529,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../12-oled-pot/" class="md-nav__link">
+      <a href="../12-oled-pot/" class="md-nav__link">
         OLED Pot
       </a>
     </li>
@@ -541,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../11-oled-ping/" class="md-nav__link">
+      <a href="../11-oled-ping/" class="md-nav__link">
         OLED Ping
       </a>
     </li>
@@ -553,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../11-pong/" class="md-nav__link">
+      <a href="../11-pong/" class="md-nav__link">
         OLED Pong
       </a>
     </li>
@@ -578,14 +796,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
-      <label class="md-nav__link" for="nav-5">
+      <label class="md-nav__link" for="nav-6">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
+        <label class="md-nav__title" for="nav-6">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -885,7 +1103,7 @@
 <h2 id="using-the-ssd1306-with-i2c-interfaces">Using the SSD1306 with I2C Interfaces</h2>
 <h3 id="add-the-ssd1306-python-module">Add the ssd1306 Python Module</h3>
 <p>You can now use the Thonny "Tools -&gt; Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  </p>
-<p><img alt="" src="img/thonny-add-ssd1306.png" /></p>
+<p><img alt="" src="../../img/thonny-add-ssd1306.png" /></p>
 <p>If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.</p>
 <h2 id="i2c-hello-world">I2C Hello World</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -912,7 +1130,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>After this program runs you should see the text on your OLED display.
-<img alt="" src="img/oled-hello-world.png" /></p>
+<img alt="" src="../../img/oled-hello-world.png" /></p>
 <h2 id="sh1106-example">SH1106 Example</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -1050,7 +1268,7 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="install-ssd1306-module">Install SSD1306 Module</h2>
-<p><img alt="" src="img/install-ssd1306.png" /></p>
+<p><img alt="" src="../../img/install-ssd1306.png" /></p>
 <h2 id="ssd1306-module">ssd1306 module</h2>
 <p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
 <h2 id="ssd1306-vs-sh1106">SSD1306 vs. SH1106</h2>
@@ -1220,6 +1438,41 @@ spi_rx=machine.Pin(4)
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../03-oled-drawing/" title="Drawing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Drawing
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../11-oled-ssd1306-spi/" title="OLED SSD1306 SPI V2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  OLED SSD1306 SPI V2
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
