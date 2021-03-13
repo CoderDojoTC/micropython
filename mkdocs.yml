@@ -31,6 +31,7 @@ nav:
     - OLED Pot: oled/12-oled-pot.md
     - OLED Ping: oled/11-oled-ping.md
     - OLED Pong: oled/11-pong.md
+    - OLED References: oled/40-oled-references.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
@@ -40,7 +41,7 @@ nav:
   - Circuit Python:
     - circuit-python/01-intro.md
   - Glossary: glossary.md
-  - References: 29-references.md
+  - References: references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
 
