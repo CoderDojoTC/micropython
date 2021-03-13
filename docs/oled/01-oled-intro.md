@@ -19,6 +19,8 @@ In these lessons we will assume you have a 128X64 or similar OLED display.  Many
 1. I2C - simple 2 wire connection (not including power and ground)
 2. SPI - five wires but also faster screen refresh rates
 
+Updating a 128X64 display using I2C takes around 37ms.  When using the SPI interface, updating the display can be reduced to around 2.79ms.
+
 These labs will assume these parameters, but you can modify the labs to use different sizes and display driver chips by only modifying a few lines of code.
 
 ## I2C Scanner
