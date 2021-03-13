@@ -6,14 +6,14 @@
 
 You can now use the Thonny "Tools -> Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  
 
-![](img/thonny-add-ssd1306.png)
+![](../img/thonny-add-ssd1306.png)
 
 If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.
 
 
 ## Install SSD1306 Module
 
-![](img/install-ssd1306.png)
+![](../img/install-ssd1306.png)
 
 ## ssd1306 module
 

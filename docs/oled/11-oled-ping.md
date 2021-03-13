@@ -2,7 +2,7 @@
 
 ## Circuit
 
-![](img/oled-ping-circuit.png)
+![](../img/oled-ping-circuit.png)
 
 ## Coder
 

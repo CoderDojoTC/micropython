@@ -34,7 +34,7 @@ oled.show()
 
 This would display the following:
 
-![OLED SPI Hello World](img/oled-hello-world.png)
+![OLED SPI Hello World](../img/oled-hello-world.png)
 
 
 ### Full list of Drawing Functions

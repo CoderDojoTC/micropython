@@ -19,14 +19,18 @@ nav:
     - LED Strip: 05-led-strip.md
     - Displays: 10-displays.md
     - Character LCD: 10-character-lcd-display.md
-    - OLED SSD1306 I2C: 11-oled-ssd1306-i2c.md
-    - OLED SSD1306 SPI V1: 12-oled-ssd1306-spi-v1.md
-    - OLED SSD1306 SPI V2: 11-oled-ssd1306-spi.md
-    - OLED SH1106 I2C Example: 11-oled-sh1106-i2c.md
-    - OLED Bounce: 10-oled-bounce.md
-    - OLED Pot: 12-oled-pot.md
-    - OLED Ping: 11-oled-ping.md
-    - OLED Pong: 11-pong.md
+  - OLED Displays:
+    - Introduction: oled/01-oled-intro.md
+    - Setup: oled/02-oled-setup.md
+    - Drawing: oled/03-oled-drawing.md
+    - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
+    - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
+    - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
+    - OLED SH1106 I2C Example: oled/11-oled-sh1106-i2c.md
+    - OLED Bounce: oled/10-oled-bounce.md
+    - OLED Pot: oled/12-oled-pot.md
+    - OLED Ping: oled/11-oled-ping.md
+    - OLED Pong: oled/11-pong.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
