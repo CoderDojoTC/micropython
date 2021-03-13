@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-oled-ssd1306-spi-v1.md" class="md-nav__link">
+      <a href="../12-oled-ssd1306-spi-v1/" class="md-nav__link">
         OLED SSD1306 SPI V1
       </a>
     </li>
@@ -604,13 +604,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#i2c-scanner" class="md-nav__link">
-    I2C Scanner
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#sh1106-example" class="md-nav__link">
@@ -802,6 +795,50 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      
+      <label class="md-nav__link" for="nav-7">
+        Circuit Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Circuit Python" data-md-level="1">
+        <label class="md-nav__title" for="nav-7">
+          <span class="md-nav__icon md-icon"></span>
+          Circuit Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../circuit-python/01-intro/" class="md-nav__link">
+        Introduction to CircuitPython
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         Glossary
@@ -883,13 +920,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i2c-scanner" class="md-nav__link">
-    I2C Scanner
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#sh1106-example" class="md-nav__link">
     SH1106 Example
   </a>
@@ -945,20 +975,6 @@
 <li>There is plenty of <strong>sample code and tutorials</strong> available.</li>
 </ol>
 <p>The first step is to find out what type of display graphics chip is used in your OLED.</p>
-<h2 id="i2c-scanner">I2C Scanner</h2>
-<p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device found at decimal&quot;</span><span class="p">,</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
-</code></pre></div>
-</td></tr></table>
-<p>returns: [60]</p>
 <h2 id="sh1106-example">SH1106 Example</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
