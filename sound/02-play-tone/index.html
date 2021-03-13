@@ -18,7 +18,7 @@
     
     
       
-        <title>Drawing - MicroPython</title>
+        <title>Play a Tone - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-draw-functions" class="md-skip">
+        <a href="#play-a-tone" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Drawing
+              Play a Tone
             
           </span>
         </div>
@@ -477,14 +477,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
       
       <label class="md-nav__link" for="nav-5">
         OLED Displays
@@ -503,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-oled-intro/" class="md-nav__link">
+      <a href="../../oled/01-oled-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -515,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-oled-setup/" class="md-nav__link">
+      <a href="../../oled/02-oled-setup/" class="md-nav__link">
         Setup
       </a>
     </li>
@@ -525,128 +523,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Drawing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../oled/03-oled-drawing/" class="md-nav__link">
         Drawing
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-draw-functions" class="md-nav__link">
-    Basic Draw Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#initializing-the-framebuffer" class="md-nav__link">
-    Initializing the Framebuffer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-list-of-drawing-functions" class="md-nav__link">
-    Full list of Drawing Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
-    Interfaces
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i2c" class="md-nav__link">
-    I2C
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spi" class="md-nav__link">
-    SPI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types-of-displays" class="md-nav__link">
-    Types of Displays
-  </a>
-  
-    <nav class="md-nav" aria-label="Types of Displays">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#summary-table" class="md-nav__link">
-    Summary Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lcd" class="md-nav__link">
-    LCD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oled" class="md-nav__link">
-    OLED
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tft-displays" class="md-nav__link">
-    TFT Displays
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -656,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ssd1306-i2c/" class="md-nav__link">
+      <a href="../../oled/11-oled-ssd1306-i2c/" class="md-nav__link">
         OLED SSD1306 I2C
       </a>
     </li>
@@ -668,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-oled-ssd1306-spi-v1/" class="md-nav__link">
+      <a href="../../oled/12-oled-ssd1306-spi-v1/" class="md-nav__link">
         OLED SSD1306 SPI V1
       </a>
     </li>
@@ -680,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ssd1306-spi/" class="md-nav__link">
+      <a href="../../oled/11-oled-ssd1306-spi/" class="md-nav__link">
         OLED SSD1306 SPI V2
       </a>
     </li>
@@ -692,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
+      <a href="../../oled/11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
       </a>
     </li>
@@ -704,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-oled-bounce/" class="md-nav__link">
+      <a href="../../oled/10-oled-bounce/" class="md-nav__link">
         OLED Bounce
       </a>
     </li>
@@ -716,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-oled-pot/" class="md-nav__link">
+      <a href="../../oled/12-oled-pot/" class="md-nav__link">
         OLED Pot
       </a>
     </li>
@@ -728,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ping/" class="md-nav__link">
+      <a href="../../oled/11-oled-ping/" class="md-nav__link">
         OLED Ping
       </a>
     </li>
@@ -740,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-pong/" class="md-nav__link">
+      <a href="../../oled/11-pong/" class="md-nav__link">
         OLED Pong
       </a>
     </li>
@@ -752,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../40-oled-references/" class="md-nav__link">
+      <a href="../../oled/40-oled-references/" class="md-nav__link">
         OLED References
       </a>
     </li>
@@ -796,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sound/01-intro/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -808,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sound/02-tones.md" class="md-nav__link">
+      <a href="../02-tones.md" class="md-nav__link">
         Playing Tones
       </a>
     </li>
@@ -820,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sound/03-play-mario.md" class="md-nav__link">
+      <a href="../03-play-mario.md" class="md-nav__link">
         Play Mario.md
       </a>
     </li>
@@ -1048,104 +929,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-draw-functions" class="md-nav__link">
-    Basic Draw Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#initializing-the-framebuffer" class="md-nav__link">
-    Initializing the Framebuffer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-list-of-drawing-functions" class="md-nav__link">
-    Full list of Drawing Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
-    Interfaces
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i2c" class="md-nav__link">
-    I2C
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spi" class="md-nav__link">
-    SPI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types-of-displays" class="md-nav__link">
-    Types of Displays
-  </a>
-  
-    <nav class="md-nav" aria-label="Types of Displays">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#summary-table" class="md-nav__link">
-    Summary Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lcd" class="md-nav__link">
-    LCD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oled" class="md-nav__link">
-    OLED
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tft-displays" class="md-nav__link">
-    TFT Displays
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1157,237 +942,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/03-oled-drawing.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sound/02-play-tone.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Drawing</h1>
-                
-                <h3 id="basic-draw-functions">Basic Draw Functions</h3>
-<p>For our beginning labs we will just do some basic drawing. We will start out with just four functions: </p>
-<ol>
-<li>Initialize the display framebuffer memory with the right object class initialization</li>
-<li>Fill the framebuffer will zeros which are black pixels with the oled.fill(0)</li>
-<li>Draw white text in the framebuffer memory with the oled.text("Hello World!", 40, 10)</li>
-<li>Send the entire framebuffer to the display over the bus with the oled.show() function.</li>
-</ol>
-<h3 id="initializing-the-framebuffer">Initializing the Framebuffer</h3>
-<p>Let's assume that we have a four wire OLED that uses the popular SSD1306 chip with 128X64 pixels.  We call our oled "oled" using the following line:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Parameters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>oled.fill(0)</td>
-<td>Fill the display with white or black</td>
-<td>0=black and 1=white</td>
-</tr>
-<tr>
-<td>oled.text("Hello",</td>
-<td>Draw text</td>
-<td>String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)</td>
-</tr>
-<tr>
-<td>show</td>
-<td>Show the display</td>
-<td>Send the current frame buffer to the display.  You must do this after you make and changes to the Framebuffer.</td>
-</tr>
-</tbody>
-</table>
-<p>The full program would look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<p>This would display the following:</p>
-<p><img alt="OLED SPI Hello World" src="../../img/oled-hello-world.png" /></p>
-<h3 id="full-list-of-drawing-functions">Full list of Drawing Functions</h3>
-<p>Every drawing library might have slightly different functions.  But we can quickly see the functions that we want by using the dir() function on the SSD1306_I2C class.</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">SSD1306_I2C</span><span class="p">))</span>
-</code></pre></div>
-</td></tr></table>
-This returns the following list:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__bases__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;blit&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;fill_rect&#39;</span><span class="p">,</span> <span class="s1">&#39;hline&#39;</span><span class="p">,</span>
-<span class="s1">&#39;invert&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;vline&#39;</span><span class="p">,</span>
-<span class="s1">&#39;init_display&#39;</span><span class="p">,</span> <span class="s1">&#39;write_cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">,</span> <span class="s1">&#39;poweroff&#39;</span><span class="p">,</span> <span class="s1">&#39;poweron&#39;</span><span class="p">,</span>
-<span class="s1">&#39;contrast&#39;</span><span class="p">,</span> <span class="s1">&#39;write_data&#39;</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
-<p>The following are relevant for the SSD1306_I2C display.</p>
-<p>The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state is 0=off (black) and 1=on (white).</p>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>blit</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>fill(state)</td>
-<td>Fill</td>
-<td>Fill with black (0) or white(1)</td>
-</tr>
-<tr>
-<td>fill_rect</td>
-<td>Fill a rectangle</td>
-<td></td>
-</tr>
-<tr>
-<td>hline(x1, x2, y, state)</td>
-<td>Draw a horizontal line</td>
-<td>Draw a horizontal line at the top of the display: oled.hline(0, 0, 127, 1)</td>
-</tr>
-<tr>
-<td>invert</td>
-<td>invert the display</td>
-<td></td>
-</tr>
-<tr>
-<td>line(x1,y1,x2,y2)</td>
-<td>draw a line at any angle</td>
-<td>Horizontal oled.line(0,0, 127, 63, 1)</td>
-</tr>
-<tr>
-<td>pixel</td>
-<td>Draw a single point on the screen</td>
-<td></td>
-</tr>
-<tr>
-<td>rect</td>
-<td>Draw an empty rectangle</td>
-<td></td>
-</tr>
-<tr>
-<td>scroll</td>
-<td>Scroll the display</td>
-<td></td>
-</tr>
-<tr>
-<td>text</td>
-<td>Write text at a point</td>
-<td></td>
-</tr>
-<tr>
-<td>vline</td>
-<td>Draw a Vertical Line</td>
-<td>oled.vline(width - 1, 0, height - 1, 1) # right edge</td>
-</tr>
-<tr>
-<td>init_display</td>
-<td>Initialize the display</td>
-<td></td>
-</tr>
-<tr>
-<td>write_cmd</td>
-<td>Write a command to the display</td>
-<td></td>
-</tr>
-<tr>
-<td>show</td>
-<td>Update the display from the frame buffer</td>
-<td></td>
-</tr>
-<tr>
-<td>poweroff</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>poweron</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>contrast</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>write_data</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="interfaces">Interfaces</h3>
-<h3 id="i2c">I2C</h3>
-<p>Pros: Simple four wire interface</p>
-<table>
-<thead>
-<tr>
-<th>Pin</th>
-<th>Purpose</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="spi">SPI</h3>
-<p>Example: 128X64 pixel monochrome displays</p>
-<h2 id="types-of-displays">Types of Displays</h2>
-<h3 id="summary-table">Summary Table</h3>
-<table>
-<thead>
-<tr>
-<th>Display Type</th>
-<th>Cost</th>
-<th>Links</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="lcd">LCD</h3>
-<h3 id="oled">OLED</h3>
-<h3 id="tft-displays">TFT Displays</h3>
-<h2 id="references">References</h2>
-<p><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></p>
+                <h1 id="play-a-tone">Play a Tone</h1>
                 
               
               
@@ -1402,41 +962,6 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../02-oled-setup/" title="Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Setup
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../11-oled-ssd1306-i2c/" title="OLED SSD1306 I2C" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  OLED SSD1306 I2C
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
