@@ -14,18 +14,7 @@ The first step is to find out what type of display graphics chip is used in your
 
 
 
-## I2C Scanner
-Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.
 
-```py
-import machine
-sda=machine.Pin(0)
-scl=machine.Pin(1)
-i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
-print("Device found at decimal", i2c.scan())
-```
-
-returns: [60]
 
 ## SH1106 Example
 

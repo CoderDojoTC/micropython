@@ -7,7 +7,7 @@ The OLED display is a read-only interface.  It does not send any data back to th
 
 For details, see section 8.1.3 MCU Serial Interface on page 21 of the [SSD1305 132 x 64 Dot Matrix OLED/PLED Segment/Common Driver with Controller](https://cdn-shop.adafruit.com/product-files/2719/2719+DATA.pdf).
 
-![SSD1306 Timing Diagram](ssd1306-spi-timing-diagram.png)
+![SSD1306 Timing Diagram](img/ssd1306-spi-timing-diagram.png)
 
 ## OLED SPI settings
 Our OLED device has seven wires.  In addition to power and ground there a five data connections we will be observing on our logic analyzer.

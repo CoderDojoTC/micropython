@@ -11,19 +11,19 @@ Using a low-cost OLED device you can write a pong game.  If you use a small 128X
 |2 10K Potentiometers|$1.5 each|[eBay](https://www.ebay.com/itm/10K-OHM-Linear-Taper-Rotary-Potentiometer-10KB-B10K-Pot-With-Wire-Portable-H/303636919492)|You can purchase these in QTY 10 for less.  Use the part number B10K to narrow your search.|
 |Clear Plastic Box|$4|[The Container Store](https://www.containerstore.com/s/clear-stackable-rectangle-containers-with-white-lids)|Shallow Narrow Stackable Rectangle Clear with Lids 8-1/4" x 3-1/2" x 1-7/8" h.  The link is to the white lids.|
 
-![](img/raspberry-pi-pico.png)
+![](../img/raspberry-pi-pico.png)
 
 Raspberry Pi Pico for $4.
 
-![](img/oled-i2c.png)
+![](../img/oled-i2c.png)
 
 OLED with I2C Interface.  Note the pins are VCC, GND, SCL (clock), SDA (data).
 
-![](img/breadboard.png)
+![](../img/breadboard.png)
 
 1/2 size 400 connector solderless breadboard
 
-![](img/10k-pot.png)
+![](../img/10k-pot.png)
 
 10K potentiometer with pre-soldered connectors.  You will need two of these. You can use a male-to-male header to connect it to the breadboard.
 

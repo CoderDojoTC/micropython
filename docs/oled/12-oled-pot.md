@@ -8,9 +8,9 @@ A potentiometer has three wires.  The two outside wires connect to GND and the 3
 
 ## Circuit Diagram
 
-![](img/oled-i2c-clock-data.png)
+![](../img/oled-i2c-clock-data.png)
 
-![](img/oled-pot-lab-pins.png)
+![](../img/oled-pot-lab-pins.png)
 ## Sample Code
 
 ## Testing the POT
@@ -164,6 +164,8 @@ while True:
 ```
 ## Gif of OLED
 
-![OLED Pot Small](img/pot-oled.gif)
+Gif of small .96" OLED
+![OLED Pot Small](../img/pot-oled.gif)
 
-![OLED Pot Large Screen](img/oled-pot-i2c-large.gif)
+Gif of larger 2.42" OLED
+![OLED Pot Large Screen](../img/oled-pot-i2c-large.gif)

@@ -1,9 +1,6 @@
 # OLED SSD1306 Examples
 
 
-
-returns: [60]
-
 ## Using the SSD1306 with I2C Interfaces
 
 ### Add the ssd1306 Python Module
@@ -133,7 +130,7 @@ https://raspberrypi.github.io/pico-sdk-doxygen/group__hardware__spi.html#ga37f4c
 
 The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:
 
-![](img/oled-back-connections.png)
+![](../img/oled-back-connections.png)
 
 1. CS - Chip Select - pin 4
 2. DC - Data/Command - pin 5

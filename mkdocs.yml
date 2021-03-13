@@ -37,6 +37,8 @@ nav:
     - Debugging SPI: 29-debugging-spi.md
     - Ampy: 27-ampy.md
     - Content Outliner: 40-gpt-outliner.md
+  - Circuit Python:
+    - circuit-python/01-intro.md
   - Glossary: glossary.md
   - References: 29-references.md
   - Contact: contact.md
