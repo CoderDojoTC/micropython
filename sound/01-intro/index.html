@@ -18,7 +18,7 @@
     
     
       
-        <title>01 intro - MicroPython</title>
+        <title>Introduction to Sound and Music in MicroPython - MicroPython</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#introduction-to-sound-and-music-in-micropython" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -92,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              01 intro
+              Introduction to Sound and Music in MicroPython
             
           </span>
         </div>
@@ -848,6 +853,44 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-microcontrollers-generate-sound" class="md-nav__link">
+    How Microcontrollers Generate Sound
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-a-sound-device" class="md-nav__link">
+    Connecting a Sound Device
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -858,9 +901,22 @@
                   </a>
                 
                 
-                  <h1>01 intro</h1>
-                
-                
+                <h1 id="introduction-to-sound-and-music-in-micropython">Introduction to Sound and Music in MicroPython</h1>
+<h2 id="how-microcontrollers-generate-sound">How Microcontrollers Generate Sound</h2>
+<p>Microcontrollers are really great at generating digital outputs on their GPIO pins.  These digital signals that quickly switch between zero and a positive voltage like 3.3 or 5 volts.  However, they are not designed to create "analog" output of a continuous varying voltage.  However, we can use a technique called "Pulse Width Modulation" to simulate the various frequencies of sound using digital only outputs.</p>
+<p><a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation</a> is the process of changing not the height of a electrical signal, but the width between the pulses of digital signals.  By changing the distance of the spaces between the digital signals we can generate a signal that will sound like it has a higher or lower frequency or pitch.</p>
+<p>MicroPython provides a powerful library of tools for you to easily generate pulses of different shapes.  This is called the PWM library.  Will will use this in our sound and music programs.  Here is a sample of how this is called in our code:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+</code></pre></div>
+</td></tr></table>
+<p>Note that we will also need to pause between notes, so will use the sleep library to pause execution of our sound generation.</p>
+<h2 id="connecting-a-sound-device">Connecting a Sound Device</h2>
+<p>There are several different ways that you can connect a sound device to you MicroController.  Here are three options:</p>
+<ol>
+<li>A <strong>Buzzer</strong> - t</li>
+</ol>
                 
               
               
