@@ -11,8 +11,8 @@ This course is about [MicroPython](https://en.wikipedia.org/wiki/MicroPython), a
 * Basic understanding of Python programming language (_We strongly suggest you take the [Introduction to Python Programming CoderDojo Course](https://www.coderdojotc.org/python/trinket/00-introduction/) if you are not familiar with Python._)
 
 ## Course Outline
-* Basics about Micro Controller
-* What is Micropython and Why we love it
+* [Basics about Micro Controller](introduction/01a-microcontrollers.md)
+* [What is Micropython?](docs/introduction/01b-libraries.md)
 * Virtual Emulators vs Raspberry Pi Pico
 * Setting up Lab environment using Thonny
 * Lab exercises - Getting Started 

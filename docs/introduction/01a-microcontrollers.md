@@ -6,12 +6,12 @@ A [microcontroller](https://en.wikipedia.org/wiki/Microcontroller) is a small lo
 
 In the past, microcontrollers were difficult for younger students to program.  They were also too expensive for every student to purchase and take home.  A typical Arduino kit could easily cost over $20 and required you to learn C to program it.
 
-Today, microcontrollsers such as the [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) and the [ESP32](https://en.wikipedia.org/wiki/ESP32) cost as little as two dollars.  And these devices are designed to be programmed in Python, the most popular programming language for students.
+Today, microcontrollers such as the [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) and the [ESP32](https://en.wikipedia.org/wiki/ESP32) cost as little as two dollars.  And these devices are designed to be programmed in Python, the most popular programming language for students.
 
 ## What is Physical Computing?
 [Physical Computing](https://en.wikipedia.org/wiki/Physical_computing) is a field of study that can sense and respond to the world around us.  Unlike programming a cell phone or a laptop computer, our focus is reading sensor values and quickly responding to changes.  Physical Computing is widely used to teach principals of computer science because students can create their own projects and express creativity such a controlling the patterns of lights or creating complex sounds.
 
-## How Microcontrollsers are Used
+## How Microcontrollers are Used
 Microcontrollers do three things:
 
 1. They read sensor values of the world around them
@@ -26,13 +26,15 @@ Here is a specific example instance of what inputs and outputs might do.
 
 ## Programming a Microcontroller
 
-In this class, we will use the MicroPython to program our Microcontrollers.  Our programs will usually have the following structure:
+In this class, we will use the MicroPython to program our Microcontroller.  
 
-1. Imports: Specify the right Python libraries
-2. Setup: Setup initial data structures
-3. Main loop: Continuously monitor inputs and take actions
+Our programs will usually have the following structure:
 
-The following is a small example of this code in Micropython:
+1. **Imports**: Specify the Python libraries used in the code (*More Information on Python libraries are available [here](https://docs.python.org/3/tutorial/modules.html)*)
+2. **Setup**: Setup/ Initialize variables and sensors 
+3. **Main loop**: Continuously monitor sensor inputs and take actions
+
+The following is an example code in Micropython:
 
 ```python
 # Import Section
@@ -50,6 +52,6 @@ while True:
     time.sleep(0.5)
 ```
 
-Almost all our programs will start with the ```import machine``` line.  This tells the system that we need to gather all the libraries that understand our physical machine.
+Almost all our programs will start with the `import machine` line.  This tells the system that we need to gather all the libraries that understand our physical machine.
 
-
+If you couldn't understand the example program - don't worry! We will be going through it in detail as we work on our labs.
