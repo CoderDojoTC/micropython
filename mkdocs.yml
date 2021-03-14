@@ -32,6 +32,10 @@ nav:
     - OLED Ping: oled/11-oled-ping.md
     - OLED Pong: oled/11-pong.md
     - OLED References: oled/40-oled-references.md
+  - Sound and Music:
+    - Introduction: sound/01-intro.md
+    - Playing Tones: sound/02-tones.md
+    - Play Mario.md: sound/03-play-mario.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md

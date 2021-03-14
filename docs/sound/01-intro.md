@@ -19,4 +19,10 @@ Note that we will also need to pause between notes, so will use the sleep librar
 
 There are several different ways that you can connect a sound device to you MicroController.  Here are three options:
 
-1. A **Buzzer** - t
+1. **Buzzers** - These are small inexpensive devices that can mount directly on your breadboard.
+2. **Piezoelectric Speaker** - [Wikipedia Page on Piezoelectric Speaker](https://en.wikipedia.org/wiki/Piezoelectric_speaker)
+2. **Speaker** - A magnetic speaker with our without an amplifier is another way to hear sound.  You can also purchase a small amplifier to increase the volume.
+4. **Amplifier** - For about $1.20 you can purchase a small amplifier for your speaker. [eBay LM386 DC 5V-12V Mini Micro Audio Amplifier Module Board](https://www.ebay.com/itm/LM386-DC-5V-12V-Mini-Micro-Audio-Amplifier-Module-Board-Mono-AMP-ModuleEP-I/133596864305)
+
+![](img/magnetic-buzzer.png)
+![](img/piezo-buzzer.png)
