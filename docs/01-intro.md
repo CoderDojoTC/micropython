@@ -1,5 +1,4 @@
-# Introduction to MicroPython
-Welcome to the CoderDojo course on MicroPython.
+# Welcome to the CoderDojo course on MicroPython
 
 This course is about [MicroPython](https://en.wikipedia.org/wiki/MicroPython), a variation of the popular [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) programming language that is used to program [microcontrollers](https://en.wikipedia.org/wiki/Microcontroller).  
 
@@ -12,8 +11,10 @@ This course is about [MicroPython](https://en.wikipedia.org/wiki/MicroPython), a
 * Basic understanding of Python programming language (_We strongly suggest you take the [Introduction to Python Programming CoderDojo Course](https://www.coderdojotc.org/python/trinket/00-introduction/) if you are not familiar with Python._)
 
 ## Course Outline
+* Basics about Micro Controller
 * What is Micropython and Why we love it
 * Virtual Emulators vs Raspberry Pi Pico
+* Setting up Lab environment using Thonny
 * Lab exercises - Getting Started 
 * Lab exercises - Intermediate
 * Lab exercises - Advanced
