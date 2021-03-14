@@ -1,13 +1,16 @@
 # Introduction to CircuitPython
 
-1. A fork of MicroPython done by Adafruit
-1. Done for "simplicity" but does not support multiple cores
-1. They have lots of drivers
-1. The code is generally incompatble with MicroPython
-1. It might be useful for testing devices where the MicroPython drivers do not work
+1. CircuitPython is a fork of MicroPython done by Adafruit
+2. According to [Google Trends](https://trends.google.com/trends/explore?date=today%205-y&q=micropython,circuitpython), MicroPython is more popular than CircuitPython when we look at worldwide web search comparison
+3. Done for "simplicity" but does not support multiple cores
+4. CircuitPython have lots of drivers
+5. The code is generally incompatible with MicroPython although you can often manually convert one program into another
+6. It might be useful for testing devices where the MicroPython drivers do not work
 
-## Setting up a CircuitPython Environment
+## Setting up a CircuitPython Virtual Environment
+Because MicroPython and CircuitPython are incompatable, it is important that you don't intermix your python libraries.
 
+Here is how we setup a virtual environment for CircuitPython using [Conda](https://docs.conda.io/en/latest/).
 
 ```sh
 conda create -n circuitpython python=3
@@ -73,3 +76,10 @@ display.pixel(64, 16, 1)
 display.pixel(127, 31, 1)
 display.show()
 ```
+
+## Trend analysis
+
+As of March 2021, MicroPython is about two to four times more popular than CircuitPython.
+
+[Google Worldwide Search Trends](https://trends.google.com/trends/explore?date=today%205-y&q=micropython,circuitpython)
+

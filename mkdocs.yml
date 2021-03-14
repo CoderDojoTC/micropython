@@ -40,6 +40,7 @@ nav:
     - Content Outliner: 40-gpt-outliner.md
   - Circuit Python:
     - circuit-python/01-intro.md
+  - Projects: projects.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
