@@ -661,79 +661,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
       <label class="md-nav__link" for="nav-6">
-        Sound and Music
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Sound and Music" data-md-level="1">
-        <label class="md-nav__title" for="nav-6">
-          <span class="md-nav__icon md-icon"></span>
-          Sound and Music
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sound/01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sound/02-tones.md" class="md-nav__link">
-        Playing Tones
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sound/03-play-mario.md" class="md-nav__link">
-        Play Mario.md
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
-      
-      <label class="md-nav__link" for="nav-7">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="1">
-        <label class="md-nav__title" for="nav-7">
+        <label class="md-nav__title" for="nav-6">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -820,14 +752,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
       
-      <label class="md-nav__link" for="nav-8">
+      <label class="md-nav__link" for="nav-7">
         Circuit Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Circuit Python" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
+        <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
           Circuit Python
         </label>
@@ -870,11 +802,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-a-circuitpython-environment" class="md-nav__link">
-    Setting up a CircuitPython Environment
+  <a href="#setting-up-a-circuitpython-virtual-environment" class="md-nav__link">
+    Setting up a CircuitPython Virtual Environment
   </a>
   
-    <nav class="md-nav" aria-label="Setting up a CircuitPython Environment">
+    <nav class="md-nav" aria-label="Setting up a CircuitPython Virtual Environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -889,6 +821,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#trend-analysis" class="md-nav__link">
+    Trend analysis
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -899,6 +838,22 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        Projects
+      </a>
     </li>
   
 
@@ -992,11 +947,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-a-circuitpython-environment" class="md-nav__link">
-    Setting up a CircuitPython Environment
+  <a href="#setting-up-a-circuitpython-virtual-environment" class="md-nav__link">
+    Setting up a CircuitPython Virtual Environment
   </a>
   
-    <nav class="md-nav" aria-label="Setting up a CircuitPython Environment">
+    <nav class="md-nav" aria-label="Setting up a CircuitPython Virtual Environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1008,6 +963,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trend-analysis" class="md-nav__link">
+    Trend analysis
+  </a>
   
 </li>
       
@@ -1030,13 +992,16 @@
                 
                 <h1 id="introduction-to-circuitpython">Introduction to CircuitPython</h1>
 <ol>
-<li>A fork of MicroPython done by Adafruit</li>
+<li>CircuitPython is a fork of MicroPython done by Adafruit</li>
+<li>According to <a href="https://trends.google.com/trends/explore?date=today%205-y&amp;q=micropython,circuitpython">Google Trends</a>, MicroPython is more popular than CircuitPython when we look at worldwide web search comparison</li>
 <li>Done for "simplicity" but does not support multiple cores</li>
-<li>They have lots of drivers</li>
-<li>The code is generally incompatble with MicroPython</li>
+<li>CircuitPython have lots of drivers</li>
+<li>The code is generally incompatible with MicroPython although you can often manually convert one program into another</li>
 <li>It might be useful for testing devices where the MicroPython drivers do not work</li>
 </ol>
-<h2 id="setting-up-a-circuitpython-environment">Setting up a CircuitPython Environment</h2>
+<h2 id="setting-up-a-circuitpython-virtual-environment">Setting up a CircuitPython Virtual Environment</h2>
+<p>Because MicroPython and CircuitPython are incompatable, it is important that you don't intermix your python libraries.</p>
+<p>Here is how we setup a virtual environment for CircuitPython using <a href="https://docs.conda.io/en/latest/">Conda</a>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n circuitpython <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda activate circuitpython
@@ -1131,6 +1096,9 @@ ERROR: No matching distribution found for adafruit-circuitpython-displayio-ssd13
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="trend-analysis">Trend analysis</h2>
+<p>As of March 2021, MicroPython is about two to four times more popular than CircuitPython.</p>
+<p><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;q=micropython,circuitpython">Google Worldwide Search Trends</a></p>
                 
               
               
@@ -1164,13 +1132,13 @@ ERROR: No matching distribution found for adafruit-circuitpython-displayio-ssd13
             </a>
           
           
-            <a href="../../glossary/" title="Glossary" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../../projects/" title="Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Glossary
+                  Projects
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

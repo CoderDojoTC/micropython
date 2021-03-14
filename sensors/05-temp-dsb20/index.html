@@ -18,7 +18,7 @@
     
     
       
-        <title>Play a Tone - MicroPython</title>
+        <title>Temp with DS18B20 - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#play-a-tone" class="md-skip">
+        <a href="#temp-with-ds18b20" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Play a Tone
+              Temp with DS18B20
             
           </span>
         </div>
@@ -661,79 +661,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
       <label class="md-nav__link" for="nav-6">
-        Sound and Music
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Sound and Music" data-md-level="1">
-        <label class="md-nav__title" for="nav-6">
-          <span class="md-nav__icon md-icon"></span>
-          Sound and Music
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-tones.md" class="md-nav__link">
-        Playing Tones
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-play-mario.md" class="md-nav__link">
-        Play Mario.md
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
-      
-      <label class="md-nav__link" for="nav-7">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="1">
-        <label class="md-nav__title" for="nav-7">
+        <label class="md-nav__title" for="nav-6">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -818,14 +750,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
-      <label class="md-nav__link" for="nav-8">
+      <label class="md-nav__link" for="nav-7">
         Circuit Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Circuit Python" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
+        <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
           Circuit Python
         </label>
@@ -846,6 +778,22 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        Projects
+      </a>
     </li>
   
 
@@ -942,12 +890,28 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sound/02-play-tone.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/05-temp-dsb20.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="play-a-tone">Play a Tone</h1>
+                <h1 id="temp-with-ds18b20">Temp with DS18B20</h1>
+<p>https://randomnerdtutorials.com/micropython-ds18b20-esp32-esp8266/</p>
+<p>```py</p>
+<h1 id="complete-project-details-at-httpsrandomnerdtutorialscom">Complete project details at https://RandomNerdTutorials.com</h1>
+<p>import machine, onewire, ds18x20, time</p>
+<p>ds_pin = machine.Pin(4)
+ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))</p>
+<p>roms = ds_sensor.scan()
+print('Found DS devices: ', roms)</p>
+<p>while True:
+  ds_sensor.convert_temp()
+  time.sleep_ms(750)
+  for rom in roms:
+    print(rom)
+    print(ds_sensor.read_temp(rom))
+  time.sleep(5)
+  ```</p>
                 
               
               
