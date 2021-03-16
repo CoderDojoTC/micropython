@@ -18,7 +18,7 @@
     
     
       
-        <title>Sample Pixel-Based Drawing Program - MicroPython</title>
+        <title>OLED Pixel Draw - MicroPython</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Sample Pixel-Based Drawing Program
+              OLED Pixel Draw
             
           </span>
         </div>
@@ -477,12 +477,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
       
       <label class="md-nav__link" for="nav-5">
         OLED Displays
@@ -624,6 +626,27 @@
       <a href="../11-pong/" class="md-nav__link">
         OLED Pong
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OLED Pixel Draw
+      </a>
+      
     </li>
   
 
@@ -965,6 +988,7 @@
                 
                 <h1 id="sample-pixel-based-drawing-program">Sample Pixel-Based Drawing Program</h1>
 <p>Code example provided by Jim Tannenbaum.</p>
+<p>This program will act like an Etch-A-Sketch(TM) program.  It will use potentiometers with the center tap on GPIO pins GP26 and GP27 and draw as you move the potentiometers to control the X and Y dimensions.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1104,6 +1128,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../11-pong/" title="OLED Pong" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  OLED Pong
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../40-oled-references/" title="OLED References" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  OLED References
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
