@@ -35,6 +35,7 @@ nav:
     - OLED Pot: oled/12-oled-pot.md
     - OLED Ping: oled/11-oled-ping.md
     - OLED Pong: oled/11-pong.md
+    - OLED Pixel Draw: oled/13-pixel-draw.md
     - OLED References: oled/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
