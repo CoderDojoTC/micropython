@@ -43,3 +43,7 @@ while True:
     print("Distance:", ping(), " cm")
     utime.sleep(.25)
 ```
+
+## OLED
+
+See the OLED example here: [OLED Ping Example](../oled/11-oled-ping.md)
