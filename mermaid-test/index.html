@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Projects - MicroPython</title>
+<title>Render Test - MicroPython</title>
 <link href="../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,9 +22,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#coderdojo-micropython-projects">
-          Skip to content
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -46,7 +43,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Projects
+              Render Test
             
           </span>
 </div>
@@ -398,9 +395,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../projects/">
         Projects
       </a>
 </li>
@@ -424,8 +420,9 @@
         Colophon
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../mermaid-test/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         Render Test
       </a>
 </li>
@@ -434,66 +431,34 @@
 </div>
 </div>
 </div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-</nav>
-</div>
-</div>
-</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/projects.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/mermaid-test.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="coderdojo-micropython-projects">CoderDojo MicroPython Projects</h1>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ping HC-SR04</td>
-<td><a href="../oled/11-oled-ping/">50%</a></td>
-<td>Create an OLED ping lab</td>
-</tr>
-<tr>
-<td>Motion Sensor</td>
-<td>0%</td>
-<td>Create a lesson that uses a motion sensor.  Use an OLED to display motion vs. time</td>
-</tr>
-<tr>
-<td>Photosensor</td>
-<td>0%</td>
-<td>Create a lesson that will monitor light on a photo sensor</td>
-</tr>
-<tr>
-<td>DS18B Temp Sensor</td>
-<td>0%</td>
-<td>Create a lesson that will read and display a waterproof temperature sensor</td>
-</tr>
-<tr>
-<td>JoyStick</td>
-<td>0%</td>
-<td>Create a lesson that will read the X, Y and button of a JoyStick</td>
-</tr>
-<tr>
-<td>OLED JoyStick</td>
-<td>0%</td>
-<td>Use a Joystick to move a ball around an OLED and paint pixels</td>
-</tr>
-<tr>
-<td>OLED Game of Life</td>
-<td>0%</td>
-<td>Write a Game of Life with an OLED.  Add a Joystick to paint initial conditions</td>
-</tr>
-</tbody>
-</table>
+<h1>Render Test</h1>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
+    p[Pico] --&gt;|ADC_VREF 36 row=6| pos(Positive)
+    p[Pico] --&gt;|AGND 33 row=8| neg(Negative)
+    p[Pico] --&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
+    pos(Positive) --- pot(Potentiometer)
+    neg(Negative) --- pot(Potentiometer)
+    tap(Center Tap) --- pot(Potentiometer)
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
+MyApp --&gt; DB(&lt;font color=white&gt;fa:fa-database MySQL)
+style DB fill:#00758f
+</code></pre></div>
+</td></tr></table>
 </article>
 </div>
 </div>
@@ -501,7 +466,7 @@
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../circuit-python/01-intro/" rel="prev" title="Introduction to CircuitPython">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../30-colophon/" rel="prev" title="Colophon">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -510,21 +475,8 @@
 <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Introduction to CircuitPython
+                  Colophon
                 </span>
-</div>
-</a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../glossary/" rel="next" title="Glossary">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Glossary
-                </span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
 </div>
 </a>
 </nav>
