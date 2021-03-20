@@ -19,7 +19,7 @@ nav:
     - LED Strip: 05-led-strip.md
     - Displays: 10-displays.md
     - Character LCD: 10-character-lcd-display.md
-  - Sensors
+  - Sensors:
     - Potentiometer: 02-pot.md
     - Ultrasonic Distance: 05-ping.md
   - OLED Displays:
