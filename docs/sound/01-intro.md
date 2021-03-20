@@ -26,3 +26,7 @@ There are several different ways that you can connect a sound device to you Micr
 
 ![](img/magnetic-buzzer.png)
 ![](img/piezo-buzzer.png)
+
+## references
+
+https://electronics.stackexchange.com/questions/288930/what-is-the-difference-between-a-buzzer-and-a-speaker-and-are-there-any-other-ba

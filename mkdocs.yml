@@ -19,6 +19,9 @@ nav:
     - LED Strip: 05-led-strip.md
     - Displays: 10-displays.md
     - Character LCD: 10-character-lcd-display.md
+  - Sensors
+    - Potentiometer: 02-pot.md
+    - Ultrasonic Distance: 05-ping.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
@@ -49,6 +52,7 @@ nav:
   - References: references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
+  - Render Test: mermaid-test.md
 
 site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
 site_author: 'Dan McCreary'
@@ -65,6 +69,8 @@ theme:
     accent: '#41BAC1'
   custom_dir: 'theme'
   include_sidebar: true
+plugins:
+  - mermaid2
 markdown_extensions:
   - admonition
   - footnotes
