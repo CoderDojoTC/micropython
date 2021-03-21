@@ -448,9 +448,36 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          References
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         References
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#micropython-references">
+    Micropython References
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pico-references">
+    Pico References
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components-references">
+    Components References
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../contact/">
@@ -476,6 +503,27 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#micropython-references">
+    Micropython References
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pico-references">
+    Pico References
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#components-references">
+    Components References
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -486,16 +534,28 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="references-for-micropython">References for MicroPython</h1>
+<h2 id="micropython-references">Micropython References</h2>
 <ol>
-<li><a href="https://micropython.org/download/rp2-pico/">MicroPython Firmware for the Raspberry Pi Pico</a> - You will want to bookmark this site.  It has the firmware required to run MicroPython on your Raspberry Pi Pico.  As of March 2021, they are fixing bugs weekly, so you will want to make sure your firmware is current.</li>
 <li><a href="https://forum.micropython.org/">MicroPython Forum</a> - a good place to ask questions about MicroPython.  Mostly for hard core developers.</li>
 <li><a href="http://micropython.org/">MicroPython.org site</a> - We would not recommend the PyBoard for beginners.  They are over 10x more expensive than the the Raspberry Pi Pico.</li>
+</ol>
+<h2 id="pico-references">Pico References</h2>
+<ol>
+<li><a href="https://micropython.org/download/rp2-pico/">MicroPython Firmware for the Raspberry Pi Pico</a> - You will want to bookmark this site.  It has the firmware required to run MicroPython on your Raspberry Pi Pico.  As of March 2021, they are fixing bugs weekly, so you will want to make sure your firmware is current.</li>
+<li><a href="https://www.youtube.com/watch?v=o-tRJPCv0GA">Pico Launch Video on YouTube</a></li>
 <li><a href="https://projects.raspberrypi.org/en/projects?software%5B%5D=micropython&amp;hardware%5B%5D=pico">Raspberry Pi Web Site Project Search</a></li>
 <li><a href="https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf">Pico Data Sheet</a> - you will only need this for detailed information on how to use the Pico hardware.</li>
 <li><a href="https://www.raspberrypi.org/blog/raspberry-pi-silicon-pico-now-on-sale/">Meet Raspberry Silicon: Raspberry Pi Pico now on sale at $4</a> - The original Raspberry Pi Pico announcement.</li>
 <li><a href="https://www.raspberrypi.org/blog/the-journey-to-raspberry-silicon/">The journey to Raspberry Silicon</a> - blog by Liam Fraser - Feb. 8th 2021.  Nice story of how the Raspberry Pi Foundation created the custom silicon chip.</li>
 <li><a href="https://github.com/raspberrypi/pico-tflmicro">TensorFlow Lite Micro for the Pico</a></li>
 <li><a href="https://www.youtube.com/watch?v=O5S1LC5TFiM">Pico Invaders Video</a></li>
+<li><a href="https://www.youtube.com/watch?v=WaPJmCgseQw">YouTube video of Raspberry Pi driving a full color VGA screen</a> - Full-speed high-fidelity BBC Micro emulation on a (slightly) overclocked Raspberry Pi Pico </li>
+<li><a href="https://www.arm.com/blogs/blueprint/raspberry-pi-rp2040">Raspberry Pi RP2040: Our Microcontroller for the Masses</a> - James Adams, COO and Director of Hardware, Raspberry Pi</li>
+<li><a href="https://www.arm.com/blogs/blueprint/tinyml">ARM Blueprint post on TinyML</a> - nice review of the Tiny Machine Learning possible on the ARM processor.</li>
+<li><a href="https://www.youtube.com/watch?v=9ZIDzkhUrkY">Google TensorFlow engineer talking about how ARM and Google are working together on TinyML</a> - short 60 second video clip of Google TensorFlow engineer Ian Nappier talking about how they are working with ARM to create a standard TinyML library for all ARM processors to use.</li>
+</ol>
+<h2 id="components-references">Components References</h2>
+<ol>
 <li><a href="https://www.diymore.cc/collections/hot-products/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow">2.42" OLED Display from DIY More</a></li>
 </ol>
 </article>

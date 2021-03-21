@@ -556,11 +556,11 @@
 
 <span class="c1"># create a Pulse Width Modulation Object on this pin</span>
 <span class="n">speaker</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SPEAKER_PIN</span><span class="p">))</span>
-<span class="c1"># set the duty cycle</span>
+<span class="c1"># set the duty cycle to be 50%</span>
 <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># 1 Kilohertz</span>
+<span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># 50% on and off</span>
 <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># wait a second</span>
-<span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># turn off the PWM circuits off with a zero duty cycle</span>
 <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>

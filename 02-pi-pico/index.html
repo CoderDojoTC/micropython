@@ -199,6 +199,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#getting-the-bootloader-running-from-the-thonny-python-shell">
+    Getting The Bootloader Running from the Thonny Python Shell
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#using-the-onboard-led">
     Using the Onboard LED
   </a>
@@ -568,6 +573,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#getting-the-bootloader-running-from-the-thonny-python-shell">
+    Getting The Bootloader Running from the Thonny Python Shell
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#using-the-onboard-led">
     Using the Onboard LED
   </a>
@@ -736,6 +746,12 @@ Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
 Done!
 </code></pre></div>
 </td></tr></table></p>
+<h2 id="getting-the-bootloader-running-from-the-thonny-python-shell">Getting The Bootloader Running from the Thonny Python Shell</h2>
+<p>Although you can hold down the BOOTSEL button as you are plugging in the Pico, there is a much easier way.  Just type the following into the Thonny shell:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt;machine.bootloader<span class="o">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>This will make the Pico go into the Bootloader Mode and mount the file system.  You can then copy the bootloader file using the drag-and-drop from your file system or use a UNIX copy command.  Once the copy is finished the Pico will automaticaly restart using the new uf2 file.</p>
 <h2 id="using-the-onboard-led">Using the Onboard LED</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
