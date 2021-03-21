@@ -96,6 +96,16 @@ Found 2e8a:0005 at /dev/cu.usbmodem0000000000001
 Done!
 ```
 
+## Getting The Bootloader Running from the Thonny Python Shell
+
+Although you can hold down the BOOTSEL button as you are plugging in the Pico, there is a much easier way.  Just type the following into the Thonny shell:
+
+```sh
+>>>machine.bootloader()
+```
+
+This will make the Pico go into the Bootloader Mode and mount the file system.  You can then copy the bootloader file using the drag-and-drop from your file system or use a UNIX copy command.  Once the copy is finished the Pico will automaticaly restart using the new uf2 file.
+
 ## Using the Onboard LED
 
 ```py

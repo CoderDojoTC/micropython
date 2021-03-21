@@ -6,7 +6,7 @@ This course is about [MicroPython](https://en.wikipedia.org/wiki/MicroPython), a
 #### Intended Audience
 Our target audience is students age 10-16 that are in Junior High or High School that have basic keyboarding skills.  For example, students will need to be able to select, copy and paste text from the examples into their own code.
 
-This course is appropriate for students that already have a basic understanding of the Python programming language.  We strongly suggest you take the [Introduction to Python Programming CoderDojo Course](https://www.coderdojotc.org/python/trinket/00-introduction/) if you are not familiar with Python.
+This course is appropriate for students that already have a basic understanding of the Python programming language.  We strongly suggest you take the [Introduction to Python Programming CoderDojo Twin Cities Course](https://www.coderdojotc.org/python/trinket/00-introduction/) if you are not familiar with Python.
 
 * What is Micropython
 * Why we love it
