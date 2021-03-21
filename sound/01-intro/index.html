@@ -52,6 +52,34 @@
 </div>
 </div>
 </div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="md-header-nav__source">
 <a class="md-source" href="https://github.com/CoderDojoTC/micropython/" title="Go to repository">
 <div class="md-source__icon md-icon">
@@ -341,26 +369,41 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#duty-cycle">
+    Duty Cycle
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#connecting-a-sound-device">
     Connecting a Sound Device
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#references">
-    references
+    References
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02-tones.md">
-        Playing Tones
+<a class="md-nav__link" href="../02-play-tone/">
+        Playing a Tone
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-play-mario.md">
-        Play Mario.md
+<a class="md-nav__link" href="../03-play-three-tones/">
+        Playing Three Tones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-play-scale/">
+        Playing a Scale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-play-mario/">
+        Play Mario
       </a>
 </li>
 </ul>
@@ -476,13 +519,18 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#duty-cycle">
+    Duty Cycle
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#connecting-a-sound-device">
     Connecting a Sound Device
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#references">
-    references
+    References
   </a>
 </li>
 </ul>
@@ -500,6 +548,18 @@
 <p>Microcontrollers are really great at generating digital outputs on their GPIO pins.  These digital signals that quickly switch between zero and a positive voltage like 3.3 or 5 volts.  However, they are not designed to create "analog" output of a continuous varying voltage.  However, we can use a technique called "Pulse Width Modulation" to simulate the various frequencies of sound using digital only outputs.</p>
 <p><a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation</a> is the process of changing not the height of a electrical signal, but the width between the pulses of digital signals.  By changing the distance of the spaces between the digital signals we can generate a signal that will sound like it has a higher or lower frequency or pitch.</p>
 <p>MicroPython provides a powerful library of tools for you to easily generate pulses of different shapes.  This is called the PWM library.  Will will use this in our sound and music programs.  Here is a sample of how this is called in our code:</p>
+<h2 id="duty-cycle">Duty Cycle</h2>
+<p>The Duty Cycle is what percent of time a pulse is high.</p>
+<p><img alt="Duty Cycle" src="img/duty-cycle.png"/></p>
+<p>For working with sound, we want to generate smooth sound waves that are on 1/2 of the time and off 1/2 of the time.  So our duty cycles will be set to be 50%.  On the Raspberry Pi Pico we can achieve this by the following function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(1000)
+</code></pre></div>
+</td></tr></table>
+<p>When we are done playing a tone, we must always explicitly turn the duty cycle back to 0.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(0)
+</code></pre></div>
+</td></tr></table>
+<p>If we forget to add this line, the tone will continue to play despite the main program stopping.  This shows you that the part of the chip that generates the tone pulses is an independent processor that is not dependant on the main program running!</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
@@ -516,7 +576,7 @@
 </ol>
 <p><img alt="" src="img/magnetic-buzzer.png">
 <img alt="" src="img/piezo-buzzer.png"/></img></p>
-<h2 id="references">references</h2>
+<h2 id="references">References</h2>
 <p>https://electronics.stackexchange.com/questions/288930/what-is-the-difference-between-a-buzzer-and-a-speaker-and-are-there-any-other-ba</p>
 </article>
 </div>
@@ -538,13 +598,13 @@
                 </span>
 </div>
 </a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../../28-debugging-python/" rel="next" title="Debugging Python">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../02-play-tone/" rel="next" title="Playing a Tone">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Debugging Python
+                  Playing a Tone
                 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
