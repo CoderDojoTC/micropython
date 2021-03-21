@@ -23,6 +23,7 @@ speaker = PWM(Pin(SPEAKER_PIN))
 # globals variables
 # static variables are constants are uppercase variable names
 WIDTH = 128
+HALF_WIDTH = int(WIDTH / 2)
 HEIGHT = 64
 HALF_HEIGHT = HEIGHT
 BALL_SIZE = 3 # 2X2 pixels
@@ -89,6 +90,7 @@ def draw_ball():
 # The main event loop
 while True:
     oled.fill(0) # clear screen
+    oled.vline(int(WIDTH / 2), 0, HEIGHT,  1)
     border(WIDTH, HEIGHT)
     # read both the pot values
     pot_val_1 = pot_pin_1.read_u16()
@@ -119,7 +121,7 @@ while True:
     
     # if it hits the paddle bounce else score
     if ball_x < 0:
-        if ball_x < (pot_val_1 - HALF_PAD_HEIGHT) and ball_x > (pot_val_1 + HALF_PAD_HEIGHT):
+        if ball_y < (pot_val_1 - HALF_PAD_HEIGHT) and ball_y > (pot_val_1 + HALF_PAD_HEIGHT):
             # we have a hit
             ball_x_dir = -1
             #play_bounce_sound()
@@ -131,18 +133,27 @@ while True:
             ball_x_dir = random.randint(-1, 2)
             ball_y_dir = random.randint(-1, 2)
     if ball_x > WIDTH - 3:
-         ball_x_dir = -1
-         #play_bounce_sound()
+        if ball_y < (pot_val_2 - HALF_PAD_HEIGHT) and ball_y > (pot_val_2 + HALF_PAD_HEIGHT):
+            ball_x_dir = -1
+        else:
+            l_score += 1
+            ball_x = int(WIDTH / 2)
+            ball_y = int(HEIGHT / 2)
+            ball_x_dir = random.randint(-1, 2)
+            if ball_x_dir == 0:
+                ball_x_dir = 1
+            ball_y_dir = random.randint(-1, 2)
+            #play_bounce_sound()
 
     print(ball_x, ball_y, ball_x_dir, ball_y_dir)
     
-    oled.text('p1:', 5, HALF_HEIGHT + 5, 1)
-    oled.text(str(pot_val_1), 30, HALF_HEIGHT + 5, 1)
     
-    oled.text('p2:', 5, HALF_HEIGHT + 15, 1)
-    oled.text(str(pot_val_2), 60, HALF_HEIGHT + 15, 1)
+    oled.text(str(l_score), HALF_WIDTH - 20, 5, 1)
+    
+    oled.text(str(r_score), HALF_WIDTH + 5, 5, 1)
+    
     
     oled.show()
-    sleep(.01)
+    sleep(.02)
 
 print('Done')
