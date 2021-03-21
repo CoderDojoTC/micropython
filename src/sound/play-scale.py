@@ -20,6 +20,6 @@ for i in range(64):
     print(freq)
     playtone(freq)
     sleep(0.3)
-    freq = freq + 100
+    freq = int(freq * 1.1)
 
 speaker.duty_u16(0)

@@ -25,7 +25,7 @@ speaker = PWM(Pin(SPEAKER_PIN))
 WIDTH = 128
 HEIGHT = 64
 HALF_HEIGHT = HEIGHT
-BALL_RADIUS = 5
+BALL_SIZE = 3 # 2X2 pixels
 PAD_WIDTH = 2
 PAD_HEIGHT = 8
 HALF_PAD_WIDTH = int(PAD_WIDTH / 2)
@@ -34,12 +34,18 @@ POT_MIN = 3000
 POT_MAX = 65534
 MAX_ADC_VALUE = 65534 # Maximum value from the Analog to Digital Converter is 2^16 - 1
 # dynamic global variables use lowercase
-ball_pos = [0,0]
-ball_vel = [0,0]
 paddle1_vel = 0
 paddle2_vel = 0
 l_score = 0
 r_score = 0
+# continiuous update of the paddle and ball
+# play_startup_sound()
+# start with the ball in the center
+ball_x = int(WIDTH / 2)
+ball_y = int(HEIGHT / 2)
+# set the initial directinon to down to the right
+ball_x_dir = 1
+ball_y_dir = 1
 
 def play_startup_sound():
     speaker.duty_u16(1000)
@@ -48,6 +54,12 @@ def play_startup_sound():
     speaker.freq(800)
     sleep(.25)
     speaker.freq(1200)
+    sleep(.25)
+    speaker.duty_u16(0)
+
+def play_bounce_sound():
+    speaker.duty_u16(1000)
+    speaker.freq(0)
     sleep(.25)
     speaker.duty_u16(0)
     
@@ -64,41 +76,17 @@ def valmap(value, istart, istop, ostart, ostop):
 # draw a vertical bar
 def draw_paddle(paddle_no, paddle_center):
     if paddle_no == 1:
-        x = 1
+         x = 0
     else:
-        x = WIDTH - PAD_WIDTH - 1
+         x = WIDTH - 2
     y = paddle_center - HALF_PAD_HEIGHT
     ## x, y, width, height
     oled.fill_rect(x,  y, PAD_WIDTH, PAD_HEIGHT, 1) # fill with 1s
-    # utime.sleep(.1) # wait a bit
 
-def check_edge():
-    # update paddle's vertical position, keep paddle on the screen
-    if paddle1_pos[1] > HALF_PAD_HEIGHT and paddle1_pos[1] < HEIGHT - HALF_PAD_HEIGHT:
-        paddle1_pos[1] += paddle1_vel
-    elif paddle1_pos[1] == HALF_PAD_HEIGHT and paddle1_vel > 0:
-        paddle1_pos[1] += paddle1_vel
-    elif paddle1_pos[1] == HEIGHT - HALF_PAD_HEIGHT and paddle1_vel < 0:
-        paddle1_pos[1] += paddle1_vel
-    
-    if paddle2_pos[1] > HALF_PAD_HEIGHT and paddle2_pos[1] < HEIGHT - HALF_PAD_HEIGHT:
-        paddle2_pos[1] += paddle2_vel
-    elif paddle2_pos[1] == HALF_PAD_HEIGHT and paddle2_vel > 0:
-        paddle2_pos[1] += paddle2_vel
-    elif paddle2_pos[1] == HEIGHT - HALF_PAD_HEIGHT and paddle2_vel < 0:
-        paddle2_pos[1] += paddle2_vel
-    #update ball
-    ball_pos[0] += int(ball_vel[0])
-    ball_pos[1] += int(ball_vel[1])
+def draw_ball():
+    oled.fill_rect(ball_x, ball_y, BALL_SIZE, BALL_SIZE, 1) # square balls for now
 
-
-
-
-
-# continiuous update of the paddle and ball
-play_startup_sound()
-current_pot_val_1 = 0
-print('p=63')
+# The main event loop
 while True:
     oled.fill(0) # clear screen
     border(WIDTH, HEIGHT)
@@ -112,15 +100,41 @@ while True:
     pot_val_1 = valmap(pot_val_1, POT_MIN, POT_MAX, HALF_PAD_HEIGHT, HEIGHT - HALF_PAD_HEIGHT - 2)
     pot_val_2 = valmap(pot_val_2, POT_MIN, POT_MAX, HALF_PAD_HEIGHT, HEIGHT - HALF_PAD_HEIGHT - 2)
     
-    # print only on change of value
-    if current_pot_val_1 != pot_val_1:
-        print('p=', pot_val_1)
-        current_pot_val_1 = pot_val_1
-    oled.vline(0, pot_val_1, 10, 1)
-    
     # print(pot_val, pot_scaled)
     draw_paddle(1, pot_val_1 + HALF_PAD_HEIGHT)
     draw_paddle(2, pot_val_2 + HALF_PAD_HEIGHT)
+    draw_ball()
+    
+    #update ball position with the current directions
+    ball_x = ball_x + ball_x_dir
+    ball_y = ball_y + ball_y_dir
+
+    # update the ball direction if we are at the top or bottom edge
+    if ball_y < 0:
+        ball_y_dir = 1
+        #play_bounce_sound()
+    if ball_y > HEIGHT - 3:
+        ball_y_dir = -1
+        #play_bounce_sound()
+    
+    # if it hits the paddle bounce else score
+    if ball_x < 0:
+        if ball_x < (pot_val_1 - HALF_PAD_HEIGHT) and ball_x > (pot_val_1 + HALF_PAD_HEIGHT):
+            # we have a hit
+            ball_x_dir = -1
+            #play_bounce_sound()
+        else:
+            # we have a score for the right player
+            r_score += 1
+            ball_x = int(WIDTH / 2)
+            ball_y = int(HEIGHT / 2)
+            ball_x_dir = random.randint(-1, 2)
+            ball_y_dir = random.randint(-1, 2)
+    if ball_x > WIDTH - 3:
+         ball_x_dir = -1
+         #play_bounce_sound()
+
+    print(ball_x, ball_y, ball_x_dir, ball_y_dir)
     
     oled.text('p1:', 5, HALF_HEIGHT + 5, 1)
     oled.text(str(pot_val_1), 30, HALF_HEIGHT + 5, 1)
@@ -129,5 +143,6 @@ while True:
     oled.text(str(pot_val_2), 60, HALF_HEIGHT + 15, 1)
     
     oled.show()
+    sleep(.01)
 
 print('Done')
