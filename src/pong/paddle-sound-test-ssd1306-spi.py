@@ -120,21 +120,35 @@ while True:
         #play_bounce_sound()
     
     # if it hits the paddle bounce else score
-    if ball_x < 0:
-        if ball_y < (pot_val_1 - HALF_PAD_HEIGHT) and ball_y > (pot_val_1 + HALF_PAD_HEIGHT):
+    if ball_x < 1:
+        top_paddle = pot_val_1 - HALF_PAD_HEIGHT
+        bottom_paddle = pot_val_1 + HALF_PAD_HEIGHT
+        if ball_y > top_paddle and ball_y < bottom_paddle:
             # we have a hit
-            ball_x_dir = -1
+            ball_x_dir = 1
+            ball_x = 2
             #play_bounce_sound()
+            print('paddle hit on left edge', pot_val_1, top_paddle, bottom_paddle)
+            sleep(5)
         else:
             # we have a score for the right player
             r_score += 1
             ball_x = int(WIDTH / 2)
             ball_y = int(HEIGHT / 2)
             ball_x_dir = random.randint(-1, 2)
+            if ball_x_dir == 0:
+                ball_x_dir = 1
             ball_y_dir = random.randint(-1, 2)
+            print('score on left edge', pot_val_1, top_paddle, bottom_paddle)
+            sleep(5)
     if ball_x > WIDTH - 3:
-        if ball_y < (pot_val_2 - HALF_PAD_HEIGHT) and ball_y > (pot_val_2 + HALF_PAD_HEIGHT):
+        ball_x = WIDTH - 4
+        top_paddle = pot_val_2 - HALF_PAD_HEIGHT
+        bottom_paddle = pot_val_2 + HALF_PAD_HEIGHT
+        if ball_y > top_paddle and ball_y < bottom_paddle:
             ball_x_dir = -1
+            print('bounce on right paddle', pot_val_1, top_paddle, bottom_paddle)
+            sleep(5)
         else:
             l_score += 1
             ball_x = int(WIDTH / 2)
@@ -144,15 +158,15 @@ while True:
                 ball_x_dir = 1
             ball_y_dir = random.randint(-1, 2)
             #play_bounce_sound()
+            print('score on right edge', pot_val_1, top_paddle, bottom_paddle)
+            sleep(5)
 
-    print(ball_x, ball_y, ball_x_dir, ball_y_dir)
-    
-    
+    # print(ball_x, ball_y, ball_x_dir, ball_y_dir)
+
     oled.text(str(l_score), HALF_WIDTH - 20, 5, 1)
-    
+ 
     oled.text(str(r_score), HALF_WIDTH + 5, 5, 1)
-    
-    
+      
     oled.show()
     sleep(.02)
 
