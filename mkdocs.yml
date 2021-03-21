@@ -38,8 +38,10 @@ nav:
     - OLED References: oled/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
-    - Playing Tones: sound/02-tones.md
-    - Play Mario.md: sound/03-play-mario.md
+    - Playing a Tone: sound/02-play-tone.md
+    - Playing Three Tones: sound/03-play-three-tones.md
+    - Playing a Scale: sound/04-play-scale.md
+    - Play Mario: sound/05-play-mario.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
@@ -71,6 +73,7 @@ theme:
   custom_dir: 'theme'
   include_sidebar: true
 plugins:
+  - search
   - mermaid2
 markdown_extensions:
   - admonition

@@ -8,6 +8,25 @@ Microcontrollers are really great at generating digital outputs on their GPIO pi
 
 MicroPython provides a powerful library of tools for you to easily generate pulses of different shapes.  This is called the PWM library.  Will will use this in our sound and music programs.  Here is a sample of how this is called in our code:
 
+## Duty Cycle
+The Duty Cycle is what percent of time a pulse is high.
+
+![Duty Cycle](img/duty-cycle.png)
+
+For working with sound, we want to generate smooth sound waves that are on 1/2 of the time and off 1/2 of the time.  So our duty cycles will be set to be 50%.  On the Raspberry Pi Pico we can achieve this by the following function:
+
+```
+speaker.duty_u16(1000)
+```
+
+When we are done playing a tone, we must always explicitly turn the duty cycle back to 0.
+
+```
+speaker.duty_u16(0)
+```
+
+If we forget to add this line, the tone will continue to play despite the main program stopping.  This shows you that the part of the chip that generates the tone pulses is an independent processor that is not dependant on the main program running!
+
 ```py
 from machine import Pin, PWM
 from utime import sleep
@@ -27,6 +46,6 @@ There are several different ways that you can connect a sound device to you Micr
 ![](img/magnetic-buzzer.png)
 ![](img/piezo-buzzer.png)
 
-## references
+## References
 
 https://electronics.stackexchange.com/questions/288930/what-is-the-difference-between-a-buzzer-and-a-speaker-and-are-there-any-other-ba
