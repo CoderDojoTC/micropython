@@ -314,48 +314,9 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#interfaces">
-    Interfaces
+<a class="md-nav__link" href="#pixel-drawing-example">
+    Pixel Drawing Example
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#i2c">
-    I2C
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#spi">
-    SPI
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#types-of-displays">
-    Types of Displays
-  </a>
-<nav aria-label="Types of Displays" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary-table">
-    Summary Table
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lcd">
-    LCD
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#oled">
-    OLED
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tft-displays">
-    TFT Displays
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#references">
@@ -578,48 +539,9 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#interfaces">
-    Interfaces
+<a class="md-nav__link" href="#pixel-drawing-example">
+    Pixel Drawing Example
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#i2c">
-    I2C
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#spi">
-    SPI
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#types-of-displays">
-    Types of Displays
-  </a>
-<nav aria-label="Types of Displays" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary-table">
-    Summary Table
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lcd">
-    LCD
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#oled">
-    OLED
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tft-displays">
-    TFT Displays
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#references">
@@ -713,7 +635,7 @@ This returns the following list:</p>
 </td></tr></table>
 Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
 <p>The following are relevant for the SSD1306_I2C display.</p>
-<p>The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state is 0=off (black) and 1=on (white).</p>
+<p>The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state or color is 0=off (black) and 1=on (white).</p>
 <table>
 <thead>
 <tr>
@@ -724,9 +646,9 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 </thead>
 <tbody>
 <tr>
-<td>blit</td>
-<td></td>
-<td></td>
+<td>blit(fbuf, x, y, color)</td>
+<td>Bit Level Transfer</td>
+<td>blit(fbuf, 1, 1)</td>
 </tr>
 <tr>
 <td>fill(state)</td>
@@ -739,14 +661,14 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 <td></td>
 </tr>
 <tr>
-<td>hline(x1, x2, y, state)</td>
+<td>hline(x, x, length, state)</td>
 <td>Draw a horizontal line</td>
 <td>Draw a horizontal line at the top of the display: oled.hline(0, 0, 127, 1)</td>
 </tr>
 <tr>
-<td>invert</td>
+<td>invert()</td>
 <td>invert the display</td>
-<td></td>
+<td>Filp the orientation of the display</td>
 </tr>
 <tr>
 <td>line(x1,y1,x2,y2)</td>
@@ -754,32 +676,32 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 <td>Horizontal oled.line(0,0, 127, 63, 1)</td>
 </tr>
 <tr>
-<td>pixel</td>
+<td>pixel(x,y, color)</td>
 <td>Draw a single point on the screen</td>
 <td></td>
 </tr>
 <tr>
-<td>rect</td>
+<td>rect(x, y, width, height)</td>
 <td>Draw an empty rectangle</td>
 <td></td>
 </tr>
 <tr>
-<td>scroll</td>
+<td>scroll(x,y)</td>
 <td>Scroll the display</td>
 <td></td>
 </tr>
 <tr>
-<td>text</td>
+<td>text(x,y,color)</td>
 <td>Write text at a point</td>
 <td></td>
 </tr>
 <tr>
-<td>vline</td>
+<td>vline(x,y,length, color)</td>
 <td>Draw a Vertical Line</td>
 <td>oled.vline(width - 1, 0, height - 1, 1) # right edge</td>
 </tr>
 <tr>
-<td>init_display</td>
+<td>init_display()</td>
 <td>Initialize the display</td>
 <td></td>
 </tr>
@@ -789,78 +711,75 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 <td></td>
 </tr>
 <tr>
-<td>show</td>
+<td>show()</td>
 <td>Update the display from the frame buffer</td>
 <td></td>
 </tr>
 <tr>
-<td>poweroff</td>
+<td>poweroff()</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>poweron</td>
+<td>poweron()</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>contrast</td>
+<td>contrast()</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>write_data</td>
+<td>write_data()</td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3 id="interfaces">Interfaces</h3>
-<h3 id="i2c">I2C</h3>
-<p>Pros: Simple four wire interface</p>
-<table>
-<thead>
-<tr>
-<th>Pin</th>
-<th>Purpose</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="spi">SPI</h3>
-<p>Example: 128X64 pixel monochrome displays</p>
-<h2 id="types-of-displays">Types of Displays</h2>
-<h3 id="summary-table">Summary Table</h3>
-<table>
-<thead>
-<tr>
-<th>Display Type</th>
-<th>Cost</th>
-<th>Links</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="lcd">LCD</h3>
-<h3 id="oled">OLED</h3>
-<h3 id="tft-displays">TFT Displays</h3>
+<h2 id="pixel-drawing-example">Pixel Drawing Example</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ICON</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Clear the display</span>
+<span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ICON</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>    
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="references">References</h2>
-<p><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></p>
+<ul>
+<li><a href="https://www.mfitzp.com/article/oled-displays-i2c-micropython/">Driving I2C OLED displays with MicroPython</a> - by Martin Fitzpatrick</li>
+<li><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></li>
+</ul>
 </article>
 </div>
 </div>
