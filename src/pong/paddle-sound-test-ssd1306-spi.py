@@ -60,7 +60,15 @@ def play_startup_sound():
 
 def play_bounce_sound():
     speaker.duty_u16(1000)
-    speaker.freq(0)
+    speaker.freq(900)
+    sleep(.25)
+    speaker.duty_u16(0)
+
+def play_score_sound():
+    speaker.duty_u16(1000)
+    speaker.freq(600)
+    sleep(.25)
+    speaker.freq(800)
     sleep(.25)
     speaker.duty_u16(0)
     
@@ -81,7 +89,6 @@ def draw_paddle(paddle_no, paddle_center):
     else:
          x = WIDTH - 2
     y = paddle_center - HALF_PAD_HEIGHT
-    ## x, y, width, height
     oled.fill_rect(x,  y, PAD_WIDTH, PAD_HEIGHT, 1) # fill with 1s
 
 def draw_ball():
@@ -91,7 +98,7 @@ def draw_ball():
 while True:
     oled.fill(0) # clear screen
     oled.vline(int(WIDTH / 2), 0, HEIGHT,  1)
-    border(WIDTH, HEIGHT)
+    # border(WIDTH, HEIGHT)
     # read both the pot values
     pot_val_1 = pot_pin_1.read_u16()
     pot_val_2 = pot_pin_1.read_u16()
@@ -127,11 +134,11 @@ while True:
             # we have a hit
             ball_x_dir = 1
             ball_x = 2
-            #play_bounce_sound()
+            play_bounce_sound()
             print('paddle hit on left edge', pot_val_1, top_paddle, bottom_paddle)
-            sleep(5)
         else:
             # we have a score for the right player
+            play_score_sound()
             r_score += 1
             ball_x = int(WIDTH / 2)
             ball_y = int(HEIGHT / 2)
@@ -140,7 +147,8 @@ while True:
                 ball_x_dir = 1
             ball_y_dir = random.randint(-1, 2)
             print('score on left edge', pot_val_1, top_paddle, bottom_paddle)
-            sleep(5)
+            sleep(.25)
+            
     if ball_x > WIDTH - 3:
         ball_x = WIDTH - 4
         top_paddle = pot_val_2 - HALF_PAD_HEIGHT
@@ -148,26 +156,21 @@ while True:
         if ball_y > top_paddle and ball_y < bottom_paddle:
             ball_x_dir = -1
             print('bounce on right paddle', pot_val_1, top_paddle, bottom_paddle)
-            sleep(5)
         else:
             l_score += 1
+            play_score_sound()
             ball_x = int(WIDTH / 2)
             ball_y = int(HEIGHT / 2)
             ball_x_dir = random.randint(-1, 2)
             if ball_x_dir == 0:
                 ball_x_dir = 1
             ball_y_dir = random.randint(-1, 2)
-            #play_bounce_sound()
+            play_bounce_sound()
             print('score on right edge', pot_val_1, top_paddle, bottom_paddle)
-            sleep(5)
-
-    # print(ball_x, ball_y, ball_x_dir, ball_y_dir)
+            sleep(.25)
 
     oled.text(str(l_score), HALF_WIDTH - 20, 5, 1)
  
     oled.text(str(r_score), HALF_WIDTH + 5, 5, 1)
       
     oled.show()
-    sleep(.02)
-
-print('Done')
