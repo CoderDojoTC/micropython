@@ -23,6 +23,7 @@ nav:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
     - Ping Distance: sensors/03-ping.md
+    - Temp,Humidity, Pres: sensors/06-bme280.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md

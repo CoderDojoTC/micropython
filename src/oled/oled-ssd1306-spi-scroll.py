@@ -3,8 +3,8 @@ import ssd1306
 
 WIDTH = 128
 HEIGHT = 64
-spi_sck=machine.Pin(2)
-spi_tx=machine.Pin(3)
+spi_sck=machine.Pin(17)
+spi_tx=machine.Pin(16)
 spi=machine.SPI(0,baudrate=100000,sck=spi_sck, mosi=spi_tx)
 CS = machine.Pin(1)
 DC = machine.Pin(4)
