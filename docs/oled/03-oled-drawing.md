@@ -58,56 +58,56 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 
 The following are relevant for the SSD1306_I2C display.
 
-The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state is 0=off (black) and 1=on (white).
+The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state or color is 0=off (black) and 1=on (white).
 
 |Function|Description|Example|
 |--------|-----------|-------|
-|blit|
+|blit(fbuf, x, y, color)|Bit Level Transfer|blit(fbuf, 1, 1)|
 |fill(state)|Fill|Fill with black (0) or white(1)|
 |fill_rect|Fill a rectangle||
-|hline(x1, x2, y, state)|Draw a horizontal line|Draw a horizontal line at the top of the display: oled.hline(0, 0, 127, 1)|
-|invert|invert the display||
+|hline(x, x, length, state)|Draw a horizontal line|Draw a horizontal line at the top of the display: oled.hline(0, 0, 127, 1)|
+|invert()|invert the display|Filp the orientation of the display|
 |line(x1,y1,x2,y2)|draw a line at any angle|Horizontal oled.line(0,0, 127, 63, 1)|
-|pixel|Draw a single point on the screen||
-|rect|Draw an empty rectangle||
-|scroll|Scroll the display||
-|text|Write text at a point||
-|vline|Draw a Vertical Line|oled.vline(width - 1, 0, height - 1, 1) # right edge|
-|init_display|Initialize the display||
+|pixel(x,y, color)|Draw a single point on the screen||
+|rect(x, y, width, height)|Draw an empty rectangle||
+|scroll(x,y)|Scroll the display||
+|text(x,y,color)|Write text at a point||
+|vline(x,y,length, color)|Draw a Vertical Line|oled.vline(width - 1, 0, height - 1, 1) # right edge|
+|init_display()|Initialize the display||
 |write_cmd|Write a command to the display||
-|show|Update the display from the frame buffer||
-|poweroff|||
-|poweron|||
-|contrast|||
-|write_data|||
+|show()|Update the display from the frame buffer||
+|poweroff()|||
+|poweron()|||
+|contrast()|||
+|write_data()|||
 
 
-### Interfaces
+## Pixel Drawing Example
 
-### I2C
+```python
+ICON = [
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [ 0, 1, 1, 0, 0, 0, 1, 1, 0],
+    [ 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    [ 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [ 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [ 0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [ 0, 0, 1, 1, 1, 1, 1, 0, 0],
+    [ 0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [ 0, 0, 0, 0, 1, 0, 0, 0, 0],
+]
 
-Pros: Simple four wire interface
+display.fill(0) # Clear the display
+for y, row in enumerate(ICON):
+    for x, c in enumerate(row):
+        display.pixel(x, y, c)    
 
-|Pin|Purpose|Description|
-|---|-------|-----------|
+display.show()
+```
 
-### SPI
 
-Example: 128X64 pixel monochrome displays
-
-## Types of Displays
-
-### Summary Table
-
-|Display Type|Cost|Links|Notes|
-|------------|----|-----|-----|
-
-### LCD
-
-### OLED
-
-### TFT Displays
 
 ## References
 
-[ST7735 Micropython Driver by Anthony Norman](https://github.com/AnthonyKNorman/MicroPython_ST7735)
+* [Driving I2C OLED displays with MicroPython](https://www.mfitzp.com/article/oled-displays-i2c-micropython/) - by Martin Fitzpatrick
+* [ST7735 Micropython Driver by Anthony Norman](https://github.com/AnthonyKNorman/MicroPython_ST7735)
