@@ -6,6 +6,8 @@ As of March 2021, the Raspberry Pi Pico did not come integrated into development
 For a Mac with USB-C connectors, you will need to get a USB micro to C cable:
 ![USB Micro to USB C for Mac](img/usb-micro-to-c.png)
 
+* [Ebay USB 3.1 USB C Type C to Micro USB Male Sync OTG Charge Data Transfers Adapters](https://www.ebay.com/itm/USB-3-1-USB-C-Type-C-to-Micro-USB-Male-Sync-OTG-Charge-Data-Transfers-Adapters/303826979844) Sample 1 meter USB cable on eBay for $2.40.
+
 ## Headers
 We need male breakaway headers with standard 1/10th inch spacing.  The Raspberry Pi Pico will need 20 pins on each side.  If you get 40-pin versions they can easily be broken in half.
 
