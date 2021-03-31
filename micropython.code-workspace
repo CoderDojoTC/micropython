@@ -22,12 +22,14 @@
 			"hline",
 			"linenums",
 			"mosi",
+			"numpy",
 			"oled",
 			"pico",
 			"saleae",
 			"solderless",
 			"thonney",
 			"utime",
+			"vals",
 			"vline"
 		],
 		"editor.fontSize": 10
