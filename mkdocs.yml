@@ -23,7 +23,7 @@ nav:
   - Sensors:
     - Potentiometer: 02-pot.md
     - Ultrasonic Distance: 05-ping.md
-    - Accelerometer Compas: 06-accelerometer-compass.md
+    - Accelerometer Compass: 06-accelerometer-compass.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
