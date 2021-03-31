@@ -32,6 +32,7 @@ There are two common versions:
 1. **SSD1306** - This is the most popular and versatile chip.  It can be used to drive many different types and sizes of OLEDs.  The SSD1306 can be used with both the simple 4 wire I2C interface as well as the slightly faster 7 wire SPI interface.  These devices have only four wires labeled VCC, GND, SDA and SCL.  SDA is for data and SCL is for the clock.
 2. **SH1106** - This is less popular version and supports the 4-wire I2C interface.
 3. **ST7735** - This chip is used on larger color TFT displays.
+4. **ILI9341** - This chip is used on larger TDF displays.
 
 You can usually look on the back of the display device and see what type of check controls your OLED display.
 
