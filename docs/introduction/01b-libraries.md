@@ -1,6 +1,12 @@
-# Micropython Libraries
+# What is MicroPython?
+MicroPython is an implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimized to run on microcontrollers. (*From [micropython.org](https://micropython.org/)*)
 
-When you start up your IDE, it may have a list of python modules built in.  You can list the current modules you have installed by running the ```help('modules')``` command.
+MicroPython was originally created by the Australian programmer and physicist Damien George. It is written in [C](https://en.wikipedia.org/wiki/C_(programming_language)).
+
+MicroPython is now an OpenSource project and the source code is available in [GitHub](https://github.com/micropython/micropython).
+## Micropython Libraries
+
+When you start up your IDE, it may have a list of python modules built in.  You can list the current modules you have installed by running the `help('modules')` command.
 
 ```py
 help('modules')
@@ -34,7 +40,6 @@ uzlib – zlib decompression
 _thread – multithreading support
 ```
 
-
 ## MicroPython Specific Libraries
 
 ```text
@@ -50,7 +55,7 @@ uctypes – access binary data in a structured way
 
 ## Adding a module
 
-When you are using python and you attempt to use a module that python can't find you will get an error.  You must then use the python pip installer tool to add the new library.
+When you are using python and you attempt to use a module that python can't find you will get an error.  You must then use the python `pip` installer tool to add the new library.
 
 ## Getting MicroPython Libraries from PyPi
 
@@ -60,9 +65,6 @@ When you are using python and you attempt to use a module that python can't find
 ## Full List of modules
 
 ```text
-
-Please wait a moment while I gather a list of all available modules...
-
 ESP-test            audioop             filecmp             random
 __future__          base64              fileinput           re
 _abc                bcrypt              fnmatch             readline
@@ -74,7 +76,7 @@ _bootlocale         bitstring           gc                  runpy
 _bz2                blink-builtin-led   genericpath         sched
 _cffi_backend       brain_argparse      getopt              secrets
 _codecs             brain_attrs         getpass             select
-_codecs_cn          brain_builtin_inference gettext             selectors
+_codecs_cn          brain_builtin_inference gettext         selectors
 _codecs_hk          brain_collections   glob                send2trash
 _codecs_iso2022     brain_crypt         grp                 serial
 _codecs_jp          brain_curses        gzip                setuptools
@@ -87,17 +89,17 @@ _compression        brain_hashlib       i2c-display         signal
 _contextvars        brain_http          i2c-scanner         site
 _crypt              brain_io            i2c_lcd             six
 _csv                brain_mechanize     i2clcd              smtpd
-_ctypes             brain_multiprocessing imaplib             smtplib
-_ctypes_test        brain_namedtuple_enum imghdr              sndhdr
+_ctypes             brain_multiprocessing imaplib           smtplib
+_ctypes_test        brain_namedtuple_enum imghdr            sndhdr
 _curses             brain_nose          imp                 socket
-_curses_panel       brain_numpy_core_fromnumeric importlib           socketserver
-_datetime           brain_numpy_core_function_base inspect             spi-debug
-_dbm                brain_numpy_core_multiarray io                  sqlite3
-_decimal            brain_numpy_core_numeric ipaddress           sre_compile
-_dummy_thread       brain_numpy_core_numerictypes isort               sre_constants
-_elementtree        brain_numpy_core_umath itertools           sre_parse
+_curses_panel       brain_numpy_core_fromnumeric importlib  socketserver
+_datetime           brain_numpy_core_function_base inspect  spi-debug
+_dbm                brain_numpy_core_multiarray io          sqlite3
+_decimal            brain_numpy_core_numeric ipaddress      sre_compile
+_dummy_thread       brain_numpy_core_numerictypes isort     sre_constants
+_elementtree        brain_numpy_core_umath itertools        sre_parse
 _functools          brain_numpy_ndarray jedi                ssl
-_hashlib            brain_numpy_random_mtrand json                stat
+_hashlib            brain_numpy_random_mtrand json          stat
 _heapq              brain_numpy_utils   keyword             statistics
 _imp                brain_pkg_resources lazy_object_proxy   string
 _io                 brain_pytest        led-strip           stringprep
@@ -135,7 +137,7 @@ _string             contextvars         paramiko            typed_ast
 _strptime           copy                parser              types
 _struct             copyreg             parso               typing
 _symtable           crypt               pathlib             typing_extensions
-_sysconfigdata_m_darwin_darwin cryptography        pdb                 unicodedata
+_sysconfigdata_m_darwin_darwin cryptography        pdb      unicodedata
 _testbuffer         csv                 pickle              unittest
 _testcapi           ctypes              pickletools         urllib
 _testimportmultiple curses              pip                 uu
@@ -163,8 +165,5 @@ asyncio             espsecure           pyexpat             zlib
 asyncore            esptool             pylint              
 at                  faulthandler        queue               
 atexit              fcntl               quopri              
-
-Enter any module name to get more help.  Or, type "modules spam" to search
-for modules whose name or summary contain the string "spam".
 ```
 
