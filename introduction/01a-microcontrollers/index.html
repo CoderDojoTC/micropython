@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Reading a Potentiometer - MicroPython</title>
+<title>Microcontrollers - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reading-a-potentiometer">
+<a class="md-skip" href="#microcontrollers">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Reading a Potentiometer
+              Microcontrollers
             
           </span>
 </div>
@@ -249,22 +249,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01-intro/">
+<a class="md-nav__link" href="../../sensors/01-intro/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02-photosensor.md">
+<a class="md-nav__link" href="../../sensors/02-photosensor.md">
         Photosensor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-ping/">
+<a class="md-nav__link" href="../../sensors/03-ping/">
         Ping Distance
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06-bme280/">
+<a class="md-nav__link" href="../../sensors/06-bme280/">
         Temp,Humidity, Pres
       </a>
 </li>
@@ -279,7 +279,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../bme280/">
+<a class="md-nav__link" href="../../sensors/bme280/">
         Environmental Sensor
       </a>
 </li>
@@ -521,8 +521,18 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sampling-data">
-    Sampling data
+<a class="md-nav__link" href="#what-is-physical-computing">
+    What is Physical Computing?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-microcontrollers-are-used">
+    How Microcontrollers are Used
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programming-a-microcontroller">
+    Programming a Microcontroller
   </a>
 </li>
 </ul>
@@ -532,53 +542,65 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/02-pot.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/introduction/01a-microcontrollers.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="reading-a-potentiometer">Reading a Potentiometer</h1>
-<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This
-pin can be used with an external reference if better ADC performance is required.
-AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
-terminating at this pin.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
-p[Pico]--&gt;|ADC_VREF 36 row=6| pos(Positive)
-p[Pico]--&gt;|AGND 33 row=8| neg(Negative)
-p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
-    pos(Positive) --- pot(Potentiometer)
-    neg(Negative) --- pot(Potentiometer)
-    tap(Center Tap) --- pot(Potentiometer)
+<h1 id="microcontrollers">Microcontrollers</h1>
+<p>This lesson is an overview of microcontrollers and their role in teaching <a href="https://en.wikipedia.org/wiki/Physical_computing">physical computing</a>.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Microcontroller">microcontroller</a> is a small low-cost computer used to control physical devices such as LED, servos and motors.  Microcontroller boards typically cost around $4 to $6 and are an ideal way to learn about computer science because you can use them to build fun projects.  For example you can control a row of LEDs, move a robot and sense the world around us with a variety of light, sound and motion sensors.</p>
+<p>In the past, microcontrollers were difficult for younger students to program.  They were also too expensive for every student to purchase and take home.  A typical Arduino kit could easily cost over $20 and required you to learn C to program it.</p>
+<p>Today, microcontrollers such as the <a href="https://www.raspberrypi.org/products/raspberry-pi-pico/">Raspberry Pi Pico</a> and the <a href="https://en.wikipedia.org/wiki/ESP32">ESP32</a> cost as little as two dollars.  And these devices are designed to be programmed in Python, the most popular programming language for students.</p>
+<h2 id="what-is-physical-computing">What is Physical Computing?</h2>
+<p><a href="https://en.wikipedia.org/wiki/Physical_computing">Physical Computing</a> is a field of study that can sense and respond to the world around us.  Unlike programming a cell phone or a laptop computer, our focus is reading sensor values and quickly responding to changes.  Physical Computing is widely used to teach principals of computer science because students can create their own projects and express creativity such a controlling the patterns of lights or creating complex sounds.</p>
+<h2 id="how-microcontrollers-are-used">How Microcontrollers are Used</h2>
+<p>Microcontrollers do three things:</p>
+<ol>
+<li>They read sensor values of the world around them</li>
+<li>They transform this data into useful representations</li>
+<li>They send outputs to devices that control the world such as LEDs and motors as well as displays</li>
+</ol>
+<p>Here is a general diagram to think about when you are designing microcontroller systems:
+<img alt="Microcontroller Architecture" src="../../img/microcontroller-arch.png"/></p>
+<p>Here is a specific example instance of what inputs and outputs might do.
+<img alt="Microcontroller Architecture Example" src="../../img/microcontroller-arch-example.png"/></p>
+<h2 id="programming-a-microcontroller">Programming a Microcontroller</h2>
+<p>In this class, we will use the MicroPython to program our Microcontroller.  </p>
+<p>Our programs will usually have the following structure:</p>
+<ol>
+<li><strong>Imports</strong>: Specify the Python libraries used in the code (<em>More Information on Python libraries are available <a href="https://docs.python.org/3/tutorial/modules.html">here</a></em>)</li>
+<li><strong>Setup</strong>: Setup/ Initialize variables and sensors </li>
+<li><strong>Main loop</strong>: Continuously monitor sensor inputs and take actions</li>
+</ol>
+<p>The following is an example code in Micropython:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Import Section</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Setup Section</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># Main Loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
-<h2 id="sampling-data">Sampling data</h2>
-<p>Sometimes the data coming from your Potentiometer is noisy.  You can sample the value multiple times and then average the values.</p>
-<p>Here is a sample program.  Just pass in the pin and a count and it will return the average values.  This version waits 5 milliseconds between samples.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sample_pot</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
-        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span> <span class="o">/</span> <span class="n">count</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pot_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
-<span class="c1"># return a value after sampling 10 times</span>
-<span class="n">sample_pot</span><span class="p">(</span><span class="n">pot_pin_1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<p>Almost all our programs will start with the <code>import machine</code> line.  This tells the system that we need to gather all the libraries that understand our physical machine.</p>
+<p>If you couldn't understand the example program - don't worry! We will be going through it in detail as we work on our labs.</p>
 </article>
 </div>
 </div>

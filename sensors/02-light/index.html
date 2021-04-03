@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Reading a Potentiometer - MicroPython</title>
+<title>Light Sensor with Raspberry Pi Pico in MicroPython - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reading-a-potentiometer">
+<a class="md-skip" href="#light-sensor-with-raspberry-pi-pico-in-micropython">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Reading a Potentiometer
+              Light Sensor with Raspberry Pi Pico in MicroPython
             
           </span>
 </div>
@@ -521,8 +521,13 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sampling-data">
-    Sampling data
+<a class="md-nav__link" href="#circuit">
+    Circuit
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-code">
+    Sample Code
   </a>
 </li>
 </ul>
@@ -532,53 +537,12 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/02-pot.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/02-light.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="reading-a-potentiometer">Reading a Potentiometer</h1>
-<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This
-pin can be used with an external reference if better ADC performance is required.
-AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
-terminating at this pin.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
-p[Pico]--&gt;|ADC_VREF 36 row=6| pos(Positive)
-p[Pico]--&gt;|AGND 33 row=8| neg(Negative)
-p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
-    pos(Positive) --- pot(Potentiometer)
-    neg(Negative) --- pot(Potentiometer)
-    tap(Center Tap) --- pot(Potentiometer)
-</code></pre></div>
-</td></tr></table>
-<p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
-<h2 id="sampling-data">Sampling data</h2>
-<p>Sometimes the data coming from your Potentiometer is noisy.  You can sample the value multiple times and then average the values.</p>
-<p>Here is a sample program.  Just pass in the pin and a count and it will return the average values.  This version waits 5 milliseconds between samples.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sample_pot</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
-        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span> <span class="o">/</span> <span class="n">count</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pot_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
-<span class="c1"># return a value after sampling 10 times</span>
-<span class="n">sample_pot</span><span class="p">(</span><span class="n">pot_pin_1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<h1 id="light-sensor-with-raspberry-pi-pico-in-micropython">Light Sensor with Raspberry Pi Pico in MicroPython</h1>
+<h2 id="circuit">Circuit</h2>
+<h2 id="sample-code">Sample Code</h2>
 </article>
 </div>
 </div>
