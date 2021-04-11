@@ -596,7 +596,7 @@
 <h1 id="bme280-environmental-sensor">BME280 Environmental Sensor</h1>
 <p>The Bosch BME280 is a low-cost ($2) temperature, and pressure sensor that has an I2C interface.  This is an ideal way to learn how to use an I2C interface.</p>
 <p><img alt="" src="img/bme280-sensor.jpg"/></p>
-<p>Note mbe280 is different from the BMP280 and does not read humidity. The default address is Hex 76 </p>
+<p>Note BME280 is different from the BMP280 and does not read humidity. The default address is Hex 76 </p>
 <h2 id="circuit">Circuit</h2>
 <p>The BME280 has a standard I2C interface with four wires:</p>
 <ul>
@@ -652,7 +652,7 @@
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Row two of our standard Pico breadboard</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
 
-<span class="c1"># initialize the bem class using the default address</span>
+<span class="c1"># initialize the bme class using the default address</span>
 <span class="n">bme</span> <span class="o">=</span> <span class="n">BME280</span><span class="p">()</span>
 <span class="p">(</span><span class="n">chip_id</span><span class="p">,</span> <span class="n">chip_version</span><span class="p">)</span> <span class="o">=</span> <span class="n">bme</span><span class="o">.</span><span class="n">getID</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span> <span class="s2">"Chip ID:"</span><span class="p">,</span> <span class="n">chip_id</span><span class="p">)</span>
@@ -677,7 +677,8 @@
 <li><a href="https://github.com/webbhm/GBE-Digital/blob/main/python/BME280.py">Driver Sample code</a></li>
 </ol>
 <h1 id="digital-barometric-pressure-sensor-board-swap-i2cspi-bmp280-bme280-33v">Digital Barometric Pressure Sensor Board Swap I2C/SPI BMP280 BME280 3.3V</h1>
-<p><a href="https://www.ebay.com/itm/Digital-Barometric-Pressure-Sensor-Board-Swap-I2C-SPI-BMP280-BME280-3-3V/262964983464">BME280</a></p>
+<p><a href="https://www.ebay.com/itm/Digital-Barometric-Pressure-Sensor-Board-Swap-I2C-SPI-BMP280-BME280-3-3V/262964983464">BME280</a>
+4. <a href="https://github.com/raymondodinzeo/pico_datalogger/blob/main/pico_datalogger">BME280 logger</a></p>
 </article>
 </div>
 </div>

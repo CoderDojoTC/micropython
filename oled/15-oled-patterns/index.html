@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Introduction to Robots - MicroPython</title>
+<title>OLED Patterns - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-robots">
+<a class="md-skip" href="#oled-patterns">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Introduction to Robots
+              OLED Patterns
             
           </span>
 </div>
@@ -304,72 +304,72 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/01-oled-intro/">
+<a class="md-nav__link" href="../01-oled-intro/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/02-oled-setup/">
+<a class="md-nav__link" href="../02-oled-setup/">
         Setup
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/03-oled-drawing/">
+<a class="md-nav__link" href="../03-oled-drawing/">
         Drawing
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/11-oled-ssd1306-i2c/">
+<a class="md-nav__link" href="../11-oled-ssd1306-i2c/">
         OLED SSD1306 I2C
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/12-oled-ssd1306-spi-v1/">
+<a class="md-nav__link" href="../12-oled-ssd1306-spi-v1/">
         OLED SSD1306 SPI V1
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/11-oled-ssd1306-spi/">
+<a class="md-nav__link" href="../11-oled-ssd1306-spi/">
         OLED SSD1306 SPI V2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/11-oled-sh1106-i2c/">
+<a class="md-nav__link" href="../11-oled-sh1106-i2c/">
         OLED SH1106 I2C Example
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/10-oled-bounce/">
+<a class="md-nav__link" href="../10-oled-bounce/">
         OLED Bounce
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/12-oled-pot/">
+<a class="md-nav__link" href="../12-oled-pot/">
         OLED Pot
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/11-oled-ping/">
+<a class="md-nav__link" href="../11-oled-ping/">
         OLED Ping
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/11-pong/">
+<a class="md-nav__link" href="../11-pong/">
         OLED Pong
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/13-pixel-draw/">
+<a class="md-nav__link" href="../13-pixel-draw/">
         OLED Pixel Draw
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/14-random-hearts/">
+<a class="md-nav__link" href="../14-random-hearts/">
         Random Hearts
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../oled/40-oled-references/">
+<a class="md-nav__link" href="../40-oled-references/">
         OLED References
       </a>
 </li>
@@ -521,28 +521,53 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#parts">
-    Parts
+<a class="md-nav__link" href="#math-functions">
+    Math Functions
   </a>
-<nav aria-label="Parts" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-equations">
+    The Equations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#combinations">
+    Combinations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-image">
+    Sample Image
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-code">
+    Sample Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-a-list-of-patterns">
+    Adding a List of Patterns
+  </a>
+<nav aria-label="Adding a List of Patterns" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#chassis">
-    Chassis
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sensors">
-    Sensors
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#motor-controllers">
-    Motor Controllers
+<a class="md-nav__link" href="#the-eval-function">
+    The Eval Function
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-command-design-pattern">
+    The Command Design Pattern
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reference">
+    Reference
+  </a>
 </li>
 </ul>
 </nav>
@@ -551,19 +576,182 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/robots/01-intro.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/15-oled-patterns.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="introduction-to-robots">Introduction to Robots</h1>
-<h2 id="parts">Parts</h2>
-<h3 id="chassis">Chassis</h3>
-<p>Smartcar Chassis</p>
-<h3 id="sensors">Sensors</h3>
-<ul>
-<li>Ping Ultrasonic Distance Sensor</li>
-<li>IR sensors</li>
-</ul>
-<h3 id="motor-controllers">Motor Controllers</h3>
+<h1 id="oled-patterns">OLED Patterns</h1>
+<p>In this lesson, we will show how you can display interesting repeating patterns on your OLED screen.  Our program will write a pattern into the framebuffer using a simple math equation.  The oled.show() will then update the pattern on the display.</p>
+<h2 id="math-functions">Math Functions</h2>
+<p>The modulo function is written <code>%</code>.  It returns the integer remainder after a division.  So <code>7 % 3</code> is 1 and <code>7 % 4</code> is 3.
+The Power function of X to the Y power is written in python as <code>pow(x,y)</code>.  For example pow(7, 2) is seven squared = 49.</p>
+<p>The bitwise and is written as <code>x &amp; y</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="mi">13</span> <span class="o">&amp;</span> <span class="n">i</span>
+</code></pre></div>
+</td></tr></table>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13 &amp; 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>13 &amp; 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13 &amp; 2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>13 &amp; 3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13 &amp; 4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>13 &amp; 5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>13 &amp; 6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>13 &amp; 7</td>
+<td>5</td>
+</tr>
+<tr>
+<td>13 &amp; 8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>13 &amp; 9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>13 &amp; 10</td>
+<td>8</td>
+</tr>
+<tr>
+<td>13 &amp; 11</td>
+<td>9</td>
+</tr>
+<tr>
+<td>13 &amp; 12</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-equations">The Equations</h2>
+<p>(x ^ y) % 9
+(x ^ y) % 5
+(x ^ y) % 17
+(x ^ y) % 33
+(x * y) &amp; 64
+(x * y) &amp; 24
+(x * y) &amp; 47
+(x ^ y) &lt; 77
+(x ^ y) &lt; 214
+(x ^ y) &lt; 120
+(x * 2) % y
+(x * 64) % y
+(x * 31) % y
+((x-128) * 64) % (y-128)
+(x ^ y) &amp; 32
+(x ^ y) &amp; 72
+(x ^ y) &amp; 23
+((x * y) <strong> 4) % 7
+((x * y) </strong> 5) % 99
+((x * y) ** 9) % 3
+(x % y) % 4
+(y % x) % 20
+40 % (x % y)
+x &amp; y
+x % y
+x &amp; 9</p>
+<h2 id="combinations">Combinations</h2>
+<p>(x &amp; y)   &amp;   (x ^ y) % 19
+((x ^ y) &amp; 32)   *   (x ^ y) % 9)
+(x * 64) % y   *   ((x ^ y) &lt; 77)</p>
+<h2 id="sample-image">Sample Image</h2>
+<h2 id="sample-code">Sample Code</h2>
+<p>draw-patterns-ssd1306-spi.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">ssd1306</span>
+
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># clear display</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+           <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table></p>
+<h2 id="adding-a-list-of-patterns">Adding a List of Patterns</h2>
+<h3 id="the-eval-function">The Eval Function</h3>
+<p>The eval() function takes any string and passes it to the python interpreter for evaluation within the current context of variables that are in scope.  We can use eval to pass an expression that should be evaluated to any function.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x+y"</span><span class="p">,</span> <span class="s2">"x-y"</span><span class="p">,</span> <span class="s2">"x*y"</span><span class="p">,</span> <span class="s2">"x % (y+1)"</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">': '</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+         <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="s1">''</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="the-command-design-pattern">The Command Design Pattern</h2>
+<h2 id="reference">Reference</h2>
+<p><a href="https://twitter.com/aemkei/status/1378106731386040322">Martin Kleppe Post on Twitter</a></p>
 </article>
 </div>
 </div>
