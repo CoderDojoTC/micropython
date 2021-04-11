@@ -2,7 +2,7 @@
 
 ## Parts
 
-### Chasis
+### Chassis
 
 Smartcar Chassis
 
