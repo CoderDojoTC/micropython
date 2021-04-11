@@ -3,6 +3,7 @@
 ## Micropython References
 1. [MicroPython Forum](https://forum.micropython.org/) - a good place to ask questions about MicroPython.  Mostly for hard core developers.
 2. [MicroPython.org site](http://micropython.org/) - We would not recommend the PyBoard for beginners.  They are over 10x more expensive than the the Raspberry Pi Pico.
+3. [Spider Maf Github Repo](https://github.com/SpiderMaf/PiPicoDsply)
    
 ## Pico References
 1. [MicroPython Firmware for the Raspberry Pi Pico](https://micropython.org/download/rp2-pico/) - You will want to bookmark this site.  It has the firmware required to run MicroPython on your Raspberry Pi Pico.  As of March 2021, they are fixing bugs weekly, so you will want to make sure your firmware is current.
