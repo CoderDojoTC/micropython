@@ -12,28 +12,19 @@ DC = machine.Pin(4)
 RES = machine.Pin(5)
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
-equations = ['(x * y) & 64', '(x * y) & 24', '(x * y) & 47']
-# 'pow(x, y) < 77', 'pow(x, y) < 214', 'pow(x, y) < 120',
-'(x * 2) % (y+1)', '(x * 64) % (y+1)', '(x * 31) % (y+1)'
-((x-128) * 64) % (y-128)
-
-((x * y) ** 4) % 7
-((x * y) ** 5) % 99
-((x * y) ** 9) % 3
-(x % y) % 4
-(y % x) % 20
-
+equations = ['(x ** y) & 64']
+save = ['(x * y) & 24', '(x * y) & 47']
              
 # '((x * y) ** 4) % 7' grid
-def eval_screen(function, x, y):
+def eval_screen(function):
     if eval(function):
         oled.pixel(x, y, 0)
     else:
         oled.pixel(x, y, 1)
 
 oled.fill(0)
-
 for x in range(WIDTH):
     for y in range(HEIGHT):
-        eval_screen('pow(x, y) % 2', x, y)
+        eval_screen('(y + x) & 10')
 oled.show()
+print('done')
