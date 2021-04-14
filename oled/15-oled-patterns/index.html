@@ -384,18 +384,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-equations">
-    The Equations
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#combinations">
-    Combinations
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sample-image">
-    Sample Image
+<a class="md-nav__link" href="#some-sample-equations">
+    Some Sample Equations
   </a>
 </li>
 <li class="md-nav__item">
@@ -632,18 +622,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-equations">
-    The Equations
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#combinations">
-    Combinations
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sample-image">
-    Sample Image
+<a class="md-nav__link" href="#some-sample-equations">
+    Some Sample Equations
   </a>
 </li>
 <li class="md-nav__item">
@@ -726,7 +706,13 @@
 </a>
 <h1 id="oled-patterns">OLED Patterns</h1>
 <p>In this lesson, we will show how you can display interesting repeating patterns on your OLED screen.  Our program will write a pattern into the framebuffer using a simple math equation.  The oled.show() will then update the pattern on the display.</p>
+<p>This lesson was suggested by Parker Erickson.</p>
 <h2 id="math-functions">Math Functions</h2>
+<p>We will use a few unusual functions to create repeating patterns:</p>
+<ol>
+<li>Modulo (%)</li>
+<li>Bitwise AND (&amp;)</li>
+</ol>
 <p>The modulo function is written <code>%</code>.  It returns the integer remainder after a division.  So <code>7 % 3</code> is 1 and <code>7 % 4</code> is 3.
 The Power function of X to the Y power is written in python as <code>pow(x,y)</code>.  For example pow(7, 2) is seven squared = 49.</p>
 <p>The bitwise and is written as <code>x &amp; y</code></p>
@@ -797,38 +783,26 @@ The Power function of X to the Y power is written in python as <code>pow(x,y)</c
 </tr>
 </tbody>
 </table>
-<h2 id="the-equations">The Equations</h2>
-<p>(x ^ y) % 9
-(x ^ y) % 5
-(x ^ y) % 17
-(x ^ y) % 33
-(x * y) &amp; 64
-(x * y) &amp; 24
-(x * y) &amp; 47
-(x ^ y) &lt; 77
-(x ^ y) &lt; 214
-(x ^ y) &lt; 120
-(x * 2) % y
-(x * 64) % y
-(x * 31) % y
-((x-128) * 64) % (y-128)
-(x ^ y) &amp; 32
-(x ^ y) &amp; 72
-(x ^ y) &amp; 23
-((x * y) <strong> 4) % 7
-((x * y) </strong> 5) % 99
-((x * y) ** 9) % 3
-(x % y) % 4
-(y % x) % 20
-40 % (x % y)
-x &amp; y
-x % y
-x &amp; 9</p>
-<h2 id="combinations">Combinations</h2>
-<p>(x &amp; y)   &amp;   (x ^ y) % 19
-((x ^ y) &amp; 32)   *   (x ^ y) % 9)
-(x * 64) % y   *   ((x ^ y) &lt; 77)</p>
-<h2 id="sample-image">Sample Image</h2>
+<h2 id="some-sample-equations">Some Sample Equations</h2>
+<ol>
+<li>x &amp; y</li>
+<li>x % y</li>
+<li>(x ^ y) % 9</li>
+<li>(x ^ y) % 5</li>
+<li>(x ^ y) % 17</li>
+<li>(x ^ y) % 33</li>
+<li>(x * y) &amp; 64</li>
+<li>(x * y) &amp; 24</li>
+<li>(x * y) &amp; 47</li>
+<li>(x * 2) % y</li>
+<li>(x * 64) % y</li>
+<li>(x * 31) % y</li>
+<li>((x-128) * 64) % (y-128)</li>
+<li>(x % y) % 4</li>
+<li>(y % x) % 20</li>
+<li>40 % (x % y)</li>
+</ol>
+<p>Note there are other patterns that use the power <code>pow(x,y)</code> or Exponentiation <code>**</code> function but I can't get these to work with Micropython.</p>
 <h2 id="sample-code">Sample Code</h2>
 <p>This program evaluates the function <code>x % (y+1)</code> for each of the pixels on the screen.  If the function returns a non-zero the pixel will be off.  If the pixel is zero, the pixel will be on.</p>
 <p>draw-patterns-ssd1306-spi.py
