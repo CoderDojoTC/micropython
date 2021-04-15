@@ -9,7 +9,7 @@ Technically, any computer that has at least 16K of RAM can run Micropython.
 [Raspberry Pi Pico]()(../glossary.md#ESP32) - $4
 
 ## Cables
-
+You will need a USB cable to program your microcontroller.  These cables are frequently sold at high margin rates at retail stores.  If you plan ahead, you can usually find these cables on eBay for about 50% less.  Classroom purchases make this a good option.
 
 
 ## Getting Machine Statistics

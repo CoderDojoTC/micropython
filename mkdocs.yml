@@ -6,6 +6,7 @@ nav:
     - Introduction: 01-intro.md
     - Microcontrollers: 01a-microcontrollers.md
     - Boards: 02-boards.md
+    - Suggested Parts: 03-suggested-parts.md
     - Accessories: 02b-accessories.md
     - Raspberry Pi Pico: 02-pi-pico.md
     - ESP32: 02-esp32.md
@@ -19,6 +20,9 @@ nav:
     - LED Strip: 05-led-strip.md
     - Displays: 10-displays.md
     - Character LCD: 10-character-lcd-display.md
+  - Sensors:
+    - Potentiometer: 02-pot.md
+    - Ultrasonic Distance: 05-ping.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
@@ -31,11 +35,14 @@ nav:
     - OLED Pot: oled/12-oled-pot.md
     - OLED Ping: oled/11-oled-ping.md
     - OLED Pong: oled/11-pong.md
+    - OLED Pixel Draw: oled/13-pixel-draw.md
     - OLED References: oled/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
-    - Playing Tones: sound/02-tones.md
-    - Play Mario.md: sound/03-play-mario.md
+    - Playing a Tone: sound/02-play-tone.md
+    - Playing Three Tones: sound/03-play-three-tones.md
+    - Playing a Scale: sound/04-play-scale.md
+    - Play Mario: sound/05-play-mario.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
@@ -44,10 +51,12 @@ nav:
     - Content Outliner: 40-gpt-outliner.md
   - Circuit Python:
     - circuit-python/01-intro.md
+  - Projects: projects.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
   - Colophon: 30-colophon.md
+  - Render Test: mermaid-test.md
 
 site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
 site_author: 'Dan McCreary'
@@ -64,6 +73,9 @@ theme:
     accent: '#41BAC1'
   custom_dir: 'theme'
   include_sidebar: true
+plugins:
+  - search
+  - mermaid2
 markdown_extensions:
   - admonition
   - footnotes
