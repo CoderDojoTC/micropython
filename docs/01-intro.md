@@ -21,6 +21,7 @@ This course is about [MicroPython](https://en.wikipedia.org/wiki/MicroPython), a
 * Parts & Costs
 * Other Boards that can run MicroPython
 * Introduction to CircuitPython
+
 #### Intended Audience
 Our target audience is students age 10-16 that are in Junior High or High School that have basic keyboarding skills.  For example, students will need to be able to select, copy and paste text from the examples into their own code.
 
@@ -32,6 +33,7 @@ This course is appropriate for students that already have a basic understanding 
 * Hardware
 * Costs
 * Connections
+
 
 ## License of Content
 Our intent is to allow teachers and mentors around the world to integrate MicroPython into their courses without any fees.  
