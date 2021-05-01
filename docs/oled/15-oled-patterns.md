@@ -2,7 +2,13 @@
 
 In this lesson, we will show how you can display interesting repeating patterns on your OLED screen.  Our program will write a pattern into the framebuffer using a simple math equation.  The oled.show() will then update the pattern on the display.
 
+This lesson was suggested by Parker Erickson.
+
 ## Math Functions
+We will use a few unusual functions to create repeating patterns:
+
+1. Modulo (%)
+2. Bitwise AND (&)
 
 The modulo function is written ```%```.  It returns the integer remainder after a division.  So ```7 % 3``` is 1 and ```7 % 4``` is 3.
 The Power function of X to the Y power is written in python as ```pow(x,y)```.  For example pow(7, 2) is seven squared = 49.
@@ -31,42 +37,26 @@ for i in range(8):
 |13 & 12 | 12 |
 
 
-## The Equations
+## Some Sample Equations
 
-(x ^ y) % 9
-(x ^ y) % 5
-(x ^ y) % 17
-(x ^ y) % 33
-(x * y) & 64
-(x * y) & 24
-(x * y) & 47
-(x ^ y) < 77
-(x ^ y) < 214
-(x ^ y) < 120
-(x * 2) % y
-(x * 64) % y
-(x * 31) % y
-((x-128) * 64) % (y-128)
-(x ^ y) & 32
-(x ^ y) & 72
-(x ^ y) & 23
-((x * y) ** 4) % 7
-((x * y) ** 5) % 99
-((x * y) ** 9) % 3
-(x % y) % 4
-(y % x) % 20
-40 % (x % y)
-x & y
-x % y
-x & 9
+1. x & y
+1. x % y
+1. (x ^ y) % 9
+1. (x ^ y) % 5
+1. (x ^ y) % 17
+1. (x ^ y) % 33
+1. (x * y) & 64
+1. (x * y) & 24
+1. (x * y) & 47
+1. (x * 2) % y
+1. (x * 64) % y
+1. (x * 31) % y
+1. ((x-128) * 64) % (y-128)
+1. (x % y) % 4
+1. (y % x) % 20
+1. 40 % (x % y)
 
-## Combinations
-(x & y)   &   (x ^ y) % 19
-((x ^ y) & 32)   *   (x ^ y) % 9)
-(x * 64) % y   *   ((x ^ y) < 77)
-
-
-## Sample Image
+Note there are other patterns that use the power ```pow(x,y)``` or Exponentiation ```**``` function but I can't get these to work with Micropython.
 
 ## Sample Code
 This program evaluates the function ```x % (y+1)``` for each of the pixels on the screen.  If the function returns a non-zero the pixel will be off.  If the pixel is zero, the pixel will be on.
@@ -177,7 +167,7 @@ print('done')
 ![](../img/pattern6.jpg)
 
 
-## (x % y) % 4
+### (x % y) % 4
 ![](../img/pattern5.jpg)
 
 ## Sierpinsky Triangles (x & y)
