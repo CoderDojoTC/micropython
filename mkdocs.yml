@@ -29,6 +29,7 @@ nav:
     - Ultrasonic Distance: 05-ping.md
     - Environmental Sensor: sensors/bme280.md
     - Accelerometer Compass: 06-accelerometer-compass.md
+    - Time of Flight Distance: 07-VL53L0X_GY.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
@@ -42,6 +43,7 @@ nav:
     - OLED Ping: oled/11-oled-ping.md
     - OLED Pong: oled/11-pong.md
     - OLED Pixel Draw: oled/13-pixel-draw.md
+    - OLED Patterns: oled/15-oled-patterns.md
     - Random Hearts: oled/14-random-hearts.md
     - OLED References: oled/40-oled-references.md
   - Sound and Music:
