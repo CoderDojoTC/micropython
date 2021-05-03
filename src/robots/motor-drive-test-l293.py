@@ -2,10 +2,10 @@ from machine import Pin, PWM
 from time import sleep
 
 # lower right pins with USB on top
-RIGHT_FORWARD_PIN = 17
-RIGHT_REVERSE_PIN = 16
+RIGHT_FORWARD_PIN = 19
+RIGHT_REVERSE_PIN = 21
 LEFT_FORWARD_PIN = 18
-LEFT_REVERSE_PIN = 19
+LEFT_REVERSE_PIN = 20
 
 right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
 right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
