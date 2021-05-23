@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Introduction to Robots - MicroPython</title>
+<title>Introduction - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-robots">
+<a class="md-skip" href="#introduction-to-coderdojo-pico-robots">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Introduction to Robots
+              Introduction
             
           </span>
 </div>
@@ -299,11 +299,31 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
 <label class="md-nav__link" for="nav-6">
+        Displays
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Displays" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-6">
+<span class="md-nav__icon md-icon"></span>
+          Displays
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../displays/7-segment-display/">
+        7 Segment Display
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" id="nav-7" type="checkbox"/>
+<label class="md-nav__link" for="nav-7">
         OLED Displays
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="OLED Displays" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-6">
+<label class="md-nav__title" for="nav-7">
 <span class="md-nav__icon md-icon"></span>
           OLED Displays
         </label>
@@ -387,13 +407,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" id="nav-7" type="checkbox"/>
-<label class="md-nav__link" for="nav-7">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" id="nav-8" type="checkbox"/>
+<label class="md-nav__link" for="nav-8">
         Sound and Music
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Sound and Music" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-7">
+<label class="md-nav__title" for="nav-8">
 <span class="md-nav__icon md-icon"></span>
           Sound and Music
         </label>
@@ -426,14 +446,101 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-9" id="nav-9" type="checkbox"/>
+<label class="md-nav__link" for="nav-9">
+        Pico Robots
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Pico Robots" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-9">
+<span class="md-nav__icon md-icon"></span>
+          Pico Robots
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Introduction
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#robot-journey-map">
+    Robot Journey Map
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parts">
+    Parts
+  </a>
+<nav aria-label="Parts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chassis">
+    Chassis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sensors">
+    Sensors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motor-controllers">
+    Motor Controllers
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-base-bot/">
+        Base Bot
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-face-bot/">
+        Face Bot
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-param-bot/">
+        Param Bot
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-servo-bot.md">
+        Servo Bot
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20-faqs.md">
+        FAQs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" id="nav-8" type="checkbox"/>
-<label class="md-nav__link" for="nav-8">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" id="nav-10" type="checkbox"/>
+<label class="md-nav__link" for="nav-10">
         Debugging
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Debugging" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-8">
+<label class="md-nav__title" for="nav-10">
 <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -467,13 +574,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" id="nav-9" type="checkbox"/>
-<label class="md-nav__link" for="nav-9">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" id="nav-11" type="checkbox"/>
+<label class="md-nav__link" for="nav-11">
         Circuit Python
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Circuit Python" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-9">
+<label class="md-nav__title" for="nav-11">
 <span class="md-nav__icon md-icon"></span>
           Circuit Python
         </label>
@@ -531,6 +638,11 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#robot-journey-map">
+    Robot Journey Map
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#parts">
     Parts
   </a>
@@ -564,7 +676,20 @@
 <a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/robots/01-intro.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="introduction-to-robots">Introduction to Robots</h1>
+<h1 id="introduction-to-coderdojo-pico-robots">Introduction to CoderDojo Pico Robots</h1>
+<p>Robots are the most powerful learning machines in our CoderDojo project collections.  The allow our students to control motion with their own programs.  Not only are they incredibly fun for our students, they enable them to quickly proceed to our advanced AI Racing League projects.</p>
+<h2 id="robot-journey-map">Robot Journey Map</h2>
+<p>This section of the course takes you on a tour of our base $25 collision avoidance robots.  It then builds on this robot by adding an OLED display, programming controls and servos.  Here is a Journey Map of these lessons:</p>
+<p><img alt="" src="img/robot-journey-map.png"/></p>
+<p>Note that the $25 price assumes you purchase low-cost parts from suppliers like eBay.  You can lower the cost per robot by purchasing the parts in higher quantities for classroom use.  You can also purchase older Arduino robot kits and upgrade the processors to use the Raspberry Pi Pico.</p>
+<ol>
+<li>
+<p><strong><a href="../02-base-bot/">Base Bot</a></strong> - This is the foundational robot that the other projects are built on.  The base includes a standard Smart Car chassis, two DC hobby motors, a battery pack and wheels.  On top of the chassis we add a breadboard, jumpers, a motor controller, a distance sensor, and our $4 Raspberry Pi microcontroller.</p>
+</li>
+<li>
+<p><strong><a href="03-display-bot.md">Display Bot</a></strong> - We extend the Base Bot by adding a $4 128x64 OLED display.  This allows students to see the values of the distance sensor and to hear a sound when a key event occurs.</p>
+</li>
+</ol>
 <h2 id="parts">Parts</h2>
 <h3 id="chassis">Chassis</h3>
 <p>Smartcar Chassis</p>
@@ -579,6 +704,36 @@
 </div>
 </main>
 <footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../../sound/05-play-mario/" rel="prev" title="Play Mario">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Play Mario
+                </span>
+</div>
+</a>
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../02-base-bot/" rel="next" title="Base Bot">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Base Bot
+                </span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
