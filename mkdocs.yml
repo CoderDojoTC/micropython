@@ -30,6 +30,8 @@ nav:
     - Environmental Sensor: sensors/bme280.md
     - Accelerometer Compass: 06-accelerometer-compass.md
     - Time of Flight Distance: 07-VL53L0X_GY.md
+  - Displays:
+    - 7 Segment Display: displays/7-segment-display.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
@@ -52,6 +54,13 @@ nav:
     - Playing Three Tones: sound/03-play-three-tones.md
     - Playing a Scale: sound/04-play-scale.md
     - Play Mario: sound/05-play-mario.md
+  - Pico Robots:
+    - Introduction: robots/01-intro.md
+    - Base Bot: robots/02-base-bot.md
+    - Face Bot: robots/03-face-bot.md
+    - Param Bot: robots/04-param-bot.md
+    - Servo Bot: robots/05-servo-bot.md
+    - FAQs: robots/20-faqs.md
   - Debugging:
     - Debugging Python: 28-debugging-python.md
     - Debugging I2C: 29a-debugging-i2c.md
