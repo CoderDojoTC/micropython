@@ -26,18 +26,38 @@ This should return a single decimal number.
 
 ## Download The VL53L0X Driver
 
-If you are using Thonny, you can try to use the "Manage Packages" menu and search for the 
+If you are using Thonny, you can try to use the "Manage Packages" menu and search for the driver.
+
+We have a sample of the driver [here](https://github.com/CoderDojoTC/micropython/blob/main/src/drivers/VL53L0X.py)
 
 ## Create a Test Program
 
 ```py
 # Test program for VL53L0X
+import time
+from machine import Pin
+from machine import I2C
+import VL53L0X
 
+sda=machine.Pin(16) # lower right pin
+scl=machine.Pin(17) # one up from lower right pin
+i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
+
+# Create a VL53L0X object
+tof = VL53L0X.VL53L0X(i2c)
+
+while True:
+    tof.start()
+    tof.read()
+    print(tof.read())
+    tof.stop()
+    time.sleep(0.1)
 ```
 
 ## Use the Thonny Plot
 
-## Refernces Purchase links
+
+## Reference Purchase links
 
 1. [ST Microelectronics](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html)
 2. [User Manual](https://www.st.com/resource/en/user_manual/dm00279088-world-smallest-timeofflight-ranging-and-gesture-detection-sensor-application-programming-interface-stmicroelectronics.pdf)

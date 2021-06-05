@@ -3,30 +3,16 @@ from machine import Pin
 from machine import I2C
 import VL53L0X
 
-sda=machine.Pin(16) # row one on our standard Pico breadboard
-scl=machine.Pin(17) # row two on our standard Pico breadboard
+sda=machine.Pin(16) # lower right pin
+scl=machine.Pin(17) # one up from lower right pin
 i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
 
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
 
-#tof.set_Vcsel_pulse_period(tof.vcsel_period_type[0], 18)
-
-#tof.set_Vcsel_pulse_period(tof.vcsel_period_type[1], 14)
-
-
 while True:
-# Start ranging
     tof.start()
     tof.read()
     print(tof.read())
     tof.stop()
-
-
-
-
-
-
-    #q = tof.set_signal_rate_limit(0.1)
-    #
-    # time.sleep(0.1)
+    time.sleep(0.1)
