@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Robots Frequently Asked Questions - MicroPython</title>
+<title>Rainbow Bot - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#robots-frequently-asked-questions">
+<a class="md-skip" href="#rainbow-bot">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Robots Frequently Asked Questions
+              Rainbow Bot
             
           </span>
 </div>
@@ -596,18 +596,28 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-a-two-motor-three-wheel-robot-not-four-motor-four-wheel-robot">
-    Why a two-motor three wheel robot, not four motor four wheel robot?
+<a class="md-nav__link" href="#part-1-ordering-the-led-strip">
+    Part 1: Ordering The LED Strip
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-do-we-use-the-l293d-vs-l298n-motor-driver">
-    Why do we use the L293D vs L298N Motor Driver?
+<a class="md-nav__link" href="#part-2-making-the-connections">
+    Part 2: Making The Connections
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-dont-we-just-create-a-remote-control-robot-car">
-    Why don't we just create a remote control robot car?
+<a class="md-nav__link" href="#part-3-adding-the-ws-2811b-library">
+    Part 3: Adding the WS-2811B Library
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#part-4-testing-your-code">
+    Part 4: Testing Your Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#references">
+    References
   </a>
 </li>
 </ul>
@@ -617,17 +627,58 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/robots/20-faq.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/CoderDojoTC/micropython/blob/master/docs/robots/03-rainbow-bot.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="robots-frequently-asked-questions">Robots Frequently Asked Questions</h1>
-<h2 id="why-a-two-motor-three-wheel-robot-not-four-motor-four-wheel-robot">Why a two-motor three wheel robot, not four motor four wheel robot?</h2>
-<p>We evaluated both the two-motor three wheel robot and the four motor four wheel robots and found that we could achieve all our learning objectives with the two-motor three wheel version.  The kits are lower cost, have a simpler assembly process and have plenty of power for our projects.</p>
-<h2 id="why-do-we-use-the-l293d-vs-l298n-motor-driver">Why do we use the L293D vs L298N Motor Driver?</h2>
-<p>Both of these popular motor driver chips are commonly used in robot kits.  Our focus is teaching the principals of computational thinking using low-cost parts.  Since the L293D is lower cost and has plenty of power for our two-motor robots we chose that.  There is a detailed side-by-side comparison [here]
-(https://www.etechnophiles.com/l293d-vs-l298n-motor-driver-differences-specifications-and-pinouts/)</p>
-<h2 id="why-dont-we-just-create-a-remote-control-robot-car">Why don't we just create a remote control robot car?</h2>
-<p>Remote control cars are very fun to play with.  But we find that it often detracts from our mission of learning how to code.  So we try to minimize the time students spend just driving their cars around our tracks.</p>
+<h1 id="rainbow-bot">Rainbow Bot</h1>
+<p>This robot takes our base robot and adds and LED strip to display colors and patterns based on what the robot is doing or thinking about.</p>
+<p>We use the same materials but we add a low cost 10 pixel LED strip that is easy to hook up with just power, ground and data wires added to our breadboard.  The LED is known as an addressable LED strip since you can individually program each LED.  The standard is called the  WS-2811B LED strip and is often called a NeoPixel LED strip (The Adafruit Term).</p>
+<p><img alt="" src="../img/led-strip.md"/></p>
+<p>Of course, you can also add longer LED strips and program the patterns in interesting ways.</p>
+<h2 id="part-1-ordering-the-led-strip">Part 1: Ordering The LED Strip</h2>
+<p>The LED strips come in a variety of lengths, density and packing.  We use the 1 meter long 60 pixels/meter strips that use the IP65 waterproofing.  We like the black backgrounds.  A sample place to purchase them is <a href="https://www.ebay.com/itm/333953423650?hash=item4dc12cd922%3Ag%3AsxcAAOSwND9gYtgi&amp;LH_BIN=1">here</a></p>
+<p><img alt="" src="img/led-strip.png"/></p>
+<p>We can take a $3 strip of 60 LEDs and cut them up into six segments of 10 LEDs each for a cost of around 50 cents per strip.  We solder stranded wire to the segments and then put 22 gauge solid wire to make them easy to put in the breadboards.</p>
+<h2 id="part-2-making-the-connections">Part 2: Making The Connections</h2>
+<p>The LED strips use 5 volts of power and have a GND and a data connector.</p>
+<h2 id="part-3-adding-the-ws-2811b-library">Part 3: Adding the WS-2811B Library</h2>
+<h2 id="part-4-testing-your-code">Part 4: Testing Your Code</h2>
+<p>In our first test, we will just make the first pixel on the LED strip blink bright red.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">neopixel</span><span class="o">,</span> <span class="nn">time</span>
+<span class="c1"># Set the pin number and number of pixels</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># blink the first pixel red</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="references">References</h2>
+<ol>
+<li>Micropython <a href="https://docs.micropython.org/en/v1.15/esp8266/tutorial/neopixel.html">NeoPixel Library</a></li>
+</ol>
 </article>
 </div>
 </div>

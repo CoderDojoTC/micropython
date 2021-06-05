@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>MPU-9250 Accelerometer Gyroscope Compass - MicroPython</title>
+<title>Accelerometer Compass - MicroPython</title>
 <link href="../../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              MPU-9250 Accelerometer Gyroscope Compass
+              Accelerometer Compass
             
           </span>
 </div>
@@ -236,8 +236,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-5">
         Sensors
         <span class="md-nav__icon md-icon"></span>
@@ -269,12 +269,12 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02-pot.md">
+<a class="md-nav__link" href="../02-pot/">
         Potentiometer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-ping.md">
+<a class="md-nav__link" href="../05-ping.md">
         Ultrasonic Distance
       </a>
 </li>
@@ -283,13 +283,41 @@
         Environmental Sensor
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../06-accelerometer-compass.md">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Accelerometer Compass
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Accelerometer Compass
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pinouts">
+    Pinouts
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-VL53L0X_GY.md">
+<a class="md-nav__link" href="#i2c-scanner-results">
+    I2C Scanner Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mpu9250-drivers">
+    MPU9250 Drivers
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-VL53L0X_GY/">
         Time of Flight Distance
       </a>
 </li>
@@ -469,7 +497,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../robots/03-face-bot/">
+<a class="md-nav__link" href="../../robots/03-face-bot.md">
         Face Bot
       </a>
 </li>
@@ -696,6 +724,36 @@
 </div>
 </main>
 <footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../bme280/" rel="prev" title="Environmental Sensor">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Environmental Sensor
+                </span>
+</div>
+</a>
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../07-VL53L0X_GY/" rel="next" title="Time of Flight Distance">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Time of Flight Distance
+                </span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

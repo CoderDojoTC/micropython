@@ -269,12 +269,12 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02-pot.md">
+<a class="md-nav__link" href="../../sensors/02-pot/">
         Potentiometer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-ping.md">
+<a class="md-nav__link" href="../../sensors/05-ping.md">
         Ultrasonic Distance
       </a>
 </li>
@@ -284,12 +284,12 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06-accelerometer-compass.md">
+<a class="md-nav__link" href="../../sensors/06-accelerometer-compass/">
         Accelerometer Compass
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-VL53L0X_GY.md">
+<a class="md-nav__link" href="../../sensors/07-VL53L0X_GY/">
         Time of Flight Distance
       </a>
 </li>
@@ -487,7 +487,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../robots/03-face-bot/">
+<a class="md-nav__link" href="../../robots/03-face-bot.md">
         Face Bot
       </a>
 </li>
@@ -632,7 +632,7 @@
 <p>We use small OLED displays in many of our labs because:</p>
 <ol>
 <li>They are <strong>inexpensive</strong> (around $4).</li>
-<li>They are <strong>easy to connect</strong> via SPI.  Just four wires: GND, VCC, Clock and Data.</li>
+<li>They are <strong>easy</strong> to connect** via I2C and SPI.  Just four wires for I2C and seven wires for SPI.</li>
 <li>They have a <strong>large area</strong> to display feedback.  Most of them are 128X64 pixels.</li>
 <li>Once you get the drivers installed (not always easy) they are <strong>easy to program</strong>.  You only need to initialize the device and run the oled.fill(), oled.text() and oled.show() functions.</li>
 <li>OLEDs, unlike LCDs, have <strong>high contrast over a large range of input voltages</strong>.  This means that as your batteries slowly discharge, your OLEDs will keep their high-quality contrast.</li>
