@@ -116,3 +116,9 @@ while True:
         render_feature_display(False, True)
     
      ```
+
+     ## References
+     
+     1. [Sample Product Page Display](https://shop.pimoroni.com/products/4-digit-7-segment-display?variant=1167506177)
+
+     2. [Datasheet](https://cdn.shopify.com/s/files/1/0174/1800/files/YSD-439AY2B-35_7ec288e1-6487-4f6a-8ec5-e55e43cc1d0b.pdf?17192138625198176132)

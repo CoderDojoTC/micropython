@@ -25,11 +25,11 @@ nav:
     - Photosensor: sensors/02-photosensor.md
     - Ping Distance: sensors/03-ping.md
     - Temp,Humidity, Pres: sensors/06-bme280.md
-    - Potentiometer: 02-pot.md
-    - Ultrasonic Distance: 05-ping.md
+    - Potentiometer: sensors/02-pot.md
+    - Ultrasonic Distance: sensors/05-ping.md
     - Environmental Sensor: sensors/bme280.md
-    - Accelerometer Compass: 06-accelerometer-compass.md
-    - Time of Flight Distance: 07-VL53L0X_GY.md
+    - Accelerometer Compass: sensors/06-accelerometer-compass.md
+    - Time of Flight Distance: sensors/07-VL53L0X_GY.md
   - Displays:
     - 7 Segment Display: displays/7-segment-display.md
   - OLED Displays:
