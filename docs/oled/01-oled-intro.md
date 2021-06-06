@@ -3,7 +3,7 @@
 We use small OLED displays in many of our labs because:
 
 1. They are **inexpensive** (around $4).
-2. They are **easy to connect** via SPI.  Just four wires: GND, VCC, Clock and Data.
+2. They are **easy** to connect** via I2C and SPI.  Just four wires for I2C and seven wires for SPI.
 3. They have a **large area** to display feedback.  Most of them are 128X64 pixels.
 4. Once you get the drivers installed (not always easy) they are **easy to program**.  You only need to initialize the device and run the oled.fill(), oled.text() and oled.show() functions.
 5. OLEDs, unlike LCDs, have **high contrast over a large range of input voltages**.  This means that as your batteries slowly discharge, your OLEDs will keep their high-quality contrast.
