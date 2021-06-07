@@ -1,6 +1,8 @@
 # OLED Snake
 This is the classic Snake video game first created in 1976.  It uses a OLED screen with an SPI interface and four momentary press buttons.
 
+This program was contributed by Jim Tannenbaum.
+
 [Wikipedia Page on Snake Video Game](https://en.wikipedia.org/wiki/Snake_(video_game_genre)
 
 TODO: add a screen image
