@@ -1,21 +1,33 @@
 # Raspberry Pi Pico Micropython Base Robot
 
+![](../imb/../img/pico-bot.jpg)
+
+This lesson describes out base robot kit in the CoderDojo Twin Cities coding club.  This is a new robot that in programmed entirely in python to be consistent with our [Python Courses](https://www.coderdojotc.org/python/).
+
+## Base Robot Design
+
+Our goal is to build a robotics platform for teaching computational thinking.  Here are our main design goals:
+
+1. Low cost (under $25) so that most students can afford their own robot
+2. Open platform to make it easy to upgrade (sustainably)
+3. Interchangeable parts
+4. Minimal amount of soldering
+
 ## Video
 
-Here is a video of the robot in action:
+Here is a video of the collision avoidance robot in action:
 
 [YouTube Video](https://youtu.be/0d3tF1oXu90)
 
-Note that the speed and distance before you turn can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.
+Note that the **forward-speed** and **distance-before-you-turn** can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.
 
-## Hardware
-![](../img/pico-bot.png)
+## Parts Summary
+
+Here is a summary of some of the parts we use in this robot and their approximate prices as of June 2021.  Some parts come from China so you might need to wait 2-3 weeks for them to arrive.
 
 ![](../img/pico-bot-parts-list.png)
 
-![](../img/pico-pins.png)
-
-![](../img/pi-pico-pinout.png)
+## Hardware Details
 
 [Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1zxPBhhxUG-Uuz9ZlNKY35JYVvpMbK2lfSP81EWPcYM0/edit?usp=sharing)
 
@@ -23,28 +35,99 @@ Note that the speed and distance before you turn can be adjusted.  You can see I
 
 ![](../img/parts/motor-driver.png)
 
+
+### Time-of-Flight Distance Sensor
+
 ![](../img/parts/tof-sensor-GYUN530K.jpg)
 
 ## Software
 
-## I2C Scanner
+### Distance Sensor
+
+We are using the VL53L0X time-of-flight distance sensor.  This works on an I2C bus.  After you have hooked up the Power (VCC to the 3.3 rail and GND) you must hook up the I2C data and clock.
+
+```py
+sda=machine.Pin(16) # Lower right corner of the Pico with the USB on top
+scl=machine.Pin(17) # One up from the lower right corner of the Pico
+i2c=machine.I2C(0, sda=sda, scl=scl)
+```
+
+### Testing the Senser Connections with the I2C Scanner
+
 ```py
 import machine
-sda=machine.Pin(0) # row one on our standard Pico breadboard
-scl=machine.Pin(1) # row two on our standard Pico breadboard
-i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
+sda=machine.Pin(16) # Lower right corner of the Pico with the USB on top
+scl=machine.Pin(17) # One up from the lower right corner of the Pico
+i2c=machine.I2C(0, sda=sda, scl=scl)
 print("Device found at decimal", i2c.scan())
 ```
 
-## Distance Sensor
-VL53L0X
+You should see a decimal number returned.  By default the I2C address is usually 41 (decimal).
 
-## Motor Drive Test
+### Time-of-Flight Sensor Test
+```py
+
+```
+
+### Motor Drive Test
 
 After we have the four wires connected to the motor driver, we need to make sure we get the right wires to the right motors and motor directions.  This program will help you debug this.
 
+```py
+from machine import Pin, PWM
+import time # sleep
+
+POWER_LEVEL = 65025
+# lower right pins with USB on top
+RIGHT_FORWARD_PIN = 21
+RIGHT_REVERSE_PIN = 20
+LEFT_FORWARD_PIN = 18
+LEFT_REVERSE_PIN = 19
+
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+
+def spin_wheel(pwm):
+        pwm.duty_u16(POWER_LEVEL)
+        time.sleep(3)
+        pwm.duty_u16(0)
+        time.sleep(2)
+
+while True:
+    print('right forward')
+    spin_wheel(right_forward)
+    
+    print('right reverse')
+    spin_wheel(right_reverse)
+    
+    print('left foward')
+    spin_wheel(left_forward)
+    
+    print('left_reverse')
+    spin_wheel(left_reverse)
+```
+
 One thing to remember is that the "Right" refers to our orientation from the rear of the car or if we were sitting inside the car.  If the robot is facing you with the sensor in the front, it is the wheel on the left that we call the "RIGHT" wheel.  Very confusing!  Using this naming convention will pay of as we are walking behind larger robots.
 
+### Turning Logic
+
+```py
+while True:
+    dist = read_sensor() 
+    if dist < TURN_THRESHOLD:
+        print('object detected')
+        reverse()
+        sleep(BACKUP_TIME)
+        turn_right()
+        sleep(TURN_TIME)
+    else:
+        forward()
+```
+
+## FUll Program
 ```py
 from machine import Pin, PWM
 import time # sleep
