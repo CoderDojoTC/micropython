@@ -23,15 +23,15 @@ Here is a video of the collision avoidance robot in action:
 
 Note that the **forward-speed** and **distance-before-you-turn** can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.
 
-## Parts Summary
+## Hardware Description
 
 Here is a summary of some of the parts we use in this robot and their approximate prices as of June 2021.  Some parts come from China so you might need to wait 2-3 weeks for them to arrive.
 
 ![](../img/pico-bot-parts-list.png)
 
-## Hardware Details
+Here is a Google sheet with these parts:
 
-[Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1zxPBhhxUG-Uuz9ZlNKY35JYVvpMbK2lfSP81EWPcYM0/edit?usp=sharing)
+[Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1I6PwM470JuRHZVHkg1uiMuoXlsIpyv0Ak2ayZP8VWFc/edit?usp=sharing)
 
 ### Motor Driver
 
