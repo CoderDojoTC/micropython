@@ -57,7 +57,7 @@ oled.text('Hello World!', 0, 0, 1)
 oled.show()
 ```
 
-## ## SSH1106 I2C Setup
+## SSH1106 I2C Setup
 
 ```py
 from machine import Pin, I2C
@@ -70,3 +70,7 @@ oled = SH1106_I2C(128, 64, i2c)
 oled.text('Hello World!', 0, 0, 1)
 oled.show()
 ```
+
+## References
+
+https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
