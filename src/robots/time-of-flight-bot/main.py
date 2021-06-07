@@ -23,8 +23,8 @@ right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
 left_forward = PWM(Pin(LEFT_FORWARD_PIN))
 left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
 
-sda=machine.Pin(16) # row one on our standard Pico breadboard
-scl=machine.Pin(17) # row two on our standard Pico breadboard
+sda=machine.Pin(16) # Lower right corner of the Pico with the USB on top
+scl=machine.Pin(17) # One up from the lower right corner of the Pico
 i2c=machine.I2C(0, sda=sda, scl=scl)
 
 # Create a VL53L0X object
