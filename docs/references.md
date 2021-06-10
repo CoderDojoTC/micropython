@@ -19,5 +19,8 @@
 14. [ARM Blueprint post on TinyML](https://www.arm.com/blogs/blueprint/tinyml) - nice review of the Tiny Machine Learning possible on the ARM processor.
 15. [Google TensorFlow engineer talking about how ARM and Google are working together on TinyML](https://www.youtube.com/watch?v=9ZIDzkhUrkY) - short 60 second video clip of Google TensorFlow engineer Ian Nappier talking about how they are working with ARM to create a standard TinyML library for all ARM processors to use.
 
+## Components
+[Comparison of RP2040 Boards](https://docs.google.com/spreadsheets/d/e/2PACX-1vRifv83IJa38YcgPIUidSLvbNGoAa7UTeb_fuOU8i0eaYYwDU5C_8fM72aoD0LhjcMCRVXSGvhDiFHC/pubhtml?gid=0&single=true)
+
 ## Components References
 11. [2.42" OLED Display from DIY More](https://www.diymore.cc/collections/hot-products/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow)
