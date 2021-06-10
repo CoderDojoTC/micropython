@@ -17,19 +17,21 @@ Our goal is to build a robotics platform for teaching computational thinking.  H
 
 Here is a video of the collision avoidance robot in action:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0d3tF1oXu90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [YouTube Video](https://youtu.be/0d3tF1oXu90)
 
 Note that the **forward-speed** and **distance-before-you-turn** can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.
 
-## Parts Summary
+## Hardware Description
 
 Here is a summary of some of the parts we use in this robot and their approximate prices as of June 2021.  Some parts come from China so you might need to wait 2-3 weeks for them to arrive.
 
 ![](../img/pico-bot-parts-list.png)
 
-## Hardware Details
+Here is a Google sheet with these parts:
 
-[Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1zxPBhhxUG-Uuz9ZlNKY35JYVvpMbK2lfSP81EWPcYM0/edit?usp=sharing)
+[Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1I6PwM470JuRHZVHkg1uiMuoXlsIpyv0Ak2ayZP8VWFc/edit?usp=sharing)
 
 ### Motor Driver
 
@@ -41,6 +43,8 @@ Here is a summary of some of the parts we use in this robot and their approximat
 ![](../img/parts/tof-sensor-GYUN530K.jpg)
 
 ## Software
+
+All software is written in Python.  You must include the driver for the 
 
 ### Distance Sensor
 
@@ -62,12 +66,40 @@ i2c=machine.I2C(0, sda=sda, scl=scl)
 print("Device found at decimal", i2c.scan())
 ```
 
-You should see a decimal number returned.  By default the I2C address is usually 41 (decimal).
+You should see a decimal number returned.  By default the I2C address is 41 (decimal) or x29 (hexadecimal).
+
+### Download the VL53L0X Driver
+
+You will need to add a VL53L0X driver file to the file system on the pico.
+
+We have a copy here: [https://raw.githubusercontent.com/CoderDojoTC/micropython/main/src/drivers/VL53L0X.py](https://raw.githubusercontent.com/CoderDojoTC/micropython/main/src/drivers/VL53L0X.py)
 
 ### Time-of-Flight Sensor Test
+
+Once the driver file is loaded we are ready to test the time-of-flight distance sensor.
+
 ```py
+import time
+from machine import Pin
+from machine import I2C
+import VL53L0X
+
+sda=machine.Pin(16) # row one on our standard Pico breadboard
+scl=machine.Pin(17) # row two on our standard Pico breadboard
+i2c=machine.I2C(0, sda=sda, scl=scl)
+
+# Create a VL53L0X object
+tof = VL53L0X.VL53L0X(i2c)
+tof.start() # startup the sensor
+while True:
+# Start ranging
+    dist = tof.read()
+    print(dist)
+    time.sleep(.1)
 
 ```
+
+When you run this program a sequence of integers will appear in the console.  The numbers usually will range from around 30 if there is an object directly in front of the sensor to a number around 1,300 for a object that is about 1.3 meters away from the sensor.  There is a 1/10th of a second pause between each measurement.  This can be changed in the last line of the program.
 
 ### Motor Drive Test
 
@@ -112,6 +144,58 @@ while True:
 
 One thing to remember is that the "Right" refers to our orientation from the rear of the car or if we were sitting inside the car.  If the robot is facing you with the sensor in the front, it is the wheel on the left that we call the "RIGHT" wheel.  Very confusing!  Using this naming convention will pay of as we are walking behind larger robots.
 
+### Sample Drive and Turn Functions
+
+We will need a set of function to drive our robot:
+
+1. Forward: both wheels going forward
+2. Reverse: both wheels going in reverse
+3. Turn Right: The right wheel turning backward and the left going forward
+4. Turn Left: The left wheel turning backward and the right wheel going forward
+5. Stop: all motors off
+
+Our challenge is for each of these operations we must change the value of all four PWM signals.  We can never have a motor be going both forward and reverse.  Here are some sample drive functions:
+
+```py
+def turn_motor_on(pwm):
+   pwm.duty_u16(POWER_LEVEL)
+
+def turn_motor_off(pwm):
+   pwm.duty_u16(0)
+
+def forward():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_reverse)
+
+def reverse():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_forward)
+
+def turn_right():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+
+def turn_left():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_reverse)
+
+def stop():
+    turn_motor_off(right_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+    turn_motor_off(left_reverse)
+
+```
+
+
 ### Turning Logic
 
 ```py
@@ -127,7 +211,8 @@ while True:
         forward()
 ```
 
-## FUll Program
+### Test Motor Connections
+
 ```py
 from machine import Pin, PWM
 import time # sleep
@@ -167,20 +252,90 @@ while True:
 
 After you load this program, watch which wheels turn and in what direction.
 
-## Drive Functions
+### Drive Functions
 
 We will define Python functions for forward, reverse, turn right and turn left.
 
 ```py
+POWER_LEVEL = 65025
+
+def turn_motor_on(pwm):
+   pwm.duty_u16(POWER_LEVEL)
+
+def turn_motor_off(pwm):
+   pwm.duty_u16(0)
+
+def forward():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_reverse)
+
+def reverse():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_forward)
+
+def turn_right():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+
+def turn_left():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_reverse)
+
+def stop():
+    turn_motor_off(right_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+    turn_motor_off(left_reverse)
 ```
 
-## Collision Avoidance Logic
+### Stop All Motors Program
+
+One other thing to remember is that the PWM signals continue to be generated even after the main loop has stopped.  This is because on the Pico, the four PWM signals are being continuously generated by an independent processors.  To stop the motors you must run a separate stop program like this:
+
+stop-all-motors.py:
+
+```py
+from machine import Pin, PWM
+from time import sleep
+
+# lower right pins with USB on top
+RIGHT_FORWARD_PIN = 19
+RIGHT_REVERSE_PIN = 21
+LEFT_FORWARD_PIN = 18
+LEFT_REVERSE_PIN = 20
+
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+right_forward.duty_u16(0)
+right_reverse.duty_u16(0)
+left_forward.duty_u16(0)
+left_reverse.duty_u16(0)
+```
+
+This can be frustrating at times when you can't find the stop program.  I like to bring the stop program up in a separate tab when I am writing robot motor code.
+
+!!! TO DO
+     figure out how to write an interrup handler so that when the IDE STOP function is pressed the stop motors (and speaker) are stopped.
+
+### Collision Avoidance Logic
 
 ## Final Program
 
 To get this to work on battery power up you must name the program **main.py** and save it on the Raspberry Pi Pico.
 
-Make sure you have the distance sensor driver installed.
+!!! Note
+    Make sure you have the VL53L0X distance sensor driver installed.
 
 ```py
 from machine import Pin, PWM
@@ -191,10 +346,10 @@ import VL53L0X
 led_onboard = machine.Pin(25, machine.Pin.OUT)
 
 # driving parameters
-POWER_LEVEL = 40000 # use a value from 20000 to 65025
+POWER_LEVEL = 65025 # use a value from 20000 to 65025
 TURN_THRESHOLD = 400 # 25 cm
 TURN_TIME = .25 # seconds of turning
-BACKUP_TIME = .75 # seconds of backing up if obstacle deteced
+BACKUP_TIME = .75 # seconds of backing up if obstacle detected
 
 # Motor pins to the L293 H-Bridge
 RIGHT_FORWARD_PIN = 21
@@ -215,10 +370,8 @@ i2c=machine.I2C(0, sda=sda, scl=scl)
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
 
-
-    
 def turn_motor_on(pwm):
-   pwm.duty_u16(65025)
+   pwm.duty_u16(POWER_LEVEL)
 
 def turn_motor_off(pwm):
    pwm.duty_u16(0)
@@ -281,7 +434,11 @@ while True:
             print('Go forward')
             led_onboard.high()
         forward()
-
-            
-
 ```
+
+## More To Explore Labs
+
+1. Can you change the hard-coded parameters at the begging of the program?  What happens when you make the POWER_LEVEL go too high and the TURN_THRESHOLD too low?
+2. What is the lowest POWER_LEVEL that will allow the robot to move?  What if you changed the power from 6 volts to be 9 volts by adding two more AA batteries?
+3. Can you randomly turn right or left if you encounter and object?  Note you will need to import the random library and generate a random number between 0 and 2 with the random.randint(0,2) function.
+4. How would you design a robot that you could adjust the parameters?  What parameters would you change?  What would their valid ranges be?
