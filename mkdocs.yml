@@ -6,8 +6,7 @@ nav:
     - Introduction: 01-intro.md
     - Microcontrollers: 01a-microcontrollers.md
     - Boards: 02-boards.md
-    - Suggested Parts: 03-suggested-parts.md
-    - Accessories: 02b-accessories.md
+    - Sourcing Parts: 03-suggested-parts.md
     - Raspberry Pi Pico: 02-pi-pico.md
     - ESP32: 02-esp32.md
     - Thonny IDE: 02c-thonny.md

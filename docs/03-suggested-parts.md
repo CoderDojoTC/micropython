@@ -1,6 +1,20 @@
-# Suggested Parts and Accessories
+# Sourcing Parts
 
-As of March 2021, the Raspberry Pi Pico did not come integrated into development kits.  You frequently had to purchase the independent parts yourself.  Here are some of the parts we recommend.
+One of the key values of CoderDojo clubs around the world is to not charge any fees for attending these clubs.  Parts need to be purchase by limited funds raised through donations.  Club organizers need to be frugal about getting low-cost parts for the participants.
+
+Our experience is that is difficult to get the right parts at low cost using firms that promise quick delivery times of a few days.  The lowest price parts often must be purchased weeks in advance from places like China and Taiwan.  As a result, clubs that use funds carefully must plan weeks if not months in advance of classes and events.  So we strongly suggest bringing an robot part procurement team together two months before you begin to offer robot courses where students can each have their own robots.
+
+## Purchasing The Raspberry Pi Pico and Robot Kits
+As of June 2021, the Raspberry Pi Pico did not come integrated into low-cost development kits that include robot kit parts.  You frequently must to purchase the independent parts yourself.  
+
+Here are some of the parts we recommend.
+
+## The Raspberry Pi Pico
+In the US, our best source of these has been Microcenter stores.  They sell them for $3.99 and they often have them on sale for $1.99.
+
+[Microcenter Pico Part Listing](https://www.microcenter.com/product/0632771/pi-pico-microcontroller-development-board-based-on-the-raspberry-pi-dual-core-arm-cortex-m0-rp2040-processor,-up-to-133-mhz,-supports-c-c-micropython-#tabReviews)
+
+Microcenter has around 25 [Locations](https://www.microcenter.com/site/stores/default.aspx) in the US.
 
 ## USB Cable
 For a Mac with USB-C connectors, you will need to get a USB micro to C cable:

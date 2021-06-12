@@ -23,6 +23,17 @@ Here is a video of the collision avoidance robot in action:
 
 Note that the **forward-speed** and **distance-before-you-turn** can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.
 
+## Connection Diagram
+
+Here is a connection diagram of the base robot.
+
+![](../img/base-bot-connection-diagram.png)
+
+## Power Regulation
+Note that the power comes from the battery at 6 volts and is connected to the input voltage of the motor controller board.  The motor controller has a voltage regulator that converts any input voltage from 6 to 12 volts down to 5 volts.  The output voltage of the motor controller is then connected to the power rail on the left, which is in turn connected to the VSYS input to the Pico.  The Pico, in turn, has another voltage regulator that drop the input from VSYS down to 3.3 volts on the 3.3V OUT pin.  This voltage is then used to power the distance sensor.  
+
+One of the downsides to this design is that as the batteries get low, once they drop below around 5 volts the double voltage drops cause the 3.3 OUT to become too low and the sensor becomes unreliable.  A better design would be to find a motor controller that produces a stable 3.3 volts as the batteries slowly run down.  Let us know if you can find one of these designs that cost under $2.
+
 ## Hardware Description
 
 Here is a summary of some of the parts we use in this robot and their approximate prices as of June 2021.  Some parts come from China so you might need to wait 2-3 weeks for them to arrive.
@@ -56,7 +67,7 @@ scl=machine.Pin(17) # One up from the lower right corner of the Pico
 i2c=machine.I2C(0, sda=sda, scl=scl)
 ```
 
-### Testing the Senser Connections with the I2C Scanner
+### Testing the Sensor Connections with the I2C Scanner
 
 ```py
 import machine
