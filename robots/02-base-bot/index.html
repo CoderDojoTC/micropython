@@ -155,12 +155,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../03-suggested-parts/">
-        Suggested Parts
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../02b-accessories/">
-        Accessories
+        Sourcing Parts
       </a>
 </li>
 <li class="md-nav__item">
@@ -489,6 +484,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#connection-diagram">
+    Connection Diagram
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#power-regulation">
+    Power Regulation
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#hardware-description">
     Hardware Description
   </a>
@@ -519,8 +524,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#testing-the-senser-connections-with-the-i2c-scanner">
-    Testing the Senser Connections with the I2C Scanner
+<a class="md-nav__link" href="#testing-the-sensor-connections-with-the-i2c-scanner">
+    Testing the Sensor Connections with the I2C Scanner
   </a>
 </li>
 <li class="md-nav__item">
@@ -722,6 +727,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#connection-diagram">
+    Connection Diagram
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#power-regulation">
+    Power Regulation
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#hardware-description">
     Hardware Description
   </a>
@@ -752,8 +767,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#testing-the-senser-connections-with-the-i2c-scanner">
-    Testing the Senser Connections with the I2C Scanner
+<a class="md-nav__link" href="#testing-the-sensor-connections-with-the-i2c-scanner">
+    Testing the Sensor Connections with the I2C Scanner
   </a>
 </li>
 <li class="md-nav__item">
@@ -840,6 +855,12 @@
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/0d3tF1oXu90" title="YouTube video player" width="560"></iframe>
 <p><a href="https://youtu.be/0d3tF1oXu90">YouTube Video</a></p>
 <p>Note that the <strong>forward-speed</strong> and <strong>distance-before-you-turn</strong> can be adjusted.  You can see I didn't quite get the distance right and the robot bumps into some of the barriers.</p>
+<h2 id="connection-diagram">Connection Diagram</h2>
+<p>Here is a connection diagram of the base robot.</p>
+<p><img alt="" src="../../img/base-bot-connection-diagram.png"/></p>
+<h2 id="power-regulation">Power Regulation</h2>
+<p>Note that the power comes from the battery at 6 volts and is connected to the input voltage of the motor controller board.  The motor controller has a voltage regulator that converts any input voltage from 6 to 12 volts down to 5 volts.  The output voltage of the motor controller is then connected to the power rail on the left, which is in turn connected to the VSYS input to the Pico.  The Pico, in turn, has another voltage regulator that drop the input from VSYS down to 3.3 volts on the 3.3V OUT pin.  This voltage is then used to power the distance sensor.  </p>
+<p>One of the downsides to this design is that as the batteries get low, once they drop below around 5 volts the double voltage drops cause the 3.3 OUT to become too low and the sensor becomes unreliable.  A better design would be to find a motor controller that produces a stable 3.3 volts as the batteries slowly run down.  Let us know if you can find one of these designs that cost under $2.</p>
 <h2 id="hardware-description">Hardware Description</h2>
 <p>Here is a summary of some of the parts we use in this robot and their approximate prices as of June 2021.  Some parts come from China so you might need to wait 2-3 weeks for them to arrive.</p>
 <p><img alt="" src="../../img/pico-bot-parts-list.png"/></p>
@@ -860,7 +881,7 @@
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h3 id="testing-the-senser-connections-with-the-i2c-scanner">Testing the Senser Connections with the I2C Scanner</h3>
+<h3 id="testing-the-sensor-connections-with-the-i2c-scanner">Testing the Sensor Connections with the I2C Scanner</h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
