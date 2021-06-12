@@ -169,8 +169,8 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#purchasing-the-raspberry-pi-pico-and-robot-kits">
-    Purchasing The Raspberry Pi Pico and Robot Kits
+<a class="md-nav__link" href="#purchasing-the-raspberry-pi-kits">
+    Purchasing The Raspberry Pi Kits
   </a>
 </li>
 <li class="md-nav__item">
@@ -693,8 +693,8 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#purchasing-the-raspberry-pi-pico-and-robot-kits">
-    Purchasing The Raspberry Pi Pico and Robot Kits
+<a class="md-nav__link" href="#purchasing-the-raspberry-pi-kits">
+    Purchasing The Raspberry Pi Kits
   </a>
 </li>
 <li class="md-nav__item">
@@ -794,7 +794,7 @@
 <h1 id="sourcing-parts">Sourcing Parts</h1>
 <p>One of the key values of CoderDojo clubs around the world is to not charge any fees for attending these clubs.  Parts need to be purchase by limited funds raised through donations.  Club organizers need to be frugal about getting low-cost parts for the participants.</p>
 <p>Our experience is that is difficult to get the right parts at low cost using firms that promise quick delivery times of a few days.  The lowest price parts often must be purchased weeks in advance from places like China and Taiwan.  As a result, clubs that use funds carefully must plan weeks if not months in advance of classes and events.  So we strongly suggest bringing an robot part procurement team together two months before you begin to offer robot courses where students can each have their own robots.</p>
-<h2 id="purchasing-the-raspberry-pi-pico-and-robot-kits">Purchasing The Raspberry Pi Pico and Robot Kits</h2>
+<h2 id="purchasing-the-raspberry-pi-kits">Purchasing The Raspberry Pi Kits</h2>
 <p>As of June 2021, the Raspberry Pi Pico did not come integrated into low-cost development kits that include robot kit parts.  You frequently must to purchase the independent parts yourself.  </p>
 <p>Here are some of the parts we recommend.</p>
 <h2 id="the-raspberry-pi-pico">The Raspberry Pi Pico</h2>
@@ -878,9 +878,28 @@
 <li><a href="https://www.ebay.com/itm/1PS-NEW-Ultrasonic-Module-HC-SR04-Distance-Measuring-Transducer-Sensor/393125567677">HC-SR04 Ultrasonic Distance Sensor</a> - $1 on eBay</li>
 </ul>
 <h2 id="motor-controllers">Motor Controllers</h2>
+<p>We like two motor three wheel robots in our classrooms.  They need a H-Bridge circuit for controlling the motor direction.  The popular L293D chip takes four PWM signals and will use these to drive two 3-12v DC motors.  The L293D chip can be mounted directly on your breadboard.  However, we like the low-cost Mini motor controller boards that are only $2 that also have handy screw headers for easily attaching and removing the motor and power wires.</p>
+<p>Here are the specs: Here</p>
 <ul>
-<li><a href="https://www.ebay.com/itm/Mini-Motor-Drive-Shield-Expansion-Board-L293D-Module-For-Arduino-UNO-MEGA2560-R3/182057002265">Mini Motor Drive Shield Expansion Board L293D Module For Arduino UNO MEGA2560 R3</a> $3</li>
+<li>Input DC 4.5-36V</li>
+<li>
+<p>600mA output per channel (per motor)</p>
+</li>
+<li>
+<p><a href="https://datasheets.raspberrypi.org/pico/pico-datasheet.pdf">See section 4.4 in the Raspberry Pi Pico Datasheet on the Powerchain</a> - note that the input VSYS, the main system input voltage, is only designed to go up to up to 5.5 volts.  VSYS feeds the RVT6150 buck-boost SMPS.</p>
+</li>
+<li>
+<p><a href="https://www.ebay.com/itm/Mini-Motor-Drive-Shield-Expansion-Board-L293D-Module-For-Arduino-UNO-MEGA2560-R3/182057002265">Mini Motor Drive Shield Expansion Board L293D Module For Arduino UNO MEGA2560 R3</a> $3</p>
+</li>
+<li>[Amazon 3 motor drives for $7]</li>
+<li><a href="https://www.sparkfun.com/datasheets/Components/l293.pdf">L293 Datasheet</a></li>
+<li><a href="https://www.banggood.com/MINI-L293D-Motor-Drive-Expansion-Board-Mini-L293D-Motor-Drive-Module-p-1202756.html?cur_warehouse=CN">Banggood L293D Motor Drive Module</a></li>
+<li><a href="https://www.parshavelecom.com/product-page/mini-l293d-motor-driver-expansion-board">Parshavele</a></li>
+<li><a href="https://www.st.com/resource/en/datasheet/l78m.pdf">ST Microelectronics L78M Datasheet</a></li>
+<li><a href="http://solarbotics.net/library/datasheets/78M05.pdf">Datasheet for 78M05 Voltage</a></li>
+<li><a href="https://www.generationrobots.com/media/ST_78M05DataSheet.pdf">Datasheet for ST 78M05 Voltage Regulators</a></li>
 </ul>
+<p>Note that the L293D Mini Motor Drive shield also has a voltage regulator that delivers a constant 5 volt signal to the robot microcontroller.</p>
 </article>
 </div>
 </div>
