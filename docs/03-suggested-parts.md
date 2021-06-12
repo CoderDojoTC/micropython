@@ -4,7 +4,7 @@ One of the key values of CoderDojo clubs around the world is to not charge any f
 
 Our experience is that is difficult to get the right parts at low cost using firms that promise quick delivery times of a few days.  The lowest price parts often must be purchased weeks in advance from places like China and Taiwan.  As a result, clubs that use funds carefully must plan weeks if not months in advance of classes and events.  So we strongly suggest bringing an robot part procurement team together two months before you begin to offer robot courses where students can each have their own robots.
 
-## Purchasing The Raspberry Pi Pico and Robot Kits
+## Purchasing The Raspberry Pi Kits
 As of June 2021, the Raspberry Pi Pico did not come integrated into low-cost development kits that include robot kit parts.  You frequently must to purchase the independent parts yourself.  
 
 Here are some of the parts we recommend.
@@ -38,8 +38,6 @@ We like the 1/2 size boards that have 400 connection points.  We like to mount t
 
 ## Hookup Wire
 Use 22 gauge wire.  Get a large spool of black and red and smaller spools of other colors.
-
-
 
 ## Male-to-Male Breadboard Jumper Wires
 You can use 22 gauge wire to build your projects, however kids that don't have fine motor skills sometimes get frustrated with raw wires.  You can purchase a Jumper Wire Kit with 65 jumpers on EBay for under $2 that has nice plastic ends that are easier to use.
@@ -95,4 +93,23 @@ These inexpensive "ping" sensors are used in many robot projects.
 * [HC-SR04 Ultrasonic Distance Sensor](https://www.ebay.com/itm/1PS-NEW-Ultrasonic-Module-HC-SR04-Distance-Measuring-Transducer-Sensor/393125567677) - $1 on eBay
 
 ## Motor Controllers
+
+We like two motor three wheel robots in our classrooms.  They need a H-Bridge circuit for controlling the motor direction.  The popular L293D chip takes four PWM signals and will use these to drive two 3-12v DC motors.  The L293D chip can be mounted directly on your breadboard.  However, we like the low-cost Mini motor controller boards that are only $2 that also have handy screw headers for easily attaching and removing the motor and power wires.
+
+Here are the specs: Here
+
+* Input DC 4.5-36V
+* 600mA output per channel (per motor)
+
+* [See section 4.4 in the Raspberry Pi Pico Datasheet on the Powerchain](https://datasheets.raspberrypi.org/pico/pico-datasheet.pdf) - note that the input VSYS, the main system input voltage, is only designed to go up to up to 5.5 volts.  VSYS feeds the RVT6150 buck-boost SMPS.
+  
 * [Mini Motor Drive Shield Expansion Board L293D Module For Arduino UNO MEGA2560 R3](https://www.ebay.com/itm/Mini-Motor-Drive-Shield-Expansion-Board-L293D-Module-For-Arduino-UNO-MEGA2560-R3/182057002265) $3
+* [Amazon 3 motor drives for $7]
+* [L293 Datasheet](https://www.sparkfun.com/datasheets/Components/l293.pdf)
+* [Banggood L293D Motor Drive Module](https://www.banggood.com/MINI-L293D-Motor-Drive-Expansion-Board-Mini-L293D-Motor-Drive-Module-p-1202756.html?cur_warehouse=CN)
+* [Parshavele](https://www.parshavelecom.com/product-page/mini-l293d-motor-driver-expansion-board)
+* [ST Microelectronics L78M Datasheet](https://www.st.com/resource/en/datasheet/l78m.pdf)
+* [Datasheet for 78M05 Voltage](http://solarbotics.net/library/datasheets/78M05.pdf)
+* [Datasheet for ST 78M05 Voltage Regulators](https://www.generationrobots.com/media/ST_78M05DataSheet.pdf)
+
+Note that the L293D Mini Motor Drive shield also has a voltage regulator that delivers a constant 5 volt signal to the robot microcontroller.
