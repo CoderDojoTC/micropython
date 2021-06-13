@@ -56,6 +56,7 @@ nav:
   - Pico Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
+    - Rainbow Bot: robots/03-rainbow-bot.md
     - Face Bot: robots/03-face-bot.md
     - Param Bot: robots/04-param-bot.md
     - Servo Bot: robots/05-servo-bot.md
