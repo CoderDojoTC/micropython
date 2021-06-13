@@ -18,7 +18,7 @@
     
     
       
-        <title>Temp with DS18B20 - MicroPython</title>
+        <title>Displays - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#temp-with-ds18b20" class="md-skip">
+        <a href="#displays" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Temp with DS18B20
+              Displays
             
           </span>
         </div>
@@ -549,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-intro/" class="md-nav__link">
+      <a href="../../sensors/01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -561,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-photosensor.md" class="md-nav__link">
+      <a href="../../sensors/02-photosensor.md" class="md-nav__link">
         Photosensor
       </a>
     </li>
@@ -573,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-ping/" class="md-nav__link">
+      <a href="../../sensors/03-ping/" class="md-nav__link">
         Ping Distance
       </a>
     </li>
@@ -585,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-bme280/" class="md-nav__link">
+      <a href="../../sensors/06-bme280/" class="md-nav__link">
         Temp,Humidity, Pres
       </a>
     </li>
@@ -597,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-pot/" class="md-nav__link">
+      <a href="../../sensors/02-pot/" class="md-nav__link">
         Potentiometer
       </a>
     </li>
@@ -609,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bme280/" class="md-nav__link">
+      <a href="../../sensors/bme280/" class="md-nav__link">
         Environmental Sensor
       </a>
     </li>
@@ -621,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-accelerometer-compass/" class="md-nav__link">
+      <a href="../../sensors/06-accelerometer-compass/" class="md-nav__link">
         Accelerometer Compass
       </a>
     </li>
@@ -633,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-VL53L0X_GY/" class="md-nav__link">
+      <a href="../../sensors/07-VL53L0X_GY/" class="md-nav__link">
         Time of Flight Distance
       </a>
     </li>
@@ -677,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../displays/seven-segment/" class="md-nav__link">
+      <a href="../seven-segment/" class="md-nav__link">
         7 Segment Display
       </a>
     </li>
@@ -1410,28 +1410,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/05-temp-dsb20.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/01-intro.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="temp-with-ds18b20">Temp with DS18B20</h1>
-<p>https://randomnerdtutorials.com/micropython-ds18b20-esp32-esp8266/</p>
-<p>```py</p>
-<h1 id="complete-project-details-at-httpsrandomnerdtutorialscom">Complete project details at https://RandomNerdTutorials.com</h1>
-<p>import machine, onewire, ds18x20, time</p>
-<p>ds_pin = machine.Pin(4)
-ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))</p>
-<p>roms = ds_sensor.scan()
-print('Found DS devices: ', roms)</p>
-<p>while True:
-  ds_sensor.convert_temp()
-  time.sleep_ms(750)
-  for rom in roms:
-    print(rom)
-    print(ds_sensor.read_temp(rom))
-  time.sleep(5)
-  ```</p>
+                <h1 id="displays">Displays</h1>
+<p>We cover small displays but not OLEDs.  There is a separate chapter for OLED displays.</p>
                 
               
               
