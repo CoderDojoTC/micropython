@@ -61,10 +61,10 @@ nav:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
-    - Face Bot: robots/03-face-bot.md
+    - Face Bot: robots/04-face-bot.md
     - Param Bot: robots/04-param-bot.md
     - Servo Bot: robots/05-servo-bot.md
-    - IR Sensor Bot: 03-ir-collision-avoidance-sensor.md
+    - IR Sensor Bot: 03-ir-sensor-bot.md
     - FAQs: robots/20-faqs.md
   - Debugging:
     - Debugging Python: debugging/28-debugging-python.md
