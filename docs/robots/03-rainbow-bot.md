@@ -1,5 +1,7 @@
 # Rainbow Bot
 
+![](../img/rainbow-bot-cover.md)
+
 This robot takes our base robot and adds and LED strip to display colors and patterns based on what the robot is doing or thinking about.
 
 We use the same materials but we add a low cost 10 pixel LED strip that is easy to hook up with just power, ground and data wires added to our breadboard.  The LED is known as an addressable LED strip since you can individually program each LED.  The standard is called the  WS-2811B LED strip and is often called a NeoPixel LED strip (The Adafruit Term).
