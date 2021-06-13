@@ -3,14 +3,14 @@ nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Micropython Home: index.md
   - Getting Started:
-    - Introduction: 01-intro.md
-    - Microcontrollers: 01a-microcontrollers.md
-    - Boards: 02-boards.md
-    - Sourcing Parts: 03-suggested-parts.md
-    - Raspberry Pi Pico: 02-pi-pico.md
-    - ESP32: 02-esp32.md
-    - Thonny IDE: 02c-thonny.md
-    - Python Libraries: 01b-libraries.md
+    - Introduction: getting-started/01-intro.md
+    - Microcontrollers: getting-started/01a-microcontrollers.md
+    - Boards: getting-started/02-boards.md
+    - Sourcing Parts: getting-started/03-suggested-parts.md
+    - Raspberry Pi Pico: getting-started/02-pi-pico.md
+    - ESP32: getting-started/02-esp32.md
+    - Thonny IDE: getting-started/02c-thonny.md
+    - Python Libraries: getting-started/01b-libraries.md
   - Basic Examples:
     - Introduction: intro/01-intro.md
     - Blink: intro/03-blink.md
@@ -63,19 +63,19 @@ nav:
     - Servo Bot: robots/05-servo-bot.md
     - FAQs: robots/20-faqs.md
   - Debugging:
-    - Debugging Python: 28-debugging-python.md
-    - Debugging I2C: 29a-debugging-i2c.md
-    - Debugging SPI: 29-debugging-spi.md
-    - Ampy: 27-ampy.md
-    - Content Outliner: 40-gpt-outliner.md
+    - Debugging Python: debugging/28-debugging-python.md
+    - Debugging I2C: debugging/29a-debugging-i2c.md
+    - Debugging SPI: debugging/29-debugging-spi.md
+    - Ampy: debugging/27-ampy.md
+    - Content Outliner: debugging/40-gpt-outliner.md
   - Circuit Python:
     - circuit-python/01-intro.md
-  - Projects: projects.md
-  - Glossary: glossary.md
-  - References: references.md
-  - Contact: contact.md
-  - Colophon: 30-colophon.md
-  - Render Test: mermaid-test.md
+  - Projects: misc/projects.md
+  - Glossary: misc/glossary.md
+  - References: misc/references.md
+  - Contact: misc/contact.md
+  - Colophon: misc/30-colophon.md
+  - Render Test: misc/mermaid-test.md
 
 site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
 site_author: 'Dan McCreary'
@@ -94,7 +94,7 @@ theme:
   include_sidebar: true
 plugins:
   - search
-  - mermaid2
+  # - mermaid2
 markdown_extensions:
   - admonition
   - footnotes
