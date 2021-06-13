@@ -596,6 +596,26 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#connecting-the-led-strips">
+    Connecting the LED Strips
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-a-standoff">
+    Adding a Standoff
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#upgrading-to-9-volt-power">
+    Upgrading to 9 Volt Power
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72-pixel-configuration">
+    72 Pixel Configuration
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#part-2-making-the-connections">
     Part 2: Making The Connections
   </a>
@@ -632,10 +652,21 @@
 <p>Of course, you can also add longer LED strips and program the patterns in interesting ways.</p>
 <h2 id="part-1-ordering-the-led-strip">Part 1: Ordering The LED Strip</h2>
 <p>The LED strips come in a variety of lengths, density and packing.  We use the 1 meter long 60 pixels/meter strips that use the IP65 waterproofing.  We like the black backgrounds.  A sample place to purchase them is <a href="https://www.ebay.com/itm/333953423650?hash=item4dc12cd922%3Ag%3AsxcAAOSwND9gYtgi&amp;LH_BIN=1">here</a></p>
-<p><img alt="" src="img/led-strip.png"/></p>
+<p><img alt="" src="../../img/led-strip.png"/></p>
 <p>We can take a $3 strip of 60 LEDs and cut them up into six segments of 10 LEDs each for a cost of around 50 cents per strip.  We solder stranded wire to the segments and then put 22 gauge solid wire to make them easy to put in the breadboards.</p>
+<h2 id="connecting-the-led-strips">Connecting the LED Strips</h2>
+<p><img alt="" src="../../img/rainbow-bot-connecting-strips.jpg"/></p>
+<h2 id="adding-a-standoff">Adding a Standoff</h2>
+<p><img alt="" src="../../img/rainbow-bot-standoff.jpg"/></p>
+<h2 id="upgrading-to-9-volt-power">Upgrading to 9 Volt Power</h2>
+<p>Our base robot only needed power for the motors.  This robot has 72 RGB LEDs so it might draw more power.  So we upgraded the 6 volt battery pack with 4 AA batteries to two packs of 3 batteries for a total of 9 volts.  This allows the robot to continue to run even when the batteries are partially drained.  The battery packs must be wired in series to deliver the full 9 volts to the input of the motor controller where it powers the motors and also runs though a voltage regulator to power the reset of the robot.</p>
+<p>![](../img/rainbow-bot-underside.jpg]</p>
+<h2 id="72-pixel-configuration">72 Pixel Configuration</h2>
+<p>Here is the top view of the LEDs shining through the clear plexiglass.</p>
+<p><img alt="" src="../../img/rainbow-bot-top-view.jpg"/></p>
+<p>You can see the individual LEDs in this configuration.  By adding a small space between the plexiglass and a diffusion layer you can get a much more uniform color distribution over the top surface of the robot.</p>
 <h2 id="part-2-making-the-connections">Part 2: Making The Connections</h2>
-<p>The LED strips use 5 volts of power and have a GND and a data connector.</p>
+<p>The LED strips use 5 volts of power and have a GND and a data connector.  To make the connections we connect the center pin to Pin 0 (upper left corner of the Pico), the GND to the ground rail and the 5 volt to the 5 volt power rail.</p>
 <h2 id="part-3-adding-the-ws-2811b-library">Part 3: Adding the WS-2811B Library</h2>
 <h2 id="part-4-testing-your-code">Part 4: Testing Your Code</h2>
 <p>In our first test, we will just make the first pixel on the LED strip blink bright red.</p>
