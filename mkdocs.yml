@@ -33,7 +33,7 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
   - Displays:
-    - 7 Segment Display: displays/7-segment-display.md
+    - 7 Segment Display: displays/seven-segment.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md
     - Setup: oled/02-oled-setup.md
@@ -71,8 +71,9 @@ nav:
     - Debugging SPI: debugging/29-debugging-spi.md
     - Ampy: debugging/27-ampy.md
     - Content Outliner: debugging/40-gpt-outliner.md
-  - Circuit Python:
-    - circuit-python/01-intro.md
+  - Advanced Labs:
+    - Introduction: advanced-labs/01-intro.md
+    - Circuit Python: circuit-python/01-intro.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
