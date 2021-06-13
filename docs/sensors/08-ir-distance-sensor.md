@@ -1,12 +1,19 @@
-# IR Collision Avoidance Bot
+## IR Distance Sensors
 
-Instead of our time-of-flight sensor used in our base robot, this robot uses three low-cost  IR distance sensors.
-
-## Purchasing IR Distance Sensors
+IR distance sensors are low cost (five for $3) but may have problems working in rooms with outdoor lighting.  They have an adjustable potentiometer on them that can be used to adjust a triggering distance call the threshold distance.  The sensors return a HIGH signal if there is no object within the threshold distance and a LOW signal if there is an object within this distance.  Since the sensor threshold distance can not be adjusted programmatically they are best suited when you can manually adjust the potentiometer to change the threshold.
 
 ![IR Distance Sensor](../img/parts/ir-distance-sensor.png)
 
-## Connecting the IR Sensors
+## Connections
+
+These sensors have three wires:
+
+1. GND - connect to a ground rail on your breadboard or directly to a GND ping on the Pico.
+2. VCC - connect to the 5 volt power rail powered by the motor controller voltage regulator
+3. OUT - a 5 volt digital signal that is usually 5 volts but is GND when triggered by an object
+
+
+## Sample Python Code
 
 ```py
 # connections to the three IR distance sensors
@@ -15,41 +22,87 @@ center = Pin(7, Pin.IN, Pin.PULL_DOWN)
 right = Pin(6, Pin.IN, Pin.PULL_DOWN)
 ```
 
-## Connecting the Speaker
+## The KY-032
+The KY-032 obstacle avoidance sensor is a four-wire distance-adjustable, infrared proximity sensor designed for wheeled robots. Also known as AD-032.
 
-This robot has an optional speaker connected to GPIO Pin 21.  This allows us to "hear" what signals are coming into the robot  It will generate a different tone if the left, center or right sensor is detecting an object and an different tone for going straight, reversing and turning.
+The sensor detection distance ranges from 2cm to 40cm, it can be adjusted by turning the potentiometer knob. The operating voltage is 3.3V-5V so it is suitable for a variety of microcontrollers like Arduino, ESP32, Teensy, ESP8266, Raspberry Pi, and others.
 
-The speaker is a small buzzer or a Piezoelectric speaker that can be purchased for around $1.  It has one wire connected to the GPIO pin and the other connected to any GND pin or GND rail on the breadboard.
+It has strong adaptability to ambient light and it is fairly accurate to sense changes in the surrounding environment.
 
-Here are the lines related to setting up the speaker code.
+## Speaker Test
+
 ```py
+from machine import Pin, PWM
+from utime import sleep
+
+
+left = Pin(8, Pin.IN, Pin.PULL_DOWN)
+center = Pin(7, Pin.IN, Pin.PULL_DOWN)
+right = Pin(6, Pin.IN, Pin.PULL_DOWN)
+
 SPEAKER_PIN = 21
 # create a Pulse Width Modulation Object on this pin
 speaker = PWM(Pin(SPEAKER_PIN))
-```
 
-## Drive Logic
+def sound_off():
+    speaker.duty_u16(0)
+    
+def left_tone():
+    speaker.duty_u16(1000)
+    speaker.freq(300) # 1 Kilohertz
+    sleep(.5) # wait a 1/4 second
+    sound_off()
 
-The three IR sensors go LOW if there is an item in front of them.  So the statement:
+def center_tone():
+    speaker.duty_u16(1000)
+    speaker.freq(800)
+    sleep(.5)
+    sound_off()
 
-```py
-center.value()
-```
+def right_tone():
+    speaker.duty_u16(1000)
+    speaker.freq(400)
+    sleep(.5)
+    sound_off()
+    
+def right_tone():
+    speaker.duty_u16(1000)
+    speaker.freq(800)
+    sleep(.25)
+    sound_off()
 
-will normally be HIGH if there is nothing in front of the robot.
+def forward_tone():
+    speaker.duty_u16(1000)
+    speaker.freq(400)
+    sleep(.1)
+    speaker.freq(900)
+    sleep(.1)
+    speaker.freq(1200)
+    sleep(.1)
+    sound_off()
 
-Our main logic look will look like the following:
-
-```py
+# 0=stopped, 1=forward, 2=turing right, 3=turning left
+drive_state = 0
 while True:
     if left.value()==0:
-        turn_right()
+        print('Left')
+        left_tone()
+        drive_state = 2
     if center.value()==0:
-        reverse()
+        print('Center')
+        center_tone()
+        drive_state = 0
     if right.value()==0:
-        turn_left()
+        print('Right')
+        right_tone()
+        drive_state = 3
+        
+    # if (left.value()==1) and (center.value()==1) and (right.value()==1):
     if left.value() and center.value() and right.value():
-        forward()
+        print('Go forward!')
+        drive_state = 1
+        forward_tone()
+    sleep(.25)
 ```
 
 ## Full Program
@@ -175,8 +228,6 @@ def update_oled():
         
     oled.show()
 
-
-
 # 0=stopped, 1=forward, 2=turing right, 3=turning left
 drive_state = 0
 counter = 0
@@ -210,6 +261,11 @@ while True:
     print("counter: ", counter)
     counter += 1
     sleep(.25)
-```
+    ```
 
-Pins GP6, 7, 8 and 9
+    ## More to Explore
+
+    1. Try to change the values of the potentiometers on the sensors.  What is the minimum and maximum distance you can detect and object?
+    2.  Does the reflectivity of the object impact the distance of the object?
+    3. If you put a small mirror in front of the sensor what happens to the distance measured?
+    4. Place the robot near bright sun in a window or try the robot outdoors on both a cloudy day and a sunny day?  What is the change is accuracy of the sensors under these conditions?  What about running the robot in the dark?

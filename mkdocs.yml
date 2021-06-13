@@ -11,8 +11,8 @@ nav:
     - Raspberry Pi Pico: getting-started/02-pi-pico.md
     - ESP32: getting-started/02-esp32.md
     - Thonny IDE: getting-started/02c-thonny.md
-    - VS Code IED: getting-started/02d-vs-code.md
-    - Python Libraries: getting-started/01b-libraries.md
+    - VS Code IED: getting-started/02d-vscode.md
+    - MicroPython Libraries: getting-started/01b-libraries.md
   - Basic Examples:
     - Introduction: intro/01-intro.md
     - Blink: intro/03-blink.md
@@ -63,6 +63,7 @@ nav:
     - Face Bot: robots/03-face-bot.md
     - Param Bot: robots/04-param-bot.md
     - Servo Bot: robots/05-servo-bot.md
+    - IR Sensor Bot: 03-ir-collision-avoidance-sensor.md
     - FAQs: robots/20-faqs.md
   - Debugging:
     - Debugging Python: debugging/28-debugging-python.md
