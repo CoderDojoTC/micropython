@@ -27,7 +27,10 @@ nav:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
     - Ping Distance: sensors/03-ping.md
-    - Temp,Humidity, Pres: sensors/06-bme280.md
+    - IR Distance Sensor: sensors/08-ir-distance-sensor.md
+    - Temperature: sensors/05-temp-dsb20.md
+    - Temp, Humidity, Pres: sensors/06-bme280.md
+    - DH11 Temp and Humidity: sensors/dht11-temp-humidity.md
     - Potentiometer: sensors/02-pot.md
     - Environmental Sensor: sensors/bme280.md
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
