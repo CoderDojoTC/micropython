@@ -33,6 +33,7 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
   - Displays:
+    - Introduction: 01-intro.md
     - 7 Segment Display: displays/seven-segment.md
   - OLED Displays:
     - Introduction: oled/01-oled-intro.md

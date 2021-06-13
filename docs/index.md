@@ -21,6 +21,12 @@ This GitHub repository is for sharing teaching resources to teach Micropython to
 
 [Sensors Intro](sensors/01-intro.md)
 
+### Displays
+
+[Displays](displays/01-intro.md)
+
+We cover simple displays that don't have complex drawing.  For those we have a separate chapter.
+
 ### Part 4: Sound and Music
 
 [Sound and Music Infro](sound/01-intro.md)
