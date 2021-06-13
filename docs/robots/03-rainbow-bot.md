@@ -1,20 +1,28 @@
 # Rainbow Bot
 
-![](../img/rainbow-bot-cover.md)
+![Rainbow Bot Cover Image](../img/rainbow-bot-cover.jpg)
 
-This robot takes our base robot and adds and LED strip to display colors and patterns based on what the robot is doing or thinking about.
+This robot takes our base robot and adds an LED strip arranged in a 12X6 pixel grid to display colors and patterns based on what the robot is doing or thinking about.
 
-We use the same materials but we add a low cost 10 pixel LED strip that is easy to hook up with just power, ground and data wires added to our breadboard.  The LED is known as an addressable LED strip since you can individually program each LED.  The standard is called the  WS-2811B LED strip and is often called a NeoPixel LED strip (The Adafruit Term).
+We use the same materials as our [Base Robot](02-base-bot.md) but we add a low-cost addressable LED strips that are easy to hook up with just power, ground and data wires added to our breadboard.  The LED is known as an addressable LED strip since you can individually program each LED.  The standard is called the  WS-2812B LED strip and is often called a NeoPixel LED strip (The Adafruit Term).  We also used a Python library called a Neopixel micropython library, although the library is not created or maintained by Adafruit.
 
-![](../img/led-strip.md)
+![LED Strip Pico Connections](../img/led-strip-pico-connections.png)
 
 Of course, you can also add longer LED strips and program the patterns in interesting ways.
 
 ## Part 1: Ordering The LED Strip
 
-The LED strips come in a variety of lengths, density and packing.  We use the 1 meter long 60 pixels/meter strips that use the IP65 waterproofing.  We like the black backgrounds.  A sample place to purchase them is [here](https://www.ebay.com/itm/333953423650?hash=item4dc12cd922%3Ag%3AsxcAAOSwND9gYtgi&LH_BIN=1)
+The LED strips come in a variety of lengths, density and packing.  We use the 1 meter long strips that have 60 pixels/meter. These strips are easy to cut apart and solder.  We like the black backgrounds but they also come with white.  The LED strips come with three packaging options:
 
-![](../img/led-strip.png)
+1. No waterproofing - these are fine for our indoor robots
+2. Waterproofing with the strips coated in silicon rubber called IP65 waterproofing
+3. Waterproofing with the strips encased in a flexible rubber sleeve
+
+The waterproofing options tend to be a little more expensive but can also provide a bit more protection for the components on the strips.  Waterproofing keeps moisture and dust out of the circuits, but does not mean that they can be submerged under water.
+
+A sample place to purchase them is [here](https://www.ebay.com/itm/333953423650?hash=item4dc12cd922%3Ag%3AsxcAAOSwND9gYtgi&LH_BIN=1)
+
+![](../img/led-strip-ebay-form.png)
 
 We can take a $3 strip of 60 LEDs and cut them up into six segments of 10 LEDs each for a cost of around 50 cents per strip.  We solder stranded wire to the segments and then put 22 gauge solid wire to make them easy to put in the breadboards.
 
