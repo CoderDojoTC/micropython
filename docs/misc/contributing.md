@@ -27,8 +27,10 @@ Under the following terms:
 
 ## Ways to Contribute
 
-1. You may submit a pull request to this site
+1. Start out by helping us proof-read our content and help us find typos, spelling, lack-of clarity, and missing content.  As you learn the style of our lessons you will be better able to contribute new lessons that have a similar style
+1. You may submit pull requests to this site of if you are not familiar with this process, you can add a link to your content in an issue.
 2. You may add an issue to our issues board [here](https://github.com/CoderDojoTC/micropython/issues)
+3. You are welcome to participate by looking for open tasks and using GitHub workflows to take on tasks to completion.
 
 ## Teaching Suggestions
 

@@ -73,6 +73,7 @@ nav:
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
+  - Contributing: misc/contributing.md
   - Contact: misc/contact.md
   - Colophon: misc/30-colophon.md
   - Render Test: misc/mermaid-test.md

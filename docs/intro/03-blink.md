@@ -20,7 +20,7 @@ This lab is the perfect place to start since you only need the Pico and a micro 
 
 The pico has a single built in LED wired to GPIO 25.
 
-![](img/builtin-led.png)
+![](../img/builtin-led.png)
 
 This program will blink the built-in LED on and off every 1/4 of a second.
 

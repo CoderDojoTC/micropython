@@ -8,7 +8,7 @@
 
 ## Circuit connections
 
-![](img/led-strip-connections.png)
+![](../img/led-strip-connections.png)
 
 |LED Strip|Pico Name|Pico Pin|Description|
 |---------|---------|--------|-----------|
