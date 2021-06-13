@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Character LCD - MicroPython</title>
+<title>Character LCD Display - MicroPython</title>
 <link href="../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Character LCD
+              Character LCD Display
             
           </span>
 </div>
@@ -181,118 +181,62 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
-        MicroPython Examples
+        Basic Examples
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="MicroPython Examples" class="md-nav" data-md-level="1">
+<nav aria-label="Basic Examples" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon"></span>
-          MicroPython Examples
+          Basic Examples
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-blink/">
+<a class="md-nav__link" href="../intro/01-intro.md">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/03-blink/">
         Blink
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-button/">
-        Button
+<a class="md-nav__link" href="../intro/03-button/">
+        Buttons
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-temperature/">
+<a class="md-nav__link" href="../intro/03-temperature/">
         Temperature
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04-servo/">
+<a class="md-nav__link" href="../intro/04-motor.md">
+        Motor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/04-servo/">
         Servo
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05-led-strip/">
+<a class="md-nav__link" href="../intro/05-led-strip/">
         LED Strip
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../10-displays/">
+<a class="md-nav__link" href="../intro/10-displays.md">
         Displays
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Character LCD
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/10-character-lcd-display.md">
         Character LCD
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#connections">
-    connections
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#address-scanner">
-    Address Scanner
-  </a>
-<nav aria-label="Address Scanner" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#scanner-code">
-    Scanner Code
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#scanner-result">
-    Scanner Result
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hello-to-the-lcd">
-    Hello To The LCD
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1602-lcd">
-    1602 LCD
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ssd1306-module">
-    ssd1306 module
-  </a>
-<nav aria-label="ssd1306 module" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hd44780-drivers">
-    HD44780 Drivers
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-    References
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -332,11 +276,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../sensors/02-pot/">
         Potentiometer
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sensors/05-ping.md">
-        Ultrasonic Distance
       </a>
 </li>
 <li class="md-nav__item">
@@ -812,36 +751,6 @@
 </div>
 </main>
 <footer class="md-footer">
-<div class="md-footer-nav">
-<nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../10-displays/" rel="prev" title="Displays">
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-</div>
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Displays
-                </span>
-</div>
-</a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../sensors/01-intro/" rel="next" title="Introduction">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Introduction
-                </span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-</div>
-</a>
-</nav>
-</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

@@ -9,7 +9,7 @@
 <meta content="Dan McCreary" name="author"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-6.2.5" name="generator"/>
-<title>Displays - MicroPython</title>
+<title>Adding A Display to Your Project - MicroPython</title>
 <link href="../assets/stylesheets/main.15aa0b43.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.75751829.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header-nav__topic">
 <span class="md-ellipsis">
             
-              Displays
+              Adding A Display to Your Project
             
           </span>
 </div>
@@ -181,160 +181,60 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
-        MicroPython Examples
+        Basic Examples
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="MicroPython Examples" class="md-nav" data-md-level="1">
+<nav aria-label="Basic Examples" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-4">
 <span class="md-nav__icon md-icon"></span>
-          MicroPython Examples
+          Basic Examples
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-blink/">
+<a class="md-nav__link" href="../intro/01-intro.md">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/03-blink/">
         Blink
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-button/">
-        Button
+<a class="md-nav__link" href="../intro/03-button/">
+        Buttons
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-temperature/">
+<a class="md-nav__link" href="../intro/03-temperature/">
         Temperature
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04-servo/">
+<a class="md-nav__link" href="../intro/04-motor.md">
+        Motor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/04-servo/">
         Servo
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05-led-strip/">
+<a class="md-nav__link" href="../intro/05-led-strip/">
         LED Strip
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Displays
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/10-displays.md">
         Displays
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#display-types">
-    Display Types
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#concepts">
-    Concepts
-  </a>
-<nav aria-label="Concepts" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#framebuffers">
-    Framebuffers
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#display-chip-types">
-    Display Chip Types
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#communication-protocols">
-    Communication Protocols
-  </a>
-<nav aria-label="Communication Protocols" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#basic-draw-functions">
-    Basic Draw Functions
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#initializing-the-framebuffer">
-    Initializing the Framebuffer
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#full-list-of-drawing-functions">
-    Full list of Drawing Functions
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#interfaces">
-    Interfaces
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#i2c">
-    I2C
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#spi">
-    SPI
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#types-of-displays">
-    Types of Displays
-  </a>
-<nav aria-label="Types of Displays" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary-table">
-    Summary Table
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lcd">
-    LCD
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#oled">
-    OLED
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tft-displays">
-    TFT Displays
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-    References
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../10-character-lcd-display/">
+<a class="md-nav__link" href="../intro/10-character-lcd-display.md">
         Character LCD
       </a>
 </li>
@@ -376,11 +276,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../sensors/02-pot/">
         Potentiometer
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sensors/05-ping.md">
-        Ultrasonic Distance
       </a>
 </li>
 <li class="md-nav__item">
@@ -1076,36 +971,6 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 </div>
 </main>
 <footer class="md-footer">
-<div class="md-footer-nav">
-<nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../05-led-strip/" rel="prev" title="LED Strip">
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-</div>
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  LED Strip
-                </span>
-</div>
-</a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../10-character-lcd-display/" rel="next" title="Character LCD">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Character LCD
-                </span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-</div>
-</a>
-</nav>
-</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
