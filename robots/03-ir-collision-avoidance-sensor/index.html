@@ -353,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/02d-vs-code/" class="md-nav__link">
+      <a href="../../getting-started/02d-vscode.md" class="md-nav__link">
         VS Code IED
       </a>
     </li>
@@ -365,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/01b-libraries.md" class="md-nav__link">
-        Python Libraries
+      <a href="../../getting-started/01b-libraries/" class="md-nav__link">
+        MicroPython Libraries
       </a>
     </li>
   
@@ -1097,6 +1097,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../03-ir-collision-avoidance-sensor.md" class="md-nav__link">
+        IR Sensor Bot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../20-faqs.md" class="md-nav__link">
         FAQs
       </a>
@@ -1376,6 +1388,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purchasing-ir-distance-sensors" class="md-nav__link">
+    Purchasing IR Distance Sensors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-the-ir-sensors" class="md-nav__link">
+    Connecting the IR Sensors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-the-speaker" class="md-nav__link">
+    Connecting the Speaker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drive-logic" class="md-nav__link">
+    Drive Logic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-program" class="md-nav__link">
+    Full Program
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1392,7 +1447,368 @@
                 
                 
                 <h1 id="ir-collision-avoidance-bot">IR Collision Avoidance Bot</h1>
-<p>Three IR distance Sensors</p>
+<p>Instead of our time-of-flight sensor used in our base robot, this robot uses three low-cost  IR distance sensors.</p>
+<h2 id="purchasing-ir-distance-sensors">Purchasing IR Distance Sensors</h2>
+<p><img alt="IR Distance Sensor" src="../../img/parts/ir-distance-sensor.png" /></p>
+<h2 id="connecting-the-ir-sensors">Connecting the IR Sensors</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># connections to the three IR distance sensors</span>
+<span class="n">left</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="connecting-the-speaker">Connecting the Speaker</h2>
+<p>This robot has an optional speaker connected to GPIO Pin 21.  This allows us to "hear" what signals are coming into the robot  It will generate a different tone if the left, center or right sensor is detecting an object and an different tone for going straight, reversing and turning.</p>
+<p>The speaker is a small buzzer or a Piezoelectric speaker that can be purchased for around $1.  It has one wire connected to the GPIO pin and the other connected to any GND pin or GND rail on the breadboard.</p>
+<p>Here are the lines related to setting up the speaker code.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">SPEAKER_PIN</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="c1"># create a Pulse Width Modulation Object on this pin</span>
+<span class="n">speaker</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SPEAKER_PIN</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table></p>
+<h2 id="drive-logic">Drive Logic</h2>
+<p>The three IR sensors go LOW if there is an item in front of them.  So the statement:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>will normally be HIGH if there is nothing in front of the robot.</p>
+<p>Our main logic look will look like the following:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">turn_right</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">reverse</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">turn_left</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="ow">and</span> <span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="ow">and</span> <span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="n">forward</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="full-program">Full Program</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">ssd1306</span>
+
+<span class="c1"># Motor pins to the L293 H-Bridge</span>
+<span class="n">RIGHT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">RIGHT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">LEFT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">LEFT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">19</span>
+
+<span class="n">right_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">right_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_REVERSE_PIN</span><span class="p">))</span>
+<span class="n">left_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">left_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_REVERSE_PIN</span><span class="p">))</span>
+
+<span class="c1"># connections to the three IR distance sensors</span>
+<span class="n">left</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+
+<span class="n">SPEAKER_PIN</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="c1"># create a Pulse Width Modulation Object on this pin</span>
+<span class="n">speaker</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SPEAKER_PIN</span><span class="p">))</span>
+
+<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">SCL</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SDA</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">SCL</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">SDA</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_on</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">65025</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_off</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">forward</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_left</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sound_off</span><span class="p">():</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">left_tone</span><span class="p">():</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span> <span class="c1"># 1 Kilohertz</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># wait a 1/4 second</span>
+    <span class="n">sound_off</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">center_tone</span><span class="p">():</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">900</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">sound_off</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">right_tone</span><span class="p">():</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">sound_off</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">forward_tone</span><span class="p">():</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">900</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sound_off</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">update_oled</span><span class="p">():</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CoderDojo Rocks!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Left:&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">()),</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Center:&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()),</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Right:&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">()),</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">BAR_WIDTH</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="n">BAR_HEIGHT</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">BAR_WIDTH</span><span class="p">,</span> <span class="n">BAR_HEIGHT</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+
+<span class="c1"># 0=stopped, 1=forward, 2=turing right, 3=turning left</span>
+<span class="n">drive_state</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">)</span>
+        <span class="c1">#left_tone()</span>
+        <span class="n">turn_right</span><span class="p">()</span>
+        <span class="n">update_oled</span><span class="p">()</span>
+        <span class="n">drive_state</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Center&#39;</span><span class="p">)</span>
+        <span class="n">center_tone</span><span class="p">()</span>
+        <span class="n">reverse</span><span class="p">()</span>
+        <span class="n">update_oled</span><span class="p">()</span>
+        <span class="n">drive_state</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Right&#39;</span><span class="p">)</span>
+        <span class="c1">#right_tone()</span>
+        <span class="n">turn_left</span><span class="p">()</span>
+        <span class="n">update_oled</span><span class="p">()</span>
+        <span class="n">drive_state</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="c1"># if (left.value()==1) and (center.value()==1) and (right.value()==1):</span>
+    <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="ow">and</span> <span class="n">center</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="ow">and</span> <span class="n">right</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Go forward!&#39;</span><span class="p">)</span>    
+        <span class="n">drive_state</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="c1"># forward_tone()</span>
+        <span class="n">forward</span><span class="p">()</span>
+        <span class="n">update_oled</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;counter: &quot;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <p>Pins GP6, 7, 8 and 9</p>
                 
               
