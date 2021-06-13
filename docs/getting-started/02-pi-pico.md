@@ -30,12 +30,12 @@ The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberr
 
 ## USB Cable
 The Raspberry Pi Pico uses a USB-micro connector.  You can purchase USB Micro-B to USB-A or USB-C (Mac) cables on e-bay for under $2 or for $5 at Microcenter.
-![usb-micro-to-c](img/usb-micro-to-c.png) - image from ebay
+![usb-micro-to-c](../img/usb-micro-to-c.png) - image from ebay
 
 ## Pico Pinout
 The pinout diagram for the Raspberry Pi Pico is shown below.
 
-![Raspberry Pi Pico Pins](img/pico-pins.png)
+![Raspberry Pi Pico Pins](../img/pico-pins.png)
 
 It features: 
 * 26 × multi-function GPIO pins
@@ -85,7 +85,8 @@ Thonny is a free lightweight Python development tool.
 5. Test by running a blink application
 
 
-![Thonny Micropython Firmware Update](img/thonny-micropython-firmware-update.png)
+![Thonny Micropython Firmware Update](../img/thonny-micropython-firmware-update.png)
+
 ```
 Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
 Writing to /Volumes/RPI-RP2/firmware
@@ -129,10 +130,11 @@ while True:
 Press the Play Button
 
 ## References
+
 ### Getting Started Guide
 [Raspberry Pi Getting Started](https://www.raspberrypi.org/documentation/pico/getting-started/)
 
 ### Book PDF
-[](https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf)
+[Raspberry Pi Book PDF Download](https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf)
 Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
 (CC BY-NC-SA 3.0)

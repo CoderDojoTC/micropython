@@ -10,9 +10,9 @@ There are four main types of display technology that use for small microcontroll
 3. **LCD** - Liquid Crystal Display - many of these are monochrome displays that must have precise power to get consistent contrast.
 4. **TFT** - Thin Film Transistor - a type of LCD that are used for larger color screens.
 
-![8X8 LED Matrix Display](img/led-matrix-display.png)
-![240x240 Full Color TFT Display](img/tft-color-display.png)
-![Color OLED](img/color-oled.jpg)
+![8X8 LED Matrix Display](../img/led-matrix-display.png)
+![240x240 Full Color TFT Display](../img/tft-color-display.png)
+![Color OLED](../img/color-oled.jpg)
 240X240 TFT Display
 
 [Full Color LCD TFT Display SPI HD 65K Module ST7735](https://www.ebay.com/itm/Full-Color-LCD-TFT-Display-IPS-7P-SPI-HD-65K-Module-ST7735-Not-OLED-For-Arduino/265047107918)
@@ -79,7 +79,7 @@ oled.show()
 
 This would display the following:
 
-![OLED SPI Hello World](img/oled-hello-world.png)
+![OLED SPI Hello World](../img/oled-hello-world.png)
 
 
 ### Full list of Drawing Functions

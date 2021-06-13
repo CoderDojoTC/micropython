@@ -20,14 +20,14 @@ Every ADC has two parameters, its [resolution](#resolution), measured in digital
 #### BOOTSEL
 A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
 
-![](img/boot-selection.png)
+![](../img/boot-selection.png)
 
 * Also known as: Boot Selection
 
 #### Castellated Edge
 Plated through holes or vias located in the edges of a printed circuit board that make it easier to solder onto another circuit board.
 
-![](img/castellated-edge.png)
+![](../img/castellated-edge.png)
 
 The word "Castellated" means having grooves or slots on an edge and is derived from the turrets of a castle.
 
@@ -84,7 +84,7 @@ The Pico was introduces in 2020 with a retail list price of $4.  It was a key de
 #### Pico Pinout
 The Pico pinout has
 
-![](img/pi-pico-pinout.png)
+![](../img/pi-pico-pinout.png)
 
 * [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
 

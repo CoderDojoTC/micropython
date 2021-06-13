@@ -1,10 +1,5 @@
 # Character LCD Display
 
-
-## connections
-
-![](img/i2c-display-connections.png)
-
 ## Address Scanner
 
 ### Scanner Code
@@ -20,7 +15,7 @@ print(i2c.scan())
 ```sh
 >>> %Run -c $EDITOR_CONTENT
 [39]
->>> 
+>>>
 ```
 
 ## Hello To The LCD 
@@ -68,8 +63,8 @@ lcd.print(b'CGRAM: ' + i2clcd.CGRAM_CHR[0])
 
 ## References
 
-https://www.mfitzp.com/article/oled-displays-i2c-micropython/
+[MFitzp article on OLED displays](https://www.mfitzp.com/article/oled-displays-i2c-micropython/)
 
-https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py
+[Adafruit SSD1306 Driver](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py)
 
 [Adafruit LCD Guide](https://learn.adafruit.com/character-lcds)

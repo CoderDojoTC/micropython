@@ -18,7 +18,7 @@ Microcenter has around 25 [Locations](https://www.microcenter.com/site/stores/de
 
 ## USB Cable
 For a Mac with USB-C connectors, you will need to get a USB micro to C cable:
-![USB Micro to USB C for Mac](img/usb-micro-to-c.png)
+![USB Micro to USB C for Mac](../img/usb-micro-to-c.png)
 
 * [Ebay USB 3.1 USB C Type C to Micro USB Male Sync OTG Charge Data Transfers Adapters](https://www.ebay.com/itm/USB-3-1-USB-C-Type-C-to-Micro-USB-Male-Sync-OTG-Charge-Data-Transfers-Adapters/303826979844) Sample 1 meter USB cable on eBay for $2.40.
 
@@ -74,7 +74,7 @@ These are ideal for turning your project boxes on and off.
 We love these low-cost 128X64 OLED displays.  They are bright and draw very little power. There are two different connectors: 4-wire I2C and 7-wire SPI.  I would suggest the simpler I2C for most starter projects.
 
 * EBay: [0.96" OLED LCD Display Module IIC I2C Interface 128x64 For SSD1306](https://www.ebay.com/itm/0-96-OLED-LCD-Display-Module-IIC-I2C-Interface-128x64-For-SSD1306/233702086908)
-* Amazon: [Five OLED displays for ](https://www.amazon.com/gp/product/B08LYQHFJV?pf_rd_r=8CT0205PZ9NXJEKJ0PCK)
+* Amazon: [Five OLED displays for $7](https://www.amazon.com/gp/product/B08LYQHFJV?pf_rd_r=8CT0205PZ9NXJEKJ0PCK)
 
 ### Larger 2.42" OLEDs
 For our robot projects our students like to view the values from a distance.  For them we use these $17 OLED displays that are about twice the size.
