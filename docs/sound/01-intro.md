@@ -11,7 +11,7 @@ MicroPython provides a powerful library of tools for you to easily generate puls
 ## Duty Cycle
 The Duty Cycle is what percent of time a pulse is high.
 
-![Duty Cycle](img/duty-cycle.png)
+![Duty Cycle](../img/duty-cycle.png)
 
 For working with sound, we want to generate smooth sound waves that are on 1/2 of the time and off 1/2 of the time.  So our duty cycles will be set to be 50%.  On the Raspberry Pi Pico we can achieve this by the following function:
 
@@ -43,8 +43,8 @@ There are several different ways that you can connect a sound device to you Micr
 2. **Speaker** - A magnetic speaker with our without an amplifier is another way to hear sound.  You can also purchase a small amplifier to increase the volume.
 4. **Amplifier** - For about $1.20 you can purchase a small amplifier for your speaker. [eBay LM386 DC 5V-12V Mini Micro Audio Amplifier Module Board](https://www.ebay.com/itm/LM386-DC-5V-12V-Mini-Micro-Audio-Amplifier-Module-Board-Mono-AMP-ModuleEP-I/133596864305)
 
-![](img/magnetic-buzzer.png)
-![](img/piezo-buzzer.png)
+![](../img/magnetic-buzzer.png)
+![](../img/piezo-buzzer.png)
 
 ## References
 

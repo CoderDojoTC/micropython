@@ -6,7 +6,7 @@ These devices are easy to use since they have an internal analog to digital conv
 
 ## Circuit
 
-![DHT22 or AM2302 Temperature and Humidity Sensor](img/AM2302-Image.gif)
+![DHT22 or AM2302 Temperature and Humidity Sensor](../img/AM2302-Image.png)
 
 ## References
 
