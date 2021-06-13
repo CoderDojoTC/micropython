@@ -2,7 +2,7 @@
 
 ## 4 Digit Seven Segment Display
 
-![](../img/4-digit-7-segment-colon.png)
+![4 digit seven segment display](../img/4-digit-7-segment-colon.png)
 
 Make sure to put a current limiting resistor in series with each LED.  A 330 ohm resistor is a generally safe value for 5 volt circuits and you can use a 220 ohm resistor for 3.3 volt circuits.
 
