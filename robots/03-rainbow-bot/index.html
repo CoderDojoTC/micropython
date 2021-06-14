@@ -1160,8 +1160,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-3-adding-the-ws-2811b-library" class="md-nav__link">
-    Part 3: Adding the WS-2811B Library
+  <a href="#part-3-adding-the-neopixel-library" class="md-nav__link">
+    Part 3: Adding the Neopixel Library
   </a>
   
 </li>
@@ -1169,6 +1169,20 @@
         <li class="md-nav__item">
   <a href="#part-4-testing-your-code" class="md-nav__link">
     Part 4: Testing Your Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-for-drawing-on-matrix" class="md-nav__link">
+    Functions For Drawing on Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-source-code" class="md-nav__link">
+    Full Source Code
   </a>
   
 </li>
@@ -1557,8 +1571,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-3-adding-the-ws-2811b-library" class="md-nav__link">
-    Part 3: Adding the WS-2811B Library
+  <a href="#part-3-adding-the-neopixel-library" class="md-nav__link">
+    Part 3: Adding the Neopixel Library
   </a>
   
 </li>
@@ -1566,6 +1580,20 @@
         <li class="md-nav__item">
   <a href="#part-4-testing-your-code" class="md-nav__link">
     Part 4: Testing Your Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-for-drawing-on-matrix" class="md-nav__link">
+    Functions For Drawing on Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-source-code" class="md-nav__link">
+    Full Source Code
   </a>
   
 </li>
@@ -1617,14 +1645,14 @@
 <p><img alt="" src="../../img/rainbow-bot-standoff.jpg" /></p>
 <h2 id="upgrading-to-9-volt-power">Upgrading to 9 Volt Power</h2>
 <p>Our base robot only needed power for the motors.  This robot has 72 RGB LEDs so it might draw more power.  So we upgraded the 6 volt battery pack with 4 AA batteries to two packs of 3 batteries for a total of 9 volts.  This allows the robot to continue to run even when the batteries are partially drained.  The battery packs must be wired in series to deliver the full 9 volts to the input of the motor controller where it powers the motors and also runs though a voltage regulator to power the reset of the robot.</p>
-<p>![](../img/rainbow-bot-underside.jpg]</p>
+<p><img alt="" src="../../img/rainbow-bot-underside.jpg" /></p>
 <h2 id="72-pixel-configuration">72 Pixel Configuration</h2>
 <p>Here is the top view of the LEDs shining through the clear plexiglass.</p>
 <p><img alt="" src="../../img/rainbow-bot-top-view.jpg" /></p>
 <p>You can see the individual LEDs in this configuration.  By adding a small space between the plexiglass and a diffusion layer you can get a much more uniform color distribution over the top surface of the robot.</p>
 <h2 id="part-2-making-the-connections">Part 2: Making The Connections</h2>
 <p>The LED strips use 5 volts of power and have a GND and a data connector.  To make the connections we connect the center pin to Pin 0 (upper left corner of the Pico), the GND to the ground rail and the 5 volt to the 5 volt power rail.</p>
-<h2 id="part-3-adding-the-ws-2811b-library">Part 3: Adding the WS-2811B Library</h2>
+<h2 id="part-3-adding-the-neopixel-library">Part 3: Adding the Neopixel Library</h2>
 <h2 id="part-4-testing-your-code">Part 4: Testing Your Code</h2>
 <p>In our first test, we will just make the first pixel on the LED strip blink bright red.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1644,7 +1672,7 @@
 15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">neopixel</span><span class="o">,</span> <span class="nn">time</span>
 <span class="c1"># Set the pin number and number of pixels</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">np</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="c1"># blink the first pixel red</span>
@@ -1658,6 +1686,496 @@
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="functions-for-drawing-on-matrix">Functions For Drawing on Matrix</h2>
+<p>The numbering of the pixels is a bit odd.  The first 12 are 0 to 11, but the second 12 pixels are in reverse order, so the second row counts from 23 down to 13.  Here are some functions that demonstrate this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+
+<span class="n">numpix</span> <span class="o">=</span> <span class="mi">72</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">numpix</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">brightness</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">color_wipe</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numpix</span><span class="p">):</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">color_wipe_2</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">24</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">36</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">48</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">60</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">color_wipe_3</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">23</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">24</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">47</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">48</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">71</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># offset is the color to start (0 to 6)</span>
+<span class="c1"># dir is 1 for forward and -1 for reverse</span>
+<span class="k">def</span> <span class="nf">color_wipe_4</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nb">dir</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">dir</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">this_color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span> <span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span> <span class="o">%</span><span class="mi">7</span> <span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">this_color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span> <span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="n">offset</span><span class="p">)</span> <span class="o">%</span><span class="mi">7</span> <span class="p">)]</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">23</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">24</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">47</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">48</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">71</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="c1"># time.sleep(0.01)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">counter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">counter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span><span class="o">%</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  
+</code></pre></div>
+</td></tr></table>
+<h2 id="full-source-code">Full Source Code</h2>
+<p>We now combine the motor controls, the distance sensor and the LED functions so that a moving rainbow pattern moves from to back as the robot moves forward.  If the robot encounters an obstacle, the robot will backup and change the direction of the rainbow.  After it backs up a bit it will turn and move forward again.</p>
+<p>main.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">I2C</span>
+<span class="kn">import</span> <span class="nn">VL53L0X</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+
+<span class="c1"># Motor Code</span>
+<span class="c1"># lower right pins with USB on top</span>
+<span class="n">RIGHT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">RIGHT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">LEFT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">LEFT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">21</span>
+
+<span class="n">right_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">right_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_REVERSE_PIN</span><span class="p">))</span>
+<span class="n">left_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">left_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_REVERSE_PIN</span><span class="p">))</span>
+
+<span class="c1"># Sensor Code</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">)</span>
+
+<span class="c1"># Create a VL53L0X object</span>
+<span class="n">tof</span> <span class="o">=</span> <span class="n">VL53L0X</span><span class="o">.</span><span class="n">VL53L0X</span><span class="p">(</span><span class="n">i2c</span><span class="p">)</span>
+<span class="n">tof</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="c1"># startup the sensor</span>
+
+<span class="c1"># used to blink the onboard LED</span>
+<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># LED Code</span>
+<span class="n">numpix</span> <span class="o">=</span> <span class="mi">72</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">numpix</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+<span class="c1"># we turn the brightness way down to not oversaturate the brightness in the video</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">brightness</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># driving parameters</span>
+<span class="n">POWER_LEVEL</span> <span class="o">=</span> <span class="mi">30000</span> <span class="c1"># use a value from 20000 to 65025</span>
+<span class="n">TURN_THRESHOLD</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># 25 cm</span>
+<span class="n">TURN_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">25</span> <span class="c1"># seconds of turning</span>
+<span class="n">BACKUP_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">75</span> <span class="c1"># seconds of backing up if obstacle detected</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_on</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">POWER_LEVEL</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_off</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">forward</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="c1">#for i in range(numpix):</span>
+    <span class="c1">#    strip.set_pixel(i, green)</span>
+    <span class="c1">#strip.show()</span>
+
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="c1">#for i in range(numpix):</span>
+    <span class="c1">#    strip.set_pixel(i, red)</span>
+    <span class="c1">#strip.show()</span>
+
+<span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="c1">#for i in range(numpix):</span>
+    <span class="c1">#    strip.set_pixel(i, blue)</span>
+    <span class="c1">#strip.show()</span>
+
+<span class="k">def</span> <span class="nf">turn_left</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="c1">#for i in range(numpix):</span>
+    <span class="c1">#    strip.set_pixel(i, yellow)</span>
+    <span class="c1">#strip.show()</span>
+
+<span class="k">def</span> <span class="nf">stop</span><span class="p">():</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numpix</span><span class="p">):</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read_sensor_avg</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">tof</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">01</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># offset is the color to start (0 to 6)</span>
+<span class="c1"># dir is 1 for forward and -1 for reverse</span>
+<span class="k">def</span> <span class="nf">color_wipe_4</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nb">dir</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">dir</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">this_color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span> <span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span> <span class="o">%</span><span class="mi">7</span> <span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">this_color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span> <span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="n">offset</span><span class="p">)</span> <span class="o">%</span><span class="mi">7</span> <span class="p">)]</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">23</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">24</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">47</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">48</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">71</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">this_color</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="c1"># time.sleep(0.01)</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">read_sensor_avg</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="n">TURN_THRESHOLD</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;object detected&#39;</span><span class="p">)</span>
+        <span class="n">reverse</span><span class="p">()</span>
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+        <span class="n">turn_right</span><span class="p">()</span>
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>        
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">forward</span><span class="p">()</span>
+        <span class="n">color_wipe_4</span><span class="p">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+</td></tr></table></p>
+<p><a href="https://github.com/CoderDojoTC/micropython/tree/main/src/robots/rainbow-bot">Rainbow Bot Source Code</a></p>
 <h2 id="references">References</h2>
 <ol>
 <li>Micropython <a href="https://docs.micropython.org/en/v1.15/esp8266/tutorial/neopixel.html">NeoPixel Library</a></li>
