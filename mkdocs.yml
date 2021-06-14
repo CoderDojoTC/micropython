@@ -21,8 +21,6 @@ nav:
     - Motor: intro/04-motor.md
     - Servo: intro/04-servo.md
     - LED Strip: intro/05-led-strip.md
-    - Displays: intro/10-displays.md
-    - Character LCD: intro/10-character-lcd-display.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
@@ -40,7 +38,7 @@ nav:
     - 7 Segment Display: displays/seven-segment.md
     - Character LCD Displays: displays/10-character-lcd-display.md
   - OLED Displays:
-    - Introduction: oled/01-oled-intro.md
+    - Introduction: oled/01-intro.md
     - Setup: oled/02-oled-setup.md
     - Drawing: oled/03-oled-drawing.md
     - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
@@ -75,7 +73,6 @@ nav:
     - Debugging I2C: debugging/29a-debugging-i2c.md
     - Debugging SPI: debugging/29-debugging-spi.md
     - Ampy: debugging/27-ampy.md
-    - Content Outliner: debugging/40-gpt-outliner.md
   - Advanced Labs:
     - Introduction: advanced-labs/01-intro.md
     - Circuit Python: circuit-python/01-intro.md

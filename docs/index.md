@@ -49,7 +49,7 @@ We cover simple displays that don't have complex drawing.  For those we have a s
 
 [Contact](misc/contact.md)
 
-[Micropython References](misc/29-references.md) - links to other useful sites.
+[Micropython References](misc/references.md) - links to other useful sites.
 
 
 

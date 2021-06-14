@@ -63,7 +63,7 @@ For a list of available modules, type help('modules')
 ## Save Options
 You can save a python file in Thonny to either the Pico or to your local computer's file system.
 
-![](img/save-local-pico.png)
+![](../img/save-local-pico.png)
 
 first stop execution of any program you are running.
 
