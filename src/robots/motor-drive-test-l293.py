@@ -21,12 +21,15 @@ def spin_wheel(pwm):
     pwm.duty_u16(0)
     sleep(1)
 
-print('right forward')
-spin_wheel(right_forward)
-print('right reverse')
-spin_wheel(right_reverse)
-print('left foward')
-spin_wheel(left_forward)
-print('left_reverse')
-
-spin_wheel(left_reverse)
+while True:
+    print('right forward')
+    spin_wheel(right_forward)
+    
+    print('right reverse')
+    spin_wheel(right_reverse)
+    
+    print('left foward')
+    spin_wheel(left_forward)
+    
+    print('left_reverse')
+    spin_wheel(left_reverse)

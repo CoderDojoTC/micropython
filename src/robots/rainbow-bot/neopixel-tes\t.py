@@ -1,11 +1,8 @@
 import time
-
 from neopixel import Neopixel
-# https://github.com/blaz-r/pi_pico_neopixel
 
 numpix = 12
 strip = Neopixel(numpix, 0, 0, "GRB")
-# strip.brightness(50)
 
 red = (255, 0, 0)
 orange = (255, 165, 0)
