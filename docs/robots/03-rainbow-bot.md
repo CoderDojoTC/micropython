@@ -1,10 +1,14 @@
 # Rainbow Bot
 
-![Rainbow Bot Cover Image](../img/rainbow-bot-cover.jpg)
+![Rainbow Bot Cover Image](../img/rainbow-bot.gif)
 
 This robot takes our base robot and adds an LED strip arranged in a 12X6 pixel grid to display colors and patterns based on what the robot is doing or thinking about.
 
 We use the same materials as our [Base Robot](02-base-bot.md) but we add a low-cost addressable LED strips that are easy to hook up with just power, ground and data wires added to our breadboard.  The LED is known as an addressable LED strip since you can individually program each LED.  The standard is called the  WS-2812B LED strip and is often called a NeoPixel LED strip (The Adafruit Term).  We also used a Python library called a Neopixel micropython library, although the library is not created or maintained by Adafruit.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HZp5nx0aJ40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ![LED Strip Pico Connections](../img/led-strip-pico-connections.png)
 
