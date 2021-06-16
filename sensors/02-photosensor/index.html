@@ -583,6 +583,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1479,6 +1493,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1497,8 +1525,44 @@
                 
                 
                 <h1 id="light-sensor-with-raspberry-pi-pico-in-micropython">Light Sensor with Raspberry Pi Pico in MicroPython</h1>
+<p>A photoresistor is a sensor that decreases resistance when light is shined on its surface.  With no light a photoresistor has high resistance in the range of megaohms.  As light shines on the surface the resistance drops to kiloohms.  We can use this effect as a light sensor.</p>
+<p>To convert the variable resistance of a photoresistor to something we can measure with our microcontroller we will need to build a small circuit that includes a 10K ohm resistor.  We then measure the voltage between the photoresistor and the 10K resistor as light falls on the sensor.  The top and bottom of the circuit are tied to ground and a power rail.  This will move the voltage of the midpoint of the circuit.</p>
+<p><img alt="Photoresistor on Breadboard" src="photoresistor-on-breadboard" /></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/avEKpsV5gsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <h2 id="circuit">Circuit</h2>
+<p><img alt="Photoresistor Circuit" src="../../img/photoresistor-circuit.png" /></p>
+<p>We want to make sure that we use the stable analog ground (AGND) and analog to reference voltage at either end of the circuit to protect the circuit from all the noise of the power in our processor.  Using other power and ground pins will work, but power fluctuations will make the result noisy. </p>
 <h2 id="sample-code">Sample Code</h2>
+<p>Our program will first use the Analog to Digital Circuit (ADC0) as an input.  On the Pico this is on pin 26.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">photo_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">photo_pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>When you run the program a series of print values is displayed in the shell every 1/5th of a second.  You can also use the Thonny plot window to see how the numbers change and you cover and uncover detector from a light source.</p>
+<h2 id="experiments">Experiments</h2>
+<ol>
+<li>What types of devices could use a light detector?</li>
+<li>How does a night-light work?  How could you add an LED to the circuit so that the LED would turn on if the light level got too low?</li>
+<li>Could you automatically adjust the brightness of LEDs on a costume to get brighter in a sunny room and dim if you enter a dark room?  What would that code look like?</li>
+</ol>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Photoresistor">Wikipedia Page on Photoresistor</a></li>
+</ol>
                 
               
               
