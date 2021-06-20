@@ -15,6 +15,7 @@ nav:
     - MicroPython Libraries: getting-started/01b-libraries.md
   - Basic Examples:
     - Introduction: intro/01-intro.md
+    - Breadboards: intro/02-breadboards.md
     - Blink: intro/03-blink.md
     - Buttons: intro/03-button.md
     - Temperature: intro/03-temperature.md
@@ -34,12 +35,13 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
   - Motors and Servos:
-    - Introduction: 01-intro.md
-    - Transistor Lab: 02-transistor.md
-    - H-Bridge: 03-h-bridge.md
-    - L293D Chip: 04-l293d.md
-    - Controller Board: 05-controller-board.md
-    - Servos: 05-servos.md
+    - Introduction: motors/01-intro.md
+    - Transistor Lab: motors/02-transistor.md
+    - H-Bridge: motors/03-h-bridge.md
+    - L293D Chip: motors/04-l293d.md
+    - Controller Board: motors/05-controller-board.md
+    - Servos: motors/06-servos.md
+    - Stepper Motors: motors/07-stepper-motors.md
   - Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
