@@ -1,4 +1,8 @@
-# Driving a Motor with the Pico
+# Using an Transistor to Control a Motor
+
+## Power Requirements for Motors
+
+Motors need about 200 milliamps to work.  But a microcontroller like the Raspberry Pi Pico only can switch about 18 milliamps.  So we need a way to control more power.
 
 The Pico has 26 general purpose input and output pins.  However, each pin's power is designed to digitally communicate with other devices and has a limited current capacity of around 17 milliamps according to the [Raspberry Pi Pico Datasheet Table 5](https://github.com/raspberrypi/documentation/blob/master/hardware/computemodule/datasheets/rpi_DATA_CM_2p0.pdf).  The solution is to either use the digital output signal to turn on and off a switch such as a transistor of to use a motor driver chip such as an L293D chip.
 

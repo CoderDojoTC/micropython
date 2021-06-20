@@ -33,6 +33,13 @@ nav:
     - Environmental Sensor: sensors/bme280.md
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
+  - Motors and Servos:
+    - Introduction: 01-intro.md
+    - Transistor Lab: 02-transistor.md
+    - H-Bridge: 03-h-bridge.md
+    - L293D Chip: 04-l293d.md
+    - Controller Board: 05-controller-board.md
+    - Servos: 05-servos.md
   - Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
