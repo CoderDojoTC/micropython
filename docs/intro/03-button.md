@@ -1,8 +1,8 @@
 # Button
 
-In this lesson we will hook a single momentary push button up to our Raspberry Pi Nano.
+In this lesson we will hook a single momentary push button up to our Raspberry Pi Nano.  We will use it to toggle the built-in LED.
 
-You will hook up an LED to GP15.
+![Momentary Button Press](../img/button-press.gif)
 
 ## Momentary Switch Buttons
 
@@ -17,8 +17,9 @@ We use "B3F" tactile switch buttons that can be mounted directly on our breadboa
 from machine import Pin
 import time
 
-led = Pin(15, Pin.OUT)
-button = Pin(14, Pin.IN, Pin.PULL_DOWN) # input with pull down resistor
+# GPIO is the internal built-in LED
+led = Pin(25, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN) # input with pull down resistor
 
 while True:
     if button.value(): # if the value changes
