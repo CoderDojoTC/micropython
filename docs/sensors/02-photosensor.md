@@ -4,7 +4,7 @@ A photoresistor is a sensor that decreases resistance when light is shined on it
 
 To convert the variable resistance of a photoresistor to something we can measure with our microcontroller we will need to build a small circuit that includes a 10K ohm resistor.  We then measure the voltage between the photoresistor and the 10K resistor as light falls on the sensor.  The top and bottom of the circuit are tied to ground and a power rail.  This will move the voltage of the midpoint of the circuit.
 
-![Photoresistor on Breadboard](photoresistor-on-breadboard)
+![Photoresistor on Breadboard](../img/photoresistor-on-breadboard.jpg)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/avEKpsV5gsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
