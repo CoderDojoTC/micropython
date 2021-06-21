@@ -18,7 +18,7 @@
     
     
       
-        <title>Controlling a Servo Motor with MicroPython - MicroPython</title>
+        <title>L293D Chip - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#controlling-a-servo-motor-with-micropython" class="md-skip">
+        <a href="#controlling-a-motor-with-the-l293d-motor-controller-chip" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Controlling a Servo Motor with MicroPython
+              L293D Chip
             
           </span>
         </div>
@@ -677,12 +677,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Motors and Servos
@@ -701,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/01-intro.md" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -713,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/02-transistor.md" class="md-nav__link">
+      <a href="../02-transistor/" class="md-nav__link">
         Transistor Lab
       </a>
     </li>
@@ -725,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/03-h-bridge.md" class="md-nav__link">
+      <a href="../03-h-bridge/" class="md-nav__link">
         H-Bridge
       </a>
     </li>
@@ -735,11 +737,70 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motors/04-l293d.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          L293D Chip
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         L293D Chip
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-h-bridge" class="md-nav__link">
+    What is an H-Bridge?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-l293d-circuit" class="md-nav__link">
+    The L293D Circuit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-program" class="md-nav__link">
+    Sample Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenes" class="md-nav__link">
+    Referenes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -749,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/05-controller-board.md" class="md-nav__link">
+      <a href="../05-controller-board/" class="md-nav__link">
         Controller Board
       </a>
     </li>
@@ -761,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/06-servos.md" class="md-nav__link">
+      <a href="../06-servos/" class="md-nav__link">
         Servos
       </a>
     </li>
@@ -773,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/07-stepper-motors.md" class="md-nav__link">
+      <a href="../07-stepper-motors/" class="md-nav__link">
         Stepper Motors
       </a>
     </li>
@@ -1547,22 +1608,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#types-of-servos" class="md-nav__link">
-    Types of Servos
+  <a href="#what-is-an-h-bridge" class="md-nav__link">
+    What is an H-Bridge?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#servo-connections" class="md-nav__link">
-    Servo Connections
+  <a href="#the-l293d-circuit" class="md-nav__link">
+    The L293D Circuit
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    references
+  <a href="#sample-program" class="md-nav__link">
+    Sample Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenes" class="md-nav__link">
+    Referenes
   </a>
   
 </li>
@@ -1579,33 +1647,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors-and-servos/06-servos.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors/04-l293d.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="controlling-a-servo-motor-with-micropython">Controlling a Servo Motor with MicroPython</h1>
-<h2 id="types-of-servos">Types of Servos</h2>
-<p>Although there are may types of servos you can purchase, in our labs there are two main types of servos that we use:</p>
-<ol>
-<li>SG90 Micro Servo, 9 grams, 180 degree, plastic gears - $4</li>
-<li>MG90S Micro Servo, 9 grams, 180 degree, metal gears - $5</li>
-</ol>
-<p>There are other variations that have 360 degree or continuous rotation servos.</p>
-<h2 id="servo-connections">Servo Connections</h2>
-<p>Almost all servos have a three pin connector that are spaced 1/10th of an inch apart so they will work with our breadboards.</p>
-<ol>
-<li>Ground (black or brown wire)</li>
-<li>5 volt power (always red)</li>
-<li>Data (orange or yellow)</li>
-</ol>
-<h2 id="references">references</h2>
-<ol>
-<li><a href="https://www.sparkfun.com/servos">SparkFun Servos Page</a></li>
-<li><a href="https://www.sparkfun.com/categories/245">SparkFun Category for Servos</a></li>
-<li><a href="https://www.ebay.com/itm/373083841236">eBay Servo Plastic Servo</a></li>
-<li><a href="https://www.ebay.com/itm/294180115127">eBay Servo Metal Gear Servo</a></li>
-</ol>
+                <h1 id="controlling-a-motor-with-the-l293d-motor-controller-chip">Controlling a Motor with the L293D Motor Controller Chip</h1>
+<h2 id="what-is-an-h-bridge">What is an H-Bridge?</h2>
+<h2 id="the-l293d-circuit">The L293D Circuit</h2>
+<p>The L293D motor driver IC actually has two power input pins viz. ‘Vcc1’ and ‘Vcc2’.</p>
+<p>Vcc1 is used for driving the internal logic circuitry which should be 5V.</p>
+<p>From Vcc2 pin the H-Bridge gets its power for driving the motors which can be 4.5V to 36V. And they both sink to a common ground named GND.</p>
+<h2 id="sample-program">Sample Program</h2>
+<h2 id="referenes">Referenes</h2>
+<p><a href="https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/">Last Minute Engineer L293D DC Motor TutoriL (Arduino version)</a></p>
                 
               
               
@@ -1620,6 +1675,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../03-h-bridge/" title="H-Bridge" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  H-Bridge
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../05-controller-board/" title="Controller Board" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Controller Board
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

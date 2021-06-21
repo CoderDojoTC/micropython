@@ -18,7 +18,7 @@
     
     
       
-        <title>H-Bridge Circuits - MicroPython</title>
+        <title>Introduction - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#h-bridge-circuits" class="md-skip">
+        <a href="#using-micropython-to-control-motors-and-servos" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              H-Bridge Circuits
+              Introduction
             
           </span>
         </div>
@@ -677,12 +677,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Motors and Servos
@@ -699,11 +701,84 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motors/01-intro.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Introduction
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motor-types" class="md-nav__link">
+    Motor Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline-of-labs" class="md-nav__link">
+    Outline of Labs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-1-using-and-transistor-to-control-a-motor" class="md-nav__link">
+    Lab 1: Using and Transistor to Control a Motor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theory-what-is-an-h-bridge-circuit" class="md-nav__link">
+    Theory: What is an H-Bridge Circuit?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-2-controlling-a-motor-speed-with-the-l293-h-bridge-chip" class="md-nav__link">
+    Lab 2: Controlling a Motor Speed with the L293 H-Bridge Chip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-3-changing-motor-direction" class="md-nav__link">
+    Lab 3: Changing Motor Direction
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -713,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/02-transistor.md" class="md-nav__link">
+      <a href="../02-transistor/" class="md-nav__link">
         Transistor Lab
       </a>
     </li>
@@ -725,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/03-h-bridge.md" class="md-nav__link">
+      <a href="../03-h-bridge/" class="md-nav__link">
         H-Bridge
       </a>
     </li>
@@ -737,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/04-l293d.md" class="md-nav__link">
+      <a href="../04-l293d/" class="md-nav__link">
         L293D Chip
       </a>
     </li>
@@ -749,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/05-controller-board.md" class="md-nav__link">
+      <a href="../05-controller-board/" class="md-nav__link">
         Controller Board
       </a>
     </li>
@@ -761,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/06-servos.md" class="md-nav__link">
+      <a href="../06-servos/" class="md-nav__link">
         Servos
       </a>
     </li>
@@ -773,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/07-stepper-motors.md" class="md-nav__link">
+      <a href="../07-stepper-motors/" class="md-nav__link">
         Stepper Motors
       </a>
     </li>
@@ -1547,8 +1622,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#motor-types" class="md-nav__link">
+    Motor Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline-of-labs" class="md-nav__link">
+    Outline of Labs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-1-using-and-transistor-to-control-a-motor" class="md-nav__link">
+    Lab 1: Using and Transistor to Control a Motor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theory-what-is-an-h-bridge-circuit" class="md-nav__link">
+    Theory: What is an H-Bridge Circuit?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-2-controlling-a-motor-speed-with-the-l293-h-bridge-chip" class="md-nav__link">
+    Lab 2: Controlling a Motor Speed with the L293 H-Bridge Chip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-3-changing-motor-direction" class="md-nav__link">
+    Lab 3: Changing Motor Direction
   </a>
   
 </li>
@@ -1565,17 +1675,30 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors-and-servos/03-h-bridge.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors/01-intro.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="h-bridge-circuits">H-Bridge Circuits</h1>
-<p>H-Bridge circuits are use to drive a motor both forward and backward.</p>
-<h2 id="references">References</h2>
+                <h1 id="using-micropython-to-control-motors-and-servos">Using MicroPython to Control Motors and Servos</h1>
+<p>Controlling motors are one of the funnest ways to learn how to program!  They give us quick hand-on feedback on what are programs are doing.  Motors are used in almost all our robot project.  Robots are used in many STEM courses and coding clubs around the world.  Programs like the AI Racing League allow students to learn topics like Machine Learning, Computer Vision and AI.  These programs all depend on our understanding of how motors work and how to control them.</p>
+<p><img alt="Geared DC Hobby Motor and Wheel" src="../../img/dc-motor.png" /></p>
+<h2 id="motor-types">Motor Types</h2>
+<p>There are three types of motors we will learn how to control:</p>
 <ol>
-<li><a href="https://en.wikipedia.org/wiki/H-bridge">Wikipedia Page on H-Bridge Circuits</a></li>
+<li>DC Motors</li>
+<li>Servos</li>
+<li>Stepper Motors</li>
 </ol>
+<h2 id="outline-of-labs">Outline of Labs</h2>
+<h2 id="lab-1-using-and-transistor-to-control-a-motor">Lab 1: Using and Transistor to Control a Motor</h2>
+<p>In this lab we will use MicroPython to turn a motor on and off.  We will use the digital output from the Raspberry Pi Pico to control a transistor as a switch to control the current to a motor.  We will also learn how to use a diode to to protect the transistor from flyback current.</p>
+<h2 id="theory-what-is-an-h-bridge-circuit">Theory: What is an H-Bridge Circuit?</h2>
+<p>This lab shows a sample circuit with four switches arranged in the shape of the letter "H" with the motor at the center of the letter.  By closing switches in opposite corners we can make the motor reverse direction.</p>
+<h2 id="lab-2-controlling-a-motor-speed-with-the-l293-h-bridge-chip">Lab 2: Controlling a Motor Speed with the L293 H-Bridge Chip</h2>
+<p>In this lab we will use a PWM signal to control the speed of a motor.</p>
+<h2 id="lab-3-changing-motor-direction">Lab 3: Changing Motor Direction</h2>
+<p>In this lab we will make a motor go both forward and backward and change the speed.</p>
                 
               
               
@@ -1590,6 +1713,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../../sensors/07-VL53L0X_GY/" title="Time of Flight Distance" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Time of Flight Distance
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../02-transistor/" title="Transistor Lab" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Transistor Lab
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

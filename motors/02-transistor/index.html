@@ -18,7 +18,7 @@
     
     
       
-        <title>Using an Transistor to Control a Motor - MicroPython</title>
+        <title>Transistor Lab - MicroPython</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Using an Transistor to Control a Motor
+              Transistor Lab
             
           </span>
         </div>
@@ -677,12 +677,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Motors and Servos
@@ -701,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/01-intro.md" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -711,11 +713,90 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motors/02-transistor.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Transistor Lab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Transistor Lab
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power-requirements-for-motors" class="md-nav__link">
+    Power Requirements for Motors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-transistor-circuit" class="md-nav__link">
+    Basic Transistor Circuit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwm-control" class="md-nav__link">
+    PWM Control
+  </a>
+  
+    <nav class="md-nav" aria-label="PWM Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwm-frequency" class="md-nav__link">
+    PWM Frequency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-coder" class="md-nav__link">
+    Sample Coder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -725,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/03-h-bridge.md" class="md-nav__link">
+      <a href="../03-h-bridge/" class="md-nav__link">
         H-Bridge
       </a>
     </li>
@@ -737,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/04-l293d.md" class="md-nav__link">
+      <a href="../04-l293d/" class="md-nav__link">
         L293D Chip
       </a>
     </li>
@@ -749,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/05-controller-board.md" class="md-nav__link">
+      <a href="../05-controller-board/" class="md-nav__link">
         Controller Board
       </a>
     </li>
@@ -761,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/06-servos.md" class="md-nav__link">
+      <a href="../06-servos/" class="md-nav__link">
         Servos
       </a>
     </li>
@@ -773,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/07-stepper-motors.md" class="md-nav__link">
+      <a href="../07-stepper-motors/" class="md-nav__link">
         Stepper Motors
       </a>
     </li>
@@ -1606,7 +1687,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors-and-servos/02-transistor.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors/02-transistor.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1662,6 +1743,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Introduction
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../03-h-bridge/" title="H-Bridge" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  H-Bridge
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

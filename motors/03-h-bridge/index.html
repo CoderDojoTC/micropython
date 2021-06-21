@@ -18,7 +18,7 @@
     
     
       
-        <title>Controlling a Stepper Motor with MicroPython - MicroPython</title>
+        <title>H-Bridge - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#controlling-a-stepper-motor-with-micropython" class="md-skip">
+        <a href="#h-bridge-circuits" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Controlling a Stepper Motor with MicroPython
+              H-Bridge
             
           </span>
         </div>
@@ -677,12 +677,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Motors and Servos
@@ -701,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/01-intro.md" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -713,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/02-transistor.md" class="md-nav__link">
+      <a href="../02-transistor/" class="md-nav__link">
         Transistor Lab
       </a>
     </li>
@@ -723,11 +725,49 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motors/03-h-bridge.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          H-Bridge
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         H-Bridge
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -737,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/04-l293d.md" class="md-nav__link">
+      <a href="../04-l293d/" class="md-nav__link">
         L293D Chip
       </a>
     </li>
@@ -749,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/05-controller-board.md" class="md-nav__link">
+      <a href="../05-controller-board/" class="md-nav__link">
         Controller Board
       </a>
     </li>
@@ -761,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/06-servos.md" class="md-nav__link">
+      <a href="../06-servos/" class="md-nav__link">
         Servos
       </a>
     </li>
@@ -773,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/07-stepper-motors.md" class="md-nav__link">
+      <a href="../07-stepper-motors/" class="md-nav__link">
         Stepper Motors
       </a>
     </li>
@@ -1547,13 +1587,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -1572,71 +1605,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors-and-servos/07-stepper-motors.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors/03-h-bridge.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="controlling-a-stepper-motor-with-micropython">Controlling a Stepper Motor with MicroPython</h1>
-<p><img alt="Stepper Motor" src="stepper-motor.png" /></p>
-<p>Stepper motors are specialized motors that precisely control the angle of rotation of the shaft of a motor.  They are often used to carefully position items that move along an axis.  For example you can use stepper motors to control the position the printing head of a 3D printer.  Stepper motors are also quite a bit more expensive than our DC hobby motors and mini servos, so we don't use them frequently in our classes.</p>
-<h2 id="sample-code">Sample Code</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Code example from YoungWorks blog on how to use a stepper motor</span>
-<span class="c1"># https://www.youngwonks.com/blog/How-to-use-a-stepper-motor-with-the-Raspberry-Pi-Pico</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-
-<span class="n">pins</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">Out</span><span class="p">),</span>
-    <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">Out</span><span class="p">),</span>
-    <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">Out</span><span class="p">),</span>
-    <span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">Out</span><span class="p">),</span>
-<span class="p">]</span>
-
-<span class="c1"># one hot encoding vectors</span>
-<span class="n">full_step_sequence</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mf">1.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">0.1</span><span class="o">.</span><span class="mf">0.0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">1.0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">]</span>
-<span class="p">]</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">full_step_sequence</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rang</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pins</span><span class="p">)):</span>
-            <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">step</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+                <h1 id="h-bridge-circuits">H-Bridge Circuits</h1>
+<p>H-Bridge circuits are use to drive a motor both forward and backward.</p>
 <h2 id="references">References</h2>
 <ol>
-<li><a href="https://en.wikipedia.org/wiki/Stepper_motor">Wikipedia Page on Stepper Motors</a></li>
-<li><a href="https://tutorials-raspberrypi.com/how-to-control-a-stepper-motor-with-raspberry-pi-and-l293d-uln2003a/">Raspberry Pi L293D Example</a></li>
-<li><a href="https://www.youngwonks.com/blog/How-to-use-a-stepper-motor-with-the-Raspberry-Pi-Pico">Young Wonks Stepper Motor Example with a </a></li>
+<li><a href="https://en.wikipedia.org/wiki/H-bridge">Wikipedia Page on H-Bridge Circuits</a></li>
 </ol>
                 
               
@@ -1652,6 +1630,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../02-transistor/" title="Transistor Lab" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Transistor Lab
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../04-l293d/" title="L293D Chip" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  L293D Chip
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

@@ -18,7 +18,7 @@
     
     
       
-        <title>Using MicroPython to Control Motors and Servos - MicroPython</title>
+        <title>Servos - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-micropython-to-control-motors-and-servos" class="md-skip">
+        <a href="#controlling-a-servo-motor-with-micropython" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Using MicroPython to Control Motors and Servos
+              Servos
             
           </span>
         </div>
@@ -677,12 +677,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Motors and Servos
@@ -701,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/01-intro.md" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -713,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/02-transistor.md" class="md-nav__link">
+      <a href="../02-transistor/" class="md-nav__link">
         Transistor Lab
       </a>
     </li>
@@ -725,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/03-h-bridge.md" class="md-nav__link">
+      <a href="../03-h-bridge/" class="md-nav__link">
         H-Bridge
       </a>
     </li>
@@ -737,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/04-l293d.md" class="md-nav__link">
+      <a href="../04-l293d/" class="md-nav__link">
         L293D Chip
       </a>
     </li>
@@ -749,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/05-controller-board.md" class="md-nav__link">
+      <a href="../05-controller-board/" class="md-nav__link">
         Controller Board
       </a>
     </li>
@@ -759,11 +761,63 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motors/06-servos.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Servos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Servos
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-servos" class="md-nav__link">
+    Types of Servos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servo-connections" class="md-nav__link">
+    Servo Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    references
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -773,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motors/07-stepper-motors.md" class="md-nav__link">
+      <a href="../07-stepper-motors/" class="md-nav__link">
         Stepper Motors
       </a>
     </li>
@@ -1547,43 +1601,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motor-types" class="md-nav__link">
-    Motor Types
+  <a href="#types-of-servos" class="md-nav__link">
+    Types of Servos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outline-of-labs" class="md-nav__link">
-    Outline of Labs
+  <a href="#servo-connections" class="md-nav__link">
+    Servo Connections
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-1-using-and-transistor-to-control-a-motor" class="md-nav__link">
-    Lab 1: Using and Transistor to Control a Motor
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#theory-what-is-an-h-bridge-circuit" class="md-nav__link">
-    Theory: What is an H-Bridge Circuit?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lab-2-controlling-a-motor-speed-with-the-l293-h-bridge-chip" class="md-nav__link">
-    Lab 2: Controlling a Motor Speed with the L293 H-Bridge Chip
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lab-3-changing-motor-direction" class="md-nav__link">
-    Lab 3: Changing Motor Direction
+  <a href="#references" class="md-nav__link">
+    references
   </a>
   
 </li>
@@ -1600,30 +1633,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors-and-servos/01-intro.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/motors/06-servos.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-micropython-to-control-motors-and-servos">Using MicroPython to Control Motors and Servos</h1>
-<p>Controlling motors are one of the funnest ways to learn how to program!  They give us quick hand-on feedback on what are programs are doing.  Motors are used in almost all our robot project.  Robots are used in many STEM courses and coding clubs around the world.  Programs like the AI Racing League allow students to learn topics like Machine Learning, Computer Vision and AI.  These programs all depend on our understanding of how motors work and how to control them.</p>
-<p><img alt="Geared DC Hobby Motor and Wheel" src="../../img/dc-motor.png" /></p>
-<h2 id="motor-types">Motor Types</h2>
-<p>There are three types of motors we will learn how to control:</p>
+                <h1 id="controlling-a-servo-motor-with-micropython">Controlling a Servo Motor with MicroPython</h1>
+<h2 id="types-of-servos">Types of Servos</h2>
+<p>Although there are may types of servos you can purchase, in our labs there are two main types of servos that we use:</p>
 <ol>
-<li>DC Motors</li>
-<li>Servos</li>
-<li>Stepper Motors</li>
+<li>SG90 Micro Servo, 9 grams, 180 degree, plastic gears - $4</li>
+<li>MG90S Micro Servo, 9 grams, 180 degree, metal gears - $5</li>
 </ol>
-<h2 id="outline-of-labs">Outline of Labs</h2>
-<h2 id="lab-1-using-and-transistor-to-control-a-motor">Lab 1: Using and Transistor to Control a Motor</h2>
-<p>In this lab we will use MicroPython to turn a motor on and off.  We will use the digital output from the Raspberry Pi Pico to control a transistor as a switch to control the current to a motor.  We will also learn how to use a diode to to protect the transistor from flyback current.</p>
-<h2 id="theory-what-is-an-h-bridge-circuit">Theory: What is an H-Bridge Circuit?</h2>
-<p>This lab shows a sample circuit with four switches arranged in the shape of the letter "H" with the motor at the center of the letter.  By closing switches in opposite corners we can make the motor reverse direction.</p>
-<h2 id="lab-2-controlling-a-motor-speed-with-the-l293-h-bridge-chip">Lab 2: Controlling a Motor Speed with the L293 H-Bridge Chip</h2>
-<p>In this lab we will use a PWM signal to control the speed of a motor.</p>
-<h2 id="lab-3-changing-motor-direction">Lab 3: Changing Motor Direction</h2>
-<p>In this lab we will make a motor go both forward and backward and change the speed.</p>
+<p>There are other variations that have 360 degree or continuous rotation servos.</p>
+<h2 id="servo-connections">Servo Connections</h2>
+<p>Almost all servos have a three pin connector that are spaced 1/10th of an inch apart so they will work with our breadboards.</p>
+<ol>
+<li>Ground (black or brown wire)</li>
+<li>5 volt power (always red)</li>
+<li>Data (orange or yellow)</li>
+</ol>
+<h2 id="references">references</h2>
+<ol>
+<li><a href="https://www.sparkfun.com/servos">SparkFun Servos Page</a></li>
+<li><a href="https://www.sparkfun.com/categories/245">SparkFun Category for Servos</a></li>
+<li><a href="https://www.ebay.com/itm/373083841236">eBay Servo Plastic Servo</a></li>
+<li><a href="https://www.ebay.com/itm/294180115127">eBay Servo Metal Gear Servo</a></li>
+</ol>
                 
               
               
@@ -1638,6 +1674,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../05-controller-board/" title="Controller Board" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Controller Board
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../07-stepper-motors/" title="Stepper Motors" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Stepper Motors
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
