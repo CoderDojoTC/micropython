@@ -1,6 +1,6 @@
 # Controlling a Stepper Motor with MicroPython
 
-![Stepper Motor](stepper-motor.png)
+![Stepper Motor](../img/stepper-motor.png)
 
 Stepper motors are specialized motors that precisely control the angle of rotation of the shaft of a motor.  They are often used to carefully position items that move along an axis.  For example you can use stepper motors to control the position the printing head of a 3D printer.  Stepper motors are also quite a bit more expensive than our DC hobby motors and mini servos, so we don't use them frequently in our classes.
 
