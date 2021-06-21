@@ -27,8 +27,6 @@ while True:
         time.sleep(0.1) # wait 1/10th of a second
 ```
 
-![Momentary Switch Diagram](../img/momentary-button.png)
-
 ## References
 
 1. [Raspberry Pi Pico Getting Started Guide Lab 6](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/6)
