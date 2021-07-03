@@ -47,7 +47,20 @@ You can use 22 gauge wire to build your projects, however kids that don't have f
 * Ebay: [65X 65PCS Jumper Wire Cable Kit For Solderless Breadboard](https://www.ebay.com/itm/65X-65PCS-Jumper-Wire-Cable-Kit-For-Solderless-Breadboard-cs/264496035854)
 
 * Amazon: [ZYAMY 195pcs Breadboard Jumper Wire 12cm 16cm 20cm 24cm Solderless Flexible Breadboard Connecting Line Cables Male to Male Breadboard Jumpers (65pcs/Set x 3)](https://www.amazon.com/ZYAMY-Breadboard-Solderless-Flexible-Connecting/dp/B075F37HXW/ref=sr_1_9) - three packs of 65 for about $8
- 
+
+## Momentary Press Buttons
+
+![](../img/momentary-switch-button.png)
+
+![](../img/momentary-button.jpg)
+
+We like the B3F-4055 12 x12x7.3mm Tactile Switch Momentary Press Buttons that have small dimples on the bottom that fit into the breadboard center trough.  They can be purchased for under 10 cents per unit on eBay.
+
+* [eBay Tactile Push Button Switch Momentary Tact & Cap 12x12x7.3mm Assorted Kit](https://www.ebay.com/itm/192318434746) - this kit includes 15 switchs with seven colors of caps for US $8.95.
+* [eBay: 10PCS New B3F Tactile Switch Key Button Switch 12x12x7.3mm Blue](https://www.ebay.com/itm/381924159238)
+* [eBay 100PCS B3F-4055 Tactile Switch W/ OMRON Tact Push Button Momentary 12 x12 x7.3mm](https://www.ebay.com/itm/363125477978)
+* [eBay Button Caps 140PCS Round Tactile Button Cap Kits 9.58*5.1mm for 12*12*7.3mm Tact Switch](https://www.ebay.com/itm/401225666722)
+
 ## Sensor Kit
 
 Although not all of these items are really "sensors" (some are displays), these kits provide high value at a low price-per item cost.  Note that some of these kits contain tilt switches that contain Mercery.  I remove these from the kits.

@@ -4,6 +4,8 @@ In this lesson we will hook a single momentary push button up to our Raspberry P
 
 ![Momentary Button Press](../img/button-press.gif)
 
+In the example above, we are connecting the button on the left to the lower-left corner pin of the Raspberry Pi Pico.  This is GPIO Pin 15 and is in row number 20 of our [breadboard](#02_breadboard).
+
 ## Momentary Switch Buttons
 
 ![Momentary Switch](../img/momentary-switch-button.png)
