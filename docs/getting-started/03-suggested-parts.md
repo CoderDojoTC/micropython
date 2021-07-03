@@ -50,11 +50,15 @@ You can use 22 gauge wire to build your projects, however kids that don't have f
 
 ## Momentary Press Buttons
 
-![](../img/momentary-switch-button.png)
+![](../img/momentary-switch-button.png){:style="height:300px;width:300px"}
+
+A B3F Momentary Press Button with a blue cap.
 
 ![](../img/momentary-button.jpg)
 
-We like the B3F-4055 12 x12x7.3mm Tactile Switch Momentary Press Buttons that have small dimples on the bottom that fit into the breadboard center trough.  They can be purchased for under 10 cents per unit on eBay.
+Note the schematic in the lower right corner that shows the internal connections of the button.
+
+We like the B3F-4055 12 x12x7.3mm Tactile Switch Momentary Press Buttons that have small dimples on the bottom that fit into the breadboard center trough.  They can be purchased for under 10 cents per unit on eBay.  You can by them with our without colored caps.  The links below have example listings on eBay.
 
 * [eBay Tactile Push Button Switch Momentary Tact & Cap 12x12x7.3mm Assorted Kit](https://www.ebay.com/itm/192318434746) - this kit includes 15 switchs with seven colors of caps for US $8.95.
 * [eBay: 10PCS New B3F Tactile Switch Key Button Switch 12x12x7.3mm Blue](https://www.ebay.com/itm/381924159238)

@@ -113,7 +113,7 @@ plugins:
   # - mermaid2
 markdown_extensions:
   - admonition
-  - footnotes
+  - attr_list
   - pymdownx.highlight:
       linenums: true
   - pymdownx.superfences
