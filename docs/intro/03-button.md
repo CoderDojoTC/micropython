@@ -10,7 +10,7 @@ In the example above, we are connecting the button on the left to the lower-left
 
 ![Momentary Switch](../img/momentary-switch-button.png)
 
-We use "B3F" tactile switch buttons that can be mounted directly on our breadboards.  When the button is pressed, it connects a wire that joins two pins on one side to the two pins on the other side.  The buttons can be mounted directly over the trough in the center of the breadboard.  They typically cost under $2 for 10 buttons.
+We use ["B3F" tactile switch buttons](getting-started/03-suggested-parts/#momentary-press-buttons) that can be mounted directly on our breadboards.  When the button is pressed, it connects a wire that joins two pins on one side to the two pins on the other side.  The buttons can be mounted directly over the trough in the center of the breadboard.  They typically cost under $2 for 10 buttons.
 
 ![Momentary Switch Connection Diagram](../img/button-connection-digram.png)
 
