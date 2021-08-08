@@ -173,3 +173,7 @@ while True:
 
 print('done')
 ```
+
+## SH1106 References
+
+1. [Robert HH SH1106 Driver GitHub](https://github.com/robert-hh/SH1106/blob/master/sh1106.py)

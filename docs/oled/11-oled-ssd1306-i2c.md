@@ -237,13 +237,13 @@ print('Done')
 
 ## References
 
-[robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
+1. [MicroPython Tutorial on the SSD1306](https://docs.micropython.org/en/latest/esp8266/tutorial/ssd1306.html)
 
-https://www.mfitzp.com/article/oled-displays-i2c-micropython/
+2. [robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
 
-https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py
+3. [M Fitzp OLED Display i2c Article](https://www.mfitzp.com/article/oled-displays-i2c-micropython/)
 
-https://github.com/robert-hh/SH1106/blob/master/sh1106.py
+4. [Adafruit Stats](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py)
 
 [DIY More OLED Product Description](https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306)
 

@@ -89,6 +89,7 @@ nav:
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
     - Circuit Python: circuit-python/01-intro.md
+    - Conda Environment Setup: advanced-labs/04-conda-env.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
