@@ -447,6 +447,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../04-fade-in-and-out/" class="md-nav__link">
+        Fade In and Out
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../03-button/" class="md-nav__link">
         Buttons
       </a>
@@ -1715,7 +1727,12 @@
                 
                 
                 <h1 id="driving-a-motor-with-the-pico">Driving a Motor with the Pico</h1>
-<p>The Pico has 26 general purpose input and output pins.  However, each pin's power is designed to digitally communicate with other devices and has a limited current capacity of around 17 milliamps according to the <a href="https://github.com/raspberrypi/documentation/blob/master/hardware/computemodule/datasheets/rpi_DATA_CM_2p0.pdf">Raspberry Pi Pico Datasheet Table 5</a>.  The solution is to either use the digital output signal to turn on and off a switch such as a transistor of to use a motor driver chip such as an L293D chip.</p>
+<p>The Pico has 26 general purpose input and output pins.  However, each pin's power is designed to digitally communicate with other devices and has a limited current capacity of around 17 milliamps according to the <a href="https://github.com/raspberrypi/documentation/blob/master/hardware/computemodule/datasheets/rpi_DATA_CM_2p0.pdf">Raspberry Pi Pico Datasheet Table 5</a>.  17 milliamps is fine for lighting up an LED.  However, motors require much more power.  17 milliamps is not enough current to drive even small motors.  Even our small DC hobby motors we use with our robots require around 200 milliamps.</p>
+<p>But don't worry!  We have two ways around this problem.</p>
+<ol>
+<li>The first option is to use a simple transistor as a "switch" that will use our low-power digital signal to control its on-and-off settings.</li>
+<li>The second option is to use a full motor driver chip such as an L293D chip.  This chip takes the same PWM signal we learned about in our <a href="../04-fade-in-and-out/">Fade In and Out Lab</a>.</li>
+</ol>
 <h2 id="basic-transistor-circuit">Basic Transistor Circuit</h2>
 <ol>
 <li>Transistor NPN 2222A</li>
