@@ -85,6 +85,8 @@ nav:
     - Ampy: debugging/27-ampy.md
   - Advanced Labs:
     - Introduction: advanced-labs/01-intro.md
+    - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
+    - Timing Functions: advanced-labs/03-timing-functions.md
     - Circuit Python: circuit-python/01-intro.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
