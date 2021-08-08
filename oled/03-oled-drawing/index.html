@@ -990,6 +990,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#drawing-tutorial-and-primitives" class="md-nav__link">
+    Drawing Tutorial and Primitives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-the-framebuf" class="md-nav__link">
+    Working with the framebuf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -1516,6 +1530,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/04-conda-env/" class="md-nav__link">
+        Conda Environment Setup
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1680,6 +1706,20 @@
         <li class="md-nav__item">
   <a href="#pixel-drawing-example" class="md-nav__link">
     Pixel Drawing Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-tutorial-and-primitives" class="md-nav__link">
+    Drawing Tutorial and Primitives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-the-framebuf" class="md-nav__link">
+    Working with the framebuf
   </a>
   
 </li>
@@ -1923,6 +1963,67 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
     <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
         <span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>    
 
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="drawing-tutorial-and-primitives">Drawing Tutorial and Primitives</h2>
+<p>Taken from the MicroPython site: <a href="https://docs.micropython.org/en/latest/esp8266/tutorial/ssd1306.html">Using a SSD1306 OLED display</a> - although the path name imply the ESP8266, these functions also run on the Raspberry Pi Pico.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">poweroff</span><span class="p">()</span>     <span class="c1"># power off the display, pixels persist in memory</span>
+<span class="n">display</span><span class="o">.</span><span class="n">poweron</span><span class="p">()</span>      <span class="c1"># power on the display, pixels redrawn</span>
+<span class="n">display</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># dim</span>
+<span class="n">display</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>  <span class="c1"># bright</span>
+<span class="n">display</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># display inverted</span>
+<span class="n">display</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># display normal</span>
+<span class="n">display</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># rotate 180 degrees</span>
+<span class="n">display</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># rotate 0 degrees</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>         <span class="c1"># write the contents of the FrameBuffer to display memory</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                         <span class="c1"># fill entire screen with colour=0</span>
+<span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>                    <span class="c1"># get pixel at x=0, y=10</span>
+<span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                 <span class="c1"># set pixel at x=0, y=10 to colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># draw horizontal line x=0, y=8, width=4, colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># draw vertical line x=0, y=8, height=4, colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>          <span class="c1"># draw a line from 0,0 to 127,63</span>
+<span class="n">display</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>        <span class="c1"># draw a rectangle outline 10,10 to 107,43, colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># draw a solid rectangle 10,10 to 107,43, colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1"># draw some text at x=0, y=0, colour=1</span>
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                   <span class="c1"># scroll 20 pixels to the right</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="working-with-the-framebuf">Working with the framebuf</h2>
+<p>A frame buffer is a region of RAM that holds an exact image of what is on the display.  The data can be copied from the framebuffer memory with the <code>blit()</code> (BLock Transfer) operation that copies a rectangular area of one framebuffer to another framebuffer.</p>
+<p>Here is an example of the blit() function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">my_frame_buf</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># draw another FrameBuffer on top of the current one at the given coordinates</span>
+<span class="kn">import</span> <span class="nn">framebuf</span>
+<span class="n">fbuf</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_VLSB</span><span class="p">)</span>
+<span class="n">fbuf</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">fbuf</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>           <span class="c1"># draw on top at x=10, y=10, key=0</span>
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>

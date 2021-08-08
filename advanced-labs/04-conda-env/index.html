@@ -18,7 +18,7 @@
     
     
       
-        <title>Debugging I2C - MicroPython</title>
+        <title>Conda Environment Setup - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-i2c-bus" class="md-skip">
+        <a href="#creating-a-conda-environment-for-micropython" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Debugging I2C
+              Conda Environment Setup
             
           </span>
         </div>
@@ -1305,14 +1305,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
       
       <label class="md-nav__link" for="nav-11">
         Debugging
@@ -1331,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../28-debugging-python/" class="md-nav__link">
+      <a href="../../debugging/28-debugging-python/" class="md-nav__link">
         Debugging Python
       </a>
     </li>
@@ -1341,20 +1339,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../debugging/29a-debugging-i2c/" class="md-nav__link">
         Debugging I2C
       </a>
-      
     </li>
   
 
@@ -1364,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../29-debugging-spi/" class="md-nav__link">
+      <a href="../../debugging/29-debugging-spi/" class="md-nav__link">
         Debugging SPI
       </a>
     </li>
@@ -1376,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../27-ampy/" class="md-nav__link">
+      <a href="../../debugging/27-ampy/" class="md-nav__link">
         Ampy
       </a>
     </li>
@@ -1396,12 +1385,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
       
       <label class="md-nav__link" for="nav-12">
         Advanced Labs
@@ -1420,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-labs/01-intro/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -1432,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-labs/02-interrupt-handlers/" class="md-nav__link">
+      <a href="../02-interrupt-handlers/" class="md-nav__link">
         Interrupt Handlers
       </a>
     </li>
@@ -1444,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-labs/03-timing-functions/" class="md-nav__link">
+      <a href="../03-timing-functions/" class="md-nav__link">
         Timing Functions
       </a>
     </li>
@@ -1466,11 +1457,83 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/04-conda-env/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Conda Environment Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Conda Environment Setup
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-your-conda-environment" class="md-nav__link">
+    Creating Your Conda Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-pico-forum-on-micropython-site" class="md-nav__link">
+    Raspberry Pi Pico Forum on MicroPython Site
+  </a>
+  
+    <nav class="md-nav" aria-label="Raspberry Pi Pico Forum on MicroPython Site">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micropython-pycopy-pycopy" class="md-nav__link">
+    MicroPython PyCopy (pycopy)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1611,6 +1674,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-your-conda-environment" class="md-nav__link">
+    Creating Your Conda Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-pico-forum-on-micropython-site" class="md-nav__link">
+    Raspberry Pi Pico Forum on MicroPython Site
+  </a>
+  
+    <nav class="md-nav" aria-label="Raspberry Pi Pico Forum on MicroPython Site">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micropython-pycopy-pycopy" class="md-nav__link">
+    MicroPython PyCopy (pycopy)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1621,13 +1733,34 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/debugging/29a-debugging-i2c.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/advanced-labs/04-conda-env.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="debugging-i2c-bus">Debugging I2C Bus</h1>
-<p><img alt="" src="../../img/logic-analysis-i2c.png" /></p>
+                <h1 id="creating-a-conda-environment-for-micropython">Creating a Conda Environment for MicroPython</h1>
+<p>Conda is a powerful tool for building consistent and stable Python environments.  These environments include all the Python libraries that you need to be a productive MicroPython developer. Using Conda allows you to keep each of your Python projects cleanly separated.  This may not be important on your 2nd or 3rd Python project, but as you do more Python projects you will benefit from isolated environments that each have their own versions of each Python libraries that will not conflict with each other.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>To get started, it is best to go directly to the <a href="https://docs.conda.io/en/latest/#">Conda web site</a> and follow the <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">installation instructions</a> for you specific version of your operating system.  There are many variations of installation not just for Windows, Mac and Linux, but each version my had different steps required.</p>
+<p>Once you can open a terminal and type in <code>conda --version</code> you have successfully installed Conda.  For this document we have used conda:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda --version
+</code></pre></div>
+</td></tr></table>
+<p>which returns:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda 4.10.1
+</code></pre></div>
+</td></tr></table>
+<h2 id="creating-your-conda-environment">Creating Your Conda Environment</h2>
+<p>Our fist job is to create a desktop environment that allows us to run Python programs that support the MicroPython development process.  </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n micropython <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+</code></pre></div>
+</td></tr></table>
+<p>This process may take about five minutes, since all the most current libraries must be downloaded onto your desktop.  Once this process finsihes you must remember to deactivate your current conda environment (if you have one and then activate your new micropython environment.</p>
+<h2 id="references">References</h2>
+<h2 id="raspberry-pi-pico-forum-on-micropython-site">Raspberry Pi Pico Forum on MicroPython Site</h2>
+<p><a href="https://forum.micropython.org/viewforum.php?f=21">MicroPython Pico Forum</a></p>
+<h3 id="micropython-pycopy-pycopy">MicroPython PyCopy (pycopy)</h3>
+<p><a href="https://github.com/pfalcon/pycopy">MicroPython PyCopy</a></p>
                 
               
               
@@ -1646,7 +1779,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../28-debugging-python/" title="Debugging Python" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../../circuit-python/01-intro/" title="Circuit Python" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -1655,19 +1788,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Debugging Python
+                  Circuit Python
                 </span>
               </div>
             </a>
           
           
-            <a href="../29-debugging-spi/" title="Debugging SPI" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../../misc/projects/" title="Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Debugging SPI
+                  Projects
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
