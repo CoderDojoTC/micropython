@@ -4,11 +4,11 @@ A rotary encoder, or more specifically a directional rotary encoder, is similar 
 
 Rotary encoders can be thought of as two concentric rings of switches that go on and off.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.
 
-![Directional Encoders](img/Incremental_directional_encoder.gif)
+![Directional Encoders](../img/Incremental_directional_encoder.gif)
 
 We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.
 
-~[Rotary Encoder Circuit](img/rotary-encoder-circuit.png)
+~[Rotary Encoder Circuit](../img/rotary-encoder-circuit.png)
 
 We hooked up the outer pins of the encoder to GPIO pins 16 and 17 in the lower right corner of the Pico.
 
