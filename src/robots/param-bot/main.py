@@ -7,6 +7,10 @@ import machine
 import ssd1306
 import time
 from rotary import Rotary
+import micropython
+
+# for error handlings
+micropython.alloc_emergency_exception_buf(100)
 
 # the builtin LED should be flashing when the main loop is running
 led_onboard = machine.Pin(25, machine.Pin.OUT)
@@ -76,36 +80,48 @@ def ping():
     distance = (timepassed * 0.0343) / 2
     return distance
 
-i = 0
-prog = 0
-while True:
-    led_onboard.toggle()
+def myMain():
+    i = 0
+    prog = 0
+    while True:
+        led_onboard.toggle()
+        oled.fill(0)
+        dist = round(ping(), 2)
+        print("Distance:", dist, " cm")
+        oled.text('Param Bot', 0, 0, 1)
+        oled.text('d=', 0, 10, 1)
+        if dist < 100: 
+            oled.text(str(dist), 20, 10, 1)
+            
+        oled.text('prog=', 0, 20, 1)
+        oled.text(str(prog), 45, 20, 1)
+        
+        oled.text('val=', 0, 30, 1)
+        oled.text(str(val), 40, 30, 1)
+        
+        oled.text('x=', 0, 40, 1)
+        oled.text(str(x), 20, 40, 1)
+        
+        if button1.value():
+            oled.text('b1=', 100, 10, 1)
+            oled.text(str(button1.value()), 120, 10, 1)
+     
+        if button2.value():
+            oled.text('b2=', 100, 20, 1)
+            oled.text(str(button1.value()), 120, 20, 1)
+            
+        oled.text(str(i), 0, 53, 1)
+        oled.show()
+        time.sleep(.1)
+        i += 1
+
+# this is the main loop that will watch for control-C events
+try:
+    myMain()
+except KeyboardInterrupt:
+    print('Got ctrl-c')
+finally:
+    # Optional cleanup code
+    print('cleaning up')
     oled.fill(0)
-    dist = round(ping(), 2)
-    print("Distance:", dist, " cm")
-    oled.text('Param Bot', 0, 0, 1)
-    oled.text('d=', 0, 10, 1)
-    if dist < 100: 
-        oled.text(str(dist), 20, 10, 1)
-        
-    oled.text('prog=', 0, 20, 1)
-    oled.text(str(prog), 45, 20, 1)
-    
-    oled.text('val=', 0, 30, 1)
-    oled.text(str(val), 40, 30, 1)
-    
-    oled.text('x=', 0, 40, 1)
-    oled.text(str(x), 20, 40, 1)
-    
-    if button1.value():
-        oled.text('b1=', 100, 10, 1)
-        oled.text(str(button1.value()), 120, 10, 1)
- 
-    if button2.value():
-        oled.text('b2=', 100, 20, 1)
-        oled.text(str(button1.value()), 120, 20, 1)
-        
-    oled.text(str(i), 0, 53, 1)
     oled.show()
-    time.sleep(.1)
-    i += 1
