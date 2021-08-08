@@ -18,7 +18,7 @@
     
     
       
-        <title>Blink - MicroPython</title>
+        <title>Fade and LED in and Out - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blink-in-micropython" class="md-skip">
+        <a href="#fade-and-led-in-and-out" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Blink
+              Fade and LED in and Out
             
           </span>
         </div>
@@ -385,14 +385,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
       <label class="md-nav__link" for="nav-4">
         Basic Examples
@@ -433,70 +431,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Blink
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../03-blink/" class="md-nav__link">
         Blink
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virual-lab" class="md-nav__link">
-    Virual Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-program" class="md-nav__link">
-    Sample Program
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blinking-the-builtin-led" class="md-nav__link">
-    Blinking the Builtin LED
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1644,29 +1583,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#welcome-to-pulse-width-modulation" class="md-nav__link">
+    Welcome to Pulse Width Modulation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#virual-lab" class="md-nav__link">
-    Virual Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-program" class="md-nav__link">
-    Sample Program
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blinking-the-builtin-led" class="md-nav__link">
-    Blinking the Builtin LED
+  <a href="#suggested-exercises" class="md-nav__link">
+    Suggested Exercises
   </a>
   
 </li>
@@ -1683,40 +1608,26 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/intro/03-blink.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/intro/04-fade-in-and-out.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="blink-in-micropython">Blink in Micropython</h1>
-<h2 id="overview">Overview</h2>
-<p>In this lab, we will use MicroPython to make an LED blink on and off using Python. We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.</p>
-<h2 id="virual-lab">Virual Lab</h2>
-<p><a href="http://micropython.org/unicorn/">Unicorn Emulator</a></p>
-<h2 id="sample-program">Sample Program</h2>
-<p>This program has two parts.  The first part is often called the preamble - this code gets executed once and loads the right libraries and initializes global variables.</p>
-<p>The second part is the main event loop.  This program continues to run until the device is powered down or reset.</p>
-<p>The <code>import machine</code> statement is required to define the characteristics of our physical machine.  The <code>import time</code> library is required for the python sleep function.</p>
-<h2 id="blinking-the-builtin-led">Blinking the Builtin LED</h2>
-<p>This lab is the perfect place to start since you only need the Pico and a micro USB cable.</p>
-<p>The pico has a single built in LED wired to GPIO 25.</p>
-<p><img alt="" src="../../img/builtin-led.png" /></p>
-<p>This program will blink the built-in LED on and off every 1/4 of a second.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
+                <h1 id="fade-and-led-in-and-out">Fade and LED in and Out</h1>
+<p>In the prior Blink lab, we turned an LED on an off at different speeds.  But what if we want to slowly turn on our LED on and off?  In this lab we will show you how to dim your LED to any brightness level you want.</p>
+<h2 id="welcome-to-pulse-width-modulation">Welcome to Pulse Width Modulation</h2>
+<p>Although digital computers are good at quickly turning signals on and off, they don't really allow us to easily set an output to a given voltage level without complex circuits.  But there is an easier way to adjust the brightness of an LED!  We can quickly turn the signal to the LED on and off.  We can do this so quickly that you can't even see it flicker.  Controlling the amount of time a signal is on is all about controlling the width of the ON pulse.  That is why this is called Pulse Width Modulation or PWM for short.</p>
+<p>With a PWM design there are two things we need to tell the microcontroller:</p>
+<ol>
+<li>How often do you want a square wave to go on and off?</li>
+<li>How wide should the on part of the pulse be (relative to the total width).  This is called the duty cycle.</li>
+</ol>
+<p>The rate of change of the pulse is call the frequency.  You can set the frequency to be 1,000 changes per second, which is much faster than the human eye can detect.  This is done using the following line:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>If you save the file as main.py, this program will run when the pico starts up without the BOOTSEL being pressed.</p>
-<p>Here is the code that will blink an LED that is connected to PIN GIO16, which is in the upper right corner of the Pico.</p>
+<p>Note that we can slow the frequency way down and the dimming effect will still work.  As an experiment you can change the PWM frequency to around 20 and you will see a distinct flicker as the LED turns on.</p>
+<p>Here is the sample program that will slowly dim the builtin LED that is on pin 25:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1727,32 +1638,35 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="c1"># upper right corner pin with USB on the left</span>
-<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>from machine import Pin, PWM
+from time import sleep
 
-<span class="c1"># loop forever</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+pwm = PWM(Pin(25))
+
+pwm.freq(1000)
+
+while True:
+    for duty in range(65025):
+        pwm.duty_u16(duty)
+        sleep(0.0001)
+    for duty in range(65025, 0, -1):
+        pwm.duty_u16(duty)
+        sleep(0.0001)
 </code></pre></div>
 </td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<p>Note that the duty cycle starts at 0 (always off) and moves slowly up to 65,025 (always on).  It then does the reverse and slowly dims the LED and then repeats.  There is only a 1/10,000 of a delay between these changes so the LED will completely turn on in about six seconds before it starts to dim again.</p>
+<h2 id="suggested-exercises">Suggested Exercises</h2>
+<ol>
+<li>Change the frequency from 1,000 to 500, 100, 50, 40, 30, 25, 20, and 10.  When can you just barley see it flicker?  What does this tell you about the human eye?</li>
+<li>Can you add a delay so that the LED stays on at full brightness for one second before it starts to dim again?</li>
+<li>Can you add a delay so that the LED is completely off for five seconds and then goes to full brightness and off in one second?</li>
+<li>What lights in your home would you like to see slowly dim on and off?  How could you modify a light (safely) so that it slowly dimmed on and off.  Would PWM work with all lightbulb types such as tungsten filament bulbs that take a long time to heat up and cool down?</li>
+<li>Can you hook up a set of red, green and blue LEDs program them to fade in and out to display all the colors of the rainbow (red, orange, yellow, green, blue, indigo and violet)?</li>
+<li>When you stop the program does the LED stop changing brightness?  Does it retain the value that it had when you pressed the Stop function?  What does that tell you about how main CPU and the role of PWM?  Note that we will cover up doing "cleanup" events that stop all PWM activity in our <a href="../../advanced-labs/02-interrupt-handlers/">Interrupt Handlers Lab</a></li>
+</ol>
                 
               
               
@@ -1767,41 +1681,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../02-breadboards/" title="Breadboards" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Breadboards
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../03-button/" title="Buttons" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Buttons
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
