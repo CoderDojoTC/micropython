@@ -4,6 +4,8 @@ In the prior Blink lab, we turned an LED on an off at different speeds.  But wha
 
 ## Welcome to Pulse Width Modulation
 
+![PWM Duty Cycle](../img/PWM-duty-cycle.png)
+
 Although digital computers are good at quickly turning signals on and off, they don't really allow us to easily set an output to a given voltage level without complex circuits.  But there is an easier way to adjust the brightness of an LED!  We can quickly turn the signal to the LED on and off.  We can do this so quickly that you can't even see it flicker.  Controlling the amount of time a signal is on is all about controlling the width of the ON pulse.  That is why this is called Pulse Width Modulation or PWM for short.
 
 With a PWM design there are two things we need to tell the microcontroller:
@@ -48,3 +50,9 @@ Note that the duty cycle starts at 0 (always off) and moves slowly up to 65,025 
 4. What lights in your home would you like to see slowly dim on and off?  How could you modify a light (safely) so that it slowly dimmed on and off.  Would PWM work with all lightbulb types such as tungsten filament bulbs that take a long time to heat up and cool down?
 5. Can you hook up a set of red, green and blue LEDs program them to fade in and out to display all the colors of the rainbow (red, orange, yellow, green, blue, indigo and violet)?
 6. When you stop the program does the LED stop changing brightness?  Does it retain the value that it had when you pressed the Stop function?  What does that tell you about how main CPU and the role of PWM?  Note that we will cover up doing "cleanup" events that stop all PWM activity in our [Interrupt Handlers Lab](../advanced-labs/02-interrupt-handlers.md)
+
+## References
+
+### Pulse With Modulation
+
+1. [Wikipedia Article on Pulse With Modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation)
