@@ -1819,17 +1819,22 @@ This is the connection diagram that shows how the button is connected to the GPI
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 
-<span class="c1"># Sample Rapsberry Pi Pico MicroPython button press example with a debounce delay value in the interrupt handler</span>
+<span class="c1"># Sample Raspberry Pi Pico MicroPython button press example with a debounce delay value of 200ms in the interrupt handler</span>
 
-<span class="n">button_presses</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">button_presses</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the count of times the button has been pressed</span>
 <span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the last time we pressed the button</span>
 
-<span class="c1"># the lower right coner has a wire that goes through the button to the 3.3 rail</span>
-<span class="n">count_input</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">builtin_led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="c1"># The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail</span>
+<span class="n">button_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
 
-<span class="c1"># this function gets called every time the button is pressed</span>
+<span class="c1"># This function gets called every time the button is pressed.  The parameter &quot;pin&quot; is not used.</span>
 <span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">button_presses</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
@@ -1839,7 +1844,7 @@ This is the connection diagram that shows how the button is connected to the GPI
         <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
 
 <span class="c1"># now we register the handler function when the button is pressed</span>
-<span class="n">count_input</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
+<span class="n">button_pin</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
 
 <span class="c1"># This is for only printing when a new button press count value happens</span>
 <span class="n">old_presses</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1847,6 +1852,7 @@ This is the connection diagram that shows how the button is connected to the GPI
     <span class="c1"># only print on change in the button_presses value</span>
     <span class="k">if</span> <span class="n">button_presses</span> <span class="o">!=</span> <span class="n">old_presses</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">button_presses</span><span class="p">)</span>
+        <span class="n">builtin_led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
         <span class="n">old_presses</span> <span class="o">=</span> <span class="n">button_presses</span>
 </code></pre></div>
 </td></tr></table>
