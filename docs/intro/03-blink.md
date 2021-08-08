@@ -1,7 +1,7 @@
 # Blink in Micropython
 
 ## Overview
-In this lab, we will use Micropython to make an LED blink on and off using Python. We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.
+In this lab, we will use MicroPython to make an LED blink on and off using Python. We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.
 
 ## Virual Lab
 
