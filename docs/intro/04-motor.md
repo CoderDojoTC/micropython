@@ -1,6 +1,11 @@
 # Driving a Motor with the Pico
 
-The Pico has 26 general purpose input and output pins.  However, each pin's power is designed to digitally communicate with other devices and has a limited current capacity of around 17 milliamps according to the [Raspberry Pi Pico Datasheet Table 5](https://github.com/raspberrypi/documentation/blob/master/hardware/computemodule/datasheets/rpi_DATA_CM_2p0.pdf).  The solution is to either use the digital output signal to turn on and off a switch such as a transistor of to use a motor driver chip such as an L293D chip.
+The Pico has 26 general purpose input and output pins.  However, each pin's power is designed to digitally communicate with other devices and has a limited current capacity of around 17 milliamps according to the [Raspberry Pi Pico Datasheet Table 5](https://github.com/raspberrypi/documentation/blob/master/hardware/computemodule/datasheets/rpi_DATA_CM_2p0.pdf).  17 milliamps is fine for lighting up an LED.  However, motors require much more power.  17 milliamps is not enough current to drive even small motors.  Even our small DC hobby motors we use with our robots require around 200 milliamps.
+
+But don't worry!  We have two ways around this problem.
+
+1. The first option is to use a simple transistor as a "switch" that will use our low-power digital signal to control its on-and-off settings.
+2. The second option is to use a full motor driver chip such as an L293D chip.  This chip takes the same PWM signal we learned about in our [Fade In and Out Lab](04-fade-in-and-out.md).
 
 ## Basic Transistor Circuit
 
