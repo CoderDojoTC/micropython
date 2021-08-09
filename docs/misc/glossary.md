@@ -4,11 +4,9 @@ The format is used to generate a concept graph for this course
 -->
 
 #### Ampy
-A micropython command line utility to interact with a CircuitPython or MicroPython board over a serial connection.
+An obsolete MicroPython support tool created by Adafruit but no longer supported.
 
-Ampy is meant to be a simple command line tool to manipulate files and run code on a CircuitPython or MicroPython board over its serial connection. With ampy you can send files from your computer to the board's file system, download files from a board to your computer, and even send a Python script to a board to be executed.
-
-Note that ampy by design is meant to be simple and does not support advanced interaction like a shell or terminal to send input to a board. Check out other MicroPython tools like rshell or mpfshell for more advanced interaction with boards.
+Check out other MicroPython tools like [rshell](#rshell) or mpfshell for more advanced interaction with boards.
 
 #### Analog to Digital Converter
 A component that takes an analogue signal and changes it to a digital one.
@@ -16,6 +14,9 @@ A component that takes an analogue signal and changes it to a digital one.
 Every ADC has two parameters, its [resolution](#resolution), measured in digital bits, and its [channels](#channels), or how many analogue signals it can accept and convert at once.
 
 * Also know as: ADC
+
+#### Blit
+A special form of copy operation; it copies a rectangular area of pixels from one framebuffer to another.  It is used in MicroPython when doing drawing to a display such as an OLED display.
 
 #### BOOTSEL
 A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
@@ -100,7 +101,7 @@ Note: With rshell you can disable USB Mass Storage and still copy files into and
 
 [RShell GitHub Repo](https://github.com/dhylands/rshell)
 
-### SPI
+#### SPI
 An interface bus commonly used to send data between microcontrollers and small peripherals such as sensors, displays and SD cards. SPI uses separate clock and data lines, along with a select line to choose the device you wish to talk to.
 
 Also known as: Serial Peripheral Interface

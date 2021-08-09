@@ -1,4 +1,4 @@
-# Colophone
+# Colophon
 
 We are mostly a group of unpaid volunteers without a large budget for distributed content management software.  However, we still want to provide a great user experience for both our mentors and our students.  So we use free open-source tools whenever we can.  Here is how we built this site.
 

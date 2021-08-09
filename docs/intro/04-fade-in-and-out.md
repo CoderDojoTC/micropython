@@ -42,6 +42,23 @@ while True:
 
 Note that the duty cycle starts at 0 (always off) and moves slowly up to 65,025 (always on).  It then does the reverse and slowly dims the LED and then repeats.  There is only a 1/10,000 of a delay between these changes so the LED will completely turn on in about six seconds before it starts to dim again.
 
+## PWM Functions
+
+Here is a list of the PWM functions.
+
+```python
+from machine import Pin, PWM
+
+pwm0 = PWM(Pin(0))      # create PWM object from a pin
+pwm0.freq()             # get current frequency
+pwm0.freq(1000)         # set frequency (1000 cycles per minute)
+pwm0.duty_u16()         # get current duty cycle, range 0-65535
+pwm0.duty_u16(200)      # set duty cycle, range 0-65535
+pwm0.deinit()           # turn off PWM on the pin
+```
+
+Make sure you ```deinit()``` to de-initialize the PWM controller after you are done.  You may have to trap the stop to do this.  For example if a PWM is driving motors, your Stop must send deinit() to each motor controller.  See the [Interrupt Handlers](../advanced-labs/02-interrupt-handlers.md) for details.
+
 ## Suggested Exercises
 
 1. Change the frequency from 1,000 to 500, 100, 50, 40, 30, 25, 20, and 10.  When can you just barley see it flicker?  What does this tell you about the human eye?
