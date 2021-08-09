@@ -145,7 +145,9 @@ while True:
 
 ## ISR with Deactivation
 
-The key lines we add are a deactivate of the IRQ, a sleep for 200 milliseconds and a reenable of the IRQ after the sleep.
+Although there are benefits to the simplicity of the code above, some microcontrollers developers suggest that you simply deactivate the IRQ during the debounce sleep.  This makes sense since there is two small calculation of the time differences (a subtraction and a compare operation) that do not need to be performed.
+
+The key lines we add are a deactivate of the IRQ, a sleep for 200 milliseconds and a re-enable of the IRQ after the sleep.  Both approaches have worked for me and I will let you decide the tradeoffs.
 
 ```py
 import machine, utime
@@ -161,7 +163,7 @@ def count_handler(pin):
     presses +=1
     # debounce time - we ignore any activity diring this period 
     utime.sleep_ms(200)
-    # reenable the IRQ
+    # re-enable the IRQ
     count_input.irq(trigger=machine.Pin.IRQ_FALLING, handler = count_handler)
 
 count_input.irq(trigger=machine.Pin.IRQ_FALLING, handler = count_handler)
@@ -183,3 +185,4 @@ while True:
 ## References
 
 1. [MicroPython Documentation on Interrupt Handlers](https://docs.micropython.org/en/latest/reference/isr_rules.html)
+2. [A Guide to Debouncing by Jack G. Ganssle](https://my.eng.utah.edu/~cs5780/debouncing.pdf) - this is an excellent reference if you want to know how long to set the debounce intervals for various types of switches.  It has lots of transition plots and shows the incredible variation in transition states of switches.  In the Summary of the final page, Jack suggest that most low-cost switch denouncers should use a debounce period of between 20 and 50 milliseconds if the users want a fast response.
