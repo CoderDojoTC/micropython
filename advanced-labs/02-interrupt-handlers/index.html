@@ -1952,7 +1952,8 @@ Button 1 value: 21
 </code></pre></div>
 </td></tr></table>
 <h2 id="isr-with-deactivation">ISR with Deactivation</h2>
-<p>The key lines we add are a deactivate of the IRQ, a sleep for 200 milliseconds and a reenable of the IRQ after the sleep.</p>
+<p>Although there are benefits to the simplicity of the code above, some microcontrollers developers suggest that you simply deactivate the IRQ during the debounce sleep.  This makes sense since there is two small calculation of the time differences (a subtraction and a compare operation) that do not need to be performed.</p>
+<p>The key lines we add are a deactivate of the IRQ, a sleep for 200 milliseconds and a re-enable of the IRQ after the sleep.  Both approaches have worked for me and I will let you decide the tradeoffs.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1992,7 +1993,7 @@ Button 1 value: 21
     <span class="n">presses</span> <span class="o">+=</span><span class="mi">1</span>
     <span class="c1"># debounce time - we ignore any activity diring this period </span>
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="c1"># reenable the IRQ</span>
+    <span class="c1"># re-enable the IRQ</span>
     <span class="n">count_input</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">count_handler</span><span class="p">)</span>
 
 <span class="n">count_input</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">count_handler</span><span class="p">)</span>
@@ -2012,6 +2013,7 @@ Button 1 value: 21
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://docs.micropython.org/en/latest/reference/isr_rules.html">MicroPython Documentation on Interrupt Handlers</a></li>
+<li><a href="https://my.eng.utah.edu/~cs5780/debouncing.pdf">A Guide to Debouncing by Jack G. Ganssle</a> - this is an excellent reference if you want to know how long to set the debounce intervals for various types of switches.  It has lots of transition plots and shows the incredible variation in transition states of switches.  In the Summary of the final page, Jack suggest that most low-cost switch denouncers should use a debounce period of between 20 and 50 milliseconds if the users want a fast response.</li>
 </ol>
                 
               
