@@ -84,7 +84,7 @@ The answer is that buttons are not perfect on/off switches.  They are essentiall
 
 As a switch goes from open to closed, it moves from a stable state, through an unstable transition state and then it finally arrives at a new stable state.  This is illustrated in the drawing below.
 
-![Debounce Transition State](../imb/debounce-transition.png)
+![Debounce Transition State](../img/debounce-transition.png)
 
 We can reduce this "noise" with a small capacitor next to the button.  The capacitor will quickly absorb the energy of the button transition and it will "smooth" out the spikes.  This will give us a more consistent readout of the number of button presses and avoid accidental "double presses" that were not intended.
 
