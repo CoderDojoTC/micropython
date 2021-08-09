@@ -485,6 +485,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pwm-functions" class="md-nav__link">
+    PWM Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suggested-exercises" class="md-nav__link">
     Suggested Exercises
   </a>
@@ -1328,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robots/05-param-bot/" class="md-nav__link">
+      <a href="../../robots/05-param-bot.md" class="md-nav__link">
         Param Bot
       </a>
     </li>
@@ -1427,18 +1434,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../debugging/27-ampy/" class="md-nav__link">
-        Ampy
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -1526,6 +1521,18 @@
     <li class="md-nav__item">
       <a href="../../advanced-labs/04-conda-env/" class="md-nav__link">
         Conda Environment Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/05-os-functions/" class="md-nav__link">
+        OS Functions
       </a>
     </li>
   
@@ -1681,6 +1688,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pwm-functions" class="md-nav__link">
+    PWM Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suggested-exercises" class="md-nav__link">
     Suggested Exercises
   </a>
@@ -1770,6 +1784,26 @@ while True:
 </code></pre></div>
 </td></tr></table>
 <p>Note that the duty cycle starts at 0 (always off) and moves slowly up to 65,025 (always on).  It then does the reverse and slowly dims the LED and then repeats.  There is only a 1/10,000 of a delay between these changes so the LED will completely turn on in about six seconds before it starts to dim again.</p>
+<h2 id="pwm-functions">PWM Functions</h2>
+<p>Here is a list of the PWM functions.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+
+<span class="n">pwm0</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>      <span class="c1"># create PWM object from a pin</span>
+<span class="n">pwm0</span><span class="o">.</span><span class="n">freq</span><span class="p">()</span>             <span class="c1"># get current frequency</span>
+<span class="n">pwm0</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>         <span class="c1"># set frequency (1000 cycles per minute)</span>
+<span class="n">pwm0</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">()</span>         <span class="c1"># get current duty cycle, range 0-65535</span>
+<span class="n">pwm0</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>      <span class="c1"># set duty cycle, range 0-65535</span>
+<span class="n">pwm0</span><span class="o">.</span><span class="n">deinit</span><span class="p">()</span>           <span class="c1"># turn off PWM on the pin</span>
+</code></pre></div>
+</td></tr></table>
+<p>Make sure you <code>deinit()</code> to de-initialize the PWM controller after you are done.  You may have to trap the stop to do this.  For example if a PWM is driving motors, your Stop must send deinit() to each motor controller.  See the <a href="../../advanced-labs/02-interrupt-handlers/">Interrupt Handlers</a> for details.</p>
 <h2 id="suggested-exercises">Suggested Exercises</h2>
 <ol>
 <li>Change the frequency from 1,000 to 500, 100, 50, 40, 30, 25, 20, and 10.  When can you just barley see it flicker?  What does this tell you about the human eye?</li>

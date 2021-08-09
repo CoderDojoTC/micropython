@@ -1261,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robots/05-param-bot/" class="md-nav__link">
+      <a href="../../robots/05-param-bot.md" class="md-nav__link">
         Param Bot
       </a>
     </li>
@@ -1360,18 +1360,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../debugging/27-ampy/" class="md-nav__link">
-        Ampy
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -1464,6 +1452,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/05-os-functions/" class="md-nav__link">
+        OS Functions
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1535,6 +1535,13 @@
         <li class="md-nav__item">
   <a href="#analog-to-digital-converter" class="md-nav__link">
     Analog to Digital Converter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blit" class="md-nav__link">
+    Blit
   </a>
   
 </li>
@@ -1635,32 +1642,26 @@
     SPI
   </a>
   
-    <nav class="md-nav" aria-label="SPI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#thonny" class="md-nav__link">
     Thonny
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#uf2-file" class="md-nav__link">
     UF2 File
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1791,6 +1792,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#blit" class="md-nav__link">
+    Blit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bootsel" class="md-nav__link">
     BOOTSEL
   </a>
@@ -1886,32 +1894,26 @@
     SPI
   </a>
   
-    <nav class="md-nav" aria-label="SPI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#thonny" class="md-nav__link">
     Thonny
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#uf2-file" class="md-nav__link">
     UF2 File
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#unicorn" class="md-nav__link">
     Unicorn
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1938,15 +1940,16 @@ The format is used to generate a concept graph for this course
 -->
 
 <h4 id="ampy">Ampy</h4>
-<p>A micropython command line utility to interact with a CircuitPython or MicroPython board over a serial connection.</p>
-<p>Ampy is meant to be a simple command line tool to manipulate files and run code on a CircuitPython or MicroPython board over its serial connection. With ampy you can send files from your computer to the board's file system, download files from a board to your computer, and even send a Python script to a board to be executed.</p>
-<p>Note that ampy by design is meant to be simple and does not support advanced interaction like a shell or terminal to send input to a board. Check out other MicroPython tools like rshell or mpfshell for more advanced interaction with boards.</p>
+<p>An obsolete MicroPython support tool created by Adafruit but no longer supported.</p>
+<p>Check out other MicroPython tools like <a href="#rshell">rshell</a> or mpfshell for more advanced interaction with boards.</p>
 <h4 id="analog-to-digital-converter">Analog to Digital Converter</h4>
 <p>A component that takes an analogue signal and changes it to a digital one.</p>
 <p>Every ADC has two parameters, its <a href="#resolution">resolution</a>, measured in digital bits, and its <a href="#channels">channels</a>, or how many analogue signals it can accept and convert at once.</p>
 <ul>
 <li>Also know as: ADC</li>
 </ul>
+<h4 id="blit">Blit</h4>
+<p>A special form of copy operation; it copies a rectangular area of pixels from one framebuffer to another.  It is used in MicroPython when doing drawing to a display such as an OLED display.</p>
 <h4 id="bootsel">BOOTSEL</h4>
 <p>A button on the pico that when pressed during power up will allow you to mount the device as a USB device.</p>
 <p><img alt="" src="../../img/boot-selection.png" /></p>
@@ -2009,7 +2012,7 @@ The format is used to generate a concept graph for this course
 <p>It also has the ability to invoke the regular REPL, so rshell can be used as a terminal emulator as well.</p>
 <p>Note: With rshell you can disable USB Mass Storage and still copy files into and out of your pyboard.</p>
 <p><a href="https://github.com/dhylands/rshell">RShell GitHub Repo</a></p>
-<h3 id="spi">SPI</h3>
+<h4 id="spi">SPI</h4>
 <p>An interface bus commonly used to send data between microcontrollers and small peripherals such as sensors, displays and SD cards. SPI uses separate clock and data lines, along with a select line to choose the device you wish to talk to.</p>
 <p>Also known as: Serial Peripheral Interface
 See also: <a href="#i2c">I2C</a></p>

@@ -12,8 +12,16 @@ os.listdir()
 To find out all the os functions use:
 
 ```python
-dir(os)
+import os
+print(dir(os))
 ``
+
+Returns
+
+```
+['__class__', '__name__', 'remove', 'VfsFat', 'VfsLfs2', 'chdir', 'getcwd', 
+'ilistdir', 'listdir', 'mkdir', 'mount', 'rename', 'rmdir', 'stat', 'statvfs', 
+'umount', 'uname', 'urandom']`
 
 ## References
 
