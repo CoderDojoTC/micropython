@@ -1261,8 +1261,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robots/05-param-bot.md" class="md-nav__link">
-        Param Bot
+      <a href="../../robots/05-ajusta-bot/" class="md-nav__link">
+        Ajusta Bot
       </a>
     </li>
   
@@ -1867,7 +1867,7 @@ Button 1 value: 21
 <p>But if you are careful, you will note something slightly unexpected might happen.  I the example above, I actually only pressed the button about 10 times.  But the button value is 21!  What could be going on here? Could there be a bug in the code?</p>
 <p>The answer is that buttons are not perfect on/off switches.  They are essentially noisy on/off devices that may go through a transition of off/on/off/on each time we press the button.</p>
 <p>As a switch goes from open to closed, it moves from a stable state, through an unstable transition state and then it finally arrives at a new stable state.  This is illustrated in the drawing below.</p>
-<p><img alt="Debounce Transition State" src="../imb/debounce-transition.png" /></p>
+<p><img alt="Debounce Transition State" src="../../img/debounce-transition.png" /></p>
 <p>We can reduce this "noise" with a small capacitor next to the button.  The capacitor will quickly absorb the energy of the button transition and it will "smooth" out the spikes.  This will give us a more consistent readout of the number of button presses and avoid accidental "double presses" that were not intended.</p>
 <p>However, we can also get a clean signal by using software.  The key is when we first detect that a transition may be happening we "stop listening" for a short period of time until we are confident that the unstable transition state is over.  This is typically around 20 milliseconds, but there may be a few stray signals left.  Since we may not have to detect changes more frequently than 5 presses per second, we can go to sleep in our ISR for up to 200 milliseconds.  This will give us a nice stable reading from the button.</p>
 <p>These are general rules but for our breadboard mounted momentary switches, the values are appropriate.</p>
