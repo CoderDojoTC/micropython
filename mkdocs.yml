@@ -91,7 +91,7 @@ nav:
     - Conda Environment Setup: advanced-labs/04-conda-env.md
     - OS Functions: advanced-labs/05-os-functions.md
   - Kits:
-    - Introduction: 01-intro.md
+    - Introduction: kits/01-intro.md
     - Maker Pi RP2040: kits/maker-pi-rp2040.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
