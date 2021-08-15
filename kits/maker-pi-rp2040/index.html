@@ -1553,15 +1553,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#removing-the-default-circuitpython" class="md-nav__link">
-    Removing the Default CircuitPython
+  <a href="#removing-the-default-circuitpython-and" class="md-nav__link">
+    Removing the Default CircuitPython and
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#led-demo" class="md-nav__link">
-    LED Demo
+  <a href="#flash-nuke" class="md-nav__link">
+    Flash Nuke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-motor-testing-buttons" class="md-nav__link">
+    Easy Motor Testing Buttons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-blue-leds-demo" class="md-nav__link">
+    13 Blue LEDs Demo
   </a>
   
 </li>
@@ -1738,15 +1752,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#removing-the-default-circuitpython" class="md-nav__link">
-    Removing the Default CircuitPython
+  <a href="#removing-the-default-circuitpython-and" class="md-nav__link">
+    Removing the Default CircuitPython and
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#led-demo" class="md-nav__link">
-    LED Demo
+  <a href="#flash-nuke" class="md-nav__link">
+    Flash Nuke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-motor-testing-buttons" class="md-nav__link">
+    Easy Motor Testing Buttons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-blue-leds-demo" class="md-nav__link">
+    13 Blue LEDs Demo
   </a>
   
 </li>
@@ -1802,11 +1830,18 @@
 <li>4 red motor status LEDs buttons for displaying motors A and B, forward and backward</li>
 <li>7 Grove Ports on GPs 1:0,1; 2:2,3; 3:4,5; 4:16,17; 5:6,26; 6:26,27 and 7:7,28</li>
 <li>4 servo connectors on ports GP12, GP13, GP14 and GP15</li>
+<li>On/Off switch on GP22 which can be used to mute the sound</li>
 </ul>
-<h2 id="removing-the-default-circuitpython">Removing the Default CircuitPython</h2>
-<p>I had to load the flash_nuke.uf2 file to remove the default CircuitPython runtime.  Note that the board must be fully powered down after this load for it to work.  I had 4 AA batteries connected so it was not resetting correctly.</p>
-<h2 id="led-demo">LED Demo</h2>
-<p>Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
+<h2 id="removing-the-default-circuitpython-and">Removing the Default CircuitPython and</h2>
+<p>Unfortunately, this board does NOT come with our standard MicroPython loaded.  It uses the non-standard Adafruit CircuitPython that is incompatible with most MicroPython programs being used today.  This is a sad state of affairs that confuses our students and makes it difficult to share code and libraries for MicroPython.  According to Google trends, over the last 12 months for worldwide searches, <a href="https://trends.google.com/trends/explore?q=micropython,circuitpython">MicroPython has almost five time the interest of CircuitPython</a>.  Preloading the board with CircuitPython sends a very confusing message to the marketplace.</p>
+<h2 id="flash-nuke">Flash Nuke</h2>
+<p>I want to make sure that my RP2040 was starting out with a clean image.  I downloaded the <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> file to remove the default CircuitPython runtime and all the related files.</p>
+<p>Note that the board <strong>must</strong> be fully powered down after this load for it to work.  I had 4 AA batteries connected to the VIN screw headers, so it was not resetting correctly and the reset was not working until I disconnected the batteries.</p>
+<p>The latests MicroPython runtimes are <a href="https://micropython.org/download/rp2-pico/">here</a></p>
+<h2 id="easy-motor-testing-buttons">Easy Motor Testing Buttons</h2>
+<p>One of the things I love about this board is how incredibly easy it is for students to test their motors.  The board provides four very convenient motor test buttons right on the board.  By pressing each one you can make both motors go forward and backwards.  This is a great way for students to learn about how we can generate PWM signals to simulate these four buttons.  Whoever design this board clearly had their students in mind!</p>
+<h2 id="13-blue-leds-demo">13 Blue LEDs Demo</h2>
+<p>I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
 <p><img alt="Maker Pi RP2040 LED Demo" src="../../img/maker-pi-rp2040-leds.gif" /></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -1861,11 +1896,11 @@
 </td></tr></table>
 <p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
 <h2 id="unclear-motor-current-limitations">Unclear Motor Current Limitations</h2>
-<p>This board is only designed to work with small DC-hobby motors and there is no documentation on exactly what motor driver chip is used or its precise limitations.  The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  But it is not clear if this is per motor or total.  The input voltage is only rated to an incredibly low 6 volts, which is very odd since almost all the motor driver chips can take much higher input voltages.</p>
+<p>The Maker Pi RP2040 board contains a dual channel H-bridge chip and easy-to-connect screw headers for power and motor connections.  This is fantastic for teaching robotics since students can driver two motors without ever having to use a soldering iron.  However, it is only designed to work with small DC-hobby motors and there is no documentation on exactly what motor driver chip is used or its precise current and power limitations.  The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  But it is not clear if this is per motor or total.  The input voltage is only rated to an incredibly low 6 volts, which is very odd since almost all the motor driver chips can take much higher input voltages up to 36 volts.</p>
 <p>If this motor driver chip is similar to the ubiquitous <a href="https://www.ti.com/document-viewer/L293D/datasheet/specifications#ESD_Rating_1">L293x motor controllers</a>, then the current should be 1A per motor.  I suspect it might not be the L293x since the input voltage of the L293x is 4.5 V to 36 V.</p>
-<p>I suspect that if you glued a small <a href="https://en.wikipedia.org/wiki/Heat_sink">heat sink</a> <a href="https://my.element14.com/fischer-elektronik/ick-14-16-b/heat-sink-dip-glue-on-50-c-w/dp/4620896">16 pin DIP fin</a> to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
+<p>I suspect that if you glued a small <a href="https://en.wikipedia.org/wiki/Heat_sink">heat sink</a> like a <a href="https://my.element14.com/fischer-elektronik/ick-14-16-b/heat-sink-dip-glue-on-50-c-w/dp/4620896">16 pin DIP fin</a> to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
 <p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../../img/maker-pi-rp2040-motor-driver.jpg" />
-Close-up of the motor driver chip.  I can't quite make out the numbers on the chip.</p>
+Close-up of the motor driver chip.  I can't quite make out the numbers on the chip, but the logo is not "TI".</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://link.cytron.io/maker-pi-rp2040-start">Link on Box</a></li>
