@@ -1553,8 +1553,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#removing-the-default-circuitpython-and" class="md-nav__link">
-    Removing the Default CircuitPython and
+  <a href="#basis-for-a-low-cost-robot-kit" class="md-nav__link">
+    Basis for a Low-Cost Robot Kit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-the-default-circuitpython" class="md-nav__link">
+    Removing the Default CircuitPython
   </a>
   
 </li>
@@ -1752,8 +1759,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#removing-the-default-circuitpython-and" class="md-nav__link">
-    Removing the Default CircuitPython and
+  <a href="#basis-for-a-low-cost-robot-kit" class="md-nav__link">
+    Basis for a Low-Cost Robot Kit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-the-default-circuitpython" class="md-nav__link">
+    Removing the Default CircuitPython
   </a>
   
 </li>
@@ -1811,7 +1825,7 @@
                 
                 
                 <h1 id="maker-pi-rp2040">Maker Pi RP2040</h1>
-<p>The Maker Pi PR2040 kit from <a href="https://www.cytron.io/">Cytron Technologies</a> is a $9.90 US kit that is designed to simplify learning robotics using the RP2040 chip. It became available in April of 2021.  This is the most powerful robotics board we have ever seen for under $10!</p>
+<p>The Maker Pi PR2040 kit from <a href="https://www.cytron.io/">Cytron Technologies</a> is a <a href="https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040">$9.90 US kit</a> that is designed to simplify learning robotics using the RP2040 chip. It became available in April of 2021, but demand has been very high and it is out-of-stock on many retailers sites.  We can understand this.  The Maker Pi PR2040 is the most powerful robotics board we have ever seen for under $10!</p>
 <p><img alt="Maker Pi RP2040 Top View" src="../../img/maker-pi-rp2040-top-view.png" /></p>
 <h2 id="features">Features</h2>
 <p>All our robots are built around a RP2040 and a motor driver with a few low-cost sensors and displays.  With the exception of the OLED display, this board packs in a huge number of features for a low cost of $9.90.</p>
@@ -1831,9 +1845,18 @@
 <li>7 Grove Ports on GPs 1:0,1; 2:2,3; 3:4,5; 4:16,17; 5:6,26; 6:26,27 and 7:7,28</li>
 <li>4 servo connectors on ports GP12, GP13, GP14 and GP15</li>
 <li>On/Off switch on GP22 which can be used to mute the sound</li>
+<li>Phillps head screwdriver that works on the header pins - really convenient for students!</li>
+<li>4 <a href="https://wiki.seeedstudio.com/Grove_System/">Grove Connectors</a></li>
+<li>
+<ul>
+<li>Rubber mounting feet</li>
 </ul>
-<h2 id="removing-the-default-circuitpython-and">Removing the Default CircuitPython and</h2>
-<p>Unfortunately, this board does NOT come with our standard MicroPython loaded.  It uses the non-standard Adafruit CircuitPython that is incompatible with most MicroPython programs being used today.  This is a sad state of affairs that confuses our students and makes it difficult to share code and libraries for MicroPython.  According to Google trends, over the last 12 months for worldwide searches, <a href="https://trends.google.com/trends/explore?q=micropython,circuitpython">MicroPython has almost five time the interest of CircuitPython</a>.  Preloading the board with CircuitPython sends a very confusing message to the marketplace.</p>
+</li>
+</ul>
+<h2 id="basis-for-a-low-cost-robot-kit">Basis for a Low-Cost Robot Kit</h2>
+<p>When this kit is combined with a standard <a href="https://www.cytron.io/p-2wd-smart-robot-car-chassis">2 Wheel Drive Smart Car Chassis</a> and a <a href="https://www.coderdojotc.org/micropython/sensors/07-VL53L0X_GY/">distance sensor</a> it becomes a great low-cost way of getting started with Python and robots.</p>
+<h2 id="removing-the-default-circuitpython">Removing the Default CircuitPython</h2>
+<p>Cytron Technologies has a wonderful <a href="https://www.youtube.com/watch?v=mn1nqgEkufA">YouTube videos</a> on how to program the Maker Pi RP2040 using MicroPython.  Unfortunately, this board does NOT come with our standard MicroPython loaded! :-O  It uses the non-standard Adafruit CircuitPython that is incompatible with most MicroPython programs being used today.  This is a sad state of affairs that confuses our students and makes it difficult to share code and libraries for MicroPython.  According to Google trends, over the last 12 months for worldwide searches, <a href="https://trends.google.com/trends/explore?q=micropython,circuitpython">MicroPython has almost five time the interest of CircuitPython</a>.  Preloading the board with CircuitPython sends a very confusing message to the marketplace.</p>
 <h2 id="flash-nuke">Flash Nuke</h2>
 <p>I want to make sure that my RP2040 was starting out with a clean image.  I downloaded the <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> file to remove the default CircuitPython runtime and all the related files.</p>
 <p>Note that the board <strong>must</strong> be fully powered down after this load for it to work.  I had 4 AA batteries connected to the VIN screw headers, so it was not resetting correctly and the reset was not working until I disconnected the batteries.</p>
@@ -1907,6 +1930,10 @@ Close-up of the motor driver chip.  I can't quite make out the numbers on the ch
 <li><a href="https://github.com/CytronTechnologies/MAKER-PI-RP2040">GitHub Link</a></li>
 <li><a href="https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040">Maker Pi RP2040 Product Page</a></li>
 <li><a href="https://docs.google.com/document/d/1DJASwxgbattM37V4AIlJVR4pxukq0up25LppA8-z_AY/edit">Maker Pi RP2040 Datasheet on Google Docs</a></li>
+<li><a href="https://www.amazon.com/dp/B096DFH22X">Amazon Listing</a> - no availability as of Aug. 15th 2021</li>
+<li><a href="https://www.adafruit.com/product/5129">Adafruit</a> - out of stock as of Aug. 15th 2021</li>
+<li><a href="https://www.cytron.io/p-lipo-rechargeable-battery-3.7v-1300mah">1300 mah battery</a></li>
+<li><a href="https://www.youtube.com/watch?v=mn1nqgEkufA">Ultrasonic Sensor Video on YouTube</a></li>
 </ul>
                 
               
