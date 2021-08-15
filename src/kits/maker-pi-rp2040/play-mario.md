@@ -43,3 +43,26 @@ def playsong(mysong):
     bequiet()
 playsong(mario)
 ```
+
+## Turning off the Sound with an Interrupt
+When you stop the program, a sound might still be playing on the RP2040 because the Stop function does not terminate all the PWM loops.  You can fix this by putting the main loop in a function and adding a try/except/finally statement at the end of your program.
+
+
+```py
+def main():
+    global loop_counter
+    while True:
+        playsong(mario)
+        loop_counter=loop_counter+1
+        print(loop_counter)
+
+# This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrup
+try:
+    main()
+except KeyboardInterrupt:
+    print('Got ctrl-c')
+finally:
+    # Optional cleanup code
+    print('turning off sound')
+    buzzer.duty_u16(0)
+```
