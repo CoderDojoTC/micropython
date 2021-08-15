@@ -1553,6 +1553,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#removing-the-default-circuitpython" class="md-nav__link">
+    Removing the Default CircuitPython
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-demo" class="md-nav__link">
+    LED Demo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-current-limitations" class="md-nav__link">
+    Motor Current Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -1717,6 +1738,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#removing-the-default-circuitpython" class="md-nav__link">
+    Removing the Default CircuitPython
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-demo" class="md-nav__link">
+    LED Demo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-current-limitations" class="md-nav__link">
+    Motor Current Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -1761,6 +1803,66 @@
 <li>7 Grove Ports on GPs 1:0,1; 2:2,3; 3:4,5; 4:16,17; 5:6,26; 6:26,27 and 7:7,28</li>
 <li>4 servo connectors on ports GP12, GP13, GP14 and GP15</li>
 </ul>
+<h2 id="removing-the-default-circuitpython">Removing the Default CircuitPython</h2>
+<p>I had to load the flash_nuke.uf2 file to remove the default CircuitPython runtime.  Note that the board must be fully powered down after this load for it to work.  I had 4 AA batteries connected so it was not resetting correctly.</p>
+<h2 id="led-demo">LED Demo</h2>
+<p>Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
+<p><img alt="Maker Pi RP2040 LED Demo" src="../../img/maker-pi-rp2040-leds.gif" /></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs</span>
+<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span>
+<span class="n">number_leds</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">)</span>
+<span class="n">led_ports</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span>
+
+<span class="c1"># create a list of the ports</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span><span class="p">):</span>
+   <span class="n">led_ports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
+
+<span class="c1"># loop forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># blue up</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_leds</span><span class="p">):</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="c1"># blue down</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
+<h2 id="motor-current-limitations">Motor Current Limitations</h2>
+<p>This board is only designed to work with small DC-hobby motors and there is no documentation on exactly what motor driver chip is used.  The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  But it is not clear if this is per motor or total.  I suspect that if you glued a small heat fin to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
+<p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../../img/maker-pi-rp2040-motor-driver.jpg" /></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://link.cytron.io/maker-pi-rp2040-start">Link on Box</a></li>
