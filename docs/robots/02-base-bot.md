@@ -44,20 +44,24 @@ Here is a Google sheet with these parts:
 
 [Detailed Parts List Google Sheet](https://docs.google.com/spreadsheets/d/1I6PwM470JuRHZVHkg1uiMuoXlsIpyv0Ak2ayZP8VWFc/edit?usp=sharing)
 
+### Two Wheel Drive Smart Car Chassis
+
+Our cars all use a standard Two Wheel Drive (2WD) SmartCar Chassis that is available in many retail outlets online.
+
+* [$5 Cytron 2WD Smart Car Chassis](https://www.cytron.io/p-2wd-smart-robot-car-chassis)
+* [YouTube Video of Assembly](https://www.youtube.com/watch?v=H78t6dnSoG0) - note that he does not remove the backing paper on the Plexiglass and he mounts the battery on the top.  We like ours on the bottom.
+
 ### Motor Driver
 
 ![](../img/parts/motor-driver.png)
 
+## Software
+
+All software is written in MicroPython.
 
 ### Time-of-Flight Distance Sensor
 
 ![](../img/parts/tof-sensor-GYUN530K.jpg)
-
-## Software
-
-All software is written in Python.  You must include the driver for the 
-
-### Distance Sensor
 
 We are using the VL53L0X time-of-flight distance sensor.  This works on an I2C bus.  After you have hooked up the Power (VCC to the 3.3 rail and GND) you must hook up the I2C data and clock.
 
@@ -66,6 +70,8 @@ sda=machine.Pin(16) # Lower right corner of the Pico with the USB on top
 scl=machine.Pin(17) # One up from the lower right corner of the Pico
 i2c=machine.I2C(0, sda=sda, scl=scl)
 ```
+
+Many of our older robots used the ultrasonic ping sensors.  The are unreliable with voltage drops as our batteries wear down.
 
 ### Testing the Sensor Connections with the I2C Scanner
 
