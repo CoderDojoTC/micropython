@@ -1567,8 +1567,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motor-current-limitations" class="md-nav__link">
-    Motor Current Limitations
+  <a href="#unclear-motor-current-limitations" class="md-nav__link">
+    Unclear Motor Current Limitations
   </a>
   
 </li>
@@ -1752,8 +1752,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motor-current-limitations" class="md-nav__link">
-    Motor Current Limitations
+  <a href="#unclear-motor-current-limitations" class="md-nav__link">
+    Unclear Motor Current Limitations
   </a>
   
 </li>
@@ -1860,9 +1860,12 @@
 </code></pre></div>
 </td></tr></table>
 <p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
-<h2 id="motor-current-limitations">Motor Current Limitations</h2>
-<p>This board is only designed to work with small DC-hobby motors and there is no documentation on exactly what motor driver chip is used.  The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  But it is not clear if this is per motor or total.  I suspect that if you glued a small heat fin to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
-<p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../../img/maker-pi-rp2040-motor-driver.jpg" /></p>
+<h2 id="unclear-motor-current-limitations">Unclear Motor Current Limitations</h2>
+<p>This board is only designed to work with small DC-hobby motors and there is no documentation on exactly what motor driver chip is used or its precise limitations.  The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  But it is not clear if this is per motor or total.  The input voltage is only rated to an incredibly low 6 volts, which is very odd since almost all the motor driver chips can take much higher input voltages.</p>
+<p>If this motor driver chip is similar to the ubiquitous <a href="https://www.ti.com/document-viewer/L293D/datasheet/specifications#ESD_Rating_1">L293x motor controllers</a>, then the current should be 1A per motor.  I suspect it might not be the L293x since the input voltage of the L293x is 4.5 V to 36 V.</p>
+<p>I suspect that if you glued a small <a href="https://en.wikipedia.org/wiki/Heat_sink">heat sink</a> <a href="https://my.element14.com/fischer-elektronik/ick-14-16-b/heat-sink-dip-glue-on-50-c-w/dp/4620896">16 pin DIP fin</a> to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
+<p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../../img/maker-pi-rp2040-motor-driver.jpg" />
+Close-up of the motor driver chip.  I can't quite make out the numbers on the chip.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://link.cytron.io/maker-pi-rp2040-start">Link on Box</a></li>
