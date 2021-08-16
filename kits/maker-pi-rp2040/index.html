@@ -1560,6 +1560,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clearly-labeled-pin-numbers" class="md-nav__link">
+    Clearly Labeled Pin Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#removing-the-default-circuitpython" class="md-nav__link">
     Removing the Default CircuitPython
   </a>
@@ -1766,6 +1773,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clearly-labeled-pin-numbers" class="md-nav__link">
+    Clearly Labeled Pin Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#removing-the-default-circuitpython" class="md-nav__link">
     Removing the Default CircuitPython
   </a>
@@ -1847,14 +1861,18 @@
 <li>On/Off switch on GP22 which can be used to mute the sound</li>
 <li>Phillps head screwdriver that works on the header pins - really convenient for students!</li>
 <li>4 <a href="https://wiki.seeedstudio.com/Grove_System/">Grove Connectors</a></li>
-<li>
-<ul>
 <li>Rubber mounting feet</li>
-</ul>
-</li>
+<li>Pins numbers clearly labeled both on top and bottom of the board</li>
+<li>Large area on bottom of the board for students to write their name</li>
 </ul>
 <h2 id="basis-for-a-low-cost-robot-kit">Basis for a Low-Cost Robot Kit</h2>
 <p>When this kit is combined with a standard <a href="https://www.cytron.io/p-2wd-smart-robot-car-chassis">2 Wheel Drive Smart Car Chassis</a> and a <a href="https://www.coderdojotc.org/micropython/sensors/07-VL53L0X_GY/">distance sensor</a> it becomes a great low-cost way of getting started with Python and robots.</p>
+<h2 id="clearly-labeled-pin-numbers">Clearly Labeled Pin Numbers</h2>
+<p>One of the biggest disadvantages of the Raspberry Pi Pico is the fact that pin labels are NOT visible when it is mounted on a breadboard.  We have to take the Pico out of the breadboard to read the pin numbers on the bottom of the board.  A much better design would be to follow the best practices and put the labels on the top of the board where they are visible.  This is clearly done on the Maker Pi RP2040 board!</p>
+<p><img alt="Maker Pi RP2040 Pin Labels" src="../../img/maker-pi-rp2040-labels.png" />
+Note the pin labels, GND, 3.3V, GP0 and GP1 are clearly printed on the too of the board.</p>
+<p><img alt="Maker Pi Bottum View" src="../../img/maker-pi-rp2040-bottum-view.jpeg" /></p>
+<p>Note the circuit in the upper right corner displays how you can use the analog input port to read the battery level of the robot.</p>
 <h2 id="removing-the-default-circuitpython">Removing the Default CircuitPython</h2>
 <p>Cytron Technologies has a wonderful <a href="https://www.youtube.com/watch?v=mn1nqgEkufA">YouTube videos</a> on how to program the Maker Pi RP2040 using MicroPython.  Unfortunately, this board does NOT come with our standard MicroPython loaded! :-O  It uses the non-standard Adafruit CircuitPython that is incompatible with most MicroPython programs being used today.  This is a sad state of affairs that confuses our students and makes it difficult to share code and libraries for MicroPython.  According to Google trends, over the last 12 months for worldwide searches, <a href="https://trends.google.com/trends/explore?q=micropython,circuitpython">MicroPython has almost five time the interest of CircuitPython</a>.  Preloading the board with CircuitPython sends a very confusing message to the marketplace.</p>
 <h2 id="flash-nuke">Flash Nuke</h2>

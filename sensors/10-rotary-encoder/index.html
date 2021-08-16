@@ -715,7 +715,7 @@
       
         <li class="md-nav__item">
   <a href="#the-rotory-class" class="md-nav__link">
-    The rotory class
+    The Rotory Class
   </a>
   
 </li>
@@ -1725,7 +1725,7 @@
       
         <li class="md-nav__item">
   <a href="#the-rotory-class" class="md-nav__link">
-    The rotory class
+    The Rotory Class
   </a>
   
 </li>
@@ -1773,7 +1773,7 @@
 <p>Rotary encoders can be thought of as two concentric rings of switches that go on and off.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.</p>
 <p><img alt="Directional Encoders" src="../../img/Incremental_directional_encoder.gif" /></p>
 <p>We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.</p>
-<p>~<a href="../../img/rotary-encoder-circuit.png">Rotary Encoder Circuit</a></p>
+<p><img alt="Rotary Encoder Circuit" src="../../img/rotary-encoder-circuit.png" /></p>
 <p>We hooked up the outer pins of the encoder to GPIO pins 16 and 17 in the lower right corner of the Pico.</p>
 <p>Then we hooked the center pin to the 3.3 volt rail.  The Pico likes to pull switches down from the 3.3 volt rail.  This means that we will not be connecting any of the pins to GND.</p>
 <p>We also hooked up the central press button to GPIO 22 and the 3.3 volt rail.</p>
@@ -1982,7 +1982,7 @@ while True:
     time.sleep(.1)
 </code></pre></div>
 </td></tr></table>
-<h2 id="the-rotory-class">The rotory class</h2>
+<h2 id="the-rotory-class">The Rotory Class</h2>
 <p>I started with <a href="https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py">this rotary class</a>.  However, my setup did not work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -2145,7 +2145,7 @@ while True:
 </td></tr></table>
 <h2 id="adding-plot">Adding Plot</h2>
 <p>Now I can move the knob back and forth and get consistent values that go up and down.  You can turn on the plot function of Thonny to see the values consistently go up and down.</p>
-<p><img alt="Rotery Encoder Plot" src="../../img/rotery-encoder-up-and-down.png" /></p>
+<p><img alt="Rotary Encoder Plot" src="../../img/rotery-encoder-up-and-down.png" /></p>
 <h2 id="mysterious-runtime-error-on-scheduling-queue">Mysterious Runtime Error on Scheduling Queue</h2>
 <p>I did notice that the Shell output did register the following errors:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
