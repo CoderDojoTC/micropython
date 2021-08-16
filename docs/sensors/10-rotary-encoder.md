@@ -8,7 +8,7 @@ Rotary encoders can be thought of as two concentric rings of switches that go on
 
 We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.
 
-~[Rotary Encoder Circuit](../img/rotary-encoder-circuit.png)
+![Rotary Encoder Circuit](../img/rotary-encoder-circuit.png)
 
 We hooked up the outer pins of the encoder to GPIO pins 16 and 17 in the lower right corner of the Pico.
 
@@ -149,7 +149,7 @@ while True:
     time.sleep(.1)
 ```
 
-## The rotory class
+## The Rotory Class
 
 I started with [this rotary class](https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py).  However, my setup did not work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.
 
@@ -247,7 +247,7 @@ while True:
 
 Now I can move the knob back and forth and get consistent values that go up and down.  You can turn on the plot function of Thonny to see the values consistently go up and down.
 
-![Rotery Encoder Plot](../img/rotery-encoder-up-and-down.png)
+![Rotary Encoder Plot](../img/rotery-encoder-up-and-down.png)
 
 ## Mysterious Runtime Error on Scheduling Queue
 

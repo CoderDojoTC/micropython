@@ -7,7 +7,6 @@ The Maker Pi PR2040 kit from [Cytron Technologies](https://www.cytron.io/) is a 
 ## Features
 All our robots are built around a RP2040 and a motor driver with a few low-cost sensors and displays.  With the exception of the OLED display, this board packs in a huge number of features for a low cost of $9.90.
 
-
 * Power status LED (green)
 * On/off switch
 * 13 blue LEDs to show status on GP pins 0,1,2,3,4,5,6,16,17,26,27 and 28
@@ -25,11 +24,24 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 * On/Off switch on GP22 which can be used to mute the sound
 * Phillps head screwdriver that works on the header pins - really convenient for students!
 * 4 [Grove Connectors](https://wiki.seeedstudio.com/Grove_System/)
-* * Rubber mounting feet
+* Rubber mounting feet
+* Pins numbers clearly labeled both on top and bottom of the board
+* Large area on bottom of the board for students to write their name
 
 ## Basis for a Low-Cost Robot Kit
 
 When this kit is combined with a standard [2 Wheel Drive Smart Car Chassis](https://www.cytron.io/p-2wd-smart-robot-car-chassis) and a [distance sensor](https://www.coderdojotc.org/micropython/sensors/07-VL53L0X_GY/) it becomes a great low-cost way of getting started with Python and robots.
+
+## Clearly Labeled Pin Numbers
+
+One of the biggest disadvantages of the Raspberry Pi Pico is the fact that pin labels are NOT visible when it is mounted on a breadboard.  We have to take the Pico out of the breadboard to read the pin numbers on the bottom of the board.  A much better design would be to follow the best practices and put the labels on the top of the board where they are visible.  This is clearly done on the Maker Pi RP2040 board!
+
+![Maker Pi RP2040 Pin Labels](../img/maker-pi-rp2040-labels.png)
+Note the pin labels, GND, 3.3V, GP0 and GP1 are clearly printed on the too of the board.
+
+![Maker Pi Bottum View](../img/maker-pi-rp2040-bottum-view.jpeg)
+
+Note the circuit in the upper right corner displays how you can use the analog input port to read the battery level of the robot.
 
 ## Removing the Default CircuitPython
 
