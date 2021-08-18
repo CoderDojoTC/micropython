@@ -714,6 +714,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#learning-how-to-monitor-the-rotary-switch-transitions" class="md-nav__link">
+    Learning How to Monitor the Rotary Switch Transitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-rotory-class" class="md-nav__link">
     The Rotory Class
   </a>
@@ -1724,6 +1731,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#learning-how-to-monitor-the-rotary-switch-transitions" class="md-nav__link">
+    Learning How to Monitor the Rotary Switch Transitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-rotory-class" class="md-nav__link">
     The Rotory Class
   </a>
@@ -1769,10 +1783,12 @@
                 
                 
                 <h1 id="rotary-encoder">Rotary Encoder</h1>
-<p>A rotary encoder, or more specifically a directional rotary encoder, is similar to a potentiometer in some ways.  It is a knob that you turn to adjust a value.  But unlike a potentiometer, an encoder is far more flexible in the range and precision of values it can control.</p>
-<p>Rotary encoders can be thought of as two concentric rings of switches that go on and off.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.</p>
+<p><img alt="Rotary Encoder" src="../../img/rotary-encoder.png" /></p>
+<p>A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, an rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects.</p>
+<p>Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be "debounced" to get a good quality signal.</p>
 <p><img alt="Directional Encoders" src="../../img/Incremental_directional_encoder.gif" /></p>
-<p>We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.</p>
+<h2 id="learning-how-to-monitor-the-rotary-switch-transitions">Learning How to Monitor the Rotary Switch Transitions</h2>
+<p>We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.  Here is the circuit that we will be using:</p>
 <p><img alt="Rotary Encoder Circuit" src="../../img/rotary-encoder-circuit.png" /></p>
 <p>We hooked up the outer pins of the encoder to GPIO pins 16 and 17 in the lower right corner of the Pico.</p>
 <p>Then we hooked the center pin to the 3.3 volt rail.  The Pico likes to pull switches down from the 3.3 volt rail.  This means that we will not be connecting any of the pins to GND.</p>
