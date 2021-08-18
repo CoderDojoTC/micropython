@@ -1,12 +1,16 @@
 # Rotary Encoder
 
-A rotary encoder, or more specifically a directional rotary encoder, is similar to a potentiometer in some ways.  It is a knob that you turn to adjust a value.  But unlike a potentiometer, an encoder is far more flexible in the range and precision of values it can control.
+![Rotary Encoder](../img/rotary-encoder.png)
 
-Rotary encoders can be thought of as two concentric rings of switches that go on and off.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.
+A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, an rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects.
+
+Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be "debounced" to get a good quality signal.
 
 ![Directional Encoders](../img/Incremental_directional_encoder.gif)
 
-We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.
+## Learning How to Monitor the Rotary Switch Transitions
+
+We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.  Here is the circuit that we will be using:
 
 ![Rotary Encoder Circuit](../img/rotary-encoder-circuit.png)
 
