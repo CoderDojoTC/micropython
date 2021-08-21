@@ -92,7 +92,10 @@ nav:
     - OS Functions: advanced-labs/05-os-functions.md
   - Kits:
     - Introduction: kits/01-intro.md
-    - Maker Pi RP2040: kits/maker-pi-rp2040.md
+    - Maker Pi RP2040:
+      - Introduction: kits/maker-pi-rp2040/01-intro.md
+      - LED Demo: 
+      - Motor Connection Test: kits/maker-pi-rp2040/motor-connection-test.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md

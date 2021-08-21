@@ -17,7 +17,7 @@ These are usually 3 and 4-wire connectors that support analog and digital input 
 The following list is not design to be an exhaustive list of all MicroPython development kits available on the market.  We focus on value-based kits that will help our students have fun learning computational thinking.
 
 * Basic Kit - Our standard labs use a $4 Raspberry Pi Pico on a $2 solderless breadboard.  You will also need some 22-gauge wire or a jumper wire kit.
-* [Maker Pi RP2040 Kit](maker-pi-rp2040.md) - this is a $9.90 kit from Cytron that features a single board with many features for small robots.  It is an ideal low-cost starter kit.
+* [Maker Pi RP2040 Kit](maker-pi-rp2040/01-intro.md) - this is a $9.90 kit from Cytron that features a single board with many features for small robots.  It is an ideal low-cost starter kit.
 
 ## Searching SparkFun
 
