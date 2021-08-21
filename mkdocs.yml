@@ -94,7 +94,7 @@ nav:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
       - Introduction: kits/maker-pi-rp2040/01-intro.md
-      - LED Demo: kits/maker-pi-pr2040/let-test.md
+      - LED Demo: kits/maker-pi-pr2040/02-led-test.md
       - Motor Connection Test: kits/maker-pi-rp2040/motor-connection-test.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
   - Projects: misc/projects.md
