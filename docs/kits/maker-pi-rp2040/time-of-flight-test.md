@@ -1,3 +1,6 @@
+# Time of Flight Distance Sensor Test
+
+```py
 # Demo for Maker Pi RP2040 board
 
 import machine
@@ -11,9 +14,7 @@ i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
 
 # The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
 blue_led_pins = [2, 3,  4,  5,  6,  7, 16, 17, 26, 27, 28]
-# dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
-dist_scale =    [2, 4, 6, 8, 10, 15, 20, 25, 50, 100, 150, 200, 300]
-
+dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
 number_leds = len(blue_led_pins)
 led_ports = []
 delay = .05
@@ -62,20 +63,13 @@ def led_show_dist(in_distance):
 
 # start our time-of-flight sensor
 tof.start()
-valid_distance = 1
 # loop forever
 while True:
     distance = get_distance()
-    if distance > 1000:
-        # only print if we used to have a valid distance
-        if valid_distance == 1:
-            print('no signal')
-        valid_distance = 0
-    else:
-        print(distance)
-        valid_distance = 1
-        led_show_dist(distance)
+    print(distance)
+    led_show_dist(distance)
     time.sleep(0.05)
 
 # clean up
 tof.stop()
+```

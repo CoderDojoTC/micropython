@@ -5,7 +5,7 @@ This program will play the theme music from the Mario video game.
 ```python
 from machine import Pin, PWM
 from utime import sleep
-buzzer = PWM(Pin(16))
+buzzer = PWM(Pin(22))
 
 tones = {
 "B0": 31,"C1": 33,"CS1": 35,"D1": 37,"DS1": 39,"E1": 41,"F1": 44,"FS1": 46,
@@ -42,29 +42,4 @@ def playsong(mysong):
         sleep(0.3)
     bequiet()
 playsong(mario)
-```
-
-## Turning off the Sound with an Interrupt
-When you stop the program, a sound might still be playing on the RP2040 because the Stop function does not terminate all the PWM loops.  You can fix this by putting the main loop in a function and adding a try/except/finally statement at the end of your program.
-
-
-```py
-def main():
-    global loop_counter
-    while True:
-        playsong(mario)
-        loop_counter=loop_counter+1
-        print(loop_counter)
-
-# This allows us to stop the sound by doing a Stop or Control-C which is a keyboard interrupt
-print('Press Control-C to Terminate')
-
-try:
-    main()
-except KeyboardInterrupt:
-    print('Got ctrl-c')
-finally:
-    # Optional cleanup code
-    print('turning off sound')
-    buzzer.duty_u16(0)
 ```
