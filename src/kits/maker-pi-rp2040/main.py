@@ -1,9 +1,65 @@
 # Demo for Maker Pi RP2040 board
 
-import machine
+from machine import Pin,PWM
 import time
 import VL53L0X
 
+# Piezo Buzzer is on GP22
+buzzer=PWM(Pin(22))
+
+# max = 65025, min = 20000
+POWER_LEVEL = 20000
+
+# Motor Pins are A: 8,9 and B: 10,11
+RIGHT_FORWARD_PIN = 8
+RIGHT_REVERSE_PIN = 9
+LEFT_FORWARD_PIN = 11
+LEFT_REVERSE_PIN = 10
+
+# our PWM objects
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+
+def turn_motor_on(pwm):
+   pwm.duty_u16(65025)
+
+def turn_motor_off(pwm):
+   pwm.duty_u16(0)
+
+def forward():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_reverse)
+
+def reverse():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_forward)
+
+def turn_right():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+
+def turn_left():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_reverse)
+
+def stop():
+    turn_motor_off(right_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+    turn_motor_off(left_reverse)
+
+# Time of flight sensor is on the I2C bus on Grove connector 0
 sda=machine.Pin(0) # row one on our standard Pico breadboard
 scl=machine.Pin(1) # row two on our standard Pico breadboard
 i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
@@ -11,7 +67,9 @@ i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
 
 # The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
 blue_led_pins = [2, 3,  4,  5,  6,  7, 16, 17, 26, 27, 28]
-dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
+# dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
+dist_scale =    [2, 4, 6, 8, 10, 15, 20, 25, 50, 100, 150, 200, 300]
+
 number_leds = len(blue_led_pins)
 led_ports = []
 delay = .05
@@ -58,14 +116,64 @@ def led_show_dist(in_distance):
         else:
             led_ports[led_index].low()
 
+def playtone(frequency):
+    buzzer.duty_u16(1000)
+    buzzer.freq(frequency)
+
+def bequiet():
+    buzzer.duty_u16(0)
+    
+def play_no_signal():
+    playtone(100)
+    time.sleep(0.1)
+    bequiet()
+
+def play_turn():
+    playtone(500)
+    time.sleep(0.1)
+    bequiet()
+    
 # start our time-of-flight sensor
 tof.start()
+valid_distance = 1
+
 # loop forever
-while True:
-    distance = get_distance()
-    print(distance)
-    led_show_dist(distance)
-    time.sleep(0.05)
+def main():
+    global valid_distance
+    while True:  
+        distance = get_distance()
+        if distance > 1000:
+            # only print if we used to have a valid distance
+            if valid_distance == 1:
+                print('no signal')      
+            valid_distance = 0
+        else:
+            print(distance)
+            if distance < 30:
+                play_turn()
+                # back up for 1/2 second
+                reverse()
+                time.sleep(0.5)
+                turn_right()
+                time.sleep(0.75)
+            else:
+                print('forward')
+                forward()
+            valid_distance = 1
+            led_show_dist(distance)
+        time.sleep(0.05)
 
 # clean up
-tof.stop()
+
+
+# This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrup
+try:
+    main()
+except KeyboardInterrupt:
+    print('Got ctrl-c')
+finally:
+    # Optional cleanup code
+    print('turning off sound')
+    buzzer.duty_u16(0)
+    stop()
+    tof.stop()

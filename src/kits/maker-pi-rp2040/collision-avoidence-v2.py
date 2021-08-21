@@ -1,13 +1,69 @@
-# Time of Flight Distance Sensor Test
-
-```py
-# Demo for Maker Pi RP2040 board
+# Collision Avoidance Demo for Maker Pi RP2040 board
+# Version 2.0 with random turn direction and different sounds for left and right turns
 
 from machine import Pin,PWM
 import time
+import random
 import VL53L0X
+
+# Piezo Buzzer is on GP22
 buzzer=PWM(Pin(22))
 
+# max = 65025, min = 20000
+POWER_LEVEL = 20000
+BACKUP_TIME = 0.5 # time to backup get near an obsticle
+TURN_TIME = 0.75 # time to turn if we get near an obsticle
+
+# Motor Pins are A: 8,9 and B: 10,11
+RIGHT_FORWARD_PIN = 8
+RIGHT_REVERSE_PIN = 9
+LEFT_FORWARD_PIN = 11
+LEFT_REVERSE_PIN = 10
+
+# our PWM objects
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+
+def turn_motor_on(pwm):
+   pwm.duty_u16(POWER_LEVEL)
+
+def turn_motor_off(pwm):
+   pwm.duty_u16(0)
+
+def forward():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_reverse)
+
+def reverse():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_forward)
+
+def turn_right():
+    turn_motor_on(right_forward)
+    turn_motor_on(left_reverse)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+
+def turn_left():
+    turn_motor_on(right_reverse)
+    turn_motor_on(left_forward)
+    turn_motor_off(right_forward)
+    turn_motor_off(left_reverse)
+
+def stop():
+    turn_motor_off(right_forward)
+    turn_motor_off(right_reverse)
+    turn_motor_off(left_forward)
+    turn_motor_off(left_reverse)
+
+# Time of flight sensor is on the I2C bus on Grove connector 0
 sda=machine.Pin(0) # row one on our standard Pico breadboard
 scl=machine.Pin(1) # row two on our standard Pico breadboard
 i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
@@ -76,8 +132,13 @@ def play_no_signal():
     time.sleep(0.1)
     bequiet()
 
-def play_turn():
+def play_turn_right():
     playtone(500)
+    time.sleep(0.1)
+    bequiet()
+    
+def play_turn_left():
+    playtone(700)
     time.sleep(0.1)
     bequiet()
     
@@ -87,19 +148,34 @@ valid_distance = 1
 
 # loop forever
 def main():
-    while True:
-        global valid_distance
+    global valid_distance
+    while True:  
         distance = get_distance()
         if distance > 1000:
             # only print if we used to have a valid distance
             if valid_distance == 1:
-                print('no signal')
-                
+                print('no signal')      
             valid_distance = 0
         else:
             print(distance)
             if distance < 30:
-                play_turn()
+                
+                # back up for a bit
+                reverse()
+                time.sleep(BACKUP_TIME)
+                # turn in a random direction
+                if random.random() > .5:
+                    print('turning right')
+                    play_turn_right()
+                    turn_right()
+                else:
+                    print('turning left')
+                    play_turn_left()
+                    turn_left()
+                time.sleep(TURN_TIME)
+            else:
+                print('forward')
+                forward()
             valid_distance = 1
             led_show_dist(distance)
         time.sleep(0.05)
@@ -107,7 +183,9 @@ def main():
 # clean up
 
 
-# This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrup
+# This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrupt
+print('Running Collision Avoidence version 1.0')
+
 try:
     main()
 except KeyboardInterrupt:
@@ -116,5 +194,5 @@ finally:
     # Optional cleanup code
     print('turning off sound')
     buzzer.duty_u16(0)
+    stop()
     tof.stop()
-```
