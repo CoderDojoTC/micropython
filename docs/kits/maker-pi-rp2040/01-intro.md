@@ -33,7 +33,7 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 
 ### Part 1: No Accessories Required Labs
 
-1. [**Blue LED Lab**](02-blue-led-lab) - make the blue GPIO status LEDs show cool patterns
+1. [**Blue LED Lab**](02-blue-led-lab.md) - make the blue GPIO status LEDs show cool patterns
 2. [NeoPixel Lab](03-neopixel-lab.md) - make the two NeoPixel each display many colors
 3. [Button Lab](04-button-lab.md) - make the two buttons change the state of system
 4. [Sound Lab](05-sound-lab.md) - make the Piezoelectric Buzzer create sounds
