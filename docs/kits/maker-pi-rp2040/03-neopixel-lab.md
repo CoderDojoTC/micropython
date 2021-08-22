@@ -1,37 +1,61 @@
-## Blue LED Test
+## NeoPixel Demo Lab
 
-## 13 Blue LEDs Demo
+The Maker Pi RP2040 comes with two built-in NeoPixels.  Each NeoPixel has a red, green and blue LED inside it.  Each of these LEDs can be set to any one of 256 values from 0 (off) to 255 (brightest value).
 
-I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.
 
-![Maker Pi RP2040 LED Demo](../img/maker-pi-rp2040-leds.gif)
+![Maker Pi RP2040 NeoPixel Demo](../img/maker-pi-rp2040-neopixel-demo.gif)
+
+## NeoPixel Setup
 
 ```py
-import machine
-import time
+from neopixel import Neopixel
 
-# The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
-blue_led_pins = [0,1,2,3,4,5,6,7,16,17,26,27,28]
-number_leds = len(blue_led_pins)
-led_ports = []
-delay = .05
+NUMBER_PIXELS = 2
+STATE_MACHINE = 0
+LED_PIN = 18
 
-# create a list of the ports
-for i in range(number_leds):
-   led_ports.append(machine.Pin(blue_led_pins[i], machine.Pin.OUT))
-
-# loop forever
-while True:
-    # blue up
-    for i in range(0, number_leds):
-        led_ports[i].high()
-        time.sleep(delay)
-        led_ports[i].low()
-    # blue down
-    for i in range(number_leds - 1, 0, -1):
-        led_ports[i].high()
-        time.sleep(delay)
-        led_ports[i].low()
+# The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
 ```
 
-This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).
+```py
+import time
+# We are using https://github.com/blaz-r/pi_pico_neopixel
+from neopixel import Neopixel
+
+NUMBER_PIXELS = 2
+STATE_MACHINE = 0
+LED_PIN = 18
+
+# The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+
+# Color RGB values
+red = (255, 0, 0)
+orange = (255, 60, 0) # Gamma corrected from G=128 to be less like yellow
+yellow = (255, 150, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+indigo = (75, 0, 130) # purple?
+violet = (138, 43, 226) # mostly pink
+color_names = ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet')
+num_colors = len(color_names)
+colors = (red, orange, yellow, green, blue, indigo, violet)
+
+# set to be 1 to 100 for percent brightness
+strip.brightness(100)
+
+color_index = 0
+while True:
+    for color in colors:
+        for i in range(NUMBER_PIXELS):
+            print(i, color_names[color_index])
+            strip.set_pixel(i, color)
+            strip.show()
+            time.sleep(1)
+        color_index += 1
+        if color_index >= num_colors: color_index = 0
+
+```
+
+
