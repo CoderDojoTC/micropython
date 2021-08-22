@@ -97,6 +97,7 @@ nav:
       - LED Demo: kits/maker-pi-pr2040/02-led-test.md
       - Motor Connection Test: kits/maker-pi-rp2040/motor-connection-test.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
+      - Two Button Press: kits/maker-pi-rp2040/two-button-press.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
