@@ -2,7 +2,7 @@
 
 The Maker Pi PR2040 kit from [Cytron Technologies](https://www.cytron.io/) is a [$9.90 US kit](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040) that is designed to simplify learning robotics using the RP2040 chip. It became available in April of 2021, but demand has been very high and it is out-of-stock on many retailers sites.  We can understand this.  The Maker Pi PR2040 is the most powerful robotics board we have ever seen for under $10!
 
-![Maker Pi RP2040 Top View](../img/maker-pi-rp2040-top-view.png)
+![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-top-view.png)
 
 ## Features
 All our robots are built around a RP2040 and a motor driver with a few low-cost sensors and displays.  With the exception of the OLED display, this board packs in a huge number of features for a low cost of $9.90.
@@ -29,6 +29,26 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 * Pins numbers clearly labeled both on top and bottom of the board
 * Large area on bottom of the board for students to write their name
 
+## List of Labs
+
+### Part 1: No Accessories Required Labs
+
+1. [**Blue LED Lab**](02-blue-led-lab) - make the blue GPIO status LEDs show cool patterns
+2. [NeoPixel Lab](03-neopixel-lab.md) - make the two NeoPixel each display many colors
+3. [Button Lab](04-button-lab.md) - make the two buttons change the state of system
+4. [Sound Lab](05-sound-lab.md) - make the Piezoelectric Buzzer create sounds
+5. [Up Down Mode Lab](06-up-down-mode-lab.md) - make the buttons change the LEDs, NeoPixels and Sound
+
+### Motor and Servo Labs
+
+1. [Motor Connection Lab](07-motor-connection-lab.md) - make two motors turn forward and in reverse
+2. [Servo Lab](08-servo-lab.md) - control the direction of a servo motor
+
+### Sensor Labs
+
+1. [Time of Flight Distance Sensor Lab](10-time-of-flight-lab.md) - measure the distance to an object
+2. [Ultasonic Ping Distance Sensor](11-ping-lab.md)
+
 ## Basis for a Low-Cost Robot Kit
 
 When this kit is combined with a standard [2 Wheel Drive Smart Car Chassis](https://www.cytron.io/p-2wd-smart-robot-car-chassis) and a [distance sensor](https://www.coderdojotc.org/micropython/sensors/07-VL53L0X_GY/) it becomes a great low-cost way of getting started with Python and robots.
@@ -37,10 +57,10 @@ When this kit is combined with a standard [2 Wheel Drive Smart Car Chassis](http
 
 One of the biggest disadvantages of the Raspberry Pi Pico is the fact that pin labels are NOT visible when it is mounted on a breadboard.  We have to take the Pico out of the breadboard to read the pin numbers on the bottom of the board.  A much better design would be to follow the best practices and put the labels on the top of the board where they are visible.  This is clearly done on the Maker Pi RP2040 board!
 
-![Maker Pi RP2040 Pin Labels](../img/maker-pi-rp2040-labels.png)
+![Maker Pi RP2040 Pin Labels](../../img/maker-pi-rp2040-labels.png)
 Note the pin labels, GND, 3.3V, GP0 and GP1 are clearly printed on the too of the board.
 
-![Maker Pi Bottum View](../img/maker-pi-rp2040-bottum-view.jpeg)
+![Maker Pi Bottum View](../../img/maker-pi-rp2040-bottum-view.jpeg)
 
 Note the circuit in the upper right corner displays how you can use the analog input port to read the battery level of the robot.
 
