@@ -1,4 +1,4 @@
-# Up Down Demo
+# Up Down Mode Lab
 
 In this lab, we will combine the two buttons with the blue LEDs, the NeoPixels and the buzzer labs. The
 We will make the LED, NeoPixels and sound all change for each button press.  You will be able to up
@@ -22,19 +22,33 @@ Within our Interrupt Request Handler (IRQ) function we will also have to add two
 
 ## Full Program
 ```py
+# Mode Up/Down Lab
+# Change a mode using the buttons on the Maker Pi RP2040 board
+# Changes the NeoPixel color and the blue GPIO status LEDs
 import time
-from machine import Pin
-# We are using https://github.com/blaz-r/pi_pico_neopixel
+from machine import Pin, PWM
+# We are using a MicroPython NeoPixel library from here: https://github.com/blaz-r/pi_pico_neopixel
 from neopixel import Neopixel
+
+BUZZER_PORT = 22
+buzzer = PWM(Pin(BUZZER_PORT))
 
 NUMBER_PIXELS = 2
 STATE_MACHINE = 0
-LED_PIN = 18
+NEOPIXEL_PIN = 18
 
 # The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, NEOPIXEL_PIN, "GRB")
 
-# Color RGB values as tuples
+# have up to 13 that we can use
+blue_led_pins = [0,1,2,3,4,5,6,7,16,17,26,27,28]
+number_leds = len(blue_led_pins)
+led_ports = []
+# create a list of the port pin object instances
+for i in range(number_leds):
+   led_ports.append(machine.Pin(blue_led_pins[i], machine.Pin.OUT))
+
+# Color RGB values as tuples - needs some Gamma corrections
 red = (255, 0, 0)
 orange = (255, 60, 0) # Gamma corrected from G=128 to be less like yellow
 yellow = (255, 150, 0)
@@ -42,10 +56,12 @@ green = (0, 255, 0)
 blue = (0, 0, 255)
 indigo = (75, 0, 130) # purple?
 violet = (138, 43, 226) # mostly pink
-white = (128, 128, 128) # mostly pink
-color_names = ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'white')
+cyan = (0, 255, 255)
+lightgreen = (100, 255, 100)
+white = (128, 128, 128) # not too bright
+color_names = ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'cyan', 'lightgreen', 'white')
 num_colors = len(color_names)
-colors = (red, orange, yellow, green, blue, indigo, violet, white)
+colors = (red, orange, yellow, green, blue, indigo, violet, cyan, lightgreen, white)
 
 # set to be 1 to 100 for percent brightness
 strip.brightness(100)
@@ -76,12 +92,28 @@ def button_pressed_handler(pin):
         if mode >= mode_count: mode = 0
         if mode < 0: mode = mode_count - 1
         last_time = new_time
-    
+
+def set_blue_led_mode(mode):
+    global num_colors
+    for i in range(0, num_colors):
+        if i == mode:
+            led_ports[i].high()
+        else:
+            led_ports[i].low()
 
 # Register the handler function when either button is pressed
 next_mode_pin.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 previous_mode_pin.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 
+#  Note the non-linear increases in frequency - note that some are louder
+tone_freq = [100, 150, 210, 280, 350, 450, 580, 750, 850, 950, 1000]
+def playtone(frequency):
+    buzzer.duty_u16(1000)
+    buzzer.freq(frequency)
+
+def bequiet():
+    buzzer.duty_u16(0)
+    
 # This is for only printing when a new button press count value happens
 old_mode = -1
 
@@ -89,12 +121,15 @@ print('found ', mode_count, ' modes.')
 while True:
     # only print on change in the button_presses value
     if mode != old_mode:
-        print('new mode:', mode, color_names[mode])
-        builtin_led.toggle()
+        print('new mode:', mode, color_names[mode], tone_freq[mode])
         # get the color mode
         color = colors[mode]
         strip.set_pixel(0, color)
         strip.set_pixel(1, color)
         strip.show()
+        set_blue_led_mode(mode)
+        playtone(tone_freq[mode])
+        time.sleep(.2)
+        bequiet()
         old_mode = mode
 ```

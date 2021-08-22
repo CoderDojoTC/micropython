@@ -59,9 +59,6 @@ The latests MicroPython runtimes are [here](https://micropython.org/download/rp2
 
 One of the things I love about this board is how incredibly easy it is for students to test their motors.  The board provides four very convenient motor test buttons right on the board.  By pressing each one you can make both motors go forward and backwards.  This is a great way for students to learn about how we can generate PWM signals to simulate these four buttons.  Whoever design this board clearly had their students in mind!
 
-
-
-
 ## References
 * [Link on Box](https://link.cytron.io/maker-pi-rp2040-start)
 * [GitHub Link](https://github.com/CytronTechnologies/MAKER-PI-RP2040)

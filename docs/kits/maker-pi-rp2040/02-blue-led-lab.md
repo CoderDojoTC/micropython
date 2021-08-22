@@ -1,6 +1,4 @@
-## Blue LED Test
-
-## 13 Blue LEDs Demo
+# Blue LED Lab
 
 I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.
 

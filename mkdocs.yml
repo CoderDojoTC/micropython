@@ -98,8 +98,8 @@ nav:
       - NeoPixel Lab: kits/maker-pi-rp2040/03-neopixel-lab.md
       - Button Lab: kits/maker-pi-rp2040/04-button-lab.md
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
-      - Up Down Demo: kits/maker-pi-rp2040/05-up-down-demo.md
-      - Motor Connection Test: kits/maker-pi-rp2040/motor-connection-test.md
+      - Up Down Mode Lab: kits/maker-pi-rp2040/05-up-down-demo.md
+      - Motor Connection Lab: kits/maker-pi-rp2040/motor-connection-test.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
