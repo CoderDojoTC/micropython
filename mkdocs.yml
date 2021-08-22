@@ -104,7 +104,6 @@ nav:
       - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040/12-time-of-flight-sound-lab.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
-      - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
       - Collision Avoidance Robot: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
