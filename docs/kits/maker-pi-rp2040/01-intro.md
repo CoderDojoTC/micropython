@@ -37,7 +37,7 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 2. [NeoPixel Lab](03-neopixel-lab.md) - make the two NeoPixel each display many colors
 3. [Button Lab](04-button-lab.md) - make the two buttons change the state of system
 4. [Sound Lab](05-sound-lab.md) - make the Piezoelectric Buzzer create sounds
-5. [Up Down Mode Lab](06-up-down-mode-lab.md) - make the buttons change the LEDs, NeoPixels and Sound
+5. [Up Down Mode Lab](06-up-down-lab.md) - make the buttons change the LEDs, NeoPixels and Sound
 
 ### Motor and Servo Labs
 

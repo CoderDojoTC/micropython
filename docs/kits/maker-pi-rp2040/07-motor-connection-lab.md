@@ -12,7 +12,7 @@ If this motor driver chip is similar to the ubiquitous [L293x motor controllers]
 
 I suspect that if you glued a small [heat sink](https://en.wikipedia.org/wiki/Heat_sink) like a [16 pin DIP fin](https://my.element14.com/fischer-elektronik/ick-14-16-b/heat-sink-dip-glue-on-50-c-w/dp/4620896) to the unknown motor driver IC on the main board you could drive slightly larger motors.
 
-![Maker Pi RP2040 Motor Driver Chip](../img/maker-pi-rp2040-motor-driver.jpg)
+![Maker Pi RP2040 Motor Driver Chip](../../img/maker-pi-rp2040-motor-driver.jpg)
 Close-up of the motor driver chip.  I can't quite make out the numbers on the chip, but the logo is not "TI".
 ## Testing The Connections
 
