@@ -102,6 +102,7 @@ nav:
       - Motor Lab: kits/maker-pi-rp2040/07-motor-connection-lab.md
       - Servo Lab: kits/maker-pi-rp2040/08-servo-lab.md
       - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
+      - Time of Flight Sound Lab: kits/maker-pi-rp2040/time-of-flight-sound-lab.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
       - Collision Avoidance Robot: kits/maker-pi-rp2040/20-collision-avoidance-robot.md

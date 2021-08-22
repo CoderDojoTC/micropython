@@ -49,7 +49,8 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 There are literally hundreds of sensors that have Grove connectors on them.  In addition, we can purchase Grove connectors for as low as [30 cents each](https://www.cytron.io/p-grove-4-pin-buckled-20cm-cable?search=Grove&description=1).  Any other sensors with male pins can be easily connected with these [38 cent connectors with female Dupont jumper connectors](https://www.cytron.io/p-grove-4-pin-buckled-to-female-cable?search=Grove&description=1).  Classrooms with a large collection of these sensors can allow students to try new sensors and outputs without needing a breadboard or soldering.  We will focus initially on two sensors we will use for our collision avoidance robot.  We prefer the Time-of-Flight sensor because it uses a standard I2C interface and thus could share the I2C bus with other devices.
 
 1. [Time of Flight Distance Sensor Lab](10-time-of-flight-lab.md) - measure the distance to an object
-2. [Ultrasonic Ping Distance Sensor](11-ping-lab.md)
+2. [Ultrasonic Ping Distance Sensor](11-ping-lab.md) - the classic low-cost ultrasonic distance sensor but now it works on a 3.3 volt power!
+3. [Time of Flight Sound Lab](12-time-of-flight-sound-lab.md) - sound pitch changes with distance
 
 ## Basis for a Low-Cost Robot Kit
 
