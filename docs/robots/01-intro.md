@@ -18,7 +18,7 @@ Note that the $25 price assumes you purchase low-cost parts from suppliers like 
 
 4. **[Face Bot](04-face-bot.md)** - We extend the Base Bot by adding a $4 128x64 OLED display.  This allows students to see the values of the distance sensor and to hear a sound when a key event occurs.
 
-5. **[Parameter Bot](05-param-bot.md)** - We extend the fac-bot to add some buttons and knobs to allow our users to change the collision avoidance parameters such as forward speed and turning threshold distance.
+5. **[Adjustable Parameter Bot](05-adjusta-bot.md)** - We extend the face-bot to add some buttons and knobs to allow our users to change the collision avoidance parameters such as forward speed and turning threshold distance.
 
 ## Parts
 
