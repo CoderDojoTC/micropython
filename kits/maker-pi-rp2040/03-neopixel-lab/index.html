@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blue-led-test" class="md-skip">
+        <a href="#neopixel-demo-lab" class="md-skip">
           Skip to content
         </a>
       
@@ -1590,15 +1590,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#blue-led-test" class="md-nav__link">
-    Blue LED Test
+  <a href="#neopixel-demo-lab" class="md-nav__link">
+    NeoPixel Demo Lab
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-blue-leds-demo" class="md-nav__link">
-    13 Blue LEDs Demo
+  <a href="#neopixel-setup" class="md-nav__link">
+    NeoPixel Setup
   </a>
   
 </li>
@@ -1818,15 +1818,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#blue-led-test" class="md-nav__link">
-    Blue LED Test
+  <a href="#neopixel-demo-lab" class="md-nav__link">
+    NeoPixel Demo Lab
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-blue-leds-demo" class="md-nav__link">
-    13 Blue LEDs Demo
+  <a href="#neopixel-setup" class="md-nav__link">
+    NeoPixel Setup
   </a>
   
 </li>
@@ -1850,10 +1850,27 @@
                 
                   <h1>NeoPixel Lab</h1>
                 
-                <h2 id="blue-led-test">Blue LED Test</h2>
-<h2 id="13-blue-leds-demo">13 Blue LEDs Demo</h2>
-<p>I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
-<p><img alt="Maker Pi RP2040 LED Demo" src="../img/maker-pi-rp2040-leds.gif" /></p>
+                <h2 id="neopixel-demo-lab">NeoPixel Demo Lab</h2>
+<p>The Maker Pi RP2040 comes with two built-in NeoPixels.  Each NeoPixel has a red, green and blue LED inside it.  Each of these LEDs can be set to any one of 256 values from 0 (off) to 255 (brightest value).</p>
+<p><img alt="Maker Pi RP2040 NeoPixel Demo" src="../img/maker-pi-rp2040-neopixel-demo.gif" /></p>
+<h2 id="neopixel-setup">NeoPixel Setup</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="c1"># The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1878,34 +1895,55 @@
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">time</span>
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="c1"># We are using https://github.com/blaz-r/pi_pico_neopixel</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
 
-<span class="c1"># The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs</span>
-<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span>
-<span class="n">number_leds</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">)</span>
-<span class="n">led_ports</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">18</span>
 
-<span class="c1"># create a list of the ports</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span><span class="p">):</span>
-   <span class="n">led_ports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
+<span class="c1"># The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
 
-<span class="c1"># loop forever</span>
+<span class="c1"># Color RGB values</span>
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Gamma corrected from G=128 to be less like yellow</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span> <span class="c1"># purple?</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span> <span class="c1"># mostly pink</span>
+<span class="n">color_names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;indigo&#39;</span><span class="p">,</span> <span class="s1">&#39;violet&#39;</span><span class="p">)</span>
+<span class="n">num_colors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_names</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+
+<span class="c1"># set to be 1 to 100 for percent brightness</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">brightness</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">color_index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># blue up</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_leds</span><span class="p">):</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
-    <span class="c1"># blue down</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">color_names</span><span class="p">[</span><span class="n">color_index</span><span class="p">])</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">color_index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">color_index</span> <span class="o">&gt;=</span> <span class="n">num_colors</span><span class="p">:</span> <span class="n">color_index</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div>
 </td></tr></table>
-<p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
                 
               
               
