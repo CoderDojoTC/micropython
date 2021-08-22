@@ -18,7 +18,7 @@
     
     
       
-        <title>Motor Drive Connection Test - MicroPython</title>
+        <title>Motor Connection Lab - MicroPython</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Motor Drive Connection Test
+              Motor Connection Lab
             
           </span>
         </div>
@@ -1477,12 +1477,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
       
       <label class="md-nav__link" for="nav-13">
         Kits
@@ -1511,12 +1513,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-2" type="checkbox" id="nav-13-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-2" type="checkbox" id="nav-13-2" checked>
       
       <label class="md-nav__link" for="nav-13-2">
         Maker Pi RP2040
@@ -1605,11 +1609,70 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../07-motor-connection-test.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Motor Connection Lab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Motor Connection Lab
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-motor-driver" class="md-nav__link">
+    Built-In Motor Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-connections" class="md-nav__link">
+    Testing The Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-pin-definitions" class="md-nav__link">
+    Motor Pin Definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-pin-definitions" class="md-nav__link">
+    Testing Your Pin Definitions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1862,7 +1925,7 @@
 <p>The documentation only indicates that the maximum current is 1A continuous power and 1.5A for up to 5 seconds.  The input voltage is only rated at 6 volts, which find for our standard 4 AA battery packs.</p>
 <p>If this motor driver chip is similar to the ubiquitous <a href="https://www.ti.com/document-viewer/L293D/datasheet/specifications#ESD_Rating_1">L293x motor controllers</a>, and the current should be 1A per motor.</p>
 <p>I suspect that if you glued a small <a href="https://en.wikipedia.org/wiki/Heat_sink">heat sink</a> like a <a href="https://my.element14.com/fischer-elektronik/ick-14-16-b/heat-sink-dip-glue-on-50-c-w/dp/4620896">16 pin DIP fin</a> to the unknown motor driver IC on the main board you could drive slightly larger motors.</p>
-<p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../img/maker-pi-rp2040-motor-driver.jpg" />
+<p><img alt="Maker Pi RP2040 Motor Driver Chip" src="../../../img/maker-pi-rp2040-motor-driver.jpg" />
 Close-up of the motor driver chip.  I can't quite make out the numbers on the chip, but the logo is not "TI".</p>
 <h2 id="testing-the-connections">Testing The Connections</h2>
 <p>In our standard robot, the M1 is the right wheel as you are looking from the top-back of the robot.  The M2 wheel is the left wheel.  I connect the red to the right of the two connectors and it is also the right terminal of the motors as you are looking from the rear.</p>
@@ -1962,6 +2025,41 @@ is moving forward.  Press the M1B and the motor should turn in reverse.  Similar
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../06-up-down-lab/" title="Up Down Mode Lab" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Up Down Mode Lab
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../10-time-of-flight-lab/" title="Time of Flight Lab" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Time of Flight Lab
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
