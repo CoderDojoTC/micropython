@@ -2,7 +2,7 @@
 
 I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.
 
-![Maker Pi RP2040 LED Demo](../img/maker-pi-rp2040-leds.gif)
+![Maker Pi RP2040 LED Demo](../../img/maker-pi-rp2040-leds.gif)
 
 ```py
 import machine

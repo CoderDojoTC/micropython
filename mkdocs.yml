@@ -99,8 +99,9 @@ nav:
       - Button Lab: kits/maker-pi-rp2040/04-button-lab.md
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
-      - Motor Connection Lab: kits/maker-pi-rp2040/motor-connection-test.md
+      - Motor Connection Lab: kits/maker-pi-rp2040/07-motor-connection-test.md
       - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
+      - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
       - Collision Avoidance Robot: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
   - Projects: misc/projects.md

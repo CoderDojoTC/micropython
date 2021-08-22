@@ -32,15 +32,25 @@ Plated through holes or vias located in the edges of a printed circuit board tha
 
 The word "Castellated" means having grooves or slots on an edge and is derived from the turrets of a castle.
 
+#### Dupont Connectors
+
+Pre-made low-cost used and used to connect breadboards to hardware such as sensors and displays.
+
+The connectors are available in male and female ends and are typically sold in lengths of 10 or 20cm.  They have a with a 2.54mm (100mill) pitch so they are easy to align with our standard breadboards.  They are typically sold in a ribbon of mixed colors for around $2.00 US for 40 connectors.
+
+* Also known as: Jumper Wires
+* [Sample eBay Search for Jumper Wires](https://www.ebay.com/sch/92074/i.html?_from=R40&_nkw=jumper+wire+cables)
+
 #### ESP32
 A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
 
-Typical costs for the ESP32 is 
+Typical costs for the ESP32 is are around $10 US on eBay.
 
 * [Sample on eBay](https://www.ebay.com/itm/ESP32-ESP-32S-NodeMCU-Development-Board-2-4GHz-WiFi-Bluetooth-Dual-Mode-CP2102/392899357234) $5
 * [Sample on Amazon](https://www.amazon.com/HiLetgo-ESP-WROOM-32-Development-Microcontroller-Integrated/dp/B0718T232Z/ref=sr_1_1_sspa) $11
 * [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
 * [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
+* [Sample eBay Search for ESP32 from $5 to $20](https://www.ebay.com/sch/i.html?_from=R40&_nkw=esp32&_sacat=175673&LH_TitleDesc=0&LH_BIN=1&_udhi=20&rt=nc&_udlo=5)
 
 #### Framebuffer
 A region of your microcontroller RAM that stores a bitmap image of your display.
