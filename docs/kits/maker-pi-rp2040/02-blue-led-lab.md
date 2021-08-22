@@ -1,4 +1,4 @@
-## LED Test
+## Blue LED Test
 
 ## 13 Blue LEDs Demo
 

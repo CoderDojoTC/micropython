@@ -94,10 +94,13 @@ nav:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
       - Introduction: kits/maker-pi-rp2040/01-intro.md
-      - LED Demo: kits/maker-pi-pr2040/02-led-test.md
+      - Blue LED Lab: kits/maker-pi-rp2040/02-blue-led-lab.md
+      - NeoPixel Lab: kits/maker-pi-rp2040/03-neopixel-lab.md
+      - Button Lab: kits/maker-pi-rp2040/04-button-lab.md
+      - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
+      - Up Down Demo: kits/maker-pi-rp2040/05-up-down-demo.md
       - Motor Connection Test: kits/maker-pi-rp2040/motor-connection-test.md
       - Sound Test: kits/maker-pi-rp2040/05-play-mario.md
-      - Two Button Press: kits/maker-pi-rp2040/two-button-press.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
