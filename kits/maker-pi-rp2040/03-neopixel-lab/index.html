@@ -18,7 +18,7 @@
     
     
       
-        <title>Sound Test - MicroPython</title>
+        <title>NeoPixel Lab - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#play-mario-on-micropython" class="md-skip">
+        <a href="#blue-led-test" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Sound Test
+              NeoPixel Lab
             
           </span>
         </div>
@@ -1551,8 +1551,97 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maker-pi-pr2040/02-led-test.md" class="md-nav__link">
-        LED Demo
+      <a href="../02-blue-led-lab/" class="md-nav__link">
+        Blue LED Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NeoPixel Lab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NeoPixel Lab
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blue-led-test" class="md-nav__link">
+    Blue LED Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-blue-leds-demo" class="md-nav__link">
+    13 Blue LEDs Demo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-button-lab/" class="md-nav__link">
+        Button Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-sound-lab/" class="md-nav__link">
+        Sound Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-up-down-demo/" class="md-nav__link">
+        Up Down Demo
       </a>
     </li>
   
@@ -1573,31 +1662,10 @@
             
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Sound Test
-      </a>
-      
-    </li>
-  
-
-          
-            
-  
-  
   
     <li class="md-nav__item">
-      <a href="../two-button-press.md" class="md-nav__link">
-        Two Button Press
+      <a href="../05-play-mario.md" class="md-nav__link">
+        Sound Test
       </a>
     </li>
   
@@ -1742,8 +1810,28 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blue-led-test" class="md-nav__link">
+    Blue LED Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-blue-leds-demo" class="md-nav__link">
+    13 Blue LEDs Demo
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1755,13 +1843,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040/05-play-mario.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040/03-neopixel-lab.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="play-mario-on-micropython">Play Mario on MicroPython</h1>
-<p>This program will play the theme music from the Mario video game.</p>
+                  <h1>NeoPixel Lab</h1>
+                
+                <h2 id="blue-led-test">Blue LED Test</h2>
+<h2 id="13-blue-leds-demo">13 Blue LEDs Demo</h2>
+<p>I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
+<p><img alt="Maker Pi RP2040 LED Demo" src="../img/maker-pi-rp2040-leds.gif" /></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1786,61 +1878,34 @@
 22
 23
 24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="n">buzzer</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">))</span>
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">tones</span> <span class="o">=</span> <span class="p">{</span>
-<span class="s2">&quot;B0&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span><span class="s2">&quot;C1&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span><span class="s2">&quot;CS1&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span><span class="s2">&quot;D1&quot;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span><span class="s2">&quot;DS1&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span><span class="s2">&quot;E1&quot;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span><span class="s2">&quot;F1&quot;</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span><span class="s2">&quot;FS1&quot;</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span>
-<span class="s2">&quot;G1&quot;</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span><span class="s2">&quot;GS1&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span><span class="s2">&quot;A1&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span><span class="s2">&quot;AS1&quot;</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span><span class="s2">&quot;B1&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span><span class="s2">&quot;C2&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
-<span class="s2">&quot;CS2&quot;</span><span class="p">:</span> <span class="mi">69</span><span class="p">,</span><span class="s2">&quot;D2&quot;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span><span class="s2">&quot;DS2&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span><span class="s2">&quot;E2&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span><span class="s2">&quot;F2&quot;</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span><span class="s2">&quot;FS2&quot;</span><span class="p">:</span> <span class="mi">93</span><span class="p">,</span><span class="s2">&quot;G2&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
-<span class="s2">&quot;GS2&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span><span class="s2">&quot;A2&quot;</span><span class="p">:</span> <span class="mi">110</span><span class="p">,</span><span class="s2">&quot;AS2&quot;</span><span class="p">:</span> <span class="mi">117</span><span class="p">,</span><span class="s2">&quot;B2&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span><span class="s2">&quot;C3&quot;</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span><span class="s2">&quot;CS3&quot;</span><span class="p">:</span> <span class="mi">139</span><span class="p">,</span>
-<span class="s2">&quot;D3&quot;</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span><span class="s2">&quot;DS3&quot;</span><span class="p">:</span> <span class="mi">156</span><span class="p">,</span><span class="s2">&quot;E3&quot;</span><span class="p">:</span> <span class="mi">165</span><span class="p">,</span><span class="s2">&quot;F3&quot;</span><span class="p">:</span> <span class="mi">175</span><span class="p">,</span><span class="s2">&quot;FS3&quot;</span><span class="p">:</span> <span class="mi">185</span><span class="p">,</span>
-<span class="s2">&quot;G3&quot;</span><span class="p">:</span> <span class="mi">196</span><span class="p">,</span><span class="s2">&quot;GS3&quot;</span><span class="p">:</span> <span class="mi">208</span><span class="p">,</span><span class="s2">&quot;A3&quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span><span class="s2">&quot;AS3&quot;</span><span class="p">:</span> <span class="mi">233</span><span class="p">,</span><span class="s2">&quot;B3&quot;</span><span class="p">:</span> <span class="mi">247</span><span class="p">,</span><span class="s2">&quot;C4&quot;</span><span class="p">:</span> <span class="mi">262</span><span class="p">,</span><span class="s2">&quot;CS4&quot;</span><span class="p">:</span> <span class="mi">277</span><span class="p">,</span><span class="s2">&quot;D4&quot;</span><span class="p">:</span> <span class="mi">294</span><span class="p">,</span><span class="s2">&quot;DS4&quot;</span><span class="p">:</span> <span class="mi">311</span><span class="p">,</span>
-<span class="s2">&quot;E4&quot;</span><span class="p">:</span> <span class="mi">330</span><span class="p">,</span><span class="s2">&quot;F4&quot;</span><span class="p">:</span> <span class="mi">349</span><span class="p">,</span><span class="s2">&quot;FS4&quot;</span><span class="p">:</span> <span class="mi">370</span><span class="p">,</span><span class="s2">&quot;G4&quot;</span><span class="p">:</span> <span class="mi">392</span><span class="p">,</span><span class="s2">&quot;GS4&quot;</span><span class="p">:</span> <span class="mi">415</span><span class="p">,</span><span class="s2">&quot;A4&quot;</span><span class="p">:</span> <span class="mi">440</span><span class="p">,</span><span class="s2">&quot;AS4&quot;</span><span class="p">:</span> <span class="mi">466</span><span class="p">,</span><span class="s2">&quot;B4&quot;</span><span class="p">:</span> <span class="mi">494</span><span class="p">,</span><span class="s2">&quot;C5&quot;</span><span class="p">:</span> <span class="mi">523</span><span class="p">,</span><span class="s2">&quot;CS5&quot;</span><span class="p">:</span> <span class="mi">554</span><span class="p">,</span><span class="s2">&quot;D5&quot;</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span><span class="s2">&quot;DS5&quot;</span><span class="p">:</span> <span class="mi">622</span><span class="p">,</span><span class="s2">&quot;E5&quot;</span><span class="p">:</span> <span class="mi">659</span><span class="p">,</span><span class="s2">&quot;F5&quot;</span><span class="p">:</span> <span class="mi">698</span><span class="p">,</span>
-<span class="s2">&quot;FS5&quot;</span><span class="p">:</span> <span class="mi">740</span><span class="p">,</span><span class="s2">&quot;G5&quot;</span><span class="p">:</span> <span class="mi">784</span><span class="p">,</span><span class="s2">&quot;GS5&quot;</span><span class="p">:</span> <span class="mi">831</span><span class="p">,</span><span class="s2">&quot;A5&quot;</span><span class="p">:</span> <span class="mi">880</span><span class="p">,</span><span class="s2">&quot;AS5&quot;</span><span class="p">:</span> <span class="mi">932</span><span class="p">,</span><span class="s2">&quot;B5&quot;</span><span class="p">:</span> <span class="mi">988</span><span class="p">,</span><span class="s2">&quot;C6&quot;</span><span class="p">:</span> <span class="mi">1047</span><span class="p">,</span><span class="s2">&quot;CS6&quot;</span><span class="p">:</span> <span class="mi">1109</span><span class="p">,</span><span class="s2">&quot;D6&quot;</span><span class="p">:</span> <span class="mi">1175</span><span class="p">,</span><span class="s2">&quot;DS6&quot;</span><span class="p">:</span> <span class="mi">1245</span><span class="p">,</span><span class="s2">&quot;E6&quot;</span><span class="p">:</span> <span class="mi">1319</span><span class="p">,</span><span class="s2">&quot;F6&quot;</span><span class="p">:</span> <span class="mi">1397</span><span class="p">,</span><span class="s2">&quot;FS6&quot;</span><span class="p">:</span> <span class="mi">1480</span><span class="p">,</span><span class="s2">&quot;G6&quot;</span><span class="p">:</span> <span class="mi">1568</span><span class="p">,</span><span class="s2">&quot;GS6&quot;</span><span class="p">:</span> <span class="mi">1661</span><span class="p">,</span>
-<span class="s2">&quot;A6&quot;</span><span class="p">:</span> <span class="mi">1760</span><span class="p">,</span><span class="s2">&quot;AS6&quot;</span><span class="p">:</span> <span class="mi">1865</span><span class="p">,</span><span class="s2">&quot;B6&quot;</span><span class="p">:</span> <span class="mi">1976</span><span class="p">,</span><span class="s2">&quot;C7&quot;</span><span class="p">:</span> <span class="mi">2093</span><span class="p">,</span><span class="s2">&quot;CS7&quot;</span><span class="p">:</span> <span class="mi">2217</span><span class="p">,</span><span class="s2">&quot;D7&quot;</span><span class="p">:</span> <span class="mi">2349</span><span class="p">,</span><span class="s2">&quot;DS7&quot;</span><span class="p">:</span> <span class="mi">2489</span><span class="p">,</span><span class="s2">&quot;E7&quot;</span><span class="p">:</span> <span class="mi">2637</span><span class="p">,</span><span class="s2">&quot;F7&quot;</span><span class="p">:</span> <span class="mi">2794</span><span class="p">,</span><span class="s2">&quot;FS7&quot;</span><span class="p">:</span> <span class="mi">2960</span><span class="p">,</span><span class="s2">&quot;G7&quot;</span><span class="p">:</span> <span class="mi">3136</span><span class="p">,</span><span class="s2">&quot;GS7&quot;</span><span class="p">:</span> <span class="mi">3322</span><span class="p">,</span><span class="s2">&quot;A7&quot;</span><span class="p">:</span> <span class="mi">3520</span><span class="p">,</span>
-<span class="s2">&quot;AS7&quot;</span><span class="p">:</span> <span class="mi">3729</span><span class="p">,</span><span class="s2">&quot;B7&quot;</span><span class="p">:</span> <span class="mi">3951</span><span class="p">,</span><span class="s2">&quot;C8&quot;</span><span class="p">:</span> <span class="mi">4186</span><span class="p">,</span><span class="s2">&quot;CS8&quot;</span><span class="p">:</span> <span class="mi">4435</span><span class="p">,</span><span class="s2">&quot;D8&quot;</span><span class="p">:</span> <span class="mi">4699</span><span class="p">,</span><span class="s2">&quot;DS8&quot;</span><span class="p">:</span> <span class="mi">4978</span>
-<span class="p">}</span>
+<span class="c1"># The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs</span>
+<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span>
+<span class="n">number_leds</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">)</span>
+<span class="n">led_ports</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span>
 
-<span class="n">song</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;E5&quot;</span><span class="p">,</span><span class="s2">&quot;G5&quot;</span><span class="p">,</span><span class="s2">&quot;A5&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;E5&quot;</span><span class="p">,</span><span class="s2">&quot;G5&quot;</span><span class="p">,</span><span class="s2">&quot;B5&quot;</span><span class="p">,</span><span class="s2">&quot;A5&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;E5&quot;</span><span class="p">,</span><span class="s2">&quot;G5&quot;</span><span class="p">,</span><span class="s2">&quot;A5&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;G5&quot;</span><span class="p">,</span><span class="s2">&quot;E5&quot;</span><span class="p">]</span>
-<span class="n">mario</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G6&quot;</span><span class="p">,</span>
-         <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;AS6&quot;</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G6&quot;</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G7&quot;</span><span class="p">,</span> <span class="s2">&quot;A7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;F7&quot;</span><span class="p">,</span> <span class="s2">&quot;G7&quot;</span><span class="p">,</span>
-         <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="s2">&quot;D7&quot;</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
-         <span class="s2">&quot;AS6&quot;</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G6&quot;</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;G7&quot;</span><span class="p">,</span> <span class="s2">&quot;A7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;F7&quot;</span><span class="p">,</span> <span class="s2">&quot;G7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E7&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="s2">&quot;D7&quot;</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># create a list of the ports</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span><span class="p">):</span>
+   <span class="n">led_ports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">playtone</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
-    <span class="n">buzzer</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">buzzer</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">bequiet</span><span class="p">():</span>
-    <span class="n">buzzer</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">playsong</span><span class="p">(</span><span class="n">mysong</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mysong</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">mysong</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P&quot;</span> <span class="ow">or</span> <span class="n">mysong</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
-            <span class="n">bequiet</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">playtone</span><span class="p">(</span><span class="n">tones</span><span class="p">[</span><span class="n">mysong</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-    <span class="n">bequiet</span><span class="p">()</span>
-<span class="n">playsong</span><span class="p">(</span><span class="n">mario</span><span class="p">)</span>
+<span class="c1"># loop forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># blue up</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_leds</span><span class="p">):</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+    <span class="c1"># blue down</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
+<p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
                 
               
               
@@ -1859,7 +1924,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../02-blue-led-lab/" title="Blue LED Lab" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -1868,19 +1933,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Introduction
+                  Blue LED Lab
                 </span>
               </div>
             </a>
           
           
-            <a href="../../../misc/projects/" title="Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../04-button-lab/" title="Button Lab" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Projects
+                  Button Lab
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

@@ -18,7 +18,7 @@
     
     
       
-        <title>02 led test - MicroPython</title>
+        <title>Up Down Demo - MicroPython</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#led-test" class="md-skip">
+        <a href="#up-down-demo" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              02 led test
+              Up Down Demo
             
           </span>
         </div>
@@ -1477,12 +1477,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
       
       <label class="md-nav__link" for="nav-13">
         Kits
@@ -1511,12 +1513,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-2" type="checkbox" id="nav-13-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-2" type="checkbox" id="nav-13-2" checked>
       
       <label class="md-nav__link" for="nav-13-2">
         Maker Pi RP2040
@@ -1547,9 +1551,66 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maker-pi-pr2040/02-led-test.md" class="md-nav__link">
-        LED Demo
+      <a href="../02-blue-led-lab/" class="md-nav__link">
+        Blue LED Lab
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-neopixel-lab/" class="md-nav__link">
+        NeoPixel Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-button-lab/" class="md-nav__link">
+        Button Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-sound-lab/" class="md-nav__link">
+        Sound Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Up Down Demo
+      </a>
+      
     </li>
   
 
@@ -1571,20 +1632,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-play-mario/" class="md-nav__link">
+      <a href="../05-play-mario.md" class="md-nav__link">
         Sound Test
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../two-button-press.md" class="md-nav__link">
-        Two Button Press
       </a>
     </li>
   
@@ -1729,28 +1778,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#led-test" class="md-nav__link">
-    LED Test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-blue-leds-demo" class="md-nav__link">
-    13 Blue LEDs Demo
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1762,69 +1791,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040/02-led-test.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040/05-up-down-demo.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>02 led test</h1>
-                
-                <h2 id="led-test">LED Test</h2>
-<h2 id="13-blue-leds-demo">13 Blue LEDs Demo</h2>
-<p>I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
-<p><img alt="Maker Pi RP2040 LED Demo" src="../img/maker-pi-rp2040-leds.gif" /></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="c1"># The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs</span>
-<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span>
-<span class="n">number_leds</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">)</span>
-<span class="n">led_ports</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span>
-
-<span class="c1"># create a list of the ports</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span><span class="p">):</span>
-   <span class="n">led_ports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">blue_led_pins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
-
-<span class="c1"># loop forever</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># blue up</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_leds</span><span class="p">):</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
-    <span class="c1"># blue down</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_leds</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-        <span class="n">led_ports</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<p>This demo uses a list of all the 13 digital I/O ports.  For each port it sets the port to be a digital output.  In the main loop it then goes up and down the strip of LEDs, turning each one on for 1/20th of a second (.05 seconds).</p>
+                <h1 id="up-down-demo">Up Down Demo</h1>
+<p>In this lab, we will combine the two buttons with the blue LEDs, the NeoPixels and the buzzer labs. The
+We will make the LED, NeoPixels and sound all change for each button press.  You will be able to up
+and down the color spectrum and the sound frequency.</p>
                 
               
               
@@ -1839,6 +1814,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../05-sound-lab/" title="Sound Lab" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Sound Lab
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../../misc/projects/" title="Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Projects
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
