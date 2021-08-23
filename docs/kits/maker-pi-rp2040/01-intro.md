@@ -61,9 +61,10 @@ When this kit is combined with a standard [2 Wheel Drive Smart Car Chassis](http
 One of the biggest disadvantages of the Raspberry Pi Pico is the fact that pin labels are NOT visible when it is mounted on a breadboard.  We have to take the Pico out of the breadboard to read the pin numbers on the bottom of the board.  A much better design would be to follow the best practices and put the labels on the top of the board where they are visible.  This is clearly done on the Maker Pi RP2040 board!
 
 ![Maker Pi RP2040 Pin Labels](../../img/maker-pi-rp2040-labels.png)
-Note the pin labels, GND, 3.3V, GP0 and GP1 are clearly printed on the too of the board.
 
-![Maker Pi Bottum View](../../img/maker-pi-rp2040-bottum-view.jpeg)
+Note the pin labels, GND, 3.3V, GP0 and GP1 are clearly printed on the top of the board.
+
+![Maker Pi Bottom View](../../img/maker-pi-rp2040-bottom-view.jpeg)
 
 Note the circuit in the upper right corner displays how you can use the analog input port to read the battery level of the robot.
 
