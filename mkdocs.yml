@@ -1,4 +1,4 @@
-site_name: 'MicroPython'
+site_name: 'MicroPython for Kids'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Micropython Home: index.md
@@ -116,7 +116,7 @@ nav:
 
 site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
 site_author: 'Dan McCreary'
-repo_name: 'micropython repo'
+repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/CoderDojoTC/micropython'
 
 # CoderDojo Standards from here down
