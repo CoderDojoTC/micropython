@@ -1679,38 +1679,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Ultrasonic Ping Lab
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Ultrasonic Ping Lab
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-sample-ping-lab" class="md-nav__link">
-    Link to Sample Ping Lab
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1870,21 +1841,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-sample-ping-lab" class="md-nav__link">
-    Link to Sample Ping Lab
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1902,8 +1858,40 @@
                 
                 <h1 id="ultrasonic-ping-sensor-lab">Ultrasonic Ping Sensor Lab</h1>
 <p>The Grove sensors on our Maker Pi RP2040 only supply 3.3 volts.  So the standard very popular low cost HC-SR04 will not work, since it requires 5 volts of power.  We have two options.  One is to get a separate 5V power source, but the other is to purchase the new HC-SR04<strong>P</strong> (for Pico?) sensor that will work with our 3.3 volt power on our Grove connector.</p>
+<p>Using the Grove 4 connection wire the HC-SP04P sensor with the trigger on GPIO-16 (White cable) and the echo on GPIO-17 (Yellow cable),  VCC (Red cable), and GND (Black cable)</p>
+<p><img alt="Ultrasonic Sensor" src="../../../img/HC-SP04P_Grove.jpg" /></p>
+<p>All wired up </p>
+<p><img alt="Maker Pi RP2040 with sensor" src="../../../img/Maker_Pi_RP2040-Ping.jpg" /></p>
+<p>```# Sample code to test HC-SR04 Ultrasonice Ping Sensor</p>
+<h1 id="connect-gnd-to-any-gnd-pin-on-the-pico">Connect GND to any GND pin on the Pico</h1>
+<h1 id="connnect-vcc-to-vbus-or-5-volt-power">Connnect VCC to VBUS or 5 Volt power</h1>
+<p>from machine import Pin, Timer
+import utime</p>
+<p>TRIGGER_PIN = 16 # With USB on the top, this pin is the bottom left corner
+ECHO_PIN = 17 # One up from bottom left corner</p>
+<h1 id="init-hc-sr04-pins">Init HC-SR04 pins</h1>
+<p>trigger = Pin(TRIGGER_PIN, Pin.OUT) # send trigger out to sensor
+echo = Pin(ECHO_PIN, Pin.IN) # get the delay interval back</p>
+<p>def ping():
+    trigger.low()
+    utime.sleep_us(2) # Wait 2 microseconds low
+    trigger.high()
+    utime.sleep_us(5) # Stay high for 5 miroseconds
+    trigger.low()
+    while echo.value() == 0:
+        signaloff = utime.ticks_us()
+    while echo.value() == 1:
+        signalon = utime.ticks_us()
+    timepassed = signalon - signaloff
+    distance = (timepassed * 0.0343) / 2
+    return distance</p>
+<p>while True:
+    print("Distance:", ping(), " cm")
+    utime.sleep(.25)</p>
+<p>```</p>
 <h2 id="link-to-sample-ping-lab">Link to Sample Ping Lab</h2>
-<p><a href="">Link to Standard Ping Lab</a>../../sensors/03-ping.md)</p>
+<p>This code is very similar to the previous ping lab but with the different GPIO lines used. </p>
+<p><a href="../../../sensors/03-ping/">Link to Standard Ping Lab</a></p>
                 
               
               
