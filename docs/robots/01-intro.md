@@ -1,6 +1,8 @@
 # Introduction to CoderDojo Pico Robots
 
-Robots are the most powerful learning machines in our CoderDojo project collections.  The allow our students to control motion with their own programs.  Not only are they incredibly fun for our students, they enable them to quickly proceed to our advanced AI Racing League projects.
+Robots are the most powerful learning machines in our CoderDojo projects.  They allow our students to control motion with their own programs.  Not only are they incredibly fun for our students, they learn [computational thinking](https://www.coderdojotc.org/CoderDojoTC/computational-thinking/) and enable them to quickly proceed to our advanced AI Racing League projects.
+
+The Raspberry Pi Pico and the Maker Pi RP2040 components have truly been transformative for our clubs.  Instead of being trapped in the 2K RAM on our Arduino systems and being forced to learn "C", our students are programming in their favorite Python language!
 
 ## Robot Journey Map
 

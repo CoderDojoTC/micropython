@@ -19,15 +19,15 @@ I2C_SCL_0 = 17
 
 # Grove Port 5
 I2C_SDA_0 = 6
-I2C_SCL_0 = 26
+ADC_0 = 26
 
 # Grove Port 6
-I2C_SDA_0 = 26
-I2C_SCL_0 = 27
+ADC_0 = 26
+ADC_1 = 27
 
 # Grove Port 7
-I2C_SDA_0 = 28
-I2C_SCL_0 = 7
+ADC_2 = 28
+SCL1 = 7
 
 # Motor Pins
 MOTOR_1_A = 8
