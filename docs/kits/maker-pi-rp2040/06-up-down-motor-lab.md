@@ -1,28 +1,42 @@
-# Up Down Mode Lab
+# Up Down Motor Speed Lab
 
-In this lab, we will combine the two buttons with the blue LEDs, the NeoPixels and the buzzer labs. The
-We will make the LED, NeoPixels and sound all change for each button press.  You will be able to up
-and down the color spectrum and the sound frequency.
+In this lab, we will make the motor speed change as the mode changes.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JjFNlyKQmqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-We will start with the material from our button lab.  We will create two functions that will be triggered by the
-two buttons.  One will increment a counter (add one) and the other will decrement the counter (subtract 1).  By pressing one of the two buttons you will cycle through the modes of the program.
-
-![Mode Cycle Diagram](../img/../../img/mode-cycle-diagram.png)
-
-The diagram has eight different modes.  The default mode is usually mode=0.  When you press the left button the mode will increase by one.  The NeoPixels will change from red to orange.  Pressing the left button will increase the mode by one going to the orange mode.  Pressing the right button will subtract one from the mode going from mode 1 (orange) back to model 0 (red).
-
-
-Within our Interrupt Request Handler (IRQ) function we will also have to add two lines to deal with the wrap around logic like this:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/32BwKwWviZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ```py
-        # wrap around to first mode
-        if mode >= mode_count: mode = 0
-        if mode < 0: mode = mode_count - 1
+# Motor Setup
+# motors just barely turn at this power level
+MIN_POWER_LEVEL = 10000
+MAX_POWER_LEVEL = 65025
+POWER_STEP = int((MAX_POWER_LEVEL - MIN_POWER_LEVEL) / 10)
+# lower right pins with USB on top
+RIGHT_FORWARD_PIN = 8
+RIGHT_REVERSE_PIN = 9
+LEFT_FORWARD_PIN = 11
+LEFT_REVERSE_PIN = 10
+
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+def drive_speed(power_level):
+    right_forward.duty_u16(power_level)
+    left_forward.duty_u16(power_level)
+```
+
+In the main we have:
+
+```py
+power_level = MIN_POWER_LEVEL + mode * POWER_STEP
+# turn off the motor if we are at mode 0
+if mode == 0: power_level = 0
+drive_speed(power_level)
 ```
 
 ## Full Program
+
 ```py
 # Mode Up/Down Lab
 # Change a mode using the buttons on the Maker Pi RP2040 board
@@ -70,6 +84,26 @@ strip.brightness(100)
 
 # Sample Raspberry Pi Pico MicroPython button press example with a debounce delay value of 200ms in the interrupt handler
 
+# Motor Setup
+# motors just barely turn at this power level
+MIN_POWER_LEVEL = 10000
+MAX_POWER_LEVEL = 65025
+POWER_STEP = int((MAX_POWER_LEVEL - MIN_POWER_LEVEL) / 10)
+# lower right pins with USB on top
+RIGHT_FORWARD_PIN = 8
+RIGHT_REVERSE_PIN = 9
+LEFT_FORWARD_PIN = 11
+LEFT_REVERSE_PIN = 10
+
+right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
+right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
+left_forward = PWM(Pin(LEFT_FORWARD_PIN))
+left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
+
+def drive_speed(power_level):
+    right_forward.duty_u16(power_level)
+    left_forward.duty_u16(power_level)
+
 mode = 0 # the default mode on powerup and reset
 mode_count = len(color_names)
 last_time = 0 # the last time we pressed the button
@@ -81,15 +115,17 @@ previous_mode_pin = machine.Pin(21, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 # This function gets called every time the button is pressed.  The parameter "pin" is not used.
 def button_pressed_handler(pin):
-    global mode, last_time
+    global mode, last_time, power_level
     new_time = time.ticks_ms()
     # if it has been more that 1/5 of a second since the last event, we have a new event
     if (new_time - last_time) > 200:
         # this should be pin.id but it does not work
         if '20' in str(pin):
             mode +=1
+            # power_level += POWER_STEP
         else:
             mode -=1
+            # power_level -= POWER_STEP
         # wrap around to first mode
         if mode >= mode_count: mode = 0
         if mode < 0: mode = mode_count - 1
@@ -107,7 +143,7 @@ def set_blue_led_mode(mode):
 next_mode_pin.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 previous_mode_pin.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 
-#  Note the non-linear increases in frequency - note that some are louder
+# non-linear increase is frequency - note that some are lowder
 tone_freq = [100, 150, 210, 280, 350, 450, 580, 750, 850, 950, 1000]
 def playtone(frequency):
     buzzer.duty_u16(1000)
@@ -119,11 +155,12 @@ def bequiet():
 # This is for only printing when a new button press count value happens
 old_mode = -1
 
+power_level = MIN_POWER_LEVEL
 print('found ', mode_count, ' modes.')
 while True:
     # only print on change in the button_presses value
     if mode != old_mode:
-        print('new mode:', mode, color_names[mode], tone_freq[mode])
+        print('new mode:', mode, color_names[mode], tone_freq[mode], power_level)
         # get the color mode
         color = colors[mode]
         strip.set_pixel(0, color)
@@ -133,5 +170,9 @@ while True:
         playtone(tone_freq[mode])
         time.sleep(.2)
         bequiet()
+        power_level = MIN_POWER_LEVEL + mode * POWER_STEP
+        # turn off the motor if we are at mode 0
+        if mode == 0: power_level = 0
+        drive_speed(power_level)
         old_mode = mode
 ```
