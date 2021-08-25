@@ -40,8 +40,10 @@ def ping():
 
 while True:
     print("Distance:", ping(), " cm")
-    utime.sleep(.25)```
+    utime.sleep(.25)
+    
+```
 
 ## Link to Sample Ping Lab
-
-[Link to Standard Ping Lab]()../../sensors/03-ping.md)
+This code is very similar to the previous ping lab but with the different GPIO lines used. 
+[Link to Standard Ping Lab](../../sensors/03-ping.md)
