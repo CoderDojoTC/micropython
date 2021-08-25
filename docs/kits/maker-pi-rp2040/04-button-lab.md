@@ -1,5 +1,13 @@
 # Two Button Press
 
+We learned how to write code to monitor a button press in the [Button Lab](../../intro/03-button.md).
+
+Recall we talked about how to remove the noise when a button is pressed:
+
+![Debounce Transition](../../img/debounce-transition.png)
+
+We did this by waiting for the transition to settle down to its new state.
+
 ```py
 import utime
 from machine import Pin
