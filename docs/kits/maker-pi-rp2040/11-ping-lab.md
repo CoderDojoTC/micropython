@@ -40,7 +40,7 @@ def ping():
     return distance
 
 while True:
-    print("Distance:", ping(), " cm")
+    print("Distance:", ping(), "cm")
     utime.sleep(.25)
     
 ```
