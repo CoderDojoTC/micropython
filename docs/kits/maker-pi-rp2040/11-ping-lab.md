@@ -46,4 +46,5 @@ while True:
 
 ## Link to Sample Ping Lab
 This code is very similar to the previous ping lab but with the different GPIO lines used. 
+
 [Link to Standard Ping Lab](../../sensors/03-ping.md)
