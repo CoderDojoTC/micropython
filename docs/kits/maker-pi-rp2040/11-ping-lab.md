@@ -10,10 +10,10 @@ All wired up
 
 ![Maker Pi RP2040 with sensor](../../img/Maker_Pi_RP2040-Ping.jpg)
 
-```
-# Sample code to test HC-SR04 Ultrasonice Ping Sensor
+```py
+# Sample code to test HC-SR04 Ultrasonic Ping Sensor
 # Connect GND to any GND pin on the Pico
-# Connnect VCC to VBUS or 5 Volt power
+# Connect VCC to VBUS or 5 Volt power
 
 from machine import Pin, Timer
 import utime
@@ -47,7 +47,7 @@ while True:
 
 More advanced version with sound
 
-```
+```py
 # Sample code to test HC-SR04 Ultrasonice Ping Sensor
 # Connect GND to any GND pin on the Pico
 # Connnect VCC to VBUS or 5 Volt power
