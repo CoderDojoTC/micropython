@@ -94,7 +94,8 @@ while True:
     if dist < 20:
         print("Panic")
         playtone(350)
-        utime.sleep(.05)
+        # Beep faster the closer you get
+        utime.sleep(.05/(20/dist))
         bequiet()
     utime.sleep(.1)
     
