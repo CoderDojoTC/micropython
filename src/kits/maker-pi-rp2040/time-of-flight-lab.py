@@ -1,31 +1,3 @@
-# Time of Flight Distance Sensor Lab
-
-In this lab we create a program that will show the distance measured by the Time-of-Flight sensor by printing the distance on the console and also displaying the distance on 11 blue LEDs.
-
-First, make sure you have your driver for the Time-of-Flight sensor installed.
-
-You can copy the code from [here](https://github.com/CoderDojoTC/micropython/blob/main/src/drivers/VL53L0X.py) and save it in the file VL53L0X.py.  Note the zero between the "L" and "X" in the file name, not the letter "O".
-
-We use a non-linear distance scale as we get closer to an object.  We store the numbers of each LED and the distance it should change in a lists:
-
-```py
-blue_led_pins = [2, 3, 4,  5,  6,  7,  16, 17, 26, 27, 28]
-dist_scale =    [2, 6, 10, 20, 30, 40, 50, 60, 80, 110, 150]
-```
-
-## Calibration
-
-There are three numbers you can change when you calibrate the sensor:
-
-```py
-ZERO_DIST = 60 # The value of the sensor when an object is 0 CM away
-MAX_DIST = 1200 # max raw distance we are able to read
-SCALE_DIST = .3 # multiplier for raw to calibrated distance in CM
-```
-
-## Full Program
-
-```py
 # Demo for Maker Pi RP2040 board using the VL32L0X time of flight distance sensor
 # Note the driver I used came from here: https://github.com/CoderDojoTC/micropython/blob/main/src/drivers/VL53L0X.py
 # Perhaps derived from here: https://github.com/uceeatz/VL53L0X/blob/master/VL53L0X.py
@@ -60,6 +32,7 @@ for i in range(number_leds):
 
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
+
 
 
 # get the normalized time-of-flight distance
@@ -114,5 +87,3 @@ while True:
 
 # clean up
 tof.stop()
-
-```
