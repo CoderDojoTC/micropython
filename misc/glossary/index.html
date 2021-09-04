@@ -1796,6 +1796,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#formatted-strings" class="md-nav__link">
+    Formatted Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32" class="md-nav__link">
     ESP32
   </a>
@@ -2055,6 +2062,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#formatted-strings" class="md-nav__link">
+    Formatted Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32" class="md-nav__link">
     ESP32
   </a>
@@ -2208,6 +2222,26 @@ The format is used to generate a concept graph for this course
 <ul>
 <li>Also known as: Jumper Wires</li>
 <li><a href="https://www.ebay.com/sch/92074/i.html?_from=R40&amp;_nkw=jumper+wire+cables">Sample eBay Search for Jumper Wires</a></li>
+</ul>
+<h4 id="formatted-strings">Formatted Strings</h4>
+<p>The ability to use a simplified syntax to format strings by added the letter "f" before the string.  Values within curly braces are formatted from variables.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Lisa&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. You are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">.&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>returns</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello, Lisa. You are 12.
+</code></pre></div>
+</td></tr></table>
+<p>Formatted string support was added to MicroPython in release 1.17 </p>
+<ul>
+<li>Also known as: f-strings</li>
+<li>Also known as: Literal String Interpolation</li>
+<li>From Python Enhancement Proposal: PEP 498</li>
+<li><a href="[formatted strings](https://www.python.org/dev/peps/pep-0498/)">Link to Formatted Strings Docs</a></li>
 </ul>
 <h4 id="esp32">ESP32</h4>
 <p>A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.</p>
