@@ -41,6 +41,29 @@ The connectors are available in male and female ends and are typically sold in l
 * Also known as: Jumper Wires
 * [Sample eBay Search for Jumper Wires](https://www.ebay.com/sch/92074/i.html?_from=R40&_nkw=jumper+wire+cables)
 
+#### Formatted Strings
+
+The ability to use a simplified syntax to format strings by added the letter "f" before the string.  Values within curly braces are formatted from variables.
+
+```py
+name = "Lisa"
+age = 12
+f"Hello, {name}. You are {age}."
+```
+
+returns
+
+```
+Hello, Lisa. You are 12.
+```
+
+Formatted string support was added to MicroPython in release 1.17 
+
+* Also known as: f-strings
+* Also known as: Literal String Interpolation
+* From Python Enhancement Proposal: PEP 498
+* [Link to Formatted Strings Docs]([formatted strings](https://www.python.org/dev/peps/pep-0498/))
+
 #### ESP32
 A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
 
