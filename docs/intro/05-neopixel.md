@@ -1,12 +1,11 @@
-# Neopixel
+# NeoPixel
 
-[MicroPython Example Code](https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html)
+As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Note that on other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.
 
-!!! Note
-    The current version of the runtime (rp2-pico-20210205-unstable-v1.14-8-g1f800cac3) accidentally dropped the array module.  To run this you will need to use [this](https://github.com/robert-hh/micropython/blob/rp2_fat/ports/rp2/build/firmware.uf2)
-    See issue [Issue 6837: rp2 port no module named array](https://github.com/micropython/micropython/issues/6837).  This should be fixed in a day or two.
+Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.
 
-    Feb. 20th, 2021. - Dan
+[MicroPython Example Code on ESP8266](https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html)
+
 
 ## Circuit connections
 
@@ -17,7 +16,6 @@
 |GND|GND|3|Ground|Third from top on the left with USB on top|
 |5v|VBUS|40|Voltage from the USB bus.  Top right with USB on top|
 |Data|GP0|1|Topmost left with USB on top|
-
 
 
 ## Parameters
@@ -140,5 +138,6 @@ rainbow_cycle(0)
 
 [Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico](https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html) - HTML page, sample code and video
 
+[MicroPython Library for NeoPixel](https://docs.micropython.org/en/latest/library/neopixel.html) - note the lack of support for the RP2040 microcontroller.
 
 [rp2 port no module named array](https://github.com/micropython/micropython/issues/6837)

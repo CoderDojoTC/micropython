@@ -134,7 +134,11 @@ Press the Play Button
 ### Getting Started Guide
 [Raspberry Pi Getting Started](https://www.raspberrypi.org/documentation/pico/getting-started/)
 
+### MicroPython RP2040 Reference
+
+[MicroPython RP2040 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html)
+
 ### Book PDF
-[Raspberry Pi Book PDF Download](https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf)
+[Raspberry Pi Book PDF Download from HackSpace](https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf)
 Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
 (CC BY-NC-SA 3.0)
