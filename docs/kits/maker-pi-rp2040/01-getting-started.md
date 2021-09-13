@@ -3,18 +3,18 @@
 Your robot kit will have the following components:
 
 1. A SmartCar Chassis
-   1. Two 3 to 6-volt DC geared hobby motors
-   2. Plexiglass main board
-   3. Screws and nuts
-   4. 4 AA battery pack
-   5. Power switch
+   1.1 Two 3 to 6-volt DC geared hobby motors
+   1.2 Plexiglass main board
+   1.3 Screws and nuts
+   1.4 4 AA battery pack
+   1.5 Power switch
 2. Cytron Maker Pi RP2040 robotics board
-   1. 4 Grove connectors
-   2. Screwdriver
-   3. Rubber feet
+   2.1. 4 Grove connectors
+   2.2. Screwdriver
+   2.3. Rubber feet
 3. Time of Flight distance sensor
-   1. 3D printed mount
-   2. 2 M2 6mm screws and nut
+   3.1 3D printed mount
+   3.2 2 M2 6mm screws and nut
 
 ## Install the MicroPython Runtime Library
 
