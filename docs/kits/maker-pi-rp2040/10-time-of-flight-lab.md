@@ -116,3 +116,9 @@ while True:
 tof.stop()
 
 ```
+
+## References
+
+[Kevin McAleer's GitHub Repo on the Vl53lx0](https://github.com/kevinmcaleer/vl53lx0)
+[Kevin McAleer's 662 line driver](https://github.com/kevinmcaleer/vl53lx0/blob/master/vl53l0x.py) - I am not sure we need all 662 lines of code.
+[Kevin McAleer's Time of Flight Test](https://github.com/kevinmcaleer/vl53lx0/blob/master/tof_test.py)

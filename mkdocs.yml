@@ -94,6 +94,7 @@ nav:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
       - Introduction: kits/maker-pi-rp2040/01-intro.md
+      - Getting Started: kits/maker-pi-rp2040/01-getting-started.md
       - Blue LED Lab: kits/maker-pi-rp2040/02-blue-led-lab.md
       - NeoPixel Lab: kits/maker-pi-rp2040/03-neopixel-lab.md
       - Button Lab: kits/maker-pi-rp2040/04-button-lab.md
@@ -105,7 +106,8 @@ nav:
       - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040/12-time-of-flight-sound-lab.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
-      - Collision Avoidance Robot: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
+      - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
+      - Collision Avoidance Ping: kits/maker-pi-rp2040/20-collision-avoidance-ping.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
