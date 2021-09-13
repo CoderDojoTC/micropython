@@ -1571,9 +1571,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Blue LED Lab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Blue LED Lab
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blink-first-blue-led" class="md-nav__link">
+    Blink First Blue LED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-lights-on-all-leds" class="md-nav__link">
+    Running Lights on All LEDs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1865,6 +1901,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blink-first-blue-led" class="md-nav__link">
+    Blink First Blue LED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-lights-on-all-leds" class="md-nav__link">
+    Running Lights on All LEDs
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1881,7 +1939,32 @@
                 
                 
                 <h1 id="blue-led-lab">Blue LED Lab</h1>
-<p>I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
+<p>Once you have the MicroPython runtime installed and your IDE setup, this board is easy to program!</p>
+<p>Let's take a look at the classic "Blink" program that turns a single LED on and off every second.</p>
+<h2 id="blink-first-blue-led">Blink First Blue LED</h2>
+<p>The Maker Pi RP2040 has a row of 13 small blue LEDs that monitor the digital input/output of 13 of the GPIO signals.  If you set any of the output pins to be HIGH, the LED will be on.  If you set the pin to be LOW, the blue LED will be off.  These LEDs make it easy for you to view the state of your GPIO pins and can help debugging your programs.</p>
+<p>Just remember that if you are using the pins for communication, you can't use the LEDs for other purposes.</p>
+<p>Here is a small program that will blink the first blue LED:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="c1"># setup the first LED as an output signal</span>
+<span class="n">first_led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">first_led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Note that the first four lines are the "setup" of the program.  These lines will only run once when the program starts.  The code indented after the <code>while True:</code> line will continue to run until the device is reset or powered down.</p>
+<h2 id="running-lights-on-all-leds">Running Lights on All LEDs</h2>
+<p>Here is a demo using the 13 nice blue LEDs used to show the status of the pins.</p>
 <p><img alt="Maker Pi RP2040 LED Demo" src="../../../img/maker-pi-rp2040-leds.gif" /></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
