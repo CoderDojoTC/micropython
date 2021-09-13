@@ -3,24 +3,26 @@
 Your robot kit will have the following components:
 
 1. A SmartCar Chassis
-   1.1 Two 3 to 6-volt DC geared hobby motors
-   1.2 Plexiglass main board
-   1.3 Screws and nuts
-   1.4 4 AA battery pack
-   1.5 Power switch
+    1. Two 3 to 6-volt DC geared hobby motors
+    1. Plexiglass (acrylic) main board
+    1. Screws and nuts
+    1. 4 AA battery pack
+    1. Power switch
 2. Cytron Maker Pi RP2040 robotics board
-   2.1. 4 Grove connectors
-   2.2. Screwdriver
-   2.3. Rubber feet
+    1. 4 Grove connectors
+    1. Screwdriver
+    1. Rubber feet
 3. Time of Flight distance sensor
-   3.1 3D printed mount
-   3.2 2 M2 6mm screws and nut
+    1. 3D printed mount
+    1. 2 M2 6mm screws and nut
+
+You will need to provide 4 AA batteries and a micro USB connector.
 
 ## Install the MicroPython Runtime Library
 
 THe Make Pi RP2040 comes with an incompatible Python run-time.  Our first step is to re-initialize the board with the Raspberry Pi [flash_nuke.uf2](https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2) runtime.  We can then load the latest MicroPython libraries.
 
-To do this hold down the BOTSEL button on the board when you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.
+To do this hold down the BOTSEL button on the main board when you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.
 
 You can now repeat this process with the [Raspberry Pi MicroPython Runtime](https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2).  Just remember to press the BOTSEL when you turn on the board and reboot after the image has been copied to the microcontroller.
 
@@ -28,7 +30,9 @@ If you have never used MicroPython, the Raspberry Pi Foundation has a nice [Gett
 
 ## Get Familiar with your IDE (Thonney) and the Basic Programs
 
-There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.
+There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.  Once you turn on the board you should be able to configure Thonny to use the Raspberry Pi MicroPython interface.  When you press the Stop/Reset button you should see the MicroPython RPEL prompt.
+
+![](../../img/thonny-micropython-pico.png)
 
 ## Assemble the SmartCar Chassis
 

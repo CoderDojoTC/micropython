@@ -70,7 +70,7 @@ nav:
     - Playing Three Tones: sound/03-play-three-tones.md
     - Playing a Scale: sound/04-play-scale.md
     - Play Mario: sound/05-play-mario.md
-  - Pico Robots:
+  - MicroPython Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
