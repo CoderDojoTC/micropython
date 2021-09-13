@@ -1991,10 +1991,11 @@
 <li>Power switch</li>
 </ol>
 </li>
-<li>Cytron Maker Pi RP2040 robotics board<ol>
-<li>4 Grove connectors</li>
+<li>Cytron Maker Pi RP2040 kit<ol>
+<li>Maker Pi RP2040 board</li>
+<li>4x Grove to Female Header Cable</li>
 <li>Screwdriver</li>
-<li>Rubber feet</li>
+<li>Silicone Rubber Feet (Pack of 4)</li>
 </ol>
 </li>
 <li>Time of Flight distance sensor<ol>
@@ -2005,9 +2006,9 @@
 </ol>
 <p>You will need to provide 4 AA batteries and a micro USB connector.</p>
 <h2 id="install-the-micropython-runtime-library">Install the MicroPython Runtime Library</h2>
-<p>THe Make Pi RP2040 comes with an incompatible Python run-time.  Our first step is to re-initialize the board with the Raspberry Pi <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> runtime.  We can then load the latest MicroPython libraries.</p>
-<p>To do this hold down the BOTSEL button on the main board when you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.</p>
-<p>You can now repeat this process with the <a href="https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2">Raspberry Pi MicroPython Runtime</a>.  Just remember to press the BOTSEL when you turn on the board and reboot after the image has been copied to the microcontroller.</p>
+<p>The <strong>Maker Pi RP2040</strong> comes with an incompatible Python run-time.  Our first step is to re-initialize the board with the Raspberry Pi <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> runtime.  We can then load the latest MicroPython libraries.</p>
+<p>To do this <strong>hold down</strong> the BOTSEL button on the main board while you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.</p>
+<p>You can now repeat this process with the <a href="https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2">Raspberry Pi MicroPython Runtime</a>.  Just remember to press and hold down the BOTSEL <strong>before</strong> you turn on the board and reboot after the image has been copied to the microcontroller.</p>
 <p>If you have never used MicroPython, the Raspberry Pi Foundation has a nice <a href="https://www.raspberrypi.org/documentation/microcontrollers/micropython.html">Getting Started Guide</a> that can be helpful.</p>
 <h2 id="get-familiar-with-your-ide-thonney-and-the-basic-programs">Get Familiar with your IDE (Thonney) and the Basic Programs</h2>
 <p>There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.  Once you turn on the board you should be able to configure Thonny to use the Raspberry Pi MicroPython interface.  When you press the Stop/Reset button you should see the MicroPython RPEL prompt.</p>

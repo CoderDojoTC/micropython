@@ -18,7 +18,7 @@
     
     
       
-        <title>Neopixel - MicroPython for Kids</title>
+        <title>NeoPixel - MicroPython for Kids</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Neopixel
+              NeoPixel
             
           </span>
         </div>
@@ -1903,14 +1903,10 @@
                   </a>
                 
                 
-                <h1 id="neopixel">Neopixel</h1>
-<p><a href="https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html">MicroPython Example Code</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The current version of the runtime (rp2-pico-20210205-unstable-v1.14-8-g1f800cac3) accidentally dropped the array module.  To run this you will need to use <a href="https://github.com/robert-hh/micropython/blob/rp2_fat/ports/rp2/build/firmware.uf2">this</a>
-See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue 6837: rp2 port no module named array</a>.  This should be fixed in a day or two.</p>
-<p>Feb. 20th, 2021. - Dan</p>
-</div>
+                <h1 id="neopixel">NeoPixel</h1>
+<p>As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Note that on other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.</p>
+<p>Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.</p>
+<p><a href="https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html">MicroPython Example Code on ESP8266</a></p>
 <h2 id="circuit-connections">Circuit connections</h2>
 <p><img alt="" src="../../img/led-strip-connections.png" /></p>
 <table>
@@ -2163,6 +2159,7 @@ See issue <a href="https://github.com/micropython/micropython/issues/6837">Issue
 </td></tr></table>
 <h2 id="references">References</h2>
 <p><a href="https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html">Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico</a> - HTML page, sample code and video</p>
+<p><a href="https://docs.micropython.org/en/latest/library/neopixel.html">MicroPython Library for NeoPixel</a> - note the lack of support for the RP2040 microcontroller.</p>
 <p><a href="https://github.com/micropython/micropython/issues/6837">rp2 port no module named array</a></p>
                 
               
