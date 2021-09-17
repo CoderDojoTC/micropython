@@ -1,6 +1,12 @@
-# Maker Pi RP2040
+# Maker Pi RP2040 MicroPython Robotics Kit
 
 The Maker Pi PR2040 kit from [Cytron Technologies](https://www.cytron.io/) is a [$9.90 US kit](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040) that is designed to simplify learning robotics using the RP2040 chip. It became available in April of 2021, but demand has been very high and it is out-of-stock on many retailers sites.  We can understand this.  The Maker Pi PR2040 is the most powerful robotics board we have ever seen for under $10!
+
+![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-tof-robot.jpg)
+
+The photo above is our base robot kit.  It includes the Maker Pi RP2040 board mounted on a standards Smart Car chassis.  The image above shows the Time-of-flight distance sensor mounted in the front below the chassis.  Note that the batteries are mounted on the bottom of the robot.
+
+Below is the top view of the Cytron Maker Pi RP2040 robotics board.
 
 ![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-top-view.png)
 
