@@ -1643,6 +1643,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../07b-drive-square-lab.py" class="md-nav__link">
+        Square Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../08-servo-lab/" class="md-nav__link">
         Servo Lab
       </a>
@@ -1859,6 +1871,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequsites" class="md-nav__link">
+    Prerequsites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#adding-a-keyboard-interrupt-handler-control-c" class="md-nav__link">
     Adding a Keyboard Interrupt Handler (Control-C)
   </a>
@@ -1890,6 +1909,8 @@
                 
                 
                 <h1 id="drive-square-lab">Drive Square Lab</h1>
+<h2 id="prerequsites">Prerequsites</h2>
+<p>This lab assumes you have your Maker Pi RP2040 mounted on a SmartCar chassis with two motors and a battery hooked up.</p>
 <p>In this lab we will program our robot to drive in a square pattern. We will start out doing a "bench test" that will require you to put the robot up on a block so you can see the wheels turn, but it will not drive off your desktop.  You can also observe the red LED lights on the many board to see which motor direction is on.</p>
 <p>The main loop will look like this:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1945,6 +1966,7 @@ This says that whenever we want to pause our system we just use the <code>sleep(
 </code></pre></div>
 </td></tr></table>
 <h2 id="full-program">Full Program</h2>
+<p>You are now ready to test the full program.  Save the following to the main.py file, disconnect the USB connector and turn on the power on the main board.  Your robot should not we driving in a square!</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
