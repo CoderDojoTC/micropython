@@ -1,5 +1,9 @@
 # Drive Square Lab
 
+## Prerequsites
+
+This lab assumes you have your Maker Pi RP2040 mounted on a SmartCar chassis with two motors and a battery hooked up.
+
 In this lab we will program our robot to drive in a square pattern. We will start out doing a "bench test" that will require you to put the robot up on a block so you can see the wheels turn, but it will not drive off your desktop.  You can also observe the red LED lights on the many board to see which motor direction is on.
 
 The main loop will look like this:
@@ -46,6 +50,8 @@ finally:
 ```
 
 ## Full Program
+
+You are now ready to test the full program.  Save the following to the main.py file, disconnect the USB connector and turn on the power on the main board.  Your robot should not we driving in a square!
 
 ```py
 from machine import Pin, PWM
