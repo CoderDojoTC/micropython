@@ -104,9 +104,10 @@ One of the things I love about this board is how incredibly easy it is for stude
 ## References
 * [Link on Box](https://link.cytron.io/maker-pi-rp2040-start)
 * [GitHub Link](https://github.com/CytronTechnologies/MAKER-PI-RP2040)
-* [Maker Pi RP2040 Product Page](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040)
-* [Maker Pi RP2040 Datasheet on Google Docs](https://docs.google.com/document/d/1DJASwxgbattM37V4AIlJVR4pxukq0up25LppA8-z_AY/edit)
+* [Cytron Maker Pi RP2040 Product Page](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040)
+* [Cytron Maker Pi RP2040 Datasheet on Google Docs](https://docs.google.com/document/d/1DJASwxgbattM37V4AIlJVR4pxukq0up25LppA8-z_AY/edit)
+* [Digi-Key Cytron Maker Pi RP2040 reseller](https://www.digikey.com/en/products/detail/cytron-technologies-sdn-bhd/MAKER-PI-RP2040/14557836)
 * [Amazon Listing](https://www.amazon.com/dp/B096DFH22X) - no availability as of Aug. 15th 2021
-* [Adafruit](https://www.adafruit.com/product/5129) - out of stock as of Aug. 15th 2021
+* [Adafruit Cytron Maker Pi RP2040 reseller](https://www.adafruit.com/product/5129) - out of stock as of Aug. 15th 2021
 * [1300 mah battery](https://www.cytron.io/p-lipo-rechargeable-battery-3.7v-1300mah)
 * [Ultrasonic Sensor Video on YouTube](https://www.youtube.com/watch?v=mn1nqgEkufA)
