@@ -274,3 +274,7 @@ micropython.schedule(self.call_handlers, Rotary.ROT_CCW)
 ```
 
 This error did not seem to impact the execution of the code.  My suspicion is that this is a bug in the Micropython firmware.
+
+## References
+
+1. [Counter get stuck on "schedule queue full"](https://githubmemory.com/repo/miketeachman/micropython-rotary/issues/14)

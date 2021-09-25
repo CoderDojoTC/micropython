@@ -5,17 +5,14 @@ import urandom
 import ssd1306
 
 # The Default Parameters
-MOTOR_POWER = 30000
-# a code for the menu system 0=off, 1=20000, 2=30000, 3=40000, 4=50000
-MOTOR_POWER_CODE = 3
 TURN_DIST = 15
+MOTOR_POWER = 30000
 REVERSE_TIME = .5
 TURN_TIME = .5
 
 # ignore any ping measurements above this number
 MAX_DIST = 200
-MIN_POWER_LEVEL = 20000
-MAX_POWER_LEVEL = 65025
+POWER_POWER_LEVEL = 65025
 
 # static pin assignments
 TRIGGER_PIN = 7
@@ -60,7 +57,7 @@ mode_function = 0 # the function to change within a mode
 function_value = 0 # the function value (usually a value of 0-to-5)
 dist = 0
 motor_power = MOTOR_POWER
-motor_power_code = MOTOR_POWER_CODE
+motor_power_val = 2
 turn_dist = TURN_DIST
 turn_dist_val = 3
 reverse_time = REVERSE_TIME
@@ -73,13 +70,9 @@ mode_count = len(mode_menu)
 functions_menu = ['Motor Power', 'Turn Dist', 'Rev Time', 'Turn Time']
 function_menu_count = len(functions_menu)
 # power
-motor_power = MOTOR_POWER
-motor_power_code = MOTOR_POWER_CODE
-motor_power_labels = ['Off', 'Low', 'Medium-Low', 'Medium', 'Medium-High', 'High', 'Max']
-# three letter code due to limited screen area
-motor_power_abbr =    ['Off', 'Low', 'ML',         'Med',    'MH',          'Hi',   'Max']
-motor_power_values = [0,      20000, 30000,       40000,    50000,         55000,  MAX_POWER_LEVEL]
-motor_power_count = len(motor_power_labels)
+power_level_labels = ['Off', 'Low', 'Medium-Low', 'Medium', 'Medium-High', 'High', 'Max']
+power_level_values = [0,      20000, 30000,        40000,   50000,         55000,  POWER_POWER_LEVEL]
+power_level_count = len(power_level_labels)
 # turn distance
 turn_dist_labels = ['5cm', '7cm', '10cm', '15cm', '20cm', '30cm', '40cm']
 turn_dist_values = [5, 7, 10, 15, 20, 30, 40]
@@ -133,7 +126,7 @@ rotary.add_handler(rotary_changed)
 up_irq = machine.Pin(UP_BUTTON_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)
 down_irq = machine.Pin(DOWN_BUTTON_PIN, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
-# This function gets called every time the button is pressed.  The parameter "pin" used to determine what pin is pressed.
+# This function gets called every time the button is pressed.  The parameter "pin" is not used.
 last_time = 0
 def button_pressed_handler(pin):
     global mode_function, function_value, last_time, power_level_count, turn_dist_count, reverse_time_count, turn_time_count
@@ -150,9 +143,9 @@ def button_pressed_handler(pin):
             function_value = 0
         # wrap the function values
         if mode_function == 0:
-            if function_value >= motor_power_count - 1:
-                function_value =  motor_power_count - 1
-            motor_power = motor_power_values[function_value]
+            if function_value >= power_level_count - 1:
+                function_value =  power_level_count - 1
+            power_level = power_level_values[function_value]
         elif mode_function == 1:
             if function_value >= turn_dist_count - 1:
                 function_value = turn_dist_count - 1
@@ -171,27 +164,6 @@ def button_pressed_handler(pin):
 up_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 down_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
 
-# display the four run parameters at the y offset
-def display_params(y_offset):
-    oled.text('Pwr:', 0, y_offset, 1)
-    oled.text(motor_power_abbr[motor_power_code], 30, y_offset, 1)
-    oled.text('Dist:', 60, y_offset, 1)
-    oled.text(turn_dist_labels[turn_dist_code], 60, y_offset, 1)
-    oled.text('Rev:', 0, y_offset + 10, 1)
-    oled.text('Turn:', 60, y_offset + 10, 1)
-
-def display_dist_action(y_offset):
-    global mode
-    # display distance and action in standby and run modes
-    if mode == 0 or mode == 1:
-        oled.text('Dist: ', 0, y_offset, 1)
-        oled.text(str(dist), 50, y_offset, 1)
-        oled.text('Action:', 0, y_offset + 9, 1)
-        if dist < TURN_DIST:
-            oled.text('Turning', 55, y_offset + 9, 1)
-        else:
-            oled.text('Forward', 55, y_offset + 9, 1)
-
 def update_display():
     global mode, dist, motor_power, backup_delay, turn_dist, turn_delay
     oled.fill(0)
@@ -204,10 +176,18 @@ def update_display():
     # standby mode
     if mode == 0:
         oled.text(str(mode), 120, 0, 1)
-        oled.text('Prs Knob 2 Start', 0, 11, 1)
-        # oled.text('To Start', 10, 20, 1)
-        display_params(20)
-        display_dist_action(40)
+        oled.text('Press Knob', 10, 10, 1)
+        oled.text('To Start', 10, 20, 1)
+        
+    # display distance and action in standby and run modes
+    if mode == 0 or mode == 1:
+        oled.text('Dist: ', 0, 30, 1)
+        oled.text(str(dist), 50, 30, 1)
+        oled.text('Action:', 0, 40, 1)
+        if dist < TURN_DIST:
+            oled.text('Turning', 55, 40, 1)
+        else:
+            oled.text('Forward', 55, 40, 1)
             
     # program mode
     if mode == 2:
@@ -325,12 +305,12 @@ def stop():
     turn_motor_off(left_reverse)
     
 print('Collision Avoidance Display Rotary Ping with Speaker')
-# play_startup()
+play_startup()
 
 counter = 0
 current_dist = 0
 # change the defaut mode
-mode = 0
+mode = 2
 def main():
     global counter, dist, current_dist
     current_mode = mode
@@ -362,8 +342,9 @@ def main():
             else:
                 print('forward')
                 forward()
+
         # program mode
-        elif mode == 2:
+        if mode == 2:
             stop()
         
         # only print on change
