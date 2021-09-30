@@ -17,7 +17,7 @@ I2C_SDA_PIN = 26
 I2C_SCL_PIN = 27
 i2c=machine.I2C(1,sda=machine.Pin(I2C_SDA_PIN), scl=machine.Pin(I2C_SCL_PIN), freq=400000)
 
-MAX_DIST = 1000
+MAX_DIST = 1200
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
 tof.start()
@@ -32,7 +32,10 @@ while True:
     print(dist)
     oled.fill(0)
     oled.text('dist:', 0, 0, 1)
-    oled.text(str(dist), 50, 0, 1)
+    if dist < MAX_DIST:
+        oled.text(str(dist), 50, 0, 1)
+    else:
+        oled.text('MAX', 50, 0, 1)
     oled.text('min dist:', 0, 10, 1)
     oled.text(str(min_dist), 70, 10, 1)
     oled.text('cal dist:', 0, 20, 1)
