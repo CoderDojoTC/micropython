@@ -1,6 +1,32 @@
 # Blue LED Lab
 
-I wanted to make sure that everyone knows how easy this board is to program with MicroPython once you have the runtime loaded.  Here is a demo using the 13 nice blue LEDs used to show the status of the pins.
+Once you have the MicroPython runtime installed and your IDE setup, this board is easy to program!
+
+Let's take a look at the classic "Blink" program that turns a single LED on and off every second.
+
+## Blink First Blue LED
+The Maker Pi RP2040 has a row of 13 small blue LEDs that monitor the digital input/output of 13 of the GPIO signals.  If you set any of the output pins to be HIGH, the LED will be on.  If you set the pin to be LOW, the blue LED will be off.  These LEDs make it easy for you to view the state of your GPIO pins and can help debugging your programs.
+
+Just remember that if you are using the pins for communication, you can't use the LEDs for other purposes.
+
+Here is a small program that will blink the first blue LED:
+
+```py
+import machine
+import time
+# setup the first LED as an output signal
+first_led = machine.Pin(0, machine.Pin.OUT)
+
+while True:
+    first_led.toggle()
+    time.sleep(1)
+```
+
+Note that the first four lines are the "setup" of the program.  These lines will only run once when the program starts.  The code indented after the ```while True:``` line will continue to run until the device is reset or powered down.
+
+## Running Lights on All LEDs
+
+Here is a demo using the 13 nice blue LEDs used to show the status of the pins.
 
 ![Maker Pi RP2040 LED Demo](../../img/maker-pi-rp2040-leds.gif)
 

@@ -4,16 +4,37 @@ This robot works very similar to our standard CoderDojo Collision Avoidance Robo
 
 The board is mounted on a SmartCar Chassis and Grove Connector 0 is used to connect to a Time-of-Flight distance sensor that is using the I2C bus.
 
+## Random Turn Direction
+
+```py
+if dist < TURN_DIST:
+    play_reverse()
+    reverse()
+    sleep(REVERSE_TIME)
+    # half right and half left turns
+    if urandom.random() < .5:
+        turn_right()
+        play_turn_right()
+    else:
+        turn_left()
+        play_turn_left()
+    sleep(TURN_TIME)
+    forward()
+```
+
+
 ```py
 # Demo for Maker Pi RP2040 board
 
 from machine import Pin,PWM
-import time
+from time import sleep, sleep_ms
+import urandom
 import VL53L0X
 
 # Piezo Buzzer is on GP22
 buzzer=PWM(Pin(22))
 
+# this is the max power level
 POWER_LEVEL = 65025
 
 # Motor Pins are A: 8,9 and B: 10,11
@@ -136,7 +157,7 @@ def play_no_signal():
 
 def play_turn():
     playtone(500)
-    time.sleep(0.1)
+    sleep(0.1)
     bequiet()
     
 # start our time-of-flight sensor
@@ -159,15 +180,16 @@ def main():
                 play_turn()
                 # back up for 1/2 second
                 reverse()
-                time.sleep(0.5)
+                sleep(0.5)
                 turn_right()
-                time.sleep(0.75)
+                sleep(0.75)
+                forward()
             else:
                 print('forward')
                 forward()
             valid_distance = 1
             led_show_dist(distance)
-        time.sleep(0.05)
+        sleep(0.05)
 
 # clean up
 
@@ -181,5 +203,8 @@ finally:
     # Optional cleanup code
     print('turning off sound')
     buzzer.duty_u16(0)
+    print('powering down all motors')
+    stop()
+    print('stopping time of flight sensor')
     tof.stop()
 ```

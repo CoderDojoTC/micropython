@@ -10,7 +10,7 @@ The VL53L0X integrates a  group of Single Photon Avalanche Diodes (SPAD) and emb
 ## Circuit
 Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GIPO pins 16 and 17.
 
-## Scanner
+## I2C Scanner Test
 
 We first run the I2C scanner program to verify that the sensor is connected correct and is responding to the I2C bus scan.
 

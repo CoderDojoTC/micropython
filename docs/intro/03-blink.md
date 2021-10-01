@@ -41,15 +41,15 @@ Here is the code that will blink an LED that is connected to PIN GIO16, which is
 ```py
 import machine
 import time
-# upper right corner pin with USB on the left
+# this is the lower right corner pin on the Pico with USB on the bottom
 led = machine.Pin(16, machine.Pin.OUT)
 
-# loop forever
+# repeat forever
 while True:
-    led.high()
-    time.sleep(0.5)
-    led.low()
-    time.sleep(0.5)
+    led.high() # turn on the LED
+    time.sleep(0.5) # leave it on for 1/2 second
+    led.low() # Turn off the LED
+    time.sleep(0.5) # leave it off for 1/2 second
 ```
 
 

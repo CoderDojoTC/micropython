@@ -12,6 +12,10 @@ This section of the course takes you on a tour of our base $25 collision avoidan
 
 Note that the $25 price assumes you purchase low-cost parts from suppliers like eBay.  You can lower the cost per robot by purchasing the parts in higher quantities for classroom use.  You can also purchase older Arduino robot kits and upgrade the processors to use the Raspberry Pi Pico.
 
+Our base robot is a collision avoidance robot that is ideal for teaching beginning robotics principals.  The robots have one ore more distance sensors on the front and will continue to move forward until they get near an object in front of them.  They then will reverse and turn in another direction.  We test our robots on the floor in a "Robot Corral" that has six inch high walls.  Students can adjust various parameters to allow the robot to navigate around the corral without colliding with the walls.
+
+![Robot Journey Map](../img/kids-in-robot-corral.jpg)
+
 1. **[Base Bot](02-base-bot.md)** - This is the foundational robot that the other projects are built on.  The base includes a standard Smart Car chassis, two DC hobby motors, a battery pack and wheels.  On top of the chassis we add a breadboard, jumpers, a motor controller, a distance sensor, and our $4 Raspberry Pi microcontroller.
 
 2. **[Rainbow Bot](03-rainbow-bot.md)** This takes our base robot and adds a low-cost LED strip so that students can change the color of the LED based on what the robot is sensing and doing.  For example when the robot is turning right the LEDs can turn red.
