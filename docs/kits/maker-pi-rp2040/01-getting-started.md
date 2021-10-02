@@ -1,9 +1,6 @@
 # Getting Started
 
-The Maker Pi RP2040 materials are divided into two sections:
 
-1. Section 1 (this part) assumes you just have the main Cytron Maker Pi RP2040 board and a Micro USB cable.  This section includes labs on using the LEDs, NeoPixels, buttons and sound.
-2. [Section 2](../MAKER-PI-RP2040-robot/02-assembly) assumes you also have the SmartCar Chassis and a distance sensor.  This section includes labs on using motors, servos and using a distance sensor to create a collision avoidance robot.  There are also advanced labs that integrate a OLED display to allow you to change the parameters of the robot using the buttons.
 
 ## Install the MicroPython Runtime Library
 

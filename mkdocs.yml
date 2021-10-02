@@ -101,16 +101,16 @@ nav:
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up/Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
     - Maker Pi RP2040 Robot:
-      - Introduction: kits/maker-pi-rp2040/01-intro.md
-      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040/06-up-down-motor-lab.md
-      - Motor Lab: kits/maker-pi-rp2040/07-motor-connection-lab.md
-      - Square Lab: kits/maker-pi-rp2040/07b-drive-square-lab.py
-      - Servo Lab: kits/maker-pi-rp2040/08-servo-lab.md
-      - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
-      - Time of Flight Sound Lab: kits/maker-pi-rp2040/12-time-of-flight-sound-lab.md
-      - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
-      - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
-      - Collision Avoidance Ping: kits/maker-pi-rp2040/20-collision-avoidance-ping.md
+      - Introduction: kits/maker-pi-rp2040-robot/01-intro.md
+      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040robot/06-up-down-motor-lab.md
+      - Motor Lab: kits/maker-pi-rp2040robot/07-motor-connection-lab.md
+      - Square Lab: kits/maker-pi-rp2040robot/07b-drive-square-lab.py
+      - Servo Lab: kits/maker-pi-rp2040robot/08-servo-lab.md
+      - Time of Flight Lab: kits/maker-pi-rp2040robot/10-time-of-flight-lab.md
+      - Time of Flight Sound Lab: kits/maker-pi-rp2040robot/12-time-of-flight-sound-lab.md
+      - Ultrasonic Ping Lab: kits/maker-pi-rp2040robot/11-ping-lab.md
+      - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040robot/20-collision-avoidance-robot.md
+      - Collision Avoidance Ping: kits/maker-pi-rp2040robot/20-collision-avoidance-ping.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md

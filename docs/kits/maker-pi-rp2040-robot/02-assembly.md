@@ -1,23 +1,21 @@
 # Assembling Your Maker Pi RP2040 Robot
 
-This robot is a $25 robot that we will use in our CoderDojo robotics classes.  There is a base robot that includes:
-
-Your robot kit will have the following components:
+This kit is a $25 robot kit that we will use in our CoderDojo robotics classes.  This kit includes:
 
 1. A SmartCar Chassis
-    1. Two 3 to 6-volt DC geared hobby motors
-    1. Plexiglass (acrylic) main board
-    1. Screws and nuts
-    1. 4 AA battery pack
-    1. Power switch
+    1. Two 3 to 6-volt DC geared hobby motors and wheels
+    2. Plexiglass (acrylic) main board
+    3. Screws and nuts
+    4. 4 AA battery pack
+    5. Power switch
 2. Cytron Maker Pi RP2040 kit
     1. Maker Pi RP2040 board
-    1. 4x Grove to Female Header Cable
-    2. Screwdriver
-    3. Silicone Rubber Feet (Pack of 4)
+    2. 4x Grove to female header cables
+    3. Screwdriver
+    4. Silicone rubber feet (pack of 4)
 3. Time of Flight distance sensor
     1. 3D printed mount
-    2. 2 M2 6mm screws and nut
+    2. 2 M2 6mm screws and nuts
 
 You will need to provide 4 AA batteries and a Micro USB connector that works with your PC or Mac.
 
