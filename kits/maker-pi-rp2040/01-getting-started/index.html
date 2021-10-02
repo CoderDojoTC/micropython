@@ -1595,27 +1595,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#assemble-the-smartcar-chassis" class="md-nav__link">
-    Assemble the SmartCar Chassis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-the-motor-connections" class="md-nav__link">
-    Test the Motor Connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    Getting Help
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1684,12 +1663,52 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+      
+      <label class="md-nav__link" for="nav-13-3">
+        Maker Pi RP2040 Robot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
+        <label class="md-nav__title" for="nav-13-3">
+          <span class="md-nav__icon md-icon"></span>
+          Maker Pi RP2040 Robot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../06-up-down-motor-lab/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-up-down-motor-lab.md" class="md-nav__link">
         Up/Down Motor Speed Lab
       </a>
     </li>
@@ -1701,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-motor-connection-lab/" class="md-nav__link">
+      <a href="../07-motor-connection-lab.md" class="md-nav__link">
         Motor Lab
       </a>
     </li>
@@ -1725,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-servo-lab/" class="md-nav__link">
+      <a href="../08-servo-lab.md" class="md-nav__link">
         Servo Lab
       </a>
     </li>
@@ -1773,7 +1792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../20-collision-avoidance-robot/" class="md-nav__link">
+      <a href="../20-collision-avoidance-robot.md" class="md-nav__link">
         Collision Avoidance Time-of-Flight
       </a>
     </li>
@@ -1954,27 +1973,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#assemble-the-smartcar-chassis" class="md-nav__link">
-    Assemble the SmartCar Chassis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-the-motor-connections" class="md-nav__link">
-    Test the Motor Connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    Getting Help
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1993,50 +1991,22 @@
                 
                 
                 <h1 id="getting-started">Getting Started</h1>
-<p>Your robot kit will have the following components:</p>
+<p>The Maker Pi RP2040 materials are divided into two sections:</p>
 <ol>
-<li>A SmartCar Chassis<ol>
-<li>Two 3 to 6-volt DC geared hobby motors</li>
-<li>Plexiglass (acrylic) main board</li>
-<li>Screws and nuts</li>
-<li>4 AA battery pack</li>
-<li>Power switch</li>
+<li>Section 1 (this part) assumes you just have the main Cytron Maker Pi RP2040 board and a Micro USB cable.  This section includes labs on using the LEDs, NeoPixels, buttons and sound.</li>
+<li><a href="../MAKER-PI-RP2040-robot/02-assembly">Section 2</a> assumes you also have the SmartCar Chassis and a distance sensor.  This section includes labs on using motors, servos and using a distance sensor to create a collision avoidance robot.  There are also advanced labs that integrate a OLED display to allow you to change the parameters of the robot using the buttons.</li>
 </ol>
-</li>
-<li>Cytron Maker Pi RP2040 kit<ol>
-<li>Maker Pi RP2040 board</li>
-<li>4x Grove to Female Header Cable</li>
-<li>Screwdriver</li>
-<li>Silicone Rubber Feet (Pack of 4)</li>
-</ol>
-</li>
-<li>Time of Flight distance sensor<ol>
-<li>3D printed mount</li>
-<li>2 M2 6mm screws and nut</li>
-</ol>
-</li>
-</ol>
-<p>You will need to provide 4 AA batteries and a micro USB connector.</p>
 <h2 id="install-the-micropython-runtime-library">Install the MicroPython Runtime Library</h2>
-<p>The <strong>Maker Pi RP2040</strong> comes with an incompatible Python run-time.  Our first step is to re-initialize the board with the Raspberry Pi <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> runtime.  We can then load the latest MicroPython libraries.</p>
-<p>To do this <strong>hold down</strong> the BOTSEL button on the main board while you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.</p>
+<p>The <strong>Maker Pi RP2040</strong> comes with an incompatible CircuitPython run-time.  Our first step is to re-initialize the board with the Raspberry Pi <a href="https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2">flash_nuke.uf2</a> runtime.  We can then load the latest MicroPython libraries.  When we wrote these labs we were using MicroPython version 1.7 that was released in September of 2021.</p>
+<p>To install MicroPython you mush <strong>hold down</strong> the <strong>BOTSEL</strong> button on the main board while you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.</p>
 <p>You can now repeat this process with the <a href="https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2">Raspberry Pi MicroPython Runtime</a>.  Just remember to press and hold down the BOTSEL <strong>before</strong> you turn on the board and reboot after the image has been copied to the microcontroller.</p>
 <p>If you have never used MicroPython, the Raspberry Pi Foundation has a nice <a href="https://www.raspberrypi.org/documentation/microcontrollers/micropython.html">Getting Started Guide</a> that can be helpful.</p>
 <h2 id="get-familiar-with-your-ide-thonney-and-the-basic-programs">Get Familiar with your IDE (Thonney) and the Basic Programs</h2>
 <p>There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.  Once you turn on the board you should be able to configure Thonny to use the Raspberry Pi MicroPython interface.  When you press the Stop/Reset button you should see the MicroPython RPEL prompt.</p>
 <p><img alt="" src="../../../img/thonny-micropython-pico.png" /></p>
-<h2 id="assemble-the-smartcar-chassis">Assemble the SmartCar Chassis</h2>
-<ol>
-<li>Solder red and black motor wires to the motors.  I use the convention of connecting the red wires to the right connector when you view the motor from the back</li>
-<li>There are many videos online how to assemble to motors to the chassis.  The trick is orienting the motors correctly and making sure the bolts don't get in the way of the wheels.</li>
-<li>We prefer connecting the battery pack to the bottom of the chassis.  This leaves more room on the top for adding buttons and displays.</li>
-<li>Connect the Maker Pi RP2040 board to the top with the USB connector facing the rear.</li>
-<li>Connect the motors to the headers using the screwdriver.  Don't worry about getting the connections all correct.  They can be adjusted in your software.</li>
-<li>Connect the black battery wire to the "-" on the black header</li>
-<li>Connect the battery red through the switch and to the "+" on the black header.  You technically don't need the switch since the board has it's own power switch.</li>
-</ol>
+<h1 id="_1"></h1>
 <h2 id="test-the-motor-connections">Test the Motor Connections</h2>
-<p>Use the <a href="../07-motor-connection-lab/">Motor Connection Lab</a></p>
+<p>Use the <a href="07-motor-connection-lab.md">Motor Connection Lab</a></p>
 <h2 id="getting-help">Getting Help</h2>
 <p>MicroPython on the RP2040 is the most powerful low-cost system on the market today.  With 264K of RAM, it will take a LOT of work to run out of memory.  But with all things new, there is a lock of good documentation, drivers and sample code.  To help you along, we suggest the following resources:</p>
 <ol>

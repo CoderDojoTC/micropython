@@ -1730,12 +1730,52 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+      
+      <label class="md-nav__link" for="nav-13-3">
+        Maker Pi RP2040 Robot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
+        <label class="md-nav__title" for="nav-13-3">
+          <span class="md-nav__icon md-icon"></span>
+          Maker Pi RP2040 Robot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab.md" class="md-nav__link">
         Up/Down Motor Speed Lab
       </a>
     </li>
@@ -1747,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab.md" class="md-nav__link">
         Motor Lab
       </a>
     </li>
@@ -1771,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/08-servo-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/08-servo-lab.md" class="md-nav__link">
         Servo Lab
       </a>
     </li>
@@ -1819,7 +1859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot.md" class="md-nav__link">
         Collision Avoidance Time-of-Flight
       </a>
     </li>
@@ -2207,13 +2247,13 @@ It will mount as a Mass Storage Device called RPI-RP2.</li>
 <li>Test by running a blink application</li>
 </ol>
 <p><img alt="Thonny Micropython Firmware Update" src="../../img/thonny-micropython-firmware-update.png" /></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
 Writing to /Volumes/RPI-RP2/firmware
 100%
 Waiting for the port...
@@ -2224,29 +2264,29 @@ Done!
 </td></tr></table>
 <h2 id="getting-the-bootloader-running-from-the-thonny-python-shell">Getting The Bootloader Running from the Thonny Python Shell</h2>
 <p>Although you can hold down the BOOTSEL button as you are plugging in the Pico, there is a much easier way.  Just type the following into the Thonny shell:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt;machine.bootloader<span class="o">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt;machine.bootloader<span class="o">()</span>
 </code></pre></div>
 </td></tr></table>
 <p>This will make the Pico go into the Bootloader Mode and mount the file system.  You can then copy the bootloader file using the drag-and-drop from your file system or use a UNIX copy command.  Once the copy is finished the Pico will automaticaly restart using the new uf2 file.</p>
 <h2 id="using-the-onboard-led">Using the Onboard LED</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="n">led_onboard</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
 <span class="c1"># right uppermost pin with USB on the left</span>

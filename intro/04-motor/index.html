@@ -1688,12 +1688,52 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+      
+      <label class="md-nav__link" for="nav-13-3">
+        Maker Pi RP2040 Robot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
+        <label class="md-nav__title" for="nav-13-3">
+          <span class="md-nav__icon md-icon"></span>
+          Maker Pi RP2040 Robot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab.md" class="md-nav__link">
         Up/Down Motor Speed Lab
       </a>
     </li>
@@ -1705,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab.md" class="md-nav__link">
         Motor Lab
       </a>
     </li>
@@ -1729,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/08-servo-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/08-servo-lab.md" class="md-nav__link">
         Servo Lab
       </a>
     </li>
@@ -1777,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot.md" class="md-nav__link">
         Collision Avoidance Time-of-Flight
       </a>
     </li>
@@ -2020,14 +2060,14 @@
 <h3 id="pwm-frequency">PWM Frequency</h3>
 <p>Set the frequency to 50Hz (one cycle per 20ms) and the duty value to between 51 (51/1023 * 20ms = 1ms) and 102 (102/1023 * 20ms = 2ms)</p>
 <h2 id="sample-coder">Sample Coder</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 
 <span class="c1"># set the 7th from the bottom on right as our motor pin</span>
 <span class="n">motor_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>

@@ -1614,12 +1614,52 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+      
+      <label class="md-nav__link" for="nav-13-3">
+        Maker Pi RP2040 Robot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
+        <label class="md-nav__title" for="nav-13-3">
+          <span class="md-nav__icon md-icon"></span>
+          Maker Pi RP2040 Robot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../06-up-down-motor-lab/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-up-down-motor-lab.md" class="md-nav__link">
         Up/Down Motor Speed Lab
       </a>
     </li>
@@ -1631,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-motor-connection-lab/" class="md-nav__link">
+      <a href="../07-motor-connection-lab.md" class="md-nav__link">
         Motor Lab
       </a>
     </li>
@@ -1655,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-servo-lab/" class="md-nav__link">
+      <a href="../08-servo-lab.md" class="md-nav__link">
         Servo Lab
       </a>
     </li>
@@ -1703,7 +1743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../20-collision-avoidance-robot/" class="md-nav__link">
+      <a href="../20-collision-avoidance-robot.md" class="md-nav__link">
         Collision Avoidance Time-of-Flight
       </a>
     </li>
@@ -1897,12 +1937,12 @@
                 <h1 id="i2c-scanner-test">I2C Scanner Test</h1>
 <p>How do we know that our connection to the distance sensor is wired correctly?  The quick way to test this is to run a program called the I2C scanner.  It will return a list of all the devices it finds on the I2C bus.</p>
 <p>We first run the I2C scanner program to verify that the sensor is connected correct and is responding to the I2C bus scan.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="c1"># Pins on the Grove Connector 1 on the Maker Pi RP2040 are GP0 and GP1</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1911,11 +1951,11 @@
 </code></pre></div>
 </td></tr></table>
 <p>This should return a list of the devices it finds.  If you just have the Time-of-Flight sensor it will look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>[41]
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>[41]
 ``
 
 ```py
@@ -1923,21 +1963,21 @@ device_id = i2c.scan()[0]
 </code></pre></div>
 </td></tr></table>
 <h2 id="testing-for-the-time-of-flight-sensor">Testing for the Time-of-Flight Sensor</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>

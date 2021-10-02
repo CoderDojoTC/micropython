@@ -1614,12 +1614,52 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+      
+      <label class="md-nav__link" for="nav-13-3">
+        Maker Pi RP2040 Robot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
+        <label class="md-nav__title" for="nav-13-3">
+          <span class="md-nav__icon md-icon"></span>
+          Maker Pi RP2040 Robot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/01-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040/06-up-down-motor-lab.md" class="md-nav__link">
         Up/Down Motor Speed Lab
       </a>
     </li>
@@ -1631,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/07-motor-connection-lab.md" class="md-nav__link">
         Motor Lab
       </a>
     </li>
@@ -1655,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/08-servo-lab/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/08-servo-lab.md" class="md-nav__link">
         Servo Lab
       </a>
     </li>
@@ -1703,7 +1743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot/" class="md-nav__link">
+      <a href="../../kits/maker-pi-rp2040/20-collision-avoidance-robot.md" class="md-nav__link">
         Collision Avoidance Time-of-Flight
       </a>
     </li>
@@ -2243,7 +2283,7 @@ The format is used to generate a concept graph for this course
 <h4 id="blit">Blit</h4>
 <p>A special form of copy operation; it copies a rectangular area of pixels from one framebuffer to another.  It is used in MicroPython when doing drawing to a display such as an OLED display.</p>
 <h4 id="bootsel">BOOTSEL</h4>
-<p>A button on the pico that when pressed during power up will allow you to mount the device as a USB device.</p>
+<p>A button on the pico that when pressed during power up will allow you to mount the device as a USB drive.  You can then drag-and-drop any uf2 image file to reset or update the runtime libraries.</p>
 <p><img alt="" src="../../img/boot-selection.png" /></p>
 <ul>
 <li>Also known as: Boot Selection</li>
@@ -2261,15 +2301,15 @@ The format is used to generate a concept graph for this course
 </ul>
 <h4 id="formatted-strings">Formatted Strings</h4>
 <p>The ability to use a simplified syntax to format strings by added the letter "f" before the string.  Values within curly braces are formatted from variables.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Lisa&quot;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Lisa&quot;</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. You are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">.&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <p>returns</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello, Lisa. You are 12.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello, Lisa. You are 12.
 </code></pre></div>
 </td></tr></table>
 <p>Formatted string support was added to MicroPython in release 1.17 </p>
