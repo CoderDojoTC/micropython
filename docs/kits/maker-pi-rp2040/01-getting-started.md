@@ -1,29 +1,15 @@
 # Getting Started
 
-Your robot kit will have the following components:
+The Maker Pi RP2040 materials are divided into two sections:
 
-1. A SmartCar Chassis
-    1. Two 3 to 6-volt DC geared hobby motors
-    1. Plexiglass (acrylic) main board
-    1. Screws and nuts
-    1. 4 AA battery pack
-    1. Power switch
-2. Cytron Maker Pi RP2040 kit
-    1. Maker Pi RP2040 board
-    1. 4x Grove to Female Header Cable
-    2. Screwdriver
-    3. Silicone Rubber Feet (Pack of 4)
-3. Time of Flight distance sensor
-    1. 3D printed mount
-    2. 2 M2 6mm screws and nut
-
-You will need to provide 4 AA batteries and a micro USB connector.
+1. Section 1 (this part) assumes you just have the main Cytron Maker Pi RP2040 board and a Micro USB cable.  This section includes labs on using the LEDs, NeoPixels, buttons and sound.
+2. [Section 2](../MAKER-PI-RP2040-robot/02-assembly) assumes you also have the SmartCar Chassis and a distance sensor.  This section includes labs on using motors, servos and using a distance sensor to create a collision avoidance robot.  There are also advanced labs that integrate a OLED display to allow you to change the parameters of the robot using the buttons.
 
 ## Install the MicroPython Runtime Library
 
-The **Maker Pi RP2040** comes with an incompatible Python run-time.  Our first step is to re-initialize the board with the Raspberry Pi [flash_nuke.uf2](https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2) runtime.  We can then load the latest MicroPython libraries.
+The **Maker Pi RP2040** comes with an incompatible CircuitPython run-time.  Our first step is to re-initialize the board with the Raspberry Pi [flash_nuke.uf2](https://www.raspberrypi.org/documentation/pico/getting-started/static/6f6f31460c258138bd33cc96ddd76b91/flash_nuke.uf2) runtime.  We can then load the latest MicroPython libraries.  When we wrote these labs we were using MicroPython version 1.7 that was released in September of 2021.
 
-To do this **hold down** the BOTSEL button on the main board while you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.
+To install MicroPython you mush **hold down** the **BOTSEL** button on the main board while you turn on the board using the on-board power switch.  This will make the board look like a USB drive.  You can then just drag the flash-nuke file onto the drive and the board will be initialized.  Make sure to power the board off and back on.
 
 You can now repeat this process with the [Raspberry Pi MicroPython Runtime](https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2).  Just remember to press and hold down the BOTSEL **before** you turn on the board and reboot after the image has been copied to the microcontroller.
 
@@ -35,16 +21,7 @@ There are many Integrated Development Environments (IDEs) that work with the Ras
 
 ![](../../img/thonny-micropython-pico.png)
 
-## Assemble the SmartCar Chassis
-
-1. Solder red and black motor wires to the motors.  I use the convention of connecting the red wires to the right connector when you view the motor from the back
-2. There are many videos online how to assemble to motors to the chassis.  The trick is orienting the motors correctly and making sure the bolts don't get in the way of the wheels.
-3. We prefer connecting the battery pack to the bottom of the chassis.  This leaves more room on the top for adding buttons and displays.
-4. Connect the Maker Pi RP2040 board to the top with the USB connector facing the rear.
-5. Connect the motors to the headers using the screwdriver.  Don't worry about getting the connections all correct.  They can be adjusted in your software.
-6. Connect the black battery wire to the "-" on the black header
-7. Connect the battery red through the switch and to the "+" on the black header.  You technically don't need the switch since the board has it's own power switch.
-
+#
 ## Test the Motor Connections
 
 Use the [Motor Connection Lab](07-motor-connection-lab.md)
