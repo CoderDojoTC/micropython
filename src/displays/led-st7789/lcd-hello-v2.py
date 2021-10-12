@@ -1,32 +1,26 @@
-"""
-hello.py
-    Writes "Hello!" in random colors at random locations on a
-    ST7789 display connected to a Raspberry Pi Pico.
-    Pico Pin   Display
-    =========  =======
-    14 (GP10)  BL
-    15 (GP11)  RST
-    16 (GP12)  DC
-    17 (GP13)  CS
-    18 (GND)   GND
-    19 (GP14)  CLK
-    20 (GP15)  DIN
-"""
-import random
 from machine import Pin, SPI
+import st7789
+
+BACKLIGHT_PIN = 10
+RESET_PIN = 11
+DC_PIN = 12
+CS_PIN = 13
+CLK_PIN = 14
+DIN_PIN = 15 # lower left corner
+
 import st7789
 
 import vga1_bold_16x32 as font
 
-spi = SPI(1, baudrate=31250000, sck=Pin(14), mosi=Pin(15))
+spi = SPI(1, baudrate=31250000, sck=Pin(CLK_PIN), mosi=Pin(DIN_PIN))
 tft = st7789.ST7789(spi, 240, 320,
-    reset=Pin(11, Pin.OUT),
-    cs=Pin(13, Pin.OUT),
-    dc=Pin(12, Pin.OUT),
-    backlight=Pin(10, Pin.OUT),
+    reset=Pin(RESET_PIN, Pin.OUT),
+    cs=Pin(CS_PIN, Pin.OUT),
+    dc=Pin(DC_PIN, Pin.OUT),
+    backlight=Pin(BACKLIGHT_PIN, Pin.OUT),
     rotation=3)
-
 tft.init()
+
 tft.text(font, "Hello World!",10, 0, st7789.color565(255,255,255), st7789.color565(0,0,0))
 tft.text(font, "Hello World!",10, 50, st7789.color565(255,0,0), st7789.color565(0,0,0))
 tft.text(font, "Hello World!",10, 100, st7789.color565(0,255,0), st7789.color565(0,0,0))
