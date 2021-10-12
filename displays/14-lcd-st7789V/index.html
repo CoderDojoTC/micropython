@@ -2114,13 +2114,16 @@
                 
                 <h1 id="micropython-st7789v-lcd-display">MicroPython ST7789V LCD Display</h1>
 <p><img alt="" src="../../img/st7789-lcd.png" /></p>
-<p>The ST7789 is a driver chip for small color LCD displays.  This example uses a 2-inch color LDC display manufactured by Waveshare with a retail price of approximately $14.75 on <a href="https://www.amazon.com/Waveshare-Resolution-Interface-Examples-Raspberry/dp/B081Q79X2F">Amazon Prime</a>.</p>
+<p>The Sitronix ST7789 is a driver chip for small color LCD displays that supports SPI interfaces.  This example uses a 2-inch color LDC display manufactured by <a href="https://www.waveshare.com/2inch-lcd-module.htm">Waveshare</a> with a retail price of approximately $13 or $14.75 on <a href="https://www.amazon.com/Waveshare-Resolution-Interface-Examples-Raspberry/dp/B081Q79X2F">Amazon Prime</a>.</p>
 <h2 id="specifications">Specifications</h2>
 <ul>
 <li>Resolution: 240(V) x 320(H) RGB</li>
-<li>Interface: SPI</li>
+<li>18 bit color (6 bits for R, G and B)</li>
+<li>1,382,400 bits of display memory</li>
+<li>Interface: 4-wire SPI (kind of)</li>
+<li>Operating voltage: 3.3V</li>
 </ul>
-<p>It is not like the tradition SPI protocol, it only uses MOSI to send data from master to slave for LCD display.</p>
+<p>Note: The ST7789 uses a SPI interfaces but not a true standard SPI protocol. The device only uses MOSI (DIN) to send data from master to slave for LCD display.  Only four wires are needed to connect from the Pico to the device.</p>
 <h2 id="device-interface">Device Interface</h2>
 <p><img alt="" src="../../img/st7789-lcd-back.png" /></p>
 <h2 id="interface">Interface</h2>
@@ -2311,6 +2314,7 @@ For most LCD controllers, the communication method of the controller can be conf
 <ol>
 <li><a href="https://www.newhavendisplay.com/appnotes/datasheets/LCDs/ST7789V.pdf">ST7789C Datasheet (PDF)</a></li>
 <li><a href="https://www.waveshare.com/wiki/2inch_LCD_Module">Waveshare Wiki</a></li>
+<li><a href="https://www.waveshare.com/pico-lcd-2.htm">Waveshare Pico Dispaly</a></li>
 </ol>
                 
               
