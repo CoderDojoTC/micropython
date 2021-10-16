@@ -18,7 +18,7 @@
     
     
       
-        <title>Maker Pi RP2040 Collision Avoidance Robot With Ping Sensor - MicroPython for Kids</title>
+        <title>Collision Avoidance Ping - MicroPython for Kids</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Maker Pi RP2040 Collision Avoidance Robot With Ping Sensor
+              Collision Avoidance Ping
             
           </span>
         </div>
@@ -884,6 +884,42 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../displays/13-st7735-color-tft/" class="md-nav__link">
+        ST7735 TFT
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../displays/11-lcd-waveshare/" class="md-nav__link">
+        LCD Waveshare
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../displays/12-e-paper-display/" class="md-nav__link">
+        E-Paper
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1488,6 +1524,42 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced-labs/06-i2c/" class="md-nav__link">
+        I2C Scanner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced-labs/07-framebuffer/" class="md-nav__link">
+        Frame Buffer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced-labs/08-minicom/" class="md-nav__link">
+        Minicom
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1501,12 +1573,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
       
       <label class="md-nav__link" for="nav-13">
         Kits
@@ -1647,12 +1721,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13-3" type="checkbox" id="nav-13-3" checked>
       
       <label class="md-nav__link" for="nav-13-3">
         Maker Pi RP2040 Robot
@@ -1731,6 +1807,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../09-i2c-scanner-test/" class="md-nav__link">
+        Scanner Test
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../10-time-of-flight-lab/" class="md-nav__link">
         Time of Flight Lab
       </a>
@@ -1777,11 +1865,63 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../20-collision-avoidance-ping.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Collision Avoidance Ping
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Collision Avoidance Ping
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#robot-parameters" class="md-nav__link">
+    Robot Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-source-code" class="md-nav__link">
+    Full Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2610,6 +2750,41 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../20-collision-avoidance-robot/" title="Collision Avoidance Time-of-Flight" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Collision Avoidance Time-of-Flight
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../maker-pi-pico/01-intro/" title="Cytron Maker Pi Pico" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Cytron Maker Pi Pico
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
