@@ -2,13 +2,23 @@
 
 In this lab we wire up eight momentary press buttons so that when each one is pressed it will play a different note.
 
-To do this you will need:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IeHaYR17zcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+To create this project, you will need the following parts:
 
 1. A Raspberry Pi Pico
 2. A standard size breadboard or two 1/2 breadboards
 3. 8 momentary press buttons
 4. A speaker or a [Piezo buzzer](https://en.wikipedia.org/wiki/Piezoelectric_speaker)
 5. An optional sound amplifier
+
+![Eight Key Piano](../img/eight-key-piano.jpg)
+
+Each "key" is a momentary press button that is wired up between a GPIO pin and the +3.3 volt rail on the breadboard connected to [3V3(OUT) pin](../getting-started/02-pi-pico/#pico-pinout).  We do not need to use any resistors to pull the signals low since we configure the pins to be inputs with the PULL_DOWN resistor like this:
+
+```py
+button_pin_1 = machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN)
+```
 
 ## The Play Tone Functions
 
@@ -24,6 +34,15 @@ def bequiet():
     speaker.duty_u16(0) # turn off the speaker PWM
     builtin_led.low() # turn builtin LED off
 ```
+
+We will also use the ```.value()``` method on each pin to detect if it is HIGH (1) like this:
+
+```py
+if button_pin_1.value() == 1:
+        playtone(220) # A3
+```
+
+We will be playing "notes" generating square waves with various frequencies from our lowest note of A3 at 220 Hz up to A4 at 440 Hz.
 
 ## Sample Code
 
@@ -77,4 +96,12 @@ while True:
         bequiet()
 ```
 
-## Sample Video
+## Exercises
+
+1. Rewrite the code above using lists for the pin numbers and the notes.
+2. Try different notes with other scales.
+3. Add another button to change the "octave" of the notes.
+4. Add a display to show the notes as they are being played.
+5. Print the time each note is being pressed as well as the length of the pauses between the notes.
+6. Write the notes to a recording file.
+7. Add a menu system so you can do things like start a new song recording, save a recording and playback a recording.
