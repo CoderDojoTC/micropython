@@ -49,6 +49,9 @@ nav:
     - 7 Segment Display: displays/seven-segment.md
     - Character LCD Displays: displays/10-character-lcd-display.md
     - Color LCD Display: displays/14-lcd-st7789V.md
+    - ST7735 TFT: displays/13-st7735-color-tft.md
+    - LCD Waveshare: displays/11-lcd-waveshare.md
+    - E-Paper: displays/12-e-paper-display.md
   - OLED Displays:
     - Introduction: oled/01-intro.md
     - Setup: oled/02-oled-setup.md
@@ -92,6 +95,9 @@ nav:
     - Circuit Python: circuit-python/01-intro.md
     - Conda Environment Setup: advanced-labs/04-conda-env.md
     - OS Functions: advanced-labs/05-os-functions.md
+    - I2C Scanner: advanced-labs/06-i2c.md
+    - Frame Buffer: advanced-labs/07-framebuffer.md
+    - Minicom: advanced-labs/08-minicom.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
@@ -108,11 +114,12 @@ nav:
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
       - Square Lab: kits/maker-pi-rp2040-robot/07b-drive-square-lab.md
       - Servo Lab: kits/maker-pi-rp2040-robot/08-servo-lab.md
+      - Scanner Test: kits/maker-pi-rp2040-robot/09-i2c-scanner-test.md
       - Time of Flight Lab: kits/maker-pi-rp2040-robot/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040-robot/11-ping-lab.md
       - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
-      - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/20-collision-avoidance-ping.md
+      - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
     - Maker Pi Pico:
       - kits/maker-pi-pico/01-intro.md
       - kits/maker-pi-pico/02-running-lights.md

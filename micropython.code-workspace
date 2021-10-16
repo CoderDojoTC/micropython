@@ -42,6 +42,7 @@
 			"megaohms",
 			"microsite",
 			"milliamps",
+			"minicom",
 			"mosi",
 			"numpy",
 			"oled",
@@ -57,7 +58,8 @@
 			"urandom",
 			"utime",
 			"vals",
-			"vline"
+			"vline",
+			"waveshare"
 		],
 		"editor.fontSize": 10
 	}
