@@ -10,7 +10,7 @@ To create this project, you will need the following parts:
 2. A standard size breadboard or two 1/2 breadboards
 3. 8 momentary press buttons
 4. A speaker or a [Piezo buzzer](https://en.wikipedia.org/wiki/Piezoelectric_speaker)
-5. An optional sound amplifier
+5. An optional sound amplifier such as the [LM386 DC 5V-12V Mini Micro Audio Amplifier](https://www.ebay.com/itm/234012505949?hash=item367c3b775d:g:sPkAAOSwtoVbOFbf) which can be purchased on e-bay for under $2 USD.  If you are working in a quiet room you may not need the amplifier.
 
 ![Eight Key Piano](../img/eight-key-piano.jpg)
 
