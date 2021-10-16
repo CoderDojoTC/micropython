@@ -107,7 +107,7 @@ nav:
       - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
       - Square Lab: kits/maker-pi-rp2040-robot/07b-drive-square-lab.py
-      - Servo Lab: kits/maker-pi-rp2040robot/08-servo-lab.md
+      - Servo Lab: kits/maker-pi-rp2040-robot/08-servo-lab.md
       - Time of Flight Lab: kits/maker-pi-rp2040-robot/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040-robot/11-ping-lab.md
