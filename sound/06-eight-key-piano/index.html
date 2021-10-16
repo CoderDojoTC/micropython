@@ -1240,8 +1240,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-video" class="md-nav__link">
-    Sample Video
+  <a href="#exercises" class="md-nav__link">
+    Exercises
   </a>
   
 </li>
@@ -2055,8 +2055,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-video" class="md-nav__link">
-    Sample Video
+  <a href="#exercises" class="md-nav__link">
+    Exercises
   </a>
   
 </li>
@@ -2080,7 +2080,9 @@
                 
                 <h1 id="eight-key-piano">Eight Key Piano</h1>
 <p>In this lab we wire up eight momentary press buttons so that when each one is pressed it will play a different note.</p>
-<p>To do this you will need:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IeHaYR17zcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>To create this project, you will need the following parts:</p>
 <ol>
 <li>A Raspberry Pi Pico</li>
 <li>A standard size breadboard or two 1/2 breadboards</li>
@@ -2088,6 +2090,11 @@
 <li>A speaker or a <a href="https://en.wikipedia.org/wiki/Piezoelectric_speaker">Piezo buzzer</a></li>
 <li>An optional sound amplifier</li>
 </ol>
+<p><img alt="Eight Key Piano" src="../../img/eight-key-piano.jpg" /></p>
+<p>Each "key" is a momentary press button that is wired up between a GPIO pin and the +3.3 volt rail on the breadboard connected to <a href="../getting-started/02-pi-pico/#pico-pinout">3V3(OUT) pin</a>.  We do not need to use any resistors to pull the signals low since we configure the pins to be inputs with the PULL_DOWN resistor like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">button_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="the-play-tone-functions">The Play Tone Functions</h2>
 <p>We will use two Python functions, one for playing a tone of a given frequency and one for turning off the sound.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2107,6 +2114,13 @@
     <span class="n">builtin_led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># turn builtin LED off</span>
 </code></pre></div>
 </td></tr></table>
+<p>We will also use the <code>.value()</code> method on each pin to detect if it is HIGH (1) like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">button_pin_1</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">playtone</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="c1"># A3</span>
+</code></pre></div>
+</td></tr></table>
+<p>We will be playing "notes" generating square waves with various frequencies from our lowest note of A3 at 220 Hz up to A4 at 440 Hz.</p>
 <h2 id="sample-code">Sample Code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -2203,7 +2217,16 @@
         <span class="n">bequiet</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="sample-video">Sample Video</h2>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Rewrite the code above using lists for the pin numbers and the notes.</li>
+<li>Try different notes with other scales.</li>
+<li>Add another button to change the "octave" of the notes.</li>
+<li>Add a display to show the notes as they are being played.</li>
+<li>Print the time each note is being pressed as well as the length of the pauses between the notes.</li>
+<li>Write the notes to a recording file.</li>
+<li>Add a menu system so you can do things like start a new song recording, save a recording and playback a recording.</li>
+</ol>
                 
               
               
