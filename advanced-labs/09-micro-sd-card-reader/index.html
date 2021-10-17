@@ -2223,34 +2223,57 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">sdcard</span><span class="o">,</span> <span class="nn">os</span>
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sdcard</span>
 
-<span class="n">SDCARD_SCK</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">SDCARD_SDI</span> <span class="o">=</span> <span class="mi">11</span>
-<span class="n">SDCARD_SD0</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">SDCARD_X1</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">SDCARD_X2</span> <span class="o">=</span> <span class="mi">14</span>
-<span class="n">SDCARD_CSn</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># Assign chip select (CS) pin (and start it high)</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="c1"># Intialize SPI peripheral (start with 1 MHz)</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">baudrate</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span>
+                  <span class="n">polarity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                  <span class="n">phase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                  <span class="n">bits</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                  <span class="n">firstbit</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="o">.</span><span class="n">MSB</span><span class="p">,</span>
+                  <span class="n">sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="n">mosi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+                  <span class="n">miso</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+<span class="c1"># Initialize SD card</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">sdcard</span><span class="o">.</span><span class="n">SDCard</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
 
-<span class="c1"># SPI setup</span>
-<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">SDCARD_SCK</span><span class="p">)</span>
-<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">SDCARD_SDI</span><span class="p">)</span>
-<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
+<span class="c1"># OR this simpler initialization code should works on Maker Pi Pico too...</span>
+<span class="c1">#sd = sdcard.SDCard(machine.SPI(1), machine.Pin(15))</span>
 
-<span class="n">sd</span> <span class="o">=</span> <span class="n">sdcard</span><span class="o">.</span><span class="n">SDCard</span><span class="p">(</span><span class="n">spi</span><span class="o">=</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">SDCARD_CSn</span><span class="p">))</span>
 <span class="n">os</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="s1">&#39;/sd&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="c1"># check the content</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/sd&#39;</span><span class="p">)</span>
+
+<span class="c1"># try some standard file operations</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/sd/test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Testing SD card on Maker Pi Pico&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/sd/test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File &quot;&lt;stdin&gt;&quot;, line 15, in &lt;module&gt;
-  File &quot;/lib/sdcard.py&quot;, line 54, in __init__
-  File &quot;/lib/sdcard.py&quot;, line 82, in init_card
-OSError: no SD card
+<p>Results:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Testing SD card on Maker Pi Pico
 </code></pre></div>
 </td></tr></table>
 <h2 id="references">References</h2>
