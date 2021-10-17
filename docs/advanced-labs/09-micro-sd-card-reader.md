@@ -44,32 +44,44 @@ SDCARD_CSn = 15
 
 
 ```py
-import machine, sdcard, os
+import machine, os, sdcard
 
-SDCARD_SCK = 10
-SDCARD_SDI = 11
-SDCARD_SD0 = 12
-SDCARD_X1 = 13
-SDCARD_X2 = 14
-SDCARD_CSn = 15
+# Assign chip select (CS) pin (and start it high)
+cs = machine.Pin(15, machine.Pin.OUT)
+# Intialize SPI peripheral (start with 1 MHz)
+spi = machine.SPI(1,
+                  baudrate=1000000,
+                  polarity=0,
+                  phase=0,
+                  bits=8,
+                  firstbit=machine.SPI.MSB,
+                  sck=machine.Pin(10),
+                  mosi=machine.Pin(11),
+                  miso=machine.Pin(12))
+# Initialize SD card
+sd = sdcard.SDCard(spi, cs)
 
-# SPI setup
-spi_sck=machine.Pin(SDCARD_SCK)
-spi_tx=machine.Pin(SDCARD_SDI)
-spi=machine.SPI(1,baudrate=100000,sck=spi_sck, mosi=spi_tx)
+# OR this simpler initialization code should works on Maker Pi Pico too...
+#sd = sdcard.SDCard(machine.SPI(1), machine.Pin(15))
 
-sd = sdcard.SDCard(spi=spi, cs=machine.Pin(SDCARD_CSn))
 os.mount(sd, '/sd')
-os.listdir('/')
+# check the content
+os.listdir('/sd')
 
+# try some standard file operations
+file = open('/sd/test.txt', 'w')
+file.write('Testing SD card on Maker Pi Pico')
+file.close()
+file = open('/sd/test.txt', 'r')
+data = file.read()
+print(data)
+file.close()
 ```
 
+Results:
+
 ```
-Traceback (most recent call last):
-  File "<stdin>", line 15, in <module>
-  File "/lib/sdcard.py", line 54, in __init__
-  File "/lib/sdcard.py", line 82, in init_card
-OSError: no SD card
+Testing SD card on Maker Pi Pico
 ```
 ## References
 
