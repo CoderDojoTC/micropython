@@ -37,7 +37,7 @@ SDCARD_SDI = 11
 SDCARD_SD0 = 12
 SDCARD_X1 = 13
 SDCARD_X2 = 14
-SDCARD_CSn = 15
+SDCARD_CS = 15
 ```
 
 ### Sample Code for SPI Mode
@@ -90,3 +90,5 @@ Testing SD card on Maker Pi Pico
 2. [Raspberry Pi Pico Forum](https://forums.raspberrypi.com/viewtopic.php?t=307275)
 3. [YouTube Video by Shawn Hymel](https://www.youtube.com/watch?v=u-vmsIr-s7w)
 4. [Cytron Maker Pi Pico Datasheet](https://docs.google.com/document/d/1JoHsZk5IipQPCLXWbZYpDKjGlnkyACOJ1taUrKVsRg8/edit)
+5. [SparkFun microSD Transflash Breakout](https://www.sparkfun.com/products/544) - $4.75 - pins are labeled CD, DO, GND, SCK, VCC, DI and CS
+6. [](https://mpython.readthedocs.io/en/master/library/mPython/sdcard.html)
