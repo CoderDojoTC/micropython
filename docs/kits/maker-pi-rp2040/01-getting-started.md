@@ -21,7 +21,7 @@ There are many Integrated Development Environments (IDEs) that work with the Ras
 #
 ## Test the Motor Connections
 
-Use the [Motor Connection Lab](07-motor-connection-lab.md)
+Use the [Motor Connection Lab](../maker-pi-rp2040-robot/07-motor-connection-lab.md)
 
 ## Getting Help
 
