@@ -18,7 +18,7 @@
     
     
       
-        <title>Introduction - MicroPython for Kids</title>
+        <title>Internal Temperature - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#advanced-micropython-labs" class="md-skip">
+        <a href="#using-the-builtin-temperature-sensor" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Internal Temperature
             
           </span>
         </div>
@@ -469,18 +469,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/03-temperature/" class="md-nav__link">
-        Temperature
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../intro/04-motor/" class="md-nav__link">
         Motor
       </a>
@@ -505,8 +493,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/05-led-strip/" class="md-nav__link">
-        LED Strip
+      <a href="../../intro/05-neopixel/" class="md-nav__link">
+        NeoPixel
       </a>
     </li>
   
@@ -1257,13 +1245,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
       
       <label class="md-nav__link" for="nav-10">
-        MicroPython Robots
+        Robots
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="MicroPython Robots" data-md-level="1">
+      <nav class="md-nav" aria-label="Robots" data-md-level="1">
         <label class="md-nav__title" for="nav-10">
           <span class="md-nav__icon md-icon"></span>
-          MicroPython Robots
+          Robots
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1457,6 +1445,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../01-intro.md" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -1467,9 +1467,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Internal Temperature
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Introduction
+        Internal Temperature
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-temperature" class="md-nav__link">
+    Reading the temperature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-the-temperature" class="md-nav__link">
+    Logging the Temperature
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1504,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../circuit-python/01-intro/" class="md-nav__link">
+      <a href="../../circuit-python/01-intro.md" class="md-nav__link">
         Circuit Python
       </a>
     </li>
@@ -1566,6 +1602,30 @@
     <li class="md-nav__item">
       <a href="../08-minicom/" class="md-nav__link">
         Minicom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-micro-sd-card-reader/" class="md-nav__link">
+        SD Card Reader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-converting-circuitpython.md" class="md-nav__link">
+        Converting CircuitPython
       </a>
     </li>
   
@@ -2087,6 +2147,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-temperature" class="md-nav__link">
+    Reading the temperature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-the-temperature" class="md-nav__link">
+    Logging the Temperature
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2097,25 +2179,55 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/advanced-labs/01-intro.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/advanced-labs/03-internal-temperature.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="advanced-micropython-labs">Advanced MicroPython Labs</h1>
-<p>These labs are for advanced students that have already mastered the basic of MicroPython programming and want to explore advanced topics.  Advanced Topics Include:</p>
-<ol>
-<li><a href="02-interrupt-handlers"><strong>Interrupt Handlers</strong></a> - how to get you device to call a function when an external event occurs without doing polling.</li>
-<li>
-<p><strong>Multicore Progamming</strong> - how to get programs running on multiple cores.</p>
-</li>
-<li>
-<p><strong>Programmable I/O</strong> - The Raspberry Pi includes Programmable I/O devices that allow input and output operations without interrupting the main cores.  The Pico has two PIO blocks that each have four state machines.  Each of these machines can be working independently of the main core processors.</p>
-</li>
-</ol>
-<p><a href="https://www.electrosoftcloud.com/en/multithreaded-script-on-raspberry-pi-pico-and-micropython/">Muitithreaded Code Example</a></p>
-<p><a href="https://www.raspberrypi.org/blog/what-is-pio/">PIO Programming</a></p>
-<p><a href="https://hackspace.raspberrypi.org/articles/what-is-programmable-i-o-on-raspberry-pi-pico">Hackspace PIO Programming Article</a></p>
+                <h1 id="using-the-builtin-temperature-sensor">Using the Builtin Temperature Sensor</h1>
+<p>The Raspberry Pi Pico has an internal temperature sensor that can be access using <code>machine.ADC(4)</code>.  This might be useful to see if your RP2040 CPY is running "hot" and might benefit from a cooling fan.</p>
+<h2 id="reading-the-temperature">Reading the temperature</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
+   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="logging-the-temperature">Logging the Temperature</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">sensor_temp</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="o">.</span><span class="n">CORE_TEMP</span><span class="p">)</span>
+<span class="n">conversion_factor</span> <span class="o">=</span> <span class="mf">3.3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">65535</span><span class="p">)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temps.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+   <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor_temp</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">conversion_factor</span>
+   <span class="n">temperature</span> <span class="o">=</span> <span class="mi">27</span> <span class="o">-</span> <span class="p">(</span><span class="n">reading</span> <span class="o">-</span> <span class="mf">0.706</span><span class="p">)</span><span class="o">/</span><span class="mf">0.001721</span>
+   <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+   <span class="n">file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+   <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               

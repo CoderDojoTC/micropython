@@ -385,12 +385,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
       
       <label class="md-nav__link" for="nav-4">
         Basic Examples
@@ -469,18 +471,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-temperature/" class="md-nav__link">
-        Temperature
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../04-motor/" class="md-nav__link">
         Motor
       </a>
@@ -503,11 +493,70 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../05-led-strip/" class="md-nav__link">
-        LED Strip
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NeoPixel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NeoPixel
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-connections" class="md-nav__link">
+    Circuit connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-code" class="md-nav__link">
+    full code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1257,13 +1306,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
       
       <label class="md-nav__link" for="nav-10">
-        MicroPython Robots
+        Robots
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="MicroPython Robots" data-md-level="1">
+      <nav class="md-nav" aria-label="Robots" data-md-level="1">
         <label class="md-nav__title" for="nav-10">
           <span class="md-nav__icon md-icon"></span>
-          MicroPython Robots
+          Robots
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1457,8 +1506,20 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-labs/01-intro/" class="md-nav__link">
+      <a href="../../advanced-labs/01-intro.md" class="md-nav__link">
         Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/03-internal-temperature/" class="md-nav__link">
+        Internal Temperature
       </a>
     </li>
   
@@ -1493,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../circuit-python/01-intro/" class="md-nav__link">
+      <a href="../../circuit-python/01-intro.md" class="md-nav__link">
         Circuit Python
       </a>
     </li>
@@ -1555,6 +1616,30 @@
     <li class="md-nav__item">
       <a href="../../advanced-labs/08-minicom/" class="md-nav__link">
         Minicom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/09-micro-sd-card-reader/" class="md-nav__link">
+        SD Card Reader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/10-converting-circuitpython.md" class="md-nav__link">
+        Converting CircuitPython
       </a>
     </li>
   
@@ -2128,7 +2213,11 @@
                 
                 
                 <h1 id="neopixel">NeoPixel</h1>
-<p>As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Note that on other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.</p>
+<p>NeoPixels are Red-Green-Blue LEDs that are assembled in a way that makes them easy to control with three wires: GND, +5V and a serial data line.  They are very popular with our students because they are powerful, easy to program and full of <strong>bling</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.</p>
+</div>
 <p>Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.</p>
 <p><a href="https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html">MicroPython Example Code on ESP8266</a></p>
 <h2 id="circuit-connections">Circuit connections</h2>
@@ -2399,6 +2488,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../04-servo/" title="Servo" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Servo
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../sensors/01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Introduction
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
