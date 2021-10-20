@@ -113,7 +113,8 @@ nav:
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up/Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
     - Maker Pi RP2040 Robot:
-      - Introduction: kits/maker-pi-rp2040-robot/02-assembly.md
+      - Introduction: kits/maker-pi-rp2040-robot/01-intro.md 
+      - Assembly: kits/maker-pi-rp2040-robot/02-assembly.md
       - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
       - Square Lab: kits/maker-pi-rp2040-robot/07b-drive-square-lab.md
