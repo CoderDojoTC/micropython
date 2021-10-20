@@ -9,6 +9,7 @@ nav:
     - Displays: getting-started/10-displays.md
     - Sourcing Parts: getting-started/03-suggested-parts.md
     - Raspberry Pi Pico: getting-started/02-pi-pico.md
+    - Power: getting-started/04-power.md
     - ESP32: getting-started/02-esp32.md
     - Thonny IDE: getting-started/02c-thonny.md
     - VS Code IED: getting-started/02d-vscode.md
@@ -100,7 +101,7 @@ nav:
     - Frame Buffer: advanced-labs/07-framebuffer.md
     - Minicom: advanced-labs/08-minicom.md
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
-    - Converting CircuitPython: advanced-labs/10-converting-circuitpython.md
+    - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
