@@ -1,6 +1,9 @@
 # NeoPixel
 
-As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Note that on other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.
+NeoPixels are Red-Green-Blue LEDs that are assembled in a way that makes them easy to control with three wires: GND, +5V and a serial data line.  They are very popular with our students because they are powerful, easy to program and full of **bling**.
+
+!!! Note
+    As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.
 
 Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.
 

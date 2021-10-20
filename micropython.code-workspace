@@ -31,6 +31,7 @@
 			"UART",
 			"baudrate",
 			"bequiet",
+			"circuitpython",
 			"codehilite",
 			"coderdojo",
 			"debouncing",

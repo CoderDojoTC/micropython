@@ -1,14 +1,14 @@
-# Introduction to CircuitPython
+# Converting CircuitPython to MicroPython
 
-1. CircuitPython is a fork of MicroPython done by Adafruit
-2. According to [Google Trends](https://trends.google.com/trends/explore?date=today%205-y&q=micropython,circuitpython), MicroPython is more popular than CircuitPython when we look at worldwide web search comparison
-3. Done for "simplicity" but does not support multiple cores
-4. CircuitPython has lots of drivers
-5. The code is generally incompatible with MicroPython although you can often manually convert one program into another
-6. It might be useful for testing devices where the MicroPython drivers do not work
+MicroPython was created in by Australian programmer Damian George in May of 2014. Although Adafruit originally supported MicroPython, in July 2017 Adafruit created a fork of MicroPython and called it *CircuitPython*.  We can only speculate why this decisive action was taken, but the result is it divided the community into two incompatible branches and it doubled the amount of work needed to be done to introduce a new device to the Python community.  Unfortunately, the consequence is that many programs written in CircuitPython are difficult to port to MicroPython.
+
+Today, according to [Google Trends](https://trends.google.com/trends/explore?date=today%205-y&q=micropython,circuitpython), MicroPython is still four more popular than CircuitPython when we look at worldwide web search comparisons.  However, in the US, the popularity is more equal.  Although the claim was that CircuitPython was done for "simplicity" there is little evidence that CircuitPython programs are smaller or easier to maintain than MicroPython.
+
+The one thing is clear, CircuitPython has lots of drivers for unusual hardware devices.  If you find a driver you need in MicroPython you will need to convert it to MicroPython.  This is usually done manually on a line-by-line basis.
 
 ## Setting up a CircuitPython Virtual Environment
-Because MicroPython and CircuitPython are incompatible, it is important that you don't intermix your python libraries.
+
+Because MicroPython and CircuitPython are incompatible, it is important that you don't intermix your Python libraries.
 
 Here is how we setup a virtual environment for CircuitPython using [Conda](https://docs.conda.io/en/latest/).
 

@@ -19,10 +19,10 @@ nav:
     - Blink: intro/03-blink.md
     - Fade In and Out: intro/04-fade-in-and-out.md
     - Buttons: intro/03-button.md
-    - Temperature: intro/03-temperature.md
+
     - Motor: intro/04-motor.md
     - Servo: intro/04-servo.md
-    - LED Strip: intro/05-led-strip.md
+    - NeoPixel: intro/05-neopixel.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
@@ -75,7 +75,7 @@ nav:
     - Playing a Scale: sound/04-play-scale.md
     - Play Mario: sound/05-play-mario.md
     - Eight Key Piano: sound/06-eight-key-piano.md
-  - MicroPython Robots:
+  - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
@@ -90,6 +90,7 @@ nav:
     - Debugging SPI: debugging/29-debugging-spi.md
   - Advanced Labs:
     - Introduction: advanced-labs/01-intro.md
+    - Internal Temperature: advanced-labs/03-internal-temperature.md
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
     - Circuit Python: circuit-python/01-intro.md
@@ -98,6 +99,8 @@ nav:
     - I2C Scanner: advanced-labs/06-i2c.md
     - Frame Buffer: advanced-labs/07-framebuffer.md
     - Minicom: advanced-labs/08-minicom.md
+    - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
+    - Converting CircuitPython: advanced-labs/10-converting-circuitpython.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:

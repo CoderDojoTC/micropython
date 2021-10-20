@@ -1,5 +1,7 @@
 # Using the Builtin Temperature Sensor
 
+The Raspberry Pi Pico has an internal temperature sensor that can be access using ```machine.ADC(4)```.  This might be useful to see if your RP2040 CPY is running "hot" and might benefit from a cooling fan.
+
 ## Reading the temperature
 ```py
 import machine
