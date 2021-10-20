@@ -44,13 +44,12 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Displays:
+  - Non OLED Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
-    - Character LCD Displays: displays/10-character-lcd-display.md
-    - Graphic LCD Displays: displays/15-cu1609c-led.md
-    - Color LCD Display: displays/14-lcd-st7789V.md
-    - ST7735 TFT: displays/13-st7735-color-tft.md
+    - Character LCD: displays/10-character-lcd-display.md
+    - Graphic LCD: displays/15-cu1609c-led.md
+    - Color LCD ST7789V: displays/14-lcd-st7789V.md
     - LCD Waveshare: displays/11-lcd-waveshare.md
     - E-Paper: displays/12-e-paper-display.md
   - OLED Displays:
