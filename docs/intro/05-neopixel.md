@@ -1,5 +1,7 @@
 # NeoPixel
 
+![NeoPixel Demo](../img/neopixel-demo.gif)
+
 NeoPixels are Red-Green-Blue LEDs that are assembled in a way that makes them easy to control with three wires: GND, +5V and a serial data line.  They are very popular with our students because they are powerful, easy to program and full of **bling**.
 
 !!! Note
@@ -21,15 +23,77 @@ Controlling NeoPixels is challenging since the timing of data being sent must be
 |Data|GP0|1|Topmost left with USB on top|
 
 
-## Parameters
+## Setup Parameters
 
 ```py
-NUM_LEDS = 60
-PIN_NUM = 1
-brightness = 1
+NUM_LEDS = 12
+PIN_NUM = 0
 ```
 
-## full code
+## Initialize the Strip Object
+
+```py
+NUMBER_PIXELS = 12
+STATE_MACHINE = 0
+LED_PIN = 0
+
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+```
+
+## Turn all the Pixels Red
+
+```py
+from neopixel import Neopixel
+
+NUMBER_PIXELS = 12
+STATE_MACHINE = 0
+LED_PIN = 0
+
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+
+for i in range(0, NUMBER_PIXELS):
+    strip.set_pixel(i, (255,0,0))
+strip.show()
+```
+
+## Turn All the Pixels Red, Green and Blue
+
+```py
+import time
+# We are using https://github.com/blaz-r/pi_pico_neopixel
+from neopixel import Neopixel
+
+NUMBER_PIXELS = 12
+STATE_MACHINE = 0
+LED_PIN = 0
+
+# We are using the GRB variety, not RGB
+strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+# set 100% brightness
+strip.brightness(100)
+delay = .1
+
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+while True:
+    for i in range(0, NUMBER_PIXELS):
+        strip.set_pixel(i, red)
+        strip.show()
+        time.sleep(delay)
+    for i in range(0, NUMBER_PIXELS):
+        strip.set_pixel(i, green)
+        strip.show()
+        time.sleep(delay)
+    for i in range(0, NUMBER_PIXELS):
+        strip.set_pixel(i, blue)
+        strip.show()
+        time.sleep(delay)
+
+```
+
+
+## Full code (no library)
 ```py
 # Example using PIO to drive a set of WS2812 LEDs.
 
