@@ -898,19 +898,12 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#address-scanner" class="md-nav__link">
-    Address Scanner
+  <a href="#i2c-address-scanner-test" class="md-nav__link">
+    I2C Address Scanner Test
   </a>
   
-    <nav class="md-nav" aria-label="Address Scanner">
+    <nav class="md-nav" aria-label="I2C Address Scanner Test">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scanner-code" class="md-nav__link">
-    Scanner Code
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#scanner-result" class="md-nav__link">
@@ -925,36 +918,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hello-to-the-lcd" class="md-nav__link">
-    Hello To The LCD
+  <a href="#testing-the-lcd" class="md-nav__link">
+    Testing the LCD
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1602-lcd" class="md-nav__link">
-    1602 LCD
+  <a href="#putting-the-device-through-display-option-tests" class="md-nav__link">
+    Putting the Device Through Display Option Tests
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd1306-module" class="md-nav__link">
-    ssd1306 module
-  </a>
-  
-    <nav class="md-nav" aria-label="ssd1306 module">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hd44780-drivers" class="md-nav__link">
-    HD44780 Drivers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1558,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-labs/01-intro.md" class="md-nav__link">
+      <a href="../../advanced-labs/01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -2232,19 +2205,12 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#address-scanner" class="md-nav__link">
-    Address Scanner
+  <a href="#i2c-address-scanner-test" class="md-nav__link">
+    I2C Address Scanner Test
   </a>
   
-    <nav class="md-nav" aria-label="Address Scanner">
+    <nav class="md-nav" aria-label="I2C Address Scanner Test">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scanner-code" class="md-nav__link">
-    Scanner Code
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#scanner-result" class="md-nav__link">
@@ -2259,36 +2225,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hello-to-the-lcd" class="md-nav__link">
-    Hello To The LCD
+  <a href="#testing-the-lcd" class="md-nav__link">
+    Testing the LCD
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1602-lcd" class="md-nav__link">
-    1602 LCD
+  <a href="#putting-the-device-through-display-option-tests" class="md-nav__link">
+    Putting the Device Through Display Option Tests
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd1306-module" class="md-nav__link">
-    ssd1306 module
-  </a>
-  
-    <nav class="md-nav" aria-label="ssd1306 module">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hd44780-drivers" class="md-nav__link">
-    HD44780 Drivers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2317,41 +2263,88 @@
                 
                 
                 <h1 id="character-lcd-display">Character LCD Display</h1>
-<h2 id="address-scanner">Address Scanner</h2>
-<h3 id="scanner-code">Scanner Code</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">())</span>
+<p>~<a href="../../img/lcd-1602.jpg">LCD 1602</a></p>
+<p>This lesson is for using the LCM1602 I2C LCD interface.  It has four wires:</p>
+<ol>
+<li>GND - connect to any GND pin</li>
+<li>VCC - connect to 3V3(out) pin unless you have a 3.3 to 5v voltage converter</li>
+<li>SDA - connect to GP0</li>
+<li>SCL - connect to GP1</li>
+</ol>
+<p>The photo above shows the use of a 3.3 to 5v voltage converter.  This allows us to use the full 5v to the LCD backlight so we get bright contrast.  You can connect the VCC to the 3V3(out) pin but the display will be harder to read.</p>
+<h2 id="i2c-address-scanner-test">I2C Address Scanner Test</h2>
+<p>Our first task is to make sure that the 1602 chip's I2C circuits are working.  We use the following I2C scanner code to do this.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="n">I2C_SDA_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">I2C_SCL_PIN</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">I2C_SDA_PIN</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">I2C_SCL_PIN</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Scanning I2C bus.&#39;</span><span class="p">)</span>
+<span class="n">devices</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span> <span class="c1"># this returns a list of devices</span>
+<span class="n">device_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">device_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No i2c device found.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">device_count</span><span class="p">,</span> <span class="s1">&#39;devices found.&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Decimal address:&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="s2">&quot;, Hex address: &quot;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="scanner-result">Scanner Result</h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
-<span class="o">[</span><span class="m">39</span><span class="o">]</span>
-&gt;&gt;&gt;
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Scanning I2C bus.
+1 devices found.
+Decimal address: 39 , Hex address:  0x27
 </code></pre></div>
 </td></tr></table>
-<h2 id="hello-to-the-lcd">Hello To The LCD</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x7C</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\x2D</span><span class="s1">&#39;</span><span class="p">)</span> <span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="mi">114</span><span class="p">,</span> <span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<h2 id="testing-the-lcd">Testing the LCD</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">I2C</span>
+<span class="kn">from</span> <span class="nn">lcd_api</span> <span class="kn">import</span> <span class="n">LcdApi</span>
+<span class="kn">from</span> <span class="nn">pico_i2c_lcd</span> <span class="kn">import</span> <span class="n">I2cLcd</span>
+
+<span class="n">I2C_ADDR</span>     <span class="o">=</span> <span class="mh">0x27</span>
+<span class="n">I2C_NUM_ROWS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">I2C_NUM_COLS</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+<span class="n">lcd</span> <span class="o">=</span> <span class="n">I2cLcd</span><span class="p">(</span><span class="n">i2c</span><span class="p">,</span> <span class="n">I2C_ADDR</span><span class="p">,</span> <span class="n">I2C_NUM_ROWS</span><span class="p">,</span> <span class="n">I2C_NUM_COLS</span><span class="p">)</span>    
+<span class="n">lcd</span><span class="o">.</span><span class="n">putstr</span><span class="p">(</span><span class="s2">&quot;CoderDojo Rocks!&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="1602-lcd">1602 LCD</h2>
-<p><a href="https://forum.micropython.org/viewtopic.php?t=2858">MicroPython Forum on 1602 LCDs</a></p>
+<h2 id="putting-the-device-through-display-option-tests">Putting the Device Through Display Option Tests</h2>
+<p>Now that we know how to display text on the device, we can learn how other functions work:</p>
+<ol>
+<li>lcd.move_to(x,y)</li>
+<li>lcd.display_on() and lcd.display_off()</li>
+<li>lcd.show_cursor() and lcd.hide_cursor()</li>
+<li>lcd.blink_cursor_on() and lcd.blink_cursor_off()</li>
+<li>lcd.backlight_on() and lcd.backlight_off()</li>
+<li>lcd.clear()</li>
+</ol>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2369,30 +2362,114 @@
 15
 16
 17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">i2clcd</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
 
-<span class="n">lcd</span> <span class="o">=</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">i2clcd</span><span class="p">(</span><span class="n">i2c_bus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">i2c_addr</span><span class="o">=</span><span class="mh">0x27</span><span class="p">,</span> <span class="n">lcd_width</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">I2C</span>
+<span class="kn">from</span> <span class="nn">lcd_api</span> <span class="kn">import</span> <span class="n">LcdApi</span>
+<span class="kn">from</span> <span class="nn">pico_i2c_lcd</span> <span class="kn">import</span> <span class="n">I2cLcd</span>
 
-<span class="c1"># fill a line by the text</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">print_line</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">print_line</span><span class="p">(</span><span class="s1">&#39;world!&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;RIGHT&#39;</span><span class="p">)</span>
+<span class="n">I2C_ADDR</span>     <span class="o">=</span> <span class="mh">0x27</span>
+<span class="n">I2C_NUM_ROWS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">I2C_NUM_COLS</span> <span class="o">=</span> <span class="mi">16</span>
 
-<span class="c1"># print text at the current cursor position</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">move_cursor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_main</span><span class="p">():</span>
+    <span class="c1">#Test function for verifying basic functionality</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running test_main&quot;</span><span class="p">)</span>
+    <span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+    <span class="n">lcd</span> <span class="o">=</span> <span class="n">I2cLcd</span><span class="p">(</span><span class="n">i2c</span><span class="p">,</span> <span class="n">I2C_ADDR</span><span class="p">,</span> <span class="n">I2C_NUM_ROWS</span><span class="p">,</span> <span class="n">I2C_NUM_COLS</span><span class="p">)</span>    
+    <span class="n">lcd</span><span class="o">.</span><span class="n">putstr</span><span class="p">(</span><span class="s2">&quot;CoderDojo Rocks!&quot;</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">putstr</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{year:&gt;04d}</span><span class="s2">/</span><span class="si">{month:&gt;02d}</span><span class="s2">/</span><span class="si">{day:&gt;02d}</span><span class="s2"> </span><span class="si">{HH:&gt;02d}</span><span class="s2">:</span><span class="si">{MM:&gt;02d}</span><span class="s2">:</span><span class="si">{SS:&gt;02d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">year</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">month</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">day</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">HH</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">MM</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">SS</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning cursor on&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">show_cursor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning cursor off&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">hide_cursor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning blink cursor on&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">blink_cursor_on</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning blink cursor off&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">blink_cursor_off</span><span class="p">()</span>                    
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning backlight off&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">backlight_off</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning backlight on&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">backlight_on</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning display off&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">display_off</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Turning display on&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">display_on</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Filling display&quot;</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="o">+</span><span class="n">I2C_NUM_ROWS</span><span class="o">*</span><span class="n">I2C_NUM_COLS</span><span class="p">):</span>
+                <span class="n">string</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">putstr</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># custom character</span>
-<span class="n">char_celsius</span> <span class="o">=</span> <span class="p">(</span><span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">write_CGRAM</span><span class="p">(</span><span class="n">char_celsius</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">move_cursor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;CGRAM: &#39;</span> <span class="o">+</span> <span class="n">i2clcd</span><span class="o">.</span><span class="n">CGRAM_CHR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#if __name__ == &quot;__main__&quot;:</span>
+<span class="n">test_main</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="ssd1306-module">ssd1306 module</h2>
-<p><a href="https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py">SSD1306 Library</a> - click the RAW button and then right click to do a "Save As"</p>
-<h3 id="hd44780-drivers">HD44780 Drivers</h3>
-<p><a href="https://github.com/dhylands/python_lcd">Dave Hylands HD44780 Drivers in Python</a></p>
 <h2 id="references">References</h2>
 <p><a href="https://www.mfitzp.com/article/oled-displays-i2c-micropython/">MFitzp article on OLED displays</a></p>
 <p><a href="https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py">Adafruit SSD1306 Driver</a></p>
