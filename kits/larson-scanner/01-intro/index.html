@@ -2063,6 +2063,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#more-to-explore" class="md-nav__link">
+    More to Explore
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2233,6 +2240,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#more-to-explore" class="md-nav__link">
+    More to Explore
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2252,7 +2266,7 @@
                 
                 <h1 id="larson-scanner-pumpkin">Larson Scanner Pumpkin</h1>
 <p><img alt="Larson Scanner Pumpkin" src="../../../img/larson-scanner.gif" /></p>
-<p>The Larson Scanner is a light pattern special effect named after <a href="https://en.wikipedia.org/wiki/Glen_A._Larson">Glen A. Larson</a>.  Larson use this pattern to give his <a href="https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)">Battlestar Galactica Cylon</a> and <a href="https://en.wikipedia.org/wiki/KITT">KITT</a> robot eyes a sense of sentience.  See <a href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Kinght Rider</a> for the backstory.</p>
+<p>The Larson Scanner is a light pattern special effect named after <a href="https://en.wikipedia.org/wiki/Glen_A._Larson">Glen A. Larson</a>.  Larson used this pattern to give his <a href="https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)">Battlestar Galactica Cylon</a> and <a href="https://en.wikipedia.org/wiki/KITT">KITT</a> robot eyes a sense of sentience.  See <a href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Kinght Rider</a> for the backstory.</p>
 <p>This project uses a 144 pixel/meter LED strip and a Raspberry Pi Pico to produce this effect.</p>
 <p><img alt="Craft Pumpkin" src="../../../img/craft-pumpkin.jpg" />
 I used a craft pumpkin from Michaels.  I cut a slit in it and used hot-glue to hold the LED strip in place.</p>
@@ -2264,9 +2278,11 @@ I used a craft pumpkin from Michaels.  I cut a slit in it and used hot-glue to h
 <li>27 pixels of WS2811B NeoPixel Strip <a href="https://www.ebay.com/itm/324452155664?hash=item4b8adb0110:g:-kUAAOSwwT9f9avu">144 pixels per meter preferred</a> ($8)</li>
 <li><a href="https://www.ebay.com/itm/234251696371?hash=item368a7d38f3%3Ag%3AZe8AAOSwTmtaqyvb">3 AA battery pack</a> or a <a href="https://www.amazon.com/Compact-5000mAh-External-Portable-More-Black/dp/B09BJGVH17/ref=dp_fod_2?th=1">USB battery pack</a></li>
 </ol>
-<p><img alt="WS2811b 144" src="../../../img/ws2811b-144.png" /></p>
+<p><img alt="WS2811b 144" src="../../../img/ws2811b-144.png" />
+This is a screen image from e-bay showing a 1/2 meter of LED strip for $8.</p>
 <h2 id="sample-code">Sample Code</h2>
-<p>This code shows a five-pixel wide "eye" moving back-an-forth over a 27 pixel strip.</p>
+<p>This code shows a five-pixel wide "eye" moving back-an-forth over a 27 pixel strip.  There is a central bright red LED surrounded by dimmer red LEDs that move back-and-forth.  We are using the NeoPixel library supplied by <a href="https://github.com/blaz-r/pi_pico_neopixel">Blaž Rolih</a>.</p>
+<p>The example below has a delay of 1/10th of a second between drawing events.  You can make the delay smaller to speed up the speed of the eye movement.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2340,6 +2356,15 @@ I used a craft pumpkin from Michaels.  I cut a slit in it and used hot-glue to h
         <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="more-to-explore">More to Explore</h2>
+<ol>
+<li>Add a potentiometer to change the speed of the eye scan.</li>
+<li>Add a button to cycle through colors of the eye.</li>
+<li>Add multiple patterns such as a "comet trail" that has the first pixel brighter and the following pixels dimmer.</li>
+<li>Add a PIR motion sensor that will sense motion and get brighter if motion is sensed.</li>
+<li>Use an MP3 player such as the <a href="https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299">DRF0229</a> to play the cylon sound when motion is detected.</li>
+<li>Add an OLED display and buttons to the back of the pumpkin to change the parameters of the display and the sounds.</li>
+</ol>
                 
               
               
