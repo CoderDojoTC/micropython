@@ -1,8 +1,8 @@
 # Character LCD Display
 
-~[LCD 1602](../img/lcd-1602.jpg)
+![LCD 1602](../img/lcd-1602.jpg)
 
-This lesson is for using the LCM1602 I2C LCD interface.  It has four wires:
+This lesson is for using the LCM1602 I2C LCD interface.  It is a popular It has four wires:
 
 1. GND - connect to any GND pin
 2. VCC - connect to 3V3(out) pin unless you have a 3.3 to 5v voltage converter

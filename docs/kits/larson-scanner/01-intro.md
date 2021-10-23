@@ -71,5 +71,6 @@ while True:
 2. Add a button to cycle through colors of the eye.
 3. Add multiple patterns such as a "comet trail" that has the first pixel brighter and the following pixels dimmer.
 4. Add a PIR motion sensor that will sense motion and get brighter if motion is sensed.
-5. Use an MP3 player such as the [DRF0229](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299) to play the cylon sound when motion is detected.
-6. Add an OLED display and buttons to the back of the pumpkin to change the parameters of the display and the sounds.
+5. Use the new [I2S](https://github.com/miketeachman/micropython-i2s-examples) software to play a sound when the PIR motion sensor has been triggered.
+6. Use an MP3 player such as the [DRF0229](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299) to play the cylon sound when motion is detected.
+7. Add an OLED display and buttons to the back of the pumpkin to change the parameters of the display and the sounds.
