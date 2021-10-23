@@ -10,7 +10,7 @@ The Larson Scanner is a light pattern special effece names after [Glen A. Larson
 2. Breadboard ($2)
 3. 27 pixels of WS2811B NeoPixel Strip (144 per meter preferred) ($8)
 
-![WS2811b 144](../../img/ws2811b-144.pngg)
+![WS2811b 144](../../img/ws2811b-144.png)
 ## Sample Code
 
 ```py
