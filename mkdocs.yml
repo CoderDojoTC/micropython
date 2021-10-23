@@ -129,6 +129,8 @@ nav:
       - kits/maker-pi-pico/01-intro.md
       - kits/maker-pi-pico/02-running-lights.md
       - kits/maker-pi-pico/09-micro-sd-card-reader.md
+    - Larson Scanner:
+      - kits/larson-scanner/01-intro.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
