@@ -4,14 +4,23 @@
 
 The Larson Scanner is a light pattern special effece names after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson use this pattern to give his robot eyes a sense of sentience.  See [](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) and This project uses a LED strip and a Raspberry Pi Pico to produce this effect.
 
+
+![Craft Pumpkin](../../img/craft-pumpkin.png)
+I used a craft pumpkin from 
+
 ## Parts List
 
+1. Craft Pumpkin [Micheals](https://www.michaels.com/9-in-orange-craft-pumpkin-by-ashland/10638818.html) $10
 1. Raspberry Pi Pico ($4)
 2. Breadboard ($2)
-3. 27 pixels of WS2811B NeoPixel Strip (144 per meter preferred) ($8)
+3. 27 pixels of WS2811B NeoPixel Strip [144 pixels per meter preferred](https://www.ebay.com/itm/324452155664?hash=item4b8adb0110:g:-kUAAOSwwT9f9avu) ($8)
+4. [3 AA battery pack](https://www.ebay.com/itm/234251696371?hash=item368a7d38f3%3Ag%3AZe8AAOSwTmtaqyvb) or a [USB battery pack](https://www.amazon.com/Compact-5000mAh-External-Portable-More-Black/dp/B09BJGVH17/ref=dp_fod_2?th=1)
 
 ![WS2811b 144](../../img/ws2811b-144.png)
+
 ## Sample Code
+
+This code shows a five-pixel wide "eye" moving back-an-forth over a 27 pixel strip.
 
 ```py
 from utime import sleep
@@ -22,7 +31,6 @@ NUMBER_PIXELS = 27
 STATE_MACHINE = 0
 LED_PIN = 0
 
-# The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
 strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
 
 # Color RGB values
