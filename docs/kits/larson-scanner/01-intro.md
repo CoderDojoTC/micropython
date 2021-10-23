@@ -2,7 +2,7 @@
 
 ![Larson Scanner Pumpkin](../../img/larson-scanner.gif)
 
-The Larson Scanner is a light pattern special effece names after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson use this pattern to give his robot eyes a sense of sentience.  See [](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) and This project uses a LED strip and a Raspberry Pi Pico to produce this effect.
+The Larson Scanner is a light pattern special effect names after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson use this pattern to give his robot eyes a sense of sentience.  See [](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) and This project uses a LED strip and a Raspberry Pi Pico to produce this effect.
 
 
 ![Craft Pumpkin](../../img/craft-pumpkin.jpg)
