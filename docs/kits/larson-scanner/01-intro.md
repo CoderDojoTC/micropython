@@ -2,15 +2,16 @@
 
 ![Larson Scanner Pumpkin](../../img/larson-scanner.gif)
 
-The Larson Scanner is a light pattern special effect names after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson use this pattern to give his robot eyes a sense of sentience.  See [](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) and This project uses a LED strip and a Raspberry Pi Pico to produce this effect.
+The Larson Scanner is a light pattern special effect named after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson use this pattern to give his [Battlestar Galactica Cylon](https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)) and [KITT](https://en.wikipedia.org/wiki/KITT) robot eyes a sense of sentience.  See [Kinght Rider](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) for the backstory.
 
+This project uses a 144 pixel/meter LED strip and a Raspberry Pi Pico to produce this effect.
 
 ![Craft Pumpkin](../../img/craft-pumpkin.jpg)
 I used a craft pumpkin from Michaels.  I cut a slit in it and used hot-glue to hold the LED strip in place.
 
 ## Parts List
 
-1. Craft Pumpkin [Micheals](https://www.michaels.com/9-in-orange-craft-pumpkin-by-ashland/10638818.html) $10
+1. 9" Craft Pumpkin from [Micheals](https://www.michaels.com/9-in-orange-craft-pumpkin-by-ashland/10638818.html) $10
 1. Raspberry Pi Pico ($4)
 2. Breadboard ($2)
 3. 27 pixels of WS2811B NeoPixel Strip [144 pixels per meter preferred](https://www.ebay.com/itm/324452155664?hash=item4b8adb0110:g:-kUAAOSwwT9f9avu) ($8)
