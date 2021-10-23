@@ -2253,14 +2253,19 @@
                 <h1 id="larson-scanner">Larson Scanner</h1>
 <p><img alt="Lason Scanner Pumpkin" src="../../../img/larson-scanner.gif" /></p>
 <p>The Larson Scanner is a light pattern special effece names after <a href="https://en.wikipedia.org/wiki/Glen_A._Larson">Glen A. Larson</a>.  Larson use this pattern to give his robot eyes a sense of sentience.  See <a href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)"></a> and This project uses a LED strip and a Raspberry Pi Pico to produce this effect.</p>
+<p><img alt="Craft Pumpkin" src="../../img/craft-pumpkin.png" />
+I used a craft pumpkin from </p>
 <h2 id="parts-list">Parts List</h2>
 <ol>
+<li>Craft Pumpkin <a href="https://www.michaels.com/9-in-orange-craft-pumpkin-by-ashland/10638818.html">Micheals</a> $10</li>
 <li>Raspberry Pi Pico ($4)</li>
 <li>Breadboard ($2)</li>
-<li>27 pixels of WS2811B NeoPixel Strip (144 per meter preferred) ($8)</li>
+<li>27 pixels of WS2811B NeoPixel Strip <a href="https://www.ebay.com/itm/324452155664?hash=item4b8adb0110:g:-kUAAOSwwT9f9avu">144 pixels per meter preferred</a> ($8)</li>
+<li><a href="https://www.ebay.com/itm/234251696371?hash=item368a7d38f3%3Ag%3AZe8AAOSwTmtaqyvb">3 AA battery pack</a> or a <a href="https://www.amazon.com/Compact-5000mAh-External-Portable-More-Black/dp/B09BJGVH17/ref=dp_fod_2?th=1">USB battery pack</a></li>
 </ol>
 <p><img alt="WS2811b 144" src="../../../img/ws2811b-144.png" /></p>
 <h2 id="sample-code">Sample Code</h2>
+<p>This code shows a five-pixel wide "eye" moving back-an-forth over a 27 pixel strip.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2296,8 +2301,7 @@
 33
 34
 35
-36
-37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="c1"># We are using https://github.com/blaz-r/pi_pico_neopixel</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
 
@@ -2305,7 +2309,6 @@
 <span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
 
 <span class="c1"># Color RGB values</span>
