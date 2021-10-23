@@ -6,7 +6,7 @@ The Larson Scanner is a light pattern special effect names after [Glen A. Larson
 
 
 ![Craft Pumpkin](../../img/craft-pumpkin.jpg)
-I used a craft pumpkin from 
+I used a craft pumpkin from Michaels.  I cut a slit in it and used hot-glue to hold the LED strip in place.
 
 ## Parts List
 
