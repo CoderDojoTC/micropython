@@ -105,3 +105,5 @@ while True:
 5. Print the time each note is being pressed as well as the length of the pauses between the notes.
 6. Write the notes to a recording file.
 7. Add a menu system so you can do things like start a new song recording, save a recording and playback a recording.
+8. Eight keys are not enough for many songs.  Use two full-size breadboards to expand the number of keys on your piano.
+9. Look into getting a MIDI keyboard such as the 32-key $40 [MIDIPLUS AKM320 USB MIDI Keyboard Controller](https://www.amazon.com/midiplus-32-Key-Midi-Controller-AKM320/dp/B00VHKMK64/ref=bmx_dp_n4il8m3n_37/135-5614730-7499827?th=1)
