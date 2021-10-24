@@ -1,5 +1,5 @@
 # Collision Avoidance Demo for Cytron Maker Pi RP2040 board
-# Version 3.0 with startup sounds and NeoPixel feedback
+# Version 3.1 with startup sounds and NeoPixel feedback
 
 from machine import Pin,PWM
 from utime import sleep, ticks_ms
@@ -11,14 +11,10 @@ from robotfunctions import sound_off, stop, forward, turn_right, turn_left, play
 
 # key parameters
 MOTOR_POWER = 20000 # min is 20000 max is 65025
-motor_power = MOTOR_POWER
 MOTOR_POWER_CODE = 3
 TURN_DISTANCE = 25 # distnce we decide to turn - try 20
-turn_distance = TURN_DISTANCE
 REVERSE_TIME = .4 # how long we backup
-reverse_time = REVERSE_TIME
 TURN_TIME = .4 # how long we turn
-turn_time = TURN_TIME
 MAX_POWER_LEVEL = 65025
 SQUARE_FWD_TIME = 2
 
@@ -52,23 +48,23 @@ functions_menu = ['Motor Power', 'Turn Dist', 'Rev Time', 'Turn Time']
 function_menu_count = len(functions_menu)
 # power
 motor_power_code = MOTOR_POWER_CODE
-motor_power_labels = ['Off', 'Low', 'Medium-Low', 'Medium', 'Medium-High', 'High', 'Max']
+# motor_power_labels = ['Off', 'Low', 'Medium-Low', 'Medium', 'Medium-High', 'High', 'Max']
 # three letter code due to limited screen area
-motor_power_abbr =    ['Off', 'Low', 'ML',         'Med',    'MH',          'Hi',   'Max']
-motor_power_values = [0,      20000, 30000,       40000,    50000,         55000,  MAX_POWER_LEVEL]
-motor_power_count = len(motor_power_labels)
+motor_power_dict = {0: 'Off', 20000: 'Low', 30000: 'ML', 40000: 'Med', 50000: 'MH', 55000: 'Hi', MAX_POWER_LEVEL: 'Max'}
+motor_power_count = len(motor_power_dict)
+motor_power = 0
 # turn distance
-turn_dist_labels = ['5cm', '7cm', '10cm', '15cm', '20cm', '30cm', '40cm']
-turn_dist_values = [5, 7, 10, 15, 20, 30, 40]
-turn_dist_count = len(turn_dist_labels)
+turn_dist_dict = {5: '5cm', 7: '7cm', 10: '10cm', 15: '15cm', 20: '20cm', 30: '30cm', 40: '40cm'}
+turn_dist_count = len(turn_dist_dict)
+turn_distance = 5
 # rev time
-reverse_time_labels = ['.2 sec', '.3 sec', '.4 sec', '.5 sec', '.6 sec', '.7 sec', '.8 sec', '.9 sec', '1 sec']
-reverse_time_values = [.2, .3, .4, .5, .6, .7, .8, .9, 1]
-reverse_time_count = len(reverse_time_labels)
+reverse_time_dict= {.2: '.2 sec', .3: '.3 sec', .4: '.4 sec', .5: '.5 sec', .6: '.6 sec', .7: '.7 sec', .8: '.8 sec', .9: '.9 sec', 1.0: '1 sec'}
+reverse_time_count = len(reverse_time_dict)
+reverse_time = .2
 # turn time
-turn_time_labels = ['.2 sec', '.3 sec', '.4 sec', '.5 sec', '.6 sec', '.7 sec', '.8 sec', '.9 sec', '1 sec']
-turn_time_values = [.2, .3, .4, .5, .6, .7, .8, .9, 1]
-turn_time_count = len(turn_time_labels)
+turn_time_dict= {.2: '.2 sec', .3: '.3 sec', .4: '.4 sec', .5: '.5 sec', .6: '.6 sec', .7: '.7 sec', .8: '.8 sec', .9: '.9 sec', 1.0: '1 sec'}
+turn_time_count = len(turn_time_dict)
+turn_time = .2
 
 
 # display setup
@@ -85,7 +81,7 @@ oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 # This function gets called every time the button is pressed.  The parameter "pin" used to determine what pin is pressed.
 last_time = 0
 def button_pressed_handler(pin):
-    global mode, mode_value, last_time
+    global mode, mode_value, last_time, mode_count
     new_time = ticks_ms()
     # if it has been more that 1/5 of a second since the last event, we have a new event
     if (new_time - last_time) > 100:
@@ -95,8 +91,8 @@ def button_pressed_handler(pin):
                 mode = 0
         else:
             mode_value +=1
-            if mode_value > 6:
-                mode_value = 0
+            # if mode_value > 6:
+            #     mode_value = 0
         last_time = new_time
     print(mode)
 
@@ -124,62 +120,66 @@ def get_distance():
     return  int((tof_distance - TOF_ZERO_VALUE) * TOF_SCALE)
 
 def update_display():
-    global dist, counter
+    global dist, counter, mode_value, motor_power, turn_distance, reverse_time, turn_time
     oled.fill(0)
     # put the program mode in the first row in reverse text with dark chars on white background
     oled.fill_rect(0, 0, WIDTH - 1, 9, 1)
     oled.text(mode_menu[mode], 0, 1, 0)
     if mode == 0:
-        oled.text('Press button', 0, 11, 1)
-        oled.text('GP19 to start.', 0, 20, 1)
-        oled.text('Dist:', 0, 30, 1)
-        oled.text(str(dist), 40, 30, 1)
-        oled.text('Action:', 0, 40, 1)
-        if dist < turn_distance:
-            oled.text('Turn', 55, 40, 1)
-        else:
-            oled.text('Forward', 55, 40, 1)
+        oled.text('Press button', 0, 10, 1)
+        oled.text('GP%d to start.' % MODE_BUTTON_PIN, 0, 20, 1)
+        oled.text('Dist:%d' % dist, 0, 30, 1)
+        action = 'Turn' if dist < turn_distance else 'Forward'
+        oled.text('Action:' + action, 0, 40, 1)
+        
     elif mode == 1: # collision avoidance
-        oled.text('Dist:', 0, 30, 1)
-        oled.text(str(dist), 40, 30, 1)
-        oled.text('Action:', 0, 40, 1)
-        if dist < turn_distance:
-            oled.text('Turn', 55, 40, 1)
-        else:
-            oled.text('Forward', 55, 40, 1)
+        oled.text('Dist:%d' % dist, 0, 10, 1)
+        oled.text('Motor Pwr:' + motor_power_dict[motor_power], 0, 20, 1)
+        # oled.text('', 0, 30, 1)
+        action = 'Turn' if dist < turn_distance else 'Forward'
+        oled.text('Action:' + action, 0, 40, 1)
+    
     elif mode == 2: # square
-        oled.text('Select level:', 0, 10, 1)
-        oled.text(motor_power_labels[mode_value], 0, 20, 1)
+        oled.text('Sqr Fwd Time:%d' % SQUARE_FWD_TIME, 0, 10, 1)
+        oled.text('Motor Pwr:' + motor_power_dict[motor_power], 0, 20, 1)
+        oled.text('Turn Time:' + turn_time_dict[turn_time], 0, 30, 1)
+        action = 'Turn' if dist < turn_distance else 'Forward'
+        oled.text('Action:' + action, 0, 40, 1)
+        
     elif mode == 3: # select power
         oled.text('Select level:', 0, 10, 1)
-        oled.text(motor_power_labels[mode_value], 0, 20, 1)
+        oled.text(motor_power_dict[motor_power], 0, 20, 1)
     elif mode == 4: # turn dist
         oled.text('Select Turn Dist', 0, 10, 1)
-        oled.text(turn_dist_labels[mode_value], 0, 20, 1)
+        oled.text(turn_dist_dict[turn_distance], 0, 20, 1)
     elif mode == 5: # reverse time
         oled.text('Reverse Time:', 0, 10, 1)
-        oled.text(reverse_time_labels[mode_value], 0, 20, 1)
-    elif mode == 6: # reverse time
+        oled.text(reverse_time_dict[reverse_time], 0, 20, 1)
+    elif mode == 6: # turn time
         oled.text('Turn Time:', 0, 10, 1)
-        oled.text(turn_time_labels[mode_value], 0, 20, 1)
+        oled.text(turn_time_dict[turn_time], 0, 20, 1)
+    elif mode == 7:
+        oled.text('Motor Pwr:' + motor_power_dict[motor_power], 0, 10, 1)
+        oled.text('Turn Dist:' + turn_dist_dict[turn_distance], 0, 20, 1)
+        oled.text('Rev Time:' + reverse_time_dict[reverse_time], 0, 30, 1)
+        oled.text('Turn Time:' + turn_time_dict[turn_time], 0, 40, 1)
+        
     oled.text(str(counter), 0, 54, 1)
     oled.text(str(mode), 50, 54, 1)
-    oled.text(str(mode_value), 80, 54, 1)
+    oled.text(str(mode_value), 80, 54, 1) if (mode != 0 and mode != 1 and mode != 2 and mode != 7) else None
     oled.show()
 
 last_mode = -1
 # loop forever
 def main():
-    global dist, counter, mode, mode_value, last_mode, current_mode, motor_power
+    global dist, counter, mode, mode_value, last_mode, current_mode, motor_power, turn_distance, reverse_time, turn_time
     while True:
         dist = get_distance()
         update_display()
-        if mode != last_mode:
-            print('mode', mode, 'Label:', mode_menu[mode])
-            last_mode = mode
+        
         if mode == 0: # standby    
             stop()
-        if mode == 1: # collision avoidance
+        elif mode == 1: # collision avoidance
             if dist > TOF_MAX_SENSOR_DIST:
                 # only print if we used to have a valid distance
                 if valid_distance == 1:
@@ -189,10 +189,10 @@ def main():
             # we have a valid distance
             else:
                 print(dist)
-                if dist < TURN_DISTANCE:    
+                if dist < turn_distance:    
                     # back up for a bit
                     drive_reverse(motor_power)
-                    sleep(REVERSE_TIME)
+                    sleep(reverse_time)
                     # turn in a random direction
                     if random.random() > .5:
                         print('turning right')
@@ -200,33 +200,48 @@ def main():
                     else:
                         print('turning left')
                         turn_left(motor_power)
-                    sleep(TURN_TIME)
+                    sleep(turn_time)
                     # continue going forward
                     forward(motor_power)
                 else:
                     print('forward')
                     forward(motor_power)
-        if mode == 2: # drive square
+        elif mode == 2: # drive square
             print('mode 2')
             forward(motor_power)
             sleep(SQUARE_FWD_TIME)
             turn_right(motor_power)
             sleep(turn_time)
-        if mode == 3: # prog power
+        
+        elif mode == 3: # prog power
             stop()
-            motor_power = motor_power_values[mode_value]
-            print(mode_menu[mode])
-        if mode == 4: # prog turn dist
-            print(mode_menu[mode])
-        if mode == 4: # prog turn dist
-            print(mode_menu[mode])
+            mode_value = mode_value % motor_power_count
+            motor_power = list(motor_power_dict.keys())[mode_value]
+            # print(mode_value)
+            
+        elif mode == 4: # prog turn dist
+            mode_value = mode_value % turn_dist_count
+            turn_distance = list(turn_dist_dict.keys())[mode_value]
+            # print(mode_value)
+            
+        elif mode == 5: # prog rev time
+            mode_value = mode_value % reverse_time_count
+            reverse_time = list(reverse_time_dict.keys())[mode_value]
+            # print(mode_value)
+            
+        elif mode == 6: # prog turn time
+            mode_value = mode_value % turn_time_count
+            turn_time = list(turn_time_dict.keys())[mode_value]
+            # print(mode_value)
+         
         sleep(.1)
         counter += 1
         if mode != current_mode:
             print(counter, 'mode:', mode, 'mode val:', mode_value)
             current_mode = mode
-        #if (counter % 50) == 0:
-            #print(counter, 'mode:', mode, 'mode val:', mode_value)
+            mode_value = 0
+        # if (counter % 50) == 0:
+            # print(counter, 'mode:', mode, 'mode val:', mode_value)
 
 # startup
 tof = VL53L0X.VL53L0X(i2c)
@@ -235,7 +250,7 @@ tof.start()
 # play_startup()
 
 # This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrupt
-print('Running Collision Avoidence with Time-of-Flight Sensor Version 3.0')
+print('Running Collision Avoidence with Time-of-Flight Sensor Version 3.1')
 
 try:
     main()
