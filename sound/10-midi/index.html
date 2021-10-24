@@ -18,7 +18,7 @@
     
     
       
-        <title>Eight Key Piano - MicroPython for Kids</title>
+        <title>MIDI with MicroPython - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eight-key-piano" class="md-skip">
+        <a href="#midi-with-micropython" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Eight Key Piano
+              MIDI with MicroPython
             
           </span>
         </div>
@@ -1145,14 +1145,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
       
       <label class="md-nav__link" for="nav-9">
         Sound and Music
@@ -1229,63 +1227,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Eight Key Piano
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../06-eight-key-piano/" class="md-nav__link">
         Eight Key Piano
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-play-tone-functions" class="md-nav__link">
-    The Play Tone Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    Exercises
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2225,22 +2171,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-play-tone-functions" class="md-nav__link">
-    The Play Tone Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    Exercises
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -2257,161 +2189,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sound/06-eight-key-piano.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sound/10-midi.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="eight-key-piano">Eight Key Piano</h1>
-<p>In this lab we wire up eight momentary press buttons so that when each one is pressed it will play a different note.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IeHaYR17zcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>To create this project, you will need the following parts:</p>
+                <h1 id="midi-with-micropython">MIDI with MicroPython</h1>
+<h2 id="references">References</h2>
 <ol>
-<li>A Raspberry Pi Pico</li>
-<li>A standard size breadboard or two 1/2 breadboards</li>
-<li>8 momentary press buttons</li>
-<li>A speaker or a <a href="https://en.wikipedia.org/wiki/Piezoelectric_speaker">Piezo buzzer</a></li>
-<li>An optional sound amplifier such as the <a href="https://www.ebay.com/itm/234012505949?hash=item367c3b775d:g:sPkAAOSwtoVbOFbf">LM386 DC 5V-12V Mini Micro Audio Amplifier</a> which can be purchased on e-bay for under $2 USD.  If you are working in a quiet room you may not need the amplifier.</li>
-</ol>
-<p><img alt="Eight Key Piano" src="../../img/eight-key-piano.jpg" /></p>
-<p>Each "key" is a momentary press button that is wired up between a GPIO pin and the +3.3 volt rail on the breadboard connected to <a href="../getting-started/02-pi-pico/#pico-pinout">3V3(OUT) pin</a>.  We do not need to use any resistors to pull the signals low since we configure the pins to be inputs with the PULL_DOWN resistor like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">button_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="the-play-tone-functions">The Play Tone Functions</h2>
-<p>We will use two Python functions, one for playing a tone of a given frequency and one for turning off the sound.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">playtone</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># turn the PWM duty to 50%</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
-    <span class="n">builtin_led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn builtin LED on</span>
-
-<span class="k">def</span> <span class="nf">bequiet</span><span class="p">():</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># turn off the speaker PWM</span>
-    <span class="n">builtin_led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># turn builtin LED off</span>
-</code></pre></div>
-</td></tr></table>
-<p>We will also use the <code>.value()</code> method on each pin to detect if it is HIGH (1) like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">button_pin_1</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="c1"># A3</span>
-</code></pre></div>
-</td></tr></table>
-<p>We will be playing "notes" generating square waves with various frequencies from our lowest note of A3 at 220 Hz up to A4 at 440 Hz.</p>
-<h2 id="sample-code">Sample Code</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># play a tone durning button down</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
-
-<span class="n">SPEAKER_PIN</span> <span class="o">=</span> <span class="mi">22</span> <span class="c1"># pass through a speaker and tie the other end to GND</span>
-<span class="n">speaker</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SPEAKER_PIN</span><span class="p">))</span>
-
-<span class="n">builtin_led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-
-<span class="c1"># Connect these GP pins through a button to the +3.3 volt rail</span>
-<span class="n">button_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_2</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_3</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_4</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_5</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_6</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_7</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">button_pin_8</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">playtone</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># turn the PWM duty to 50%</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
-    <span class="n">builtin_led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn builtin LED on</span>
-
-<span class="k">def</span> <span class="nf">bequiet</span><span class="p">():</span>
-    <span class="n">speaker</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># turn off the speaker PWM</span>
-    <span class="n">builtin_led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># turn builtin LED off</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span>   <span class="n">button_pin_1</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="c1"># A3</span>
-    <span class="k">elif</span> <span class="n">button_pin_2</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">247</span><span class="p">)</span> <span class="c1"># B3</span>
-    <span class="k">elif</span> <span class="n">button_pin_3</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">262</span><span class="p">)</span> <span class="c1"># C4</span>
-    <span class="k">elif</span> <span class="n">button_pin_4</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">294</span><span class="p">)</span> <span class="c1"># D4</span>
-    <span class="k">elif</span> <span class="n">button_pin_5</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">330</span><span class="p">)</span> <span class="c1"># E4</span>
-    <span class="k">elif</span> <span class="n">button_pin_6</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">349</span><span class="p">)</span> <span class="c1"># F4</span>
-    <span class="k">elif</span> <span class="n">button_pin_7</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">392</span><span class="p">)</span> <span class="c1"># G4</span>
-    <span class="k">elif</span> <span class="n">button_pin_8</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">playtone</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span> <span class="c1"># A4</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">bequiet</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="exercises">Exercises</h2>
-<ol>
-<li>Rewrite the code above using lists for the pin numbers and the notes.</li>
-<li>Try different notes with other scales.</li>
-<li>Add another button to change the "octave" of the notes.</li>
-<li>Add a display to show the notes as they are being played.</li>
-<li>Print the time each note is being pressed as well as the length of the pauses between the notes.</li>
-<li>Write the notes to a recording file.</li>
-<li>Add a menu system so you can do things like start a new song recording, save a recording and playback a recording.</li>
-<li>Eight keys are not enough for many songs.  Use two full-size breadboards to expand the number of keys on your piano.</li>
-<li>Look into getting a MIDI keyboard such as the 32-key $40 <a href="https://www.amazon.com/midiplus-32-Key-Midi-Controller-AKM320/dp/B00VHKMK64/ref=bmx_dp_n4il8m3n_37/135-5614730-7499827?th=1">MIDIPLUS AKM320 USB MIDI Keyboard Controller</a></li>
+<li><a href="https://diyelectromusic.wordpress.com/2021/01/23/midi-micropython-and-the-raspberry-pi-pico/">DIY Electronic Music: MIDI, MicroPython and the Raspberry Pi Pico</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/midi-tutorial/all">SparkFun MIDI Tutorial</a></li>
 </ol>
                 
               
@@ -2427,41 +2214,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../05-play-mario/" title="Play Mario" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Play Mario
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../../robots/01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Introduction
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
