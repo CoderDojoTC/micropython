@@ -33,8 +33,7 @@ mode = 0 # mode of operation.  0=standby, 1=run collision avoidance
 current_mode = -1
 dist = 0 # distance to object in front of us
 valid_dist = 1
-mode_value = 0 # the value for the currnt mode
-counter = 0 # main loop counter
+# counter = 0 # main loop counter for debugging
 
 # Time of flight sensor is on the I2C bus on Grove connector 0
 I2C_SDA_PIN = 26
@@ -90,7 +89,7 @@ oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 # This function gets called every time the button is pressed.  The parameter "pin" used to determine what pin is pressed.
 last_time = 0
 def button_pressed_handler(pin):
-    global mode, mode_value, last_time, mode_count, motor_power_code, turn_dist_code, reverse_time_code, turn_time_code
+    global mode, last_time, mode_count, motor_power_code, turn_dist_code, reverse_time_code, turn_time_code
     new_time = ticks_ms()
     # if it has been more that 1/5 of a second since the last event, we have a new event
     if (new_time - last_time) > 100:
@@ -98,7 +97,7 @@ def button_pressed_handler(pin):
             mode +=1
             if mode > mode_count - 1:
                 mode = 0
-        else:
+        else: # the mode value button has been pressed so we have a mode value that has a value to be set
             if mode == 3:
                 motor_power_code += 1
                 if motor_power_code >= motor_power_count:
@@ -117,11 +116,9 @@ def button_pressed_handler(pin):
                     turn_time_code = 0
     last_time = new_time
 
-
 # call the button_pressed_handler when buttons are pressed - down from 3.3 on open
 mode_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_pressed_handler)
 mode_value_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_pressed_handler)
-
 
 # time of flight calibration parameters
 TOF_ZERO_VALUE = 60 # subtract this from reading so measurements next to sensor are 0 cm
@@ -134,9 +131,7 @@ def get_tof_distance_cm():
     tof_distance = tof.read()
     if tof_distance > TOF_MAX_SENSOR_DIST:
         return TOF_MAX_SENSOR_DIST
-    # if our current time-of-flight distance is lower than our zero distance then reset the zero distance
-    #if tof_distance < TOF_ZERO_VALUE:
-    #    zero_dist = tof_distance
+    # return the distance in cm
     return  int((tof_distance - TOF_ZERO_VALUE) * TOF_SCALE)
 
 def update_display():
@@ -175,13 +170,11 @@ def update_display():
         oled.text('Select Power:', 0, 10, 1)
         oled.text(motor_power_pairs[motor_power_code][0], 0, 20, 1)
         oled.text(str(motor_power_pairs[motor_power_code][1]), 0, 30, 1)
-        oled.text(str(mode_value), 0, 40, 1)
     
-     # turn dist
+    # turn dist
     elif mode == 4:
         oled.text('Select Turn Dist', 0, 10, 1)
         oled.text(str(turn_dist_list[turn_dist_code]), 0, 20, 1)
-        oled.text(str(mode_value), 0, 40, 1)
         
     # reverse time
     elif mode == 5: 
@@ -192,7 +185,6 @@ def update_display():
     elif mode == 6: 
         oled.text('Turn Time:', 0, 10, 1)
         oled.text(str(turn_time_list[turn_time_code]), 0, 20, 1)
-        oled.text(str(mode_value), 0, 40, 1)
         
     # summary screen
     elif mode == 7:
@@ -203,20 +195,17 @@ def update_display():
     
     # add to the bottom of the display
     br = 54 # bottom row for numbers
-    oled.text('ct:', 0, br, 1)
-    oled.text(str(counter), 25, br, 1)
+    # oled.text('ct:', 0, br, 1)
+    # oled.text(str(counter), 25, br, 1)
     
-    oled.text('md:', 60, br, 1)
-    oled.text(str(mode), 75, br, 1)
-    
-    oled.text('mv:', 90, br, 1)
-    oled.text(str(mode_value), 110, br, 1) if (mode != 0 and mode != 1 and mode != 2 and mode != 7) else None
+    # oled.text('md:', 0, br, 1)
+    # oled.text(str(mode), 25, br, 1)
     oled.show()
 
 last_mode = -1
 # loop forever
 def main():
-    global dist, counter, mode, mode_value, last_mode, current_mode, motor_power, turn_distance, reverse_time, turn_time
+    global dist, counter, mode, last_mode, current_mode, motor_power, turn_distance, reverse_time, turn_time
     while True:
         dist = get_tof_distance_cm()
         update_display()
@@ -259,25 +248,12 @@ def main():
         
         elif mode == 3: # prog power
             stop()
-            motor_power = motor_power_pairs[mode_value][1]
-            
-        elif mode == 4: # prog turn dist
-            turn_distance = turn_dist_list[mode_value]
-            
-        elif mode == 5: # prog rev time
-            reverse_time = reverse_time_list[mode_value]
-            
-        elif mode == 6: # prog turn time
-            turn_time = turn_time_list[mode_value]
          
         sleep(.1)
-        counter += 1
+        # counter += 1
         if mode != current_mode:
-            print(counter, 'mode:', mode, 'mode val:', mode_value)
+            print('mode:', mode)
             current_mode = mode
-            mode_value = 0
-        # if (counter % 50) == 0:
-            # print(counter, 'mode:', mode, 'mode val:', mode_value)
 
 # startup
 tof = VL53L0X.VL53L0X(i2c)
