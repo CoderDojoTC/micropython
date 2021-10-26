@@ -121,9 +121,9 @@ def button_pressed_handler(pin):
 
             if mode == 6:
                 turn_time_code += 1
-                turn_time = turn_time_list[turn_time_code]
                 if turn_time_code >= turn_time_count:
                     turn_time_code = 0
+                turn_time = turn_time_list[turn_time_code]
 
 # call the button_pressed_handler when buttons are pressed - down from 3.3 on open
 mode_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_pressed_handler)
