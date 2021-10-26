@@ -1,5 +1,10 @@
 # Cytron Maker Pi RP2040 Collision Avoidance Robot
 
+## Base Robot
+![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-tof-robot.jpg)
+
+## Demo with OLED Display
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MncEnIN5NEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This kit allows you to create a collision avoidance robot using about $20 of parts or $40 if you use the larger OLED display.
