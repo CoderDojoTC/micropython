@@ -55,7 +55,7 @@ motor_power_count = len(motor_power_pairs)
 motor_power_code = DEFAULT_MOTOR_POWER_CODE
 motor_power_pair = motor_power_pairs[motor_power_code]
 motor_power_label = motor_power_pair[0]
-motor_power = motor_power_pair[1]
+motor_power = motor_power_pairs[motor_power_code][1]
 
 # turn distance
 turn_dist_list = (5, 7, 10, 15, 20, 30, 40)
@@ -89,32 +89,41 @@ oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 # This function gets called every time the button is pressed.  The parameter "pin" used to determine what pin is pressed.
 last_time = 0
 def button_pressed_handler(pin):
-    global mode, last_time, mode_count, motor_power_code, turn_dist_code, reverse_time_code, turn_time_code
+    global mode, last_time, mode_count, motor_power_code, motor_power, turn_dist_code, turn_dist, reverse_time_code, reverse_time, turn_time_code, turn_time
     new_time = ticks_ms()
-    # if it has been more that 1/5 of a second since the last event, we have a new event
+
+    # if it has been more that 1/10 of a second since the last event, we have a new event
     if (new_time - last_time) > 100:
+        last_time = new_time
         if '21' in str(pin):
             mode +=1
             if mode > mode_count - 1:
                 mode = 0
         else: # the mode value button has been pressed so we have a mode value that has a value to be set
+
             if mode == 3:
                 motor_power_code += 1
                 if motor_power_code >= motor_power_count:
                     motor_power_code = 0
+                motor_power = motor_power_pairs[motor_power_code][1]
+                    
             if mode == 4:
                 turn_dist_code += 1
                 if turn_dist_code >= turn_dist_count:
                     turn_dist_code = 0
+                turn_dist = turn_dist_list[turn_dist_code]
+
             if mode == 5:
                 reverse_time_code += 1
                 if reverse_time_code >= reverse_time_count:
                     reverse_time_code = 0
+                reverse_time = reverse_time_list[reverse_time_code]                    
+
             if mode == 6:
                 turn_time_code += 1
+                turn_time = turn_time_list[turn_time_code]
                 if turn_time_code >= turn_time_count:
                     turn_time_code = 0
-    last_time = new_time
 
 # call the button_pressed_handler when buttons are pressed - down from 3.3 on open
 mode_irq.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_pressed_handler)
@@ -170,6 +179,7 @@ def update_display():
         oled.text('Select Power:', 0, 10, 1)
         oled.text(motor_power_pairs[motor_power_code][0], 0, 20, 1)
         oled.text(str(motor_power_pairs[motor_power_code][1]), 0, 30, 1)
+        oled.text(str(motor_power), 0, 40, 1)
     
     # turn dist
     elif mode == 4:
@@ -213,6 +223,7 @@ def main():
         if mode == 0: # standby    
             stop()
         elif mode == 1: # collision avoidance
+
             if dist > TOF_MAX_SENSOR_DIST:
                 # only print if we used to have a valid distance
                 if valid_distance == 1:
