@@ -19,12 +19,14 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
 
 You will need to provide 4 AA batteries and a Micro USB connector that works with your PC or Mac.
 
-# Assemble the SmartCar Chassis
+## Assemble the SmartCar Chassis
 
-1. Solder red and black motor wires to the motors.  I use the convention of connecting the red wires to the right connector when you view the motor from the back
+1. Solder red and black motor wires to the motors.  I use the convention of connecting the red wires to the right connector when you view the motor from the back.
+![](../../img/maker-pi-rp2040-robot-bottom.jpg)
 2. There are many videos online how to assemble to motors to the chassis.  The trick is orienting the motors correctly and making sure the bolts don't get in the way of the wheels.
 3. We prefer connecting the battery pack to the bottom of the chassis.  This leaves more room on the top for adding buttons and displays.
 4. Connect the Maker Pi RP2040 board to the top with the USB connector facing the rear.
 5. Connect the motors to the headers using the screwdriver.  Don't worry about getting the connections all correct.  They can be adjusted in your software.
+   ![Maker Pi RP2040 Motor Connections](../img/maker-pi-rp2040-motor-connections.jpg)
 6. Connect the black battery wire to the "-" on the black header
 7. Connect the battery red through the switch and to the "+" on the black header.  You technically don't need the switch since the board has it's own power switch.
