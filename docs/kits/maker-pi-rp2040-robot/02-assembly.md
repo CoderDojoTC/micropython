@@ -21,6 +21,9 @@ You will need to provide 4 AA batteries and a Micro USB connector that works wit
 
 ## Assemble the SmartCar Chassis
 
+Here is a short video of the assembly of a SmartCar Chassis.  Note that this video puts the battery on the top, where we put it on the bottom.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lgCERugoVL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 1. Solder red and black motor wires to the motors.  I use the convention of connecting the red wires to the right connector when you view the motor from the back.
 ![](../../img/maker-pi-rp2040-robot-bottom.jpg)
 2. There are many videos online how to assemble to motors to the chassis.  The trick is orienting the motors correctly and making sure the bolts don't get in the way of the wheels.

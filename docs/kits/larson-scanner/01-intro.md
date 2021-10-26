@@ -1,8 +1,8 @@
 # Larson Scanner Pumpkin
 
-![Larson Scanner Pumpkin](../../img/larson-scanner.gif)
+![Larson Scanner Cylon Pumpkin](../../img/cylon-pumpkin.gif)
 
-The Larson Scanner is a light pattern special effect named after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson used this pattern to give his [Battlestar Galactica Cylon](https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)) and [KITT](https://en.wikipedia.org/wiki/KITT) robot eyes a sense of sentience.  See [Kinght Rider](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) for the backstory.
+The Larson Scanner is a light pattern special effect named after [Glen A. Larson](https://en.wikipedia.org/wiki/Glen_A._Larson).  Larson used this pattern to give his [Battlestar Galactica Cylon](https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)) and [KITT](https://en.wikipedia.org/wiki/KITT) robot eyes a sense of sentience.  See [Knight Rider](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)) for the backstory.
 
 This project uses a 144 pixel/meter LED strip and a Raspberry Pi Pico to produce this effect.
 
