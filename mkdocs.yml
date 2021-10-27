@@ -33,7 +33,7 @@ nav:
     - Temp, Humidity, Pres: sensors/06-bme280.md
     - DH11 Temp and Humidity: sensors/dht11-temp-humidity.md
     - Potentiometer: sensors/02-pot.md
-    - Environmental Sensor: sensors/bme280.md
+    - Environmental Sensor: sensors/06-bme280.md
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
