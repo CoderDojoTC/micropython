@@ -102,6 +102,7 @@ nav:
     - Minicom: advanced-labs/08-minicom.md
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
+    - Rshell: 11-rshell.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
