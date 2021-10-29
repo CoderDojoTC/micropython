@@ -2456,7 +2456,7 @@ hello.py      main.py
 </td></tr></table>
 <h2 id="giving-your-board-a-name">Giving Your Board a Name</h2>
 <p>rshell will look for a program called board.py when it connects to the board.  If this file contains a board name it will use that as the board name the next time it connects to the board.  You can use the "echo" command to generate the file.  In the example below, we will call our board "pico"</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;myboard&quot;&#39;</span> &gt; /pyboard/board.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;pico&quot;&#39;</span> &gt; /pyboard/board.py
 </code></pre></div>
 </td></tr></table>
 <p>After you use the CONTROL-C and reconnect you will see the following:</p>
@@ -2514,6 +2514,17 @@ Copying '/pico/main.py' to '/Users/dan/backup/main.py' ...</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp ~/build/* /pico
 </code></pre></div>
 </td></tr></table>
+<p>If you have done a clone to the CoderDojoTC micropython repository and put it in your home directory under ~/micropython then following command will copy the python files from the Maker Pi RP2040 kit to your pico:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdir /pico/lib
+cp ~/micropython/src/drivers/*.py /pico/lib
+cp ~/micropython/src/kits/maker-pi-rp2040/*.py /pico
+cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
+</code></pre></div>
+</td></tr></table>
+<p>Note that the drivers will be placed in the /lob directory.</p>
 <h2 id="direct-command-execution">Direct Command Execution</h2>
 <p>You do not need to use an interactive session to run a command with rshell.  You can just add the command you would like to run to the end of the rshell command like this:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101 ls /pico

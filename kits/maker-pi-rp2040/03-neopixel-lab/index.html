@@ -1759,6 +1759,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#neopixel-blink-lab" class="md-nav__link">
+    NeoPixel Blink Lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-neopixel-library" class="md-nav__link">
+    Setting up the NeoPixel Library
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2239,6 +2253,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#neopixel-blink-lab" class="md-nav__link">
+    NeoPixel Blink Lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-neopixel-library" class="md-nav__link">
+    Setting up the NeoPixel Library
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2281,6 +2309,54 @@ TODO: this link
 
 <span class="c1"># The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="neopixel-blink-lab">NeoPixel Blink Lab</h2>
+<p>In this lab, we will turn the first NeoPixel element on red for 1/2 second and then turn it off for 1/2 second.  We repeat this until the program is terminated.</p>
+<h2 id="setting-up-the-neopixel-library">Setting up the NeoPixel Library</h2>
+<p>We will be calling a NeoPixel driver in the /lib directory.  We initiaze our NeoPixel strip by calling the init method all Neopixel() and pass it three parameters:</p>
+<ol>
+<li>The number of pixels in the strip (in our case there are just two)</li>
+<li>The state machine (in our case 0)</li>
+<li>The LED PIN (in our case this is GP18)</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="c1"># We are using https://github.com/blaz-r/pi_pico_neopixel</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="c1"># The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># turn on first pixel red for 1/2 second</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>   
+    <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># turn all colors off</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
