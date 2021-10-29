@@ -85,7 +85,7 @@ hello.py      main.py
 rshell will look for a program called board.py when it connects to the board.  If this file contains a board name it will use that as the board name the next time it connects to the board.  You can use the "echo" command to generate the file.  In the example below, we will call our board "pico"
 
 ```sh
-echo 'name="myboard"' > /pyboard/board.py
+echo 'name="pico"' > /pyboard/board.py
 ```
 
 After you use the CONTROL-C and reconnect you will see the following:
@@ -154,6 +154,17 @@ If you have a directory called ```~/build``` that contains many files you want t
 ```sh
 cp ~/build/* /pico
 ```
+
+If you have done a clone to the CoderDojoTC micropython repository and put it in your home directory under ~/micropython then following command will copy the python files from the Maker Pi RP2040 kit to your pico:
+
+```sh
+mkdir /pico/lib
+cp ~/micropython/src/drivers/*.py /pico/lib
+cp ~/micropython/src/kits/maker-pi-rp2040/*.py /pico
+cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
+```
+
+Note that the drivers will be placed in the /lob directory.
 
 ## Direct Command Execution
 
