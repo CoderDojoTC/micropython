@@ -2,7 +2,7 @@ from machine import Pin, PWM
 from utime import sleep
 
 # lower right corner with USB connector on top
-SPEAKER_PIN = 16
+SPEAKER_PIN = 22
 
 # create a Pulse Width Modulation Object on this pin
 speaker = PWM(Pin(SPEAKER_PIN))

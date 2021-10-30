@@ -9,6 +9,7 @@ nav:
     - Displays: getting-started/10-displays.md
     - Sourcing Parts: getting-started/03-suggested-parts.md
     - Raspberry Pi Pico: getting-started/02-pi-pico.md
+    - Power: getting-started/04-power.md
     - ESP32: getting-started/02-esp32.md
     - Thonny IDE: getting-started/02c-thonny.md
     - VS Code IED: getting-started/02d-vscode.md
@@ -19,10 +20,10 @@ nav:
     - Blink: intro/03-blink.md
     - Fade In and Out: intro/04-fade-in-and-out.md
     - Buttons: intro/03-button.md
-    - Temperature: intro/03-temperature.md
+
     - Motor: intro/04-motor.md
     - Servo: intro/04-servo.md
-    - LED Strip: intro/05-led-strip.md
+    - NeoPixel: intro/05-neopixel.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
@@ -32,7 +33,7 @@ nav:
     - Temp, Humidity, Pres: sensors/06-bme280.md
     - DH11 Temp and Humidity: sensors/dht11-temp-humidity.md
     - Potentiometer: sensors/02-pot.md
-    - Environmental Sensor: sensors/bme280.md
+    - Environmental Sensor: sensors/06-bme280.md
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
@@ -44,10 +45,14 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Displays:
+  - Non OLED Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
-    - Character LCD Displays: displays/10-character-lcd-display.md
+    - Character LCD: displays/10-character-lcd-display.md
+    - Graphic LCD: displays/15-cu1609c-led.md
+    - Color LCD ST7789V: displays/14-lcd-st7789V.md
+    - LCD Waveshare: displays/11-lcd-waveshare.md
+    - E-Paper: displays/12-e-paper-display.md
   - OLED Displays:
     - Introduction: oled/01-intro.md
     - Setup: oled/02-oled-setup.md
@@ -70,7 +75,9 @@ nav:
     - Playing Three Tones: sound/03-play-three-tones.md
     - Playing a Scale: sound/04-play-scale.md
     - Play Mario: sound/05-play-mario.md
-  - MicroPython Robots:
+    - Eight Key Piano: sound/06-eight-key-piano.md
+    - Play Audio File: sound/07-play-audio-file.md
+  - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
@@ -85,11 +92,18 @@ nav:
     - Debugging SPI: debugging/29-debugging-spi.md
   - Advanced Labs:
     - Introduction: advanced-labs/01-intro.md
+    - Internal Temperature: advanced-labs/03-internal-temperature.md
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
     - Circuit Python: circuit-python/01-intro.md
     - Conda Environment Setup: advanced-labs/04-conda-env.md
     - OS Functions: advanced-labs/05-os-functions.md
+    - I2C Scanner: advanced-labs/06-i2c.md
+    - Frame Buffer: advanced-labs/07-framebuffer.md
+    - Minicom: advanced-labs/08-minicom.md
+    - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
+    - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
+    - Rshell: advanced-labs/11-rshell.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
@@ -100,15 +114,25 @@ nav:
       - Button Lab: kits/maker-pi-rp2040/04-button-lab.md
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up/Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
-      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040/06-up-down-motor-lab.md
-      - Motor Lab: kits/maker-pi-rp2040/07-motor-connection-lab.md
-      - Square Lab: kits/maker-pi-rp2040/07b-drive-square-lab.py
-      - Servo Lab: kits/maker-pi-rp2040/08-servo-lab.md
-      - Time of Flight Lab: kits/maker-pi-rp2040/10-time-of-flight-lab.md
-      - Time of Flight Sound Lab: kits/maker-pi-rp2040/12-time-of-flight-sound-lab.md
-      - Ultrasonic Ping Lab: kits/maker-pi-rp2040/11-ping-lab.md
-      - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040/20-collision-avoidance-robot.md
-      - Collision Avoidance Ping: kits/maker-pi-rp2040/20-collision-avoidance-ping.md
+    - Maker Pi RP2040 Robot:
+      - Introduction: kits/maker-pi-rp2040-robot/01-intro.md 
+      - Assembly: kits/maker-pi-rp2040-robot/02-assembly.md
+      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
+      - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
+      - Square Lab: kits/maker-pi-rp2040-robot/07b-drive-square-lab.md
+      - Servo Lab: kits/maker-pi-rp2040-robot/08-servo-lab.md
+      - Scanner Test: kits/maker-pi-rp2040-robot/09-i2c-scanner-test.md
+      - Time of Flight Lab: kits/maker-pi-rp2040-robot/10-time-of-flight-lab.md
+      - Time of Flight Sound Lab: kits/maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md
+      - Ultrasonic Ping Lab: kits/maker-pi-rp2040-robot/11-ping-lab.md
+      - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
+      - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
+    - Maker Pi Pico:
+      - kits/maker-pi-pico/01-intro.md
+      - kits/maker-pi-pico/02-running-lights.md
+      - kits/maker-pi-pico/09-micro-sd-card-reader.md
+    - Larson Scanner:
+      - kits/larson-scanner/01-intro.md
   - Projects: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md

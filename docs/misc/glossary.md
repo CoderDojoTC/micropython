@@ -19,7 +19,7 @@ Every ADC has two parameters, its [resolution](#resolution), measured in digital
 A special form of copy operation; it copies a rectangular area of pixels from one framebuffer to another.  It is used in MicroPython when doing drawing to a display such as an OLED display.
 
 #### BOOTSEL
-A button on the pico that when pressed during power up will allow you to mount the device as a USB device.
+A button on the pico that when pressed during power up will allow you to mount the device as a USB drive.  You can then drag-and-drop any uf2 image file to reset or update the runtime libraries.
 
 ![](../img/boot-selection.png)
 

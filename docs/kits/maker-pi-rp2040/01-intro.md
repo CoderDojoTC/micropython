@@ -2,7 +2,8 @@
 
 The Maker Pi PR2040 kit from [Cytron Technologies](https://www.cytron.io/) is a [$9.90 US kit](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040) that is designed to simplify learning robotics using the RP2040 chip. It became available in April of 2021, but demand has been very high and it is out-of-stock on many retailers sites.  We can understand this.  The Maker Pi PR2040 is the most powerful robotics board we have ever seen for under $10!
 
-![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-tof-robot.jpg)
+![Maker Pi RP2040 Kit](../../img/maker-pi-rp2040-kit.jpeg)
+
 
 The photo above is our base robot kit.  It includes the Maker Pi RP2040 board mounted on a standards Smart Car chassis.  The image above shows the Time-of-flight distance sensor mounted in the front below the chassis.  Note that the batteries are mounted on the bottom of the robot.
 
@@ -51,17 +52,17 @@ These labs don't need anything except the Maker Pi RP2040 board.
 
 These labs require additional parts such as DC hobby motors and servos
 
-1. [**Motor Connection Lab**](07-motor-connection-lab.md) - make two motors turn forward and in reverse
-2. [**Up/Down Motor Speed Lab**](06-up-down-motor-lab.md) - change the speed as you change the mode
-3. [**Servo Lab**](08-servo-lab.md) - control the direction of a 108% servo motor.  Calibrate the end angles and sweep the direction back and forth.
+1. [**Motor Connection Lab**](../maker-pi-rp2040-robot/07-motor-connection-lab.md) - make two motors turn forward and in reverse
+2. [**Up/Down Motor Speed Lab**](../maker-pi-rp2040-robot/06-up-down-motor-lab.md) - change the speed as you change the mode
+3. [**Servo Lab**](../maker-pi-rp2040-robot/08-servo-lab.md) - control the direction of a 108% servo motor.  Calibrate the end angles and sweep the direction back and forth.
 
 ### Part 3: Sensor Labs
 
 There are literally hundreds of sensors that have Grove connectors on them.  In addition, we can purchase Grove connectors for as low as [30 cents each](https://www.cytron.io/p-grove-4-pin-buckled-20cm-cable?search=Grove&description=1).  Any other sensors with male pins can be easily connected with these [38 cent connectors with female Dupont jumper connectors](https://www.cytron.io/p-grove-4-pin-buckled-to-female-cable?search=Grove&description=1).  Classrooms with a large collection of these sensors can allow students to try new sensors and outputs without needing a breadboard or soldering.  We will focus initially on two sensors we will use for our collision avoidance robot.  We prefer the Time-of-Flight sensor because it uses a standard I2C interface and thus could share the I2C bus with other devices.
 
-1. [**Time of Flight Distance Sensor Lab**](10-time-of-flight-lab.md) - measure the distance to an object
-2. [**Ultrasonic Ping Distance Sensor**](11-ping-lab.md) - the classic low-cost ultrasonic distance sensor but now it works on a 3.3 volt power!  (TBD)
-3. [**Time of Flight Sound Lab**](12-time-of-flight-sound-lab.md) - sound pitch changes with distance
+1. [**Time of Flight Distance Sensor Lab**](../maker-pi-rp2040-robot/10-time-of-flight-lab.md) - measure the distance to an object
+2. [**Ultrasonic Ping Distance Sensor**](../maker-pi-rp2040-robot/11-ping-lab.md) - the classic low-cost ultrasonic distance sensor but now it works on a 3.3 volt power!  (TBD)
+3. [**Time of Flight Sound Lab**](../maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md) - sound pitch changes with distance
 
 ### Part 4: Collision Avoidance Robot
 

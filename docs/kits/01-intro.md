@@ -25,3 +25,25 @@ You can also use the MicroPython "tag" to search all the kits on the SparkFun si
 
 [https://www.sparkfun.com/categories/tags/micropython](https://www.sparkfun.com/categories/tags/micropython)
 
+## References
+
+Here are kits that we have seen but have not yet evaluated:
+
+# Waveshare PicoGo Robot
+PicoGo Mobile Robot is a $43 robot based on Raspberry Pi Pico.
+
+1. SKU: 20380
+2. Part Number: PicoGo-EN
+3. Powered by 2x 14500 Li-ion batteries.  NOTE! We don't recommend these for classroom use since they are a fire hazard.
+4. Battery protection circuit: over charge/discharge protection, over current protection, short circuit protection, reverse proof, more stable and safe operating
+Recharge/Discharge circuit, allows programming/debugging concurrently while recharging
+4. 5-ch infrared sensor, analog output, combined with PID algorithm, stable line tracking
+Onboard multiple smart robot sensors like line tracking, obstacle avoidance, no more messy wiring
+5. 1.14 inch IPS colorful LCD display, 240 x135 pixels, 65K colors
+6. Integrates Bluetooth module, allows teleoperations like robot movement, RGB LED display color, buzzer, etc. by using mobile phone APP
+6. N20 micro geared motors, with metal gears, low noise, high accuracy
+7. NeoPixel
+8. Line following sensors
+
+[](https://www.waveshare.com/product/robotics/mobile-robots/picogo.htm?sku=20380)
+
