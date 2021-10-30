@@ -76,6 +76,7 @@ nav:
     - Playing a Scale: sound/04-play-scale.md
     - Play Mario: sound/05-play-mario.md
     - Eight Key Piano: sound/06-eight-key-piano.md
+    - Play Audio File: sound/07-play-audio-file.md
   - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
