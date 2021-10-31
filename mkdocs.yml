@@ -141,7 +141,7 @@ nav:
   - Colophon: misc/30-colophon.md
   - Render Test: misc/mermaid-test.md
 
-site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
+site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/CoderDojoTC/micropython'
@@ -158,10 +158,11 @@ theme:
   include_sidebar: true
 plugins:
   - search
-  # - mermaid2
+  # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.highlight:
       linenums: true
+  - pymdownx.details
   - pymdownx.superfences
