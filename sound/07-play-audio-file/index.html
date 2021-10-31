@@ -1350,6 +1350,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-an-interrupt" class="md-nav__link">
+    Adding an Interrupt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#playing-the-same-sound-repeatedly" class="md-nav__link">
     Playing the Same Sound Repeatedly
   </a>
@@ -2401,6 +2408,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-an-interrupt" class="md-nav__link">
+    Adding an Interrupt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#playing-the-same-sound-repeatedly" class="md-nav__link">
     Playing the Same Sound Repeatedly
   </a>
@@ -2439,9 +2453,11 @@
                 
                 
                 <h1 id="playing-and-audio-file">Playing and Audio File</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ax7XAhnwQ24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This lesson is still a work in progress.  Although we can now play some .wav files in stereo at 16000 samples per second, other formats may not work.  See the wav file test results section below.  We also are having problems when different pins are used.  If you stick to pins for GPIO 2 and 3 for the two channels the test run OK.</p>
+<p>This lesson is still a work in progress.  Although we can play many .wav files in stereo at 16000 samples per second, other formats may not work correctly.  See the wav file test results section below.  We also are having problems when different GPIO pins are used.  If you stick to pins for GPIO 2 and 3 for the two channels the test run OK.</p>
 </div>
 <h2 id="playing-sounds-on-the-rp2040-chip">Playing Sounds on The RP2040 Chip</h2>
 <p>Although we can play tones of various pitches on the PR2040 using the PMW to generate square waves, the quality of this sound is not close to high-fidelity sound like you would expect in a personal MP3 audio player.</p>
@@ -2451,17 +2467,18 @@
 <li>We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.</li>
 <li>We will be using the wave.py module to read the .wav files</li>
 <li>We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers</li>
+<li>The metadata from the .wav files is used to change the sampling frequence of the .wav player</li>
 </ol>
 <h2 id="connections">Connections</h2>
 <p>Some of this documentation was take from <a href="https://github.com/danjperron/PicoAudioPWM">Dan Perron's Pico Audio GitHub Repo</a>.</p>
 <p>In these tests we used GPIO pins 2 and 3 to drive the left and right channels of audio that are sent to a stereo amplifier.  You can use both an amplifier or head phone with a 1K resistor in series on the pins to limit the current from the 3.3v output signals.</p>
-<p>The myPWM subclass set the maximum count to 255(8 bits)  or 1023(10bits)  at a frequency 
+<p>The myPWM subclass set the maximum count to 255 (8 bits)  or 1023(10bits) at a frequency 
 around 122.5KHz.</p>
 <p>The PWM is now on 10 bits (0..1023)</p>
-<p>The myDMA class allows to use direct memory access to transfer each frame at the current sample rate</p>
-<p>You need to install the wave.py and chunk.py from
-     https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio</p>
-<p>Don't forget to increase the SPI clock up to 3Mhz.</p>
+<p>The myDMA class allows to use direct memory access to transfer each frame at the current
+sample rate.</p>
+<p>We will need to install the wave.py and chunk.py from <a href="https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio">Jokey GitHub Awesome MicroPython Repo</a> on root file system or the /lib folder on the pico file system.</p>
+<p>Don't forget to increase the SPI clock up to 3Mhz. (TODO not sure what this means)</p>
 <p>The following documentation was take from Daniel Perron's Github page.</p>
 <ol>
 <li>We set the PWM to a range of 255 at 122Khz</li>
@@ -2644,6 +2661,31 @@ rs$ ls /pico/sounds
 /sounds/cylon-eye-scanner.wav                      16000     2      2  24768
 /sounds/cylon-see-that-the-humans.wav              11025     1      1  30743
 /sounds/cylon-those-are-not-the-sounds.wav         22050     1      1  64137
+</code></pre></div>
+</td></tr></table>
+<h2 id="adding-an-interrupt">Adding an Interrupt</h2>
+<p>If you halt the RP2040 while it is playing a sound, the independent PWM controllers will continue to generate sound.  In order to shut the independent PWM controllers, an interrupt controller system must be used to cleanly disable all the sound.  Here is an example of this using a try/except block of code.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">uos</span>
+<span class="kn">from</span> <span class="nn">wavePlayer</span> <span class="kn">import</span> <span class="n">wavePlayer</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">wavePlayer</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># repeat this over and over until the keyboard shuts down the circuit</span>
+        <span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/sounds/cylon-eye-scanner.wav&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wave player terminated&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="playing-the-same-sound-repeatedly">Playing the Same Sound Repeatedly</h2>
