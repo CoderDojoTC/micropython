@@ -4,13 +4,26 @@ This robot was inspired by my friend, Michael York.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ui4kJgjIIuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Microswitches can be purchased for [under $1](https://www.amazon.com/Twidec-Straight-Switch-Action-KW11-3Z04/dp/B07P4CJ8TV/ref=sr_1_3).  They can be mounted on the front of our robot.  When the robot hits a wall in front of it the switch will open (or close) and the robot controller can make the robot go in reverse or turn.
+
+In the example below, we attached a stiff wire to the lever of the microswitch.
+
 ![](../../img/microswitch-bot-2.jpg)
 
+
+
+In the example below, we connected three microswitches to the front of our robot.
+
 ![](../../img/microswitch-bot-1.jpg)
+
+If the left switch is activated, the robot should turn to the right.  If the right switch is activated, the robot should go to the left.
+
+This image shows how we used two of the Grove connectors to read in the values of the switches.
 
 ![](../../img/microswitch-bot-3.jpg)
 
 ## Testing Switches
+The following code can be used to test your switches.  A line on the console prints out which of the three switches are activated using the pin ```value()``` function.
 
 ```py
 from machine import Pin
@@ -44,7 +57,7 @@ while True:
     sleep(.1)
 ```
 
-## Sample Code
+## Sample Collision Avoidance Robot Code
 
 ```py
 from machine import Pin, PWM
@@ -60,7 +73,10 @@ middle_switch = Pin(7, Pin.IN, Pin.PULL_DOWN)
 right_switch = Pin(28, Pin.IN, Pin.PULL_DOWN)
 left_switch = Pin(27, Pin.IN, Pin.PULL_DOWN)
 
-POWER_LEVEL = 30000
+# Go slow to avoid bending wires
+POWER_LEVEL = 25000 # max is 65000
+
+# These values depend on motor wiring
 RIGHT_FORWARD_PIN = 10
 RIGHT_REVERSE_PIN = 11
 LEFT_FORWARD_PIN = 9
