@@ -124,7 +124,7 @@ nav:
       - Scanner Test: kits/maker-pi-rp2040-robot/09-i2c-scanner-test.md
       - Time of Flight Lab: kits/maker-pi-rp2040-robot/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md
-      - Switch Bot: kits/maker-pi-rp2040-robot/23-microswitch-bot.md
+      - MicroSwitch Bot: kits/maker-pi-rp2040-robot/23-microswitch-bot.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040-robot/11-ping-lab.md
       - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
       - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
