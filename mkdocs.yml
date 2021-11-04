@@ -124,6 +124,7 @@ nav:
       - Scanner Test: kits/maker-pi-rp2040-robot/09-i2c-scanner-test.md
       - Time of Flight Lab: kits/maker-pi-rp2040-robot/10-time-of-flight-lab.md
       - Time of Flight Sound Lab: kits/maker-pi-rp2040-robot/12-time-of-flight-sound-lab.md
+      - MicroSwitch Bot: kits/maker-pi-rp2040-robot/23-microswitch-bot.md
       - Ultrasonic Ping Lab: kits/maker-pi-rp2040-robot/11-ping-lab.md
       - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
       - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
@@ -141,7 +142,7 @@ nav:
   - Colophon: misc/30-colophon.md
   - Render Test: misc/mermaid-test.md
 
-site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.'
+site_description: 'Resources for teaching Micropython to CoderDojo Twin Cities students.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/CoderDojoTC/micropython'
@@ -158,10 +159,11 @@ theme:
   include_sidebar: true
 plugins:
   - search
-  # - mermaid2
+  # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.highlight:
       linenums: true
+  - pymdownx.details
   - pymdownx.superfences

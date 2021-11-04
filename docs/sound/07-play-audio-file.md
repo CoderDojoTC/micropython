@@ -1,41 +1,50 @@
-# Playing and Audio File
+# Playing an Audio File
 
-Note: This is a work in progress.  There is a bug in the .wav file player on my test system.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ax7XAhnwQ24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Although we can play tones of various pitches using the PMW to generate square waves, the quality of this sound is not close to high-fidelity sound like you would expect in a personal MP3 audio player.
+!!! Note
+    This lesson is still a work in progress.  Although we can play many .wav files in stereo at 16000 samples per second, other formats may not work correctly.  See the wav file test results section below.  We also are having problems when different GPIO pins are used.  If you stick to pins for GPIO 2 and 3 for the two channels the test run OK.
 
-In this lesson we will demonstrate how to play a high-quality audio file that is stored on the non-volatile static memory of the Pico.  According to the specification of the [](https://www.raspberrypi.com/products/raspberry-pi-pico/specifications/), the system comes with 2MB on-board QSPI Flash that we can use to store sound files.  By combining our Pico with an SD card reader we can play many sounds and even full-length songs and albums.
+## Playing Sounds on The RP2040 Chip
+
+Although we can play tones of various pitches on the PR2040 using the PMW to generate square waves, the quality of this sound is not close to high-fidelity sound like you would expect in a personal MP3 audio player.
+
+In this lesson we will demonstrate how to play a high-quality audio files that are stored on the two megabytes of non-volatile static memory of the Pico.  According to the specification of the [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/specifications/), the system comes with 2MB on-board QSPI Flash that we can use to store sound files.  By combining our Pico with an SD card reader we can also play many sounds and even full-length music and full albums.
+
+## Overall Architecture
+
+1. We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.
+2. We will be using the wave.py module to read the .wav files
+3. We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers
+4. The metadata from the .wav files is used to change the sampling frequence of the .wav player
 
 ## Connections
-GPIO pin 14 and 15 are the output.  We will need to use an amplifier or head phone with a 1K resistor in series on the pins.
 
-The myPWM subclass set the maximum count to 255(8 bits)  or 1023(10bits)  at a frequency 
+Some of this documentation was take from [Dan Perron's Pico Audio GitHub Repo](https://github.com/danjperron/PicoAudioPWM).
+
+In these tests we used GPIO pins 2 and 3 to drive the left and right channels of audio that are sent to a stereo amplifier.  You can use both an amplifier or head phone with a 1K resistor in series on the pins to limit the current from the 3.3v output signals.
+
+The myPWM subclass set the maximum count to 255 (8 bits)  or 1023(10bits) at a frequency 
 around 122.5KHz.
 
 The PWM is now on 10 bits (0..1023)
 
-The myDMA class allows to use direct memory access to transfer each frame at the current sample rate
+The myDMA class allows to use direct memory access to transfer each frame at the current
+sample rate.
 
-You need to install the wave.py and chunk.py from
-     https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio
+We will need to install the wave.py and chunk.py from [Jokey GitHub Awesome MicroPython Repo](https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio) on root file system or the /lib folder on the pico file system.
 
-Don't forget to increase the SPI clock up to 3Mhz.
+Don't forget to increase the SPI clock up to 3Mhz. (TODO not sure what this means)
 
+The following documentation was take from Daniel Perron's Github page.
 
-How it works,
-
-   1 - We set the PWM to a range of 255 at 122Khz
-   2 - We read the wave file using the class wave which will set the 
+1. We set the PWM to a range of 255 at 122Khz
+2. We read the wave file using the class ```wave.py``` which will set the 
        sample rate and read the audio data by chunk
-   3 - Each chunk are converted to 16 bit signed to unsigned char 
-       with the middle at 128, (512 for 10 bits)
-   4 - Wait for the DMA to be completed.  On first it will be 
-       anyway.
-   5 - The converted chunk is then pass to the DMA to be transfer at 
-       the sample rate using one of build in timer
-   6 - Go on step 2 until is done.
-   
-P.S. to transfer wave file use rshell.
+3. Each chunk is converted to 16 bit signed to unsigned char with the middle at 128, (512 for 10 bits)
+1. We wait for the DMA to be completed.  On first it will be anyway.
+2. The converted chunk is then pass to the DMA to be transfer at the sample rate using one of build in timer
+3. Go on step 2 until is done.
 
 ## Steps to test playing a wav file
 
@@ -163,6 +172,24 @@ File Path                                     Frame Rate  Width Chans Frames
 /sounds/cylon-eye-scanner.wav                      16000     2      2  24768
 /sounds/cylon-see-that-the-humans.wav              11025     1      1  30743
 /sounds/cylon-those-are-not-the-sounds.wav         22050     1      1  64137
+```
+
+## Adding an Interrupt
+
+If you halt the RP2040 while it is playing a sound, the independent PWM controllers will continue to generate sound.  In order to shut the independent PWM controllers, an interrupt controller system must be used to cleanly disable all the sound.  Here is an example of this using a try/except block of code.
+
+```py
+import os as uos
+from wavePlayer import wavePlayer
+player = wavePlayer()
+
+try:
+    while True:
+        # repeat this over and over until the keyboard shuts down the circuit
+        player.play('/sounds/cylon-eye-scanner.wav')
+except KeyboardInterrupt:
+    player.stop()
+    print("wave player terminated")
 ```
 
 ## Playing the Same Sound Repeatedly
