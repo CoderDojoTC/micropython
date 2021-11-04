@@ -1,6 +1,6 @@
 # MicroSwitch Robot using the Cytron Maker Pi RP2040
 
-This robot was inspired by my friend, Ryan Allen.
+This robot was inspired by my friend, Michael York.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ui4kJgjIIuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
