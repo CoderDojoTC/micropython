@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED Pixel Draw - MicroPython for Kids</title>
+        <title>Displaying Images on your OLED - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sample-pixel-based-drawing-program" class="md-skip">
+        <a href="#displaying-images-on-your-oled" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED Pixel Draw
+              Displaying Images on your OLED
             
           </span>
         </div>
@@ -933,14 +933,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
       
       <label class="md-nav__link" for="nav-8">
         OLED Displays
@@ -1089,20 +1087,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../13-pixel-draw/" class="md-nav__link">
         OLED Pixel Draw
       </a>
-      
     </li>
   
 
@@ -2211,6 +2200,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-the-raspberry-pi-logo" class="md-nav__link">
+    Drawing the Raspberry Pi Logo:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2221,14 +2232,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/13-pixel-draw.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/16-images.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="sample-pixel-based-drawing-program">Sample Pixel-Based Drawing Program</h1>
-<p>Code example provided by Jim Tannenbaum.</p>
-<p>This program will act like an Etch-A-Sketch(TM) program.  It will use potentiometers with the center tap on GPIO pins GP26 and GP27 and draw as you move the potentiometers to control the X and Y dimensions.</p>
+                <h1 id="displaying-images-on-your-oled">Displaying Images on your OLED</h1>
+<p>We will use the <code>framebuffer</code> function to load a binary image into the OLED.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x00</span><span class="s2">...</span>
+
+<span class="c1"># Load the raspberry pi logo into the framebuffer (the image is 32x32)</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_HLSB</span><span class="p">)</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># copy the framebuffer to x=50 and y=20</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="drawing-the-raspberry-pi-logo">Drawing the Raspberry Pi Logo:</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2250,110 +2278,38 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span><span class="p">,</span> <span class="n">ADC</span>
-<span class="kn">import</span> <span class="nn">ssd1306</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<span class="kn">import</span> <span class="nn">framebuf</span>
+<span class="kn">import</span> <span class="nn">utime</span>
 
-<span class="c1"># Takes an input number value and a range between high-and-low and returns it scaled to the new range</span>
-<span class="c1"># This is similar to the Arduino map() function</span>
-<span class="k">def</span> <span class="nf">scaled</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">istart</span><span class="p">,</span> <span class="n">istop</span><span class="p">,</span> <span class="n">ostart</span><span class="p">,</span> <span class="n">ostop</span><span class="p">):</span>
-  <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ostart</span> <span class="o">+</span> <span class="p">(</span><span class="n">ostop</span> <span class="o">-</span> <span class="n">ostart</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">-</span> <span class="n">istart</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">istop</span> <span class="o">-</span> <span class="n">istart</span><span class="p">)))</span>
+<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
 
-<span class="c1"># Define the pins for SPI Clock and Transmit</span>
-<span class="n">spi_sck</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spi_tx</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">200000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I2C Address: &quot;</span><span class="o">+</span><span class="nb">hex</span><span class="p">(</span><span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c1"># Display device address</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>                  <span class="c1"># Init oled display</span>
 
-<span class="c1"># Define the pins for Chip Select, DC (Command), and Reset</span>
-<span class="n">CS</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">DC</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">RES</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Raspberry Pi logo as 32x32 bytearray</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">|?</span><span class="se">\x00\x01\x86</span><span class="s2">@</span><span class="se">\x80\x01\x01\x80\x80\x01\x11\x88\x80\x01\x05\xa0\x80\x00\x83\xc1\x00\x00</span><span class="s2">C</span><span class="se">\xe3\x00\x00</span><span class="s2">~</span><span class="se">\xfc\x00\x00</span><span class="s2">L&#39;</span><span class="se">\x00\x00\x9c\x11\x00\x00\xbf\xfd\x00\x00\xe1\x87\x00\x01\xc1\x83\x80\x02</span><span class="s2">A</span><span class="se">\x82</span><span class="s2">@</span><span class="se">\x02</span><span class="s2">A</span><span class="se">\x82</span><span class="s2">@</span><span class="se">\x02\xc1\xc2</span><span class="s2">@</span><span class="se">\x02\xf6</span><span class="s2">&gt;</span><span class="se">\xc0\x01\xfc</span><span class="s2">=</span><span class="se">\x80\x01\x18\x18\x80\x01\x88\x10\x80\x00\x8c</span><span class="s2">!</span><span class="se">\x00\x00\x87\xf1\x00\x00\x7f\xf6\x00\x00</span><span class="s2">8</span><span class="se">\x1c\x00\x00\x0c</span><span class="s2"> </span><span class="se">\x00\x00\x03\xc0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
-
-<span class="c1"># Turn all pixels off</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Provide info to user</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;Etch-A-Sketch&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;Hit the reset&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;button to clear&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;the screen&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Define the pin for the reset button</span>
-<span class="n">resetButton</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-
-<span class="c1"># Wait unti the user hits the button to clear the screen and start drawing</span>
-<span class="k">while</span> <span class="n">resetButton</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">.25</span><span class="p">)</span>
+<span class="c1"># Load the raspberry pi logo into the framebuffer (the image is 32x32)</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_HLSB</span><span class="p">)</span>
 
 <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Blit the image from the framebuffer to the oled display</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Define the Horizontal and Vertical inputs from the Rheostats</span>
-<span class="n">vert</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
-<span class="n">horiz</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span>
-
-<span class="c1"># Calculate where to start the line</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">newX</span> <span class="o">=</span> <span class="n">scaled</span><span class="p">(</span><span class="n">vert</span><span class="o">.</span><span class="n">read_u16</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">newY</span> <span class="o">=</span> <span class="n">scaled</span><span class="p">(</span><span class="n">horiz</span><span class="o">.</span><span class="n">read_u16</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-
-<span class="c1"># Loop forever</span>
-<span class="c1"># Draw the line, look for a reset to clear the screen, and get the new end points for the line</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">oled</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">newX</span><span class="p">,</span> <span class="n">newY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">newX</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">newY</span>
-    <span class="k">if</span> <span class="n">resetButton</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
-        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">.2</span><span class="p">)</span>
-    <span class="n">newX</span> <span class="o">=</span> <span class="n">scaled</span><span class="p">(</span><span class="n">vert</span><span class="o">.</span><span class="n">read_u16</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
-    <span class="n">newY</span> <span class="o">=</span> <span class="n">scaled</span><span class="p">(</span><span class="n">horiz</span><span class="o">.</span><span class="n">read_u16</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p>But how do we convert a logo into a bytearray?
+```</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://github.com/CytronTechnologies/MAKER-PI-RP2040/blob/main/Examples/MicroPython/OLED/oled_ssd1306.py">Cytron Example</a></li>
+<li><a href="http://javl.github.io/image2cpp/">Image to C ByteArray</a></li>
+<li><a href="http://www.majer.ch/lcd/adf_bitmap.php">Image to OLED Converter</a></li>
+</ol>
                 
               
               
@@ -2368,41 +2324,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../11-pong/" title="OLED Pong" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  OLED Pong
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../15-oled-patterns/" title="OLED Patterns" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  OLED Patterns
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
