@@ -2195,6 +2195,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#testing-switches" class="md-nav__link">
+    Testing Switches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-code" class="md-nav__link">
     Sample Code
   </a>
@@ -2225,8 +2232,292 @@
 <p><img alt="" src="../../../img/microswitch-bot-1.jpg" /></p>
 <p><img alt="" src="../../../img/microswitch-bot-2.jpg" /></p>
 <p><img alt="" src="../../../img/microswitch-bot-3.jpg" /></p>
+<h2 id="testing-switches">Testing Switches</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="c1"># GPIO is the internal built-in LED</span>
+<span class="n">led0</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># input on the lower left of the Pico using a built-in pull-down resistor to keep the value from floating</span>
+<span class="n">middle_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span> 
+<span class="n">right_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">left_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">middle_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+        <span class="n">led0</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">led0</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">right_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+        <span class="n">led1</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">led1</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">left_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+        <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="sample-code">Sample Code</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="c1"># GPIO is the internal built-in LED</span>
+<span class="n">led0</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># input on the lower left of the Pico using a built-in pull-down resistor to keep the value from floating</span>
+<span class="n">middle_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span> 
+<span class="n">right_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">left_switch</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+
+<span class="n">POWER_LEVEL</span> <span class="o">=</span> <span class="mi">30000</span>
+<span class="n">RIGHT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">RIGHT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">LEFT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">LEFT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">right_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">right_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">RIGHT_REVERSE_PIN</span><span class="p">))</span>
+<span class="n">left_forward</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_FORWARD_PIN</span><span class="p">))</span>
+<span class="n">left_reverse</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LEFT_REVERSE_PIN</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_on</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">POWER_LEVEL</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_motor_off</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">forward</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">turn_left</span><span class="p">():</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_on</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">stop</span><span class="p">():</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">right_reverse</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_forward</span><span class="p">)</span>
+    <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">middle_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;middle&#39;</span><span class="p">)</span>
+            <span class="n">led0</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+            <span class="n">reverse</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">turn_right</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span>
+            <span class="n">forward</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">led0</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+            <span class="n">forward</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">right_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+            <span class="n">led1</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+            <span class="n">reverse</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span>
+            <span class="n">turn_left</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">forward</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">led1</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+            <span class="n">forward</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">left_switch</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># if the value changes</span>
+            <span class="n">led2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+            <span class="n">reverse</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span>
+            <span class="n">turn_right</span><span class="p">()</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">forward</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">led2</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+            <span class="n">forward</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="n">middle_switch</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_switch</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">right_switch</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got ctrl-c&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Optional cleanup code</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;turning off sound&#39;</span><span class="p">)</span>
+    <span class="c1"># sound_off()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;turning off motors&#39;</span><span class="p">)</span>
+    <span class="n">stop</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
                 
