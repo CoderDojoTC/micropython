@@ -21,11 +21,10 @@ led0 = Pin(0, Pin.OUT)
 led1 = Pin(1, Pin.OUT)
 led2 = Pin(2, Pin.OUT)
 
-# input on the lower left of the Pico using a built-in pull-down resistor to keep the value from floating
+# MicroSwitch inputs on the Grove connector using a built-in pull-down resistor to keep the value from floating.  The other end of the switches go to the 3.3volt connectors of the Grove connectors.
 middle_switch = Pin(7, Pin.IN, Pin.PULL_DOWN) 
 right_switch = Pin(28, Pin.IN, Pin.PULL_DOWN)
 left_switch = Pin(27, Pin.IN, Pin.PULL_DOWN)
-
 
 while True:
     if middle_switch.value(): # if the value changes
