@@ -2291,9 +2291,12 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ui4kJgjIIuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>Microswitches can be purchased for <a href="https://www.amazon.com/Twidec-Straight-Switch-Action-KW11-3Z04/dp/B07P4CJ8TV/ref=sr_1_3">under $1</a>.  They can be mounted on the front of our robot.  When the robot hits a wall in front of it the switch will open (or close) and the robot controller can make the robot go in reverse or turn.</p>
+<p>In the example below, we attached a stiff wire to the lever of the microswitch.</p>
 <p><img alt="" src="../../../img/microswitch-bot-2.jpg" /></p>
-<p>In the example below, we connected three microswitches to the front of our robot.
-<img alt="" src="../../../img/microswitch-bot-1.jpg" /></p>
+<p>In the example below, we connected three microswitches to the front of our robot.</p>
+<p><img alt="" src="../../../img/microswitch-bot-1.jpg" /></p>
+<p>If the left switch is activated, the robot should turn to the right.  If the right switch is activated, the robot should go to the left.</p>
+<p>This image shows how we used two of the Grove connectors to read in the values of the switches.</p>
 <p><img alt="" src="../../../img/microswitch-bot-3.jpg" /></p>
 <h2 id="testing-switches">Testing Switches</h2>
 <p>The following code can be used to test your switches.  A line on the console prints out which of the three switches are activated using the pin <code>value()</code> function.</p>
