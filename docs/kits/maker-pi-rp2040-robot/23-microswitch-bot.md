@@ -6,10 +6,19 @@ This robot was inspired by my friend, Michael York.
 
 Microswitches can be purchased for [under $1](https://www.amazon.com/Twidec-Straight-Switch-Action-KW11-3Z04/dp/B07P4CJ8TV/ref=sr_1_3).  They can be mounted on the front of our robot.  When the robot hits a wall in front of it the switch will open (or close) and the robot controller can make the robot go in reverse or turn.
 
+In the example below, we attached a stiff wire to the lever of the microswitch.
+
 ![](../../img/microswitch-bot-2.jpg)
 
+
+
 In the example below, we connected three microswitches to the front of our robot.
+
 ![](../../img/microswitch-bot-1.jpg)
+
+If the left switch is activated, the robot should turn to the right.  If the right switch is activated, the robot should go to the left.
+
+This image shows how we used two of the Grove connectors to read in the values of the switches.
 
 ![](../../img/microswitch-bot-3.jpg)
 
