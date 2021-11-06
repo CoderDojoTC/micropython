@@ -825,13 +825,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Non OLED Displays
+        Simple Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Non OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Non OLED Displays
+          Simple Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -867,6 +867,50 @@
     <li class="md-nav__item">
       <a href="../../displays/10-character-lcd-display/" class="md-nav__link">
         Character LCD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+      
+      <label class="md-nav__link" for="nav-8">
+        Graphical and OLED Displays
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Graphical and OLED Displays
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oled/01-intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -920,57 +964,13 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-      
-      <label class="md-nav__link" for="nav-8">
-        OLED Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
-          <span class="md-nav__icon md-icon"></span>
-          OLED Displays
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oled/01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
             
   
   
   
     <li class="md-nav__item">
       <a href="../../oled/02-oled-setup/" class="md-nav__link">
-        Setup
+        OLED Setup
       </a>
     </li>
   
@@ -982,7 +982,7 @@
   
     <li class="md-nav__item">
       <a href="../../oled/03-oled-drawing/" class="md-nav__link">
-        Drawing
+        OLED Drawing
       </a>
     </li>
   
@@ -2321,16 +2321,16 @@
 <p>The Duty Cycle is what percent of time a pulse is high.</p>
 <p><img alt="Duty Cycle" src="../../img/duty-cycle.png" /></p>
 <p>For working with sound, we want to generate smooth sound waves that are on 1/2 of the time and off 1/2 of the time.  So our duty cycles will be set to be 50%.  On the Raspberry Pi Pico we can achieve this by the following function:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(1000)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(1000)
 </code></pre></div>
 </td></tr></table>
 <p>When we are done playing a tone, we must always explicitly turn the duty cycle back to 0.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(0)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>speaker.duty_u16(0)
 </code></pre></div>
 </td></tr></table>
 <p>If we forget to add this line, the tone will continue to play despite the main program stopping.  This shows you that the part of the chip that generates the tone pulses is an independent processor that is not dependant on the main program running!</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 </code></pre></div>
 </td></tr></table>

@@ -825,13 +825,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Non OLED Displays
+        Simple Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Non OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Non OLED Displays
+          Simple Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -867,6 +867,50 @@
     <li class="md-nav__item">
       <a href="../../displays/10-character-lcd-display/" class="md-nav__link">
         Character LCD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+      
+      <label class="md-nav__link" for="nav-8">
+        Graphical and OLED Displays
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Graphical and OLED Displays
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oled/01-intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -920,57 +964,13 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-      
-      <label class="md-nav__link" for="nav-8">
-        OLED Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
-          <span class="md-nav__icon md-icon"></span>
-          OLED Displays
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oled/01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
             
   
   
   
     <li class="md-nav__item">
       <a href="../../oled/02-oled-setup/" class="md-nav__link">
-        Setup
+        OLED Setup
       </a>
     </li>
   
@@ -982,7 +982,7 @@
   
     <li class="md-nav__item">
       <a href="../../oled/03-oled-drawing/" class="md-nav__link">
-        Drawing
+        OLED Drawing
       </a>
     </li>
   
@@ -2286,20 +2286,20 @@
                 
                 <h1 id="how-to-debug-micropython">How to Debug Micropython</h1>
 <h2 id="listing-the-modules">Listing the Modules</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Result:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>__main__          gc                uasyncio/funcs    uos
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>__main__          gc                uasyncio/funcs    uos
 _boot             machine           uasyncio/lock     urandom
 _onewire          math              uasyncio/stream   ure
 _rp2              micropython       ubinascii         uselect

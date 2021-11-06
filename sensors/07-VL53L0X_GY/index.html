@@ -907,13 +907,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Non OLED Displays
+        Simple Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Non OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Non OLED Displays
+          Simple Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -949,6 +949,50 @@
     <li class="md-nav__item">
       <a href="../../displays/10-character-lcd-display/" class="md-nav__link">
         Character LCD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+      
+      <label class="md-nav__link" for="nav-8">
+        Graphical and OLED Displays
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Graphical and OLED Displays
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oled/01-intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -1002,57 +1046,13 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-      
-      <label class="md-nav__link" for="nav-8">
-        OLED Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
-          <span class="md-nav__icon md-icon"></span>
-          OLED Displays
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oled/01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
             
   
   
   
     <li class="md-nav__item">
       <a href="../../oled/02-oled-setup/" class="md-nav__link">
-        Setup
+        OLED Setup
       </a>
     </li>
   
@@ -1064,7 +1064,7 @@
   
     <li class="md-nav__item">
       <a href="../../oled/03-oled-drawing/" class="md-nav__link">
-        Drawing
+        OLED Drawing
       </a>
     </li>
   
@@ -2363,11 +2363,11 @@ Figure: VL53L0X in the GY-530 package.</p>
 <p>Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GIPO pins 16 and 17.</p>
 <h2 id="i2c-scanner-test">I2C Scanner Test</h2>
 <p>We first run the I2C scanner program to verify that the sensor is connected correct and is responding to the I2C bus scan.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># row one on our standard Pico breadboard</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># row two on our standard Pico breadboard</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
@@ -2379,25 +2379,25 @@ Figure: VL53L0X in the GY-530 package.</p>
 <p>If you are using Thonny, you can try to use the "Manage Packages" menu and search for the driver.</p>
 <p>We have a sample of the driver <a href="https://github.com/CoderDojoTC/micropython/blob/main/src/drivers/VL53L0X.py">here</a></p>
 <h2 id="create-a-test-program">Create a Test Program</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Test program for VL53L0X</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Test program for VL53L0X</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">I2C</span>

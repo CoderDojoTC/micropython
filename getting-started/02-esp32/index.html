@@ -941,13 +941,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Non OLED Displays
+        Simple Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Non OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Non OLED Displays
+          Simple Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -983,6 +983,50 @@
     <li class="md-nav__item">
       <a href="../../displays/10-character-lcd-display/" class="md-nav__link">
         Character LCD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+      
+      <label class="md-nav__link" for="nav-8">
+        Graphical and OLED Displays
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Graphical and OLED Displays
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oled/01-intro/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -1036,57 +1080,13 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-      
-      <label class="md-nav__link" for="nav-8">
-        OLED Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
-          <span class="md-nav__icon md-icon"></span>
-          OLED Displays
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oled/01-intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
             
   
   
   
     <li class="md-nav__item">
       <a href="../../oled/02-oled-setup/" class="md-nav__link">
-        Setup
+        OLED Setup
       </a>
     </li>
   
@@ -1098,7 +1098,7 @@
   
     <li class="md-nav__item">
       <a href="../../oled/03-oled-drawing/" class="md-nav__link">
-        Drawing
+        OLED Drawing
       </a>
     </li>
   
@@ -2435,19 +2435,19 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/establis
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/raw/master/MicroPython_BUILD/firmware/MicroPython_LoBo_esp32_all.zip</p>
 <h2 id="step-2-create-a-python-conda-environment-for-esp32">Step 2: Create a Python Conda Environment for ESP32</h2>
 <p>This is so we don't mess up other Python projects on your system.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n esp32 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n esp32 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda activate esp32
 </code></pre></div>
 </td></tr></table>
 <h2 id="step-3-install-the-esptool">Step #3: Install the esptool</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ pip3 install esptool
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ pip3 install esptool
 Collecting esptool
   Downloading esptool-3.0.tar.gz <span class="o">(</span><span class="m">149</span> kB<span class="o">)</span>
      <span class="p">|</span>████████████████████████████████<span class="p">|</span> <span class="m">149</span> kB <span class="m">2</span>.9 MB/s 
@@ -2457,7 +2457,7 @@ Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16
 </code></pre></div>
 </td></tr></table>
 <h2 id="step-4-erase-the-old-firmware">Step 4: Erase the Old Firmware</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
 </code></pre></div>
 </td></tr></table>
 <h2 id="step-5-download-the-new-firmware">Step 5: Download the New Firmware</h2>
@@ -2465,27 +2465,27 @@ Successfully installed bitstring-3.1.7 cffi-1.14.5 cryptography-3.4.6 ecdsa-0.16
 <p><a href="https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares">https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/firmwares
 </a></p>
 <h2 id="step-6-reflash-the-new-esp32-firmware">Step 6: Reflash the new ESP32 Firmware</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> esp32_all/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> esp32_all/
 ../flash.sh -p /dev/cu.SLAB_USBtoUART
 </code></pre></div>
 </td></tr></table>
 <p>this will run...
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
 esptool.py v3.0
 Serial port /dev/cu.SLAB_USBtoUART
 Connecting........_
@@ -2511,24 +2511,24 @@ Hard resetting via RTS pin...
 <p>Next, yo must tell Thonny to use the ESP32 interpreter.</p>
 <p><img alt="" src="../../img/micropython-esp32.png" /></p>
 <h2 id="run-a-test">Run a test</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">display</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">network</span><span class="o">,</span> <span class="nn">utime</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">display</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">network</span><span class="o">,</span> <span class="nn">utime</span>
 
 
 <span class="n">tft</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="n">TFT</span><span class="p">()</span>

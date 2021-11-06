@@ -825,13 +825,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Non OLED Displays
+        Simple Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Non OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Non OLED Displays
+          Simple Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -872,54 +872,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/15-cu1609c-led/" class="md-nav__link">
-        Graphic LCD
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/14-lcd-st7789V/" class="md-nav__link">
-        Color LCD ST7789V
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/11-lcd-waveshare/" class="md-nav__link">
-        LCD Waveshare
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/12-e-paper-display/" class="md-nav__link">
-        E-Paper
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -943,13 +895,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
       
       <label class="md-nav__link" for="nav-8">
-        OLED Displays
+        Graphical and OLED Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-8">
           <span class="md-nav__icon md-icon"></span>
-          OLED Displays
+          Graphical and OLED Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1009,8 +961,56 @@
   
   
     <li class="md-nav__item">
+      <a href="../../displays/15-cu1609c-led/" class="md-nav__link">
+        Graphic LCD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/14-lcd-st7789V/" class="md-nav__link">
+        Color LCD ST7789V
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/11-lcd-waveshare/" class="md-nav__link">
+        LCD Waveshare
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/12-e-paper-display/" class="md-nav__link">
+        E-Paper
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../02-oled-setup/" class="md-nav__link">
-        Setup
+        OLED Setup
       </a>
     </li>
   
@@ -1022,7 +1022,7 @@
   
     <li class="md-nav__item">
       <a href="../03-oled-drawing/" class="md-nav__link">
-        Drawing
+        OLED Drawing
       </a>
     </li>
   
@@ -2292,11 +2292,11 @@
 <p>These labs will assume these parameters, but you can modify the labs to use different sizes and display driver chips by only modifying a few lines of code.</p>
 <h2 id="i2c-scanner">I2C Scanner</h2>
 <p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># row one on our standard Pico breadboard</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># row two on our standard Pico breadboard</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
@@ -2322,7 +2322,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../../displays/12-e-paper-display/" title="E-Paper" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../../displays/10-character-lcd-display/" title="Character LCD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2331,19 +2331,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  E-Paper
+                  Character LCD
                 </span>
               </div>
             </a>
           
           
-            <a href="../02-oled-setup/" title="Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../../displays/15-cu1609c-led/" title="Graphic LCD" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Setup
+                  Graphic LCD
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
