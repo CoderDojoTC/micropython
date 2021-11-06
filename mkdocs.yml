@@ -45,18 +45,18 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Non OLED Displays:
+  - Simple Non-Graphical Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
     - Character LCD: displays/10-character-lcd-display.md
+  - Graphical and OLED Displays:
+    - Introduction: oled/01-intro.md
     - Graphic LCD: displays/15-cu1609c-led.md
     - Color LCD ST7789V: displays/14-lcd-st7789V.md
     - LCD Waveshare: displays/11-lcd-waveshare.md
     - E-Paper: displays/12-e-paper-display.md
-  - OLED Displays:
-    - Introduction: oled/01-intro.md
-    - Setup: oled/02-oled-setup.md
-    - Drawing: oled/03-oled-drawing.md
+    - OLED Setup: oled/02-oled-setup.md
+    - OLED Drawing: oled/03-oled-drawing.md
     - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
     - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
     - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
