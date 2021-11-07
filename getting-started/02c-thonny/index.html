@@ -220,7 +220,7 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Micropython Home
+        MicroPython Home
       </a>
     </li>
   
@@ -343,8 +343,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-power/" class="md-nav__link">
-        Power
+      <a href="../02-esp32/" class="md-nav__link">
+        ESP32
       </a>
     </li>
   
@@ -355,8 +355,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-esp32/" class="md-nav__link">
-        ESP32
+      <a href="../04-power/" class="md-nav__link">
+        Powering Your Projects
       </a>
     </li>
   
@@ -398,32 +398,18 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#toolbar" class="md-nav__link">
-    Toolbar
+  <a href="#installing-thonny" class="md-nav__link">
+    Installing Thonny
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#script-area" class="md-nav__link">
-    Script Area
+  <a href="#upgrading-thonny" class="md-nav__link">
+    Upgrading Thonny
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python-shell" class="md-nav__link">
-    Python Shell
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interpreter" class="md-nav__link">
-    Interpreter
-  </a>
-  
-    <nav class="md-nav" aria-label="Interpreter">
+    <nav class="md-nav" aria-label="Upgrading Thonny">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -460,6 +446,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plotting-values-on-thonny" class="md-nav__link">
+    Plotting Values on Thonny
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#background-on-thonny" class="md-nav__link">
     Background on Thonny
   </a>
@@ -480,7 +473,7 @@
   
     <li class="md-nav__item">
       <a href="../02d-vscode/" class="md-nav__link">
-        VS Code IED
+        VS Code IDE
       </a>
     </li>
   
@@ -2321,32 +2314,18 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#toolbar" class="md-nav__link">
-    Toolbar
+  <a href="#installing-thonny" class="md-nav__link">
+    Installing Thonny
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#script-area" class="md-nav__link">
-    Script Area
+  <a href="#upgrading-thonny" class="md-nav__link">
+    Upgrading Thonny
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python-shell" class="md-nav__link">
-    Python Shell
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interpreter" class="md-nav__link">
-    Interpreter
-  </a>
-  
-    <nav class="md-nav" aria-label="Interpreter">
+    <nav class="md-nav" aria-label="Upgrading Thonny">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2383,6 +2362,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plotting-values-on-thonny" class="md-nav__link">
+    Plotting Values on Thonny
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#background-on-thonny" class="md-nav__link">
     Background on Thonny
   </a>
@@ -2407,13 +2393,26 @@
                 
                 
                 <h1 id="thonny-python-ide">Thonny Python IDE</h1>
-<p>A lightweight Python IDE ideal for writing simple Python programs for first time users.</p>
-<p>Thonny has the following screen areas.</p>
-<h2 id="toolbar">Toolbar</h2>
-<h2 id="script-area">Script Area</h2>
-<h2 id="python-shell">Python Shell</h2>
-<h2 id="interpreter">Interpreter</h2>
+<p>A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.</p>
+<p>We strongly suggest that classes begin with Thonny for the first several weeks.  As students want to do more complex functions such as build automatic deployment scripts other IDEs are more appropriate.</p>
+<p>Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history see the <a href="https://github.com/thonny/thonny/blob/master/CHANGELOG.rst">Thonny Release History</a>.  We suggest checking this link monthly for updates.</p>
+<h2 id="installing-thonny">Installing Thonny</h2>
+<p>The best way to install Thonny is to go to the Thonny web site an look for the "Download" are for your opeating system.  That link is here:</p>
+<p><a href="https://thonny.org/">https://thonny.org/</a></p>
+<p>Make sure you upgrade to the latest version of Thonny if you already have a Thonny installed on your computer.</p>
+<p>You can find more tips on getting started with Thonny on the Raspberry Pi website:</p>
+<p><a href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2">https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2</a></p>
 <p>Thonny runs on Mac, Windows and Linux.</p>
+<h2 id="upgrading-thonny">Upgrading Thonny</h2>
+<p>Although you can always upgrade Thonny by removing it and reinstalling a new version, on Mac and Linux systems there is an easier method.</p>
+<p>Run the following shell command:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo yum upgrade thonny
+</code></pre></div>
+</td></tr></table>
+<p>or</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo apt-get upgrade thonny
+</code></pre></div>
+</td></tr></table>
 <h4 id="running-help">Running help()</h4>
 <p>You can enter the help() function in the main script area and then press the Play button.  This will tell you </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -2524,6 +2523,8 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
 &gt;&gt;&gt; %Run -c <span class="nv">$EDITOR_CONTENT</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="plotting-values-on-thonny">Plotting Values on Thonny</h2>
+<p>If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidently hook up at potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incomming data cause by spikes on the power rails.</p>
 <h2 id="background-on-thonny">Background on Thonny</h2>
 <p>MicroPython was originally developed by Damien George and first released in 2014.  However, MicroPython did not have a development environment that was easy for students to use.  Thonny was developed to provide an easy to use tool just for MicroPython development.  Thonney was created at the <a href="https://www.cs.ut.ee/en">University of Tartu Institute of Computer Science</a> in Estonia for this purpose.  They continue to support Thonny.</p>
 <p>Several feature for Thonny were sponsored by the <a href="glossary#raspberry-pi-foundation">Raspberry Pi Foundation</a> and we continue to see a close relationship between the Raspberry Pi Foundation and the Thonny development team.</p>
@@ -2548,7 +2549,7 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../02-esp32/" title="ESP32" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../04-power/" title="Powering Your Projects" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2557,19 +2558,19 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  ESP32
+                  Powering Your Projects
                 </span>
               </div>
             </a>
           
           
-            <a href="../02d-vscode/" title="VS Code IED" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../02d-vscode/" title="VS Code IDE" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  VS Code IED
+                  VS Code IDE
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

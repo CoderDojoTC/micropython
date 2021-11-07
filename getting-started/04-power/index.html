@@ -18,7 +18,7 @@
     
     
       
-        <title>Power - MicroPython for Kids</title>
+        <title>Powering Your Projects - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#managing-power-with-micropython" class="md-skip">
+        <a href="#powering-your-micropython-projects" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Power
+              Powering Your Projects
             
           </span>
         </div>
@@ -220,7 +220,7 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Micropython Home
+        MicroPython Home
       </a>
     </li>
   
@@ -341,6 +341,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../02-esp32/" class="md-nav__link">
+        ESP32
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -352,12 +364,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Power
+          Powering Your Projects
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Power
+        Powering Your Projects
       </a>
       
         
@@ -375,18 +387,31 @@
       
         <li class="md-nav__item">
   <a href="#power-connectors" class="md-nav__link">
-    Power connectors
+    Power Connectors
   </a>
   
-    <nav class="md-nav" aria-label="Power connectors">
+    <nav class="md-nav" aria-label="Power Connectors">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usb-power" class="md-nav__link">
-    USB Power
+  <a href="#usb-power-packs" class="md-nav__link">
+    USB Power Packs
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preventing-usb-power-pack-autoshutdown" class="md-nav__link">
+    Preventing USB Power Pack Autoshutdown
+  </a>
+  
+    <nav class="md-nav" aria-label="Preventing USB Power Pack Autoshutdown">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#battery-power" class="md-nav__link">
@@ -401,8 +426,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-power" class="md-nav__link">
-    Monitoring Power
+  <a href="#monitoring-usb-power" class="md-nav__link">
+    Monitoring USB Power
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-both-usb-and-external-battery-power-on-the-raspberry-pi-pico" class="md-nav__link">
+    Running both USB and External Battery Power on the Raspberry Pi Pico
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-batter-power-level-on-the-raspberry-pi-pico" class="md-nav__link">
+    Monitoring Batter Power Level on the Raspberry Pi Pico
   </a>
   
 </li>
@@ -411,18 +450,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-esp32/" class="md-nav__link">
-        ESP32
-      </a>
     </li>
   
 
@@ -445,7 +472,7 @@
   
     <li class="md-nav__item">
       <a href="../02d-vscode/" class="md-nav__link">
-        VS Code IED
+        VS Code IDE
       </a>
     </li>
   
@@ -2287,18 +2314,31 @@
       
         <li class="md-nav__item">
   <a href="#power-connectors" class="md-nav__link">
-    Power connectors
+    Power Connectors
   </a>
   
-    <nav class="md-nav" aria-label="Power connectors">
+    <nav class="md-nav" aria-label="Power Connectors">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usb-power" class="md-nav__link">
-    USB Power
+  <a href="#usb-power-packs" class="md-nav__link">
+    USB Power Packs
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preventing-usb-power-pack-autoshutdown" class="md-nav__link">
+    Preventing USB Power Pack Autoshutdown
+  </a>
+  
+    <nav class="md-nav" aria-label="Preventing USB Power Pack Autoshutdown">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#battery-power" class="md-nav__link">
@@ -2313,8 +2353,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-power" class="md-nav__link">
-    Monitoring Power
+  <a href="#monitoring-usb-power" class="md-nav__link">
+    Monitoring USB Power
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-both-usb-and-external-battery-power-on-the-raspberry-pi-pico" class="md-nav__link">
+    Running both USB and External Battery Power on the Raspberry Pi Pico
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-batter-power-level-on-the-raspberry-pi-pico" class="md-nav__link">
+    Monitoring Batter Power Level on the Raspberry Pi Pico
   </a>
   
 </li>
@@ -2336,18 +2390,40 @@
                   </a>
                 
                 
-                <h1 id="managing-power-with-micropython">Managing Power With MicroPython</h1>
-<h2 id="power-connectors">Power connectors</h2>
-<h3 id="usb-power">USB Power</h3>
+                <h1 id="powering-your-micropython-projects">Powering Your MicroPython Projects</h1>
+<p>If you are just using MicroPython to learn how to code you can use the USB connector from your Mac or PC to power your project.  However, if you are creating a device that can't be connected to the USB cable such as a robot, then you will need to hook up portable power supply like a battery pack to power your device.</p>
+<p>The good news is that most microcontrollers like the Raspberry Pi Pico or ESP32 have many options and they are easy to use.  Just be careful about applying too much power since unlike the old 5V Arduino boards, these devices only use 3.3v power supplies.  Connecting the Pico to a 4 AA batteries (4 X 1.5 volts = 6 volt total) can damage the Pico microcontroller.</p>
+<h2 id="power-connectors">Power Connectors</h2>
+<p>The Raspberry Pi Pico has three important power connectors you should learn about.</p>
+<p><img alt="" src="../../img/pico-power-pins.png" /></p>
+<ol>
+<li><strong>VBUS</strong> - A direct connection to the USB System bus and available in the upper right corner of the Pico.  When connected, circuits inside the Pico will disconnect the other power sources.  This is the preferred way to power the Pico when doing development and if a USB battery pack is used.</li>
+<li><strong>VSYS</strong> - This the main system input voltage and used when the device is not connected to the USB.  The Pico has on-board power control circuits that allow VSYS to vary anywhere in the range of 1.8V to 5.5V.  This is great since three AAA batteries which start at 4.5 volts can be used even as their voltage drops to 1.8 volts.
+VSYS is used by the on-board SMPS (Switched Mode Power Supply) to generate the 3.3V for the RP2040 and its GPIO.
+You can use this to power the Pico if you have any non-USB battery pack such as 3 AA batteries or an external 5 volt power supply that is generated by a motor driver circuit.</li>
+<li><strong>3V3_EN</strong> connects to the on-board SMPS enable pin, and is pulled high (to VSYS) via a 100K resistor.
+To disable the 3.3V (which also de-powers the RP2040), short this pin low.</li>
+<li><strong>3.3OUT</strong> This pin can be used to power external circuitry.  The maximum output 
+current will depend on RP2040 load and VSYS voltage, it is recommended to keep the load on this pin less than 300mA.
+In in other words, you don't want to drive more than about 15 LEDs that each draw up to 20 milliamps at full power.
+3V3 is the main 3.3V supply to RP2040 and its I/O, generated by the on-board SMPS.</li>
+<li><strong>ADC_VREF</strong> - This should not be used for any purpose other than to provide a low-current voltage reference for any of the three analog-to-digital inputs.  For example if you have three potentiometers you would hook the positive rail of each of them to this pin.  This allows for reasonably high-resolution analog to digital that is mostly free of the power noise present on the 3.3OUT pin.</li>
+</ol>
+<h3 id="usb-power-packs">USB Power Packs</h3>
+<p>There is large and growing market for rechargeable cell-phone power packs that are ideal for applications such as robotics and powering a remote microcontroller for a long time.  They can be purchased in many power storage levels from 2500 milliamp hours up to over 1 million milliamp hours.</p>
+<h2 id="preventing-usb-power-pack-autoshutdown">Preventing USB Power Pack Autoshutdown</h2>
+<p>The one issue to be aware of with battery packs is that they automatically power down if they don't sense a minimum current being drawn such as about 10 milliamps.  In many applications the Pico draws less than that amount.  One fix is to simply add LED power indicator that draws 10 milliamps.  This will </p>
 <h3 id="battery-power">Battery Power</h3>
-<p>4 AA Rechargeable</p>
+<p>3 AA alkaline batteries wired in series provide plenty of power for small Pico-based MicroPython projects.  Each battery is 1.5 volts which give a total of 4.5 volts which is well within the maximum power use by the VSYS input on the Pico.</p>
+<p>As an alternative, you can also use 4 rechargeable NiCad batteries that have a <a href="https://www.teamtekin.com/manuals/nicad_bt.pdf">nominal rating of 1.2 volts each</a>.  This is a total of 4.8 volts, which is still under the 5.5 volt limit.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not use 4 AA batteries.  6 volts is too high for the Pico.  Use a voltage regulator such as is found on motor driver boards.</p>
+<p>Do not connect 4 AA batteries directly to VSYS.  6 volts is too high for the Pico's power system and could damage it.  Use a voltage regulator such as is found on motor driver boards.  Another alternative is to use a DC-to-DC voltage regulator such as a <a href="https://en.wikipedia.org/wiki/Buck_converter">Buck Converter</a>.</p>
 </div>
-<h2 id="monitoring-power">Monitoring Power</h2>
-<p>On the Pico, GP24 can be used to indicate if power is being drawn from the USB cable.</p>
-<p>https://www.raspberrypi.org/forums/viewtopic.php?t=300676</p>
+<h2 id="monitoring-usb-power">Monitoring USB Power</h2>
+<p>On the Pico, GP24 can be used to indicate if power is being drawn from the USB cable.  You can also use this information to change the behavior such as drop into low-power mode when disconnected from a USB source.</p>
+<p>See <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=300676">here</a></p>
+<p>Here is some sample MicroPython code that displays this value:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2375,6 +2451,7 @@
       <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p>This program prints out the value of the USB Power indicator.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2396,8 +2473,11 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;drawing power from VSYS - a battery or external power source&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Power consumption when running this code is approximately 0.1W (19mA at 4.99V, so 4 x AA batteries (@ 2,000mAh each) would keep the Pico running for well over 4 days</p>
-<p>The battery should provide a voltage greater than 1.8v and less than 5.5v. Importantly if both a battery and a micro USB cable are connected at the same time a Schottky diode should be placed between the battery positive and VSYS [see section 4.4 &amp; 4.5 of the Raspberry Pi Pico Datasheet https://datasheets.raspberrypi.org/pico ... asheet.pdf] . . . then, as long as the battery voltage is less than that coming in from the USB cable, power will be drawn from the USB supply and not the battery . . . and, when you unplug the Pico from its USB supply, the Pico will keep on running, using power from the battery (and visa versa when you plug it back in).</p>
+<p>Power consumption when running this code is approximately 0.1W (19mA at 4.99V, so 4 x AA batteries (@ 2,000mAh each) would keep the Pico running for well over 4 days.</p>
+<h2 id="running-both-usb-and-external-battery-power-on-the-raspberry-pi-pico">Running both USB and External Battery Power on the Raspberry Pi Pico</h2>
+<p>The battery should provide a voltage greater than 1.8v and less than 5.5v. Importantly if both a battery and a micro USB cable are connected at the same time a Schottky diode should be placed between the battery positive and VSYS [see section 4.4 &amp; 4.5 of the <a href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">Raspberry Pi Pico Datasheet</a>. As long as the battery voltage is less than that coming in from the USB cable, power will be drawn from the USB supply and not the battery and, when you unplug the Pico from its USB supply, the Pico will keep on running, using power from the battery (and visa versa when you plug it back in).</p>
+<h2 id="monitoring-batter-power-level-on-the-raspberry-pi-pico">Monitoring Batter Power Level on the Raspberry Pi Pico</h2>
+<p>You can use one of the three analog to digital converters to allow the Pico to monitor the power remaining in an external battery.  For example if you have 3 AA batteries you can connect two 100K ohm resistors in series and connect the top and bottom to the power and ground.  Then connect the midpoint to one of the three ADC inputs.  This will give you a way to monitor the power remaining in an external battery.  A fully charge battery pack voltage such at 4.5 volts will generate a voltage of 1/2 the maximum level.  As the voltage drops to 1.8 volts it should display a value of 0%.  An OLED can provide an ideal way to display the power level remaining.</p>
                 
               
               
@@ -2416,7 +2496,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../02-pi-pico/" title="Raspberry Pi Pico" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../02-esp32/" title="ESP32" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2425,19 +2505,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Raspberry Pi Pico
+                  ESP32
                 </span>
               </div>
             </a>
           
           
-            <a href="../02-esp32/" title="ESP32" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../02c-thonny/" title="Thonny IDE" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  ESP32
+                  Thonny IDE
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
