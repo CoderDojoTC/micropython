@@ -18,7 +18,7 @@
     
     
       
-        <title>Breadboards - MicroPython for Kids</title>
+        <title>Using MicroPython to Read a Potentiometer - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#breadboards" class="md-skip">
+        <a href="#using-micropython-to-read-a-potentiometer" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Breadboards
+              Using MicroPython to Read a Potentiometer
             
           </span>
         </div>
@@ -281,6 +281,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../getting-started/02-breadboards/" class="md-nav__link">
+        Solderless Breadboards
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started/02-boards/" class="md-nav__link">
         Boards
       </a>
@@ -397,14 +409,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
       <label class="md-nav__link" for="nav-4">
         Basic Examples
@@ -433,70 +443,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Breadboards
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02-breadboards.md" class="md-nav__link">
         Breadboards
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#breadboard-regions-and-connections" class="md-nav__link">
-    Breadboard Regions and Connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pico-placement-on-breadboard" class="md-nav__link">
-    Pico Placement on Breadboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pico-placement-annotations" class="md-nav__link">
-    Pico Placement Annotations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#breadboard-connections" class="md-nav__link">
-    Breadboard Connections
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2261,42 +2212,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#breadboard-regions-and-connections" class="md-nav__link">
-    Breadboard Regions and Connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pico-placement-on-breadboard" class="md-nav__link">
-    Pico Placement on Breadboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pico-placement-annotations" class="md-nav__link">
-    Pico Placement Annotations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#breadboard-connections" class="md-nav__link">
-    Breadboard Connections
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2307,35 +2222,56 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/intro/02-breadboards.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/intro/04-read-pot.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="breadboards">Breadboards</h1>
-<p><img alt="Solderless Mini Breadboard" src="../../img/solderless-mini-breadboard.jpg" /></p>
-<p>We use standard solderless mini breadboards in our labs.  The breadboards have holes that are spaced 1/10th of an inch apart which is a standard for most electronics in the US.</p>
-<p>Our breadboards are usually 1/2 size with 400-ties.  They have a central trough and power rails on the left and right edges.</p>
-<h2 id="breadboard-regions-and-connections">Breadboard Regions and Connections</h2>
-<p><img alt="Breadboard Regions and Connections" src="../../img/breadboard-regions.png" />
-Learning how a breadboard works is critical for building your projects.  In the figure above you will see that there are two types of regions of the breadboard</p>
-<ol>
-<li>The side regions are called the power distribution rails.  They are similar to power lines that reach across our projects.</li>
-<li>The central region is call the row connector region.  In this area the horizontal rows are all connected inside the breadboard.  Within any row, columns <code>a, b, c, d and e</code> are all electrically connected.  Within any row, columns <code>f, h, i, j, and k</code> are also electrically connected.  However, there is a gap between columns e and f called the center gap or component slot that parts are usually placed over.  Components like buttons and chips usually have their pins straddle the component slot.</li>
-</ol>
-<h2 id="pico-placement-on-breadboard">Pico Placement on Breadboard</h2>
-<p>For most of our labs we place the Pico so that pin 1 of the Pico is in row 1 of the breadboard as in the image below.</p>
-<p><img alt="Pico on Breadboard" src="../../img/pico-on-breadboard.png" /></p>
-<p>This means that the GND connections to the Pico are always in rows 3, 8, 13 and 18 on both sides of the breadboard.  One of the ground pins is usually hooked up to the vertical blue power rails on the sides of the breadboard.</p>
-<h2 id="pico-placement-annotations">Pico Placement Annotations</h2>
-<p><img alt="Pico on Breadboard" src="../../img/pico-on-breadboard-annotated.png" /></p>
-<ol>
-<li><strong>GND</strong> are the ground connections.  There are </li>
-<li><strong>VBUS</strong> is the 5V power from the USB and is high only when the USB is connected. This is nominally 5V (or 0V if the USB is not connected or not powered).</li>
-<li><strong>VSYS</strong> (also know and Voltage System Input) is the main system input voltage.  When the Pico is disconnected from the USB you apply power to the Voltage System Input. The input can vary in the allowed range 1.8V to 5.5V, and is used by the on-board  SMPS to generate the 3.3V for the RP2040 and its GPIO connections.  When the input voltage is less than 3.3 volts the Pico uses an internal DC voltage Boost converter to get the correct voltage to the processor.</li>
-</ol>
-<p>3V3_EN connects to the on-board SMPS enable pin, and is pulled high (to VSYS) via a 100K resistor. To disable the 3.3V (which also de-powers the RP2040), short this pin low.  In effect by making the 3V3_EN LOW you are turning off the Pico.</p>
-<h2 id="breadboard-connections">Breadboard Connections</h2>
+                <h1 id="using-micropython-to-read-a-potentiometer">Using MicroPython to Read a Potentiometer</h1>
+<h1 id="reading-a-potentiometer">Reading a Potentiometer</h1>
+<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This
+pin can be used with an external reference if better ADC performance is required.
+AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
+terminating at this pin.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
+p[Pico]--&gt;|ADC_VREF 36 row=6| pos(Positive)
+p[Pico]--&gt;|AGND 33 row=8| neg(Negative)
+p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
+    pos(Positive) --- pot(Potentiometer)
+    neg(Negative) --- pot(Potentiometer)
+    tap(Center Tap) --- pot(Potentiometer)
+</code></pre></div>
+</td></tr></table>
+<p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
+<h2 id="sampling-data">Sampling data</h2>
+<p>Sometimes the data coming from your Potentiometer is noisy.  You can sample the value multiple times and then average the values.</p>
+<p>Here is a sample program.  Just pass in the pin and a count and it will return the average values.  This version waits 5 milliseconds between samples.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sample_pot</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">())</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span> <span class="o">/</span> <span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pot_pin_1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+<span class="c1"># return a value after sampling 10 times</span>
+<span class="n">sample_pot</span><span class="p">(</span><span class="n">pot_pin_1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
@@ -2350,41 +2286,6 @@ Learning how a breadboard works is critical for building your projects.  In the 
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Introduction
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../03-blink/" title="Blink" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Blink
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
