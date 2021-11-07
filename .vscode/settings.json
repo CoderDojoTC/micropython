@@ -1,9 +1,16 @@
 {
     "editor.fontSize": 10,
     "cSpell.words": [
+        "Autoshutdown",
         "microcontroller",
         "microswitches",
+        "milliamp",
+        "milliamps",
         "OLED",
-        "solderless"
+        "SMPS",
+        "solderless",
+        "Thonny",
+        "VBUS",
+        "VSYS"
     ]
 }
