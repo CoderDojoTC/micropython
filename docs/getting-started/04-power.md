@@ -23,8 +23,9 @@ In in other words, you don't want to drive more than about 15 LEDs that each dra
 5. **ADC_VREF** - This should not be used for any purpose other than to provide a low-current voltage reference for any of the three analog-to-digital inputs.  For example if you have three potentiometers you would hook the positive rail of each of them to this pin.  This allows for reasonably high-resolution analog to digital that is mostly free of the power noise present on the 3.3OUT pin.
 
 
-### USB Power Packs
+### USB Battery Packs
 
+![USB Battery Pack Large](../img/usb-battery-pack-large.png)
 There is large and growing market for rechargeable cell-phone power packs that are ideal for applications such as robotics and powering a remote microcontroller for a long time.  They can be purchased in many power storage levels from 2500 milliamp hours up to over 1 million milliamp hours.
 
 ## Preventing USB Power Pack Autoshutdown
