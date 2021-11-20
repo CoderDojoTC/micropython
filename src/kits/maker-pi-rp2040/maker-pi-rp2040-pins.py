@@ -1,4 +1,4 @@
-# Pin Definitions
+# Pin Definitions for the Cytron Maker Pi RP2040 Board
 # just import this file and reference the pins by name, not number
 
 # Grove Port 1
