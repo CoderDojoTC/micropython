@@ -18,10 +18,10 @@ MAX_DIST = 200
 buzzer=PWM(Pin(22))
 
 # Motor Pins are A: 8,9 and B: 10,11
-RIGHT_FORWARD_PIN =10
-RIGHT_REVERSE_PIN =11
-LEFT_FORWARD_PIN = 9
-LEFT_REVERSE_PIN = 8
+RIGHT_FORWARD_PIN = 11
+RIGHT_REVERSE_PIN = 10
+LEFT_FORWARD_PIN = 8
+LEFT_REVERSE_PIN = 9
 
 # our PWM objects
 right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
@@ -36,6 +36,13 @@ NEOPIXEL_PIN = 18
 # The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
 strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, NEOPIXEL_PIN, "GRB")
 strip.brightness(100)
+
+sda=machine.Pin(2) # lower right pin
+scl=machine.Pin(3) # one up from lower right pin
+i2c=machine.I2C(1, sda=sda, scl=scl, freq=400000)
+
+# Create a VL53L0X object
+tof = VL53L0X.VL53L0X(i2c)
 
 red = (255, 0, 0)
 orange = (255, 60, 0) # Gamma corrected from G=128 to be less like yellow
@@ -149,16 +156,11 @@ def play_turn_right():
 def play_turn_left():
     playnote(700, 0.1)
 
-# Time of flight sensor is on the I2C bus on Grove connector 0
-sda=machine.Pin(0) # row one on our standard Pico breadboard
-scl=machine.Pin(1) # row two on our standard Pico breadboard
-i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
-# print("Device found at decimal", i2c.scan())
-
 # The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
-blue_led_pins = [2, 3,  4,  5,  6,  7, 16, 17, 26, 27, 28]
+# remove 0, 1, 2 and 3 for the I2C busees and remove 26,27 and 28 for the pots
+blue_led_pins = [4,  5,  6,  7, 16, 17]
 # dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
-dist_scale =    [2, 4, 6, 8, 10, 15, 20, 25, 50, 100, 150, 200, 300]
+dist_scale =    [4, 8, 16, 24, 50]
 
 number_leds = len(blue_led_pins)
 distance_per_led = (MAX_DIST - TURN_DISTANCE) / number_leds
