@@ -47,3 +47,29 @@ Onboard multiple smart robot sensors like line tracking, obstacle avoidance, no 
 
 [](https://www.waveshare.com/product/robotics/mobile-robots/picogo.htm?sku=20380)
 
+## Getting Started Kits
+
+### Vilros Getting Started Kit
+[Vilros Getting Started With MicroPython on Raspberry Pi Pico Kit](https://vilros.com/products/vilros-getting-started-with-micropython-on-raspberry-pi-pico-kit)
+
+This kit includes:
+
+1. List price is $44.99
+2. Raspberry Pi Pico with soldered headers
+3. Includes printed *Vilros Get Started with MicroPython on Raspberry Pi Pico* booklet
+4. USB Type-A to micro cable - 1 meter
+5. 3AA battery pack with micro USB connector
+6. 30 × Jumper wires
+7. 12 LEDs: 3x red, 3x blue,3x yellow and 3x green
+8. 5 Push-button switches
+9. 10 330 Ω resistors
+10. Piezoelectric buzzer
+11. 2 10 kΩ potentiometers
+12. HC-SR501 PIR sensor
+13. I2C 1602 character LCD module
+14. WS2812B LED strip
+15. Clear hard plastic box for small part storage
+16. Neoprene case With pocket
+17. Raspberry Pi Pico pinout guide
+
+The only problem with the parts is the lack of connectors for the potentiometers don't work well directly on the breadboard.  You will need to solder wires to use them on the breadboard.
