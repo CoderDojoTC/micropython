@@ -18,7 +18,7 @@
     
     
       
-        <title>Random Hearts - MicroPython for Kids</title>
+        <title>Potentiometer - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#draw-random-hearts" class="md-skip">
+        <a href="#micropython-potentiometer-lab" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Random Hearts
+              Potentiometer
             
           </span>
         </div>
@@ -409,12 +409,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
       
       <label class="md-nav__link" for="nav-4">
         Basic Examples
@@ -433,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/01-intro/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -445,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/02-breadboards.md" class="md-nav__link">
+      <a href="../02-breadboards.md" class="md-nav__link">
         Breadboards
       </a>
     </li>
@@ -457,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/03-blink/" class="md-nav__link">
+      <a href="../03-blink/" class="md-nav__link">
         Blink
       </a>
     </li>
@@ -469,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/04-fade-in-and-out/" class="md-nav__link">
+      <a href="../04-fade-in-and-out/" class="md-nav__link">
         Fade In and Out
       </a>
     </li>
@@ -481,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/03-button/" class="md-nav__link">
+      <a href="../03-button/" class="md-nav__link">
         Buttons
       </a>
     </li>
@@ -491,11 +493,63 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../intro/03-potentiometer/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Potentiometer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Potentiometer
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-analog-to-digital-converters" class="md-nav__link">
+    About Analog to Digital Converters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-diagram" class="md-nav__link">
+    Circuit Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -505,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/04-motor/" class="md-nav__link">
+      <a href="../04-motor/" class="md-nav__link">
         Motor
       </a>
     </li>
@@ -517,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/04-servo/" class="md-nav__link">
+      <a href="../04-servo/" class="md-nav__link">
         Servo
       </a>
     </li>
@@ -529,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/05-neopixel/" class="md-nav__link">
+      <a href="../05-neopixel/" class="md-nav__link">
         NeoPixel
       </a>
     </li>
@@ -909,14 +963,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
       
       <label class="md-nav__link" for="nav-8">
         Graphical Displays
@@ -935,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-intro/" class="md-nav__link">
+      <a href="../../oled/01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -959,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-oled-drawing/" class="md-nav__link">
+      <a href="../../oled/03-oled-drawing/" class="md-nav__link">
         Basic Drawing
       </a>
     </li>
@@ -1019,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-oled-setup/" class="md-nav__link">
+      <a href="../../oled/02-oled-setup/" class="md-nav__link">
         OLED Setup
       </a>
     </li>
@@ -1031,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ssd1306-i2c/" class="md-nav__link">
+      <a href="../../oled/11-oled-ssd1306-i2c/" class="md-nav__link">
         OLED SSD1306 I2C
       </a>
     </li>
@@ -1043,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-oled-ssd1306-spi-v1/" class="md-nav__link">
+      <a href="../../oled/12-oled-ssd1306-spi-v1/" class="md-nav__link">
         OLED SSD1306 SPI V1
       </a>
     </li>
@@ -1055,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ssd1306-spi/" class="md-nav__link">
+      <a href="../../oled/11-oled-ssd1306-spi/" class="md-nav__link">
         OLED SSD1306 SPI V2
       </a>
     </li>
@@ -1067,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
+      <a href="../../oled/11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
       </a>
     </li>
@@ -1079,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-oled-bounce/" class="md-nav__link">
+      <a href="../../oled/10-oled-bounce/" class="md-nav__link">
         OLED Bounce
       </a>
     </li>
@@ -1091,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-oled-pot/" class="md-nav__link">
+      <a href="../../oled/12-oled-pot/" class="md-nav__link">
         OLED Pot
       </a>
     </li>
@@ -1103,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-oled-ping/" class="md-nav__link">
+      <a href="../../oled/11-oled-ping/" class="md-nav__link">
         OLED Ping
       </a>
     </li>
@@ -1115,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-pong/" class="md-nav__link">
+      <a href="../../oled/11-pong/" class="md-nav__link">
         OLED Pong
       </a>
     </li>
@@ -1127,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-pixel-draw/" class="md-nav__link">
+      <a href="../../oled/13-pixel-draw/" class="md-nav__link">
         OLED Pixel Draw
       </a>
     </li>
@@ -1139,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../15-oled-patterns/" class="md-nav__link">
+      <a href="../../oled/15-oled-patterns/" class="md-nav__link">
         OLED Patterns
       </a>
     </li>
@@ -1149,20 +1201,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../oled/14-random-hearts/" class="md-nav__link">
         Random Hearts
       </a>
-      
     </li>
   
 
@@ -1172,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../40-oled-references/" class="md-nav__link">
+      <a href="../../oled/40-oled-references/" class="md-nav__link">
         OLED References
       </a>
     </li>
@@ -2247,6 +2290,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-analog-to-digital-converters" class="md-nav__link">
+    About Analog to Digital Converters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-diagram" class="md-nav__link">
+    Circuit Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2257,106 +2329,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/14-random-hearts.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/intro/03-potentiometer.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="draw-random-hearts">Draw Random Hearts</h1>
-<p>This program uses the MicroPython <code>urandom</code> library to generate random X and Y positions on the display.  It then uses an array of binary values to draw a heart icon at that location.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">SPI</span>
-<span class="kn">import</span> <span class="nn">urandom</span>
-<span class="kn">import</span> <span class="nn">ssd1306</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">import</span> <span class="nn">random</span> <span class="c1"># random direction for new ball</span>
-
-<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
-
-<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
-
-<span class="n">HEART</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">draw_heart</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">HEART</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-            <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">xofs</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">yofs</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">random_heart</span><span class="p">():</span>
-    <span class="n">xofs</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-    <span class="n">yofs</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">)</span>
-    <span class="n">draw_heart</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">)</span>
-
-
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">random_heart</span><span class="p">()</span>
-
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <h1 id="micropython-potentiometer-lab">MicroPython Potentiometer Lab</h1>
+<p>In this lab we will use a 10K ohm potentiometer to demonstrate how a turn of a knob can result in getting a continuous variable from a user into our code.</p>
+<h2 id="about-analog-to-digital-converters">About Analog to Digital Converters</h2>
+<p>Digital microcontrollers are inherently noisy.  They have clocks that pull power from the power supply and cause voltage fluctuations when we compare a signal to these power lines.  This makes it difficult to get </p>
+<p>To get arro</p>
+<h2 id="circuit-diagram">Circuit Diagram</h2>
+<h2 id="sample-code">Sample Code</h2>
+<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This
+pin can be used with an external reference if better ADC performance is required.
+AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
+terminating at this pin.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>graph LR
+p[Pico]--&gt;|ADC_VREF 36 row=6| pos(Positive)
+p[Pico]--&gt;|AGND 33 row=8| neg(Negative)
+p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
+    pos(Positive) --- pot(Potentiometer)
+    neg(Negative) --- pot(Potentiometer)
+    tap(Center Tap) --- pot(Potentiometer)
 </code></pre></div>
 </td></tr></table>
+<p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
                 
               
               
@@ -2375,7 +2379,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../15-oled-patterns/" title="OLED Patterns" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../03-button/" title="Buttons" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2384,19 +2388,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  OLED Patterns
+                  Buttons
                 </span>
               </div>
             </a>
           
           
-            <a href="../40-oled-references/" title="OLED References" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../04-motor/" title="Motor" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  OLED References
+                  Motor
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

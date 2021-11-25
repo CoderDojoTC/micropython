@@ -18,7 +18,7 @@
     
     
       
-        <title>Random Hearts - MicroPython for Kids</title>
+        <title>Drawing Bitmaps with MicroPython - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#draw-random-hearts" class="md-skip">
+        <a href="#drawing-bitmaps-with-micropython" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Random Hearts
+              Drawing Bitmaps with MicroPython
             
           </span>
         </div>
@@ -909,14 +909,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
       
       <label class="md-nav__link" for="nav-8">
         Graphical Displays
@@ -1149,20 +1147,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../14-random-hearts/" class="md-nav__link">
         Random Hearts
       </a>
-      
     </li>
   
 
@@ -2247,6 +2236,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#framebuffers" class="md-nav__link">
+    Framebuffers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-image-transfers-blit" class="md-nav__link">
+    Block Image Transfers (blit)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blit-functions-are-efficient" class="md-nav__link">
+    Blit Functions Are Efficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-bytearrays" class="md-nav__link">
+    Working with ByteArrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-encoding-options" class="md-nav__link">
+    Image Encoding Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Encoding Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vertical-least-significant-bit-layout" class="md-nav__link">
+    Vertical Least Significant Bit Layout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2257,106 +2309,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/14-random-hearts.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/oled/03-bitmaps.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="draw-random-hearts">Draw Random Hearts</h1>
-<p>This program uses the MicroPython <code>urandom</code> library to generate random X and Y positions on the display.  It then uses an array of binary values to draw a heart icon at that location.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">SPI</span>
-<span class="kn">import</span> <span class="nn">urandom</span>
-<span class="kn">import</span> <span class="nn">ssd1306</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">import</span> <span class="nn">random</span> <span class="c1"># random direction for new ball</span>
-
-<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">spi_sck</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">spi_tx</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">sck</span><span class="o">=</span><span class="n">spi_sck</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">spi_tx</span><span class="p">)</span>
-
-<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
-
-<span class="n">HEART</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">draw_heart</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">HEART</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-            <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">xofs</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">yofs</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">random_heart</span><span class="p">():</span>
-    <span class="n">xofs</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-    <span class="n">yofs</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">)</span>
-    <span class="n">draw_heart</span><span class="p">(</span><span class="n">xofs</span><span class="p">,</span> <span class="n">yofs</span><span class="p">)</span>
-
-
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">random_heart</span><span class="p">()</span>
-
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <h1 id="drawing-bitmaps-with-micropython">Drawing Bitmaps with MicroPython</h1>
+<h2 id="framebuffers">Framebuffers</h2>
+<p>A <a href="../mist/glossary.md#framebuffer">Framebuffer</a> is the core data structure we use when drawing bitmaps. </p>
+<h2 id="block-image-transfers-blit">Block Image Transfers (blit)</h2>
+<p>The basic function we use to draw a rectangular region of the screen is called the <code>blit()</code> function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">frame_buffer</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p>This function moves all the data within any frame buffer to the given (x,y) position of the display.  The function will check the dimensions of the frame buffer to know how much data to move to the display.  You just need to tell the function where to start drawing.</p>
+<h2 id="blit-functions-are-efficient">Blit Functions Are Efficient</h2>
+<p>Blit operations can be much more efficient then the <code>display.show()</code> function when you are just updating a small region of the screen.  This is because the <code>display.show()</code> function transfers the entire screen image each time it is called.  Using <code>blit</code> functions can be written to only update the area of the screen that changes.</p>
+<p>For example, if you are writing a video game that has a ball moving across the screen, you only need to update the pixels around the ball, not the entire screen image.  The exact performance difference between <code>show()</code> and <code>blit()</code> operations will depend on the size of the screen, the size of the blit update and the speed of the transfer of data from the framebuffer to the display device.</p>
+<p>The key disadvantage of using <code>blit()</code> functions is that you must consider what other artifacts there are on the screen that you might overwrite.  Keeping track of the differences requires more computation by the microcontroller.  The more powerful your microcontroller is relative to the communication speed, the more difference computations you can do.</p>
+<p>Not all display drivers will let you write directly from the microcontroller resident image directly to a region of the display.  Sometimes you must follow your blit() operations with a show() to transfer the entire framebuffer to the display.</p>
+<h2 id="working-with-bytearrays">Working with ByteArrays</h2>
+<p>MicroPython blit operations use a data representation format for images called a ByteArray.  These are sequences of the bytes that will be sent in a blit operation.  They are coded using the following notation:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">my_bytearray</span> <span class="o">=</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\xFF\xFF\xBF\xDF\xEF\xF7\xFF\xFB\xFF\xFD</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Note that the letter <code>b</code> begins the parameter to show the Python interpreter that the all the characters between the double quotes are byte array values.  The characters <code>\x</code> indicate that there are hexadecimals useds to encode the bit values.</p>
+<h2 id="image-encoding-options">Image Encoding Options</h2>
+<p>There are several alternate methods to encode the bits of an image into a byte array.  The bits can be coded left to right or top to bottom.  You can also put the bits in most-significant bit first or least-significant bit first.  All these options and controlled when you interface with a framebuffer.</p>
+<h3 id="vertical-least-significant-bit-layout">Vertical Least Significant Bit Layout</h3>
+<p>framebuf.MONO_VLSB
+Monochrome (1-bit) color format This defines a mapping where the bits in a byte are vertically mapped with bit 0 being nearest the top of the screen. Consequently each byte occupies 8 vertical pixels. Subsequent bytes appear at successive horizontal locations until the rightmost edge is reached. Further bytes are rendered at locations starting at the leftmost edge, 8 pixels lower.</p>
+<h2 id="references">References</h2>
+<p><a href="https://www.youtube.com/watch?v=a7MzPA0T_MM">MicroPython Bitmap Tool Video</a> - this video created by Lucky Resistor
+is a good overview of the image formats used by MicroPython.</p>
                 
               
               
@@ -2371,41 +2356,6 @@
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../15-oled-patterns/" title="OLED Patterns" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  OLED Patterns
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../40-oled-references/" title="OLED References" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  OLED References
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

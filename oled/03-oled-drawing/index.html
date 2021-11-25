@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED Drawing - MicroPython for Kids</title>
+        <title>Basic Drawing - MicroPython for Kids</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED Drawing
+              Basic Drawing
             
           </span>
         </div>
@@ -493,6 +493,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../intro/03-potentiometer/" class="md-nav__link">
+        Potentiometer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../intro/04-motor/" class="md-nav__link">
         Motor
       </a>
@@ -837,13 +849,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
       <label class="md-nav__link" for="nav-7">
-        Simple Non-Graphical Displays
+        Non-Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Simple Non-Graphical Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Non-Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-7">
           <span class="md-nav__icon md-icon"></span>
-          Simple Non-Graphical Displays
+          Non-Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -907,13 +919,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
       
       <label class="md-nav__link" for="nav-8">
-        Graphical and OLED Displays
+        Graphical Displays
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Graphical and OLED Displays" data-md-level="1">
+      <nav class="md-nav" aria-label="Graphical Displays" data-md-level="1">
         <label class="md-nav__title" for="nav-8">
           <span class="md-nav__icon md-icon"></span>
-          Graphical and OLED Displays
+          Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -945,54 +957,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../../displays/14-lcd-st7789V/" class="md-nav__link">
-        Color LCD ST7789V
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/11-lcd-waveshare/" class="md-nav__link">
-        LCD Waveshare
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../displays/12-e-paper-display/" class="md-nav__link">
-        E-Paper
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-oled-setup/" class="md-nav__link">
-        OLED Setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -1002,12 +966,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          OLED Drawing
+          Basic Drawing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        OLED Drawing
+        Basic Drawing
       </a>
       
         
@@ -1074,6 +1038,66 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/03-bitmaps.md" class="md-nav__link">
+        Drawing with Bitmaps
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/14-lcd-st7789V/" class="md-nav__link">
+        Color LCD ST7789V
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/11-lcd-waveshare/" class="md-nav__link">
+        LCD Waveshare
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../displays/12-e-paper-display/" class="md-nav__link">
+        E-Paper
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-oled-setup/" class="md-nav__link">
+        OLED Setup
+      </a>
     </li>
   
 
@@ -2360,7 +2384,7 @@
                   </a>
                 
                 
-                  <h1>OLED Drawing</h1>
+                  <h1>Basic Drawing</h1>
                 
                 <h3 id="basic-draw-functions">Basic Draw Functions</h3>
 <p>For our beginning labs we will just do some basic drawing. We will start out with just four functions: </p>
@@ -2641,6 +2665,7 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
 </td></tr></table>
 <h2 id="references">References</h2>
 <ul>
+<li><a href="https://docs.micropython.org/en/latest/library/framebuf.html">MicroPython Documentation on FrameBuffer</a></li>
 <li><a href="https://www.mfitzp.com/article/oled-displays-i2c-micropython/">Driving I2C OLED displays with MicroPython</a> - by Martin Fitzpatrick</li>
 <li><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></li>
 </ul>
@@ -2662,7 +2687,7 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../02-oled-setup/" title="OLED Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../../displays/15-cu1609c-led/" title="Graphic LCD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2671,19 +2696,19 @@ Technically, these are called methods of the SSD1306_I2C class.  The ones that b
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  OLED Setup
+                  Graphic LCD
                 </span>
               </div>
             </a>
           
           
-            <a href="../11-oled-ssd1306-i2c/" title="OLED SSD1306 I2C" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../../displays/14-lcd-st7789V/" title="Color LCD ST7789V" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  OLED SSD1306 I2C
+                  Color LCD ST7789V
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
