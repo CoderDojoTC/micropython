@@ -15,6 +15,10 @@ terminating at this pin.
 
 ## Circuit Diagram
 
+![](../img/pot-circuit-diagram.png)
+
+Note: to get an accurate noise-free reading from the potentiometer you must use the ADC_VREF and the AGND pins.  These are special pins designed to reduce the noise on the power areas of the pico.
+
 ## Sample Code To Print Potentiometer Values
 
 ```py
