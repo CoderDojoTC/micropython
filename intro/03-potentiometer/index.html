@@ -532,18 +532,12 @@
     Sample Code To Print Potentiometer Values
   </a>
   
-    <nav class="md-nav" aria-label="Sample Code To Print Potentiometer Values">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#changing-blink-speed-with-a-potentiometer" class="md-nav__link">
     Changing Blink Speed with a Potentiometer
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2316,18 +2310,12 @@
     Sample Code To Print Potentiometer Values
   </a>
   
-    <nav class="md-nav" aria-label="Sample Code To Print Potentiometer Values">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#changing-blink-speed-with-a-potentiometer" class="md-nav__link">
     Changing Blink Speed with a Potentiometer
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2359,6 +2347,11 @@ AGND is the ground reference for GPIO26-29, there is a separate analog ground pl
 terminating at this pin.</p>
 <h2 id="circuit-diagram">Circuit Diagram</h2>
 <p><img alt="" src="../../img/pot-circuit-diagram.png" /></p>
+<ol>
+<li>Connect the top rail of the potentiometer to row 6 which is the ADC_VREF pin.</li>
+<li>Connect the center tap to row 10 which is ADC0</li>
+<li>Connect row 8 to the bottom rail of the potentiometer to the Analog Ground (AGND) pin</li>
+</ol>
 <p>Note: to get an accurate noise-free reading from the potentiometer you must use the ADC_VREF and the AGND pins.  These are special pins designed to reduce the noise on the power areas of the pico.</p>
 <h2 id="sample-code-to-print-potentiometer-values">Sample Code To Print Potentiometer Values</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2390,7 +2383,7 @@ p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
 </code></pre></div>
 </td></tr></table>
 <p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
-<h3 id="changing-blink-speed-with-a-potentiometer">Changing Blink Speed with a Potentiometer</h3>
+<h2 id="changing-blink-speed-with-a-potentiometer">Changing Blink Speed with a Potentiometer</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
