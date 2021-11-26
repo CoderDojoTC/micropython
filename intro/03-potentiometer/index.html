@@ -2358,6 +2358,8 @@ pin can be used with an external reference if better ADC performance is required
 AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
 terminating at this pin.</p>
 <h2 id="circuit-diagram">Circuit Diagram</h2>
+<p><img alt="" src="../../img/pot-circuit-diagram.png" /></p>
+<p>Note: to get an accurate noise-free reading from the potentiometer you must use the ADC_VREF and the AGND pins.  These are special pins designed to reduce the noise on the power areas of the pico.</p>
 <h2 id="sample-code-to-print-potentiometer-values">Sample Code To Print Potentiometer Values</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
