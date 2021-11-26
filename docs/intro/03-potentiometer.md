@@ -17,6 +17,10 @@ terminating at this pin.
 
 ![](../img/pot-circuit-diagram.png)
 
+1. Connect the top rail of the potentiometer to row 6 which is the ADC_VREF pin.
+2. Connect the center tap to row 10 which is ADC0
+3. Connect row 8 to the bottom rail of the potentiometer to the Analog Ground (AGND) pin
+
 Note: to get an accurate noise-free reading from the potentiometer you must use the ADC_VREF and the AGND pins.  These are special pins designed to reduce the noise on the power areas of the pico.
 
 ## Sample Code To Print Potentiometer Values
@@ -42,7 +46,7 @@ p[Pico]-->|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
 
 Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.
 
-### Changing Blink Speed with a Potentiometer
+## Changing Blink Speed with a Potentiometer
 
 ```py
 from machine import ADC, Pin

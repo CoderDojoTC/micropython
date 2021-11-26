@@ -1,6 +1,7 @@
 {
     "editor.fontSize": 10,
     "cSpell.words": [
+        "AGND",
         "Autoshutdown",
         "Framebuffers",
         "microcontroller",
@@ -13,6 +14,7 @@
         "solderless",
         "Thonny",
         "VBUS",
+        "VREF",
         "VSYS"
     ]
 }
