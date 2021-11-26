@@ -445,18 +445,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../02-breadboards.md" class="md-nav__link">
-        Breadboards
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -497,22 +485,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#virual-lab" class="md-nav__link">
-    Virual Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-program" class="md-nav__link">
-    Sample Program
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#blinking-the-builtin-led" class="md-nav__link">
     Blinking the Builtin LED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-blink-speed" class="md-nav__link">
+    Changing the Blink Speed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-toggle" class="md-nav__link">
+    Using Toggle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-lab" class="md-nav__link">
+    Virtual Lab
   </a>
   
 </li>
@@ -2311,22 +2306,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#virual-lab" class="md-nav__link">
-    Virual Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-program" class="md-nav__link">
-    Sample Program
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#blinking-the-builtin-led" class="md-nav__link">
     Blinking the Builtin LED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-blink-speed" class="md-nav__link">
+    Changing the Blink Speed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-toggle" class="md-nav__link">
+    Using Toggle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-lab" class="md-nav__link">
+    Virtual Lab
   </a>
   
 </li>
@@ -2348,34 +2350,92 @@
                   </a>
                 
                 
-                <h1 id="blink-in-micropython">Blink in Micropython</h1>
+                <h1 id="blink-in-micropython">Blink in MicroPython</h1>
+<p><img alt="Blink GIF" src="../../img/blink-on-board-led.gif" /></p>
 <h2 id="overview">Overview</h2>
-<p>In this lab, we will use MicroPython to make an LED blink on and off using Python. We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.</p>
-<h2 id="virual-lab">Virual Lab</h2>
-<p><a href="http://micropython.org/unicorn/">Unicorn Emulator</a></p>
-<h2 id="sample-program">Sample Program</h2>
-<p>This program has two parts.  The first part is often called the preamble - this code gets executed once and loads the right libraries and initializes global variables.</p>
-<p>The second part is the main event loop.  This program continues to run until the device is powered down or reset.</p>
-<p>The <code>import machine</code> statement is required to define the characteristics of our physical machine.  The <code>import time</code> library is required for the python sleep function.</p>
+<p>In this lab, we will use MicroPython to make the green on-board LED on the Raspberry Pi Pico blink on and off using MicroPython.  The only things you need to run this program are an IDE like Thonny, a USB cable and a $4 Raspberry Pi Pico.</p>
 <h2 id="blinking-the-builtin-led">Blinking the Builtin LED</h2>
-<p>This lab is the perfect place to start since you only need the Pico and a micro USB cable.</p>
-<p>The pico has a single built in LED wired to GPIO 25.</p>
-<p><img alt="" src="../../img/builtin-led.png" /></p>
-<p>This program will blink the built-in LED on and off every 1/4 of a second.</p>
+<p>The pico has a single built in LED wired to logical pin 25.  We call this GPIO 25.  Here is a sample program that you can use:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span> <span class="c1"># get the Pin function from the machine module</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># get the sleep library from the time module</span>
+<span class="c1"># this is the built-in green LED on the Pico</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># repeat forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn on the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it on for 1/2 second</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># Turn off the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
+</code></pre></div>
+</td></tr></table>
+<p>This program has two parts.  The first part is often called the preamble - this code gets executed once and loads the right libraries and initializes global variables.<br />
+The second part is the main event loop.  This program continues to run until the device is powered down or reset.</p>
+<p>The <code>import machine</code> statement is required to define the characteristics of our physical machine.  The <code>import time</code> library is required for the python sleep function.</p>
+<p>Note that the text after the hash or pound characters are comments.  Comments are ignored by the Python interpreter.</p>
+<h2 id="changing-the-blink-speed">Changing the Blink Speed</h2>
+<p>Next, lets create a global variable for the delay that the LED is on and off.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="c1"># this is the builtin LED on the Pico</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># global variables</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">25</span>
+
+<span class="c1"># repeat forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn on the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="c1"># leave it on for 1/2 second</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># Turn off the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
+</code></pre></div>
+</td></tr></table>
+<p>This program will blink the built-in LED on and off every 1/4 of a second.  By changing the delay variable you can make the LED blink faster and slower.</p>
+<div class="admonition challenge">
+<p class="admonition-title">Challenge</p>
+<p>What is the fastest you can make the LED blink and still see it changing?  What does this tell you about the human eye?</p>
+</div>
+<h2 id="using-toggle">Using Toggle</h2>
+<p>Instead of using the <code>on()</code> and <code>off()</code> methods, we can also just use the <code>toggle()</code> function.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>If you save the file as main.py, this program will run when the pico starts up without the BOOTSEL being pressed.</p>
+<p>We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.</p>
 <p>Here is the code that will blink an LED that is connected to PIN GIO16, which is in the upper right corner of the Pico.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -2413,6 +2473,9 @@
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="virtual-lab">Virtual Lab</h2>
+<p>If you don't have access to the $4 Raspberry Pi Pico or a similar device, you can also try the MicroPython Emulator:</p>
+<p><a href="http://micropython.org/unicorn/">Unicorn Emulator</a></p>
                 
               
               
