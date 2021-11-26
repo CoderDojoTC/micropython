@@ -17,7 +17,6 @@ nav:
     - MicroPython Libraries: getting-started/01b-libraries.md
   - Basic Examples:
     - Introduction: intro/01-intro.md
-    - Breadboards: intro/02-breadboards.md
     - Blink: intro/03-blink.md
     - Fade In and Out: intro/04-fade-in-and-out.md
     - Buttons: intro/03-button.md
