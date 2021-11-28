@@ -3,6 +3,7 @@
     "cSpell.words": [
         "AGND",
         "Autoshutdown",
+        "ffprobe",
         "Framebuffers",
         "microcontroller",
         "microswitches",
@@ -10,9 +11,11 @@
         "milliamps",
         "OLED",
         "Pinout",
+        "pydub",
         "SMPS",
         "solderless",
         "Thonny",
+        "utime",
         "VBUS",
         "VREF",
         "VSYS"

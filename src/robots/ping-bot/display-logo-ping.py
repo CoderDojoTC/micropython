@@ -1,18 +1,24 @@
-from machine import Pin, Timer
+from machine import Pin
 import ssd1306
-import time
 import framebuf
+from utime import sleep, sleep_us, time, ticks_us
+
+TRIGGER_PIN = 14 # With USB on the top, this pin is the bottom left corner
+ECHO_PIN = 15 # One up from bottom left corner
+
+# Init HC-SR04 pins
+trigger = Pin(TRIGGER_PIN, Pin.OUT) # send trigger out to sensor
+echo = Pin(ECHO_PIN, Pin.IN) # get the delay interval back
 
 WIDTH = 128
 HEIGHT = 64
+spi_sck=machine.Pin(2)
+spi_tx=machine.Pin(3)
+spi=machine.SPI(0,baudrate=100000,sck=spi_sck, mosi=spi_tx)
 CS = machine.Pin(1)
 DC = machine.Pin(4)
 RES = machine.Pin(5)
-clock=machine.Pin(2)
-data=machine.Pin(3)
-spi=machine.SPI(0,sck=clock, mosi=data)
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
-
 fb = framebuf.FrameBuffer(bytearray(
     b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x00\x00\x00\x04\x00\x00\x02\x00\x00\x80\xc1\xc1\xc0\xc0\xc0'
     b'\xc0\xc0\xc1\x81\x01\x01\x02\x02\x06\x0e\x0c\x1c\x38\xf8\xf8\xf0\xe0\xe0\xc0\x80\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
@@ -32,6 +38,32 @@ fb = framebuf.FrameBuffer(bytearray(
     b'\xff\xff\xff\xff\xff\xff\x7f\x7f\x7f\x7f\x3f\x3f\x3f\x1f\x1f\x0f\x0f\x07\x03\x03\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
     64, 64, framebuf.MONO_VLSB)
 
-oled.fill(0)
-oled.blit(fb, 64, 0)
-oled.show()
+def update_display(distance):
+    oled.fill(0)
+    oled.blit(fb, 64, 0)
+    oled.text('CoderDojo', 0, 0)
+    oled.text('Robots', 0, 10)
+    oled.text('Standby', 0, 44)
+    oled.text('Dist:', 0, 54)
+    oled.text(str(distance), 40, 54)
+    oled.show()
+
+def ping():
+    trigger.low()
+    sleep_us(2) # Wait 2 microseconds low
+    trigger.high()
+    sleep_us(5) # Stay high for 5 miroseconds
+    trigger.low()
+    while echo.value() == 0:
+        signaloff = ticks_us()
+    while echo.value() == 1:
+        signalon = ticks_us()
+    timepassed = signalon - signaloff
+    distance = (timepassed * 0.0343) / 2
+    return round(distance, 1)
+
+while True:
+    distance = ping()
+    update_display(distance)
+    print("Distance:", distance, " cm")
+    sleep(.1)
