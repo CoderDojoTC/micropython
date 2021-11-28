@@ -18,7 +18,7 @@
     
     
       
-        <title>Converting MP3 to WAV formats - MicroPython for Kids</title>
+        <title>Converting Audio Files - MicroPython for Kids</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Converting MP3 to WAV formats
+              Converting Audio Files
             
           </span>
         </div>
@@ -1169,12 +1169,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
       
       <label class="md-nav__link" for="nav-9">
         Sound and Music
@@ -1268,6 +1270,91 @@
       <a href="../07-play-audio-file/" class="md-nav__link">
         Play Audio File
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Converting Audio Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Converting Audio Files
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#method-1-use-the-ffmpeg-command-line-tool" class="md-nav__link">
+    Method 1: Use the ffmpeg Command Line Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk-conversions" class="md-nav__link">
+    Bulk Conversions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-files-using-the-unix-file-command" class="md-nav__link">
+    Inspect the Files Using the UNIX file command:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-install-conda-and-the-python-libraries" class="md-nav__link">
+    Method 2: Install Conda and the Python libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transferring-the-files-with-rshell" class="md-nav__link">
+    Transferring the Files with Rshell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2389,6 +2476,41 @@ cp *.wav /pico/sounds
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../07-play-audio-file/" title="Play Audio File" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Play Audio File
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../robots/01-intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Introduction
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
