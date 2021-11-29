@@ -1305,6 +1305,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#background-on-audio-encoding" class="md-nav__link">
+    Background on Audio Encoding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overall-architecture" class="md-nav__link">
     Overall Architecture
   </a>
@@ -2387,6 +2394,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#background-on-audio-encoding" class="md-nav__link">
+    Background on Audio Encoding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overall-architecture" class="md-nav__link">
     Overall Architecture
   </a>
@@ -2510,12 +2524,20 @@
 <h2 id="playing-sounds-on-the-rp2040-chip">Playing Sounds on The RP2040 Chip</h2>
 <p>Although we can play tones of various pitches on the PR2040 using the PMW to generate square waves, the quality of this sound is not close to high-fidelity sound like you would expect in a personal MP3 audio player.</p>
 <p>In this lesson we will demonstrate how to play a high-quality audio files that are stored on the two megabytes of non-volatile static memory of the Pico.  According to the specification of the <a href="https://www.raspberrypi.com/products/raspberry-pi-pico/specifications/">Raspberry Pi Pico</a>, the system comes with 2MB on-board QSPI Flash that we can use to store sound files.  By combining our Pico with an SD card reader we can also play many sounds and even full-length music and full albums.</p>
+<h2 id="background-on-audio-encoding">Background on Audio Encoding</h2>
+<p><img alt="PCM Encoding Example" src="../../img/PCM-example.png" /></p>
+<p>Audio files are encoded in many formats.  For this lab there are two key concepts to understand:</p>
+<ol>
+<li>The <a href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate">Sampling Rate</a> which is how frequently an audio signal is sampled.  The more frequently we sample (up to 41K per second) the higher the fidelity of the recording.  The downside is that the audio file takes more space.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Audio_bit_depth">audio bit depth</a> is how many bits we used to encode the amplitude of the sound.</li>
+</ol>
+<p>For our labs, we will be using a sampling rate of 8,000 samples per second (8K Hz) and a sampling rate of 16-bit depth.  This is a good compromise between smaller size and sound fidelity in typical robots.  We will be using standard .WAV files with <a href="https://en.wikipedia.org/wiki/Pulse-code_modulation">Pulse Code Modulation Encoding</a> in .WAV files.  WAV files do take more space than compressed MP3 files, but they are easier to play because the decoding steps are trivial for a microcontroller to perform.</p>
 <h2 id="overall-architecture">Overall Architecture</h2>
 <ol>
 <li>We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.</li>
 <li>We will be using the wave.py module to read the .wav files</li>
 <li>We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers</li>
-<li>The metadata from the .wav files is used to change the sampling frequence of the .wav player</li>
+<li>The metadata from the .wav files is used to change the sampling frequency of the .wav player</li>
 </ol>
 <h2 id="connections">Connections</h2>
 <p>Some of this documentation was take from <a href="https://github.com/danjperron/PicoAudioPWM">Dan Perron's Pico Audio GitHub Repo</a>.</p>
@@ -2764,10 +2786,11 @@ rs$ ls /pico/sounds
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://github.com/danjperron/PicoAudioPWM">Daniel Perron</a></li>
-<li><a href="https://en.wikipedia.org/wiki/WAV">Wikipedia Wave File</a>c</li>
+<li><a href="https://en.wikipedia.org/wiki/WAV">Wikipedia page for Wave File</a>c</li>
 <li><a href="https://convertio.co/audio-converter/">Web-Based Audio Conversion Service Convertio</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Audio_Interchange_File_Format">Wikipedia page for Audio Interchange File Format</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pulse-code_modulation">Wikipedia page for Pulse-code Modulation</a></li>
 </ol>
-<p>)</p>
                 
               
               
