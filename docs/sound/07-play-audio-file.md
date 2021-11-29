@@ -11,12 +11,23 @@ Although we can play tones of various pitches on the PR2040 using the PMW to gen
 
 In this lesson we will demonstrate how to play a high-quality audio files that are stored on the two megabytes of non-volatile static memory of the Pico.  According to the specification of the [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/specifications/), the system comes with 2MB on-board QSPI Flash that we can use to store sound files.  By combining our Pico with an SD card reader we can also play many sounds and even full-length music and full albums.
 
+## Background on Audio Encoding
+
+![PCM Encoding Example](../img/PCM-example.png)
+
+Audio files are encoded in many formats.  For this lab there are two key concepts to understand:
+
+1. The [Sampling Rate](https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate) which is how frequently an audio signal is sampled.  The more frequently we sample (up to 41K per second) the higher the fidelity of the recording.  The downside is that the audio file takes more space.
+2. The [audio bit depth](https://en.wikipedia.org/wiki/Audio_bit_depth) is how many bits we used to encode the amplitude of the sound.
+
+For our labs, we will be using a sampling rate of 8,000 samples per second (8K Hz) and a sampling rate of 16-bit depth.  This is a good compromise between smaller size and sound fidelity in typical robots.  We will be using standard .WAV files with [Pulse Code Modulation Encoding](https://en.wikipedia.org/wiki/Pulse-code_modulation) in .WAV files.  WAV files do take more space than compressed MP3 files, but they are easier to play because the decoding steps are trivial for a microcontroller to perform.
+
 ## Overall Architecture
 
 1. We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.
 2. We will be using the wave.py module to read the .wav files
 3. We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers
-4. The metadata from the .wav files is used to change the sampling frequence of the .wav player
+4. The metadata from the .wav files is used to change the sampling frequency of the .wav player
 
 ## Connections
 
@@ -216,7 +227,7 @@ https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio
 ## References
 
 1. [Daniel Perron](https://github.com/danjperron/PicoAudioPWM)
-2. [Wikipedia Wave File](https://en.wikipedia.org/wiki/WAV)c
+2. [Wikipedia page for Wave File](https://en.wikipedia.org/wiki/WAV)c
 3. [Web-Based Audio Conversion Service Convertio](https://convertio.co/audio-converter/)
-
-)
+4. [Wikipedia page for Audio Interchange File Format](https://en.wikipedia.org/wiki/Audio_Interchange_File_Format)
+5. [Wikipedia page for Pulse-code Modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation)

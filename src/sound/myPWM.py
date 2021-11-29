@@ -1,6 +1,5 @@
 from machine import PWM,Pin,mem32
 
-
 class  myPWM(PWM):
     def __init__(self,pin,divider=8,top=255):
         self.id = int(str(pin)[4:-1].split(',')[0])
@@ -21,15 +20,16 @@ class  myPWM(PWM):
         # set  cc base
         self.PWM_CC = self.PWM_BASE + 12
         
-        #ok we want frequency around 60KHz and max top at 255
+        # ok we want frequency around 60KHz and max top at 255
         # 125Mhz / (255 * 60000) => 8.1
-        # then  125MHZ / ( 8 * 255) = 61275Hz
+        # then  125MHZ / ( 8 * 255) = 61,275Hz
         
         # set divider to 8
         #mem32[self.PWM_DIV] =  8 << 4
         mem32[self.PWM_DIV] =  self.divider << 4
         # set top to 255
         mem32[self.PWM_TOP] =  self.top
+        # The "//" operator will floor the result to the next lowest integer value
         self.duty(self.top // 2)
         
         
@@ -47,8 +47,9 @@ class  myPWM(PWM):
         else:
             # channel channel B
             mem32[self.PWM_CC]= ( reg & 0xffff) | (value << 16)
-            
-            
+
+# use this if we run the module
+# we hard-code pin 15 for testing this module
 if __name__ == "__main__":
     import utime
     pwm = myPWM(Pin(15))
@@ -56,13 +57,16 @@ if __name__ == "__main__":
         value = 0
         increment = 1
         while True:
+            # modulo keeps this going from 0 to 256
             value = value % 256
             pwm.duty(value)
             if value == 0:
+                # reverse the direction
                 increment = increment * (-1)
             value += increment
             utime.sleep_ms(1)
     except KeyboardInterrupt:
+        # turn off the PWM circuit
         pwm.deinit()
 
             

@@ -69,7 +69,7 @@ from wavePlayer import wavePlayer
 if __name__ == "__main__":
 
     player = wavePlayer()
-    waveFolder= "/flash"
+    waveFolder= "/sounds"
     wavelist = []
 
     for i in uos.listdir(waveFolder):

@@ -1,6 +1,6 @@
 # Converting MP3 to WAV formats
 
-In last lab we will learned how to play an audio file stored on the flash memory or SD card.  We are used an early version of a program that plays .WAV files in a fixed format: 8,000 samples per second using 16-bit encoding.  Because there are hundreds of different formats of audio files, we need a consistent way to convert all of these formats to 8K samples/second 16-bit .WAV formats.
+In last lab we will learned how to play an audio file stored on the flash memory or SD card.  We used an early version of a Python module that plays .WAV files in a fixed format: 8,000 samples per second using 16-bit encoding.  Because there are hundreds of different formats of audio files, we need a consistent way to convert all of these formats to 8K samples/second 16-bit .WAV formats.
 
 The audio data file conversions are done on your host PC, not the microcontroller. This allows us to use a rich library of tools that don't need to run on our microcontroller.
 
