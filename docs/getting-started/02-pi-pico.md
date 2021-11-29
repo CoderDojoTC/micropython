@@ -1,8 +1,8 @@
-# Getting Started with the Raspberry Pi Pico
+# Getting Started with the Raspberry Pi RP2040 Microcontroller
 
 ![Raspberry Pi Pico](../img/raspberry-pi-pico.png)
 
-The Raspberry Pi Pico is a custom silicon microcontroller built by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation) with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as project that require drawing to an OLED display.
+The Raspberry Pi RP2040 is a custom silicon microcontroller built by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation).  The RP2040 is used in the Raspberry Pi Pico with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as projects that require drawing to an OLED display.
 
 ## Specs
 
@@ -136,7 +136,7 @@ Press the Play Button
 
 ### MicroPython RP2040 Reference
 
-[MicroPython RP2040 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html)
+[MicroPython RP2040 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html) - this web page has details on how MicroPython was ported to the RP2040 Microcontroller.
 
 ### Book PDF
 [Raspberry Pi Book PDF Download from HackSpace](https://hackspace.raspberrypi.org/downloads/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaThSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d43ee613629bddf78bc41c1479c2acb2ec6ef34e/RPi_PiPico_Digital_v10.pdf)

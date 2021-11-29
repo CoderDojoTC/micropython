@@ -81,6 +81,8 @@ A region of your microcontroller RAM that stores a bitmap image of your display.
 For a 128X64 monochrome display this would be 128 * 64 = 8,192 bits or 1,024 bytes (1K).  Color displays must store up to 8 bytes per color for each color (red, green and blue).
 
 * [Wikipedia page on Framebuffer](https://en.wikipedia.org/wiki/Framebuffer)
+* [MicroPython Documentation on FrameBuffer](https://docs.micropython.org/en/latest/library/framebuf.html)
+]
 
 #### I2C
 A communications protocol common in microcontroller-based systems, particularly for interfacing with sensors, memory devices and liquid crystal displays.

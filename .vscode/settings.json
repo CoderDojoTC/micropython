@@ -1,6 +1,7 @@
 {
     "editor.fontSize": 10,
     "cSpell.words": [
+<<<<<<< HEAD
         "Adafruit",
         "Ampy",
         "Barchart",
@@ -46,5 +47,25 @@
         "utime",
         "vals",
         "vline"
+=======
+        "AGND",
+        "Autoshutdown",
+        "ffprobe",
+        "Framebuffers",
+        "microcontroller",
+        "microswitches",
+        "milliamp",
+        "milliamps",
+        "OLED",
+        "Pinout",
+        "pydub",
+        "SMPS",
+        "solderless",
+        "Thonny",
+        "utime",
+        "VBUS",
+        "VREF",
+        "VSYS"
+>>>>>>> 0b6e3f501f3a042f5782a2d74206aa085657872c
     ]
 }

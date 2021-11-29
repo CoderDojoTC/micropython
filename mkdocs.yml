@@ -1,26 +1,26 @@
 site_name: 'MicroPython for Kids'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
-  - Micropython Home: index.md
+  - MicroPython Home: index.md
   - Getting Started:
     - Introduction: getting-started/01-intro.md
     - Microcontrollers: getting-started/01a-microcontrollers.md
+    - Solderless Breadboards: getting-started/02-breadboards.md
     - Boards: getting-started/02-boards.md
     - Displays: getting-started/10-displays.md
     - Sourcing Parts: getting-started/03-suggested-parts.md
     - Raspberry Pi Pico: getting-started/02-pi-pico.md
-    - Power: getting-started/04-power.md
     - ESP32: getting-started/02-esp32.md
+    - Powering Your Projects: getting-started/04-power.md
     - Thonny IDE: getting-started/02c-thonny.md
-    - VS Code IED: getting-started/02d-vscode.md
+    - VS Code IDE: getting-started/02d-vscode.md
     - MicroPython Libraries: getting-started/01b-libraries.md
   - Basic Examples:
     - Introduction: intro/01-intro.md
-    - Breadboards: intro/02-breadboards.md
     - Blink: intro/03-blink.md
     - Fade In and Out: intro/04-fade-in-and-out.md
     - Buttons: intro/03-button.md
-
+    - Potentiometer: intro/03-potentiometer.md
     - Motor: intro/04-motor.md
     - Servo: intro/04-servo.md
     - NeoPixel: intro/05-neopixel.md
@@ -45,18 +45,19 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Non OLED Displays:
+  - Non-Graphical Displays:
     - Introduction: displays/01-intro.md
     - 7 Segment Display: displays/seven-segment.md
     - Character LCD: displays/10-character-lcd-display.md
+  - Graphical Displays:
+    - Introduction: oled/01-intro.md
     - Graphic LCD: displays/15-cu1609c-led.md
+    - Basic Drawing: oled/03-oled-drawing.md
+    - Drawing with Bitmaps: displays/03-bitmaps.md
     - Color LCD ST7789V: displays/14-lcd-st7789V.md
     - LCD Waveshare: displays/11-lcd-waveshare.md
     - E-Paper: displays/12-e-paper-display.md
-  - OLED Displays:
-    - Introduction: oled/01-intro.md
-    - Setup: oled/02-oled-setup.md
-    - Drawing: oled/03-oled-drawing.md
+    - OLED Setup: oled/02-oled-setup.md
     - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
     - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
     - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
@@ -104,6 +105,7 @@ nav:
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
     - Rshell: advanced-labs/11-rshell.md
+    - Machine Learning: advanced-labs/12-machine-learning.md
   - Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:

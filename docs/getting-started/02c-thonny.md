@@ -1,20 +1,40 @@
 # Thonny Python IDE
-A lightweight Python IDE ideal for writing simple Python programs for first time users.
+A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.
 
-Thonny has the following screen areas.
+We strongly suggest that classes begin with Thonny for the first several weeks.  As students want to do more complex functions such as build automatic deployment scripts other IDEs are more appropriate.
 
-## Toolbar
+Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history see the [Thonny Release History](https://github.com/thonny/thonny/blob/master/CHANGELOG.rst).  We suggest checking this link monthly for updates.
 
-## Script Area
+## Installing Thonny
 
-## Python Shell
+The best way to install Thonny is to go to the Thonny web site an look for the "Download" are for your opeating system.  That link is here:
 
-## Interpreter
+[https://thonny.org/](https://thonny.org/)
 
+Make sure you upgrade to the latest version of Thonny if you already have a Thonny installed on your computer.
 
+You can find more tips on getting started with Thonny on the Raspberry Pi website:
+
+[https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2)
 
 
 Thonny runs on Mac, Windows and Linux.
+
+## Upgrading Thonny
+
+Although you can always upgrade Thonny by removing it and reinstalling a new version, on Mac and Linux systems there is an easier method.
+
+Run the following shell command:
+
+```sh
+sudo yum upgrade thonny
+```
+
+or
+
+```sh
+sudo apt-get upgrade thonny
+```
 
 #### Running help()
 You can enter the help() function in the main script area and then press the Play button.  This will tell you 
@@ -59,7 +79,6 @@ For further help on a specific object, type help(obj)
 For a list of available modules, type help('modules')
 >>> 
 ```
-
 ## Save Options
 You can save a python file in Thonny to either the Pico or to your local computer's file system.
 
@@ -89,6 +108,10 @@ MicroPython v1.13-290-g556ae7914 on 2021-01-21; Raspberry Pi Pico with RP2040
 Type "help()" for more information.
 >>> %Run -c $EDITOR_CONTENT
 ```
+
+## Plotting Values on Thonny
+
+If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidently hook up at potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incomming data cause by spikes on the power rails.
 
 ## Background on Thonny
 

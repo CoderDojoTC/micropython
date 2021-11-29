@@ -1,6 +1,6 @@
-# Micropython Book Contributing Guide
+# MicroPython Book Contributing Guide
 
-The goal of this microsite is to provide micropython content to STEM educational programs around the world.  We value inclusion and we love low-cost project that promote STEM instruction in communities that don't have large budgets.  We value a focus on instructional design that teaches computational thinking and uses evidence of the effective delivery of this content to underprivileged communities.
+The goal of this microsite is to provide MicroPython content to STEM educational programs around the world.  We value inclusion and we love low-cost projects that promote STEM instruction in communities that don't have large budgets.  We value a focus on instructional design that teaches computational thinking and uses evidence of the effective delivery of this content to underprivileged communities.
 
 We welcome anyone that would like to add content to this microsite with the following guidelines:
 
@@ -35,6 +35,14 @@ Under the following terms:
 ## Teaching Suggestions
 
 Avoid too much focus on building games that don't promote teaching computational thinking skills.  Simple remote control robots might be fun, but sometime the fun of driving a robot around gets in the way of learning new concepts.
+
+## Lesson Structure
+
+1. Try to begin each section or lesson with a kid-friendly image.  This help readers quickly recall if they have visited this page before.
+2. If if it not obvious, include any prior knowledge that is required to understand a lesson in an Intended Audience or Prerequsites section.
+3. Try to keep the introductory lessons in a section short and small.  After you have introduce the core concepts you can integrate concepts from other areas.
+4. Add a "Further Explorations" section to the end of each lesson
+Include references to other sites or wikipedia articles that can be explored further.
 
 ## Resources
 

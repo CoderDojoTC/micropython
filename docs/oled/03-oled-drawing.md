@@ -155,5 +155,7 @@ display.show()
 
 ## References
 
+* [MicroPython Documentation on FrameBuffer](https://docs.micropython.org/en/latest/library/framebuf.html)
+* [Drawing Primitive Shapes](https://docs.micropython.org/en/latest/library/framebuf.html#drawing-primitive-shapes)
 * [Driving I2C OLED displays with MicroPython](https://www.mfitzp.com/article/oled-displays-i2c-micropython/) - by Martin Fitzpatrick
 * [ST7735 Micropython Driver by Anthony Norman](https://github.com/AnthonyKNorman/MicroPython_ST7735)

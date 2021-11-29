@@ -3,12 +3,14 @@
 
 from machine import Pin,PWM
 from utime import sleep
+import ssd1306
 import random
 import VL53L0X
 from neopixel import Neopixel
+import framebuf
 
 # key parameters
-POWER_LEVEL = 35000 # min is 20000 max is 65025
+POWER_LEVEL = 30000 # min is 20000 max is 65025
 TURN_DISTANCE = 25 # distnce we decide to turn - try 20
 REVERSE_TIME = .4 # how long we backup
 TURN_TIME = .4 # how long we turn
@@ -18,11 +20,10 @@ MAX_DIST = 200
 buzzer=PWM(Pin(22))
 
 # Motor Pins are A: 8,9 and B: 10,11
-RIGHT_FORWARD_PIN = 11
-RIGHT_REVERSE_PIN = 10
-LEFT_FORWARD_PIN = 8
-LEFT_REVERSE_PIN = 9
-
+RIGHT_FORWARD_PIN = 8
+RIGHT_REVERSE_PIN = 9
+LEFT_FORWARD_PIN = 11
+LEFT_REVERSE_PIN = 10
 # our PWM objects
 right_forward = PWM(Pin(RIGHT_FORWARD_PIN))
 right_reverse = PWM(Pin(RIGHT_REVERSE_PIN))
@@ -37,9 +38,19 @@ NEOPIXEL_PIN = 18
 strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, NEOPIXEL_PIN, "GRB")
 strip.brightness(100)
 
-sda=machine.Pin(2) # lower right pin
-scl=machine.Pin(3) # one up from lower right pin
-i2c=machine.I2C(1, sda=sda, scl=scl, freq=400000)
+sda=machine.Pin(16)
+scl=machine.Pin(17)
+i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+
+WIDTH = 128
+HEIGHT = 64
+SCK=machine.Pin(2)
+SDL=machine.Pin(3)
+spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
+CS = machine.Pin(0)
+DC = machine.Pin(1)
+RES = machine.Pin(5)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
@@ -59,6 +70,26 @@ pink = (255, 128, 128)
 color_names = ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'cyan', 'lightgreen', 'white')
 num_colors = len(color_names)
 colors = (red, orange, yellow, green, blue, indigo, violet, cyan, lightgreen, white, pink)
+
+# 64, 64, framebuf.MONO_VLSB
+coderdojo_logo_byte_array = bytearray(
+    b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x00\x00\x00\x04\x00\x00\x02\x00\x00\x80\xc1\xc1\xc0\xc0\xc0'
+    b'\xc0\xc0\xc1\x81\x01\x01\x02\x02\x06\x0e\x0c\x1c\x38\xf8\xf8\xf0\xe0\xe0\xc0\x80\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    b'\x00\x00\x00\x00\x00\x40\x00\x00\x04\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\x00\x00\x00\x00'
+    b'\x00\x00\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x1f\xff\xff\xff\xff\xff\xff\xfe\xfc\xf8\xe0\xc0\x00\x00\x00\x00\x00'
+    b'\x00\x80\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0f\x1f\x38\x10\x10\x10'
+    b'\x10\x30\x1f\x1f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\xf8\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xf8\xc0\x00'
+    b'\x18\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    b'\x00\x00\x00\x00\x80\x80\x80\xc0\xe0\xe0\xf0\xf8\xfc\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfc'
+    b'\x38\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\xc0\xe0\xf0\xf8\xfc\xfc\xfe\xfe\xfe\xff\xff\xff\xff'
+    b'\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x3f'
+    b'\x00\x03\x00\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\xfe\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf9\xf9\xf9\xf1'
+    b'\x01\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x7f\x1f\x03\x00'
+    b'\x00\x00\x00\x00\x00\x02\x00\x10\x20\x40\x80\x00\x00\x00\x00\x00\x0f\x7f\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x3f\x3f\x3f\x2f'
+    b'\x00\x3f\x3f\x03\x03\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x7f\x3f\x1f\x0f\x03\x01\x00\x00\x00\x00'
+    b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x04\x00\x00\x10\x01\x23\x07\x0f\x5f\x3f\x3f\x7f\xff\xff\xff\xff\xff\xff'
+    b'\xff\xff\xff\xff\xff\xff\x7f\x7f\x7f\x7f\x3f\x3f\x3f\x1f\x1f\x0f\x0f\x07\x03\x03\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+fbi = framebuf.FrameBuffer(coderdojo_logo_byte_array, 64, 64, framebuf.MONO_VLSB)
 
 def turn_motor_on(pwm):
    pwm.duty_u16(POWER_LEVEL)
@@ -158,13 +189,13 @@ def play_turn_left():
 
 # The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
 # remove 0, 1, 2 and 3 for the I2C busees and remove 26,27 and 28 for the pots
-blue_led_pins = [4,  5,  6,  7, 16, 17]
+#blue_led_pins = [4,  5,  6,  7, 16, 17]
 # dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
-dist_scale =    [4, 8, 16, 24, 50]
+#dist_scale =    [4, 8, 16, 24, 50]
 
-number_leds = len(blue_led_pins)
-distance_per_led = (MAX_DIST - TURN_DISTANCE) / number_leds
-led_ports = []
+#number_leds = len(blue_led_pins)
+#distance_per_led = (MAX_DIST - TURN_DISTANCE) / number_leds
+#led_ports = []
 # time for each LED to display
 delay = .05
 
@@ -174,8 +205,8 @@ max_dist = 350 # max distance we are able to read
 scale_factor = .2
 
 # create a list of the ports
-for i in range(number_leds):
-   led_ports.append(machine.Pin(blue_led_pins[i], machine.Pin.OUT))
+#for i in range(number_leds):
+#   led_ports.append(machine.Pin(blue_led_pins[i], machine.Pin.OUT))
 
 # Create a VL53L0X object
 tof = VL53L0X.VL53L0X(i2c)
@@ -219,11 +250,24 @@ def run_lights():
         led_ports[i].low()
 # start our time-of-flight sensor
 
+def update_display(distance):
+    oled.fill(0)
+    oled.blit(fbi, 64, 0)
+    oled.text("CoderDojo", 0, 0)
+    oled.text("Robots", 0, 10)
+    if distance < MAX_DIST:
+        oled.text("Dist:", 0, 54)
+        oled.text(str(distance), 40, 54)
+    else:
+        oled.text("No Signal", 0, 54)
+    oled.show()
+
 # loop forever
 def main():
     global valid_distance
     while True:  
         distance = get_distance()
+        update_display(distance)
         if distance > MAX_DIST:
             # only print if we used to have a valid distance
             if valid_distance == 1:
@@ -251,13 +295,13 @@ def main():
                 print('forward')
                 forward()
             valid_distance = 1
-            led_show_dist(distance)
+            #led_show_dist(distance)
         sleep(0.05)
 
 # startup
-run_lights()
-tof.start()
-play_startup()
+#run_lights()
+#tof.start()
+#play_startup()
 valid_distance = 1
 
 # This allows us to stop the sound by doing a Stop or Control-C which is a keyboard intrrupt

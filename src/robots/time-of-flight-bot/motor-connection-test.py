@@ -45,7 +45,7 @@ def main():
 try:
     main()
 except KeyboardInterrupt:
-    print('Got ctrl-c')
+    print('Got Control-c')
 finally:
     print('shutting motors down')
     stop()

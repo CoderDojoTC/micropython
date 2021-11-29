@@ -1,4 +1,4 @@
-# Fade and LED in and Out 
+# Fade an LED in and Out 
 
 In the prior Blink lab, we turned an LED on an off at different speeds.  But what if we want to slowly turn on our LED on and off?  In this lab we will show you how to dim your LED to any brightness level you want.
 

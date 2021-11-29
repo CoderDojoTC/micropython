@@ -216,6 +216,7 @@ https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio
 ## References
 
 1. [Daniel Perron](https://github.com/danjperron/PicoAudioPWM)
-2. [Wikipedia Wave File](
+2. [Wikipedia Wave File](https://en.wikipedia.org/wiki/WAV)c
+3. [Web-Based Audio Conversion Service Convertio](https://convertio.co/audio-converter/)
 
 )
