@@ -259,3 +259,4 @@ https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio
 3. [Web-Based Audio Conversion Service Convertio](https://convertio.co/audio-converter/)
 4. [Wikipedia page for Audio Interchange File Format](https://en.wikipedia.org/wiki/Audio_Interchange_File_Format)
 5. [Wikipedia page for Pulse-code Modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation)
+6. [Raspberry Pi Pico Forum on Sounds Files](https://forums.raspberrypi.com/viewtopic.php?p=1847611)

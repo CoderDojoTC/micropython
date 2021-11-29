@@ -1,13 +1,13 @@
 from machine import mem32
 import uctypes
 
-
 class myDMA:
     
-    def __init__(self, channel,timer=None, clock_MUL=None, clock_DIV=None):
+    def __init__(self, channel, timer=None, clock_MUL=None, clock_DIV=None):
         self.channel = channel
         self.timer = timer
-        self.DMA_BASE = 0x50000000
+        # why this address?
+        self.DMA_BASE = 0x50_000_000
         self.DMA_CH_BASE = self.DMA_BASE + (0x40 * channel)
         self.READ_ADDR = self.DMA_CH_BASE + 0
         self.WRITE_ADDR = self.DMA_CH_BASE + 4 
@@ -31,7 +31,7 @@ class myDMA:
         mem32[self.CTRL_TRIG] = 0
         self.abort()
         self.setCtrl(src_inc=True, dst_inc=True,data_size=1,chainTo=None)
-
+ 
     def start(self):
         mem32[self.MULTI_TRIG] =  1 << self.channel
 
@@ -71,7 +71,7 @@ class myDMA:
             ctrl += 0x20
         mem32[self.ALIAS_CTRL] = ctrl
 
-     
+
     def move(self, src_add, dst_add, count, start=False):
         #        mem32[self.CTRL_TRIG] = 0
         #        mem32[self.CHAIN_ABORT] = 1 << self.channel 
@@ -97,30 +97,31 @@ class myDMA:
             if (flag & ( 1<<24)) == 0:
                 return False
             return True
-
-# Unit test function for myDMA used when running this module directly
-# Running this test copies 96 random integers from 0 to 255 from src to dst
-# Ideally we should check that the results are the same
+            
 if __name__ == "__main__":
     import urandom, time
-
-    # Transfer Size
     tSize = 96
     src = bytearray(tSize)
     dst = bytearray(tSize)
 
     for i in range(tSize):
-        src[i]= urandom.randint(0,255)
+        src[i]= urandom.randint(1,7)
+        #src[i]= i % 255
  
    # initialize DMA channel 11 , use timer 3 and set clock to 125MHz/15625 = 8000Hz
     dma = myDMA(11, timer=3, clock_MUL=1, clock_DIV=15625)
     start = time.ticks_us()
+    # copy from src to dest
     dma.move(uctypes.addressof(src), uctypes.addressof(dst), tSize, start=True)
     end = time.ticks_us() 
 
     print("src= ", src)
     print("\ndst= ", dst)
+    # test that it worked
+    for i in range(0, tSize):
+        if src[i] != dst[i]:
+            print('Copy error at', i)
 
     length_us = end - start
     if length_us > 0:
-        print("\ntook {} us  rate = {} bytes /sec\n".format(length_us, 1_000_000.0 * tSize / length_us))     
+        print("\ntook {} us  rate = {} bytes /sec\n".format(length_us,1_000_000.0 * tSize / length_us))     

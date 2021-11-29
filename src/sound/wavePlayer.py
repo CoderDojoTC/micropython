@@ -1,7 +1,8 @@
 '''
-    (c) 2021  Daniel Perron MIT License
+    (c) 2021  Daniel Perron
+    MIT License
 
-    Example of audio output using PWM and DMA
+    example of audio output using PWM and DMA
     right now it  works only with wave file at
     8000 sample rate , stereo or mono, and 16 bits audio
 
@@ -13,23 +14,26 @@
 
     The myDMA class allows to use direct memory access to transfer each frame at the current sample rate
 
+
     You need to install the wave.py and chunk.py  from
          https://github.com/joeky888/awesome-micropython-lib/tree/master/Audio
          
     SDCard.py  is available in  https://github.com/micropython/micropython/tree/master/drivers/sdcard
       please be sure to rename it SDCard.py into the pico lib folder
     
+
     ***  be sure to increase the SPI clock speed > 5MHz
     ***  once SDCard is initialize set the spi to an higher clock
 
+
     How it works,
 
-       1 - We set the PWM to a range of 255, 1023 for 10 bits, at 122Khz
+       1 - We set the PWM  to a range of 255, 1023 for 10 bits, at 122Khz
        2 - We read the wave file using the class wave which will set the sample rate and read the audio data by chunk
        3 - Mono files are converted to stereo by duplicating the original audio samples
-       4 - Each chunk are converted to 16 bit signed to unsigned char with the middle at 128
-       5 - Wait for the DMA to be completed. On first it will be anyway.
-       6 - The converted chunk is then passed to the DMA to be transferred at the sample rate using one of the built-in timers
+       4 - Each chunk are converted to  16 bit signed to unsigned char with the middle at 128
+       5 - Wait for the DMA to be completed.  On first it will be anyway.
+       6 - The converted chunk is then passed to the DMA to be transfered at the sample rate using one of built-in timer
        7 - Go on step 2 until is done.
 
     P.S. use rshell to transfer wave files to the Pico file system
@@ -44,6 +48,7 @@
 
     For Headphones
 
+    
              2K
     PIO2   -/\/\/-----+-----    headphone left
                       |
@@ -55,8 +60,13 @@
               2k      |
     PIO3   -/\/\/-----+-----    headphone right
 
+
+
     For amplifier don't use PIO4 and the capacitor should be 2200pF and connected to GND. 
     
+       
+
+
 '''
 import wave
 import uctypes
@@ -132,7 +142,8 @@ def interleavebytes(r0,r1,r2):
 
 
 class wavePlayer:
-    def __init__(self,leftPin=Pin(2),rightPin=Pin(3), virtualGndPin=Pin(4),
+    # here are the default pins, but you can override them
+    def __init__(self,leftPin=Pin(0),rightPin=Pin(1), virtualGndPin=Pin(4),
                  dma0Channel=10,dma1Channel=11,dmaTimer=3,pwmBits=10):
         #left channel Pin needs to be an even GPIO Pin number
         #right channel Pin needs to be left channel + 1
@@ -260,24 +271,25 @@ class wavePlayer:
         f.close()
         self.stop()
 
-
+# if you run this class this is the default main
 if __name__ == "__main__":
 
     import uos
-    import SDCard
+    from utime import sleep
+    #import SDCard
 
     # mount SDCard
-    from machine import SPI,Pin
-    sd = SDCard.SDCard(SPI(1),Pin(13))
+    #from machine import SPI,Pin
+    #sd = SDCard.SDCard(SPI(1),Pin(13))
 
     #need to pump up the SPI clock rate
     # below 3MHz it won't work!
-    sd.init_spi(50_000_000)
-    uos.mount(sd,"/sd")
+    #sd.init_spi(50_000_000)
+    #uos.mount(sd,"/sd")
 
-    player = wavePlayer()
-
-    waveFolder= "/sd/Wendy"
+    # player = wavePlayer()
+    player = wavePlayer(leftPin=Pin(15),rightPin=Pin(14))
+    waveFolder= "/sounds"
     wavelist = []
 
     for i in uos.listdir(waveFolder):
@@ -286,10 +298,10 @@ if __name__ == "__main__":
         elif i.find(".WAV")>=0:
             wavelist.append(waveFolder+"/"+i)
             
-
     try:
         for  i in wavelist:
             print(i)
             player.play(i)
+            sleep(1)
     except KeyboardInterrupt:
         player.stop()
