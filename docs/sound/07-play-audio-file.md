@@ -28,10 +28,26 @@ We will be using standard .WAV files with [Pulse Code Modulation Encoding](https
 
 ## Overall Architecture
 
-1. We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.
+1. We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.  By convention we will store them in a directory called ```/sounds```
 2. We will be using the wave.py module to read the .wav files
-3. We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers
+3. We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the WAV files to the PWM controllers
 4. The metadata from the .wav files is used to change the sampling frequency of the .wav player
+
+## Checking Your Sound File Sizes
+
+```py
+import os
+
+waveFolder= "/sounds"
+
+total = 0
+# get a list of .wav files and their sizes
+for file in os.listdir(waveFolder):
+    size = os.path.getsize(file)
+    print(file, size)
+    total += size
+print('Total sound directory size:', total)
+```
 
 ## Connections
 

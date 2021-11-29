@@ -32,8 +32,6 @@ class myDMA:
         self.abort()
         self.setCtrl(src_inc=True, dst_inc=True,data_size=1,chainTo=None)
 
-
-    
     def start(self):
         mem32[self.MULTI_TRIG] =  1 << self.channel
 
@@ -43,9 +41,6 @@ class myDMA:
     def pause(self):
         mem32[self.CTRL_TRIG | 0x3000]= 1
         
-        
-     
-     
     def setCtrl(self, src_inc=True, dst_inc=True,data_size=1,chainTo=None):
         self.data_size=data_size
         DATA_SIZE = 0
@@ -77,7 +72,7 @@ class myDMA:
         mem32[self.ALIAS_CTRL] = ctrl
 
      
-    def move(self, src_add, dst_add,count,start=False):
+    def move(self, src_add, dst_add, count, start=False):
         #        mem32[self.CTRL_TRIG] = 0
         #        mem32[self.CHAIN_ABORT] = 1 << self.channel 
         mem32[self.WRITE_ADDR] = dst_add
@@ -102,9 +97,14 @@ class myDMA:
             if (flag & ( 1<<24)) == 0:
                 return False
             return True
-            
+
+# Unit test function for myDMA used when running this module directly
+# Running this test copies 96 random integers from 0 to 255 from src to dst
+# Ideally we should check that the results are the same
 if __name__ == "__main__":
     import urandom, time
+
+    # Transfer Size
     tSize = 96
     src = bytearray(tSize)
     dst = bytearray(tSize)
@@ -113,14 +113,14 @@ if __name__ == "__main__":
         src[i]= urandom.randint(0,255)
  
    # initialize DMA channel 11 , use timer 3 and set clock to 125MHz/15625 = 8000Hz
-    dma = myDMA(11,timer=3,clock_MUL=1, clock_DIV=15625)
+    dma = myDMA(11, timer=3, clock_MUL=1, clock_DIV=15625)
     start = time.ticks_us()
-    dma.move(uctypes.addressof(src),uctypes.addressof(dst),tSize,start=True)
+    dma.move(uctypes.addressof(src), uctypes.addressof(dst), tSize, start=True)
     end = time.ticks_us() 
 
-    print("src= ",src)
-    print("\ndst= ",dst)
+    print("src= ", src)
+    print("\ndst= ", dst)
 
     length_us = end - start
     if length_us > 0:
-        print("\ntook {} us  rate = {} bytes /sec\n".format(length_us,1_000_000.0 * tSize / length_us))     
+        print("\ntook {} us  rate = {} bytes /sec\n".format(length_us, 1_000_000.0 * tSize / length_us))     

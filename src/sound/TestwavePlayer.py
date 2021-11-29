@@ -79,9 +79,9 @@ if __name__ == "__main__":
             wavelist.append(waveFolder+"/"+i)
             
     if not wavelist :
-        print("Warning NO '.wav' files")
+        print("Warning NO '.wav' files found in ", waveFolder)
     else:
-        print("Will play these '.wav' files","/n",wavelist)
+        print("Will play these '.wav' files", "/n" ,wavelist)
         try:
             while True:
                 for  i in wavelist:
