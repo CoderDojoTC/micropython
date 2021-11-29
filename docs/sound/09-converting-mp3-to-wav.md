@@ -27,7 +27,7 @@ This should return the location that it finds the ffmpeg shell script.  You can 
 
 ## Converting MP3 to 8K 16 bit WAV Files
 
-To get the format we need for the MicroPython wave player class we just specific ```-i``` for the input file and use the ```ar 8000``` to specifiy the output bit rate of 8K samples per second.  The final parameter is a file name that must in ```.wav``` so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.
+To get the format we need for the MicroPython wave player class we just specific ```-i``` for the input file and use the ```ar 8000``` to specify the output bit rate of 8K samples per second.  The final parameter is a file name that must in ```.wav``` so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.
 
 ```sh
 ffmpeg -i r2d2-beeping.mp3 -ar 8000 r2d2-beeping-8k.wav
