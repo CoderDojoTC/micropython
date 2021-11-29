@@ -1319,6 +1319,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#checking-your-sound-file-sizes" class="md-nav__link">
+    Checking Your Sound File Sizes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connections" class="md-nav__link">
     Connections
   </a>
@@ -2408,6 +2415,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#checking-your-sound-file-sizes" class="md-nav__link">
+    Checking Your Sound File Sizes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connections" class="md-nav__link">
     Connections
   </a>
@@ -2536,11 +2550,35 @@
 <p>We will be using standard .WAV files with <a href="https://en.wikipedia.org/wiki/Pulse-code_modulation">Pulse Code Modulation Encoding</a> in .WAV files.  WAV files do take more space than compressed MP3 files, but they are easier to play because the decoding steps are trivial for a microcontroller to perform.</p>
 <h2 id="overall-architecture">Overall Architecture</h2>
 <ol>
-<li>We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.</li>
+<li>We will be reading .wav files from the MicroPython non-volatile flash memory or an SD card.  By convention we will store them in a directory called <code>/sounds</code></li>
 <li>We will be using the wave.py module to read the .wav files</li>
-<li>We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the pwm files to the PWM controllers</li>
+<li>We will be using the myPMW.py, chunk.py and myDMA.py modules to stream the data from the WAV files to the PWM controllers</li>
 <li>The metadata from the .wav files is used to change the sampling frequency of the .wav player</li>
 </ol>
+<h2 id="checking-your-sound-file-sizes">Checking Your Sound File Sizes</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">waveFolder</span><span class="o">=</span> <span class="s2">&quot;/sounds&quot;</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># get a list of .wav files and their sizes</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">waveFolder</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">size</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total sound directory size:&#39;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="connections">Connections</h2>
 <p>Some of this documentation was take from <a href="https://github.com/danjperron/PicoAudioPWM">Dan Perron's Pico Audio GitHub Repo</a>.</p>
 <p>In these tests we used GPIO pins 2 and 3 to drive the left and right channels of audio that are sent to a stereo amplifier.  You can use both an amplifier or head phone with a 1K resistor in series on the pins to limit the current from the 3.3v output signals.</p>
