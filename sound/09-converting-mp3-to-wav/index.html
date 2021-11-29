@@ -1317,6 +1317,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#converting-mp3-to-8k-16-bit-wav-files" class="md-nav__link">
+    Converting MP3 to 8K 16 bit WAV Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bulk-conversions" class="md-nav__link">
     Bulk Conversions
   </a>
@@ -1331,9 +1338,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-2-install-conda-and-the-python-libraries" class="md-nav__link">
-    Method 2: Install Conda and the Python libraries
+  <a href="#method-2-use-the-pydub-python-module" class="md-nav__link">
+    Method 2: Use the pydub Python Module
   </a>
+  
+    <nav class="md-nav" aria-label="Method 2: Use the pydub Python Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-conda-and-the-python-libraries" class="md-nav__link">
+    Install Conda and the Python libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-pydub" class="md-nav__link">
+    Running pydub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2325,6 +2352,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#converting-mp3-to-8k-16-bit-wav-files" class="md-nav__link">
+    Converting MP3 to 8K 16 bit WAV Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bulk-conversions" class="md-nav__link">
     Bulk Conversions
   </a>
@@ -2339,9 +2373,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-2-install-conda-and-the-python-libraries" class="md-nav__link">
-    Method 2: Install Conda and the Python libraries
+  <a href="#method-2-use-the-pydub-python-module" class="md-nav__link">
+    Method 2: Use the pydub Python Module
   </a>
+  
+    <nav class="md-nav" aria-label="Method 2: Use the pydub Python Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-conda-and-the-python-libraries" class="md-nav__link">
+    Install Conda and the Python libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-pydub" class="md-nav__link">
+    Running pydub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2377,19 +2431,34 @@
                 
                 
                 <h1 id="converting-mp3-to-wav-formats">Converting MP3 to WAV formats</h1>
-<p>Our micropython library is limited to 8K sound files</p>
-<p>This is done on your host PC, not the microcontroller. This</p>
+<p>In last lab we will learned how to play an audio file stored on the flash memory or SD card.  We are used an early version of a program that plays .WAV files in a fixed format: 8,000 samples per second using 16-bit encoding.  Because there are hundreds of different formats of audio files, we need a consistent way to convert all of these formats to 8K samples/second 16-bit .WAV formats.</p>
+<p>The audio data file conversions are done on your host PC, not the microcontroller. This allows us to use a rich library of tools that don't need to run on our microcontroller.</p>
 <h2 id="method-1-use-the-ffmpeg-command-line-tool">Method 1: Use the ffmpeg Command Line Tool</h2>
+<p>One of the easiest ways to get started is to go to the web site <a href="https://www.ffmpeg.org/download.html">ffmpeg.org</a> and download the program that does the conversion using a command line.  Note that on a Mac you will need to go into your System Preferences and indicate that the following programs are trusted:</p>
+<p>Here are the direct links for MacOS
+1. <a href="https://evermeet.cx/ffmpeg/ffmpeg-104676-g5593f5cf24.zip">ffmpeg (mac)</a>
+2. <a href="https://evermeet.cx/ffmpeg/ffprobe-104676-g5593f5cf24.zip">ffprobe (mac)</a>
+3. <a href="https://evermeet.cx/ffmpeg/ffplay-104454-gd92fdc7144.zip">ffplay (mac)</a></p>
+<p>This will download a zip file which you will need to unzip and place in a location such as <code>~/bin</code>.  After you do this make sure you add <code>`~/bin</code> to your path by adding the following file to your .bash_profile:</p>
+<p><code>PATH=$PATH:~/bin</code></p>
+<p>After you source your .bash_profile type in the following:</p>
+<p><code>which ffmpeg</code></p>
+<p>This should return the location that it finds the ffmpeg shell script.  You can then see the many file-format MPEG options:</p>
+<p><code>ffmpeg --help</code></p>
+<h2 id="converting-mp3-to-8k-16-bit-wav-files">Converting MP3 to 8K 16 bit WAV Files</h2>
+<p>To get the format we need for the MicroPython wave player class we just specific <code>-i</code> for the input file and use the <code>ar 8000</code> to specifiy the output bit rate of 8K samples per second.  The final parameter is a file name that must in <code>.wav</code> so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg -i r2d2-beeping.mp3 -ar <span class="m">8000</span> r2d2-beeping-8k.wav
 </code></pre></div>
 </td></tr></table>
 <h2 id="bulk-conversions">Bulk Conversions</h2>
-<p>We can use unix shell commands to do a batch conversion.  The following is an example of using awk and sed to convert all the .mp3 files in a directory and convert them to 8K WAV files and put them in a sibling directory.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls -1 <span class="p">|</span> awk <span class="s1">&#39;{print &quot;ffmpeg -i &quot; $1 &quot; -ar 8000 ../wav-8k/&quot;$1}&#39;</span> <span class="p">|</span> sed s/mp3$/wav/ <span class="p">|</span> sh
+<p>We can use unix shell commands to do a batch conversion of all the .  The following is an example of using awk and sed to convert all the .mp3 files in a directory and convert them to 8K Hz WAV files and put them in a sibling directory.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls -1 *.mp3 <span class="p">|</span> awk <span class="s1">&#39;{print &quot;ffmpeg -i &quot; $1 &quot; -ar 8000 ../wav-8k/&quot;$1}&#39;</span> <span class="p">|</span> sed s/mp3$/wav/ <span class="p">|</span> sh
 </code></pre></div>
 </td></tr></table>
 <h2 id="inspect-the-files-using-the-unix-file-command">Inspect the Files Using the UNIX file command:</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>file *
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ../wav-8k
+file *.wav
 </code></pre></div>
 </td></tr></table>
 <p>returns
@@ -2428,8 +2497,13 @@ r2d2-taking-to-himself.wav:     RIFF (little-endian) data, WAVE audio, Microsoft
 r2d2-unsure.wav:                RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
 </code></pre></div>
 </td></tr></table></p>
-<p>Note that these are WAVE audio, Pulse-code Modulated (PCM), 16 bit and mono at 8K.</p>
-<h2 id="method-2-install-conda-and-the-python-libraries">Method 2: Install Conda and the Python libraries</h2>
+<p>Note that these are WAVE audio, Pulse-code Modulated (PCM), 16 bit and mono at 8K Hz.</p>
+<h2 id="method-2-use-the-pydub-python-module">Method 2: Use the pydub Python Module</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is only for experienced Python developers.</p>
+</div>
+<h3 id="install-conda-and-the-python-libraries">Install Conda and the Python libraries</h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n mp3-to-wav <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
@@ -2437,6 +2511,7 @@ conda activate mp3-to-wav
 pip install pydub ffprobe ffmpeg
 </code></pre></div>
 </td></tr></table>
+<p>Check your versions:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip freeze
 </code></pre></div>
 </td></tr></table>
@@ -2446,6 +2521,16 @@ pip install pydub ffprobe ffmpeg
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg==1.4
 ffprobe==0.5
 pydub==0.25.1
+</code></pre></div>
+</td></tr></table>
+<h3 id="running-pydub">Running pydub</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydub</span> <span class="kn">import</span> <span class="n">AudioSegment</span>
+
+<span class="n">sound</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_mp3</span><span class="p">(</span><span class="s2">&quot;r2d2-beeping.mp3&quot;</span><span class="p">)</span>
+<span class="n">sound</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;r2d2-beeping.wav&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;wav&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Robot name&#39;</span><span class="p">:</span> <span class="s1">&#39;R2D2&#39;</span><span class="p">})</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="transferring-the-files-with-rshell">Transferring the Files with Rshell</h2>
