@@ -2446,7 +2446,7 @@
 <p>This should return the location that it finds the ffmpeg shell script.  You can then see the many file-format MPEG options:</p>
 <p><code>ffmpeg --help</code></p>
 <h2 id="converting-mp3-to-8k-16-bit-wav-files">Converting MP3 to 8K 16 bit WAV Files</h2>
-<p>To get the format we need for the MicroPython wave player class we just specific <code>-i</code> for the input file and use the <code>ar 8000</code> to specifiy the output bit rate of 8K samples per second.  The final parameter is a file name that must in <code>.wav</code> so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.</p>
+<p>To get the format we need for the MicroPython wave player class we just specific <code>-i</code> for the input file and use the <code>ar 8000</code> to specify the output bit rate of 8K samples per second.  The final parameter is a file name that must in <code>.wav</code> so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg -i r2d2-beeping.mp3 -ar <span class="m">8000</span> r2d2-beeping-8k.wav
 </code></pre></div>
 </td></tr></table>
