@@ -1,13 +1,13 @@
 from machine import mem32
 import uctypes
 
-
 class myDMA:
     
-    def __init__(self, channel,timer=None, clock_MUL=None, clock_DIV=None):
+    def __init__(self, channel, timer=None, clock_MUL=None, clock_DIV=None):
         self.channel = channel
         self.timer = timer
-        self.DMA_BASE = 0x50000000
+        # why this address?
+        self.DMA_BASE = 0x50_000_000
         self.DMA_CH_BASE = self.DMA_BASE + (0x40 * channel)
         self.READ_ADDR = self.DMA_CH_BASE + 0
         self.WRITE_ADDR = self.DMA_CH_BASE + 4 
@@ -31,9 +31,7 @@ class myDMA:
         mem32[self.CTRL_TRIG] = 0
         self.abort()
         self.setCtrl(src_inc=True, dst_inc=True,data_size=1,chainTo=None)
-
-
-    
+ 
     def start(self):
         mem32[self.MULTI_TRIG] =  1 << self.channel
 
@@ -43,9 +41,6 @@ class myDMA:
     def pause(self):
         mem32[self.CTRL_TRIG | 0x3000]= 1
         
-        
-     
-     
     def setCtrl(self, src_inc=True, dst_inc=True,data_size=1,chainTo=None):
         self.data_size=data_size
         DATA_SIZE = 0
@@ -76,8 +71,8 @@ class myDMA:
             ctrl += 0x20
         mem32[self.ALIAS_CTRL] = ctrl
 
-     
-    def move(self, src_add, dst_add,count,start=False):
+
+    def move(self, src_add, dst_add, count, start=False):
         #        mem32[self.CTRL_TRIG] = 0
         #        mem32[self.CHAIN_ABORT] = 1 << self.channel 
         mem32[self.WRITE_ADDR] = dst_add
@@ -110,16 +105,22 @@ if __name__ == "__main__":
     dst = bytearray(tSize)
 
     for i in range(tSize):
-        src[i]= urandom.randint(0,255)
+        src[i]= urandom.randint(1,7)
+        #src[i]= i % 255
  
    # initialize DMA channel 11 , use timer 3 and set clock to 125MHz/15625 = 8000Hz
-    dma = myDMA(11,timer=3,clock_MUL=1, clock_DIV=15625)
+    dma = myDMA(11, timer=3, clock_MUL=1, clock_DIV=15625)
     start = time.ticks_us()
-    dma.move(uctypes.addressof(src),uctypes.addressof(dst),tSize,start=True)
+    # copy from src to dest
+    dma.move(uctypes.addressof(src), uctypes.addressof(dst), tSize, start=True)
     end = time.ticks_us() 
 
-    print("src= ",src)
-    print("\ndst= ",dst)
+    print("src= ", src)
+    print("\ndst= ", dst)
+    # test that it worked
+    for i in range(0, tSize):
+        if src[i] != dst[i]:
+            print('Copy error at', i)
 
     length_us = end - start
     if length_us > 0:

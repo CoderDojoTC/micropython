@@ -63,12 +63,24 @@
 #
 #---USES 
 import os as uos
+from machine import Pin
+import wave
 from wavePlayer import wavePlayer
+from utime import sleep
 
+def print_sound_metadata(path_to_wave_file):
+    f = wave.open(path_to_wave_file,'rb')
+    print("{0:<50}".format(path_to_wave_file),
+              "{0:>5}".format(f.getframerate()),
+              "{0:>5}".format(f.getsampwidth()),
+              "{0:>6}".format(f.getnchannels()),
+              "{0:>6}".format(f.getnframes())
+              )
 
 if __name__ == "__main__":
 
-    player = wavePlayer()
+    player = wavePlayer(leftPin=Pin(15),rightPin=Pin(14))
+    # player = wavePlayer()
     waveFolder= "/sounds"
     wavelist = []
 
@@ -78,15 +90,22 @@ if __name__ == "__main__":
         elif i.find(".WAV")>=0:
             wavelist.append(waveFolder+"/"+i)
             
-    if not wavelist :
-        print("Warning NO '.wav' files found in ", waveFolder)
+    if not wavelist:
+        print("Warning NO '.wav' files")
     else:
-        print("Will play these '.wav' files", "/n" ,wavelist)
+        print("Will play these '.wav' files")
+        print("{0:<45}".format('File Path'), 'Frame Rate  Width Chans Frames')
+        for file in wavelist:
+           print_sound_metadata(file)
+        print('')
         try:
-            while True:
-                for  i in wavelist:
-                    print(i)
-                    player.play(i)
+            for i in wavelist:
+                # print("about to play:", i)
+                sleep(1)
+                player.play(i)
+                print_sound_metadata(i)
+                print('')
+                
         except KeyboardInterrupt:
             player.stop()
     print("wavePlayer terminated")

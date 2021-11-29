@@ -1,6 +1,5 @@
 from machine import PWM,Pin,mem32
 
-
 class  myPWM(PWM):
     def __init__(self,pin,divider=8,top=255):
         self.id = int(str(pin)[4:-1].split(',')[0])
@@ -51,6 +50,7 @@ class  myPWM(PWM):
             
 if __name__ == "__main__":
     import utime
+    # change this if you move the speaker
     pwm = myPWM(Pin(15))
     try:
         value = 0
@@ -61,9 +61,6 @@ if __name__ == "__main__":
             if value == 0:
                 increment = increment * (-1)
             value += increment
-            utime.sleep_ms(1)
+            utime.sleep_ms(2)
     except KeyboardInterrupt:
         pwm.deinit()
-
-            
-         

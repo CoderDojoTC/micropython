@@ -142,7 +142,8 @@ def interleavebytes(r0,r1,r2):
 
 
 class wavePlayer:
-    def __init__(self,leftPin=Pin(2),rightPin=Pin(3), virtualGndPin=Pin(4),
+    # here are the default pins, but you can override them
+    def __init__(self,leftPin=Pin(0),rightPin=Pin(1), virtualGndPin=Pin(4),
                  dma0Channel=10,dma1Channel=11,dmaTimer=3,pwmBits=10):
         #left channel Pin needs to be an even GPIO Pin number
         #right channel Pin needs to be left channel + 1
@@ -270,24 +271,25 @@ class wavePlayer:
         f.close()
         self.stop()
 
-
+# if you run this class this is the default main
 if __name__ == "__main__":
 
     import uos
-    import SDCard
+    from utime import sleep
+    #import SDCard
 
     # mount SDCard
-    from machine import SPI,Pin
-    sd = SDCard.SDCard(SPI(1),Pin(13))
+    #from machine import SPI,Pin
+    #sd = SDCard.SDCard(SPI(1),Pin(13))
 
     #need to pump up the SPI clock rate
     # below 3MHz it won't work!
-    sd.init_spi(50_000_000)
-    uos.mount(sd,"/sd")
+    #sd.init_spi(50_000_000)
+    #uos.mount(sd,"/sd")
 
-    player = wavePlayer()
-
-    waveFolder= "/sd/Wendy"
+    # player = wavePlayer()
+    player = wavePlayer(leftPin=Pin(15),rightPin=Pin(14))
+    waveFolder= "/sounds"
     wavelist = []
 
     for i in uos.listdir(waveFolder):
@@ -296,10 +298,10 @@ if __name__ == "__main__":
         elif i.find(".WAV")>=0:
             wavelist.append(waveFolder+"/"+i)
             
-
     try:
         for  i in wavelist:
             print(i)
             player.play(i)
+            sleep(1)
     except KeyboardInterrupt:
         player.stop()
