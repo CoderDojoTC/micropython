@@ -3,7 +3,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ax7XAhnwQ24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 !!! Note
-    This lesson is still a work in progress.  Although we can play many .wav files in stereo at 16000 samples per second, other formats may not work correctly.  See the wav file test results section below.  We also are having problems when different GPIO pins are used.  If you stick to pins for GPIO 2 and 3 for the two channels the test run OK.
+    This lesson is still a work in progress.  The wavePlayer is in an early draft form and has unpredictable interactions with other components.  See the wav file test results section below.  We also are having problems when different GPIO pins are used.  If you stick to pins for GPIO 2 and 3 for the two channels the test run OK.
 
 ## Playing Sounds on The RP2040 Chip
 
