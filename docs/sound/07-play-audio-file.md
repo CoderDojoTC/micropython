@@ -20,7 +20,11 @@ Audio files are encoded in many formats.  For this lab there are two key concept
 1. The [Sampling Rate](https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate) which is how frequently an audio signal is sampled.  The more frequently we sample (up to 41K per second) the higher the fidelity of the recording.  The downside is that the audio file takes more space.
 2. The [audio bit depth](https://en.wikipedia.org/wiki/Audio_bit_depth) is how many bits we used to encode the amplitude of the sound.
 
-For our labs, we will be using a sampling rate of 8,000 samples per second (8K Hz) and a sampling rate of 16-bit depth.  This is a good compromise between smaller size and sound fidelity in typical robots.  We will be using standard .WAV files with [Pulse Code Modulation Encoding](https://en.wikipedia.org/wiki/Pulse-code_modulation) in .WAV files.  WAV files do take more space than compressed MP3 files, but they are easier to play because the decoding steps are trivial for a microcontroller to perform.
+For our labs, we will be using mono files (not stereo) a sampling rate of 8,000 samples per second (8K Hz) and a sampling rate of 16-bit depth.  This is a good compromise between smaller size and sound fidelity in typical robots.
+
+Our robots typically will play a short 1-second sound to tell us they are performing an action like stopping, backing up or turning.  This one-second 8K Hz WAV file will be about 20K.  Our flash budget for the Raspberry Pi Pico is 2M, so we can easily store 10 sound effects in 200K or 1/10 of our available flash memory.  We can also add a SD card if we need more flash memory.
+
+We will be using standard .WAV files with [Pulse Code Modulation Encoding](https://en.wikipedia.org/wiki/Pulse-code_modulation) in .WAV files.  WAV files do take more space than compressed MP3 files, but they are easier to play because the decoding steps are trivial for a microcontroller to perform.
 
 ## Overall Architecture
 
@@ -67,19 +71,27 @@ cd PicoAudioPWM
 
 ## Download some test robot wav files
 
+The following GitHub location:
+
+[https://github.com/CoderDojoTC/robot-media/tree/master/wav-8k](https://github.com/CoderDojoTC/robot-media/tree/master/wav-8k)
+
+contains a set of 8K Hz 16 bit robot sounds that you can use with your robot.
+
 ## Converting .MP3 to .WAV files
 
 This software only currently support playing .wav files since it is easy to convert these files into a format that can be played. WAV files store uncompressed audio, so they are larger than MP3 files.  Wav files are simple ways to store sound patterns.  MP3 files are much more complex and require complex algorithms to convert into sound outputs.
 
  The usual bitstream encoding is the linear pulse-code modulation (LPCM) format.
 
-You can use the following web-site to convert MP3 files into wave files:
+If you have just a few MP3 files, can use the following web-site to convert MP3 files into wave files:
 
 [Cloud Convert Service that Converts MP3 to WAV files](https://cloudconvert.com/mp3-to-wav)
 
+The [next lab](09-converting-mp3-to-wav.md) shows you how to convert an entire folder of MP3 files to 8K Hz 16-bit WAV files using a shell script.
+
 ## Copy Sound Files to the Pico
 
-Your pico has 2MB of static memory.  You can copy many sound effect files to the pico file system and play them.  Some IDEs may allow you to do this.
+Your pico has 2MB of static memory.  A typical robot sound effect you want to play when you bump into and object will play for around 1 second.  You can copy many sound effect files to the pico file system and play them.  Some IDEs may allow you to do this or you can use the rshell program.
 
 Here is an example of using the [rshell](../advanced-labs/11-rshell.md) program to copy a directory of wav files to the pico.  Lines that start with pc$ are commands that you type into your PC or MAC's terminal.  Lines that start with rs$ are commands that you type into the rshell.
 
