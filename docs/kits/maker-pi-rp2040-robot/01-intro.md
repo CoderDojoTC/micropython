@@ -11,7 +11,20 @@ This kit allows you to create a collision avoidance robot using about $20 of par
 
 The robot can be built ia a few hours using a screwdriver and soldering four wires onto the motors.
 
-## Parts List
+## Sample Parts List
+
+![Cytron Ping Kit Parts](../../img/cytron-ping-kit-parts.jpg)
+
+1. Cytron Maker Pi RP2040 board (includes Grove connectors, screwdriver and feet)
+2. Chassis main board (acrylic)
+3. Ultrasonic ping distance sensor
+4. Ping sensor mount
+5. 2x M3 6 mm screws and nuts
+6. 4x M3 10 mm screes and nuts
+7. Micro USB cable
+8. 4x AA batteries
+
+
 
 1. Cytron Maker Pi RP2040 robotics board ($10)
 2. SmartCar kit ($9)
