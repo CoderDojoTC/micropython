@@ -1,11 +1,10 @@
+import machine, neopixel
 from utime import sleep
 from neopixel import Neopixel
 
-NUMBER_PIXELS = 2
-STATE_MACHINE = 0
-NEOPIXEL_PIN = 18
-
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, NEOPIXEL_PIN, "GRB")
+NEOPIXEL_PIN = 16
+NUMBER_PIXELS = 10
+strip = Neopixel(NUMBER_PIXELS, 0, NEOPIXEL_PIN, "GRB")
 strip.brightness(100)
 
 def wheel(pos):
@@ -23,8 +22,8 @@ def wheel(pos):
 
 def rainbow_cycle(wait):
     for j in range(255):
-        for i in range(num_pixels):
-            rc_index = (i * 256 // num_pixels) + j
+        for i in range(NUMBER_PIXELS):
+            rc_index = (i * 256 // NUMBER_PIXELS) + j
             pixels[i] = wheel(rc_index & 255)
         pixels.write()
         
