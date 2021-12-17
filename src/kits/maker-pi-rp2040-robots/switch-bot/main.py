@@ -58,47 +58,37 @@ def stop():
     turn_motor_off(left_forward)
     turn_motor_off(left_reverse)
 
+
 def main():
-    while True:
-        if middle_switch.value(): # if the value changes
-            print('middle')
-            led0.on()
-            reverse()
-            sleep(1)
-            turn_right()
-            sleep(.75)
-            forward()
+    distance = ping()
+    # skip over large numbers
+    while distance > 100:
+        distance = ping()
+        update_display(distance, 'forward')
+    print(distance)
+    if distance < TURN_DISTANCE:
+        print('Reverseing')
+        reverse()
+        sleep(BACKUP_TIME)
+        stop()
+        sleep(.5)
+        print('Turning')
+        if randint(0,2): # 50% chance of being true
+           turn_right()
         else:
-            led0.off()
-            forward()
-
-        if right_switch.value(): # if the value changes
-            print('right')
-            led1.on()
-            reverse()
-            sleep(.75)
             turn_left()
-            sleep(.5)
-            forward()
-        else:
-            led1.off()
-            forward()
+        sleep(TURN_TIME)
+        stop()
+        sleep(.5)
+    else:
+        print('Forward')
+        forward()
+        sleep(.5)
         
-        if left_switch.value(): # if the value changes
-            led2.on()
-            print('left')
-            reverse()
-            sleep(.75)
-            turn_right()
-            sleep(.5)
-            forward()
-        else:
-            led2.off()
-            forward()
-
-print('middle', middle_switch.value())
-print('left', left_switch.value())
-print('right', right_switch.value())
+    print("counter: ", counter)
+    led_onboard.toggle()
+    counter += 1
+        
 
 try:
     main()

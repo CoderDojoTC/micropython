@@ -24,3 +24,7 @@
 
 ## Components References
 11. [2.42" OLED Display from DIY More](https://www.diymore.cc/collections/hot-products/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow)
+
+## Open-Source References
+
+1. [Open Source Guide](https://opensource.guide/)

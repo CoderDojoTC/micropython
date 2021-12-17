@@ -1,11 +1,16 @@
 # Cytron Maker Pi RP2040 Collision Avoidance Robot
 
-We have been working on designing a run robot that can be used to teach computational thinking since 2014.  We have gone through many generations, and now we think we have a fantastic design that is powerful, flexible, extendible and inexpensive.
+We have been working on designing a run robot that can be used to teach computational thinking since 2014.  We have gone through many generations, and now we think we have a fantastic design that is powerful, flexible, extendible and inexpensive.  We love this robot because:
+
+1. The cost of parts is under $20.00 US
+2. It is programmed with Python
+3. It has plenty of power - with 264K RAM it has the ability to run complex programs
+4. The design is flexible and it is easy to add displays and other sensors
 
 ## Base Cytron Maker Pi RP2040 Robot Kit
-![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-tof-robot.jpg)
 
-This $20 robot kit allows you to create a collision avoidance robot using about $20 of parts or $40 if you use the larger OLED display.
+![Maker Pi RP2040 Top View](../../img/maker-pi-rp2040-tof-robot.jpg)
+This version uses the time-of-flight sensor.
 
 The robot can be built ia a few hours using a screwdriver and soldering four wires onto the motors.
 
