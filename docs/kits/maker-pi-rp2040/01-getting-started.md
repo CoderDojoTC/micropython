@@ -1,6 +1,17 @@
 # Getting Started
 
+## Purchasing
 
+The retail list price is $9.99.  Thie Cytron Maker Pi RP2040 kit includes 3 Grove connectors, screwdriver and feet) [Cytron](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040)
+
+Here are some online retailers that seel this kit:
+
+* [DigiKey](https://www.digikey.com/en/products/detail/cytron-technologies-sdn-bhd/MAKER-PI-RP2040/14557836)
+* [Amazon](https://www.amazon.com/Cytron-Simplying-Robotics-Beginner-RP2040/dp/B09HBQL141)
+* [Adafruit](https://www.adafruit.com/product/5129)
+
+
+There is also a [YouTube Video](https://www.youtube.com/watch?v=8CXirBVwVoU) that demonstrates the features of the board.
 
 ## Install the MicroPython Runtime Library
 

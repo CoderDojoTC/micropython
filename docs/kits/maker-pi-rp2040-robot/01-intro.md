@@ -18,9 +18,9 @@ The robot can be built ia a few hours using a screwdriver and soldering four wir
 
 ![Cytron Ping Kit Parts](../../img/cytron-ping-kit-parts.jpg)
 
-1. Cytron Maker Pi RP2040 board (includes Grove connectors, screwdriver and feet)
-2. Chassis main board (acrylic)
-3. Ultrasonic ping distance sensor
+1. Cytron Maker Pi RP2040 board (includes Grove connectors, screwdriver and feet) [Cytron](https://www.cytron.io/p-maker-pi-rp2040-simplifying-robotics-with-raspberry-pi-rp2040) [DigiKey](https://www.digikey.com/en/products/detail/cytron-technologies-sdn-bhd/MAKER-PI-RP2040/14557836) [Amazon](https://www.amazon.com/Cytron-Simplying-Robotics-Beginner-RP2040/dp/B09HBQL141) [Adafruit](https://www.adafruit.com/product/5129) [YouTube Video](https://www.youtube.com/watch?v=8CXirBVwVoU)
+2. 2 Wheel Drive Smart Car Kit:  Chassis Main board (acrylic), 2x DC Motors with wires soldered, 2x wheels, 4x AA Battery Case: [Cytron](https://www.cytron.io/p-2wd-smart-robot-car-chassis?search=Smart%20Car%20&description=1) [Amazon](https://www.amazon.com/Smart-Chassis-Motors-Encoder-Battery/dp/B01LXY7CM3/ref=sr_1_7) [eBay](https://www.ebay.com/itm/324919345465?hash=item4ba6b3c139:g:FSIAAOSwTAddc3c2)
+3. Distance Sensor (Time-of-flight or Ultrasonic ping): [Cytron](https://www.cytron.io/p-vl53l0x-v2-laser-tof-distance-sensor-module?search=Time%20of%20flight%20sensor) [ebay](https://www.ebay.com/itm/353793425635?hash=item525fbb40e3:g:fUkAAOSwoexftRiN) [Amazon](https://www.amazon.com/VL53L0X-Ranging-Sensor-Breakout-Distance/dp/B09LVGDQD6/ref=sr_1_1?)
 4. Ping sensor mount
 5. 2x M3 6 mm screws and nuts
 6. 4x M3 10 mm screes and nuts

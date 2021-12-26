@@ -37,6 +37,7 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
+    - Compass: 11-compass.md
   - Motors and Servos:
     - Introduction: motors/01-intro.md
     - Transistor Lab: motors/02-transistor.md
