@@ -11,6 +11,7 @@
         "microswitches",
         "milliamp",
         "milliamps",
+        "NEOPIXEL",
         "OLED",
         "photosensor",
         "Pinout",

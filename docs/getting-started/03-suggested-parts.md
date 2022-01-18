@@ -37,7 +37,7 @@ We like the 1/2 size boards that have 400 connection points.  We like to mount t
 * Amazon: [Amazon 4 Pieces for $6](https://www.amazon.com/Pcs-MCIGICM-Points-Solderless-Breadboard/dp/B07PCJP9DY/ref=sr_1_3)
 
 ## Hookup Wire
-Use 22 gauge wire.  Get a large spool of black and red and smaller spools of other colors.
+Use 22 gauge wire.  Get a large spool of black and red and smaller spools of other colors.  We use 
 
 ## Male-to-Male Breadboard Jumper Wires
 You can use 22 gauge wire to build your projects, however kids that don't have fine motor skills sometimes get frustrated with raw wires.  You can purchase a Jumper Wire Kit with 65 jumpers on EBay for under $2 that has nice plastic ends that are easier to use.
