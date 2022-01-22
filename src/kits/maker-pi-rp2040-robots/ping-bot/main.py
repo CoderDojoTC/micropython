@@ -1,15 +1,16 @@
 # Demo for Maker Pi RP2040 board using Ping sensor
 from machine import Pin, PWM, Timer
-import utime
+from utime import sleep, ticks_ms, sleep_us, ticks_us
 import urandom
 from neopixel import Neopixel
 
 # Adjust these parameters to tune the collision avoidance behavior
 
-POWER_LEVEL = 35000
-TURN_DISTANCE = 20 # distnce we decide to turn - try 20
-REVERSE_TIME = .4 # how long we backup
-TURN_TIME = .4 # how long we turn
+POWER_LEVEL = 30000 # Max is 64024
+TURN_DISTANCE = 25 # distnce we decide to turn - try 20
+REVERSE_TIME = .7 # how long we backup
+TURN_TIME = .6 # how long we turn
+MAX_VALID_DISTANCE = 100 # any distance above this is NO_SIGNAL or invalid distance
 
 # startup mode is 0 - motors off and LEDs flashing
 # mode 1 is slow
@@ -18,8 +19,8 @@ TURN_TIME = .4 # how long we turn
 mode = 0
 
 # Use the Grove 4 Connector and put trigger on white and echo on yellow
-TRIGGER_PIN = 16 # With USB on the top, this pin is the bottom left corner
-ECHO_PIN = 17 # One up from bottom left corner
+TRIGGER_PIN = 0 # With USB on the top, this pin is the bottom left corner
+ECHO_PIN = 1 # One up from bottom left corner
 
 # Init HC-SR04P pins
 trigger = Pin(TRIGGER_PIN, Pin.OUT) # send trigger out to sensor
@@ -33,7 +34,7 @@ last_time = 0 # the last time we pressed the button
 # This function gets called every time the button is pressed.  The parameter "pin" is not used.
 def button_pressed_handler(pin):
     global mode, last_time
-    new_time = utime.ticks_ms()
+    new_time = ticks_ms()
     # if it has been more that 1/5 of a second since the last event, we have a new event
     if (new_time - last_time) > 200:
         # this should be pin.id but it does not work
@@ -71,20 +72,20 @@ left_reverse = PWM(Pin(LEFT_REVERSE_PIN))
 
 # returns distance in cm
 def ping():
-    print('in ping')
+    # print('in ping')
     trigger.low()
-    utime.sleep_us(2) # Wait 2 microseconds low
+    sleep_us(2) # Wait 2 microseconds low
     trigger.high()
-    utime.sleep_us(5) # Stay high for 5 miroseconds
+    sleep_us(5) # Stay high for 5 miroseconds
     trigger.low()
     while echo.value() == 0:
-        signaloff = utime.ticks_us()
-    print('echo is 1')
+        signaloff = ticks_us()
+    # print('echo is 1')
     while echo.value() == 1:
-        signalon = utime.ticks_us()
+        signalon = ticks_us()
     timepassed = signalon - signaloff
     distance = (timepassed * 0.0343) / 2
-    print(distance)
+    # print(distance)
     return int(distance)
 
 def turn_motor_on(pwm):
@@ -125,7 +126,7 @@ def stop():
 
 # The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
 # remove 16 and 17 since the are used for the ping sensor
-blue_led_pins = [0, 1, 2, 3,  4,  5,  6,  7, 26, 27, 28]
+blue_led_pins = [2, 3,  4,  5,  6,  7, 26, 27, 28]
 # dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
 dist_scale =    [2, 4, 6, 8, 10, 15, 20, 25, 50, 100, 150, 200, 300]
 
@@ -198,65 +199,61 @@ def setfreq(frequency):
 def playnote(frequency, time):
     buzzer.duty_u16(1000)
     setfreq(frequency)
-    utime.sleep(time)
+    sleep(time)
     
 def sound_off():
     buzzer.duty_u16(0)
 
 def rest(time):
     buzzer.duty_u16(0)
-    utime.sleep(time)
+    sleep(time)
     
 def play_startup():
-    #playnote(600, 0.2)
+    playnote(600, 0.2)
     rest(.05)
-    #playnote(600, 0.2)
+    playnote(600, 0.2)
     rest(.05)
-    #playnote(600, 0.2)
+    playnote(600, 0.2)
     rest(.1)
-    #playnote(800, 0.4)
+    playnote(800, 0.4)
     sound_off()
     
-valid_distance = 1
 # loop forever
 def main():
-    global valid_distance
+    global mode
     print("running main()")
-    
-    play_startup()
-    
+    # play_startup()
     while True:
+        distance = ping()
+        print('Distance:', distance)
+        
+        # standby mode
         if mode == 0:
             stop()
-            run_lights()
+            # signal to start driving
+            if distance < TURN_DISTANCE:
+                mode = 1
+                forward()
+                sleep(1)
+        # drive mode
         else:
-            distance = ping()
-            print('Distance:', distance)
-            if distance > MAX_DISTANCE:
-                # only print if we used to have a valid distance
-                if valid_distance == 1:
-                    print('no signal')      
-                valid_distance = 0
-            else:
-                print(distance)
-                if distance < TURN_DISTANCE:
-                    play_turn()
-                    # back up for a bit
-                    reverse()
-                    utime.sleep(REVERSE_TIME)
-                    # half right and half left turns
-                    if urandom.random() < .5:
-                        turn_right()
-                    else:
-                        turn_left()
-                    utime.sleep(TURN_TIME)
-                    forward()
+            if distance < TURN_DISTANCE:
+                play_turn()
+                # back up for a bit
+                reverse()
+                sleep(REVERSE_TIME)
+                # half right and half left turns
+                if urandom.random() < .5:
+                    turn_right()
                 else:
-                    print('forward')
-                    forward()
-                valid_distance = 1
-                led_show_dist(distance)
-            utime.sleep(0.05)
+                    turn_left()
+                sleep(TURN_TIME)
+                forward()
+            else:
+                print('forward')
+                forward()
+            led_show_dist(distance)
+        #sleep(0.05)
 
 # clean up
 
