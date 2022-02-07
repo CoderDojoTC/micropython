@@ -5,8 +5,8 @@
 from machine import Pin, Timer
 import utime
 
-TRIGGER_PIN = 16 # With USB on the top, this pin is the bottom left corner
-ECHO_PIN = 17 # One up from bottom left corner
+TRIGGER_PIN = 26 # yellow
+ECHO_PIN = 6 # white
 
 # Init HC-SR04 pins
 trigger = Pin(TRIGGER_PIN, Pin.OUT) # send trigger out to sensor
@@ -26,6 +26,8 @@ def ping():
     distance = (timepassed * 0.0343) / 2
     return distance
 
+counter = 1
 while True:
-    print("Distance:", ping(), " cm")
+    print(counter, "Distance:", ping(), " cm")
     utime.sleep(.25)
+    counter += 1

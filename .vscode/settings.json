@@ -49,14 +49,18 @@
         "vline"
 =======
         "AGND",
+        "allowfullscreen",
         "Autoshutdown",
+        "Cytron",
         "ffprobe",
         "Framebuffers",
         "microcontroller",
         "microswitches",
         "milliamp",
         "milliamps",
+        "NEOPIXEL",
         "OLED",
+        "photosensor",
         "Pinout",
         "pydub",
         "rshell",

@@ -2,7 +2,7 @@
 
 ![](../imb/../img/pico-bot.jpg)
 
-This lesson describes out base robot kit in the CoderDojo Twin Cities coding club.  This is a new robot that in programmed entirely in python to be consistent with our [Python Courses](https://www.coderdojotc.org/python/).
+This lesson describes our base robot kit in the CoderDojo Twin Cities coding club.  This robot is programmed entirely in Python to be consistent with our [Python Courses](https://www.coderdojotc.org/python/).
 
 ## Base Robot Design
 
