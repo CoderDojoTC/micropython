@@ -1668,6 +1668,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -2331,7 +2343,7 @@
 <p>A <a href="../mist/glossary.md#framebuffer">Framebuffer</a> is the core data structure we use when drawing bitmaps. </p>
 <h2 id="block-image-transfers-blit">Block Image Transfers (blit)</h2>
 <p>The basic function we use to draw a rectangular region of the screen is called the <code>blit()</code> function:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">frame_buffer</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">frame_buffer</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>This function moves all the data within any frame buffer to the given (x,y) position of the display.  The function will check the dimensions of the frame buffer to know how much data to move to the display.  You just need to tell the function where to start drawing.</p>
@@ -2342,7 +2354,7 @@
 <p>Not all display drivers will let you write directly from the microcontroller resident image directly to a region of the display.  Sometimes you must follow your blit() operations with a show() to transfer the entire framebuffer to the display.</p>
 <h2 id="working-with-bytearrays">Working with ByteArrays</h2>
 <p>MicroPython blit operations use a data representation format for images called a ByteArray.  These are sequences of the bytes that will be sent in a blit operation.  They are coded using the following notation:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">my_bytearray</span> <span class="o">=</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\xFF\xFF\xBF\xDF\xEF\xF7\xFF\xFB\xFF\xFD</span><span class="s2">&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">my_bytearray</span> <span class="o">=</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\xFF\xFF\xBF\xDF\xEF\xF7\xFF\xFB\xFF\xFD</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Note that the letter <code>b</code> begins the parameter to show the Python interpreter that the all the characters between the double quotes are byte array values.  The characters <code>\x</code> indicate that there are hexadecimals useds to encode the bit values.</p>
