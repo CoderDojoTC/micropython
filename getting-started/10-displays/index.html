@@ -1838,18 +1838,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2179,6 +2167,18 @@
     <li class="md-nav__item">
       <a href="../../kits/maker-pi-rp2040-robot/21-collision-avoidance-ping/" class="md-nav__link">
         Collision Avoidance Ping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
       </a>
     </li>
   
@@ -2635,8 +2635,8 @@
 </ol>
 <h3 id="initializing-the-framebuffer">Initializing the Framebuffer</h3>
 <p>Let's assume that we have a four wire OLED that uses the popular SSD1306 chip with 128X64 pixels.  We call our oled "oled" using the following line:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
@@ -2667,11 +2667,11 @@
 </tbody>
 </table>
 <p>The full program would look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -2682,17 +2682,17 @@
 <p><img alt="OLED SPI Hello World" src="../../img/oled-hello-world.png" /></p>
 <h3 id="full-list-of-drawing-functions">Full list of Drawing Functions</h3>
 <p>Every drawing library might have slightly different functions.  But we can quickly see the functions that we want by using the dir() function on the SSD1306_I2C class.</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">SSD1306_I2C</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 This returns the following list:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
 <span class="s1">&#39;__bases__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;blit&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;fill_rect&#39;</span><span class="p">,</span> <span class="s1">&#39;hline&#39;</span><span class="p">,</span>
 <span class="s1">&#39;invert&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;vline&#39;</span><span class="p">,</span>
 <span class="s1">&#39;init_display&#39;</span><span class="p">,</span> <span class="s1">&#39;write_cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">,</span> <span class="s1">&#39;poweroff&#39;</span><span class="p">,</span> <span class="s1">&#39;poweron&#39;</span><span class="p">,</span>

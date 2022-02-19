@@ -1668,18 +1668,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2011,6 +1999,18 @@
     <li class="md-nav__item">
       <a href="../../maker-pi-rp2040-robot/21-collision-avoidance-ping/" class="md-nav__link">
         Collision Avoidance Ping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
       </a>
     </li>
   
@@ -2407,42 +2407,42 @@ This is a screen image from e-bay showing a 1/2 meter of LED strip for $8.</p>
 <h2 id="sample-code">Sample Code</h2>
 <p>This code shows a five-pixel wide "eye" moving back-an-forth over a 27 pixel strip.  There is a central bright red LED surrounded by dimmer red LEDs that move back-and-forth.  We are using the NeoPixel library supplied by <a href="https://github.com/blaz-r/pi_pico_neopixel">Blaž Rolih</a>.</p>
 <p>The example below has a delay of 1/10th of a second between drawing events.  You can make the delay smaller to speed up the speed of the eye movement.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="c1"># We are using https://github.com/blaz-r/pi_pico_neopixel</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
 
@@ -2458,7 +2458,7 @@ This is a screen image from e-bay showing a 1/2 meter of LED strip for $8.</p>
 <span class="n">red_light</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">off</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">delay</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">red_light</span><span class="p">)</span>
@@ -2485,92 +2485,92 @@ This is a screen image from e-bay showing a 1/2 meter of LED strip for $8.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f_93zEaZTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>This program cycles through a "moving rainbow" pattern and then the comet pattern for 10 colors.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="c1"># We are using https://github.com/blaz-r/pi_pico_neopixel</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
 
@@ -2643,7 +2643,7 @@ This is a screen image from e-bay showing a 1/2 meter of LED strip for $8.</p>
 
 <span class="c1"># delay = .031</span>
 
-<span class="n">delay</span> <span class="o">=</span> <span class="mf">.06</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">06</span>
 <span class="n">color_index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">draw_rainbow</span><span class="p">()</span>

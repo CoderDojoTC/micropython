@@ -1668,18 +1668,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2014,6 +2002,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -2295,18 +2295,18 @@
 <p>Our goal is to learn how to use python lists to turn on and off a row of 10 LEDs.</p>
 <p>Connect each of the LEDs through a 330 ohm resistor.</p>
 <p>We will create a list that has each of the GPIO pins for output.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pin_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pin_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 <p>For each pin on this list, we will create a new list that contains the pin object that we can turn on or off.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">pin_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
@@ -2318,25 +2318,25 @@
 </td></tr></table>
 <p>We will use this same preamble code in all our examples.</p>
 <h1 id="code-to-blink-all-10-leds">Code to Blink all 10 LEDs</h1>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">pin_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
@@ -2345,7 +2345,7 @@
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pin_ids</span><span class="p">:</span>
     <span class="n">pins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
 
-<span class="n">delay</span> <span class="o">=</span> <span class="mf">.5</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># turn all the pins on</span>
     <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pins</span><span class="p">:</span>
@@ -2359,25 +2359,25 @@
 </td></tr></table>
 <h2 id="sample-running-lights-example">Sample Running Lights Example</h2>
 <p>The "running lights" pattern gives the impression that there is a red object that is moving up and down a row.  We do this by successively turning on adjacently LEDs and then turning them off.  This give the illusion of motion.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">pin_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
@@ -2386,7 +2386,7 @@
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
     <span class="n">pins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
 
-<span class="n">delay</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
         <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>

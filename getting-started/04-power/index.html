@@ -1762,18 +1762,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2103,6 +2091,18 @@
     <li class="md-nav__item">
       <a href="../../kits/maker-pi-rp2040-robot/21-collision-avoidance-ping/" class="md-nav__link">
         Collision Avoidance Ping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
       </a>
     </li>
   
@@ -2473,19 +2473,19 @@ There is large and growing market for rechargeable cell-phone power packs that a
 <p>On the Pico, GP24 can be used to indicate if power is being drawn from the USB cable.  You can also use this information to change the behavior such as drop into low-power mode when disconnected from a USB source.</p>
 <p>See <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=300676">here</a></p>
 <p>Here is some sample MicroPython code that displays this value:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
 <span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
@@ -2501,16 +2501,16 @@ There is large and growing market for rechargeable cell-phone power packs that a
 </code></pre></div>
 </td></tr></table>
 <p>This program prints out the value of the USB Power indicator.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 
 <span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>

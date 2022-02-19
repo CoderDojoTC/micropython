@@ -1668,18 +1668,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2014,6 +2002,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -2327,25 +2327,25 @@
 </ol>
 <h2 id="checking-i2c-connections">Checking I2C Connections</h2>
 <p>You can use a standard i2c-scanner program to verify that the four pins are connected correctly:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 
 <span class="c1"># Change this if you are using other ports</span>
 <span class="n">I2C_SDA_PIN</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2367,31 +2367,31 @@
 </code></pre></div>
 </td></tr></table>
 <p>For my system this returns the following report:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Scanning I2C bus.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Scanning I2C bus.
 1 devices found.
 Decimal address: 30 , Hex address:  0x1e
 </code></pre></div>
 </td></tr></table>
 <p>You will notice that the scanner found a single device at hex address <code>0x1e</code>. </p>
 <p>Like many sensors, this sensor uses a "memory map" to transmit it's data.  You can write a quick test to verify that the values are changing by doing a read from this i2c address like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem_into</span><span class="p">(</span><span class="mh">0x1e</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Here is a program that will display the raw values.  You can rotate the sensor to verify the raw values are changing.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
 <span class="c1"># create an incomming data array of 6 bytes</span>
 <span class="n">I2C_SDA_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">I2C_SCL_PIN</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2402,24 +2402,24 @@ Decimal address: 30 , Hex address:  0x1e
 </code></pre></div>
 </td></tr></table>
 <p>Note that these are "raw" values because they have not been converted to easy-to-understand values by the driver.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hmc5883l</span> <span class="kn">import</span> <span class="n">HMC5883L</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hmc5883l</span> <span class="kn">import</span> <span class="n">HMC5883L</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">I2C_SDA_PIN</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2436,7 +2436,7 @@ Decimal address: 30 , Hex address:  0x1e
     <span class="c1"># print(sensor.format_result(x, y, z))</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span><span class="mi">400</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mf">.1</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="references">References</h2>

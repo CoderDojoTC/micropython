@@ -1715,18 +1715,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2061,6 +2049,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -2346,30 +2346,30 @@
                 
                 <h1 id="play-tones-using-the-pwm">Play Tones Using the PWM</h1>
 <p>Since we will be using the sleep function many times, we will import it by name from the Micropthon time library like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 </code></pre></div>
 </td></tr></table>
 <p>Now, instead of putting <code>utime.sleep(.5)</code> we can just reference sleep directly like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">sleep</span><span class="p">(</span><span class="mf">.5</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>This will pause for 1/2 a second.  This is how long we wait for a tone to stay on or go off.  The nice thing about this menthod is that our code is a little smaller.  However, you can't run other functions in the utime library.  So if you want to add them later you will need to import them also, just like we did for the sleep function.</p>
 <h2 id="lab-1-play-a-single-tone">Lab 1: Play A Single Tone</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="c1"># lower right corner with USB connector on top</span>

@@ -1668,18 +1668,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2009,6 +1997,18 @@
     <li class="md-nav__item">
       <a href="../../kits/maker-pi-rp2040-robot/21-collision-avoidance-ping/" class="md-nav__link">
         Collision Avoidance Ping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
       </a>
     </li>
   
@@ -2374,28 +2374,28 @@
 <li>The number of pixels</li>
 </ol>
 <p>We use two Python variables to configure
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>
 </td></tr></table></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">neopixel</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">neopixel</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
 
@@ -2404,7 +2404,7 @@
 <span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;flashing pixel 0 red&#39;</span><span class="p">)</span>
-<span class="n">delay</span><span class="o">=</span><span class="mf">.3</span>
+<span class="n">delay</span><span class="o">=.</span><span class="mi">3</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="o">//</span> <span class="n">turn</span> <span class="n">pixel</span> <span class="mi">0</span> <span class="n">red</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>

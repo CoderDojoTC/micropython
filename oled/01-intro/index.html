@@ -1708,18 +1708,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
-        Machine Learning
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -2054,6 +2042,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kits/maker-pi-rp2040-robot/24-ping-servo-meter/" class="md-nav__link">
+        Ping Servo Meter
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -2354,11 +2354,11 @@ Four colors of 2.44" OLED displays from DIY More.  We can purchase them on EBay 
 <p>These labs will assume these parameters, but you can modify the labs to use different sizes and display driver chips by only modifying a few lines of code.</p>
 <h2 id="i2c-scanner">I2C Scanner</h2>
 <p>Because your microcontroller might have multiple displays on it, their must be some way to address the devices using an address.  Most of the devices come with a default address of decimal value 60 (hex value X3C).  To test this the i3c module has a i2c scan function.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># row one on our standard Pico breadboard</span>
 <span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># row two on our standard Pico breadboard</span>
 <span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>

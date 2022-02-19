@@ -18,7 +18,7 @@
     
     
       
-        <title>Collision Avoidance Ping - MicroPython for Kids</title>
+        <title>Ping Servo Meter - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#maker-pi-rp2040-collision-avoidance-robot-with-ping-sensor" class="md-skip">
+        <a href="#cytron-maker-pi-rp2040-ping-servo-meter-bot" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Collision Avoidance Ping
+              Ping Servo Meter
             
           </span>
         </div>
@@ -1997,6 +1997,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../21-collision-avoidance-ping/" class="md-nav__link">
+        Collision Avoidance Ping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -2008,12 +2020,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Collision Avoidance Ping
+          Ping Servo Meter
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Collision Avoidance Ping
+        Ping Servo Meter
       </a>
       
         
@@ -2030,22 +2042,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#robot-parameters" class="md-nav__link">
-    Robot Parameters
+  <a href="#test-servo" class="md-nav__link">
+    Test Servo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-source-code" class="md-nav__link">
-    Full Source Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiments" class="md-nav__link">
-    Experiments
+  <a href="#main-python-code" class="md-nav__link">
+    Main Python Code
   </a>
   
 </li>
@@ -2054,18 +2059,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../24-ping-servo-meter/" class="md-nav__link">
-        Ping Servo Meter
-      </a>
     </li>
   
 
@@ -2323,22 +2316,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#robot-parameters" class="md-nav__link">
-    Robot Parameters
+  <a href="#test-servo" class="md-nav__link">
+    Test Servo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-source-code" class="md-nav__link">
-    Full Source Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiments" class="md-nav__link">
-    Experiments
+  <a href="#main-python-code" class="md-nav__link">
+    Main Python Code
   </a>
   
 </li>
@@ -2355,28 +2341,99 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/kits/maker-pi-rp2040-robot/24-ping-servo-meter.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="maker-pi-rp2040-collision-avoidance-robot-with-ping-sensor">Maker Pi RP2040 Collision Avoidance Robot With Ping Sensor</h1>
-<p>This robot works very similar to our standard CoderDojo Collision Avoidance Robot but all the pins are now configured to use the connections on the Maker Pi RP2040 board.</p>
-<p>The board is mounted on a SmartCar Chassis and Grove Connector 4 is used to connect
-the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  The black should be connected to GND and the Red is connected to the VCC which on the </p>
-<p>The robot has an initial mode of 0, which will run the blue LEDs and change colors on the Neopixels.  By pressing the on-board button you will start the collision avoidance program.</p>
-<h2 id="robot-parameters">Robot Parameters</h2>
-<p>There are four different robot parameters you can adjust.  They change the speed and distance before the robot backs up.  You can also adjust the time the robots goes into reverse and the time it turns.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">POWER_LEVEL</span> <span class="o">=</span> <span class="mi">35000</span> <span class="c1"># max is </span>
-<span class="n">TURN_DISTANCE</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># distance in cm we decide to turn - try 20</span>
-<span class="n">REVERSE_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span> <span class="c1"># how long we backup</span>
-<span class="n">TURN_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span> <span class="c1"># how long we turn</span>
+                <h1 id="cytron-maker-pi-rp2040-ping-servo-meter-bot">Cytron Maker Pi RP2040 Ping Servo Meter Bot</h1>
+<p>This robot works very similar to our standard CoderDojo Collision Avoidance Robot.  However it adds a 180 degree servo to show the distance to the object in front of it.  It also uses a OLED display to present instructions and display the distance to the object.</p>
+<p>This program was contributed by <a href="https://www.linkedin.com/in/jeglenn/">Joe Glenn</a> for the Minneapolis Bakken Museum Droid December event in December 2021.</p>
+<p><img alt="" src="../../../img/ping-servo-meter-bot.jpg" /></p>
+<h2 id="test-servo">Test Servo</h2>
+<p>This program tests the servo by sweeping the angle from 0 to 180 and back.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># servo sweep test</span>
+<span class="c1"># Brown: GND</span>
+<span class="c1"># Orange/Red : VCC</span>
+<span class="c1"># Yellow: Signal</span>
+<span class="c1">#</span>
+<span class="c1"># Time for high level (Radio Shack Micro-servo @ 5V)</span>
+<span class="c1"># 0.5 ms :   0 degree</span>
+<span class="c1"># 1.0 ms :  45 degree</span>
+<span class="c1"># 1.5 ms :  90 degree</span>
+<span class="c1"># 2.0 ms : 135 degree</span>
+<span class="c1"># 2.5 ms : 180 degree</span>
+
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">SERVO_PIN</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">servoPin</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SERVO_PIN</span><span class="p">))</span>
+<span class="n">servoPin</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">servo</span><span class="p">(</span><span class="n">degrees</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">degrees</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span> <span class="n">degrees</span><span class="o">=</span><span class="mi">180</span>
+    <span class="k">if</span> <span class="n">degrees</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">degrees</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">maxDuty</span><span class="o">=</span><span class="mi">8000</span> <span class="c1"># duty*100</span>
+    <span class="n">minDuty</span><span class="o">=</span><span class="mi">2000</span> <span class="c1"># duty*100</span>
+    <span class="c1">#maxDuty=2000 # test</span>
+    <span class="c1">#minDuty=8000 # test</span>
+    <span class="n">newDuty</span><span class="o">=</span><span class="n">minDuty</span><span class="o">+</span><span class="p">(</span><span class="n">maxDuty</span><span class="o">-</span><span class="n">minDuty</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">degrees</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+    <span class="n">servoPin</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">newDuty</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+  <span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">servo</span><span class="p">(</span><span class="n">degree</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;increasing -- &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">degree</span><span class="p">))</span>
+
+  <span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">servo</span><span class="p">(</span><span class="n">degree</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;decreasing -- &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">degree</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="full-source-code">Full Source Code</h2>
+<h2 id="main-python-code">Main Python Code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
   3
@@ -2649,15 +2706,235 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
 270
 271
 272
-273</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Demo for Maker Pi RP2040 board using Ping sensor</span>
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Demo for Maker Pi RP2040 board using Ping sensor, servo and i2c display</span>
+
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">Timer</span>
 <span class="kn">import</span> <span class="nn">utime</span>
 <span class="kn">import</span> <span class="nn">urandom</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<span class="kn">import</span> <span class="nn">framebuf</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="c1">#</span>
+<span class="c1"># Ping Sensor</span>
+<span class="c1"># Use the Grove 4 Connector and put trigger on white and echo on yellow</span>
+<span class="c1">#</span>
+<span class="n">PING_TRIGGER_PIN</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># GP7</span>
+<span class="n">PING_ECHO_PIN</span> <span class="o">=</span> <span class="mi">28</span> <span class="c1"># GP28</span>
+
+<span class="c1">#</span>
+<span class="c1"># i2c OLED 128x32</span>
+<span class="c1">#</span>
+<span class="n">OLED_SDA_PIN</span> <span class="o">=</span> <span class="mi">26</span> <span class="c1"># GP26</span>
+<span class="n">OLED_SCL_PIN</span> <span class="o">=</span> <span class="mi">27</span> <span class="c1"># GP27</span>
+
+<span class="c1">#</span>
+<span class="c1"># Servo</span>
+<span class="c1"># GND: Brown</span>
+<span class="c1"># VCC: Orange/Red</span>
+<span class="c1"># GP15 Yellow: Signal</span>
+<span class="c1">#</span>
+<span class="c1"># Time for high level (Radio Shack Micro-servo @ 5V)</span>
+<span class="c1"># 0.5 ms :   0 degree</span>
+<span class="c1"># 1.0 ms :  45 degree</span>
+<span class="c1"># 1.5 ms :  90 degree</span>
+<span class="c1"># 2.0 ms : 135 degree</span>
+<span class="c1"># 2.5 ms : 180 degree</span>
+<span class="n">SERVO_PIN</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="c1"># IQR Pins</span>
+<span class="n">FASTER_PIN</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">SLOWER_PIN</span> <span class="o">=</span> <span class="mi">21</span>
+
+<span class="c1"># built-in Buzzer</span>
+<span class="n">BUZZER_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 
 <span class="c1"># Adjust these parameters to tune the collision avoidance behavior</span>
 
-<span class="n">POWER_LEVEL</span> <span class="o">=</span> <span class="mi">35000</span>
+<span class="n">POWER_LEL</span> <span class="o">=</span> <span class="mi">35000</span>
 <span class="n">TURN_DISTANCE</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># distance we decide to turn - try 20</span>
 <span class="n">REVERSE_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span> <span class="c1"># how long we backup</span>
 <span class="n">TURN_TIME</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span> <span class="c1"># how long we turn</span>
@@ -2668,19 +2945,111 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
 <span class="c1"># mode 3 is fast</span>
 <span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Use the Grove 4 Connector and put trigger on white and echo on yellow</span>
-<span class="n">TRIGGER_PIN</span> <span class="o">=</span> <span class="mi">16</span> <span class="c1"># With USB on the top, this pin is the bottom left corner</span>
-<span class="n">ECHO_PIN</span> <span class="o">=</span> <span class="mi">17</span> <span class="c1"># One up from bottom left corner</span>
-
 <span class="c1"># Init HC-SR04P pins</span>
-<span class="n">trigger</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">TRIGGER_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># send trigger out to sensor</span>
-<span class="n">echo</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">ECHO_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span> <span class="c1"># get the delay interval back</span>
+<span class="n">trigger</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">PING_TRIGGER_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># send trigger out to sensor</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">PING_ECHO_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span> <span class="c1"># get the delay interval back</span>
 
-<span class="n">faster_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
-<span class="n">slower_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">faster_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">FASTER_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">slower_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">SLOWER_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
 
 <span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the last time we pressed the button</span>
 
+<span class="c1">#</span>
+<span class="c1"># DISPLAY STUFF</span>
+<span class="c1">#</span>
+<span class="c1"># Display Image &amp; text on I2C driven ssd1306 OLED display </span>
+
+
+<span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">128</span> <span class="c1"># oled display width</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>  <span class="c1"># oled display height</span>
+
+<span class="c1"># Explicit Method</span>
+<span class="n">sda</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">OLED_SDA_PIN</span><span class="p">)</span>
+<span class="n">scl</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">OLED_SCL_PIN</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sda</span><span class="o">=</span><span class="n">sda</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">scl</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">40000</span><span class="p">)</span> <span class="c1"># 400k is too fast and has issues</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;i2c=</span><span class="si">{:02X}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+<span class="c1">#print(help(i2c))</span>
+<span class="c1">#print(help(i2c.init))</span>
+<span class="c1">#print(help(i2c.scan))</span>
+<span class="c1">#print(help(i2c.start))</span>
+<span class="c1">#print(help(i2c.stop))</span>
+<span class="c1">#print(help(i2c.readinto))</span>
+<span class="c1">#print(help(i2c.write))</span>
+<span class="c1">#print(help(i2c.readfrom))</span>
+<span class="c1">#print(help(i2c.readfrom_into))</span>
+<span class="c1">#print(help(i2c.writeto))</span>
+<span class="c1">#print(help(i2c.writevto))</span>
+<span class="c1">#print(help(i2c.readfrom_mem))</span>
+<span class="c1">#print(help(i2c.readfrom_mem_into))</span>
+<span class="c1">#print(help(i2c.writeto_mem))</span>
+<span class="c1">#exit</span>
+
+<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+
+<span class="c1"># Raspberry Pi logo as 32x32 bytearray</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">|?</span><span class="se">\x00\x01\x86</span><span class="s2">@</span><span class="se">\x80\x01\x01\x80\x80\x01\x11\x88\x80\x01\x05\xa0\x80\x00\x83\xc1\x00\x00</span><span class="s2">C</span><span class="se">\xe3\x00\x00</span><span class="s2">~</span><span class="se">\xfc\x00\x00</span><span class="s2">L&#39;</span><span class="se">\x00\x00\x9c\x11\x00\x00\xbf\xfd\x00\x00\xe1\x87\x00\x01\xc1\x83\x80\x02</span><span class="s2">A</span><span class="se">\x82</span><span class="s2">@</span><span class="se">\x02</span><span class="s2">A</span><span class="se">\x82</span><span class="s2">@</span><span class="se">\x02\xc1\xc2</span><span class="s2">@</span><span class="se">\x02\xf6</span><span class="s2">&gt;</span><span class="se">\xc0\x01\xfc</span><span class="s2">=</span><span class="se">\x80\x01\x18\x18\x80\x01\x88\x10\x80\x00\x8c</span><span class="s2">!</span><span class="se">\x00\x00\x87\xf1\x00\x00\x7f\xf6\x00\x00</span><span class="s2">8</span><span class="se">\x1c\x00\x00\x0c</span><span class="s2"> </span><span class="se">\x00\x00\x03\xc0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load the raspberry pi logo into the framebuffer (the image is 32x32)</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_HLSB</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">blk</span><span class="p">():</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">horiz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>  <span class="c1"># left, right , top</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span>        <span class="c1"># Horizontal line</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vert</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>   <span class="c1"># left, top, bottom</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span>        <span class="c1"># Vertical line</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">box</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>  <span class="c1"># left, top, right, bottom</span>
+    <span class="n">horiz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>   <span class="c1"># Hollow rectangle</span>
+    <span class="n">horiz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">vert</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">vert</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ring2</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>   <span class="c1"># Centre (x,y), radius, colour</span>
+    <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># 0 to 90 degrees in 2s</span>
+        <span class="n">y3</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)))</span>
+        <span class="n">x3</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)))</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">cx</span><span class="o">-</span><span class="n">x3</span><span class="p">,</span><span class="n">cy</span><span class="o">+</span><span class="n">y3</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># 4 quadrants</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">cx</span><span class="o">-</span><span class="n">x3</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="n">y3</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">cx</span><span class="o">+</span><span class="n">x3</span><span class="p">,</span><span class="n">cy</span><span class="o">+</span><span class="n">y3</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">cx</span><span class="o">+</span><span class="n">x3</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="n">y3</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c1">#print(help(oled.text()))</span>
+<span class="c1">#print(help())</span>
+<span class="c1">#help(&#39;modules&#39;)</span>
+<span class="c1">#help(oled)</span>
+<span class="c1">#help(oled.text)</span>
+<span class="c1">#help(framebuf.FrameBuffer)</span>
+<span class="c1">#help(framebuf.FrameBuffer.help())</span>
+
+<span class="c1"># Clear the oled display in case it has junk on it.</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Black</span>
+
+<span class="c1"># Blit the image from the framebuffer to the oled display</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Basic stuff</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Raspberry Pi&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;RP2040&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;press GP21&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#ring2(50,43,20,1)  # Empty circle             </span>
+<span class="c1"># Finally update the oled display so the image &amp; text is displayed</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Back to the motor control stuff. (sorry... i&#39;m soppy today)</span>
+<span class="c1"># </span>
 <span class="c1"># This function gets called every time the button is pressed.  The parameter &quot;pin&quot; is not used.</span>
 <span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
@@ -2688,7 +3057,7 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="c1"># if it has been more that 1/5 of a second since the last event, we have a new event</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
         <span class="c1"># this should be pin.id but it does not work</span>
-        <span class="k">if</span> <span class="s1">&#39;20&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;21&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
             <span class="n">mode</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">mode</span> <span class="o">-=</span><span class="mi">1</span>
@@ -2702,15 +3071,15 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
 <span class="n">slower_pin</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
 
 <span class="c1"># Piezo Buzzer is on GP22</span>
-<span class="n">buzzer</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">))</span>
+<span class="n">buzzer</span><span class="o">=</span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">))</span>
 
 <span class="n">MAX_POWER_LEVEL</span> <span class="o">=</span> <span class="mi">65025</span>
 
 <span class="n">MAX_DISTANCE</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># ignore anything above this</span>
 
 <span class="c1"># Motor Pins are A: 8,9 and B: 10,11</span>
-<span class="n">RIGHT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">11</span>
-<span class="n">RIGHT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">RIGHT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># this must be wired backword?</span>
+<span class="n">RIGHT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">10</span> 
 <span class="n">LEFT_FORWARD_PIN</span> <span class="o">=</span> <span class="mi">9</span>
 <span class="n">LEFT_REVERSE_PIN</span> <span class="o">=</span> <span class="mi">8</span>
 
@@ -2722,7 +3091,7 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
 
 <span class="c1"># returns distance in cm</span>
 <span class="k">def</span> <span class="nf">ping</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;in ping&#39;</span><span class="p">)</span>
+    <span class="c1">#print(&#39;in ping&#39;)</span>
     <span class="n">trigger</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Wait 2 microseconds low</span>
     <span class="n">trigger</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
@@ -2730,16 +3099,18 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="n">trigger</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">signaloff</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;echo is 1&#39;</span><span class="p">)</span>
+    <span class="c1">#print(&#39;echo is 1&#39;)</span>
     <span class="k">while</span> <span class="n">echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">signalon</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
     <span class="n">timepassed</span> <span class="o">=</span> <span class="n">signalon</span> <span class="o">-</span> <span class="n">signaloff</span>
     <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">timepassed</span> <span class="o">*</span> <span class="mf">0.0343</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">turn_motor_on</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
-   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">65025</span><span class="p">)</span>
+   <span class="c1">#pwm.duty_u16(65025)</span>
+   <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">turn_motor_off</span><span class="p">(</span><span class="n">pwm</span><span class="p">):</span>
    <span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -2775,8 +3146,13 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="n">turn_motor_off</span><span class="p">(</span><span class="n">left_reverse</span><span class="p">)</span>
 
 <span class="c1"># The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs</span>
-<span class="c1"># remove 16 and 17 since the are used for the ping sensor</span>
-<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<span class="n">blue_led_pins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<span class="n">blue_led_pins</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">PING_TRIGGER_PIN</span><span class="p">)</span>
+<span class="n">blue_led_pins</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">PING_ECHO_PIN</span><span class="p">)</span>
+<span class="n">blue_led_pins</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">OLED_SDA_PIN</span><span class="p">)</span>
+<span class="n">blue_led_pins</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">OLED_SCL_PIN</span><span class="p">)</span>
+
+
 <span class="c1"># dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]</span>
 <span class="n">dist_scale</span> <span class="o">=</span>    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
 
@@ -2868,14 +3244,34 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="n">playnote</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">sound_off</span><span class="p">()</span>
 
+<span class="k">def</span> <span class="nf">servo</span><span class="p">(</span><span class="n">degrees</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">degrees</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span> <span class="n">degrees</span><span class="o">=</span><span class="mi">180</span>
+    <span class="k">if</span> <span class="n">degrees</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">degrees</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">maxDuty</span><span class="o">=</span><span class="mi">8000</span> <span class="c1"># duty*100</span>
+    <span class="n">minDuty</span><span class="o">=</span><span class="mi">2000</span> <span class="c1"># duty*100</span>
+    <span class="c1">#maxDuty=2000 # test</span>
+    <span class="c1">#minDuty=8000 # test</span>
+    <span class="n">newDuty</span><span class="o">=</span><span class="n">minDuty</span><span class="o">+</span><span class="p">(</span><span class="n">maxDuty</span><span class="o">-</span><span class="n">minDuty</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">degrees</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+    <span class="n">servoPin</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">newDuty</span><span class="p">))</span>
+
+<span class="n">servoPin</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">SERVO_PIN</span><span class="p">))</span>
+<span class="n">servoPin</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
 <span class="n">valid_distance</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="c1"># loop forever</span>
+
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">valid_distance</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running main()&quot;</span><span class="p">)</span>
 
     <span class="n">play_startup</span><span class="p">()</span>
+    <span class="n">oled_count</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># repeat every</span>
+    <span class="n">oled_count_max</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># times through loop</span>
+    <span class="n">servo_count</span><span class="o">=</span><span class="mi">0</span> 
+    <span class="n">servo_count_max</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># when to update</span>
+    <span class="n">servo_degrees</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">servo</span><span class="p">(</span><span class="n">servo_degrees</span><span class="p">)</span> <span class="c1"># start in that pos</span>
 
+    <span class="c1"># loop forever</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">stop</span><span class="p">()</span>
@@ -2883,6 +3279,23 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
         <span class="k">else</span><span class="p">:</span>
             <span class="n">distance</span> <span class="o">=</span> <span class="n">ping</span><span class="p">()</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distance:&#39;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+            <span class="n">oled_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">oled_count</span> <span class="o">&gt;</span> <span class="n">oled_count_max</span><span class="p">:</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Black</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Distance:&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distance</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="n">oled_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">servo_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">servo_count</span> <span class="o">&gt;</span> <span class="n">servo_count_max</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="n">MAX_DISTANCE</span><span class="p">:</span>
+                    <span class="n">servo_degrees</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">servo_degrees</span> <span class="o">=</span> <span class="mi">180</span><span class="o">-</span><span class="n">distance</span><span class="o">/</span><span class="n">MAX_DISTANCE</span><span class="o">*</span><span class="mi">180</span>
+                <span class="n">servo</span><span class="p">(</span><span class="n">servo_degrees</span><span class="p">)</span>
+                <span class="n">servo_count</span> <span class="o">=</span> <span class="mi">0</span>
+
             <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="n">MAX_DISTANCE</span><span class="p">:</span>
                 <span class="c1"># only print if we used to have a valid distance</span>
                 <span class="k">if</span> <span class="n">valid_distance</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2890,6 +3303,9 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
                 <span class="n">valid_distance</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+                <span class="c1">#note=distance*10</span>
+                <span class="c1">#playnote(note, .025)</span>
+
                 <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="n">TURN_DISTANCE</span><span class="p">:</span>
                     <span class="n">play_turn</span><span class="p">()</span>
                     <span class="c1"># back up for a bit</span>
@@ -2916,6 +3332,7 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="n">main</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got ctrl-c&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">finally</span><span class="p">:</span>
     <span class="c1"># Optional cleanup code</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;turning off sound&#39;</span><span class="p">)</span>
@@ -2924,14 +3341,6 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
     <span class="n">stop</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="experiments">Experiments</h2>
-<ol>
-<li>Adjust the power level and the distance before turning.  See how these change the performance of the robot.</li>
-<li>Adjust the angle of the ping sensor by gently heating the plexiglass holder.  How does this change the robot behavior?</li>
-<li>Add additional modes that change the power and the turn distance.  You can have one mode for slow, one for medium and one for fast.</li>
-<li>Change the Neopixel colors to indicate the distance to an object.</li>
-<li>Change the pattern of the blue LEDs to indicate the distance to the object.</li>
-</ol>
                 
               
               
@@ -2950,7 +3359,7 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../20-collision-avoidance-robot/" title="Collision Avoidance Time-of-Flight" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../21-collision-avoidance-ping/" title="Collision Avoidance Ping" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2959,19 +3368,19 @@ the ultrasonic ping sensor.  Connect the Trigger on white and Echo on yellow.  T
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Collision Avoidance Time-of-Flight
+                  Collision Avoidance Ping
                 </span>
               </div>
             </a>
           
           
-            <a href="../24-ping-servo-meter/" title="Ping Servo Meter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../../maker-pi-pico/01-intro/" title="Cytron Maker Pi Pico" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Ping Servo Meter
+                  Cytron Maker Pi Pico
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
