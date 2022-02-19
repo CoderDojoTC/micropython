@@ -2,7 +2,7 @@
 
 This robot works very similar to our standard CoderDojo Collision Avoidance Robot.  However it adds a 180 degree servo to show the distance to the object in front of it.  It also uses a OLED display to present instructions and display the distance to the object.
 
-This program was contributed by Joe Glenn for the Minneapolis Bakken Museum Droid December event in December 2021.
+This program was contributed by [Joe Glenn](https://www.linkedin.com/in/jeglenn/) for the Minneapolis Bakken Museum Droid December event in December 2021.
 
 ![](../../img/ping-servo-meter-bot.jpg)
 
