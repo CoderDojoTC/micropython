@@ -1,6 +1,6 @@
 # CoderDojo Twin Cities Micropython
 
-![Micropython logo](img/micropython-logo-192x192.png)
+![Micropython logo](img/banner.png)
 
 This website and GitHub repository is for sharing teaching resources to teach MicroPython to students in 5th to 12th grades (10-18 years old).  The course assumes that either a mentor, teacher or students have access to at least one microcontroller such as the $4 Raspberry Pi Pico or the $10 ESP32.  Students should also have access to some low-cost sensors (buttons, potentiometers, ultrasonic distance sensor) and displays such as LEDs or OLED displays.
 
