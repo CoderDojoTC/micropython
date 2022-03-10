@@ -571,8 +571,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#turn-all-the-pixels-red" class="md-nav__link">
-    Turn all the Pixels Red
+  <a href="#move-a-red-pixel-down-the-strip" class="md-nav__link">
+    Move a red pixel down the strip
   </a>
   
 </li>
@@ -2370,8 +2370,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#turn-all-the-pixels-red" class="md-nav__link">
-    Turn all the Pixels Red
+  <a href="#move-a-red-pixel-down-the-strip" class="md-nav__link">
+    Move a red pixel down the strip
   </a>
   
 </li>
@@ -2416,10 +2416,11 @@
                 
                 <h1 id="neopixel">NeoPixel</h1>
 <p><img alt="NeoPixel Demo" src="../../img/neopixel-demo.gif" /></p>
-<p>NeoPixels are Red-Green-Blue LEDs that are assembled in a way that makes them easy to control with three wires: GND, +5V and a serial data line.  They are very popular with our students because they are powerful, easy to program and full of <strong>bling</strong>.</p>
+<p>NeoPixels are Red-Green-Blue LEDs that are designed to makes them easy to control with three wires: GND, +5V and a single serial data line.  They are very popular with our students because they are powerful, easy to program and full of <strong>bling</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.</p>
+<p>As of March of 2022 there is now built-in support for NeoPixels in the MicroPython 1.18 runtime for the Raspberry Pi RP2040 microcontroller.  Although you can still use custom libraries, this tutorial assumes you are using
+version 1.18 or later.</p>
 </div>
 <p>Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.</p>
 <p><a href="https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html">MicroPython Example Code on ESP8266</a></p>
@@ -2449,16 +2450,16 @@
 </tr>
 <tr>
 <td>Data</td>
-<td>GP0</td>
-<td>1</td>
-<td>Topmost left with USB on top</td>
+<td>GP22</td>
+<td>22</td>
+<td>Row 12 on the right side</td>
 </tr>
 </tbody>
 </table>
 <h2 id="setup-parameters">Setup Parameters</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NUM_LEDS</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">PIN_NUM</span> <span class="o">=</span> <span class="mi">0</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="initialize-the-strip-object">Initialize the Strip Object</h2>
@@ -2466,14 +2467,14 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="turn-all-the-pixels-red">Turn all the Pixels Red</h2>
+<h2 id="move-a-red-pixel-down-the-strip">Move a red pixel down the strip</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2484,17 +2485,23 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">Neopixel</span>
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">STATE_MACHINE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">Neopixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">STATE_MACHINE</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">,</span> <span class="s2">&quot;GRB&quot;</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
-    <span class="n">strip</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="turn-all-the-pixels-red-green-and-blue">Turn All the Pixels Red, Green and Blue</h2>
