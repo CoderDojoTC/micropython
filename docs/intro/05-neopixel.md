@@ -2,10 +2,11 @@
 
 ![NeoPixel Demo](../img/neopixel-demo.gif)
 
-NeoPixels are Red-Green-Blue LEDs that are assembled in a way that makes them easy to control with three wires: GND, +5V and a serial data line.  They are very popular with our students because they are powerful, easy to program and full of **bling**.
+NeoPixels are Red-Green-Blue LEDs that are designed to makes them easy to control with three wires: GND, +5V and a single serial data line.  They are very popular with our students because they are powerful, easy to program and full of **bling**.
 
 !!! Note
-    As of September of 2021 there is no built-in support for NeoPixels in the MicroPython runtime for the Raspberry Pi RP2040 microcontroller.  Other microcontrollers (like the ESP32, ESP8266), NeoPixel support is built in to the runtime library.  The RP2040 may have direct support in the future, but for the short time we will have to download a NeoPixel library or add a NeoPixel function to our code.  To find out if your current runtime has support for the NeoPixel run the help('modules') command at the RPEL prompt.
+    As of March of 2022 there is now built-in support for NeoPixels in the MicroPython 1.18 runtime for the Raspberry Pi RP2040 microcontroller.  Although you can still use custom libraries, this tutorial assumes you are using
+    version 1.18 or later.
 
 Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.
 
@@ -20,40 +21,43 @@ Controlling NeoPixels is challenging since the timing of data being sent must be
 |---------|---------|--------|-----------|
 |GND|GND|3|Ground|Third from top on the left with USB on top|
 |5v|VBUS|40|Voltage from the USB bus.  Top right with USB on top|
-|Data|GP0|1|Topmost left with USB on top|
+|Data|GP22|22|Row 12 on the right side|
 
 
 ## Setup Parameters
 
 ```py
-NUM_LEDS = 12
-PIN_NUM = 0
+NUMBER_PIXELS = 8
+LED_PIN = 22
 ```
 
 ## Initialize the Strip Object
 
 ```py
-NUMBER_PIXELS = 12
-STATE_MACHINE = 0
-LED_PIN = 0
+from neopixel import NeoPixel
+from time import sleep
 
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+NUMBER_PIXELS = 8
+LED_PIN = 22
 ```
 
-## Turn all the Pixels Red
+## Move a red pixel down the strip
 
 ```py
-from neopixel import Neopixel
+from neopixel import NeoPixel
+from time import sleep
 
-NUMBER_PIXELS = 12
-STATE_MACHINE = 0
-LED_PIN = 0
+NUMBER_PIXELS = 8
+LED_PIN = 22
 
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
-
-for i in range(0, NUMBER_PIXELS):
-    strip.set_pixel(i, (255,0,0))
-strip.show()
+strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+        
+while True:
+    for i in range(0, NUMBER_PIXELS):
+        strip[i] = (255,0,0)
+        strip.write()
+        sleep(.1)
+        strip[i] = (0,0,0)
 ```
 
 ## Turn All the Pixels Red, Green and Blue
