@@ -1,8 +1,8 @@
 # About MicroPython for Kids
 
-The goal of this website is to provide a rich collection of resources to teach computational thinking to students from 10 to 16 years old using fun Python programs that control the physical world around us.
+The this site provides a rich collection of resources to teach computational thinking to students from 10 to 16 years old using fun Python programs that control the physical world around us.
 
-The sub-field of computer science that reads sensors and controls lights and motors is called [Physical Computing](../misc/glossary#phyical-computing).  We cover physical computing in our next section.
+The sub-field of computer science that reads sensors and controls lights and motors is called [Physical Computing](../misc/glossary#phyical-computing).  We cover physical computing in our [next section](./02-physical-computing.md).
 
 ## Content Licenses
 All the content on this website is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  This means if your preserve the attribution and license you can use the content for free in your classrooms and modify and extend the curriculum to meet your needs.  However, you can not charge your students additional feeds for the content or resell the content.
