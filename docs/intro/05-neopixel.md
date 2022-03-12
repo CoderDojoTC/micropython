@@ -1,4 +1,4 @@
-# NeoPixel
+# NeoPixels
 
 ![NeoPixel Demo](../img/neopixel-demo.gif)
 
@@ -12,6 +12,12 @@ Controlling NeoPixels is challenging since the timing of data being sent must be
 
 [MicroPython Example Code on ESP8266](https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html)
 
+## Different Types of NeoPixels
+There are many different types of NeoPixels.  They come in many forms such as strips, rings and matrices.
+
+![](../img/neopixel-types.jpg)
+
+The most common type of NeoPixels are strips.  The strips come in a variety of densities and waterproofing.  The most common and easiest to use are the 60 pixels-per-meter type.
 
 ## Circuit connections
 
@@ -23,8 +29,27 @@ Controlling NeoPixels is challenging since the timing of data being sent must be
 |5v|VBUS|40|Voltage from the USB bus.  Top right with USB on top|
 |Data|GP22|22|Row 12 on the right side|
 
+Note that you can also power most of the LED strips using the 3.3 volts available on Grove connectors.  The only difference is the brightness might not be quite as high, but for most applications this will not be a problem.
 
 ## Setup Parameters
+Our Python code will have four parts:
+
+1. Declaration of the import of the NeoPixel library from the RP2 runtime.  We also import the sleep function from the utime module.
+2. Initialization of the fixed static parameters.  This is done once and the parameters are usually at the top of the file to make them easy to find and change for each application.
+3. Initialization of the NeoPixel object using these static parameters.  This is also done just once.
+4. Sending the drawing commands to the device through the data port.  This is usually done within a main loop.
+
+### Import Statements
+Here are the import statements we use:
+
+```py
+from machine import Pin
+from neopixel import NeoPixel
+from utime import sleep
+```
+
+### Static Initialization Parameters
+There are only two values.  The number of pixels in the strip or ring and the pin number the data pin is connected to.
 
 ```py
 NUMBER_PIXELS = 8
@@ -33,15 +58,30 @@ LED_PIN = 22
 
 ## Initialize the Strip Object
 
-```py
-from neopixel import NeoPixel
-from time import sleep
+To setup the Neopixel object we just pass it the two parameters like this:
 
-NUMBER_PIXELS = 8
-LED_PIN = 22
+```py
+strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
 ```
 
-## Move a red pixel down the strip
+Here is the full initialization code:
+
+```py
+from machine import Pin
+from neopixel import NeoPixel
+from utime import sleep
+
+NUMBER_PIXELS = 8
+LED_PIN_ID = 22
+led_pin = machine.Pin(LED_PIN_ID)
+```
+
+Now we are ready to write our first small test program!
+
+## Move a red pixel up the strip
+
+![Move LED Up Strip](../img/red-led-move-up.gif)
+
 
 ```py
 from neopixel import NeoPixel
@@ -61,107 +101,54 @@ while True:
 ```
 
 ## Turn All the Pixels Red, Green and Blue
+The following program will create 
 
 ```py
-import time
-# We are using https://github.com/blaz-r/pi_pico_neopixel
-from neopixel import Neopixel
+from neopixel import NeoPixel
+from time import sleep
 
-NUMBER_PIXELS = 12
-STATE_MACHINE = 0
-LED_PIN = 0
+NUMBER_PIXELS = 8
+LED_PIN = 22
 
-# We are using the GRB variety, not RGB
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
-# set 100% brightness
-strip.brightness(100)
-delay = .1
+strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
 
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
+brightness = 25
+red = (brightness, 0, 0)
+green = (0, brightness, 0)
+blue = (0, 0, brightness)
 while True:
     for i in range(0, NUMBER_PIXELS):
-        strip.set_pixel(i, red)
-        strip.show()
-        time.sleep(delay)
+        strip[i] = red
+        strip.write()
+        sleep(.1)
+        strip[i] = (0,0,0)
     for i in range(0, NUMBER_PIXELS):
-        strip.set_pixel(i, green)
-        strip.show()
-        time.sleep(delay)
+        strip[i] =  green
+        strip.write()
+        sleep(.1)
+        strip[i] = (0,0,0)
     for i in range(0, NUMBER_PIXELS):
-        strip.set_pixel(i, blue)
-        strip.show()
-        time.sleep(delay)
-
+        strip[i] =  blue
+        strip.write()
+        sleep(.1)
+        strip[i] = (0,0,0)
 ```
 
+#### Rainbow Cycle
+The program cycles each pixel through all the colors in a rainbow.
 
-## Full code (no library)
 ```py
-# Example using PIO to drive a set of WS2812 LEDs.
-
-import array, time
 from machine import Pin
-import rp2
+from neopixel import NeoPixel
+from utime import sleep
 
-# Configure the number of WS2812 LEDs.
-NUM_LEDS = 60
-PIN_NUM = 22
-brightness = 0.2
-
-@rp2.asm_pio(sideset_init=rp2.PIO.OUT_LOW, out_shiftdir=rp2.PIO.SHIFT_LEFT, autopull=True, pull_thresh=24)
-def ws2812():
-    T1 = 2
-    T2 = 5
-    T3 = 3
-    wrap_target()
-    label("bitloop")
-    out(x, 1)               .side(0)    [T3 - 1]
-    jmp(not_x, "do_zero")   .side(1)    [T1 - 1]
-    jmp("bitloop")          .side(1)    [T2 - 1]
-    label("do_zero")
-    nop()                   .side(0)    [T2 - 1]
-    wrap()
-
-
-# Create the StateMachine with the ws2812 program, outputting on pin
-sm = rp2.StateMachine(0, ws2812, freq=8_000_000, sideset_base=Pin(PIN_NUM))
-
-# Start the StateMachine, it will wait for data on its FIFO.
-sm.active(1)
-
-# Display a pattern on the LEDs via an array of LED RGB values.
-ar = array.array("I", [0 for _ in range(NUM_LEDS)])
-
-##########################################################################
-def pixels_show():
-    dimmer_ar = array.array("I", [0 for _ in range(NUM_LEDS)])
-    for i,c in enumerate(ar):
-        r = int(((c >> 8) & 0xFF) * brightness)
-        g = int(((c >> 16) & 0xFF) * brightness)
-        b = int((c & 0xFF) * brightness)
-        dimmer_ar[i] = (g<<16) + (r<<8) + b
-    sm.put(dimmer_ar, 8)
-    time.sleep_ms(10)
-
-def pixels_set(i, color):
-    ar[i] = (color[1]<<16) + (color[0]<<8) + color[2]
-
-def pixels_fill(color):
-    for i in range(len(ar)):
-        pixels_set(i, color)
-
-def color_chase(color, wait):
-    for i in range(NUM_LEDS):
-        pixels_set(i, color)
-        time.sleep(wait)
-        pixels_show()
-    time.sleep(0.2)
+NEOPIXEL_PIN = 22
+NUMBER_PIXELS = 8
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
-    # The colours are a transition r - g - b - back to r.
+    # The colors are a transition r - g - b - back to r.
     if pos < 0 or pos > 255:
         return (0, 0, 0)
     if pos < 85:
@@ -172,37 +159,21 @@ def wheel(pos):
     pos -= 170
     return (pos * 3, 0, 255 - pos * 3)
 
-
 def rainbow_cycle(wait):
     for j in range(255):
-        for i in range(NUM_LEDS):
-            rc_index = (i * 256 // NUM_LEDS) + j
-            pixels_set(i, wheel(rc_index & 255))
-        pixels_show()
-        time.sleep(wait)
-
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-YELLOW = (255, 150, 0)
-GREEN = (0, 255, 0)
-CYAN = (0, 255, 255)
-BLUE = (0, 0, 255)
-PURPLE = (180, 0, 255)
-WHITE = (255, 255, 255)
-COLORS = (BLACK, RED, YELLOW, GREEN, CYAN, BLUE, PURPLE, WHITE)
-
-print("fills")
-for color in COLORS:
-    pixels_fill(color)
-    pixels_show()
-    time.sleep(0.2)
-
-print("chases")
-for color in COLORS:
-    color_chase(color, 0.01)
-
-print("rainbow")
-rainbow_cycle(0)
+        for i in range(NUMBER_PIXELS):
+            rc_index = (i * 256 // NUMBER_PIXELS) + j
+            # print(rc_index)
+            strip[i] = wheel(rc_index & 255)
+        strip.write()
+    sleep(wait)
+        
+counter = 0
+offset = 0
+while True:
+    print('Running cycle', counter)
+    rainbow_cycle(0)
+    counter += 1
 ```
 
 ## References

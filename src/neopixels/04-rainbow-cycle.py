@@ -1,11 +1,10 @@
-import machine, neopixel
+from machine import Pin
+from neopixel import NeoPixel
 from utime import sleep
-from neopixel import Neopixel
 
 NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 72
-strip = Neopixel(NUMBER_PIXELS, 0, NEOPIXEL_PIN, "GRB")
-strip.brightness(100)
+NUMBER_PIXELS = 8
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -20,18 +19,10 @@ def wheel(pos):
     pos -= 170
     return (pos * 3, 0, 255 - pos * 3)
 
-def rainbow_cycle(wait):
-    for j in range(255):
-        for i in range(NUMBER_PIXELS):
-            rc_index = (i * 256 // NUMBER_PIXELS) + j
-            # print(rc_index)
-            strip.set_pixel(i, wheel(rc_index & 255))
-        strip.show()
-    sleep(wait)
-        
 counter = 0
-offset = 0
 while True:
-    print('Running cycle', counter)
-    rainbow_cycle(0)
-    counter += 1
+    for i in range(0, NUMBER_PIXELS):
+        strip[i] = wheel(counter % 255)
+        strip.write()
+        counter += 10
+        sleep(.1)
