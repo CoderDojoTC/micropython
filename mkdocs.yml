@@ -3,11 +3,11 @@ nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - MicroPython Home: index.md
   - Introduction:
-    About This Site: 01-about.md
-    Physical Computing: 02-physical-computing.md
+    - About This Site: 01-about.md
+    - Physical Computing: 02-physical-computing.md
+    - Microcontrollers: 03-microcontrollers.md
   - Getting Started:
     - Introduction: getting-started/01-intro.md
-    - Microcontrollers: getting-started/01a-microcontrollers.md
     - Solderless Breadboards: getting-started/02-breadboards.md
     - Boards: getting-started/02-boards.md
     - Displays: getting-started/10-displays.md
