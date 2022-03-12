@@ -3,9 +3,9 @@ nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - MicroPython Home: index.md
   - Introduction:
-    - About This Site: 01-about.md
-    - Physical Computing: 02-physical-computing.md
-    - Microcontrollers: 03-microcontrollers.md
+    - About This Site: intro/01-about.md
+    - Physical Computing:  intro/02-physical-computing.md
+    - Microcontrollers:  intro/03-microcontrollers.md
   - Getting Started:
     - Introduction: getting-started/01-intro.md
     - Solderless Breadboards: getting-started/02-breadboards.md
@@ -19,14 +19,14 @@ nav:
     - VS Code IDE: getting-started/02d-vscode.md
     - MicroPython Libraries: getting-started/01b-libraries.md
   - Basic Examples:
-    - Introduction: intro/01-intro.md
-    - Blink: intro/03-blink.md
-    - Fade In and Out: intro/04-fade-in-and-out.md
-    - Buttons: intro/03-button.md
-    - Potentiometer: intro/03-potentiometer.md
-    - Motor: intro/04-motor.md
-    - Servo: intro/04-servo.md
-    - NeoPixel: intro/05-neopixel.md
+    - Introduction: basics/01-intro.md
+    - Blink: basics/03-blink.md
+    - Fade In and Out: basics/04-fade-in-and-out.md
+    - Buttons: basics/03-button.md
+    - Potentiometer: basics/03-potentiometer.md
+    - Motor: basics/04-motor.md
+    - Servo: basics/04-servo.md
+    - NeoPixel: basics/05-neopixel.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
