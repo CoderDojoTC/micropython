@@ -4,8 +4,6 @@
 
 This website and GitHub repository is for sharing teaching resources to teach MicroPython to students in 5th to 12th grades (10-18 years old).  The course assumes that either a mentor, teacher or students have access to at least one microcontroller such as the $4 Raspberry Pi Pico or the $10 ESP32.  Students should also have access to some low-cost sensors (buttons, potentiometers, ultrasonic distance sensor) and displays such as LEDs or OLED displays.
 
-All the content on this website is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  This means if your preserve the attribution and license you can use the content for free in your classrooms and modify and extend the curriculum to meet your needs.  However, you can not charge your students additional feeds for the content or resell the content.
-
 If you are looking for a specific topic, please remember to use the search function in the upper right of the website.  The website is best displayed on a wide screen to seen the left navigation bar on the left although the website also works on the small screens of mobile phones and tablets.
 
 ## Course Outline

@@ -82,7 +82,6 @@ Now we are ready to write our first small test program!
 
 ![Move LED Up Strip](../img/red-led-move-up.gif)
 
-
 ```py
 from neopixel import NeoPixel
 from time import sleep
@@ -94,14 +93,16 @@ strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
         
 while True:
     for i in range(0, NUMBER_PIXELS):
-        strip[i] = (255,0,0)
-        strip.write()
-        sleep(.1)
-        strip[i] = (0,0,0)
+        strip[i] = (255,0,0) # red=255, green and blue are 0
+        strip.write() # send the data from RAM down the wire
+        sleep(.1) # keep on 1/10 of a second
+        strip[i] = (0,0,0) # change the RAM back but don't resend the data
 ```
 
 ## Turn All the Pixels Red, Green and Blue
-The following program will create 
+
+![neopixel-red-green-blue](..img/neopixel-demo.gif)
+The following program will just take the block of code in the for loop above and duplicate it three times, one for red, one for blue and one for green
 
 ```py
 from neopixel import NeoPixel
@@ -112,7 +113,9 @@ LED_PIN = 22
 
 strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
 
+# we use the same brightness for each color
 brightness = 25
+# here we define variables for each color
 red = (brightness, 0, 0)
 green = (0, brightness, 0)
 blue = (0, 0, brightness)
