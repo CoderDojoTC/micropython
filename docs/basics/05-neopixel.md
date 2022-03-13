@@ -56,9 +56,9 @@ NUMBER_PIXELS = 8
 LED_PIN = 22
 ```
 
-## Initialize the Strip Object
+### Initialize the Strip Object
 
-To setup the Neopixel object we just pass it the two parameters like this:
+To setup the NeoPixel object we just pass it the two parameters like this:
 
 ```py
 strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
@@ -76,9 +76,10 @@ LED_PIN_ID = 22
 led_pin = machine.Pin(LED_PIN_ID)
 ```
 
+## Sample Programs
 Now we are ready to write our first small test program!
 
-## Move a red pixel up the strip
+### Move Red Pixel Across Strip
 
 ![Move LED Up Strip](../img/red-led-move-up.gif)
 
@@ -99,9 +100,9 @@ while True:
         strip[i] = (0,0,0) # change the RAM back but don't resend the data
 ```
 
-## Turn All the Pixels Red, Green and Blue
+### Move Red, Green and Blue
 
-![neopixel-red-green-blue](..img/neopixel-demo.gif)
+![neopixel-red-green-blue](../img/neopixel-red-green-blue.gif)
 The following program will just take the block of code in the for loop above and duplicate it three times, one for red, one for blue and one for green
 
 ```py
@@ -137,8 +138,11 @@ while True:
         strip[i] = (0,0,0)
 ```
 
-#### Rainbow Cycle
-The program cycles each pixel through all the colors in a rainbow.
+### Rainbow Cycle
+The program cycles each pixel through all the colors in a rainbow.  It uses two functions:
+
+1. **wheel(pos)** this function takes a position parameter from 0 to 255 and returns a triple of numbers for the red, green and blue values as the position moves around the color wheel.  This is a handy program anytime you want to cycle through all the colors of the rainbow!
+2. **rainbow_cycle(wait)** will cycle each of the pixels in a strip through the color wheel.  It gives the appearance that colors are moving across the strip.  The wait is the delay time between updating the colors.  A typical value for wait is .05 seconds or 50 milliseconds.
 
 ```py
 from machine import Pin
@@ -163,6 +167,7 @@ def wheel(pos):
     return (pos * 3, 0, 255 - pos * 3)
 
 def rainbow_cycle(wait):
+    global NUMBER_PIXELS, strip
     for j in range(255):
         for i in range(NUMBER_PIXELS):
             rc_index = (i * 256 // NUMBER_PIXELS) + j
@@ -175,14 +180,13 @@ counter = 0
 offset = 0
 while True:
     print('Running cycle', counter)
-    rainbow_cycle(0)
+    rainbow_cycle(.05)
     counter += 1
 ```
 
 ## References
 
-[Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico](https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html) - HTML page, sample code and video
-
-[MicroPython Library for NeoPixel](https://docs.micropython.org/en/latest/library/neopixel.html) - note the lack of support for the RP2040 microcontroller.
-
-[rp2 port no module named array](https://github.com/micropython/micropython/issues/6837)
+* [MicroPython RP2 Reference for NeoPixel Driver](https://docs.micropython.org/en/latest/rp2/quickref.html#neopixel-and-apa106-driver)
+* [Core Electronics: How to use WS2812B RGB LEDs with Raspberry Pi Pico](https://core-electronics.com.au/tutorials/how-to-use-ws2812b-rgb-leds-with-raspberry-pi-pico.html) - HTML page, sample code and video
+* [MicroPython Library for NeoPixel (used before version 1.18 of the MicroPython RP2 Runtime)](https://docs.micropython.org/en/latest/library/neopixel.html) - note the lack of support for the RP2040 microcontroller.
+* [rp2 port no module named array](https://github.com/micropython/micropython/issues/6837)

@@ -68,3 +68,7 @@ while True:
 Almost all our programs will start with the `import machine` line.  This tells the system that we need to gather all the libraries that understand our physical machine.
 
 If you couldn't understand the example program - don't worry! We will be going through it in detail as we work on our labs.
+
+## References
+
+* [Listing of RP2040-based Boards on the Raspberry Pi Foundation Website](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#rp2040-based-boards)

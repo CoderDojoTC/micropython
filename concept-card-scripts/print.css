@@ -1,0 +1,49 @@
+body {
+    background: white;
+    color: black;
+   }
+   
+   @page {
+    margin-left: .25ins;
+    margin-right: 25ins;
+    margin-top: 25ins;
+    margin-bottom: 25ins;
+   }
+
+   /* insert URLs */
+   a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    color: #333;
+   }
+
+   /* avoid splitting tables on page breaks */
+   table { page-break-inside: avoid; }
+
+   h1 {
+       color: blue;
+       font-size: 16pt;
+   }
+
+   @code {
+       font-family: "Courier New", monospace;
+   }
+
+   @concept-card-title {
+       color: purple;
+       font-weight: bold;
+       border: 1px solid purple;
+   }
+
+   @beginner-border {
+       background: green;
+       color: white;
+       font-weight: bold;
+       border: 1px solid black;
+   }
+
+   @concept-card-body{
+       background: white;
+       color: black;
+       border: 1px solid orange;
+   }

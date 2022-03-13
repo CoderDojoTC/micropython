@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Template for a printable concept card. -->
+    <head>
+
+    <link href="print.css" rel="stylesheet" media="print" />
+    <link href="screen.css" rel="stylesheet" media="screen" />
+    </head>
+    <body>
+        <div class="beginner-border">
+            <div class="border-title">CoderDojo MicroPython Beginning Concept Card</div>
+            <div class="main-content"></div>
+                <div class="concept-card-title">Blink Lab</div>
+                <div class="concept-card-description">How to blink an LED on and off.</div>
+                <div class="concept-card-body">How to blink an LED</div>
+                <div class="narrative">
+                    In this lab we will make an LED go on and off.
+                </div>
+                <code><pre>
+from machine import Pin # get the Pin function from the machine module
+from time import sleep # get the sleep library from the time module
+# this is the built-in green LED on the Pico
+led = machine.Pin(25, machine.Pin.OUT)
+
+# repeat forever
+while True:
+    led.high() # turn on the LED
+    sleep(0.5) # leave it on for 1/2 second
+    led.low() # Turn off the LED
+    sleep(0.5) # leave it off for 1/2 second
+                </pre></code>
+            </div>
+            </div>
+        </div>
+    </body>
+    <style type="text/css">
+        @media print {
+            @code {
+       font-family: "Courier New", monospace;
+   }
+
+   @concept-card-title {
+       color: purple;
+       font-weight: bold;
+       border: 1px solid purple;
+   }
+
+   @beginner-border {
+       background: green;
+       color: white;
+       font-weight: bold;
+       border: 1px solid black;
+   }
+
+   @concept-card-body{
+       background: white;
+       color: black;
+       border: 1px solid orange;
+   }
+
+   footer {page-break-after: always;}
+        }
+    </style>
+</html>
