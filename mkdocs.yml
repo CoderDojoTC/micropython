@@ -49,31 +49,32 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Non-Graphical Displays:
-    - Introduction: displays/01-intro.md
-    - 7 Segment Display: displays/seven-segment.md
-    - Character LCD: displays/10-character-lcd-display.md
-  - Graphical Displays:
-    - Introduction: oled/01-intro.md
-    - Graphic LCD: displays/15-cu1609c-led.md
-    - Basic Drawing: oled/03-oled-drawing.md
-    - Drawing with Bitmaps: displays/03-bitmaps.md
-    - Color LCD ST7789V: displays/14-lcd-st7789V.md
-    - LCD Waveshare: displays/11-lcd-waveshare.md
-    - E-Paper: displays/12-e-paper-display.md
-    - OLED Setup: oled/02-oled-setup.md
-    - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
-    - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
-    - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
-    - OLED SH1106 I2C Example: oled/11-oled-sh1106-i2c.md
-    - OLED Bounce: oled/10-oled-bounce.md
-    - OLED Pot: oled/12-oled-pot.md
-    - OLED Ping: oled/11-oled-ping.md
-    - OLED Pong: oled/11-pong.md
-    - OLED Pixel Draw: oled/13-pixel-draw.md
-    - OLED Patterns: oled/15-oled-patterns.md
-    - Random Hearts: oled/14-random-hearts.md
-    - OLED References: oled/40-oled-references.md
+  - Displays:
+    - Non-Graphical:
+      - Introduction: displays/01-intro.md
+      - 7 Segment Display: displays/seven-segment.md
+      - Character LCD: displays/10-character-lcd-display.md
+    - Graphical Displays:
+      - Introduction: oled/01-intro.md
+      - Graphic LCD: displays/15-cu1609c-led.md
+      - Basic Drawing: oled/03-oled-drawing.md
+      - Drawing with Bitmaps: displays/03-bitmaps.md
+      - Color LCD ST7789V: displays/14-lcd-st7789V.md
+      - LCD Waveshare: displays/11-lcd-waveshare.md
+      - E-Paper: displays/12-e-paper-display.md
+      - OLED Setup: oled/02-oled-setup.md
+      - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
+      - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
+      - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
+      - OLED SH1106 I2C Example: oled/11-oled-sh1106-i2c.md
+      - OLED Bounce: oled/10-oled-bounce.md
+      - OLED Pot: oled/12-oled-pot.md
+      - OLED Ping: oled/11-oled-ping.md
+      - OLED Pong: oled/11-pong.md
+      - OLED Pixel Draw: oled/13-pixel-draw.md
+      - OLED Patterns: oled/15-oled-patterns.md
+      - Random Hearts: oled/14-random-hearts.md
+      - OLED References: oled/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
     - Playing a Tone: sound/02-play-tone.md

@@ -29,6 +29,7 @@
         "utime",
         "VBUS",
         "VREF",
-        "VSYS"
+        "VSYS",
+        "waveshare"
     ]
 }
