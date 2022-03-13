@@ -18,7 +18,7 @@
     
     
       
-        <title>Contributing - MicroPython for Kids</title>
+        <title>Temp and Humidity - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#micropython-book-contributing-guide" class="md-skip">
+        <a href="#sensing-temperature-and-humidity-with-the-dht11-sensor" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Contributing
+              Temp and Humidity
             
           </span>
         </div>
@@ -593,12 +593,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
       
       <label class="md-nav__link" for="nav-6">
         Sensors
@@ -617,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/01-intro/" class="md-nav__link">
+      <a href="../01-intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -629,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/02-photosensor/" class="md-nav__link">
+      <a href="../02-photosensor/" class="md-nav__link">
         Photosensor
       </a>
     </li>
@@ -641,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/03-ping/" class="md-nav__link">
+      <a href="../03-ping/" class="md-nav__link">
         Ping Distance
       </a>
     </li>
@@ -653,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/08-ir-distance-sensor/" class="md-nav__link">
+      <a href="../08-ir-distance-sensor/" class="md-nav__link">
         IR Distance Sensor
       </a>
     </li>
@@ -663,11 +665,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../sensors/04-temp-dht11/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Temp and Humidity
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Temp and Humidity
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -677,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/05-temp-dsb20/" class="md-nav__link">
+      <a href="../05-temp-dsb20/" class="md-nav__link">
         Temperature
       </a>
     </li>
@@ -689,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/06-bme280/" class="md-nav__link">
+      <a href="../06-bme280/" class="md-nav__link">
         Temp, Humidity, Pres
       </a>
     </li>
@@ -701,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/dht11-temp-humidity/" class="md-nav__link">
+      <a href="../dht11-temp-humidity/" class="md-nav__link">
         DH11 Temp and Humidity
       </a>
     </li>
@@ -713,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/02-pot/" class="md-nav__link">
+      <a href="../02-pot/" class="md-nav__link">
         Potentiometer
       </a>
     </li>
@@ -725,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/06-bme280/" class="md-nav__link">
+      <a href="../06-bme280/" class="md-nav__link">
         Environmental Sensor
       </a>
     </li>
@@ -737,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/06-accelerometer-compass/" class="md-nav__link">
+      <a href="../06-accelerometer-compass/" class="md-nav__link">
         Accelerometer Compass
       </a>
     </li>
@@ -749,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/07-VL53L0X_GY/" class="md-nav__link">
+      <a href="../07-VL53L0X_GY/" class="md-nav__link">
         Time of Flight Distance
       </a>
     </li>
@@ -761,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sensors/10-rotary-encoder/" class="md-nav__link">
+      <a href="../10-rotary-encoder/" class="md-nav__link">
         Rotary Encoder
       </a>
     </li>
@@ -2239,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
+      <a href="../../misc/glossary/" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -2255,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../references/" class="md-nav__link">
+      <a href="../../misc/references/" class="md-nav__link">
         References
       </a>
     </li>
@@ -2269,77 +2316,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Contributing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../misc/contributing/" class="md-nav__link">
         Contributing
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contribution-license" class="md-nav__link">
-    Contribution License
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ways-to-contribute" class="md-nav__link">
-    Ways to Contribute
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#teaching-suggestions" class="md-nav__link">
-    Teaching Suggestions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lesson-structure" class="md-nav__link">
-    Lesson Structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2353,7 +2334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contact/" class="md-nav__link">
+      <a href="../../misc/contact/" class="md-nav__link">
         Contact
       </a>
     </li>
@@ -2369,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../30-colophon/" class="md-nav__link">
+      <a href="../../misc/30-colophon/" class="md-nav__link">
         Colophon
       </a>
     </li>
@@ -2401,36 +2382,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contribution-license" class="md-nav__link">
-    Contribution License
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ways-to-contribute" class="md-nav__link">
-    Ways to Contribute
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#teaching-suggestions" class="md-nav__link">
-    Teaching Suggestions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lesson-structure" class="md-nav__link">
-    Lesson Structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -2447,59 +2407,43 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/misc/contributing.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/sensors/04-temp-dht11.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="micropython-book-contributing-guide">MicroPython Book Contributing Guide</h1>
-<p>The goal of this microsite is to provide MicroPython content to STEM educational programs around the world.  We value inclusion and we love low-cost projects that promote STEM instruction in communities that don't have large budgets.  We value a focus on instructional design that teaches computational thinking and uses evidence of the effective delivery of this content to underprivileged communities.</p>
-<p>We welcome anyone that would like to add content to this microsite with the following guidelines:</p>
-<h2 id="contribution-license">Contribution License</h2>
-<ol>
-<li>Your content must be your own original content.  We discourage copying bulk content from other sites without clear understanding of the copyrights that govern this content.  We put a special focus on image attribution.  Any images added must clearly state that the images are original content created by the author.</li>
-<li>You must agree to license your new original content to allow other teachers and mentors to reuse this content in their classrooms free of charge.  We use Creative Commons Licenses <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> for all content in this microsite and other microsites managed by CoderDojo Twin Cities.</li>
-</ol>
-<p>Under these terms teachers and mentors are free to:</p>
+                <h1 id="sensing-temperature-and-humidity-with-the-dht11-sensor">Sensing Temperature and Humidity with the DHT11 Sensor</h1>
+<h2 id="sample-code">Sample Code</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">utime</span> <span class="k">as</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">dht</span> <span class="kn">import</span> <span class="n">DHT11</span><span class="p">,</span> <span class="n">InvalidChecksum</span>
+
+<span class="n">DHT_PIN</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># this is a bit odd, since although it is an input, we need a pull down set</span>
+<span class="n">dhtSensor</span> <span class="o">=</span> <span class="n">DHT11</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">DHT_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">dhtSensor</span><span class="o">.</span><span class="n">temperature</span>
+    <span class="n">humidity</span> <span class="o">=</span> <span class="n">dhtSensor</span><span class="o">.</span><span class="n">humidity</span><span class="o">/</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temp: </span><span class="si">{}</span><span class="s2">°C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span>  <span class="s2">&quot;| Hum: </span><span class="si">{0:.1%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">humidity</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="references">References</h2>
 <ul>
-<li><strong>Share</strong> — copy and redistribute the material in any medium or format</li>
-<li><strong>Adapt</strong> — remix, transform, and build upon the material</li>
+<li><a href="https://peppe8o.com/dht11-humidity-and-temperature-sensor-with-raspberry-pi-pico-and-micropython/">Peppe80's Example</a></li>
+<li><a href="https://raw.githubusercontent.com/ikornaselur/pico-libs/master/src/dht11/dht.py">Axel Örn Sigurðsson's DHT11 Driver</a></li>
 </ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the license terms.
-Under the following terms:</p>
-<ul>
-<li>
-<p><strong>Attribution</strong> — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</p>
-</li>
-<li>
-<p><strong>NonCommercial</strong> — You may not use the material for commercial purposes.</p>
-</li>
-<li>
-<p><strong>ShareAlike</strong> — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p>
-</li>
-<li>
-<p><strong>No additional restrictions</strong> — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
-</li>
-</ul>
-<h2 id="ways-to-contribute">Ways to Contribute</h2>
-<ol>
-<li>Start out by helping us proof-read our content and help us find typos, spelling, lack-of clarity, and missing content.  As you learn the style of our lessons you will be better able to contribute new lessons that have a similar style</li>
-<li>You may submit pull requests to this site of if you are not familiar with this process, you can add a link to your content in an issue.</li>
-<li>You may add an issue to our issues board <a href="https://github.com/CoderDojoTC/micropython/issues">here</a></li>
-<li>You are welcome to participate by looking for open tasks and using GitHub workflows to take on tasks to completion.</li>
-</ol>
-<h2 id="teaching-suggestions">Teaching Suggestions</h2>
-<p>Avoid too much focus on building games that don't promote teaching computational thinking skills.  Simple remote control robots might be fun, but sometime the fun of driving a robot around gets in the way of learning new concepts.</p>
-<h2 id="lesson-structure">Lesson Structure</h2>
-<ol>
-<li>Try to begin each section or lesson with a kid-friendly image.  This help readers quickly recall if they have visited this page before.</li>
-<li>If if it not obvious, include any prior knowledge that is required to understand a lesson in an Intended Audience or Prerequsites section.</li>
-<li>Try to keep the introductory lessons in a section short and small.  After you have introduce the core concepts you can integrate concepts from other areas.</li>
-<li>Add a "Further Explorations" section to the end of each lesson
-Include references to other sites or wikipedia articles that can be explored further.</li>
-</ol>
-<h2 id="resources">Resources</h2>
-<p>Please see our page on <a href="https://www.coderdojotc.org/CoderDojoTC/computational-thinking/">Teaching Computational Thinking</a>.</p>
                 
               
               
@@ -2518,7 +2462,7 @@ Include references to other sites or wikipedia articles that can be explored fur
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../references/" title="References" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../08-ir-distance-sensor/" title="IR Distance Sensor" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2527,19 +2471,19 @@ Include references to other sites or wikipedia articles that can be explored fur
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  References
+                  IR Distance Sensor
                 </span>
               </div>
             </a>
           
           
-            <a href="../contact/" title="Contact" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../05-temp-dsb20/" title="Temperature" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Contact
+                  Temperature
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">

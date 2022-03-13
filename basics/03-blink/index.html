@@ -559,11 +559,38 @@
     Using Toggle
   </a>
   
+    <nav class="md-nav" aria-label="Using Toggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blinking-an-external-led" class="md-nav__link">
+    Blinking an External LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-to-led-row-lab" class="md-nav__link">
+    Solution to LED Row Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-credit-lab" class="md-nav__link">
+    Extra credit lab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-lab" class="md-nav__link">
-    Virtual Lab
+  <a href="#more-to-explore" class="md-nav__link">
+    More to Explore
   </a>
   
 </li>
@@ -723,6 +750,18 @@
     <li class="md-nav__item">
       <a href="../../sensors/08-ir-distance-sensor/" class="md-nav__link">
         IR Distance Sensor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sensors/04-temp-dht11/" class="md-nav__link">
+        Temp and Humidity
       </a>
     </li>
   
@@ -2416,11 +2455,38 @@
     Using Toggle
   </a>
   
+    <nav class="md-nav" aria-label="Using Toggle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blinking-an-external-led" class="md-nav__link">
+    Blinking an External LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-to-led-row-lab" class="md-nav__link">
+    Solution to LED Row Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-credit-lab" class="md-nav__link">
+    Extra credit lab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-lab" class="md-nav__link">
-    Virtual Lab
+  <a href="#more-to-explore" class="md-nav__link">
+    More to Explore
   </a>
   
 </li>
@@ -2445,38 +2511,14 @@
                 <h1 id="blink-in-micropython">Blink in MicroPython</h1>
 <p><img alt="Blink GIF" src="../../img/blink-on-board-led.gif" /></p>
 <h2 id="overview">Overview</h2>
-<p>In this lab, we will use MicroPython to make the green on-board LED on the Raspberry Pi Pico blink on and off using MicroPython.  The only things you need to run this program are an IDE like Thonny, a USB cable and a $4 Raspberry Pi Pico.</p>
+<p>In this lab, we will use MicroPython to make the green on-board LED on the Raspberry Pi Pico blink on and off every half second.  The only things you need to run this program are</p>
+<ol>
+<li>a working IDE like <a href="../glossary#thonny">Thonny</a></li>
+<li>a USB cable</li>
+<li>a $4 Raspberry Pi Pico microcontroller</li>
+</ol>
 <h2 id="blinking-the-builtin-led">Blinking the Builtin LED</h2>
-<p>The pico has a single built in LED wired to logical pin 25.  We call this GPIO 25.  Here is a sample program that you can use:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span> <span class="c1"># get the Pin function from the machine module</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># get the sleep library from the time module</span>
-<span class="c1"># this is the built-in green LED on the Pico</span>
-<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-
-<span class="c1"># repeat forever</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn on the LED</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it on for 1/2 second</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># Turn off the LED</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
-</code></pre></div>
-</td></tr></table>
-<p>This program has two parts.  The first part is often called the preamble - this code gets executed once and loads the right libraries and initializes global variables.<br />
-The second part is the main event loop.  This program continues to run until the device is powered down or reset.</p>
-<p>The <code>import machine</code> statement is required to define the characteristics of our physical machine.  The <code>import time</code> library is required for the python sleep function.</p>
-<p>Note that the text after the hash or pound characters are comments.  Comments are ignored by the Python interpreter.</p>
-<h2 id="changing-the-blink-speed">Changing the Blink Speed</h2>
-<p>Next, lets create a global variable for the delay that the LED is on and off.</p>
+<p>The pico has a single built in green LED wired to logical pin 25.  We call this GPIO 25.  GPIO means General Purpose Input and Output pin. Here is a sample program that you can use.  Don't worry about understanding each line yet.  We will cover the various parts of the file in later sections.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2490,10 +2532,52 @@ The second part is the main event loop.  This program continues to run until the
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Setup - run once</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span> <span class="c1"># Get the Pin function from the machine module.</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># Get the sleep library from the time module.</span>
+
+<span class="c1"># This is the built-in green LED on the Pico.</span>
+<span class="n">BUILT_IN_LED_PIN</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="c1"># The line below indicates we are configuring this as an output (not input)</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">BUILT_IN_LED_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+
+<span class="c1"># Main loop: Repeat the forever...</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn on the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it on for 1/2 second</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>  <span class="c1"># Turn off the LED</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
+</code></pre></div>
+</td></tr></table>
+<p>This program has two main parts.  The first part is often called the preamble or the setup code. This code gets executed only once when the program is run. In this example, the setup loads the right libraries and initializes global variables.</p>
+<p>The second part is the main event loop.  This program continues to run until the device is powered down or the program is reset.</p>
+<p>The <code>from machine import Pin</code> statement is required to define the characteristics of our physical machine.  In this case, we are loading the Pin python library.</p>
+<p>The <code>from time import sleep</code> library is required for the python sleep function.  Note that some programs use <code>utime</code> for MicroPython time.  These both work the same.  They are really just synonyms or alias of each other.  Although the use of <code>utime</code> is technically a little bit more precise - the reader knows that the code is using the actual MicroPython time library, the use of the <code>time</code> alias makes our code on character smaller and can make our code more portable to other systems.</p>
+<p>Note that the text after the hash or pound characters are comments.  Comments are ignored by the Python interpreter but it is a good practice to put in comments in your code to help others understand your program.</p>
+<h2 id="changing-the-blink-speed">Changing the Blink Speed</h2>
+<p>Next, lets create a Python global variable for the delay that the LED is on and off.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">BUILT_IN_LED_PIN</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="c1"># this is the builtin LED on the Pico</span>
-<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUILT_IN_LED_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
 <span class="c1"># global variables</span>
 <span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">25</span>
@@ -2526,7 +2610,10 @@ The second part is the main event loop.  This program continues to run until the
     <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>If you save the file as main.py, this program will run when the pico starts up without the BOOTSEL being pressed.</p>
+<p>The <code>toggle()</code> function looks at the state of the output pin.  If it is high, it sets the value low.  If it is low, it sets it high.  Whatever the value currently is, it will set it to the opposite value.</p>
+<p>If you save the file as main.py, this program will run when the microcontroller starts up without the BOOTSEL being pressed.</p>
+<h3 id="blinking-an-external-led">Blinking an External LED</h3>
+<p>Although the builtin LED is convenient, you can use the almost the code to blink any external LED that is connected through a 330 ohm resister in series to the LED.</p>
 <p>We will assume that an LED is connected to pin GIO16 and is connected via a 330 ohm resistor to ground.</p>
 <p>Here is the code that will blink an LED that is connected to PIN GIO16, which is in the upper right corner of the Pico.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -2539,35 +2626,118 @@ The second part is the main event loop.  This program continues to run until the
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">time</span>
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="c1"># this is the lower right corner pin on the Pico with USB on the bottom</span>
-<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">EXTERNAL_LED_PIN</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
 <span class="c1"># repeat forever</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># turn on the LED</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it on for 1/2 second</span>
     <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span> <span class="c1"># Turn off the LED</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># leave it off for 1/2 second</span>
 </code></pre></div>
 </td></tr></table>
+<p>Here is that same program using the <code>toggle()</code> function:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="n">led_onboard</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">EXTERNAL_LED_PIN</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">external_led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">external_led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="virtual-lab">Virtual Lab</h2>
-<p>If you don't have access to the $4 Raspberry Pi Pico or a similar device, you can also try the MicroPython Emulator:</p>
-<p><a href="http://micropython.org/unicorn/">Unicorn Emulator</a></p>
+<h3 id="solution-to-led-row-lab">Solution to LED Row Lab</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">EXTERNAL_LED_PIN1</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">EXTERNAL_LED_PIN2</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">EXTERNAL_LED_PIN3</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">EXTERNAL_LED_PIN4</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN1</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led2</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN2</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led3</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN3</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led4</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">EXTERNAL_LED_PIN4</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># blink the first LED</span>
+    <span class="n">led1</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">led1</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+    <span class="c1"># blink the 2nd LED</span>
+    <span class="n">led2</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">led2</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+
+    <span class="c1"># blink the 3rd LED</span>
+    <span class="n">led3</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">led3</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+
+
+    <span class="c1"># blink the 4th LED</span>
+    <span class="n">led4</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">led4</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="extra-credit-lab">Extra credit lab</h3>
+<p>Can you rewrite the program above using an array of pin values like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">LED_PINS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">19</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="more-to-explore">More to Explore</h2>
+<ol>
+<li>Can you blink both the internal on board LED and an external LED?</li>
+<li>How many external LEDs can you blink?  What is the maximum number of output pins on the Raspberry Pi Pico?</li>
+<li>What if you wanted to control more LEDs then you have available output pins?  What do you think your options might be? (answer - use a NeoPixel or a shift register like a SN74HC595).  See the <a href="https://peppe8o.com/how-to-use-74hc595-shift-register-with-raspberry-pi-pico-and-micropython/s">peppe8o Shift Register Tutorial on the RP2040</a> for an example of this.</li>
+</ol>
                 
               
               
