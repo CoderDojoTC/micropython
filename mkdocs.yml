@@ -158,6 +158,7 @@ repo_url: 'https://github.com/CoderDojoTC/micropython'
 # CoderDojo Standards from here down
 edit_uri: 'blob/master/docs'
 theme:
+  # should be name: material
   name: material
   logo: img/coderdojo-logo.png
   palette:
