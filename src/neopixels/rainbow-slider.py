@@ -19,10 +19,22 @@ def wheel(pos):
     pos -= 170
     return (pos * 3, 0, 255 - pos * 3)
 
-counter = 0
-while True:
+def rainbow_slide(counter, delay):
     for i in range(0, NUMBER_PIXELS):
-        strip[i] = wheel(counter % 255)
+        strip[i] = wheel((i*NUMBER_PIXELS - counter) % 255)
         strip.write()
-        counter += 10
-        sleep(.1)
+        sleep(delay) 
+
+def clear():
+    for i in range(0, NUMBER_PIXELS):
+        strip[i] = (0,0,0)
+    strip.write()
+
+# setup
+counter = 0
+clear()
+
+# main loop
+while True:
+    rainbow_slide(counter, .004)
+    counter += NUMBER_PIXELS
