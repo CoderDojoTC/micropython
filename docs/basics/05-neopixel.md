@@ -100,6 +100,83 @@ while True:
         strip[i] = (0,0,0) # change the RAM back but don't resend the data
 ```
 
+### Fade in and Out
+Make the first pixel fade the red color in and out.  We do this by slowly turning up the color level of the red on strip[0].
+
+```
+Off: strip[0] = (0,0,0)
+Red Very Dim: strip[0] = (1,0,0)
+Dim Red: strip[0] = (10,0,0)
+Red Half Brightness: strip[0] = (128,0,0)
+Red Full Brightness: strip[0] = (255,0,0)
+```
+
+We start a 0 and go up to 255.  Then we go back from 255 back down to zero.  We delay about 5 milliseconds between each of the 255 brightness levels.
+
+
+```py
+from neopixel import NeoPixel
+from time import sleep
+
+NUMBER_PIXELS = 60
+LED_PIN = 0
+
+strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+
+delay = .005
+
+while True:
+    for i in range(0, 255):
+        strip[0] = (i,0,0) # red=255, green and blue are 0
+        strip.write() # send the data from RAM down the wire
+        sleep(delay) # keep on 1/10 of a second
+    for i in range(255, 0, -1):
+        strip[0] = (i,0,0) # red=255, green and blue are 0
+        strip.write() # send the data from RAM down the wire
+        sleep(delay) # keep on 1/10 of a second
+```
+
+### Heartbeat Lab
+
+What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an elecrto cardiogram (EKG) and it look like this:
+
+![](../../img/../docs/img/ekg-sample.png)
+
+Notice that the light is off for about one second and then it spikes up to maximum brightness and then comes back down.  The following code emulates this pattern:
+
+```py
+from neopixel import NeoPixel
+from time import sleep
+
+# most people have a heart rate of around 60-70 beats per minute
+# If you add a once second deplay between "beats" you can make and LED
+# look like a beating heart.
+
+NUMBER_PIXELS = 1
+LED_PIN = 0
+
+strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+
+ramp_delay = .001
+beat_delay = 1
+skip_interval = 10
+
+while True:
+    # ramp brightness up
+    for i in range(0, 255, skip_interval):
+        strip[0] = (i,0,0)
+        strip.write()
+        sleep(ramp_delay)
+    # ramp brightness down
+    for i in range(255, 0, -skip_interval):
+        strip[0] = (i,0,0) # red=255, green and blue are 0
+        strip.write() # send the data from RAM down the wire
+        sleep(ramp_delay) # keep on 1/10 of a second
+    strip[0] = (0,0,0)
+    strip.write()
+    sleep(beat_delay)
+    ```
+
 ### Move Red, Green and Blue
 
 ![neopixel-red-green-blue](../img/neopixel-red-green-blue.gif)
