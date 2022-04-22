@@ -14,7 +14,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-6.2.5">
     
     
       
@@ -137,7 +137,7 @@
     
       <div class="md-header-nav__source">
         
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -181,7 +181,7 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -1799,6 +1799,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../advanced-labs/20-tinyml/" class="md-nav__link">
         TinyML
       </a>
@@ -1814,14 +1826,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-15" type="checkbox" id="nav-11-15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-16" type="checkbox" id="nav-11-16" >
       
-      <label class="md-nav__link" for="nav-11-15">
+      <label class="md-nav__link" for="nav-11-16">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="nav-11-15">
+        <label class="md-nav__title" for="nav-11-16">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -2657,38 +2669,38 @@
 <p><code>ffmpeg --help</code></p>
 <h2 id="converting-mp3-to-8k-16-bit-wav-files">Converting MP3 to 8K 16 bit WAV Files</h2>
 <p>To get the format we need for the MicroPython wave player class we just specific <code>-i</code> for the input file and use the <code>-ar 8000</code> to specify the output bit rate of 8K samples per second.  The final parameter is a file name that must in <code>.wav</code> so the command knows to use WAV PCM encoding.  The default value is 16 gits per sample.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg -i r2d2-beeping.mp3 -ar <span class="m">8000</span> r2d2-beeping-8k.wav
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg -i r2d2-beeping.mp3 -ar <span class="m">8000</span> r2d2-beeping-8k.wav
 </code></pre></div>
 </td></tr></table>
 <h2 id="bulk-conversions">Bulk Conversions</h2>
 <p>We can use unix shell commands to do a batch conversion of all the .  The following is an example of using awk and sed to convert all the .mp3 files in a directory and convert them to 8K Hz WAV files and put them in a sibling directory.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls -1 *.mp3 <span class="p">|</span> awk <span class="s1">&#39;{print &quot;ffmpeg -i &quot; $1 &quot; -ar 8000 ../wav-8k/&quot;$1}&#39;</span> <span class="p">|</span> sed s/mp3$/wav/ <span class="p">|</span> sh
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls -1 *.mp3 <span class="p">|</span> awk <span class="s1">&#39;{print &quot;ffmpeg -i &quot; $1 &quot; -ar 8000 ../wav-8k/&quot;$1}&#39;</span> <span class="p">|</span> sed s/mp3$/wav/ <span class="p">|</span> sh
 </code></pre></div>
 </td></tr></table>
 <h2 id="inspect-the-files-using-the-unix-file-command">Inspect the Files Using the UNIX file command:</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ../wav-8k
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ../wav-8k
 file *.wav
 </code></pre></div>
 </td></tr></table>
 <p>returns
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>r2d2-another-beep.wav:          RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>r2d2-another-beep.wav:          RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
 r2d2-beeping-2.wav:             RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
 r2d2-beeping-4.wav:             RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
 r2d2-beeping-8k.wav:            RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 8000 Hz
@@ -2714,39 +2726,39 @@ r2d2-unsure.wav:                RIFF (little-endian) data, WAVE audio, Microsoft
 <p>This section is only for experienced Python developers.</p>
 </div>
 <h3 id="install-conda-and-the-python-libraries">Install Conda and the Python libraries</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n mp3-to-wav <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n mp3-to-wav <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda activate mp3-to-wav
 pip install pydub ffprobe ffmpeg
 </code></pre></div>
 </td></tr></table>
 <p>Check your versions:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip freeze
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip freeze
 </code></pre></div>
 </td></tr></table>
 <p>returns:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg==1.4
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ffmpeg==1.4
 ffprobe==0.5
 pydub==0.25.1
 </code></pre></div>
 </td></tr></table>
 <h3 id="running-pydub">Running pydub</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydub</span> <span class="kn">import</span> <span class="n">AudioSegment</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydub</span> <span class="kn">import</span> <span class="n">AudioSegment</span>
 
 <span class="n">sound</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_mp3</span><span class="p">(</span><span class="s2">&quot;r2d2-beeping.mp3&quot;</span><span class="p">)</span>
 <span class="n">sound</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;r2d2-beeping.wav&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;wav&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Robot name&#39;</span><span class="p">:</span> <span class="s1">&#39;R2D2&#39;</span><span class="p">})</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="transferring-the-files-with-rshell">Transferring the Files with Rshell</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ../wav-8k
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> ../wav-8k
 rshell -p /dev/cu.usbmodem14101
 cp *.wav /pico/sounds
 </code></pre></div>
@@ -2823,7 +2835,7 @@ cp *.wav /pico/sounds
     </div>
     
       <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

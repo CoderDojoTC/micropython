@@ -14,7 +14,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-6.2.5">
     
     
       
@@ -137,7 +137,7 @@
     
       <div class="md-header-nav__source">
         
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -181,7 +181,7 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -1807,6 +1807,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../12-machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../20-tinyml/" class="md-nav__link">
         TinyML
       </a>
@@ -1822,14 +1834,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-15" type="checkbox" id="nav-11-15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-16" type="checkbox" id="nav-11-16" >
       
-      <label class="md-nav__link" for="nav-11-15">
+      <label class="md-nav__link" for="nav-11-16">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="nav-11-15">
+        <label class="md-nav__title" for="nav-11-16">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -2660,9 +2672,9 @@
 <p>Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive RPEL commands.</p>
 <h2 id="conda-setup">Conda Setup</h2>
 <p>If you are new to Python and you don't have any previous virtual environments set up you can skip this step.  Experienced Python developers have many different environments that they want to keep separated due to library incompatibility issues.  Here is how to create a new Python Conda environment that keeps your rshell libraries separated.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n pico <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n pico <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda deactivate
 conda activate pico
 </code></pre></div>
@@ -2670,36 +2682,36 @@ conda activate pico
 <p>Your prompt should now indicate you are in the pico environment.</p>
 <h2 id="install-rshell-in-your-pico-environment">Install rshell in your pico environment</h2>
 <p>We will now use the standard pip installer tool to install the rshell command.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>python -m pip install rshell
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>python -m pip install rshell
 </code></pre></div>
 </td></tr></table>
 <p>You can check that rshell has been correctly installed in your command PATH by running the UNIX <code>which</code> command.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>which rshell
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>which rshell
 </code></pre></div>
 </td></tr></table>
 <h2 id="running-shell">Running shell</h2>
 <p>Rshell communicates with the Pico through the USB port.  When you plug in the Pico you should see a new file created in the UNIX /dev directory.  It typically begins with the letters <code>/dev/cu.modem</code>.  One way to test this is to unlpug the pico and run the following command:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /dev/cu.usbmodem*
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /dev/cu.usbmodem*
 </code></pre></div>
 </td></tr></table>
 With the pico unplugged, there should be no files that match the ls wildcard pattern.  However, after you plug in the pico the following should be returned:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/dev/cu.usbmodem14101
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/dev/cu.usbmodem14101
 </code></pre></div>
 </td></tr></table>
 <p>This is the port you will use to connect to the pico.  We will use the <code>-p</code> for port option to startup rshell.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101
 </code></pre></div>
 </td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Using buffer-size of 128
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Using buffer-size of 128
 Connecting to /dev/cu.usbmodem14101 (buffer-size 128)...
 Trying to connect to REPL  connected
 Retrieving sysname ... rp2
@@ -2717,18 +2729,18 @@ Welcome to rshell. Use Control-D (or the exit command) to exit rshell.
 pyboard @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pyboard/hello.py /pyboard/main.py</p>
 <h2 id="listing-files">Listing Files</h2>
 <p>We can see that the board is called "pyboard" and you can use that as a path to list the files on the board.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /pyboard
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /pyboard
 hello.py      main.py
 </code></pre></div>
 </td></tr></table>
 <h2 id="giving-your-board-a-name">Giving Your Board a Name</h2>
 <p>rshell will look for a program called board.py when it connects to the board.  If this file contains a board name it will use that as the board name the next time it connects to the board.  You can use the "echo" command to generate the file.  In the example below, we will call our board "pico"</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;pico&quot;&#39;</span> &gt; /pyboard/board.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;pico&quot;&#39;</span> &gt; /pyboard/board.py
 </code></pre></div>
 </td></tr></table>
 <p>After you use the CONTROL-C and reconnect you will see the following:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pico @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pico/hello.py /pico/main.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pico @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pico/hello.py /pico/main.py
 </code></pre></div>
 </td></tr></table>
 <p>Remember you must disconnect from rshell and reconnect before the boards.py function is used.</p>
@@ -2736,25 +2748,25 @@ hello.py      main.py
 <p>You can then type <code>cd /pico</code> followed by a <code>ls</code> to see the files on your pico.</p>
 <h2 id="entering-repl">Entering REPL</h2>
 <p>You can enter the REPL loop using the <code>repl</code> command and use the same commands that you used in the Thonny shell.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>repl
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>repl
 print(&#39;Hello World!&#39;)
 </code></pre></div>
 </td></tr></table>
 <p>returns</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello World!
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello World!
 </code></pre></div>
 </td></tr></table>
 <h2 id="getting-help-on-rshell-commands">Getting Help on rshell commands</h2>
 <p>You can type the <code>help</code> command to see all the rshell commands:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help
 
 Documented commands (type help &lt;topic&gt;):
 ========================================
@@ -2766,27 +2778,27 @@ Use Control-D (or the exit command) to exit rshell.
 </td></tr></table>
 <h2 id="running-backup">Running Backup</h2>
 <p>If you want to copy all the python files from the pico to a backup directory you can use the following command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cd /pico
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cd /pico
 cp *.py /Users/dan/backup
 </code></pre></div>
 </td></tr></table>
 <p>You will need to create the /Users/dan/backup directory before you do this.  You can also use the tilde <code>~</code> character to stand in for your home directory like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp *.py /Users/dan/backup
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp *.py /Users/dan/backup
 </code></pre></div>
 </td></tr></table>
 <p>Copying '/pico/hello.py' to '/Users/dan/backup/hello.py' ...
 Copying '/pico/main.py' to '/Users/dan/backup/main.py' ...</p>
 <h2 id="installing-files">Installing files</h2>
 <p>If you have a directory called <code>~/build</code> that contains many files you want to install on the pico file system you can use the following command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp ~/build/* /pico
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp ~/build/* /pico
 </code></pre></div>
 </td></tr></table>
 <p>If you have done a clone to the CoderDojoTC micropython repository and put it in your home directory under ~/micropython then following command will copy the python files from the Maker Pi RP2040 kit to your pico:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdir /pico/lib
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdir /pico/lib
 cp ~/micropython/src/drivers/*.py /pico/lib
 cp ~/micropython/src/kits/maker-pi-rp2040/*.py /pico
 cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
@@ -2795,11 +2807,11 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
 <p>Note that the drivers will be placed in the /lob directory.</p>
 <h2 id="direct-command-execution">Direct Command Execution</h2>
 <p>You do not need to use an interactive session to run a command with rshell.  You can just add the command you would like to run to the end of the rshell command like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101 ls /pico
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101 ls /pico
 </code></pre></div>
 </td></tr></table>
 <p>returns:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hello.py      main.py
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hello.py      main.py
 </code></pre></div>
 </td></tr></table>
                 
@@ -2835,13 +2847,13 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
             </a>
           
           
-            <a href="../20-tinyml/" title="TinyML" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../12-machine-learning/" title="Machine Learning" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  TinyML
+                  Machine Learning
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2868,7 +2880,7 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
     </div>
     
       <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
