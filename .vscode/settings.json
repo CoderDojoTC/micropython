@@ -51,13 +51,16 @@
         "AGND",
         "allowfullscreen",
         "Autoshutdown",
+        "coderdojo",
         "Cytron",
         "ffprobe",
         "Framebuffers",
         "microcontroller",
+        "microswitch",
         "microswitches",
         "milliamp",
         "milliamps",
+        "mkdocs",
         "NEOPIXEL",
         "OLED",
         "photosensor",
@@ -67,12 +70,18 @@
         "SMPS",
         "solderless",
         "Thonny",
+        "TTGO",
         "urandom",
         "usbmodem",
         "utime",
         "VBUS",
         "VREF",
+<<<<<<< HEAD
         "VSYS"
 >>>>>>> 0b6e3f501f3a042f5782a2d74206aa085657872c
+=======
+        "VSYS",
+        "waveshare"
+>>>>>>> d971679f78e0ee95dd3ed75e2093e8a733d65f3f
     ]
 }

@@ -277,4 +277,4 @@ This error did not seem to impact the execution of the code.  My suspicion is th
 
 ## References
 
-1. [Counter get stuck on "schedule queue full"](https://githubmemory.com/repo/miketeachman/micropython-rotary/issues/14)
+1. [Counter get stuck on "schedule queue full"](https://githubmemory.com/repo/miketeachman/micropython-rotary/issues/14) - suggest using a try/catch

@@ -38,11 +38,25 @@ Avoid too much focus on building games that don't promote teaching computational
 
 ## Lesson Structure
 
-1. Try to begin each section or lesson with a kid-friendly image.  This help readers quickly recall if they have visited this page before.
+1. Try to begin each section or lesson with a kid-friendly image or video.  This help readers quickly recall if they have visited this page before.
 2. If if it not obvious, include any prior knowledge that is required to understand a lesson in an Intended Audience or Prerequsites section.
 3. Try to keep the introductory lessons in a section short and small.  After you have introduce the core concepts you can integrate concepts from other areas.
 4. Add a "Further Explorations" section to the end of each lesson
 Include references to other sites or wikipedia articles that can be explored further.
+
+## Embedding Videos
+
+We strongly encourage some movement in short 10-second demos using videos.
+
+To embed a YouTube video do the following
+
+1. Use the Share button
+2. Select the **Embed** option
+3. Copy the iFrame code and paste it into your MarkDown
+4. Add the ```?rel=0``` link which will only put your own related videos on the More Video when the video is done playing.
+
+See [YouTube Embed Option for Related Videos Changes](https://cornertab.com/youtube-embed-option-related-videos-changes/
+) for details.
 
 ## Resources
 
