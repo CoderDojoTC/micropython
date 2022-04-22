@@ -139,13 +139,18 @@ nav:
       - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
       - Ping Servo Meter: kits/maker-pi-rp2040-robot/24-ping-servo-meter.md
     - Maker Pi Pico:
-      - kits/maker-pi-pico/01-intro.md
-      - kits/maker-pi-pico/02-running-lights.md
-      - kits/maker-pi-pico/09-micro-sd-card-reader.md
+      - Introduction: kits/maker-pi-pico/01-intro.md
+      - Running Lights: kits/maker-pi-pico/02-running-lights.md
+      - SD Card Reader: kits/maker-pi-pico/09-micro-sd-card-reader.md
     - Maker Nano RP2040:
       - Intro: kits/kits/maker-nano-rp2040/01-intro.md
     - Larson Scanner:
       - kits/larson-scanner/01-intro.md
+    - NeoPixel:
+      - Introduction: kits/neopixel/index.md
+      - Getting Started: kits/neopixel/01-getting-started.md
+      - Simple Patterns: kits/neopixel/02-simple-pattern.md
+      - Buttons: kits/neopixel/03-buttons.md
   # - Project Ideas: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
