@@ -15,7 +15,7 @@ Controlling NeoPixels is challenging since the timing of data being sent must be
 ## Different Types of NeoPixels
 There are many different types of NeoPixels.  They come in many forms such as strips, rings and matrices.
 
-![](../img/neopixel-types.jpg)
+![NeoPixel Types](../img/neopixel-types.jpg)
 
 The most common type of NeoPixels are strips.  The strips come in a variety of densities and waterproofing.  The most common and easiest to use are the 60 pixels-per-meter type.
 
@@ -34,8 +34,8 @@ Note that you can also power most of the LED strips using the 3.3 volts availabl
 ## Setup Parameters
 Our Python code will have four parts:
 
-1. Declaration of the import of the NeoPixel library from the RP2 runtime.  We also import the sleep function from the utime module.
-2. Initialization of the fixed static parameters.  This is done once and the parameters are usually at the top of the file to make them easy to find and change for each application.
+1. Declaration of the imports from the RP2 MicroPython runtime.  We also import the sleep function from the utime module and some samples will also need the random library.  All our programs have been tested on version 1.18 of the MicroPython RP2 library or later.
+2. Initialization of the fixed static parameters.  This is done once and the parameters are usually at the top of the file to make them easy to find and change for each application.  Make sure you adjust the pin number and the number of pixels in your setup in this area.
 3. Initialization of the NeoPixel object using these static parameters.  This is also done just once.
 4. Sending the drawing commands to the device through the data port.  This is usually done within a main loop.
 
@@ -44,7 +44,6 @@ Here are the import statements we use:
 
 ```py
 from machine import Pin
-from neopixel import NeoPixel
 from utime import sleep
 ```
 
@@ -68,7 +67,6 @@ Here is the full initialization code:
 
 ```py
 from machine import Pin
-from neopixel import NeoPixel
 from utime import sleep
 
 NUMBER_PIXELS = 8
@@ -84,7 +82,6 @@ Now we are ready to write our first small test program!
 ![Move LED Up Strip](../img/red-led-move-up.gif)
 
 ```py
-from neopixel import NeoPixel
 from time import sleep
 
 NUMBER_PIXELS = 8
@@ -129,27 +126,29 @@ while True:
     for i in range(0, 255):
         strip[0] = (i,0,0) # red=255, green and blue are 0
         strip.write() # send the data from RAM down the wire
-        sleep(delay) # keep on 1/10 of a second
+        sleep(delay)
     for i in range(255, 0, -1):
-        strip[0] = (i,0,0) # red=255, green and blue are 0
-        strip.write() # send the data from RAM down the wire
-        sleep(delay) # keep on 1/10 of a second
+        strip[0] = (i,0,0)
+        strip.write()
+        sleep(delay)
 ```
 
 ### Heartbeat Lab
 
 What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an elecrto cardiogram (EKG) and it look like this:
 
-![](../../img/../docs/img/ekg-sample.png)
+![EKG Sample](../img/ekg-sample.png)
 
-Notice that the light is off for about one second and then it spikes up to maximum brightness and then comes back down.  The following code emulates this pattern:
+Notice that the signal is low for about one second and then it spikes up to maximum brightness and then comes back down.  When we are moving the brightness up and down, we don't have to pause between each of the 256 brightness values.  The eye can't usually see the intermediate brightness values if the brightness is changing quickly.  To make our code efficient we can skip over 9 out of 10 of the brightness gradations between 0 and 255.  We call this the ```skip_interval``` in our code below.
+
+The following code emulates this heart beat pattern:
 
 ```py
 from neopixel import NeoPixel
 from time import sleep
 
-# most people have a heart rate of around 60-70 beats per minute
-# If you add a once second deplay between "beats" you can make and LED
+# Most people have a heart rate of around 60-70 beats per minute
+# If we add a once second delay between "beats" you can make and LED
 # look like a beating heart.
 
 NUMBER_PIXELS = 1
@@ -162,25 +161,26 @@ beat_delay = 1
 skip_interval = 10
 
 while True:
-    # ramp brightness up
+    # ramp brightness up using the ramp_delay
     for i in range(0, 255, skip_interval):
         strip[0] = (i,0,0)
         strip.write()
         sleep(ramp_delay)
-    # ramp brightness down
+    # ramp brightness down using the same delay
     for i in range(255, 0, -skip_interval):
-        strip[0] = (i,0,0) # red=255, green and blue are 0
-        strip.write() # send the data from RAM down the wire
-        sleep(ramp_delay) # keep on 1/10 of a second
+        strip[0] = (i,0,0)
+        strip.write()
+        sleep(ramp_delay)
     strip[0] = (0,0,0)
     strip.write()
     sleep(beat_delay)
-    ```
+```
 
 ### Move Red, Green and Blue
 
 ![neopixel-red-green-blue](../img/neopixel-red-green-blue.gif)
-The following program will just take the block of code in the for loop above and duplicate it three times, one for red, one for blue and one for green
+
+The following program will just take the block of code in the for loop above and duplicate it three times, one for red, one for blue and one for green.
 
 ```py
 from neopixel import NeoPixel
@@ -193,25 +193,29 @@ strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
 
 # we use the same brightness for each color
 brightness = 25
+delay = .1
 # here we define variables for each color
 red = (brightness, 0, 0)
 green = (0, brightness, 0)
 blue = (0, 0, brightness)
 while True:
+    # draw red up the strip
     for i in range(0, NUMBER_PIXELS):
         strip[i] = red
         strip.write()
-        sleep(.1)
+        sleep(delay)
         strip[i] = (0,0,0)
+    # draw blue up the strip
     for i in range(0, NUMBER_PIXELS):
         strip[i] =  green
         strip.write()
-        sleep(.1)
+        sleep(delay)
         strip[i] = (0,0,0)
+    # draw green up the strip
     for i in range(0, NUMBER_PIXELS):
         strip[i] =  blue
         strip.write()
-        sleep(.1)
+        sleep(delay)
         strip[i] = (0,0,0)
 ```
 
