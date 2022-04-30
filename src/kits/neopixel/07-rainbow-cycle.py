@@ -1,3 +1,4 @@
+# rainbow cycle
 import machine
 from neopixel import NeoPixel
 from utime import sleep

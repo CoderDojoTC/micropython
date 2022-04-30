@@ -1,12 +1,14 @@
-import machine
+# mini static rainbow 
+from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 
 NEOPIXEL_PIN = 0
 NUMBER_PIXELS = 30
-PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
+RAINBOW_LENGTH = 7
+PERCENT_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -19,21 +21,22 @@ def wheel(pos):
         pos -= 85
         return (0, 255 - pos * 3, pos * 3)
     pos -= 170
-    return (pos * 3, 0, 255 - pos * 3)
+    return (pos * 3, 0, 255 - pos * 3)    
 
-def rainbow_cycle(counter, wait):
-    global NUMBER_PIXELS, PERCENT_COLOR_WHEEL
+# erase the entire strip
+def erase():
     for i in range(0, NUMBER_PIXELS):
+        strip[i] = (0,0,0)
+        strip.write()
+        
+while True:
+    for i in range(0, RAINBOW_LENGTH):
         color_index = round(i*PERCENT_COLOR_WHEEL)
         color = wheel(color_index)
         # print(color_index, color)
-        strip[(i + counter) % NUMBER_PIXELS] = color
+        # start at the end and subtract to go backwards
+        strip[RAINBOW_LENGTH-1 - i] = color
         strip.write()
-    sleep(wait)
-        
-counter = 0
-offset = 0
-while True:
-    print('Running cycle', counter)
-    rainbow_cycle(counter, .2)
-    counter += 1
+        sleep(.1)
+    sleep(1)
+    erase()
