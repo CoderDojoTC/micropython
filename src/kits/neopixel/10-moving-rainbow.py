@@ -31,12 +31,12 @@ def erase():
 
 counter = 0
 while True:
-    for i in range(0, RAINBOW_LENGTH):
+    for i in range(0, RAINBOW_LENGTH-1):
         color_index = round(i*PERCENT_COLOR_WHEEL)
         color = wheel(color_index)
         # print(color_index, color)
-        # start at the end and subtract to go backwards
-        index = RAINBOW_LENGTH-1 - i  + (counter % NUMBER_PIXELS)
+        # start at the end and subtract to go backwards and add the counter for offset
+        index = RAINBOW_LENGTH-1 - i  + counter
         print(index)
         if index < NUMBER_PIXELS:
             strip[index] = color    
@@ -51,4 +51,5 @@ while True:
         strip[counter] = (0,0,0)
     sleep(.05)
     counter += 1
+    # wrap the counter using modulo
     counter = counter % NUMBER_PIXELS
