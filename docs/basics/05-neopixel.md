@@ -2,13 +2,13 @@
 
 ![NeoPixel Demo](../img/neopixel-demo.gif)
 
-NeoPixels are Red-Green-Blue LEDs that are designed to makes them easy to control with three wires: GND, +5V and a single serial data line.  They are very popular with our students because they are powerful, easy to program and full of **bling**.
+NeoPixels are Red-Green-Blue LEDs that are designed to make them easy to control with three wires: GND, +5V and a single serial data line.  They are popular with our students because they are powerful, easy to program, and full of **bling**.
 
 !!! Note
-    As of March of 2022 there is now built-in support for NeoPixels in the MicroPython 1.18 runtime for the Raspberry Pi RP2040 microcontroller.  Although you can still use custom libraries, this tutorial assumes you are using
-    version 1.18 or later.
+    As of March of 2022 there is now built-in support for NeoPixels in the MicroPython 1.18 runtime for the Raspberry Pi RP2040 microcontroller.
+    Although you can still use custom libraries, this tutorial assumes you are using version 1.18 or later of the MicroPython runtime library.
 
-Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses assembly code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.
+Controlling NeoPixels is challenging since the timing of data being sent must be very precise.  Python alone is not fast enough to send bits out of a serial port.  So a small function that uses fast assembly language code is used.  This code can be called directly from a neopixel driver file so that the user's don't need to see this code.
 
 [MicroPython Example Code on ESP8266](https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html)
 
