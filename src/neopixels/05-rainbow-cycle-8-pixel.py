@@ -1,12 +1,13 @@
-import machine
-from neopixel import NeoPixel
+import machine, neopixel
 from utime import sleep
+from neopixel import Neopixel
 
 NEOPIXEL_PIN = 2
 NUMBER_PIXELS = 8
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = Neopixel(NUMBER_PIXELS, 0, NEOPIXEL_PIN, "GRB")
+strip.brightness(10)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -27,8 +28,8 @@ def rainbow_cycle(counter, wait):
         color_index = round(i*PERCENT_COLOR_WHEEL)
         color = wheel(color_index)
         # print(color_index, color)
-        strip[(i + counter) % NUMBER_PIXELS] = color
-        strip.write()
+        strip.set_pixel((i + counter) % NUMBER_PIXELS, color)
+        strip.show()
     sleep(wait)
         
 counter = 0
