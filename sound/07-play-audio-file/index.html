@@ -14,7 +14,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-6.2.5">
     
     
       
@@ -137,7 +137,7 @@
     
       <div class="md-header-nav__source">
         
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -181,7 +181,7 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+<a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
@@ -1848,6 +1848,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../advanced-labs/12-machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../advanced-labs/20-tinyml/" class="md-nav__link">
         TinyML
       </a>
@@ -1863,14 +1875,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-15" type="checkbox" id="nav-11-15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-16" type="checkbox" id="nav-11-16" >
       
-      <label class="md-nav__link" for="nav-11-15">
+      <label class="md-nav__link" for="nav-11-16">
         Debugging
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="nav-11-15">
+        <label class="md-nav__title" for="nav-11-16">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -2764,17 +2776,17 @@
 <li>The metadata from the .wav files is used to change the sampling frequency of the .wav player</li>
 </ol>
 <h2 id="checking-your-sound-file-sizes">Checking Your Sound File Sizes</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">waveFolder</span><span class="o">=</span> <span class="s2">&quot;/sounds&quot;</span>
 
@@ -2809,8 +2821,8 @@ sample rate.</p>
 </ol>
 <h2 id="steps-to-test-playing-a-wav-file">Steps to test playing a wav file</h2>
 <h3 id="clone-the-pico-audio-pwm-github-repository">Clone the Pico Audio PWM GitHub Repository</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/danjperron/PicoAudioPWM
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/danjperron/PicoAudioPWM
 <span class="nb">cd</span> PicoAudioPWM
 </code></pre></div>
 </td></tr></table>
@@ -2827,23 +2839,23 @@ sample rate.</p>
 <h2 id="copy-sound-files-to-the-pico">Copy Sound Files to the Pico</h2>
 <p>Your pico has 2MB of static memory.  A typical robot sound effect you want to play when you bump into and object will play for around 1 second.  You can copy many sound effect files to the pico file system and play them.  Some IDEs may allow you to do this or you can use the rshell program.</p>
 <p>Here is an example of using the <a href="../../advanced-labs/11-rshell/">rshell</a> program to copy a directory of wav files to the pico.  Lines that start with pc$ are commands that you type into your PC or MAC's terminal.  Lines that start with rs$ are commands that you type into the rshell.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># list the devices (only works on Mac and UNIX)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># list the devices (only works on Mac and UNIX)</span>
 pc$ ls /dev/cu.modem*
 <span class="c1"># start the rshell</span>
 pc$ rshell -p /dev/cu.modem*
@@ -2864,23 +2876,23 @@ rs$ ls /pico/sounds
 </td></tr></table>
 <h2 id="listing-the-wave-files">Listing the Wave Files</h2>
 <p>After you have a list of Wave files loaded you can verify them by using the os listdir() function.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">waveFolder</span><span class="o">=</span> <span class="s2">&quot;/sounds&quot;</span>
 <span class="n">wavelist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2900,12 +2912,12 @@ rs$ ls /pico/sounds
 </code></pre></div>
 </td></tr></table>
 <p>Sample console output</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/sounds/cylon-attention.wav
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/sounds/cylon-attention.wav
 /sounds/cylon-by-your-command.wav
 /sounds/cylon-excellent.wav
 /sounds/cylon-eye-scanner.wav
@@ -2916,32 +2928,32 @@ rs$ ls /pico/sounds
 <h2 id="checking-the-wav-file-format">Checking the WAV File Format</h2>
 <p>There is a standard Python module called <code>`wave.py</code> that reads the .wav files and shows the metadata for the file.  Wave files come in many formats, single channel, stereo and different bit rates.  The wave player can show us all this data that describes the wave file.</p>
 <p>The report shows you how to use fixed-width formatting since the file names and data should fit in columns to make it easier to read.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">wave</span>
 
 <span class="n">waveFolder</span><span class="o">=</span> <span class="s2">&quot;/sounds&quot;</span>
@@ -2970,13 +2982,13 @@ rs$ ls /pico/sounds
 </code></pre></div>
 </td></tr></table>
 <p>Sample Response</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>File Path                                     Frame Rate  Width Chans Frames
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>File Path                                     Frame Rate  Width Chans Frames
 /sounds/cylon-attention.wav                         8000     1      1   6399
 /sounds/cylon-by-your-command.wav                  11025     1      1  12583
 /sounds/cylon-excellent.wav                        22050     1      1  48736
@@ -2987,17 +2999,17 @@ rs$ ls /pico/sounds
 </td></tr></table>
 <h2 id="adding-an-interrupt">Adding an Interrupt</h2>
 <p>If you halt the RP2040 while it is playing a sound, the independent PWM controllers will continue to generate sound.  In order to shut the independent PWM controllers, an interrupt controller system must be used to cleanly disable all the sound.  Here is an example of this using a try/except block of code.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">uos</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">uos</span>
 <span class="kn">from</span> <span class="nn">wavePlayer</span> <span class="kn">import</span> <span class="n">wavePlayer</span>
 <span class="n">player</span> <span class="o">=</span> <span class="n">wavePlayer</span><span class="p">()</span>
 
@@ -3011,16 +3023,16 @@ rs$ ls /pico/sounds
 </code></pre></div>
 </td></tr></table>
 <h2 id="playing-the-same-sound-repeatedly">Playing the Same Sound Repeatedly</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">uos</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">uos</span>
 <span class="kn">from</span> <span class="nn">wavePlayer</span> <span class="kn">import</span> <span class="n">wavePlayer</span>
 <span class="n">player</span> <span class="o">=</span> <span class="n">wavePlayer</span><span class="p">()</span>
 
@@ -3110,7 +3122,7 @@ rs$ ls /pico/sounds
     </div>
     
       <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
