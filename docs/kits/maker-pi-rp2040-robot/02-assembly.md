@@ -13,7 +13,7 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
     2. 4x Grove to female header cables
     3. Screwdriver
     4. Silicone rubber feet (pack of 4)
-3. Ultrasonce sensor
+3. Ultrasonic sensor
     1. mounting braket
     2. 2 M2 6mm screws and nuts
 
