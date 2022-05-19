@@ -3,7 +3,7 @@
 The Maker Pi RP2040 comes with two built-in NeoPixels.  Each NeoPixel has a red, green and blue LED inside it.  Each of these LEDs can be set to any one of 256 values from 0 (off) to 255 (brightest value).
 
 !!! Note
-    This lab uses the old syntax for NeoPixels.  The new format (using the MicroPython runtime 1.18 or later) is covered in the other NeoPixel labs in this book.
+    This lab uses the old syntax for NeoPixels.  The new format (using the MicroPython runtime 1.18 or later) is covered in the other NeoPixel labs in this book here: [https://www.coderdojotc.org/micropython/basics/05-neopixel/](https://www.coderdojotc.org/micropython/basics/05-neopixel/)
 
 
 <!-- 
