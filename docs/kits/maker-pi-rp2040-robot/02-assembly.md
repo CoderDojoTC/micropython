@@ -8,12 +8,13 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
     3. Screws and nuts
     4. 4 AA battery pack
     5. Power switch
-2. Cytron Maker Pi RP2040 kit
+2. Cytron Maker Pi RP2040 Kit
     1. Maker Pi RP2040 board
     2. 4x Grove to female header cables
     3. Screwdriver
     4. Silicone rubber feet (pack of 4)
-3. Ultrasonic sensor
+    5. 4 M2 10mm screws and nuts (for mounting the board to the chassis)
+3. Ultrasonic Sensor
     1. mounting braket
     2. 2 M2 6mm screws and nuts
 
