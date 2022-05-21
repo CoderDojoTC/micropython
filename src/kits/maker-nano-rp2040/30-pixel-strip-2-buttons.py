@@ -12,8 +12,8 @@ PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-BUTTON_PIN_1 = 15
-BUTTON_PIN_2 = 14
+BUTTON_PIN_1 = 20
+BUTTON_PIN_2 = 21
 
 button_presses = 0 # the count of times the button has been pressed
 last_time = 0 # the last time we pressed the button
