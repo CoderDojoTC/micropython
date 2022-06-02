@@ -2,7 +2,7 @@ import machine, neopixel
 from utime import sleep
 from neopixel import Neopixel
 
-NEOPIXEL_PIN = 2
+NEOPIXEL_PIN = 14
 NUMBER_PIXELS = 8
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
