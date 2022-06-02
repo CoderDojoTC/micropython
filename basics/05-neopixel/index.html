@@ -2764,12 +2764,14 @@ version 1.18 or later.</p>
 <h3 id="import-statements">Import Statements</h3>
 <p>Here are the import statements we use:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="static-initialization-parameters">Static Initialization Parameters</h3>
-<p>There are only two values.  The number of pixels in the strip or ring and the pin number the data pin is connected to.</p>
+<p>There are only two values.  The number of pixels in the LED strip or LED ring and the pin number the data pin is connected to.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
@@ -2777,7 +2779,7 @@ version 1.18 or later.</p>
 </td></tr></table>
 <h3 id="initialize-the-strip-object">Initialize the Strip Object</h3>
 <p>To setup the NeoPixel object we just pass it the two parameters like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Here is the full initialization code:</p>
@@ -2786,12 +2788,14 @@ version 1.18 or later.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">LED_PIN_ID</span> <span class="o">=</span> <span class="mi">22</span>
-<span class="n">led_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN_ID</span><span class="p">)</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="sample-programs">Sample Programs</h2>
@@ -2810,12 +2814,16 @@ version 1.18 or later.</p>
 10
 11
 12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2857,13 +2865,17 @@ Red Full Brightness: strip[0] = (255,0,0)
 16
 17
 18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">005</span>
 
@@ -2912,8 +2924,10 @@ Red Full Brightness: strip[0] = (255,0,0)
 27
 28
 29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 
 <span class="c1"># Most people have a heart rate of around 60-70 beats per minute</span>
 <span class="c1"># If we add a once second delay between &quot;beats&quot; you can make and LED</span>
@@ -2922,7 +2936,7 @@ Red Full Brightness: strip[0] = (255,0,0)
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="n">ramp_delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">001</span>
 <span class="n">beat_delay</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2980,13 +2994,15 @@ Red Full Brightness: strip[0] = (255,0,0)
 31
 32
 33
-34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="c1"># we use the same brightness for each color</span>
 <span class="n">brightness</span> <span class="o">=</span> <span class="mi">25</span>
@@ -3064,7 +3080,7 @@ Red Full Brightness: strip[0] = (255,0,0)
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">22</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="c1"># Input a value 0 to 255 to get a color value.</span>
