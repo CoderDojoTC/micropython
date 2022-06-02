@@ -45,10 +45,11 @@ Here are the import statements we use:
 ```py
 from machine import Pin
 from utime import sleep
+from neopixel import NeoPixel
 ```
 
 ### Static Initialization Parameters
-There are only two values.  The number of pixels in the strip or ring and the pin number the data pin is connected to.
+There are only two values.  The number of pixels in the LED strip or LED ring and the pin number the data pin is connected to.
 
 ```py
 NUMBER_PIXELS = 8
@@ -60,7 +61,7 @@ LED_PIN = 22
 To setup the NeoPixel object we just pass it the two parameters like this:
 
 ```py
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
 ```
 
 Here is the full initialization code:
@@ -68,10 +69,12 @@ Here is the full initialization code:
 ```py
 from machine import Pin
 from utime import sleep
+from neopixel import NeoPixel
 
 NUMBER_PIXELS = 8
-LED_PIN_ID = 22
-led_pin = machine.Pin(LED_PIN_ID)
+LED_PIN = 22
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
+
 ```
 
 ## Sample Programs
@@ -82,12 +85,14 @@ Now we are ready to write our first small test program!
 ![Move LED Up Strip](../img/red-led-move-up.gif)
 
 ```py
+from machine import Pin
 from time import sleep
+from neopixel import NeoPixel
 
 NUMBER_PIXELS = 8
 LED_PIN = 22
 
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
         
 while True:
     for i in range(0, NUMBER_PIXELS):
@@ -112,13 +117,15 @@ We start a 0 and go up to 255.  Then we go back from 255 back down to zero.  We 
 
 
 ```py
-from neopixel import NeoPixel
+from machine import Pin
 from time import sleep
+from neopixel import NeoPixel
+
 
 NUMBER_PIXELS = 60
 LED_PIN = 0
 
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
 
 delay = .005
 
@@ -144,8 +151,9 @@ Notice that the signal is low for about one second and then it spikes up to maxi
 The following code emulates this heart beat pattern:
 
 ```py
-from neopixel import NeoPixel
+from machine import Pin
 from time import sleep
+from neopixel import NeoPixel
 
 # Most people have a heart rate of around 60-70 beats per minute
 # If we add a once second delay between "beats" you can make and LED
@@ -154,7 +162,7 @@ from time import sleep
 NUMBER_PIXELS = 1
 LED_PIN = 0
 
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
 
 ramp_delay = .001
 beat_delay = 1
@@ -183,13 +191,14 @@ while True:
 The following program will just take the block of code in the for loop above and duplicate it three times, one for red, one for blue and one for green.
 
 ```py
+from machine import Pin
 from neopixel import NeoPixel
 from time import sleep
 
 NUMBER_PIXELS = 8
-LED_PIN = 22
+LED_PIN = 0
 
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
 
 # we use the same brightness for each color
 brightness = 25
@@ -232,7 +241,7 @@ from utime import sleep
 
 NEOPIXEL_PIN = 22
 NUMBER_PIXELS = 8
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.

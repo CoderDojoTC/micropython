@@ -31,7 +31,7 @@ scl=Pin(27) # one up from lower right pin
 i2c_tof=machine.I2C(1, sda=sda, scl=scl, freq=400000)
 print(i2c_tof)
 
-POWER_LEVEL = 30000 # MAX is65025
+POWER_LEVEL = 33000 # MAX is65025
 # lower right pins with USB on top
 RIGHT_FORWARD_PIN = 11
 RIGHT_REVERSE_PIN = 10
