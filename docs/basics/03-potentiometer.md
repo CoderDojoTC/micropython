@@ -78,3 +78,31 @@ while True:
 
 The following video shows this script in action.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lFfSTOOrsIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Changing the Brightness of the Building LED
+We can change the brightness of the builtin LED by using the POT value to change the PWM duty cycle.
+
+Here is a sample progam that does this:
+
+```py
+from machine import ADC, Pin, PWM
+from utime import sleep
+
+# Pins Used
+BUILT_IN_LED_PIN = 25
+POT_PIN = 26
+
+pot = ADC(POT_PIN)
+
+builtin_pwm = PWM(Pin(BUILT_IN_LED_PIN))
+builtin_pwm.freq(1000) # 1K Hz
+
+POLL_DELAY = .1 # poll the pot after this delay in seconds
+
+# repeat forever
+while True:
+    pot_value = pot.read_u16() # read the value from the pot
+    print("pot value:", pot_value)
+    builtin_pwm.duty_u16(pot_value)
+    sleep(POLL_DELAY)
+```

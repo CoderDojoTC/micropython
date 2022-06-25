@@ -142,7 +142,7 @@ while True:
 
 ### Heartbeat Lab
 
-What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an elecrto cardiogram (EKG) and it look like this:
+What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an electro cardiogram (EKG) and it look like this:
 
 ![EKG Sample](../img/ekg-sample.png)
 
