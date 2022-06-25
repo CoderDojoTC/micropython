@@ -2111,8 +2111,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040-robot/06-up-down-motor-lab/" class="md-nav__link">
-        Up/Down Motor Speed Lab
+      <a href="../../kits/maker-pi-rp2040-robot/07-motor-connection-lab/" class="md-nav__link">
+        Motor Lab
       </a>
     </li>
   
@@ -2123,8 +2123,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kits/maker-pi-rp2040-robot/07-motor-connection-lab/" class="md-nav__link">
-        Motor Lab
+      <a href="../../kits/maker-pi-rp2040-robot/06-up-down-motor-lab/" class="md-nav__link">
+        Up/Down Motor Speed Lab
       </a>
     </li>
   
@@ -2891,7 +2891,7 @@ Red Full Brightness: strip[0] = (255,0,0)
 </code></pre></div>
 </td></tr></table>
 <h3 id="heartbeat-lab">Heartbeat Lab</h3>
-<p>What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an elecrto cardiogram (EKG) and it look like this:</p>
+<p>What if you were building a robot and you wanted to flash the LED to look like a human heartbeat?  Instead of slowing fading in and out, you would want the brightness to follow the electrical signals coming from the heart.  This is called an electro cardiogram (EKG) and it look like this:</p>
 <p><img alt="EKG Sample" src="../../img/ekg-sample.png" /></p>
 <p>Notice that the signal is low for about one second and then it spikes up to maximum brightness and then comes back down.  When we are moving the brightness up and down, we don't have to pause between each of the 256 brightness values.  The eye can't usually see the intermediate brightness values if the brightness is changing quickly.  To make our code efficient we can skip over 9 out of 10 of the brightness gradations between 0 and 255.  We call this the <code>skip_interval</code> in our code below.</p>
 <p>The following code emulates this heart beat pattern:</p>
