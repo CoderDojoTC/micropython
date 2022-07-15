@@ -27,6 +27,7 @@ nav:
     - Motor: basics/04-motor.md
     - Servo: basics/04-servo.md
     - NeoPixel: basics/05-neopixel.md
+    - Wireless: basics/06-wireless.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
