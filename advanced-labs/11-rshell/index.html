@@ -9,12 +9,11 @@
         <meta name="description" content="Resources for teaching MicroPython to CoderDojo Twin Cities students.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
       
       
-      
         <meta name="author" content="Dan McCreary">
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
     
     
       
@@ -22,30 +21,33 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
           
           
           <meta name="theme-color" content="">
         
       
+      
     
     
     
       
         
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
     
     
   </head>
@@ -57,8 +59,8 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#642580" data-md-color-accent="#41bac1">
-      
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,26 +77,27 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="MicroPython for Kids" class="md-header-nav__button md-logo" aria-label="MicroPython for Kids">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MicroPython for Kids" class="md-header__button md-logo" aria-label="MicroPython for Kids" data-md-component="logo">
       
   <img src="../../img/coderdojo-logo.png" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             MicroPython for Kids
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Rshell
@@ -104,22 +107,27 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -135,12 +143,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -149,11 +156,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -161,17 +171,15 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="MicroPython for Kids" class="md-nav__button md-logo" aria-label="MicroPython for Kids">
+    <a href="../.." title="MicroPython for Kids" class="md-nav__button md-logo" aria-label="MicroPython for Kids" data-md-component="logo">
       
   <img src="../../img/coderdojo-logo.png" alt="logo">
 
@@ -180,11 +188,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/CoderDojoTC/micropython/" title="Go to repository" class="md-source">
+      <a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -197,7 +204,6 @@
       
       
       
-
 
   
   
@@ -214,7 +220,6 @@
       
       
 
-
   
   
   
@@ -230,7 +235,6 @@
       
       
 
-
   
   
   
@@ -238,21 +242,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="nav-3">
-        Introduction
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Introduction" data-md-level="1">
-        <label class="md-nav__title" for="nav-3">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Introduction
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -263,8 +271,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -275,8 +285,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -287,6 +299,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -298,7 +311,6 @@
       
       
 
-
   
   
   
@@ -306,21 +318,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="nav-4">
-        Getting Started
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
-        <label class="md-nav__title" for="nav-4">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -331,8 +347,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -343,8 +361,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -355,8 +375,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -367,8 +389,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -379,8 +403,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -391,8 +417,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -403,8 +431,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -415,8 +445,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -427,8 +459,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -439,8 +473,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -451,6 +487,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -462,7 +499,6 @@
       
       
 
-
   
   
   
@@ -470,21 +506,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="nav-5">
-        Basic Examples
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Basic Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Basic Examples" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Basic Examples
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -495,8 +535,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -507,8 +549,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -519,8 +563,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -531,8 +577,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -543,8 +591,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -555,8 +605,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -567,8 +619,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -579,6 +633,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -590,7 +645,6 @@
       
       
 
-
   
   
   
@@ -598,21 +652,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="nav-6">
-        Sensors
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Sensors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Sensors" data-md-level="1">
-        <label class="md-nav__title" for="nav-6">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Sensors
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -623,8 +681,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -635,8 +695,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -647,8 +709,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -659,8 +723,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -671,8 +737,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -683,8 +751,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -695,8 +765,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -707,8 +779,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -719,8 +793,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -731,8 +807,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -743,8 +821,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -755,8 +835,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -767,8 +849,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -779,6 +863,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -790,7 +875,6 @@
       
       
 
-
   
   
   
@@ -798,21 +882,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="nav-7">
-        Motors and Servos
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Motors and Servos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Motors and Servos" data-md-level="1">
-        <label class="md-nav__title" for="nav-7">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Motors and Servos
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -823,8 +911,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -835,8 +925,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -847,8 +939,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -859,8 +953,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -871,8 +967,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -883,8 +981,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -895,6 +995,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -906,7 +1007,6 @@
       
       
 
-
   
   
   
@@ -914,21 +1014,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="nav-8">
-        Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Displays
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Displays" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -936,21 +1040,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-1" type="checkbox" id="nav-8-1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
       
-      <label class="md-nav__link" for="nav-8-1">
-        Non-Graphical
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Non-Graphical
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Non-Graphical" data-md-level="2">
-        <label class="md-nav__title" for="nav-8-1">
+        <label class="md-nav__title" for="__nav_8_1">
           <span class="md-nav__icon md-icon"></span>
           Non-Graphical
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -961,8 +1069,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -973,8 +1083,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -985,14 +1097,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1000,21 +1115,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
       
-      <label class="md-nav__link" for="nav-8-2">
-        Graphical Displays
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          Graphical Displays
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Graphical Displays" data-md-level="2">
-        <label class="md-nav__title" for="nav-8-2">
+        <label class="md-nav__title" for="__nav_8_2">
           <span class="md-nav__icon md-icon"></span>
           Graphical Displays
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1025,8 +1144,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1037,8 +1158,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1049,8 +1172,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1061,8 +1186,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1073,8 +1200,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1085,8 +1214,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1097,8 +1228,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1109,8 +1242,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1121,8 +1256,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1133,8 +1270,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1145,8 +1284,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1157,8 +1298,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1169,8 +1312,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1181,8 +1326,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1193,8 +1340,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1205,8 +1354,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1217,8 +1368,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1229,8 +1382,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1241,8 +1396,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1253,12 +1410,14 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1269,7 +1428,6 @@
       
       
       
-
 
   
   
@@ -1278,21 +1436,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="nav-9">
-        Sound and Music
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Sound and Music
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Sound and Music" data-md-level="1">
-        <label class="md-nav__title" for="nav-9">
+        <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
           Sound and Music
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1303,8 +1465,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1315,8 +1479,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1327,8 +1493,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1339,8 +1507,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1351,8 +1521,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1363,8 +1535,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1375,8 +1549,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1387,6 +1563,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1398,7 +1575,6 @@
       
       
 
-
   
   
   
@@ -1406,21 +1582,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="nav-10">
-        Robots
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Robots" data-md-level="1">
-        <label class="md-nav__title" for="nav-10">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Robots
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1431,8 +1611,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1443,8 +1625,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1455,8 +1639,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1467,8 +1653,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1479,8 +1667,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1491,8 +1681,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1503,6 +1695,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1514,7 +1707,6 @@
       
       
 
-
   
   
     
@@ -1524,21 +1716,25 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
-      <label class="md-nav__link" for="nav-11">
-        Advanced Labs
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Advanced Labs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Advanced Labs" data-md-level="1">
-        <label class="md-nav__title" for="nav-11">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           Advanced Labs
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1549,8 +1745,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1561,8 +1759,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1573,8 +1773,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1585,8 +1787,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1597,8 +1801,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1609,8 +1815,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1621,8 +1829,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1633,8 +1843,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1645,8 +1857,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1657,8 +1871,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1669,8 +1885,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1681,8 +1899,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -1691,6 +1911,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -1705,7 +1926,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1715,7 +1938,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#conda-setup" class="md-nav__link">
@@ -1801,8 +2024,24 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-machine-learning/" class="md-nav__link">
+        Machine Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -1813,8 +2052,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1822,21 +2063,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-15" type="checkbox" id="nav-11-15" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_16" type="checkbox" id="__nav_11_16" >
       
-      <label class="md-nav__link" for="nav-11-15">
-        Debugging
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_16">
+          Debugging
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="nav-11-15">
+        <label class="md-nav__title" for="__nav_11_16">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1847,8 +2092,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1859,8 +2106,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1871,12 +2120,14 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1887,7 +2138,6 @@
       
       
       
-
 
   
   
@@ -1896,21 +2146,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="nav-12">
-        Kits
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Kits
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Kits" data-md-level="1">
-        <label class="md-nav__title" for="nav-12">
+        <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           Kits
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1921,8 +2175,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1930,21 +2186,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-2" type="checkbox" id="nav-12-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_2" type="checkbox" id="__nav_12_2" >
       
-      <label class="md-nav__link" for="nav-12-2">
-        Maker Pi RP2040
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_2">
+          Maker Pi RP2040
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Maker Pi RP2040" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-2">
+        <label class="md-nav__title" for="__nav_12_2">
           <span class="md-nav__icon md-icon"></span>
           Maker Pi RP2040
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1955,8 +2215,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1967,8 +2229,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1979,8 +2243,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1991,8 +2257,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2003,8 +2271,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2015,8 +2285,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2027,14 +2299,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2042,21 +2317,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_3" type="checkbox" id="__nav_12_3" >
       
-      <label class="md-nav__link" for="nav-12-3">
-        Maker Pi RP2040 Robot
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_3">
+          Maker Pi RP2040 Robot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Maker Pi RP2040 Robot" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-3">
+        <label class="md-nav__title" for="__nav_12_3">
           <span class="md-nav__icon md-icon"></span>
           Maker Pi RP2040 Robot
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -2067,8 +2346,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2079,8 +2360,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2091,8 +2374,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2103,8 +2388,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2115,8 +2402,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2127,8 +2416,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2139,8 +2430,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2151,8 +2444,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2163,8 +2458,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2175,8 +2472,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2187,8 +2486,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2199,8 +2500,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2211,8 +2514,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2223,14 +2528,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2238,21 +2546,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-4" type="checkbox" id="nav-12-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_4" type="checkbox" id="__nav_12_4" >
       
-      <label class="md-nav__link" for="nav-12-4">
-        Maker Pi Pico
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_4">
+          Maker Pi Pico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Maker Pi Pico" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-4">
+        <label class="md-nav__title" for="__nav_12_4">
           <span class="md-nav__icon md-icon"></span>
           Maker Pi Pico
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -2263,8 +2575,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2275,8 +2589,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2287,14 +2603,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2302,21 +2621,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-5" type="checkbox" id="nav-12-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" >
       
-      <label class="md-nav__link" for="nav-12-5">
-        Maker Nano RP2040
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_5">
+          Maker Nano RP2040
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Maker Nano RP2040" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-5">
+        <label class="md-nav__title" for="__nav_12_5">
           <span class="md-nav__icon md-icon"></span>
           Maker Nano RP2040
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -2327,14 +2650,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2342,21 +2668,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-6" type="checkbox" id="nav-12-6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6" type="checkbox" id="__nav_12_6" >
       
-      <label class="md-nav__link" for="nav-12-6">
-        Larson Scanner
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_6">
+          Larson Scanner
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Larson Scanner" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-6">
+        <label class="md-nav__title" for="__nav_12_6">
           <span class="md-nav__icon md-icon"></span>
           Larson Scanner
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -2367,14 +2697,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2382,21 +2715,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-7" type="checkbox" id="nav-12-7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7" type="checkbox" id="__nav_12_7" >
       
-      <label class="md-nav__link" for="nav-12-7">
-        NeoPixel
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_7">
+          NeoPixel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="NeoPixel" data-md-level="2">
-        <label class="md-nav__title" for="nav-12-7">
+        <label class="md-nav__title" for="__nav_12_7">
           <span class="md-nav__icon md-icon"></span>
           NeoPixel
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -2407,8 +2744,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2419,8 +2758,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2431,8 +2772,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2443,12 +2786,14 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2459,7 +2804,6 @@
       
       
       
-
 
   
   
@@ -2476,7 +2820,6 @@
       
       
 
-
   
   
   
@@ -2491,7 +2834,6 @@
       
       
       
-
 
   
   
@@ -2508,7 +2850,6 @@
       
       
 
-
   
   
   
@@ -2523,7 +2864,6 @@
       
       
       
-
 
   
   
@@ -2544,11 +2884,13 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -2558,7 +2900,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#conda-setup" class="md-nav__link">
@@ -2645,61 +2987,56 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/advanced-labs/11-rshell.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="using-rshell-on-the-raspberry-pi-pico">Using rshell on the Raspberry Pi Pico</h1>
+  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/advanced-labs/11-rshell.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="using-rshell-on-the-raspberry-pi-pico">Using rshell on the Raspberry Pi Pico</h1>
 <p>Using an IDE such as Thonny you can copy one file at a time to the Raspberry Pi Pico by creating a new file and doing a copy/paste of the code into that new file.  However, this process becomes slow and tedious if you want to copy a large number of files.  To do this we will use the "remote shell" program from the command line.  In our classes we often want to copy a dozen or more files to a new robot for student to try out.</p>
 <p>Rshell was written by David Hyland.  The source code and installations are documented on Dave's GitHub repository here: <a href="https://github.com/dhylands/rshell">https://github.com/dhylands/rshell</a>.  Dave added support for the Raspberry Pi Pico in release <a href="https://github.com/dhylands/rshell/releases/tag/v0.0.30">0.0.30</a> in March of 2021.</p>
 <p>Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive RPEL commands.</p>
 <h2 id="conda-setup">Conda Setup</h2>
 <p>If you are new to Python and you don't have any previous virtual environments set up you can skip this step.  Experienced Python developers have many different environments that they want to keep separated due to library incompatibility issues.  Here is how to create a new Python Conda environment that keeps your rshell libraries separated.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>conda create -n pico <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create -n pico <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda deactivate
 conda activate pico
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Your prompt should now indicate you are in the pico environment.</p>
 <h2 id="install-rshell-in-your-pico-environment">Install rshell in your pico environment</h2>
 <p>We will now use the standard pip installer tool to install the rshell command.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>python -m pip install rshell
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python -m pip install rshell
+</code></pre></div></td></tr></table></div>
 <p>You can check that rshell has been correctly installed in your command PATH by running the UNIX <code>which</code> command.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>which rshell
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>which rshell
+</code></pre></div></td></tr></table></div>
 <h2 id="running-shell">Running shell</h2>
 <p>Rshell communicates with the Pico through the USB port.  When you plug in the Pico you should see a new file created in the UNIX /dev directory.  It typically begins with the letters <code>/dev/cu.modem</code>.  One way to test this is to unlpug the pico and run the following command:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /dev/cu.usbmodem*
-</code></pre></div>
-</td></tr></table>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls /dev/cu.usbmodem*
+</code></pre></div></td></tr></table></div>
 With the pico unplugged, there should be no files that match the ls wildcard pattern.  However, after you plug in the pico the following should be returned:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>/dev/cu.usbmodem14101
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/dev/cu.usbmodem14101
+</code></pre></div></td></tr></table></div>
 <p>This is the port you will use to connect to the pico.  We will use the <code>-p</code> for port option to startup rshell.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Using buffer-size of 128
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rshell -p /dev/cu.usbmodem14101
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>Using buffer-size of 128
 Connecting to /dev/cu.usbmodem14101 (buffer-size 128)...
 Trying to connect to REPL  connected
 Retrieving sysname ... rp2
@@ -2709,52 +3046,46 @@ Setting time ... Oct 28, 2021 20:30:56
 Evaluating board_name ... pyboard
 Retrieving time epoch ... Jan 01, 1970
 Welcome to rshell. Use Control-D (or the exit command) to exit rshell.
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="boards">Boards</h2>
 <p>The boards command will list the boards rshell is connected to:</p>
 <p>boards
 pyboard @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pyboard/hello.py /pyboard/main.py</p>
 <h2 id="listing-files">Listing Files</h2>
 <p>We can see that the board is called "pyboard" and you can use that as a path to list the files on the board.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ls /pyboard
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ls /pyboard
 hello.py      main.py
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="giving-your-board-a-name">Giving Your Board a Name</h2>
 <p>rshell will look for a program called board.py when it connects to the board.  If this file contains a board name it will use that as the board name the next time it connects to the board.  You can use the "echo" command to generate the file.  In the example below, we will call our board "pico"</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;pico&quot;&#39;</span> &gt; /pyboard/board.py
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;name=&quot;pico&quot;&#39;</span> &gt; /pyboard/board.py
+</code></pre></div></td></tr></table></div>
 <p>After you use the CONTROL-C and reconnect you will see the following:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pico @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pico/hello.py /pico/main.py
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pico @ /dev/cu.usbmodem14101 connected Epoch: 1970 Dirs: /pico/hello.py /pico/main.py
+</code></pre></div></td></tr></table></div>
 <p>Remember you must disconnect from rshell and reconnect before the boards.py function is used.</p>
 <p>For the remainder of this lesson we will assume you have renamed your board "pico".</p>
 <p>You can then type <code>cd /pico</code> followed by a <code>ls</code> to see the files on your pico.</p>
 <h2 id="entering-repl">Entering REPL</h2>
 <p>You can enter the REPL loop using the <code>repl</code> command and use the same commands that you used in the Thonny shell.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>repl
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>repl
 print(&#39;Hello World!&#39;)
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>returns</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Hello World!
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Hello World!
+</code></pre></div></td></tr></table></div>
 <h2 id="getting-help-on-rshell-commands">Getting Help on rshell commands</h2>
 <p>You can type the <code>help</code> command to see all the rshell commands:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>help
 
 Documented commands (type help &lt;topic&gt;):
 ========================================
@@ -2762,56 +3093,46 @@ args    cat  connect  date  edit  filesize  help  mkdir  rm     shell
 boards  cd   cp       echo  exit  filetype  ls    repl   rsync
 
 Use Control-D (or the exit command) to exit rshell.
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h2 id="running-backup">Running Backup</h2>
 <p>If you want to copy all the python files from the pico to a backup directory you can use the following command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cd /pico
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cd /pico
 cp *.py /Users/dan/backup
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>You will need to create the /Users/dan/backup directory before you do this.  You can also use the tilde <code>~</code> character to stand in for your home directory like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp *.py /Users/dan/backup
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp *.py /Users/dan/backup
+</code></pre></div></td></tr></table></div>
 <p>Copying '/pico/hello.py' to '/Users/dan/backup/hello.py' ...
 Copying '/pico/main.py' to '/Users/dan/backup/main.py' ...</p>
 <h2 id="installing-files">Installing files</h2>
 <p>If you have a directory called <code>~/build</code> that contains many files you want to install on the pico file system you can use the following command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cp ~/build/* /pico
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp ~/build/* /pico
+</code></pre></div></td></tr></table></div>
 <p>If you have done a clone to the CoderDojoTC micropython repository and put it in your home directory under ~/micropython then following command will copy the python files from the Maker Pi RP2040 kit to your pico:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdir /pico/lib
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir /pico/lib
 cp ~/micropython/src/drivers/*.py /pico/lib
 cp ~/micropython/src/kits/maker-pi-rp2040/*.py /pico
 cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>Note that the drivers will be placed in the /lob directory.</p>
 <h2 id="direct-command-execution">Direct Command Execution</h2>
 <p>You do not need to use an interactive session to run a command with rshell.  You can just add the command you would like to run to the end of the rshell command like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rshell -p /dev/cu.usbmodem14101 ls /pico
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rshell -p /dev/cu.usbmodem14101 ls /pico
+</code></pre></div></td></tr></table></div>
 <p>returns:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hello.py      main.py
-</code></pre></div>
-</td></tr></table>
-                
-              
-              
-                
-
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hello.py      main.py
+</code></pre></div></td></tr></table></div>
 
               
             </article>
+            
           </div>
         </div>
+        
       </main>
       
         
@@ -2835,13 +3156,13 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
             </a>
           
           
-            <a href="../20-tinyml/" title="TinyML" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../12-machine-learning/" title="Machine Learning" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  TinyML
+                  Machine Learning
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2860,25 +3181,21 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
             <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
               Attribution NonCommercial ShareAlike</a>
         </div>
-        
+        <div class="md-social">
+  
+</div>
       </div>
     </div>
   </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
-      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
       
     
   </body>
