@@ -718,20 +718,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-http-get" class="md-nav__link">
-    Testing HTTP GET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-a-json-document-with-shttp-get" class="md-nav__link">
-    Getting a JSON Document with SHTTP GET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#listing-the-functions-in-your-network-library" class="md-nav__link">
     Listing the Functions in Your Network Library
   </a>
@@ -2963,20 +2949,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-http-get" class="md-nav__link">
-    Testing HTTP GET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-a-json-document-with-shttp-get" class="md-nav__link">
-    Getting a JSON Document with SHTTP GET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#listing-the-functions-in-your-network-library" class="md-nav__link">
     Listing the Functions in Your Network Library
   </a>
@@ -3027,16 +2999,18 @@
 <p>The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the <a href="https://savannah.nongnu.org/projects/lwip/">lwip</a> TCP/IP stack.  This stack is accessible using the MicroPython <a href="https://docs.micropython.org/en/latest/library/network.html#">network</a> functions.</p>
 <h2 id="compatibility-with-prior-code">Compatibility with Prior Code</h2>
 <p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an <strong>alias</strong> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">blink.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
 
+<span class="c1"># old method was: led = Pin(25, Pin.OUT)</span>
 <span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="n">tim</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
@@ -3045,8 +3019,7 @@
 
 <span class="n">tim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">tick</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>See the new [Sample Blink]
-(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.</p>
+<p>See the new <a href="https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py">Sample Blink</a> code on the Raspberry Pi Examples site.</p>
 <h2 id="getting-the-new-pico-w-image">Getting the New Pico W Image</h2>
 <p>I had to download a brand new image for the Pico W runtime from <a href="https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2">the Raspberry Pi Foundation Software Site</a></p>
 <p>After I downloaded the new image and ran a Reset on Thonny I got the following prompt:</p>
@@ -3060,38 +3033,26 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
 <h2 id="sample-code">Sample Code</h2>
 <p>We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the <code>`SSID</code>.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.</p>
 <h3 id="setting-up-your-wifi-secretspy">Setting Up Your WIFI Secrets.py</h3>
-<p>secrets.py:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">secrets.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">SSID</span> <span class="o">=</span> <span class="s2">&quot;MY_WIFI_NETWORK_NAME&quot;</span>
 <span class="n">PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;MYWIFIPASSWORD&quot;</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <p>By importing the secrets.py file you can then reference your network name like this:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="testing-your-connection">Testing Your Connection</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
-<span class="kn">import</span> <span class="nn">secrets</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
-<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
+<p>```python is-connected-test.py
+import network
+import secrets</p>
+<p>print('Connecting to WiFi Network Name:', secrets.SSID)
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Returns:
 </code></pre></div></td></tr></table></div>
-<p>Returns:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
+Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
 True
-</code></pre></div></td></tr></table></div>
-<p>If the value is <code>False</code> you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.</p>
-<h2 id="testing-http-get">Testing HTTP GET</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3103,32 +3064,83 @@ True
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>import network
-import secrets
-import time
-import urequests
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(secrets.SSID, secrets.PASSWORD)
-print(wlan.isconnected())
-astronauts = urequests.get(&quot;http://api.open-notify.org/astros.json&quot;).json()
-number = astronauts[&#39;number&#39;]
-for i in range(number):
-    print(astronauts[&#39;people&#39;][i][&#39;name&#39;])
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>If the value is ```False``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
+
+## Testing HTTP GET
+
+This example connects to a HTTP GET API that returns a list of all the current astronouts in space.  The example uses the urequests.get() function that allwos you to specify a HTTP GET endpoint.  In this example, the response is a JSON file that looks like this:
+
+```json
+{
+    &quot;number&quot;: 10, 
+    &quot;people&quot;: 
+    [
+        {&quot;name&quot;: &quot;Oleg Artemyev&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Denis Matveev&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Sergey Korsakov&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Kjell Lindgren&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Bob Hines&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Samantha Cristoforetti&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Jessica Watkins&quot;, &quot;craft&quot;: &quot;ISS&quot;}, 
+        {&quot;name&quot;: &quot;Cai Xuzhe&quot;, &quot;craft&quot;: &quot;Tiangong&quot;}, 
+        {&quot;name&quot;: &quot;Chen Dong&quot;, &quot;craft&quot;: &quot;Tiangong&quot;}, 
+        {&quot;name&quot;: &quot;Liu Yang&quot;, &quot;craft&quot;: &quot;Tiangong&quot;}
+    ],
+    &quot;message&quot;: &quot;success&quot;
+}
+</code></pre></div></td></tr></table></div></p>
+<p>We can then use the <code>json()</code> function to convert this JSON file into a pyton dictionary and convert the array of people into a list: </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">list-astros.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
+<span class="kn">import</span> <span class="nn">secrets</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">urequests</span>
+
+<span class="c1"># connect to the network</span>
+<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
+<span class="c1"># print(wlan.isconnected())</span>
+
+<span class="c1"># Use HTTP GET to get a JSON document of all the astronouts in space now</span>
+<span class="n">astronauts</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://api.open-notify.org/astros.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">astronauts</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="s1">&#39;astronauts currently in space.&#39;</span><span class="p">)</span>
+
+<span class="c1"># print a list of the names of the people in space</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">astronauts</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns:</p>
-<p>True
-Oleg Artemyev
-Denis Matveev
-Sergey Korsakov
-Kjell Lindgren
-Bob Hines
-Samantha Cristoforetti
-Jessica Watkins
-Cai Xuzhe
-Chen Dong
-Liu Yang</p>
-<h2 id="getting-a-json-document-with-shttp-get">Getting a JSON Document with SHTTP GET</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3138,16 +3150,50 @@ Liu Yang</p>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
-<span class="kn">import</span> <span class="nn">secrets</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">urequests</span>
-<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
-<span class="n">my_ip</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.myip.com/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">im_pi</span><span class="p">)</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>There are 10 astronauts currently in space.
+Oleg Artemyev
+Denis Matveev
+Sergey Korsakov
+Kjell Lindgren
+Bob Hines
+Samantha Cristoforetti
+Jessica Watkins
+Cai Xuzhe
+Chen Dong
+Liu Yang
+
+Note this program was taken from 
+
+## Getting a JSON Document with SHTTP GET
+
+```python
+import network
+import secrets
+import time
+import urequests
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+my_ip = urequests.get(&quot;https://api.myip.com/&quot;).json()
+print(im_pi)
 </code></pre></div></td></tr></table></div>
 <h2 id="listing-the-functions-in-your-network-library">Listing the Functions in Your Network Library</h2>
 <p>The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the <code>dir()</code> function.</p>
