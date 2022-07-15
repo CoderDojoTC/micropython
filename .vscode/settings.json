@@ -31,5 +31,8 @@
         "VREF",
         "VSYS",
         "waveshare"
+    ],
+    "markdown.experimental.validate.ignoreLinks": [
+        "../img/pi-w.png"
     ]
 }

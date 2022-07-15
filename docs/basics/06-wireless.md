@@ -1,0 +1,174 @@
+# Wireless
+
+![Raspberry Pi Pico W](../img/pico-w.png)
+
+One June 30th, 2022 the [Raspberry Pi Foundation announced](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/) the availability of the Raspberry Pi Pico W.  This $6 microprocessor now supports WiFi and with a software upgrade it may also support Bluetooth.
+
+The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the [lwip](https://savannah.nongnu.org/projects/lwip/) TCP/IP stack.  This stack is accessible using the MicroPython [network](https://docs.micropython.org/en/latest/library/network.html#) functions.
+
+## Compatibility with Prior Code
+
+The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an **alias* such as ```Pin("LED")``` instead of ```Pin(25)``` to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.
+
+```python
+from machine import Pin, Timer
+
+led = Pin("LED", Pin.OUT)
+tim = Timer()
+def tick(timer):
+    global led
+    led.toggle()
+
+tim.init(freq=2.5, mode=Timer.PERIODIC, callback=tick)
+```
+
+See the new [Sample Blink]
+(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.
+
+## Getting the New Pico W Image
+
+I had to download a brand new image for the Pico W runtime from [the Raspberry Pi Foundation Software Site](https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2)
+
+After I downloaded the new image and ran a Reset on Thonny I got the following prompt:
+
+```sh
+MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
+Type "help()" for more information.
+>>> 
+```
+
+Note that the "Pico W" is mention in the prompt.
+
+## Sample Code
+
+We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the ```SSID``.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.
+
+### Setting Up Your WIFI Secrets.py
+secrets.py:
+```python
+SSID = "MY_WIFI_NETWORK_NAME"
+PASSWORD = "MYWIFIPASSWORD"
+```
+
+By importing the secrets.py file you can then reference your network name like this:
+
+```py
+print('Connecting to WiFi Network Name:', secrets.SSID)
+```
+
+## Testing Your Connection
+
+```python
+import network
+import secrets
+
+print('Connecting to WiFi Network Name:', secrets.SSID)
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+```
+
+Returns:
+
+```
+Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
+True
+```
+
+If the value is ```False``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
+
+
+
+## Testing HTTP GET
+
+```
+import network
+import secrets
+import time
+import urequests
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+astronauts = urequests.get("http://api.open-notify.org/astros.json").json()
+number = astronauts['number']
+for i in range(number):
+    print(astronauts['people'][i]['name'])
+```
+
+Returns:
+
+True
+Oleg Artemyev
+Denis Matveev
+Sergey Korsakov
+Kjell Lindgren
+Bob Hines
+Samantha Cristoforetti
+Jessica Watkins
+Cai Xuzhe
+Chen Dong
+Liu Yang
+
+## Getting a JSON Document with SHTTP GET
+
+```python
+import network
+import secrets
+import time
+import urequests
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+my_ip = urequests.get("https://api.myip.com/").json()
+print(im_pi)
+```
+
+## Listing the Functions in Your Network Library
+The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the ```dir()``` function.
+
+### Network Help
+
+```
+help(network)
+object <module 'network'> is of type module
+  __name__ -- network
+  route -- <function>
+  WLAN -- <class 'CYW43'>
+  STAT_IDLE -- 0
+  STAT_CONNECTING -- 1
+  STAT_WRONG_PASSWORD -- -3
+  STAT_NO_AP_FOUND -- -2
+  STAT_CONNECT_FAIL -- -1
+  STAT_GOT_IP -- 3
+  STA_IF -- 0
+  AP_IF -- 1
+```
+
+### Network dir() Function
+```python
+import network
+function_list = dir(network)
+
+for function in function_list:
+    print(function)
+```
+
+Returns:
+
+```
+__class__
+__name__
+AP_IF
+STAT_CONNECTING
+STAT_CONNECT_FAIL
+STAT_GOT_IP
+STAT_IDLE
+STAT_NO_AP_FOUND
+STAT_WRONG_PASSWORD
+STA_IF
+WLAN
+route
+```
