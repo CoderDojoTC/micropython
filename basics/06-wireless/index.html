@@ -3026,7 +3026,7 @@
 <p>One June 30th, 2022 the <a href="https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/">Raspberry Pi Foundation announced</a> the availability of the Raspberry Pi Pico W.  This $6 microprocessor now supports WiFi and with a software upgrade it may also support Bluetooth.</p>
 <p>The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the <a href="https://savannah.nongnu.org/projects/lwip/">lwip</a> TCP/IP stack.  This stack is accessible using the MicroPython <a href="https://docs.micropython.org/en/latest/library/network.html#">network</a> functions.</p>
 <h2 id="compatibility-with-prior-code">Compatibility with Prior Code</h2>
-<p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an *<em>alias</em> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
+<p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an <strong>alias</strong> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
