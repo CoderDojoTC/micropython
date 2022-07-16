@@ -659,8 +659,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-http-get" class="md-nav__link">
-    Testing HTTP GET
+  <a href="#waiting-for-a-valid-access-point-connection" class="md-nav__link">
+    Waiting for a Valid Access Point Connection
   </a>
   
 </li>
@@ -696,6 +696,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urequest" class="md-nav__link">
+    Urequest
+  </a>
   
 </li>
       
@@ -2619,8 +2626,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-http-get" class="md-nav__link">
-    Testing HTTP GET
+  <a href="#waiting-for-a-valid-access-point-connection" class="md-nav__link">
+    Waiting for a Valid Access Point Connection
   </a>
   
 </li>
@@ -2656,6 +2663,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urequest" class="md-nav__link">
+    Urequest
+  </a>
   
 </li>
       
@@ -2728,18 +2742,22 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
 </code></pre></div>
 </td></tr></table>
 <h2 id="testing-your-connection">Testing Your Connection</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
 <span class="kn">import</span> <span class="nn">secrets</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
 <span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># wait a second to wait for a connection</span>
 <span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
@@ -2752,7 +2770,25 @@ True
 </code></pre></div>
 </td></tr></table>
 <p>If the value is <code>False</code> you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.</p>
-<h2 id="testing-http-get">Testing HTTP GET</h2>
+<h2 id="waiting-for-a-valid-access-point-connection">Waiting for a Valid Access Point Connection</h2>
+<p>Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.</p>
+<p>```py title="time-access-point-connection.py"
+import network
+import secrets
+from utime import sleep, ticks_ms, ticks_diff</p>
+<p>print('Connecting to WiFi Network Name:', secrets.SSID)
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)</p>
+<p>start = ticks_ms() # start a millisecond counter</p>
+<p>if not wlan.isconnected():
+    wlan.connect(secrets.SSID, secrets.PASSWORD)
+    print("Waiting for connection...")
+    while not wlan.isconnected():
+        sleep(.1)
+        print("Waiting")</p>
+<p>delta = ticks_diff(ticks_ms(), start)
+print("Connect Time:", delta)
+print(wlan.ifconfig())
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2764,7 +2800,21 @@ True
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>import network
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
+
+## Testing HTTP GET
+
+The following example was taken from [Tom&#39;s Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
+
+```py
+import network
 import secrets
 import time
 import urequests
@@ -2777,7 +2827,7 @@ number = astronauts[&#39;number&#39;]
 for i in range(number):
     print(astronauts[&#39;people&#39;][i][&#39;name&#39;])
 </code></pre></div>
-</td></tr></table>
+</td></tr></table></p>
 <p>Returns:</p>
 <p>True
 Oleg Artemyev
@@ -2880,6 +2930,21 @@ WLAN
 route
 </code></pre></div>
 </td></tr></table>
+<h2 id="urequest">Urequest</h2>
+<p>It is easy to communicate with non-SSL protected HTTP protocols sites using the urequest function.  It supports the standard GET, POST, PUT and DELETE functions.</p>
+<p><code>help(urequests)
+object &lt;module 'urequests' from 'urequests.py'&gt; is of type module
+  head -- &lt;function head at 0x2000b740&gt;
+  post -- &lt;function post at 0x2000ba80&gt;
+  delete -- &lt;function delete at 0x2000bbb0&gt;
+  get -- &lt;function get at 0x2000b750&gt;
+  __file__ -- urequests.py
+  Response -- &lt;class 'Response'&gt;
+  patch -- &lt;function patch at 0x2000baf0&gt;
+  put -- &lt;function put at 0x2000ba90&gt;
+  usocket -- &lt;module 'lwip'&gt;
+  __name__ -- urequests
+  request -- &lt;function request at 0x2000bb80&gt;</code></p>
                 
               
               
