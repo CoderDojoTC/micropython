@@ -1,4 +1,4 @@
-# Wireless
+# MicroPython Pico W Wireless Examples
 
 ![Raspberry Pi Pico W](../img/pico-w.png)
 
