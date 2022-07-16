@@ -3172,6 +3172,21 @@ Getting MAC/Ethernet Address for this device.
 Time in microseconds: 211
 Hex byte array: b'(\xcd\xc1\x015X' length: 6
 28:cd:c1:1:35:58
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>!!! Note
+    We must add the ```wlan.active(True)``` line to this code.  If we don&#39;t do this, the wifi device will not be powered up and we can&#39;t get the MAC address.  The function will return all zeros.
+
+The MAC address is six bytes or &quot;octets&quot;.  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
+
+Here are the two MAC addresses for two different Pico W devices:
+</code></pre></div>
+</td></tr></table>
+28:cd:c1:1:35:54
+28:cd:c1:1:35:58
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3266,13 +3281,7 @@ Hex byte array: b'(\xcd\xc1\x015X' length: 6
 92
 93
 94
-95
-96
-97
-98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>!!! Note
-    We must add the ```wlan.active(True)``` line to this code.  If we don&#39;t do this, the wifi device will not be powered up and we can&#39;t get the MAC address.  The function will return all zeros.
-
-The MAC address is six bytes or &quot;octets&quot;.  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
+95</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Because they were purchased together, their MAC address are very similar.
 
 I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
 
