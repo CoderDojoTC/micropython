@@ -16,7 +16,7 @@ You can read more about the capabilities of the WiFi/Bluetooth chip by reading t
 
 The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an **alias* such as ```Pin("LED")``` instead of ```Pin(25)``` to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.
 
-```python title="blink.py"
+```python
 from machine import Pin, Timer
 
 led = Pin("LED", Pin.OUT)
@@ -63,7 +63,8 @@ By importing the secrets.py file you can then reference your network name like t
 print('Connecting to WiFi Network Name:', secrets.SSID)
 ```
 
-## Testing Your Connection
+## Testing Your WiFi Access Point Connection
+Here is a very simple script to test see if your network name and password are correct.  This script may work, but as we will see, it is both slow and potentially unreliable.
 
 ```python
 import network
@@ -72,22 +73,35 @@ from utime import sleep
 
 print('Connecting to WiFi Network Name:', secrets.SSID)
 wlan = network.WLAN(network.STA_IF)
-sleep(1) # wait a second to wait for a connection
-wlan.active(True)
+wlan.active(True) # power up the WiFi chip
+print('Waiting for wifi chip to power up...')
+sleep(3) # wait three seconds for the chip to power up and initialize
 wlan.connect(secrets.SSID, secrets.PASSWORD)
-print(wlan.isconnected())
+print('Waiting for access point to log us in.')
+sleep(2)
+if wlan.isconnected():
+  print('Success! We have connected to your access point!')
+  print('Try to ping the device at', wlan.ifconfig()[0])
+else:
+  print('Failure! We have not connected to your access point!  Check your secrets.py file for errors.')
 ```
 
 Returns:
 
 ```
 Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
-True
+Waiting for wifi chip to power up...
+Waiting for access point to log us in...
+Success! We have connected to your access point!
+Try to ping the device at 10.0.0.70
 ```
 
-If the value is ```False``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
+If the result is a ```Failure``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
+
+Note that we are using the ```sleep()``` function to insert delays into our code.  However, the results may actually be faster or slower than our sleep times.  Our next step is to add logic that will test to see if the networking device is ready and if our local access point allows us to login correctly.
 
 ## Waiting for a Valid Access Point Connection
+
 Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.
 
 ```python
@@ -112,26 +126,27 @@ if not wlan.isconnected():
 
 delta = ticks_diff(ticks_ms(), start)
 print("Connect Time:", delta, 'milliseconds')
-print(wlan.ifconfig())
+print('IP Address:', wlan.ifconfig()[0])
 ```
 
-This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
+This code also supports a timer that will display the number of seconds for the access point to become valid in the console.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
 
 First run upon power on might take several seconds:
 ```
 >>> %Run -c $EDITOR_CONTENT
-Connecting to WiFi Network Name: anndan-2.4
+Connecting to WiFi Network Name: MY_NETWORK_NAME
 Waiting for connection...
 0.1.2.3.Connect Time: 4640
-('10.0.0.70', '255.255.255.0', '10.0.0.1', '75.75.75.75')
+IP Address: 10.0.0.70
 ```
 
 The second and consecutive runs will use a cached connection.
+
 ```
 >>> %Run -c $EDITOR_CONTENT
-Connecting to WiFi Network Name: anndan-2.4
+Connecting to WiFi Network Name: MY_NETWORK_NAME
 Connect Time: 0 milliseconds
-('10.0.0.70', '255.255.255.0', '10.0.0.1', '75.75.75.75')
+IP Address: 10.0.0.70
 >>>
 ```
 
