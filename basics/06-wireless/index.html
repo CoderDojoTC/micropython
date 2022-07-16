@@ -625,6 +625,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#getting-the-new-pico-w-image" class="md-nav__link">
+    Getting the New Pico W Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-code" class="md-nav__link">
     Sample Code
   </a>
@@ -645,8 +652,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-your-connection" class="md-nav__link">
-    Testing Your Connection
+  <a href="#testing-your-wifi-access-point-connection" class="md-nav__link">
+    Testing Your WiFi Access Point Connection
   </a>
   
 </li>
@@ -2592,6 +2599,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#getting-the-new-pico-w-image" class="md-nav__link">
+    Getting the New Pico W Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-code" class="md-nav__link">
     Sample Code
   </a>
@@ -2612,8 +2626,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-your-connection" class="md-nav__link">
-    Testing Your Connection
+  <a href="#testing-your-wifi-access-point-connection" class="md-nav__link">
+    Testing Your WiFi Access Point Connection
   </a>
   
 </li>
@@ -2699,41 +2713,37 @@
 <p>You can read more about the capabilities of the WiFi/Bluetooth chip by reading the <a href="https://www.infineon.com/dgdl/Infineon-CYW43439-Single-Chip-IEEE-802.11-b-g-n-MAC-PHY-Radio-with-Integrated-Bluetooth-5.0-Compliance-AdditionalTechnicalInformation-v03_00-EN.pdf?fileId=8ac78c8c7ddc01d7017ddd033d78594d">Infineon CYW43439 Datasheet</a>.  I found it interesting that the CYW43439 chip has 512KB of SRAM - almost double what the RP2040 chip contains!</p>
 <h2 id="compatibility-with-prior-code">Compatibility with Prior Code</h2>
 <p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an *<em>alias</em> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
-<p>```python title="blink.py"
-from machine import Pin, Timer</p>
-<p>led = Pin("LED", Pin.OUT)
-tim = Timer()
-def tick(timer):
-    global led
-    led.toggle()</p>
-<p>tim.init(freq=2.5, mode=Timer.PERIODIC, callback=tick)
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See the new [Sample Blink]
-(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
 
-## Getting the New Pico W Image
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">tim</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">led</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
 
-I had to download a brand new image for the Pico W runtime from [the Raspberry Pi Foundation Software Site](https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2)
-
-After I downloaded the new image and ran a **Stop/Reset** on Thonny I got the following prompt:
-
-```sh
-MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
-Type &quot;help()&quot; for more information.
+<span class="n">tim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">tick</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>See the new [Sample Blink]
+(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.</p>
+<h2 id="getting-the-new-pico-w-image">Getting the New Pico W Image</h2>
+<p>I had to download a brand new image for the Pico W runtime from <a href="https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2">the Raspberry Pi Foundation Software Site</a></p>
+<p>After I downloaded the new image and ran a <strong>Stop/Reset</strong> on Thonny I got the following prompt:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>MicroPython v1.19.1-88-g74e33e714 on <span class="m">2022</span>-06-30<span class="p">;</span> Raspberry Pi Pico W with RP2040
+Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more information.
 &gt;&gt;&gt; 
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
 <p>Note that the "Pico W" is listed in the prompt.  If you do not see the "W" then the network code will not work.</p>
 <h2 id="sample-code">Sample Code</h2>
 <p>We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the <code>`SSID</code>.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.</p>
@@ -2748,7 +2758,8 @@ Type &quot;help()&quot; for more information.
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="testing-your-connection">Testing Your Connection</h2>
+<h2 id="testing-your-wifi-access-point-connection">Testing Your WiFi Access Point Connection</h2>
+<p>Here is a very simple script to test see if your network name and password are correct.  This script may work, but as we will see, it is both slow and potentially unreliable.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2758,25 +2769,46 @@ Type &quot;help()&quot; for more information.
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
 <span class="kn">import</span> <span class="nn">secrets</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
 <span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># wait a second to wait for a connection</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># power up the WiFi chip</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Waiting for wifi chip to power up...&#39;</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># wait three seconds for the chip to power up and initialize</span>
 <span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Waiting for access point to log us in.&#39;</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Success! We have connected to your access point!&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Try to ping the device at&#39;</span><span class="p">,</span> <span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failure! We have not connected to your access point!  Check your secrets.py file for errors.&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Returns:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
-True
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
+Waiting for wifi chip to power up...
+Waiting for access point to log us in...
+Success! We have connected to your access point!
+Try to ping the device at 10.0.0.70
 </code></pre></div>
 </td></tr></table>
-<p>If the value is <code>False</code> you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.</p>
+<p>If the result is a <code>Failure</code> you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.</p>
+<p>Note that we are using the <code>sleep()</code> function to insert delays into our code.  However, the results may actually be faster or slower than our sleep times.  Our next step is to add logic that will test to see if the networking device is ready and if our local access point allows us to login correctly.</p>
 <h2 id="waiting-for-a-valid-access-point-connection">Waiting for a Valid Access Point Connection</h2>
 <p>Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -2821,34 +2853,34 @@ True
 
 <span class="n">delta</span> <span class="o">=</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">start</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connect Time:&quot;</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="s1">&#39;milliseconds&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IP Address:&#39;</span><span class="p">,</span> <span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
 </td></tr></table>
-<p>This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.</p>
+<p>This code also supports a timer that will display the number of seconds for the access point to become valid in the console.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.</p>
 <p>First run upon power on might take several seconds:
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt; %Run -c $EDITOR_CONTENT
-Connecting to WiFi Network Name: anndan-2.4
+Connecting to WiFi Network Name: MY_NETWORK_NAME
 Waiting for connection...
 0.1.2.3.Connect Time: 4640
-(&#39;10.0.0.70&#39;, &#39;255.255.255.0&#39;, &#39;10.0.0.1&#39;, &#39;75.75.75.75&#39;)
+IP Address: 10.0.0.70
 </code></pre></div>
 </td></tr></table></p>
-<p>The second and consecutive runs will use a cached connection.
+<p>The second and consecutive runs will use a cached connection.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt; %Run -c $EDITOR_CONTENT
-Connecting to WiFi Network Name: anndan-2.4
+Connecting to WiFi Network Name: MY_NETWORK_NAME
 Connect Time: 0 milliseconds
-(&#39;10.0.0.70&#39;, &#39;255.255.255.0&#39;, &#39;10.0.0.1&#39;, &#39;75.75.75.75&#39;)
+IP Address: 10.0.0.70
 &gt;&gt;&gt;
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
 <h2 id="error-handling">Error Handling</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
