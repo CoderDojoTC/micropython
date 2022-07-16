@@ -4,7 +4,7 @@
 
 One June 30th, 2022 the [Raspberry Pi Foundation announced](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/) the availability of the Raspberry Pi Pico W.  This $6 microprocessor now supports WiFi and with a software upgrade it may soon support Bluetooth.
 
-The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the [lwip](https://savannah.nongnu.org/projects/lwip/) TCP/IP stack.  This stack is accessible using the MicroPython [network](https://docs.micropython.org/en/latest/library/network.html#) functions.
+The Pico W supports 2.4 Ghz 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the [lwip](https://savannah.nongnu.org/projects/lwip/) TCP/IP stack.  This stack is accessible using the MicroPython [network](https://docs.micropython.org/en/latest/library/network.html#) functions.
 
 The WiFi chip used is the [Infineon CYW43439](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw43439/) chip.  This chip also uses an ARM architecture and has extensive support for Bluetooth wireless communication.
 
@@ -102,16 +102,63 @@ start = ticks_ms() # start a millisecond counter
 if not wlan.isconnected():
     wlan.connect(secrets.SSID, secrets.PASSWORD)
     print("Waiting for connection...")
+    counter = 0
     while not wlan.isconnected():
-        sleep(.1)
-        print("Waiting")
+        sleep(1)
+        print(counter, '.', sep='', end='', )
+        counter += 1
 
 delta = ticks_diff(ticks_ms(), start)
-print("Connect Time:", delta)
+print("Connect Time:", delta, 'milliseconds')
 print(wlan.ifconfig())
 ```
 
 This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
+
+First run upon power on might take several seconds:
+```
+>>> %Run -c $EDITOR_CONTENT
+Connecting to WiFi Network Name: anndan-2.4
+Waiting for connection...
+0.1.2.3.Connect Time: 4640
+('10.0.0.70', '255.255.255.0', '10.0.0.1', '75.75.75.75')
+```
+
+The second and consecutive runs will use a cached connection.
+```
+>>> %Run -c $EDITOR_CONTENT
+Connecting to WiFi Network Name: anndan-2.4
+Connect Time: 0 milliseconds
+('10.0.0.70', '255.255.255.0', '10.0.0.1', '75.75.75.75')
+>>> 
+
+## Error Handling
+
+```python
+
+lan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+ 
+# Wait for connect or fail
+max_wait = 10
+while max_wait > 0:
+  if wlan.status() < 0 or wlan.status() >= 3:
+    break
+  max_wait -= 1
+  print('waiting for connection...')
+  time.sleep(1)
+
+# Handle connection error
+if wlan.status() != 3:
+   raise RuntimeError('network connection failed')
+else:
+  print('connected')
+  status = wlan.ifconfig()
+  print( 'ip = ' + status[0] )
+```
+
+The full TCP/IP stack is running on your Pico W.  You should be able to ping the pico using the IP address returned by the status[0] of the wlan.ifconfig() function above.
 
 ## Testing HTTP GET
 
