@@ -273,7 +273,7 @@ route
 ```
 
 ### Urequest
-It is easy to communicate with non-SSL protected HTTP protocols sites using the urequest function.  It supports the standard GET, POST, PUT and DELETE functions.
+It is easy to communicate with non-SSL protected HTTP protocols sites using the WLAN ```urequest`` function.  It supports the standard GET, POST, PUT and DELETE functions.
 
 ```
 help(urequests)
@@ -289,7 +289,7 @@ object <module 'urequests' from 'urequests.py'> is of type module
   usocket -- <module 'lwip'>
   __name__ -- urequests
   request -- <function request at 0x2000bb80>
-  ```
+```
 
 ## Getting the MAC/Ethernet Access
 You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.
@@ -358,14 +358,14 @@ I ran this program on my Pico W and I got times of between 214 and 222 microseco
 
 Once we have mastered the basics of connecting to a local access point and returning our IP address, we are no ready to build some sample Internet of Things applications.
 
-## Using the Pico W as a Web Server
+### Using the Pico W as a Web Server
 This program turns your Pico W into a small web server.  The web page has two links on it. One link will turn the on-board LED on and the other link will turn the LED off.
 
 Screen image of Pico W Web Server:
 ![](../img/pico-w-web-page.png)
 
-  ```py
-  # Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
+```py
+# Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
 import network
 import socket
 import time
@@ -455,7 +455,7 @@ while True:
     print('connection closed')
 ```
 
-## Getting a JSON Document with SHTTP GET
+### Getting a JSON Document with SHTTP GET
 !!! Warning
     This code is not working.  I believe we need to get a SSL certificate for SSL to work.  To do this I think we need to use a command line tool to generate a certificate for the device and store it in RAM.
 
