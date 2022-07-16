@@ -1,3 +1,4 @@
+# https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
 import network
 import socket
 import time
@@ -11,6 +12,7 @@ led = machine.Pin("LED", machine.Pin.OUT)
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(secrets.SSID, secrets.PASSWORD)
+stateis = "LED is OFF"
 
 html = """<!DOCTYPE html>
 <html>
@@ -20,6 +22,8 @@ html = """<!DOCTYPE html>
   <body>
       <h1>Pico Wireless Web Server</h1>
       <p>%s</p>
+      <a href="/light/on">Turn On</a>
+      <a href="/light/off">Turn Off</a>
   </body>
 </html>
 """
@@ -37,13 +41,15 @@ while max_wait > 0:
 if wlan.status() != 3:
   raise RuntimeError('network connection failed')
 else:
-  print('connected')
+  print('We are connected to WiFI access point:', secrets.SSID)
   status = wlan.ifconfig()
-  print( 'ip = ' + status[0] )
+  print( 'The IP address of the pico W is:', status[0] )
 
 # Open socket
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+print('addr:', addr)
 s = socket.socket()
+#if not addr:
 s.bind(addr)
 s.listen(1)
 
@@ -71,7 +77,7 @@ while True:
       print("led off")
       led.value(0)
       stateis = "LED is OFF"
-
+    # generate the we page with the stateis as a parameter
     response = html % stateis
     cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
     cl.send(response)

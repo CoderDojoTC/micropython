@@ -287,5 +287,130 @@ object <module 'urequests' from 'urequests.py'> is of type module
   request -- <function request at 0x2000bb80>
   ```
 
-  ## Testing the MAC/Ethernet Access
-  You can test the roundtrip time between the RP2040 and the 
+## Testing the MAC/Ethernet Access
+You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.
+
+  ```py
+import network
+import secrets
+from utime import sleep, ticks_us, ticks_diff
+
+print('Getting MAC/Ethernet Address for this device.')
+
+start = ticks_us() # start a millisecond counter
+wlan = network.WLAN(network.STA_IF)
+
+# This returns a byte array
+mac_addess = wlan.config('mac')
+print('Time in microseconds:', ticks_diff(ticks_us(), start))
+# each MAC address is 6 bytes or 48 bits
+print("Hex:", mac_addess)
+
+# b'(\x c d \x c 1 \x 0 1 5X'
+for digit in range(0,5):
+    print(mac_addess[digit], ':', sep='', end = '')
+print(mac_addess[5])
+  ```
+
+Results:
+```
+Getting MAC/Ethernet Address for this device.
+Time in microseconds: 216
+Hex: b'(\xcd\xc1\x015X'
+40:205:193:1:53:88
+```
+
+I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
+
+  ## Using the Pico W as a Web Server
+
+  ```py
+  # Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
+import network
+import socket
+import time
+import secrets
+
+from machine import Pin
+
+# Select the onboard LED
+led = machine.Pin("LED", machine.Pin.OUT)
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+stateis = "LED is OFF"
+
+html = """<!DOCTYPE html>
+<html>
+   <head>
+     <title>Web Server On Pico W </title>
+   </head>
+  <body>
+      <h1>Pico Wireless Web Server</h1>
+      <p>%s</p>
+      <a href="/light/on">Turn On</a>
+      <a href="/light/off">Turn Off</a>
+  </body>
+</html>
+"""
+
+# Wait for connect or fail
+max_wait = 10
+while max_wait > 0:
+  if wlan.status() < 0 or wlan.status() >= 3:
+    break
+  max_wait -= 1
+  print('waiting for connection...')
+  time.sleep(1)
+
+# Handle connection error
+if wlan.status() != 3:
+  raise RuntimeError('network connection failed')
+else:
+  print('We are connected to WiFI access point:', secrets.SSID)
+  status = wlan.ifconfig()
+  print( 'The IP address of the pico W is:', status[0] )
+
+# Open socket
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+print('addr:', addr)
+s = socket.socket()
+#if not addr:
+s.bind(addr)
+s.listen(1)
+
+print('listening on', addr)
+
+# Listen for connections
+while True:
+  try:
+    cl, addr = s.accept()
+    print('client connected from', addr)
+    request = cl.recv(1024)
+    print(request)
+    request = str(request)
+    led_on = request.find('/light/on')
+    led_off = request.find('/light/off')
+    print( 'led on = ' + str(led_on))
+    print( 'led off = ' + str(led_off))
+
+    if led_on == 6:
+      print("led on")
+      led.value(1)
+      stateis = "LED is ON"
+
+    if led_off == 6:
+      print("led off")
+      led.value(0)
+      stateis = "LED is OFF"
+    # generate the we page with the stateis as a parameter
+    response = html % stateis
+    cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
+    cl.send(response)
+    cl.close()
+
+  except OSError as e:
+    cl.close()
+    print('connection closed')
+```
