@@ -61,9 +61,11 @@ print('Connecting to WiFi Network Name:', secrets.SSID)
 ```python
 import network
 import secrets
+from utime import sleep
 
 print('Connecting to WiFi Network Name:', secrets.SSID)
 wlan = network.WLAN(network.STA_IF)
+sleep(1) # wait a second to wait for a connection
 wlan.active(True)
 wlan.connect(secrets.SSID, secrets.PASSWORD)
 print(wlan.isconnected())
@@ -78,11 +80,39 @@ True
 
 If the value is ```False``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
 
+## Waiting for a Valid Access Point Connection
+Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.
 
+```py title="time-access-point-connection.py"
+import network
+import secrets
+from utime import sleep, ticks_ms, ticks_diff
+
+print('Connecting to WiFi Network Name:', secrets.SSID)
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+
+start = ticks_ms() # start a millisecond counter
+
+if not wlan.isconnected():
+    wlan.connect(secrets.SSID, secrets.PASSWORD)
+    print("Waiting for connection...")
+    while not wlan.isconnected():
+        sleep(.1)
+        print("Waiting")
+
+delta = ticks_diff(ticks_ms(), start)
+print("Connect Time:", delta)
+print(wlan.ifconfig())
+```
+
+This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
 
 ## Testing HTTP GET
 
-```
+The following example was taken from [Tom's Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
+
+```py
 import network
 import secrets
 import time
@@ -172,3 +202,22 @@ STA_IF
 WLAN
 route
 ```
+
+## Urequest
+It is easy to communicate with non-SSL protected HTTP protocols sites using the urequest function.  It supports the standard GET, POST, PUT and DELETE functions.
+
+```
+help(urequests)
+object <module 'urequests' from 'urequests.py'> is of type module
+  head -- <function head at 0x2000b740>
+  post -- <function post at 0x2000ba80>
+  delete -- <function delete at 0x2000bbb0>
+  get -- <function get at 0x2000b750>
+  __file__ -- urequests.py
+  Response -- <class 'Response'>
+  patch -- <function patch at 0x2000baf0>
+  put -- <function put at 0x2000ba90>
+  usocket -- <module 'lwip'>
+  __name__ -- urequests
+  request -- <function request at 0x2000bb80>
+  ```
