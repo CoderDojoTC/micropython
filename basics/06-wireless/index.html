@@ -625,9 +625,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-the-new-pico-w-image" class="md-nav__link">
-    Getting the New Pico W Image
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
   </a>
+  
+    <nav class="md-nav" aria-label="Sample Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-your-wifi-secretspy" class="md-nav__link">
+    Setting Up Your WIFI secrets.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2565,9 +2578,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-the-new-pico-w-image" class="md-nav__link">
-    Getting the New Pico W Image
+  <a href="#sample-code" class="md-nav__link">
+    Sample Code
   </a>
+  
+    <nav class="md-nav" aria-label="Sample Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-your-wifi-secretspy" class="md-nav__link">
+    Setting Up Your WIFI secrets.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2638,40 +2664,18 @@
                 
                 <h1 id="micropython-pico-w-wireless-examples">MicroPython Pico W Wireless Examples</h1>
 <p><img alt="Raspberry Pi Pico W" src="../../img/pico-w.png" /></p>
-<p>One June 30th, 2022 the <a href="https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/">Raspberry Pi Foundation announced</a> the availability of the Raspberry Pi Pico W.  This $6 microprocessor now supports WiFi and with a software upgrade it may also support Bluetooth.</p>
+<p>One June 30th, 2022 the <a href="https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/">Raspberry Pi Foundation announced</a> the availability of the Raspberry Pi Pico W.  This $6 microprocessor now supports WiFi and with a software upgrade it may soon support Bluetooth.</p>
 <p>The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the <a href="https://savannah.nongnu.org/projects/lwip/">lwip</a> TCP/IP stack.  This stack is accessible using the MicroPython <a href="https://docs.micropython.org/en/latest/library/network.html#">network</a> functions.</p>
 <h2 id="compatibility-with-prior-code">Compatibility with Prior Code</h2>
 <p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an *<em>alias</em> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
-
-<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="n">tim</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">led</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-
-<span class="n">tim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">tick</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<p>See the new [Sample Blink]
-(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.</p>
-<h2 id="getting-the-new-pico-w-image">Getting the New Pico W Image</h2>
-<p>I had to download a brand new image for the Pico W runtime from <a href="https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2">the Raspberry Pi Foundation Software Site</a></p>
-<p>After I downloaded the new image and ran a Reset on Thonny I got the following prompt:</p>
-<p>```sh title="reset shell prompt"
-MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
-Type "help()" for more information.</p>
-<blockquote>
-<blockquote>
-<blockquote>
+<p>```python title="blink.py"
+from machine import Pin, Timer</p>
+<p>led = Pin("LED", Pin.OUT)
+tim = Timer()
+def tick(timer):
+    global led
+    led.toggle()</p>
+<p>tim.init(freq=2.5, mode=Timer.PERIODIC, callback=tick)
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2682,26 +2686,40 @@ Type "help()" for more information.</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Note that the &quot;Pico W&quot; is mention in the prompt.
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See the new [Sample Blink]
+(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.
 
-## Sample Code
+## Getting the New Pico W Image
 
-We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi &quot;access point&quot; and the variable name to store the name is called the ```SSID``.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.
+I had to download a brand new image for the Pico W runtime from [the Raspberry Pi Foundation Software Site](https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2)
 
-### Setting Up Your WIFI Secrets.py
-secrets.py:
-```python
-SSID = &quot;MY_WIFI_NETWORK_NAME&quot;
-PASSWORD = &quot;MYWIFIPASSWORD&quot;
+After I downloaded the new image and ran a **Stop/Reset** on Thonny I got the following prompt:
+
+```sh
+MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
+Type &quot;help()&quot; for more information.
+&gt;&gt;&gt; 
 </code></pre></div>
-</td></tr></table>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>By importing the secrets.py file you can then reference your network name like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
+</td></tr></table></p>
+<p>Note that the "Pico W" is listed in the prompt.  If you do not see the "W" then the network code will not work.</p>
+<h2 id="sample-code">Sample Code</h2>
+<p>We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the <code>`SSID</code>.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.</p>
+<h3 id="setting-up-your-wifi-secretspy">Setting Up Your WIFI secrets.py</h3>
+<p>By convention, we put both our SSID and password in a python file called "secrets.py".  This file should never be checked into a public source code repository.  We can add secrets to the .gitignore file to make sure it is never checked into GitHub.</p>
+<p>```python title="secrets.py"
+SSID = "MY_WIFI_NETWORK_NAME"
+PASSWORD = "MYWIFIPASSWORD"
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>By importing the secrets.py file you can then reference your network name like this:
+
+```py
+print(&#39;Connecting to WiFi Network Name:&#39;, secrets.SSID)
 </code></pre></div>
-</td></tr></table>
+</td></tr></table></p>
 <h2 id="testing-your-connection">Testing Your Connection</h2>
 <p>```python title="test-access-point-connection.py"
 import network
