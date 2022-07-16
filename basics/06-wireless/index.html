@@ -713,6 +713,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#getting-the-macethernet-access" class="md-nav__link">
+    Getting the MAC/Ethernet Access
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2687,6 +2694,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#getting-the-macethernet-access" class="md-nav__link">
+    Getting the MAC/Ethernet Access
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3066,8 +3080,98 @@ route
 </code></pre></div>
 </td></tr></table>
 <h3 id="urequest">Urequest</h3>
-<p>It is easy to communicate with non-SSL protected HTTP protocols sites using the urequest function.  It supports the standard GET, POST, PUT and DELETE functions.</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<p>It is easy to communicate with non-SSL protected HTTP protocols sites using the WLAN <code>`urequest</code> function.  It supports the standard GET, POST, PUT and DELETE functions.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help(urequests)
+object &lt;module &#39;urequests&#39; from &#39;urequests.py&#39;&gt; is of type module
+  head -- &lt;function head at 0x2000b740&gt;
+  post -- &lt;function post at 0x2000ba80&gt;
+  delete -- &lt;function delete at 0x2000bbb0&gt;
+  get -- &lt;function get at 0x2000b750&gt;
+  __file__ -- urequests.py
+  Response -- &lt;class &#39;Response&#39;&gt;
+  patch -- &lt;function patch at 0x2000baf0&gt;
+  put -- &lt;function put at 0x2000ba90&gt;
+  usocket -- &lt;module &#39;lwip&#39;&gt;
+  __name__ -- urequests
+  request -- &lt;function request at 0x2000bb80&gt;
+</code></pre></div>
+</td></tr></table>
+<h2 id="getting-the-macethernet-access">Getting the MAC/Ethernet Access</h2>
+<p>You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.</p>
+<p>```py
+import network
+from utime import sleep, ticks_us, ticks_diff</p>
+<p>print('Getting MAC/Ethernet Address for this device.')</p>
+<p>start = ticks_us() # start a millisecond counter
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True) # this line powers up the chip - it takes about 2.5 seconds</p>
+<h1 id="this-returns-a-byte-array-of-hex-numbers">This returns a byte array of hex numbers</h1>
+<p>mac_addess = wlan.config('mac')
+print('Time in microseconds:', ticks_diff(ticks_us(), start))</p>
+<h1 id="each-mac-address-is-6-bytes-or-48-bits">each MAC address is 6 bytes or 48 bits</h1>
+<p>print("Hex byte array:", mac_addess, 'length:', len(mac_addess))</p>
+<h1 id="this-should-be-in-hex-per-the-notational-conventions">This should be in hex per the Notational Conventions</h1>
+<h1 id="httpsenwikipediaorgwikimac_addressnotational_conventions">https://en.wikipedia.org/wiki/MAC_address#Notational_conventions</h1>
+<h1 id="bxcdxc1x015x">b'(\xcd\xc1\x015X'</h1>
+<h1 id="28cdc113558">28:cd:c1:1:35:58</h1>
+<h1 id="format-in-mac-notational-convention">format in MAC Notational Convention</h1>
+<p>for digit in range(0,5):
+    print(str(hex(mac_addess[digit]))[2:4], ':', sep='', end = '')
+print(str(hex(mac_addess[5]))[2:4] )
+  ```</p>
+<p>First Time After Power On Results:
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Getting MAC/Ethernet Address for this device.
+Time in microseconds: 2584424
+Hex byte array: b&#39;(\xcd\xc1\x015X&#39; length: 6
+28:cd:c1:1:35:58
+</code></pre></div>
+</td></tr></table></p>
+<p>Note that it takes about 2.5 seconds just to power on the chip before we get the MAC address.</p>
+<p>Subsequent Times
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Getting MAC/Ethernet Address for this device.
+Time in microseconds: 211
+Hex byte array: b&#39;(\xcd\xc1\x015X&#39; length: 6
+28:cd:c1:1:35:58
+</code></pre></div>
+</td></tr></table></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We must add the <code>wlan.active(True)</code> line to this code.  If we don't do this, the wifi device will not be powered up and we can't get the MAC address.  The function will return all zeros.</p>
+</div>
+<p>The MAC address is six bytes or "octets".  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the <a href="https://en.wikipedia.org/wiki/MAC_address">Wikipedia Page on MAC Address</a> for more information.  If you run this on your Pico W the first octets should be similar.</p>
+<p>Here are the two MAC addresses for two different Pico W devices:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>28:cd:c1:1:35:54
+28:cd:c1:1:35:58
+</code></pre></div>
+</td></tr></table>
+<p>Because they were purchased together, their MAC address are very similar.</p>
+<p>I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.</p>
+<h2 id="advanced-wifi-programs">Advanced WiFi Programs</h2>
+<p>Once we have mastered the basics of connecting to a local access point and returning our IP address, we are no ready to build some sample Internet of Things applications.</p>
+<h3 id="using-the-pico-w-as-a-web-server">Using the Pico W as a Web Server</h3>
+<p>This program turns your Pico W into a small web server.  The web page has two links on it. One link will turn the on-board LED on and the other link will turn the LED off.</p>
+<p>Screen image of Pico W Web Server:
+<img alt="" src="../../img/pico-w-web-page.png" /></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -3111,290 +3215,139 @@ route
 42
 43
 44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help(urequests)
-object &lt;module &#39;urequests&#39; from &#39;urequests.py&#39;&gt; is of type module
-  head -- &lt;function head at 0x2000b740&gt;
-  post -- &lt;function post at 0x2000ba80&gt;
-  delete -- &lt;function delete at 0x2000bbb0&gt;
-  get -- &lt;function get at 0x2000b750&gt;
-  __file__ -- urequests.py
-  Response -- &lt;class &#39;Response&#39;&gt;
-  patch -- &lt;function patch at 0x2000baf0&gt;
-  put -- &lt;function put at 0x2000ba90&gt;
-  usocket -- &lt;module &#39;lwip&#39;&gt;
-  __name__ -- urequests
-  request -- &lt;function request at 0x2000bb80&gt;
-  ```
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/</span>
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">secrets</span>
 
-## Getting the MAC/Ethernet Access
-You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 
-  ```py
-import network
-from utime import sleep, ticks_us, ticks_diff
+<span class="c1"># Select the onboard LED</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
-print(&#39;Getting MAC/Ethernet Address for this device.&#39;)
+<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
+<span class="n">stateis</span> <span class="o">=</span> <span class="s2">&quot;LED is OFF&quot;</span>
 
-start = ticks_us() # start a millisecond counter
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True) # this line powers up the chip - it takes about 2.5 seconds
+<span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">   &lt;head&gt;</span>
+<span class="s2">     &lt;title&gt;Web Server On Pico W &lt;/title&gt;</span>
+<span class="s2">   &lt;/head&gt;</span>
+<span class="s2">  &lt;body&gt;</span>
+<span class="s2">      &lt;h1&gt;Pico Wireless Web Server&lt;/h1&gt;</span>
+<span class="s2">      &lt;p&gt;</span><span class="si">%s</span><span class="s2">&lt;/p&gt;</span>
+<span class="s2">      &lt;a href=&quot;/light/on&quot;&gt;Turn On&lt;/a&gt;</span>
+<span class="s2">      &lt;a href=&quot;/light/off&quot;&gt;Turn Off&lt;/a&gt;</span>
+<span class="s2">  &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
-# This returns a byte array of hex numbers
-mac_addess = wlan.config(&#39;mac&#39;)
-print(&#39;Time in microseconds:&#39;, ticks_diff(ticks_us(), start))
-# each MAC address is 6 bytes or 48 bits
-print(&quot;Hex byte array:&quot;, mac_addess, &#39;length:&#39;, len(mac_addess))
+<span class="c1"># Wait for connect or fail</span>
+<span class="n">max_wait</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">max_wait</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">wlan</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">wlan</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">break</span>
+  <span class="n">max_wait</span> <span class="o">-=</span> <span class="mi">1</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;waiting for connection...&#39;</span><span class="p">)</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-# This should be in hex per the Notational Conventions
-# https://en.wikipedia.org/wiki/MAC_address#Notational_conventions
-# b&#39;(\xcd\xc1\x015X&#39;
-# 28:cd:c1:1:35:58
-# format in MAC Notational Convention
-for digit in range(0,5):
-    print(str(hex(mac_addess[digit]))[2:4], &#39;:&#39;, sep=&#39;&#39;, end = &#39;&#39;)
-print(str(hex(mac_addess[5]))[2:4] )
-  ```
+<span class="c1"># Handle connection error</span>
+<span class="k">if</span> <span class="n">wlan</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;network connection failed&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We are connected to WiFI access point:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="n">wlan</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The IP address of the pico W is:&#39;</span><span class="p">,</span> <span class="n">status</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
 
-First Time After Power On Results:
+<span class="c1"># Open socket</span>
+<span class="n">addr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;addr:&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="c1">#if not addr:</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;listening on&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+
+<span class="c1"># Listen for connections</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cl</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;client connected from&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">led_on</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;/light/on&#39;</span><span class="p">)</span>
+    <span class="n">led_off</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;/light/off&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;led on = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">led_on</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;led off = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">led_off</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">led_on</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;led on&quot;</span><span class="p">)</span>
+      <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+      <span class="n">stateis</span> <span class="o">=</span> <span class="s2">&quot;LED is ON&quot;</span>
+
+    <span class="k">if</span> <span class="n">led_off</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;led off&quot;</span><span class="p">)</span>
+      <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">stateis</span> <span class="o">=</span> <span class="s2">&quot;LED is OFF&quot;</span>
+    <span class="c1"># generate the we page with the stateis as a parameter</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">html</span> <span class="o">%</span> <span class="n">stateis</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s1">Content-type: text/html</span><span class="se">\r\n\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+  <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connection closed&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-Getting MAC/Ethernet Address for this device.
-Time in microseconds: 2584424
-Hex byte array: b'(\xcd\xc1\x015X' length: 6
-28:cd:c1:1:35:58
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Note that it takes about 2.5 seconds just to power on the chip before we get the MAC address.
-
-Subsequent Times
-</code></pre></div>
-</td></tr></table>
-Getting MAC/Ethernet Address for this device.
-Time in microseconds: 211
-Hex byte array: b'(\xcd\xc1\x015X' length: 6
-28:cd:c1:1:35:58
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>!!! Note
-    We must add the ```wlan.active(True)``` line to this code.  If we don&#39;t do this, the wifi device will not be powered up and we can&#39;t get the MAC address.  The function will return all zeros.
-
-The MAC address is six bytes or &quot;octets&quot;.  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
-
-Here are the two MAC addresses for two different Pico W devices:
-</code></pre></div>
-</td></tr></table>
-28:cd:c1:1:35:54
-28:cd:c1:1:35:58
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Because they were purchased together, their MAC address are very similar.
-
-I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
-
-## Advanced WiFi Programs
-
-Once we have mastered the basics of connecting to a local access point and returning our IP address, we are no ready to build some sample Internet of Things applications.
-
-## Using the Pico W as a Web Server
-This program turns your Pico W into a small web server.  The web page has two links on it. One link will turn the on-board LED on and the other link will turn the LED off.
-
-Screen image of Pico W Web Server:
-![](../img/pico-w-web-page.png)
-
-  ```py
-  # Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
-import network
-import socket
-import time
-import secrets
-
-from machine import Pin
-
-# Select the onboard LED
-led = machine.Pin(&quot;LED&quot;, machine.Pin.OUT)
-
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(secrets.SSID, secrets.PASSWORD)
-stateis = &quot;LED is OFF&quot;
-
-html = &quot;&quot;&quot;&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-   &lt;head&gt;
-     &lt;title&gt;Web Server On Pico W &lt;/title&gt;
-   &lt;/head&gt;
-  &lt;body&gt;
-      &lt;h1&gt;Pico Wireless Web Server&lt;/h1&gt;
-      &lt;p&gt;%s&lt;/p&gt;
-      &lt;a href=&quot;/light/on&quot;&gt;Turn On&lt;/a&gt;
-      &lt;a href=&quot;/light/off&quot;&gt;Turn Off&lt;/a&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-&quot;&quot;&quot;
-
-# Wait for connect or fail
-max_wait = 10
-while max_wait &gt; 0:
-  if wlan.status() &lt; 0 or wlan.status() &gt;= 3:
-    break
-  max_wait -= 1
-  print(&#39;waiting for connection...&#39;)
-  time.sleep(1)
-
-# Handle connection error
-if wlan.status() != 3:
-  raise RuntimeError(&#39;network connection failed&#39;)
-else:
-  print(&#39;We are connected to WiFI access point:&#39;, secrets.SSID)
-  status = wlan.ifconfig()
-  print( &#39;The IP address of the pico W is:&#39;, status[0] )
-
-# Open socket
-addr = socket.getaddrinfo(&#39;0.0.0.0&#39;, 80)[0][-1]
-print(&#39;addr:&#39;, addr)
-s = socket.socket()
-#if not addr:
-s.bind(addr)
-s.listen(1)
-
-print(&#39;listening on&#39;, addr)
-
-# Listen for connections
-while True:
-  try:
-    cl, addr = s.accept()
-    print(&#39;client connected from&#39;, addr)
-    request = cl.recv(1024)
-    print(request)
-    request = str(request)
-    led_on = request.find(&#39;/light/on&#39;)
-    led_off = request.find(&#39;/light/off&#39;)
-    print( &#39;led on = &#39; + str(led_on))
-    print( &#39;led off = &#39; + str(led_off))
-
-    if led_on == 6:
-      print(&quot;led on&quot;)
-      led.value(1)
-      stateis = &quot;LED is ON&quot;
-
-    if led_off == 6:
-      print(&quot;led off&quot;)
-      led.value(0)
-      stateis = &quot;LED is OFF&quot;
-    # generate the we page with the stateis as a parameter
-    response = html % stateis
-    cl.send(&#39;HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n&#39;)
-    cl.send(response)
-    cl.close()
-
-  except OSError as e:
-    cl.close()
-    print(&#39;connection closed&#39;)
-</code></pre></div>
-</td></tr></table></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This code is not working.  I believe we need to get a SSL certificate for SSL to work.  To do this I think we need to use a command line tool to generate a certificate for the device and store it in RAM.</p>
