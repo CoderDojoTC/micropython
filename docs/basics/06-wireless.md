@@ -294,7 +294,7 @@ object <module 'urequests' from 'urequests.py'> is of type module
 ## Getting the MAC/Ethernet Access
 You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.
 
-  ```py
+```python
 import network
 from utime import sleep, ticks_us, ticks_diff
 
@@ -318,7 +318,7 @@ print("Hex byte array:", mac_addess, 'length:', len(mac_addess))
 for digit in range(0,5):
     print(str(hex(mac_addess[digit]))[2:4], ':', sep='', end = '')
 print(str(hex(mac_addess[5]))[2:4] )
-  ```
+```
 
 First Time After Power On Results:
 ```
