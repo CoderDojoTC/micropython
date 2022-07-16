@@ -2696,6 +2696,7 @@
 <p>The Pico W supports 2.4 Ghz 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the <a href="https://savannah.nongnu.org/projects/lwip/">lwip</a> TCP/IP stack.  This stack is accessible using the MicroPython <a href="https://docs.micropython.org/en/latest/library/network.html#">network</a> functions.</p>
 <p>The WiFi chip used is the <a href="https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw43439/">Infineon CYW43439</a> chip.  This chip also uses an ARM architecture and has extensive support for Bluetooth wireless communication.</p>
 <p><img alt="Wireless Block Architecture" src="../../img/wireless-block-arch.png" /></p>
+<p>You can read more about the capabilities of the WiFi/Bluetooth chip by reading the <a href="https://www.infineon.com/dgdl/Infineon-CYW43439-Single-Chip-IEEE-802.11-b-g-n-MAC-PHY-Radio-with-Integrated-Bluetooth-5.0-Compliance-AdditionalTechnicalInformation-v03_00-EN.pdf?fileId=8ac78c8c7ddc01d7017ddd033d78594d">Infineon CYW43439 Datasheet</a></p>
 <h2 id="compatibility-with-prior-code">Compatibility with Prior Code</h2>
 <p>The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an *<em>alias</em> such as <code>Pin("LED")</code> instead of <code>Pin(25)</code> to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.</p>
 <p>```python title="blink.py"
@@ -3103,7 +3104,10 @@ route
 38
 39
 40
-41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help(urequests)
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>help(urequests)
 object &lt;module &#39;urequests&#39; from &#39;urequests.py&#39;&gt; is of type module
   head -- &lt;function head at 0x2000b740&gt;
   post -- &lt;function post at 0x2000ba80&gt;
@@ -3123,7 +3127,6 @@ You can get the device MAC/Ethernet address and test the roundtrip time between 
 
   ```py
 import network
-import secrets
 from utime import sleep, ticks_us, ticks_diff
 
 print(&#39;Getting MAC/Ethernet Address for this device.&#39;)
@@ -3131,25 +3134,29 @@ print(&#39;Getting MAC/Ethernet Address for this device.&#39;)
 start = ticks_us() # start a millisecond counter
 wlan = network.WLAN(network.STA_IF)
 
-# This returns a byte array
+# This returns a byte array of hex numbers
 mac_addess = wlan.config(&#39;mac&#39;)
 print(&#39;Time in microseconds:&#39;, ticks_diff(ticks_us(), start))
 # each MAC address is 6 bytes or 48 bits
-print(&quot;Hex:&quot;, mac_addess)
+print(&quot;Hex byte array:&quot;, mac_addess, &#39;length:&#39;, len(mac_addess))
 
-# b&#39;(\x c d \x c 1 \x 0 1 5X&#39;
+# This should be in hex per the Notational Conventions
+# https://en.wikipedia.org/wiki/MAC_address#Notational_conventions
+# b&#39;(\xcd\xc1\x015X&#39;
+# 28:cd:c1:1:35:58
+# format in MAC Notational Convention
 for digit in range(0,5):
-    print(mac_addess[digit], &#39;:&#39;, sep=&#39;&#39;, end = &#39;&#39;)
-print(mac_addess[5])
+    print(str(hex(mac_addess[digit]))[2:4], &#39;:&#39;, sep=&#39;&#39;, end = &#39;&#39;)
+print(str(hex(mac_addess[5]))[2:4] )
   ```
 
 Results:
 </code></pre></div>
 </td></tr></table>
 Getting MAC/Ethernet Address for this device.
-Time in microseconds: 216
-Hex: b'(\xcd\xc1\x015X'
-40:205:193:1:53:88
+Time in microseconds: 211
+Hex byte array: b'(\xcd\xc1\x015X' length: 6
+28:cd:c1:1:35:58
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3242,7 +3249,11 @@ Hex: b'(\xcd\xc1\x015X'
 90
 91
 92
-93</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
+93
+94
+95</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>The MAC address is six bytes or &quot;octets&quot;.  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
+
+I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
 
   ## Using the Pico W as a Web Server
 
