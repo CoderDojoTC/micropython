@@ -6,6 +6,10 @@ One June 30th, 2022 the [Raspberry Pi Foundation announced](https://www.raspberr
 
 The Pico W supports 802.11n wireless networking.  For MicroPython, we can use a MicroPython library built around the [lwip](https://savannah.nongnu.org/projects/lwip/) TCP/IP stack.  This stack is accessible using the MicroPython [network](https://docs.micropython.org/en/latest/library/network.html#) functions.
 
+The WiFi chip used is the [Infineon CYW43439](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw43439/) chip.  This chip also uses an ARM architecture and has extensive support for Bluetooth wireless communication.
+
+![Wireless Block Architecture](../img/wireless-block-arch.png)
+
 ## Compatibility with Prior Code
 
 The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an **alias* such as ```Pin("LED")``` instead of ```Pin(25)``` to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.
@@ -46,7 +50,7 @@ We will store the name of our local WiFi network we wish to connect to and the p
 ### Setting Up Your WIFI secrets.py
 By convention, we put both our SSID and password in a python file called "secrets.py".  This file should never be checked into a public source code repository.  We can add secrets to the .gitignore file to make sure it is never checked into GitHub.
 
-```python title="secrets.py"
+```python
 SSID = "MY_WIFI_NETWORK_NAME"
 PASSWORD = "MYWIFIPASSWORD"
 ```
@@ -59,7 +63,7 @@ print('Connecting to WiFi Network Name:', secrets.SSID)
 
 ## Testing Your Connection
 
-```python title="test-access-point-connection.py"
+```python
 import network
 import secrets
 from utime import sleep
@@ -84,7 +88,7 @@ If the value is ```False``` you should check the name of the network and the pas
 ## Waiting for a Valid Access Point Connection
 Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.
 
-```py title="time-access-point-connection.py"
+```python
 import network
 import secrets
 from utime import sleep, ticks_ms, ticks_diff
@@ -113,7 +117,7 @@ This code also supports a timer that will display the number of milliseconds for
 
 The following example was taken from [Tom's Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
 
-```py title="test-http-get.py"
+```python
 import network
 import secrets
 from utime import sleep, ticks_ms, ticks_diff
@@ -173,6 +177,7 @@ print(im_pi)
 The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the ```dir()``` function.
 
 ### Network Help
+You can also get a list of the network functions by typing ```help(network)``` at the Python REPL prompt.
 
 ```
 help(network)
@@ -234,3 +239,6 @@ object <module 'urequests' from 'urequests.py'> is of type module
   __name__ -- urequests
   request -- <function request at 0x2000bb80>
   ```
+
+  ## Testing the MAC/Ethernet Access
+  You can test the roundtrip time between the RP2040 and the 
