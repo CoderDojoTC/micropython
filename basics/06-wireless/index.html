@@ -632,26 +632,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-your-wifi-secretspy" class="md-nav__link">
-    Setting Up Your WIFI Secrets.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#testing-your-connection" class="md-nav__link">
     Testing Your Connection
   </a>
@@ -659,15 +639,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#waiting-for-a-valid-access-point-connection" class="md-nav__link">
-    Waiting for a Valid Access Point Connection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-a-json-document-with-shttp-get" class="md-nav__link">
-    Getting a JSON Document with SHTTP GET
+  <a href="#testing-http-get" class="md-nav__link">
+    Testing HTTP GET
   </a>
   
 </li>
@@ -2599,26 +2572,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-your-wifi-secretspy" class="md-nav__link">
-    Setting Up Your WIFI Secrets.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#testing-your-connection" class="md-nav__link">
     Testing Your Connection
   </a>
@@ -2626,15 +2579,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#waiting-for-a-valid-access-point-connection" class="md-nav__link">
-    Waiting for a Valid Access Point Connection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-a-json-document-with-shttp-get" class="md-nav__link">
-    Getting a JSON Document with SHTTP GET
+  <a href="#testing-http-get" class="md-nav__link">
+    Testing HTTP GET
   </a>
   
 </li>
@@ -2720,28 +2666,12 @@
 <h2 id="getting-the-new-pico-w-image">Getting the New Pico W Image</h2>
 <p>I had to download a brand new image for the Pico W runtime from <a href="https://githubdatasheets.raspberrypi.com/soft/micropython-firmware-pico-w-290622.uf2">the Raspberry Pi Foundation Software Site</a></p>
 <p>After I downloaded the new image and ran a Reset on Thonny I got the following prompt:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>MicroPython v1.19.1-88-g74e33e714 on <span class="m">2022</span>-06-30<span class="p">;</span> Raspberry Pi Pico W with RP2040
-Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more information.
-&gt;&gt;&gt; 
-</code></pre></div>
-</td></tr></table>
-<p>Note that the "Pico W" is mention in the prompt.</p>
-<h2 id="sample-code">Sample Code</h2>
-<p>We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the <code>`SSID</code>.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.</p>
-<h3 id="setting-up-your-wifi-secretspy">Setting Up Your WIFI Secrets.py</h3>
-<p>secrets.py:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">SSID</span> <span class="o">=</span> <span class="s2">&quot;MY_WIFI_NETWORK_NAME&quot;</span>
-<span class="n">PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;MYWIFIPASSWORD&quot;</span>
-</code></pre></div>
-</td></tr></table></p>
-<p>By importing the secrets.py file you can then reference your network name like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="testing-your-connection">Testing Your Connection</h2>
+<p>```sh title="reset shell prompt"
+MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
+Type "help()" for more information.</p>
+<blockquote>
+<blockquote>
+<blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2751,44 +2681,43 @@ Type <span class="s2">&quot;help()&quot;</span> <span class="k">for</span> more 
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
-<span class="kn">import</span> <span class="nn">secrets</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Note that the &quot;Pico W&quot; is mention in the prompt.
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
-<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># wait a second to wait for a connection</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
+## Sample Code
+
+We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi &quot;access point&quot; and the variable name to store the name is called the ```SSID``.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.
+
+### Setting Up Your WIFI Secrets.py
+secrets.py:
+```python
+SSID = &quot;MY_WIFI_NETWORK_NAME&quot;
+PASSWORD = &quot;MYWIFIPASSWORD&quot;
 </code></pre></div>
 </td></tr></table>
-<p>Returns:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
-True
+</blockquote>
+</blockquote>
+</blockquote>
+<p>By importing the secrets.py file you can then reference your network name like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to WiFi Network Name:&#39;</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>If the value is <code>False</code> you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.</p>
-<h2 id="waiting-for-a-valid-access-point-connection">Waiting for a Valid Access Point Connection</h2>
-<p>Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.</p>
-<p>```py title="time-access-point-connection.py"
+<h2 id="testing-your-connection">Testing Your Connection</h2>
+<p>```python title="test-access-point-connection.py"
 import network
 import secrets
-from utime import sleep, ticks_ms, ticks_diff</p>
+from utime import sleep</p>
 <p>print('Connecting to WiFi Network Name:', secrets.SSID)
 wlan = network.WLAN(network.STA_IF)
-wlan.active(True)</p>
-<p>start = ticks_ms() # start a millisecond counter</p>
-<p>if not wlan.isconnected():
-    wlan.connect(secrets.SSID, secrets.PASSWORD)
-    print("Waiting for connection...")
-    while not wlan.isconnected():
-        sleep(.1)
-        print("Waiting")</p>
-<p>delta = ticks_diff(ticks_ms(), start)
-print("Connect Time:", delta)
-print(wlan.ifconfig())
+sleep(1) # wait a second to wait for a connection
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Returns:
+</code></pre></div>
+</td></tr></table>
+Connecting to WiFi Network Name: MY_WIFI_NETWORK_NAME
+True
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2807,40 +2736,75 @@ print(wlan.ifconfig())
 16
 17
 18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>If the value is ```False``` you should check the name of the network and the password and that you are getting a strong WiFi signal where you are testing.
 
-## Testing HTTP GET
+## Waiting for a Valid Access Point Connection
+Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.
 
-The following example was taken from [Tom&#39;s Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
-
-```py
+```py title=&quot;time-access-point-connection.py&quot;
 import network
 import secrets
-import time
-import urequests
+from utime import sleep, ticks_ms, ticks_diff
+
+print(&#39;Connecting to WiFi Network Name:&#39;, secrets.SSID)
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect(secrets.SSID, secrets.PASSWORD)
-print(wlan.isconnected())
-astronauts = urequests.get(&quot;http://api.open-notify.org/astros.json&quot;).json()
-number = astronauts[&#39;number&#39;]
-for i in range(number):
-    print(astronauts[&#39;people&#39;][i][&#39;name&#39;])
+
+start = ticks_ms() # start a millisecond counter
+
+if not wlan.isconnected():
+    wlan.connect(secrets.SSID, secrets.PASSWORD)
+    print(&quot;Waiting for connection...&quot;)
+    while not wlan.isconnected():
+        sleep(.1)
+        print(&quot;Waiting&quot;)
+
+delta = ticks_diff(ticks_ms(), start)
+print(&quot;Connect Time:&quot;, delta)
+print(wlan.ifconfig())
 </code></pre></div>
 </td></tr></table></p>
-<p>Returns:</p>
-<p>True
-Oleg Artemyev
-Denis Matveev
-Sergey Korsakov
-Kjell Lindgren
-Bob Hines
-Samantha Cristoforetti
-Jessica Watkins
-Cai Xuzhe
-Chen Dong
-Liu Yang</p>
-<h2 id="getting-a-json-document-with-shttp-get">Getting a JSON Document with SHTTP GET</h2>
+<p>This code also supports a timer that will display the number of milliseconds for the access point to become valid.  The first time after you power on, this may take several seconds.  After you are connected the connection will be cached and the time will be 0 milliseconds.</p>
+<h2 id="testing-http-get">Testing HTTP GET</h2>
+<p>The following example was taken from <a href="https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet">Tom's Hardware</a></p>
+<p>```py title="test-http-get.py"
+import network
+import secrets
+from utime import sleep, ticks_ms, ticks_diff
+import urequests</p>
+<p>wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)</p>
+<p>start = ticks_ms() # start a millisecond counter</p>
+<p>astronauts = urequests.get("http://api.open-notify.org/astros.json").json()</p>
+<p>delta = ticks_diff(ticks_ms(), start)</p>
+<p>number = astronauts['number']
+print('There are', number, 'astronauts in space.')
+for i in range(number):
+    print(i+1, astronauts['people'][i]['name'])</p>
+<p>print("HTTP GET Time in milliseconds:", delta)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Returns:
+</code></pre></div>
+</td></tr></table>
+There are 10 astronauts in space.
+1 Oleg Artemyev
+2 Denis Matveev
+3 Sergey Korsakov
+4 Kjell Lindgren
+5 Bob Hines
+6 Samantha Cristoforetti
+7 Jessica Watkins
+8 Cai Xuzhe
+9 Chen Dong
+10 Liu Yang
+HTTP GET Time in milliseconds: 786
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2850,18 +2814,24 @@ Liu Yang</p>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">network</span>
-<span class="kn">import</span> <span class="nn">secrets</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">urequests</span>
-<span class="n">wlan</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">wlan</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wlan</span><span class="o">.</span><span class="n">isconnected</span><span class="p">())</span>
-<span class="n">my_ip</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.myip.com/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">im_pi</span><span class="p">)</span>
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>## Getting a JSON Document with SHTTP GET
+
+```python
+import network
+import secrets
+import time
+import urequests
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+my_ip = urequests.get(&quot;https://api.myip.com/&quot;).json()
+print(im_pi)
 </code></pre></div>
-</td></tr></table>
+</td></tr></table></p>
 <h2 id="listing-the-functions-in-your-network-library">Listing the Functions in Your Network Library</h2>
 <p>The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the <code>dir()</code> function.</p>
 <h3 id="network-help">Network Help</h3>
