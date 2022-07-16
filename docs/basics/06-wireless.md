@@ -344,6 +344,15 @@ Hex byte array: b'(\xcd\xc1\x015X' length: 6
 
 The MAC address is six bytes or "octets".  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
 
+Here are the two MAC addresses for two different Pico W devices:
+
+```
+28:cd:c1:1:35:54
+28:cd:c1:1:35:58
+```
+
+Because they were purchased together, their MAC address are very similar.
+
 I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
 
   ## Using the Pico W as a Web Server
