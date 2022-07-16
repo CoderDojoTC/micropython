@@ -10,7 +10,7 @@ The WiFi chip used is the [Infineon CYW43439](https://www.infineon.com/cms/en/pr
 
 ![Wireless Block Architecture](../img/wireless-block-arch.png)
 
-You can read more about the capabilities of the WiFi/Bluetooth chip by reading the [Infineon CYW43439 Datasheet](https://www.infineon.com/dgdl/Infineon-CYW43439-Single-Chip-IEEE-802.11-b-g-n-MAC-PHY-Radio-with-Integrated-Bluetooth-5.0-Compliance-AdditionalTechnicalInformation-v03_00-EN.pdf?fileId=8ac78c8c7ddc01d7017ddd033d78594d)
+You can read more about the capabilities of the WiFi/Bluetooth chip by reading the [Infineon CYW43439 Datasheet](https://www.infineon.com/dgdl/Infineon-CYW43439-Single-Chip-IEEE-802.11-b-g-n-MAC-PHY-Radio-with-Integrated-Bluetooth-5.0-Compliance-AdditionalTechnicalInformation-v03_00-EN.pdf?fileId=8ac78c8c7ddc01d7017ddd033d78594d).  I found it interesting that the CYW43439 chip has 512KB of SRAM - almost double what the RP2040 chip contains!
 
 ## Compatibility with Prior Code
 
@@ -132,7 +132,8 @@ The second and consecutive runs will use a cached connection.
 Connecting to WiFi Network Name: anndan-2.4
 Connect Time: 0 milliseconds
 ('10.0.0.70', '255.255.255.0', '10.0.0.1', '75.75.75.75')
->>> 
+>>>
+```
 
 ## Error Handling
 
@@ -207,20 +208,7 @@ There are 10 astronauts in space.
 HTTP GET Time in milliseconds: 786
 ```
 
-## Getting a JSON Document with SHTTP GET
 
-```python
-import network
-import secrets
-import time
-import urequests
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(secrets.SSID, secrets.PASSWORD)
-print(wlan.isconnected())
-my_ip = urequests.get("https://api.myip.com/").json()
-print(im_pi)
-```
 
 ## Listing the Functions in Your Network Library
 The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the ```dir()``` function.
@@ -300,6 +288,7 @@ print('Getting MAC/Ethernet Address for this device.')
 
 start = ticks_us() # start a millisecond counter
 wlan = network.WLAN(network.STA_IF)
+wlan.active(True) # this line powers up the chip - it takes about 2.5 seconds
 
 # This returns a byte array of hex numbers
 mac_addess = wlan.config('mac')
@@ -317,13 +306,26 @@ for digit in range(0,5):
 print(str(hex(mac_addess[5]))[2:4] )
   ```
 
-Results:
+First Time After Power On Results:
+```
+Getting MAC/Ethernet Address for this device.
+Time in microseconds: 2584424
+Hex byte array: b'(\xcd\xc1\x015X' length: 6
+28:cd:c1:1:35:58
+```
+
+Note that it takes about 2.5 seconds just to power on the chip before we get the MAC address.
+
+Subsequent Times
 ```
 Getting MAC/Ethernet Address for this device.
 Time in microseconds: 211
 Hex byte array: b'(\xcd\xc1\x015X' length: 6
 28:cd:c1:1:35:58
 ```
+
+!!! Note
+    We must add the ```wlan.active(True)``` line to this code.  If we don't do this, the wifi device will not be powered up and we can't get the MAC address.  The function will return all zeros.
 
 The MAC address is six bytes or "octets".  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
 
@@ -420,4 +422,21 @@ while True:
   except OSError as e:
     cl.close()
     print('connection closed')
+```
+
+## Getting a JSON Document with SHTTP GET
+!!! Warning
+    This code is not working.  I believe we need to get a SSL certificate for SSL to work.  To do this I think we need to use a command line tool to generate a certificate for the device and store it in RAM.
+
+```python
+import network
+import secrets
+import time
+import urequests
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(secrets.SSID, secrets.PASSWORD)
+print(wlan.isconnected())
+my_ip = urequests.get("https://api.myip.com/").json()
+print(im_pi)
 ```
