@@ -31,7 +31,7 @@ I had to download a brand new image for the Pico W runtime from [the Raspberry P
 
 After I downloaded the new image and ran a Reset on Thonny I got the following prompt:
 
-```sh
+```sh title="reset shell prompt"
 MicroPython v1.19.1-88-g74e33e714 on 2022-06-30; Raspberry Pi Pico W with RP2040
 Type "help()" for more information.
 >>> 
@@ -58,7 +58,7 @@ print('Connecting to WiFi Network Name:', secrets.SSID)
 
 ## Testing Your Connection
 
-```python
+```python title="test-access-point-connection.py"
 import network
 import secrets
 from utime import sleep
@@ -112,34 +112,46 @@ This code also supports a timer that will display the number of milliseconds for
 
 The following example was taken from [Tom's Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
 
-```py
+```py title="test-http-get.py"
 import network
 import secrets
-import time
+from utime import sleep, ticks_ms, ticks_diff
 import urequests
+
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(secrets.SSID, secrets.PASSWORD)
-print(wlan.isconnected())
+
+start = ticks_ms() # start a millisecond counter
+
 astronauts = urequests.get("http://api.open-notify.org/astros.json").json()
+
+delta = ticks_diff(ticks_ms(), start)
+
 number = astronauts['number']
+print('There are', number, 'astronauts in space.')
 for i in range(number):
-    print(astronauts['people'][i]['name'])
+    print(i+1, astronauts['people'][i]['name'])
+    
+print("HTTP GET Time in milliseconds:", delta)
 ```
 
 Returns:
 
-True
-Oleg Artemyev
-Denis Matveev
-Sergey Korsakov
-Kjell Lindgren
-Bob Hines
-Samantha Cristoforetti
-Jessica Watkins
-Cai Xuzhe
-Chen Dong
-Liu Yang
+```
+There are 10 astronauts in space.
+1 Oleg Artemyev
+2 Denis Matveev
+3 Sergey Korsakov
+4 Kjell Lindgren
+5 Bob Hines
+6 Samantha Cristoforetti
+7 Jessica Watkins
+8 Cai Xuzhe
+9 Chen Dong
+10 Liu Yang
+HTTP GET Time in milliseconds: 786
+```
 
 ## Getting a JSON Document with SHTTP GET
 
