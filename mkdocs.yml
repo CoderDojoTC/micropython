@@ -181,8 +181,9 @@ plugins:
   # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - attr_list
   - pymdownx.highlight:
       linenums: true
-  - pymdownx.details
-  - pymdownx.superfences
+

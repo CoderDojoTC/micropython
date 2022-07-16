@@ -14,11 +14,12 @@ You can read more about the capabilities of the WiFi/Bluetooth chip by reading t
 
 ## Compatibility with Prior Code
 
-The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an **alias* such as ```Pin("LED")``` instead of ```Pin(25)``` to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.
+The Pico W code is very similar to prior versions of the Pico with a few small exceptions.  One of these is the fact that we must now use a symbolic label called an **alias** such as ```Pin("LED")``` instead of ```Pin(25)``` to access the LED pin, not a hardwired PIN number.  This allows us to keep our code more portable as the underlying hardware changes.
 
 ```python
 from machine import Pin, Timer
 
+# was Pin(25)
 led = Pin("LED", Pin.OUT)
 tim = Timer()
 def tick(timer):
@@ -28,8 +29,7 @@ def tick(timer):
 tim.init(freq=2.5, mode=Timer.PERIODIC, callback=tick)
 ```
 
-See the new [Sample Blink]
-(https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.
+See the new [Sample Blink](https://github.com/raspberrypi/pico-micropython-examples/blob/master/blink/blink.py) code on the Raspberry Pi Examples site.
 
 ## Getting the New Pico W Image
 
@@ -45,16 +45,16 @@ Type "help()" for more information.
 
 Note that the "Pico W" is listed in the prompt.  If you do not see the "W" then the network code will not work.
 
-## Sample Code
+## Beginner WiFi Programs
 
 We will store the name of our local WiFi network we wish to connect to and the password for that name in a file called secrets.py.  This is called you WiFi "access point" and the variable name to store the name is called the ```SSID``.  We will need to make sure we never save this file into a public GitHub repo by adding this file to our .gitignore file.
 
 ### Setting Up Your WIFI secrets.py
-By convention, we put both our SSID and password in a python file called "secrets.py".  This file should never be checked into a public source code repository.  We can add secrets to the .gitignore file to make sure it is never checked into GitHub.
+By convention, we put both our SSID and password in a python file called "secrets.py".  This file should never be checked into a public source code repository.  We can add ```secrets.py``` to the .gitignore file to make sure the secrets.py is never checked into GitHub and exposing your passwords to everyone.
 
 ```python
 SSID = "MY_WIFI_NETWORK_NAME"
-PASSWORD = "MYWIFIPASSWORD"
+PASSWORD = "MY_WIFI_PASSWORD"
 ```
 
 By importing the secrets.py file you can then reference your network name like this:
@@ -63,7 +63,8 @@ By importing the secrets.py file you can then reference your network name like t
 print('Connecting to WiFi Network Name:', secrets.SSID)
 ```
 
-## Testing Your WiFi Access Point Connection
+### Testing Your WiFi Access Point Connection
+
 Here is a very simple script to test see if your network name and password are correct.  This script may work, but as we will see, it is both slow and potentially unreliable.
 
 ```python
@@ -100,7 +101,7 @@ If the result is a ```Failure``` you should check the name of the network and th
 
 Note that we are using the ```sleep()``` function to insert delays into our code.  However, the results may actually be faster or slower than our sleep times.  Our next step is to add logic that will test to see if the networking device is ready and if our local access point allows us to login correctly.
 
-## Waiting for a Valid Access Point Connection
+### Waiting for a Valid Access Point Connection
 
 Sometimes we want to keep checking if our access point is connected before we begin using our connection.  To do this we can create a while loop and continue in the loop while we are not connected.
 
@@ -150,7 +151,7 @@ IP Address: 10.0.0.70
 >>>
 ```
 
-## Error Handling
+### Error Handling
 
 ```python
 
@@ -178,7 +179,7 @@ else:
 
 The full TCP/IP stack is running on your Pico W.  You should be able to ping the pico using the IP address returned by the status[0] of the wlan.ifconfig() function above.
 
-## Testing HTTP GET
+### Testing HTTP GET
 
 The following example was taken from [Tom's Hardware](https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet)
 
@@ -222,8 +223,6 @@ There are 10 astronauts in space.
 10 Liu Yang
 HTTP GET Time in milliseconds: 786
 ```
-
-
 
 ## Listing the Functions in Your Network Library
 The network library provided by the Raspberry Pi Foundation for the Pico W is new an may change as new functions are added.  To get the list of functions in your network library you can use the Python help(network) at the prompt or use the ```dir()``` function.
@@ -273,7 +272,7 @@ WLAN
 route
 ```
 
-## Urequest
+### Urequest
 It is easy to communicate with non-SSL protected HTTP protocols sites using the urequest function.  It supports the standard GET, POST, PUT and DELETE functions.
 
 ```
@@ -292,7 +291,7 @@ object <module 'urequests' from 'urequests.py'> is of type module
   request -- <function request at 0x2000bb80>
   ```
 
-## Testing the MAC/Ethernet Access
+## Getting the MAC/Ethernet Access
 You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.
 
   ```py
@@ -355,7 +354,15 @@ Because they were purchased together, their MAC address are very similar.
 
 I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
 
-  ## Using the Pico W as a Web Server
+## Advanced WiFi Programs
+
+Once we have mastered the basics of connecting to a local access point and returning our IP address, we are no ready to build some sample Internet of Things applications.
+
+## Using the Pico W as a Web Server
+This program turns your Pico W into a small web server.  The web page has two links on it. One link will turn the on-board LED on and the other link will turn the LED off.
+
+Screen image of Pico W Web Server:
+![](../img/pico-w-web-page.png)
 
   ```py
   # Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
