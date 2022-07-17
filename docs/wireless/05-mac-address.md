@@ -12,14 +12,23 @@ Understanding how devices use MAC addresses is essential to understanding how ne
 
 The MAC address is six bytes or "octets".  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the [Wikipedia Page on MAC Address](https://en.wikipedia.org/wiki/MAC_address) for more information.  If you run this on your Pico W the first octets should be similar.
 
-Here are the two MAC addresses for two different Pico W devices that were purchase together:
+Here are the two MAC addresses for two different Pico W devices that were purchase together.  They came on adjacent parts of a "real" of devices.
 
 ```
 28:cd:c1:1:35:54
 28:cd:c1:1:35:58
 ```
 
-Because they were purchased together, their MAC address are very similar and only differ in the last few bits.  A MAC address often can give clues about the origins of packets on your network.
+
+Because they were purchased together, their MAC address are very similar and only differ in the last few bits. 
+
+This Pico W came from another distributer.
+
+```
+28:cd:c1:0:9e:19
+```
+
+You can see that the first three octets are the same.  A MAC address often can give clues about the origins of packets on your network.  They can also be used as "serial numbers" for each device that connects to WiFi or Ethernet since they are usually burned into ROM at device manufacturing time and are designed to be unique.
 
 ## Getting the MAC/Ethernet Access
 
@@ -74,3 +83,9 @@ Hex byte array: b'(\xcd\xc1\x015X' length: 6
 
 
 I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.
+
+## MAC Addresses and Privacy
+
+MAC addresses are never sent to web servers to protect a clinet's privacy, but if you are debugging networks and looking at tools such as WireShark, they become visible to a local LAN administrator.  MAC addresses are also visible to WiFi access points, so your local coffee shop that provides free WiFi could keep track of every time repeat customers use their WiFi access points.
+
+Some computers such as [Apple generate a different MAC address](https://support.apple.com/en-us/HT211227) for each different access point they connect to.  This prevents multiple stores from connecting your profiles together.  So Starbucks can't use your MAC address to offer you a free coffee every 10th visit to different stores, but if you visit a local coffee shop they can use their WiFi access logs to see their same-store repeat customers.
