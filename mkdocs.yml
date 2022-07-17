@@ -92,6 +92,7 @@ nav:
     - HTTP GET: wireless/03-http-get.md
     - Web Server: wireless/04-web-server.md
     - MAC Address: wireless/05-mac-address.md
+    - UPIP: wireless/06-upip.md
     - Advanced Labs: wireless/11-advanced-labs.md
   - Robots:
     - Introduction: robots/01-intro.md
