@@ -4,9 +4,9 @@ This code was provide by Jim Tannenbaum (aka Jet)
 
 ## Image
 
-![](../img/oled-spi-connections.png)
+![](../../img/oled-spi-connections.png)
 
-![](../img/oled-ssd1306-spi-connections.png)
+![](../../img/oled-ssd1306-spi-connections.png)
 ## Code
 
 ```python

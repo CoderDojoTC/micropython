@@ -2,7 +2,7 @@
 
 ## Framebuffers
 
-A [Framebuffer](../mist/glossary.md#framebuffer) is the core data structure we use when drawing bitmaps. 
+A [Framebuffer](../../misc/glossary.md#framebuffer) is the core data structure we use when drawing bitmaps. 
 
 ## Block Image Transfers (blit)
 The basic function we use to draw a rectangular region of the screen is called the ```blit()``` function:

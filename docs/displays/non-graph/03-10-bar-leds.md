@@ -1,4 +1,4 @@
-# 10 bar LED display
+# Ten Bar LED Display
 
 ## Goals for the Lesson
 

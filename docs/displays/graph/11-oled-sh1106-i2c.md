@@ -13,9 +13,6 @@ We use small OLED displays in many of our labs because:
 The first step is to find out what type of display graphics chip is used in your OLED.
 
 
-
-
-
 ## SH1106 Example
 
 ```py
@@ -170,7 +167,6 @@ while True:
     current_x = current_x + direction_x
     current_y = current_y + direction_y
     
-
 print('done')
 ```
 

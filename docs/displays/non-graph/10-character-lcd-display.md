@@ -1,6 +1,6 @@
 # Character LCD Display
 
-![LCD 1602](../img/lcd-1602.jpg)
+![LCD 1602](../../img/lcd-1602.jpg)
 
 This lesson is for using the LCM1602 I2C LCD interface.  It is a popular It has four wires:
 

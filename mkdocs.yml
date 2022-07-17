@@ -42,7 +42,7 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
-    - Compass: 11-compass.md
+    - Compass: sensors/11-compass.md
   - Motors and Servos:
     - Introduction: motors/01-intro.md
     - Transistor Lab: motors/02-transistor.md
@@ -53,30 +53,30 @@ nav:
     - Stepper Motors: motors/07-stepper-motors.md
   - Displays:
     - Non-Graphical:
-      - Introduction: displays/01-intro.md
-      - 7 Segment Display: displays/seven-segment.md
-      - Character LCD: displays/10-character-lcd-display.md
+      - Introduction: displays/non-graph/01-intro.md
+      - 7 Segment Display: displays/non-graph/seven-segment.md
+      - Character LCD: displays/non-graph/10-character-lcd-display.md
     - Graphical Displays:
-      - Introduction: oled/01-intro.md
-      - Graphic LCD: displays/15-cu1609c-led.md
-      - Basic Drawing: oled/03-oled-drawing.md
-      - Drawing with Bitmaps: displays/03-bitmaps.md
-      - Color LCD ST7789V: displays/14-lcd-st7789V.md
-      - LCD Waveshare: displays/11-lcd-waveshare.md
-      - E-Paper: displays/12-e-paper-display.md
-      - OLED Setup: oled/02-oled-setup.md
-      - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
-      - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
-      - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
-      - OLED SH1106 I2C Example: oled/11-oled-sh1106-i2c.md
-      - OLED Bounce: oled/10-oled-bounce.md
-      - OLED Pot: oled/12-oled-pot.md
-      - OLED Ping: oled/11-oled-ping.md
-      - OLED Pong: oled/11-pong.md
-      - OLED Pixel Draw: oled/13-pixel-draw.md
-      - OLED Patterns: oled/15-oled-patterns.md
-      - Random Hearts: oled/14-random-hearts.md
-      - OLED References: oled/40-oled-references.md
+      - Introduction: displays/graph/01-intro.md
+      - Graphic LCD: displays//graph/15-cu1609c-led.md
+      - Basic Drawing: oled//graph/03-oled-drawing.md
+      - Drawing with Bitmaps: displays//graph/03-bitmaps.md
+      - Color LCD ST7789V: displays//graph/14-lcd-st7789V.md
+      - LCD Waveshare: displays//graph/11-lcd-waveshare.md
+      - E-Paper: displays/graph/12-e-paper-display.md
+      - OLED Setup: oled//graph/02-oled-setup.md
+      - OLED SSD1306 I2C: displays/graph/11-oled-ssd1306-i2c.md
+      - OLED SSD1306 SPI V1: displays/graph/12-oled-ssd1306-spi-v1.md
+      - OLED SSD1306 SPI V2: displays/graph/11-oled-ssd1306-spi.md
+      - OLED SH1106 I2C Example: displays/graph/11-oled-sh1106-i2c.md
+      - OLED Bounce: displays/graph/10-oled-bounce.md
+      - OLED Pot: displays/graph/12-oled-pot.md
+      - OLED Ping: displays/graph/11-oled-ping.md
+      - OLED Pong: displays/graph/11-pong.md
+      - OLED Pixel Draw: displays/graph/13-pixel-draw.md
+      - OLED Patterns: displays/graph/15-oled-patterns.md
+      - Random Hearts: displays/graph/14-random-hearts.md
+      - OLED References: displays/graph/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
     - Playing a Tone: sound/02-play-tone.md
@@ -172,7 +172,7 @@ site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/CoderDojoTC/micropython'
 
-# CoderDojo Standards from here down
+# CoderDojo Microsite Standards from here down
 edit_uri: 'blob/master/docs'
 theme:
   # should be name: material

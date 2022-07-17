@@ -33,14 +33,14 @@ oled.show()
 ### SSD1306 SPI Setup
 
 Back connections:
-![](../img/oled-back-connections.png)
+![OLED Back Connections](../../img/oled-back-connections.png)
 
 Front labels on OLED with SPI:
-![](../img/oled-spi-connections.png)
+![OLED SPI Connection](../../img/oled-spi-connections.png)
 
 Here is the connection diagram:
 
-![](../img/spi-connectins.png)
+![SPI Connection](../../img/spi-connectins.png)
 
 Here is the code:
 
@@ -73,4 +73,4 @@ oled.show()
 
 ## References
 
-https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py
+[Micropython SSD1306 Driver on GitHub](https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py)

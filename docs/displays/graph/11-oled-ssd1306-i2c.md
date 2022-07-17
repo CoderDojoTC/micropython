@@ -1,44 +1,136 @@
-# OLED SSD1306 SPI Examples
+# OLED SSD1306 Examples
 
-## Using the SSD1306 with SPI Interfaces
+
+## Using the SSD1306 with I2C Interfaces
 
 ### Add the ssd1306 Python Module
 
 You can now use the Thonny "Tools -> Manage Packages..." menu to add the Python driver for the SSD1306 device.  You will need to do this for every new device you use.  
 
-![](../img/thonny-add-ssd1306.png)
+![](../../img/thonny-add-ssd1306.png)
 
 If the Manage Packages menu is disabled, then you will need to go into the shell and add it with the pip command.
 
+## I2C Hello World
+
+```py
+import machine
+from ssd1306 import SSD1306_I2C
+
+sda=machine.Pin(0)
+scl=machine.Pin(1)
+i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+oled = SSD1306_I2C(128, 64, i2c)
+oled.fill(0)
+oled.text("Hello World!", 0, 0)
+oled.show()
+print('Done')
+```
+
+After this program runs you should see the text on your OLED display.
+![](../../img/oled-hello-world.png)
+
+## SH1106 Example
+
+```py
+from machine import Pin, I2C
+import sh1106
+
+sda=machine.Pin(0)
+scl=machine.Pin(1)
+i2c = I2C(0, scl=scl, sda=sda, freq=400000)
+
+display = sh1106.SH1106_I2C(128, 64, i2c, Pin(4), 0x3c)
+display.sleep(False)
+
+display.fill(0)
+display.text('CoderDojo', 0, 0, 1)
+display.show()
+
+print('done')
+```
+
+## Counter Example
+In this example we will updated the display 50 times with a 1/10th of a second pause between each refresh.  A counter will cycle from 1 to 50.
+
+```py
+import machine
+import utime
+from ssd1306 import SSD1306_I2C
+
+sda=machine.Pin(0)
+scl=machine.Pin(1)
+i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+oled = SSD1306_I2C(128, 64, i2c)
+
+for i in range(1, 51): # count 1 to 50
+    oled.fill(0) # clear to black
+    oled.text('CoderDojo Rocks!', 0, 0, 1) # at x=0, y=0, white on black
+    oled.text(str(i), 40, 20, 1) # move 30 pixels horizontal and 20 down from the top
+    oled.show() # update display
+    utime.sleep(0.1) #wait 1/10th of a second
+
+print('done')
+```
+
+## Animated Box
+This draws a title and four lines around a drawing area.  It then draws boxes that move to the right.
+
+```py
+from machine import Pin, I2C
+import sh1106
+import utime
+
+sda=machine.Pin(0)
+scl=machine.Pin(1)
+i2c = I2C(0, scl=scl, sda=sda, freq=400000)
+
+display = sh1106.SH1106_I2C(128, 64, i2c, Pin(4), 0x3c)
+display.sleep(False)
+
+display.fill(0) # clear to black
+display.text('CoderDojo Rocks', 0, 0, 1) # at x=0, y=0, white on black
+# line under title
+display.hline(0, 9, 127, 1)
+# bottom of display
+display.hline(0, 30, 127, 1)
+# left edge
+display.vline(0, 10, 32, 1)
+# right edge
+display.vline(127, 10, 32, 1)
+
+for i in range(0, 118):
+    # box x0, y0, width, height, on
+    display.fill_rect(i,10, 10, 10, 1)
+    # draw black behind number
+    display.fill_rect(10, 21, 30, 8, 0)
+    display.text(str(i), 10, 21, 1)
+    display.show() # update display
+    # utime.sleep(0.001)
+
+print('done')
+```
 
 ## Install SSD1306 Module
 
-![](../img/install-ssd1306.png)
+![](../../img/install-ssd1306.png)
 
 ## ssd1306 module
 
 [SSD1306 Library](https://github.com/micropython/micropython/blob/master/drivers/display/ssd1306.py) - click the RAW button and then right click to do a "Save As"
 
-[SSD1306 Library Searchable](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py)
+## SSD1306 vs. SH1106
+There is only one small difference between SSD1306 and SH1106: The SH1106 controller has an internal RAM of 132x64 pixel. The SSD1306 only has 128x64 pixel.
 
 ## The SPI interface
 The four wire I2C interface is great for kids that don't want to hook up more than four wires.  But there are times when we want a higher performance screen with faster refresh times.  This is when the SPI interface comes in handy.
 
-## Displaying SPI Defaults
-
-```py
-from machine import Pin
-from ssd1306 import SSD1306_SPI
-# default is data (MOSI) on GP7 and clock (sck) on GP6
-spi=machine.SPI(0)
-print(spi)
-SPI(0, baudrate=992063, polarity=0, phase=0, bits=8, sck=6, mosi=7, miso=4)
 ### SPI Baudrate
 https://raspberrypi.github.io/pico-sdk-doxygen/group__hardware__spi.html#ga37f4c04ce4165ac8c129226336a0b66c
 
 The seven wires on the back of the SPI OLED screens are the following as read from the top to bottom looking at the back of the display:
 
-![](img/oled-back-connections.png)
+![](../../img/oled-back-connections.png)
 
 1. CS - Chip Select - pin 4
 2. DC - Data/Command - pin 5
@@ -47,6 +139,7 @@ The seven wires on the back of the SPI OLED screens are the following as read fr
 5. SCL - Clock - Connect to SPIO SCK GP6 pin 9
 6. VCC - Connect to the 3.3V Out pin 36
 7. GND - pin 38 or 3 any other GND pin
+
 
 ### Pico Pins
 
@@ -63,8 +156,8 @@ The seven wires on the back of the SPI OLED screens are the following as read fr
  36 # - D1 - GPIO 2 - Res
 ```
 
-* SCK is the clock - hook this to the oled SCL
-* MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA
+SCK is the clock - hook this to the oled SCL
+MOSI is the line taking data from your Pico to the peripheral device.  Hook this to SDA
 
 From the SDK:
 https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf
@@ -81,6 +174,11 @@ spi_sck=machine.Pin(2)
 spi_tx=machine.Pin(3)
 spi_rx=machine.Pin(4)
 ```
+
+
+### SPI Terms
+Master Out Slave In (MOSI)
+
 
 We send the data to the SPI RX (Receive) port on the Pico.  These are pin 1 (GP0) or pin 6 (GP4)
 
@@ -99,10 +197,16 @@ From the documentation:
 
 ```py
 import machine
+import machine
 import utime
 import ssd1306
 led = machine.Pin(25, machine.Pin.OUT)
 
+# From: https://github.com/robert-hh/SH1106
+# display = sh1106.SH1106_SPI(width, height, spi, dc, res, cs)
+#MOSI=machine.Pin(7)
+#SCK=machine.Pin(6)
+#spi = machine.SPI(0, baudrate=400000, sck=SCK, mosi=MOSI)
 spi_sck=machine.Pin(6)
 spi_tx=machine.Pin(7)
 # spi_rx=machine.Pin(4)
@@ -133,20 +237,14 @@ print('Done')
 
 ## References
 
-[robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
+1. [MicroPython Tutorial on the SSD1306](https://docs.micropython.org/en/latest/esp8266/tutorial/ssd1306.html)
 
-[MicroPython SSD1306 Class](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py)
+2. [robert-hh's SH1106 Driver](https://github.com/robert-hh/SH1106)
 
-https://www.mfitzp.com/article/oled-displays-i2c-micropython/
+3. [M Fitzp OLED Display i2c Article](https://www.mfitzp.com/article/oled-displays-i2c-micropython/)
 
-https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py
-
-https://github.com/robert-hh/SH1106/blob/master/sh1106.py
+4. [Adafruit Stats](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/blob/master/examples/ssd1306_stats.py)
 
 [DIY More OLED Product Description](https://www.diymore.cc/collections/all-about-arduino/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow?variant=17060396597306)
 
-## SSD1306
-https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1306/
-
-## SSD1307
-https://www.solomon-systech.com/en/product/advanced-display/oled-display-driver-ic/ssd1307/
+1. [Using I2C Defaults](https://github.com/raspberrypi/pico-micropython-examples/blob/master/i2c/1306oled/i2c_1306oled_using_defaults.py)

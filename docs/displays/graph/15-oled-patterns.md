@@ -164,27 +164,25 @@ print('done')
 
 ### X Modulo Y
 ```x % y```
-![](../img/pattern6.jpg)
+![](../../img/pattern6.jpg)
 
 
 ### (x % y) % 4
-![](../img/pattern5.jpg)
+![](../../img/pattern5.jpg)
 
 ## Sierpinsky Triangles (x & y)
 [Sierpinsky Triangles](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle)
 Bitwise and of x and y
-![](../img/pattern1.jpg)
+![](../../img/pattern1.jpg)
 
 ## (x * y) & 24
-![](../img/pattern2.jpg)
+![](../../img/pattern2.jpg)
 
 ## (x * y) & 64
-![](../img/pattern3.jpg)
+![](../../img/pattern3.jpg)
 
 ## 40 % x % (y+1)
-![](../img/pattern4.jpg)
-
-
+![](../../img/pattern4.jpg)
 
 
 ## Reference

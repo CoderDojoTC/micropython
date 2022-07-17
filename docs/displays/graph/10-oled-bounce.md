@@ -3,7 +3,6 @@
 In this lesson, we will draw a box around the edge of the display using the commands that draw horizontal and vertical lines: ```hline``` and ```vline```.  Then we will draw a ball that bounces off these edges.
 
 
-
 ## Draw a border
 
 ```py
