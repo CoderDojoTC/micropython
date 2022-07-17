@@ -16,7 +16,7 @@ The first search result will be for **micropython-upip".  Click on that link and
 
 ## Install A Package
 
-The following program assumes that you have followed the steps in our [Connecting to WiFi](02-connecting-to-wifi/) and have a secrets.py file that have your WiFi network name (SSID) and password (PASSWORD).
+The following program assumes that you have followed the steps in our [Connecting to WiFi](./02-connecting-to-wifi.md) and have a secrets.py file that have your WiFi network name (SSID) and password (PASSWORD).
 
 ```python
 import upip
@@ -64,9 +64,7 @@ Installing micropython-pystone_lowmem 3.4.2.post4 from https://micropython.org/p
 Download Time: 4918 milliseconds
 ```
 
-
-
-## Testing Your Libreary
+## Testing Your Newly Installed Library
 
 ```py
 import pystone_lowmem
@@ -78,4 +76,27 @@ Results:
 ```
 Pystone(1.2) time for 500 passes = 410ms
 This machine benchmarks at 1219 pystones/second
+```
+
+## Getting UPIP Help
+
+```python
+import upip
+upip.help()
+```
+
+returns:
+
+```
+upip - Simple PyPI package manager for MicroPython
+Usage: micropython -m upip install [-p <path>] <package>... | -r <requirements.txt>
+import upip; upip.install(package_or_list, [<path>])
+
+If <path> isn't given, packages will be installed to sys.path[1], or
+sys.path[2] if the former is .frozen (path can be set from MICROPYPATH
+environment variable if supported).
+Default install path: /lib
+
+Note: only MicroPython packages (usually, named micropython-*) are supported
+for installation, upip does not support arbitrary code in setup.py.
 ```

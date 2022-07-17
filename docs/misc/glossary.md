@@ -3,6 +3,8 @@
 The format is used to generate a concept graph for this course
 -->
 
+
+
 #### Ampy
 An obsolete MicroPython support tool created by Adafruit but no longer supported.
 
@@ -156,9 +158,11 @@ The file name format looks like this:
 
 ```rp2-pico-20210205-unstable-v1.14-8-g1f800cac3.uf2```
 
-
-
 #### Unicorn
 MicroPython on Unicorn is completely open source Micropython emulator
 
 * Github Repo: [https://github.com/micropython/micropython-unicorn](https://github.com/micropython/micropython-unicorn)
+
+## See Also
+
+[MicroPython.org Glossary](https://docs.micropython.org/en/latest/reference/glossary.html)
