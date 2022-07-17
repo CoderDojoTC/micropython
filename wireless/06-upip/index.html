@@ -1544,8 +1544,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-your-libreary" class="md-nav__link">
-    Testing Your Libreary
+  <a href="#testing-your-newly-installed-library" class="md-nav__link">
+    Testing Your Newly Installed Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-upip-help" class="md-nav__link">
+    Getting UPIP Help
   </a>
   
 </li>
@@ -2647,8 +2654,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-your-libreary" class="md-nav__link">
-    Testing Your Libreary
+  <a href="#testing-your-newly-installed-library" class="md-nav__link">
+    Testing Your Newly Installed Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-upip-help" class="md-nav__link">
+    Getting UPIP Help
   </a>
   
 </li>
@@ -2679,7 +2693,7 @@
 <p>The first search result will be for **micropython-upip".  Click on that link and you will see the details.</p>
 <p><img alt="Thonny UPIP Search" src="../../img/thonny-upip-details.png" /></p>
 <h2 id="install-a-package">Install A Package</h2>
-<p>The following program assumes that you have followed the steps in our <a href="02-connecting-to-wifi/">Connecting to WiFi</a> and have a secrets.py file that have your WiFi network name (SSID) and password (PASSWORD).</p>
+<p>The following program assumes that you have followed the steps in our <a href="../02-connecting-to-wifi/">Connecting to WiFi</a> and have a secrets.py file that have your WiFi network name (SSID) and password (PASSWORD).</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2759,7 +2773,7 @@ Installing micropython-pystone_lowmem 3.4.2.post4 from https://micropython.org/p
 Download Time: 4918 milliseconds
 </code></pre></div>
 </td></tr></table>
-<h2 id="testing-your-libreary">Testing Your Libreary</h2>
+<h2 id="testing-your-newly-installed-library">Testing Your Newly Installed Library</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pystone_lowmem</span>
 <span class="n">pystone_lowmem</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
@@ -2769,6 +2783,36 @@ Download Time: 4918 milliseconds
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Pystone(1.2) time for 500 passes = 410ms
 This machine benchmarks at 1219 pystones/second
+</code></pre></div>
+</td></tr></table>
+<h2 id="getting-upip-help">Getting UPIP Help</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">upip</span>
+<span class="n">upip</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p>returns:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>upip - Simple PyPI package manager for MicroPython
+Usage: micropython -m upip install [-p &lt;path&gt;] &lt;package&gt;... | -r &lt;requirements.txt&gt;
+import upip; upip.install(package_or_list, [&lt;path&gt;])
+
+If &lt;path&gt; isn&#39;t given, packages will be installed to sys.path[1], or
+sys.path[2] if the former is .frozen (path can be set from MICROPYPATH
+environment variable if supported).
+Default install path: /lib
+
+Note: only MicroPython packages (usually, named micropython-*) are supported
+for installation, upip does not support arbitrary code in setup.py.
 </code></pre></div>
 </td></tr></table>
                 
