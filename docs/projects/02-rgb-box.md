@@ -1,12 +1,12 @@
 # Raspberry Pi RGB Box
 
-![RGB Box](../../img/rgb-box.png)
+![RGB Box](../img/rgb-box.png)
 
 This is a box with three potentiometers and a NeoPixel strip.  Changing the potentiometers changes the mix of Red, Green and Blue colors.  We use this at many science fairs or demonstration projects that has kids as young as three years old!  As the kids learn to adjust the knobs, we say "Hey, your a programmer!".
 
 ## Related Labs
 
-Before you do this project, it is a good idea to get familiar with the [Potentiometer lab](../../basics/03-potentiometer/).  This lab will show you how to hook up a single potentiometer to the Raspberry Pi Pico and read it's values.
+Before you do this project, it is a good idea to get familiar with the [Potentiometer lab](../basics/03-potentiometer/).  This lab will show you how to hook up a single potentiometer to the Raspberry Pi Pico and read it's values.
 
 ## Required Tools
 
@@ -36,7 +36,7 @@ TBD
 ## Assembly
 Solder six-inches of hookup wire to each of the three pins on the three potentiometers.
 
-![Potentiometer Hookups](../../img/potentiometer-hookups.png)
+![Potentiometer Hookups](../img/rgb-box-potentiometer-hookups.png)
 
 ## Sample Code
 
