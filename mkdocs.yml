@@ -58,11 +58,11 @@ nav:
       - Character LCD: displays/non-graph/10-character-lcd-display.md
     - Graphical Displays:
       - Introduction: displays/graph/01-intro.md
-      - Graphic LCD: displays//graph/15-cu1609c-led.md
-      - Basic Drawing: oled//graph/03-oled-drawing.md
-      - Drawing with Bitmaps: displays//graph/03-bitmaps.md
-      - Color LCD ST7789V: displays//graph/14-lcd-st7789V.md
-      - LCD Waveshare: displays//graph/11-lcd-waveshare.md
+      - Graphic LCD: displays/graph/15-cu1609c-led.md
+      - Basic Drawing: displays/graph/03-basic-drawing.md
+      - Drawing with Bitmaps: displays/graph/03-bitmaps.md
+      - Color LCD ST7789V: displays/graph/14-lcd-st7789V.md
+      - LCD Waveshare: displays/graph/11-lcd-waveshare.md
       - E-Paper: displays/graph/12-e-paper-display.md
       - OLED Setup: oled//graph/02-oled-setup.md
       - OLED SSD1306 I2C: displays/graph/11-oled-ssd1306-i2c.md
