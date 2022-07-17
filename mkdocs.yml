@@ -86,6 +86,13 @@ nav:
     - Eight Key Piano: sound/06-eight-key-piano.md
     - Playing Audio File: sound/07-play-audio-file.md
     - Converting Audio Files: sound/09-converting-mp3-to-wav.md
+  - Wireless:
+    - Introduction: wireless/01-intro.md
+    - Connecting to WiFi: wireless/02-connecting-to-wifi.md
+    - HTTP GET: wireless/03-http-get.md
+    - Web Server: wireless/04-web-server.md
+    - MAC Address: wireless/05-mac-address.md
+    - Advanced Labs: wireless/11-advanced-labs.md
   - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md

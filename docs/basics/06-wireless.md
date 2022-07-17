@@ -364,7 +364,7 @@ This program turns your Pico W into a small web server.  The web page has two li
 Screen image of Pico W Web Server:
 ![](../img/pico-w-web-page.png)
 
-```py
+```python
 # Code taken from https://www.cnx-software.com/2022/07/03/getting-started-with-wifi-on-raspberry-pi-pico-w-board/
 import network
 import socket
@@ -455,7 +455,8 @@ while True:
     print('connection closed')
 ```
 
-### Getting a JSON Document with SHTTP GET
+### SHTTP Support
+
 !!! Warning
     This code is not working.  I believe we need to get a SSL certificate for SSL to work.  To do this I think we need to use a command line tool to generate a certificate for the device and store it in RAM.
 
@@ -471,3 +472,9 @@ print(wlan.isconnected())
 my_ip = urequests.get("https://api.myip.com/").json()
 print(im_pi)
 ```
+
+### Sending Notifications
+
+We can connect to a remote server to send text and e-mail notifications if specific events occur on our devices.  To do this you must have credentials on some system that response to messages such as [IFTTT](https://ifttt.com/) or an [MQTT](https://en.wikipedia.org/wiki/MQTT) server.
+
+TBD
