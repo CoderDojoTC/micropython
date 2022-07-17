@@ -1531,6 +1531,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mac-addresses-and-privacy" class="md-nav__link">
+    MAC Addresses and Privacy
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2627,6 +2634,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mac-addresses-and-privacy" class="md-nav__link">
+    MAC Addresses and Privacy
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2654,13 +2668,18 @@
 </div>
 <p>Understanding how devices use MAC addresses is essential to understanding how networks work and debugging them.</p>
 <p>The MAC address is six bytes or "octets".  The first three octets are assigned to the organization that created the device.  The second three octets are assigned by the organization that created the device.  See the <a href="https://en.wikipedia.org/wiki/MAC_address">Wikipedia Page on MAC Address</a> for more information.  If you run this on your Pico W the first octets should be similar.</p>
-<p>Here are the two MAC addresses for two different Pico W devices that were purchase together:</p>
+<p>Here are the two MAC addresses for two different Pico W devices that were purchase together.  They came on adjacent parts of a "real" of devices.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>28:cd:c1:1:35:54
 28:cd:c1:1:35:58
 </code></pre></div>
 </td></tr></table>
-<p>Because they were purchased together, their MAC address are very similar and only differ in the last few bits.  A MAC address often can give clues about the origins of packets on your network.</p>
+<p>Because they were purchased together, their MAC address are very similar and only differ in the last few bits. </p>
+<p>This Pico W came from another distributer.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>28:cd:c1:0:9e:19
+</code></pre></div>
+</td></tr></table>
+<p>You can see that the first three octets are the same.  A MAC address often can give clues about the origins of packets on your network.  They can also be used as "serial numbers" for each device that connects to WiFi or Ethernet since they are usually burned into ROM at device manufacturing time and are designed to be unique.</p>
 <h2 id="getting-the-macethernet-access">Getting the MAC/Ethernet Access</h2>
 <p>You can get the device MAC/Ethernet address and test the roundtrip time between the RP2040 and the WiFi chip using the MAC address function.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -2736,6 +2755,9 @@ Hex byte array: b&#39;(\xcd\xc1\x015X&#39; length: 6
 <p>We must add the <code>wlan.active(True)</code> line to this code.  If we don't do this, the wifi device will not be powered up and we can't get the MAC address.  The function will return all zeros.</p>
 </div>
 <p>I ran this program on my Pico W and I got times of between 214 and 222 microseconds.  This shows you that it takes about 100 microseconds to send a request from the RP2040 to the CYW43439 WiFi chip and about 100 milliseconds to return the results.  This time lag represents some of the key performance limitations in using the Pico W for high-performance networking.</p>
+<h2 id="mac-addresses-and-privacy">MAC Addresses and Privacy</h2>
+<p>MAC addresses are never sent to web servers to protect a clinet's privacy, but if you are debugging networks and looking at tools such as WireShark, they become visible to a local LAN administrator.  MAC addresses are also visible to WiFi access points, so your local coffee shop that provides free WiFi could keep track of every time repeat customers use their WiFi access points.</p>
+<p>Some computers such as <a href="https://support.apple.com/en-us/HT211227">Apple generate a different MAC address</a> for each different access point they connect to.  This prevents multiple stores from connecting your profiles together.  So Starbucks can't use your MAC address to offer you a free coffee every 10th visit to different stores, but if you visit a local coffee shop they can use their WiFi access logs to see their same-store repeat customers.</p>
                 
               
               
