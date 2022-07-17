@@ -18,7 +18,7 @@
     
     
       
-        <title>03 oled drawing - MicroPython for Kids</title>
+        <title>OLED SSD1351 MicroPython Driver - MicroPython for Kids</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-draw-functions" class="md-skip">
+        <a href="#oled-ssd1351-micropython-driver" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              03 oled drawing
+              OLED SSD1351 MicroPython Driver
             
           </span>
         </div>
@@ -1043,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../15-cu1609c-led.md" class="md-nav__link">
+      <a href="../15-cu1609c-led/" class="md-nav__link">
         Graphic LCD
       </a>
     </li>
@@ -1055,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oled/graph/03-oled-drawing.md" class="md-nav__link">
+      <a href="../03-basic-drawing/" class="md-nav__link">
         Basic Drawing
       </a>
     </li>
@@ -1079,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-lcd-st7789V.md" class="md-nav__link">
+      <a href="../14-lcd-st7789V/" class="md-nav__link">
         Color LCD ST7789V
       </a>
     </li>
@@ -1091,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-lcd-waveshare.md" class="md-nav__link">
+      <a href="../11-lcd-waveshare/" class="md-nav__link">
         LCD Waveshare
       </a>
     </li>
@@ -1103,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-e-paper-display.md" class="md-nav__link">
+      <a href="../12-e-paper-display/" class="md-nav__link">
         E-Paper
       </a>
     </li>
@@ -2557,63 +2557,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-draw-functions" class="md-nav__link">
-    Basic Draw Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#initializing-the-framebuffer" class="md-nav__link">
-    Initializing the Framebuffer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-list-of-drawing-functions" class="md-nav__link">
-    Full list of Drawing Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pixel-drawing-example" class="md-nav__link">
-    Pixel Drawing Example
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#drawing-tutorial-and-primitives" class="md-nav__link">
-    Drawing Tutorial and Primitives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-the-framebuf" class="md-nav__link">
-    Working with the framebuf
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2625,297 +2570,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/03-oled-drawing.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/17-ssd1352.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>03 oled drawing</h1>
-                
-                <h3 id="basic-draw-functions">Basic Draw Functions</h3>
-<p>For our beginning labs we will just do some basic drawing. We will start out with just four functions: </p>
-<ol>
-<li>Initialize the display framebuffer memory with the right object class initialization</li>
-<li>Fill the framebuffer will zeros which are black pixels with the oled.fill(0)</li>
-<li>Draw white text in the framebuffer memory with the oled.text("Hello World!", 40, 10)</li>
-<li>Send the entire framebuffer to the display over the bus with the oled.show() function.</li>
-</ol>
-<h3 id="initializing-the-framebuffer">Initializing the Framebuffer</h3>
-<p>Let's assume that we have a four wire OLED that uses the popular SSD1306 chip with 128X64 pixels.  We call our oled "oled" using the following line:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Parameters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>oled.fill(0)</td>
-<td>Fill the display with white or black</td>
-<td>0=black and 1=white</td>
-</tr>
-<tr>
-<td>oled.text("Hello",</td>
-<td>Draw text</td>
-<td>String, x (horizontal from left edge) and y (vertical from the top)Example: Draw "Hello World" 40 over and 10 down.  oled.text("Hello World!", 40, 10)</td>
-</tr>
-<tr>
-<td>show</td>
-<td>Show the display</td>
-<td>Send the current frame buffer to the display.  You must do this after you make and changes to the Framebuffer.</td>
-</tr>
-</tbody>
-</table>
-<p>The full program would look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<p>This would display the following:</p>
-<p><img alt="OLED SPI Hello World" src="../../../img/oled-hello-world.png" /></p>
-<h3 id="full-list-of-drawing-functions">Full list of Drawing Functions</h3>
-<p>Every drawing library might have slightly different functions.  But we can quickly see the functions that we want by using the dir() function on the SSD1306_I2C class.</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ssd1306</span> <span class="kn">import</span> <span class="n">SSD1306_I2C</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">SSD1306_I2C</span><span class="p">))</span>
-</code></pre></div>
-</td></tr></table>
-This returns the following list:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__bases__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;blit&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;fill_rect&#39;</span><span class="p">,</span> <span class="s1">&#39;hline&#39;</span><span class="p">,</span>
-<span class="s1">&#39;invert&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;vline&#39;</span><span class="p">,</span>
-<span class="s1">&#39;init_display&#39;</span><span class="p">,</span> <span class="s1">&#39;write_cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">,</span> <span class="s1">&#39;poweroff&#39;</span><span class="p">,</span> <span class="s1">&#39;poweron&#39;</span><span class="p">,</span>
-<span class="s1">&#39;contrast&#39;</span><span class="p">,</span> <span class="s1">&#39;write_data&#39;</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-Technically, these are called methods of the SSD1306_I2C class.  The ones that begin and end with double underscores are class methods for creating new object instances.  The rest of the items on the list are the drawing functions.</p>
-<p>The following are relevant for the SSD1306_I2C display.</p>
-<p>The display has (0,0) in the upper left corner.  X is horizontal (width) and Y is vertical (height).  The state or color is 0=off (black) and 1=on (white).</p>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>blit(fbuf, x, y, color)</td>
-<td>Bit Level Transfer</td>
-<td>blit(fbuf, 1, 1)</td>
-</tr>
-<tr>
-<td>fill(state)</td>
-<td>Fill</td>
-<td>Fill with black (0) or white(1)</td>
-</tr>
-<tr>
-<td>fill_rect</td>
-<td>Fill a rectangle</td>
-<td></td>
-</tr>
-<tr>
-<td>hline(x, x, length, state)</td>
-<td>Draw a horizontal line</td>
-<td>Draw a horizontal line at the top of the display: oled.hline(0, 0, 127, 1)</td>
-</tr>
-<tr>
-<td>invert()</td>
-<td>invert the display</td>
-<td>Filp the orientation of the display</td>
-</tr>
-<tr>
-<td>line(x1,y1,x2,y2)</td>
-<td>draw a line at any angle</td>
-<td>Horizontal oled.line(0,0, 127, 63, 1)</td>
-</tr>
-<tr>
-<td>pixel(x,y, color)</td>
-<td>Draw a single point on the screen</td>
-<td></td>
-</tr>
-<tr>
-<td>rect(x, y, width, height)</td>
-<td>Draw an empty rectangle</td>
-<td></td>
-</tr>
-<tr>
-<td>scroll(x,y)</td>
-<td>Scroll the display</td>
-<td></td>
-</tr>
-<tr>
-<td>text(x,y,color)</td>
-<td>Write text at a point</td>
-<td></td>
-</tr>
-<tr>
-<td>vline(x,y,length, color)</td>
-<td>Draw a Vertical Line</td>
-<td>oled.vline(width - 1, 0, height - 1, 1) # right edge</td>
-</tr>
-<tr>
-<td>init_display()</td>
-<td>Initialize the display</td>
-<td></td>
-</tr>
-<tr>
-<td>write_cmd</td>
-<td>Write a command to the display</td>
-<td></td>
-</tr>
-<tr>
-<td>show()</td>
-<td>Update the display from the frame buffer</td>
-<td></td>
-</tr>
-<tr>
-<td>poweroff()</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>poweron()</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>contrast()</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>write_data()</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="pixel-drawing-example">Pixel Drawing Example</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ICON</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="p">]</span>
-
-<span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Clear the display</span>
-<span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ICON</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>    
-
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="drawing-tutorial-and-primitives">Drawing Tutorial and Primitives</h2>
-<p>Taken from the MicroPython site: <a href="https://docs.micropython.org/en/latest/esp8266/tutorial/ssd1306.html">Using a SSD1306 OLED display</a> - although the path name imply the ESP8266, these functions also run on the Raspberry Pi Pico.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">poweroff</span><span class="p">()</span>     <span class="c1"># power off the display, pixels persist in memory</span>
-<span class="n">display</span><span class="o">.</span><span class="n">poweron</span><span class="p">()</span>      <span class="c1"># power on the display, pixels redrawn</span>
-<span class="n">display</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># dim</span>
-<span class="n">display</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>  <span class="c1"># bright</span>
-<span class="n">display</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># display inverted</span>
-<span class="n">display</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># display normal</span>
-<span class="n">display</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># rotate 180 degrees</span>
-<span class="n">display</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># rotate 0 degrees</span>
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>         <span class="c1"># write the contents of the FrameBuffer to display memory</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                         <span class="c1"># fill entire screen with colour=0</span>
-<span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>                    <span class="c1"># get pixel at x=0, y=10</span>
-<span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                 <span class="c1"># set pixel at x=0, y=10 to colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># draw horizontal line x=0, y=8, width=4, colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">vline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># draw vertical line x=0, y=8, height=4, colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>          <span class="c1"># draw a line from 0,0 to 127,63</span>
-<span class="n">display</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>        <span class="c1"># draw a rectangle outline 10,10 to 107,43, colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># draw a solid rectangle 10,10 to 107,43, colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1"># draw some text at x=0, y=0, colour=1</span>
-<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                   <span class="c1"># scroll 20 pixels to the right</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="working-with-the-framebuf">Working with the framebuf</h2>
-<p>A frame buffer is a region of RAM that holds an exact image of what is on the display.  The data can be copied from the framebuffer memory with the <code>blit()</code> (BLock Transfer) operation that copies a rectangular area of one framebuffer to another framebuffer.</p>
-<p>Here is an example of the blit() function:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">my_frame_buf</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># draw another FrameBuffer on top of the current one at the given coordinates</span>
-<span class="kn">import</span> <span class="nn">framebuf</span>
-<span class="n">fbuf</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_VLSB</span><span class="p">)</span>
-<span class="n">fbuf</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">fbuf</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>           <span class="c1"># draw on top at x=10, y=10, key=0</span>
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://docs.micropython.org/en/latest/library/framebuf.html">MicroPython Documentation on FrameBuffer</a></li>
-<li><a href="https://docs.micropython.org/en/latest/library/framebuf.html#drawing-primitive-shapes">Drawing Primitive Shapes</a></li>
-<li><a href="https://www.mfitzp.com/article/oled-displays-i2c-micropython/">Driving I2C OLED displays with MicroPython</a> - by Martin Fitzpatrick</li>
-<li><a href="https://github.com/AnthonyKNorman/MicroPython_ST7735">ST7735 Micropython Driver by Anthony Norman</a></li>
-</ul>
+                <h1 id="oled-ssd1351-micropython-driver">OLED SSD1351 MicroPython Driver</h1>
+<p>https://github.com/rdagger/micropython-ssd1351</p>
                 
               
               
