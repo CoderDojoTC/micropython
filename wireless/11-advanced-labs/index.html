@@ -1542,22 +1542,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secure-communications" class="md-nav__link">
-    Secure communications
+  <a href="#secure-sommunications-with-https" class="md-nav__link">
+    Secure Sommunications with HTTPS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ssl-and-tls" class="md-nav__link">
-    SSL and TLS
+  <a href="#performance-monitoring-with-uiperf3" class="md-nav__link">
+    Performance Monitoring with uiperf3
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-monitoring" class="md-nav__link">
-    Performance Monitoring
+  <a href="#upip-install" class="md-nav__link">
+    UPIP Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-client-performance" class="md-nav__link">
+    Testing Client Performance
   </a>
   
 </li>
@@ -2633,22 +2640,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secure-communications" class="md-nav__link">
-    Secure communications
+  <a href="#secure-sommunications-with-https" class="md-nav__link">
+    Secure Sommunications with HTTPS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ssl-and-tls" class="md-nav__link">
-    SSL and TLS
+  <a href="#performance-monitoring-with-uiperf3" class="md-nav__link">
+    Performance Monitoring with uiperf3
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-monitoring" class="md-nav__link">
-    Performance Monitoring
+  <a href="#upip-install" class="md-nav__link">
+    UPIP Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-client-performance" class="md-nav__link">
+    Testing Client Performance
   </a>
   
 </li>
@@ -2671,9 +2685,32 @@
                 
                 
                 <h1 id="advanced-wireless-labs">Advanced Wireless Labs</h1>
-<h2 id="secure-communications">Secure communications</h2>
-<h2 id="ssl-and-tls">SSL and TLS</h2>
-<h2 id="performance-monitoring">Performance Monitoring</h2>
+<h2 id="secure-sommunications-with-https">Secure Sommunications with HTTPS</h2>
+<p>TBD</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The standard Python <a href="https://www.w3schools.com/python/module_requests.asp">request library</a> does not yet support HTTPS on urequest on the Pico W.  This is because there are additional tools that require us to use keys and certificates to validate data on an encrypted SSL stream.</p>
+</div>
+<p>See the <a href="https://docs.micropython.org/en/latest/library/ssl.html">MicroPython SSL/TLS Library</a></p>
+<h2 id="performance-monitoring-with-uiperf3">Performance Monitoring with uiperf3</h2>
+<p><a href="https://iperf.fr/iperf-doc.php">iperf3</a> is a standard Python program for internet performance testing.  For micropython, we have our own stripped down version called uiperf3.</p>
+<p>IPerf3 uses a client-server testing model and measures networking performance between two system using various protocoos such as</p>
+<ul>
+<li>UDP - User Datagram Protocol</li>
+<li>TCP - Transmission Control  Protocol</li>
+<li>Streaming</li>
+</ul>
+<p>It can also be used to measure total wireless throughput.</p>
+<h2 id="upip-install">UPIP Install</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">upip</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;uiperf3&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="testing-client-performance">Testing Client Performance</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uiperf3</span>
+ <span class="n">uiperf3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;MY_IP_ADDRESS&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
