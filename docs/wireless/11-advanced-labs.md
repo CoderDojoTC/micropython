@@ -1,13 +1,33 @@
 # Advanced Wireless Labs
 
-## Secure Sommunications with HTTPS
+## Secure Communications with HTTPS
 
-TBD
+In our documentation we frequently refer to secure communications as using a "Secure Sockets Layer".  Although the term "SSL" is common, we are actually using a protocol called Transport Layer Security (TLS).
+
+TLS replaces SSL.  It is an Internet Engineering Task Force (IETF) standard protocol that provides authentication, privacy and data integrity between two communicating computer applications.
 
 !!! Note
     The standard Python [request library](https://www.w3schools.com/python/module_requests.asp) does not yet support HTTPS on urequest on the Pico W.  This is because there are additional tools that require us to use keys and certificates to validate data on an encrypted SSL stream.
 
 See the [MicroPython SSL/TLS Library](https://docs.micropython.org/en/latest/library/ssl.html)
+
+## Testing SSL/TLS on Standard Python
+
+```python
+import socket
+import ssl
+
+hostname = 'www.python.org'
+context = ssl.create_default_context()
+
+with socket.create_connection((hostname, 443)) as sock:
+    with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+        print(ssock.version())
+```
+
+returns: TLSv1.3
+
+This tells you that the standard Python socket libraries use the TLS v1.3 protocol.
 
 ## Performance Monitoring with uiperf3
 
