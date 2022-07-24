@@ -1,3 +1,5 @@
+# make a number scroll to the right and increment the number and move down one pixel
+# this test patten shows the device is working and will not burn any single pixel if it runs a long time
 import machine
 import ssd1306
 from time import sleep
