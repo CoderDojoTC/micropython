@@ -94,6 +94,7 @@ nav:
     - MAC Address: wireless/05-mac-address.md
     - UPIP: wireless/06-upip.md
     - Advanced Labs: wireless/11-advanced-labs.md
+    - With Display: wireless/20-display.md
   - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
