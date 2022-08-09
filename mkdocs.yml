@@ -91,6 +91,7 @@ nav:
     - Connecting to WiFi: wireless/02-connecting-to-wifi.md
     - HTTP GET: wireless/03-http-get.md
     - Web Server: wireless/04-web-server.md
+    - Web Server NeoPixel: wireless/07-web-server-rgb-neopixels.md
     - MAC Address: wireless/05-mac-address.md
     - UPIP: wireless/06-upip.md
     - Advanced Labs: wireless/11-advanced-labs.md
