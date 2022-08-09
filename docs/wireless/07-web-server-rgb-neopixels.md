@@ -211,3 +211,43 @@ while True:
     s.close()
     print('connection closed')
 ```
+
+## References
+
+Clear Fix Floating Boxes Example
+
+https://www.w3schools.com/css/tryit.asp?filename=trycss_float_boxes
+
+```html
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  float: left;
+  width: 33.33%;
+  padding: 30px 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+  <h2>Grid of Boxes</h2>
+  <p>Float boxes side by side:</p>
+
+  <div class="clearfix">
+    <div class="box" style="background-color:silver">
+    <p>Some text inside the box.</p>
+    </div>
+    <div class="box" style="background-color:gray">
+    <p>Some text inside the box.</p>
+    </div>
+  </div>
+```
