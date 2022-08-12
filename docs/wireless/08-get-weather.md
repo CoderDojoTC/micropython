@@ -41,7 +41,7 @@ Here is the output on the Thonny shell of the first 16 temperature values:
 
 ## Plotting the Forecast with Thonny Plot
 
-![Wireless Forecast Thonny Plot](../img/wireless-forecast-thonny-plot.png)
+![Wireless Forecast Thonny Plot](../img/network-forecast-thonny-plot.png)
 
 ## Sample Code
 
