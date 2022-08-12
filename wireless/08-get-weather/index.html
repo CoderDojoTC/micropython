@@ -2750,12 +2750,18 @@
                 
                 <h1 id="get-the-weather-forecast">Get the Weather Forecast</h1>
 <p>This demo uses the free web service <a href="http://openweathermap.org">Open Weather Map</a>.</p>
-<p>The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three hour intervals for the next 40 intervals at your location.</p>
+<p>The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three hour intervals for the next 40 intervals at your specified location.</p>
 <p>You can see this using the UNIX curl command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;http://api.openweathermap.org/data/2.5/forecast?units=imperial&amp;id=5037649&amp;appid=f2b1...&#39;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;http://api.openweathermap.org/data/2.5/forecast?\</span>
+<span class="s1">      units=imperial&amp;\</span>
+<span class="s1">      id=5037649&amp;\</span>
+<span class="s1">      appid=f2b1...&#39;</span>
 </code></pre></div>
 </td></tr></table>
-<p>In this example, I am asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the <a href="https://www.geonames.org/5037649/minneapolis.html">GeoNames</a> to find your city ID number.</p>
+<p>In this example, we are asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis, MN in the USA.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the <a href="https://www.geonames.org/5037649/minneapolis.html">GeoNames</a> to find your city ID number.</p>
 <h2 id="how-to-use-the-open-weather-map-api">How to Use the Open Weather Map API</h2>
 <p>To use this service, you must register and get an API key.  You then put your key in the secrets.py file:</p>
 <p>Content of secrets.py
@@ -2772,11 +2778,152 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="parsing-the-json-file">Parsing the JSON file</h2>
+<p>The service returns a JSON file with the following format:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;cod&quot;</span><span class="p">:</span> <span class="s2">&quot;200&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;cnt&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="nt">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;dt&quot;</span><span class="p">:</span> <span class="mi">1660078800</span><span class="p">,</span>
+            <span class="nt">&quot;main&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;temp&quot;</span><span class="p">:</span> <span class="mf">80.83</span><span class="p">,</span>
+                <span class="nt">&quot;feels_like&quot;</span><span class="p">:</span> <span class="mf">81.23</span><span class="p">,</span>
+                <span class="nt">&quot;temp_min&quot;</span><span class="p">:</span> <span class="mf">80.83</span><span class="p">,</span>
+                <span class="nt">&quot;temp_max&quot;</span><span class="p">:</span> <span class="mf">84.67</span><span class="p">,</span>
+                <span class="nt">&quot;pressure&quot;</span><span class="p">:</span> <span class="mi">1019</span><span class="p">,</span>
+                <span class="nt">&quot;sea_level&quot;</span><span class="p">:</span> <span class="mi">1019</span><span class="p">,</span>
+                <span class="nt">&quot;grnd_level&quot;</span><span class="p">:</span> <span class="mi">988</span><span class="p">,</span>
+                <span class="nt">&quot;humidity&quot;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span>
+                <span class="nt">&quot;temp_kf&quot;</span><span class="p">:</span> <span class="mf">-2.13</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;weather&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+                    <span class="nt">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;Clear&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;clear sky&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;01d&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;clouds&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;all&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;wind&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;speed&quot;</span><span class="p">:</span> <span class="mf">6.08</span><span class="p">,</span>
+                <span class="nt">&quot;deg&quot;</span><span class="p">:</span> <span class="mi">226</span><span class="p">,</span>
+                <span class="nt">&quot;gust&quot;</span><span class="p">:</span> <span class="mf">6.38</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;visibility&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+            <span class="nt">&quot;pop&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;sys&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;pod&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;dt_txt&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-08-09 21:00:00&quot;</span>
+        <span class="p">},</span> 
+        <span class="err">/*</span> <span class="err">...repea</span><span class="kc">te</span><span class="err">d</span> <span class="mi">40</span> <span class="kc">t</span><span class="err">imes</span> <span class="err">*/</span>
+        <span class="p">,</span>
+    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5037649</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Minneapolis&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;coord&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">44.98</span><span class="p">,</span>
+            <span class="nt">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">-93.2638</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;population&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;timezone&quot;</span><span class="p">:</span> <span class="mi">-18000</span><span class="p">,</span>
+        <span class="nt">&quot;sunrise&quot;</span><span class="p">:</span> <span class="mi">1660043269</span><span class="p">,</span>
+        <span class="nt">&quot;sunset&quot;</span><span class="p">:</span> <span class="mi">1660094963</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>The bulk of the data is in the list structure with 40 items with a small set of data before and after the list.  The data about the HTTP status (200) and the count (40) is before the list and the data about the city is after the list.</p>
+<p>Each block of data in the list JSON object contains data about the main data (temperature, min, max, pressure, humidity), cloud cover, wind speed and visibility.  It is up to you to decide what data you would like to display within this data.  Once you decide what data you want to access you can use JSON path statements to pull the right data out.  For example to get the main temperature for each time period you would run:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># get the temp and humidity for the next 40 3-hour intervals</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">39</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temp:&#39;</span><span class="p">,</span> <span class="n">weather</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">][</span><span class="s1">&#39;temp&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;humidity:&#39;</span><span class="p">,</span> <span class="n">weather</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">][</span><span class="s1">&#39;humidity&#39;</span><span class="p">])</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="sample-output">Sample Output</h2>
 <p>Here is the output on the Thonny shell of the first 16 temperature values:</p>
 <p><img alt="Network Weather Results" src="../../img/network-weather-results.png" /></p>
 <h2 id="plotting-the-forecast-with-thonny-plot">Plotting the Forecast with Thonny Plot</h2>
+<p>Here is a plot of the temp and the "feels like" temp using the Thonny Plotter panel.</p>
 <p><img alt="Wireless Forecast Thonny Plot" src="../../img/network-forecast-thonny-plot.png" /></p>
+<p>Each line has a
+1. label string
+2. a colon
+3. the numeric value </p>
+<p>for each value plotted.  There can be multiple values per line.</p>
+<p>Here is that format:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Temperature:  63 Feels Like:  63.52
+Temperature:  62 Feels Like:  62.56
+Temperature:  70 Feels Like:  69.69
+</code></pre></div>
+</td></tr></table>
 <h2 id="sample-code">Sample Code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
