@@ -94,6 +94,7 @@ nav:
     - Web Server NeoPixel: wireless/07-web-server-rgb-neopixels.md
     - MAC Address: wireless/05-mac-address.md
     - UPIP: wireless/06-upip.md
+    - Get Weather Forecast: wireless/08-get-weather.md
     - Advanced Labs: wireless/11-advanced-labs.md
     - With Display: wireless/20-display.md
   - Robots:

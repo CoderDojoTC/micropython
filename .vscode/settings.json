@@ -24,15 +24,18 @@
         "rshell",
         "SMPS",
         "solderless",
+        "SSID",
         "Thonny",
         "TTGO",
         "urandom",
+        "urequests",
         "usbmodem",
         "utime",
         "VBUS",
         "VREF",
         "VSYS",
-        "waveshare"
+        "waveshare",
+        "WLAN"
     ],
     "markdown.experimental.validate.ignoreLinks": [
         "../img/pi-w.png"

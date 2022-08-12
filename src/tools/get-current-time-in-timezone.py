@@ -8,6 +8,8 @@ base = 'https://timeapi.io/api/Time/current/zone'
 timeZone='America/Chicago'
 url = base + '?timeZone=' + timeZone
 
+print('url: ' + url)
+
 response = requests.get(url)
 if response.status_code != 200:
     print('Status:', response.status_code, 'Problem with the request. Exiting.')
