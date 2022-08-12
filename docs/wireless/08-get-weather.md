@@ -7,7 +7,7 @@ The Open Weather Map service returns the predicted temperatures and conditions (
 You can see this using the UNIX curl command:
 
 ```sh
-curl 'hhttp://api.openweathermap.org/data/2.5/forecast?units=imperial&id=5037649&appid=f2b1...'
+curl 'http://api.openweathermap.org/data/2.5/forecast?units=imperial&id=5037649&appid=f2b1...'
 ```
 
 In this example, I am asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the [GeoNames](https://www.geonames.org/5037649/minneapolis.html) to find your city ID number.
