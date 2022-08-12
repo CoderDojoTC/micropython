@@ -2752,7 +2752,7 @@
 <p>This demo uses the free web service <a href="http://openweathermap.org">Open Weather Map</a>.</p>
 <p>The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three hour intervals for the next 40 intervals at your location.</p>
 <p>You can see this using the UNIX curl command:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;hhttp://api.openweathermap.org/data/2.5/forecast?units=imperial&amp;id=5037649&amp;appid=f2b1...&#39;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;http://api.openweathermap.org/data/2.5/forecast?units=imperial&amp;id=5037649&amp;appid=f2b1...&#39;</span>
 </code></pre></div>
 </td></tr></table>
 <p>In this example, I am asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the <a href="https://www.geonames.org/5037649/minneapolis.html">GeoNames</a> to find your city ID number.</p>
