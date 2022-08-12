@@ -37,11 +37,11 @@ url = base + 'id=' + location + '&appid=' + secrets.appid
 
 Here is the output on the Thonny shell of the first 16 temperature values:
 
-![](../../img/network-weather-results.png)
+![Network Weather Results](../img/network-weather-results.png)
 
 ## Plotting the Forecast with Thonny Plot
 
-![](../../img/wireless-forecast-thonny-plot.png)
+![Wireless Forecast Thonny Plot](../img/wireless-forecast-thonny-plot.png)
 
 ## Sample Code
 
