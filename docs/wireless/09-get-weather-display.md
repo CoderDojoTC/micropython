@@ -207,7 +207,7 @@ delta = ticks_diff(ticks_ms(), start)
 #print("IP Address:", wlan.ifconfig()[0])
 
 base = 'http://api.openweathermap.org/data/2.5/forecast?units=imperial&'
-location = '5037649' # twin cities
+location = '5037649' # Minneapolis, MN USA
 url = base + 'id=' + location + '&appid=' + secrets.appid
 #print(url)
 
@@ -222,7 +222,7 @@ while True:
     city = weather['city']['name']
     current_temp = round(weather['list'][0]['main']['temp'])
     display_weather()
-    print('Going to sleep for one hour')
+    print('Going to sleep for one hour.')
     sleep(3600) # sleep one hour
 ```
 
