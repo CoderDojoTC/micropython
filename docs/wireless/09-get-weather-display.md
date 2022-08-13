@@ -2,13 +2,13 @@
 
 ![Network Weather Display](../img/network-weather-display.jpg)
 
-In this lesson we will use the Pico W to get a weather forecast from a web service and display the current and forecasted temperatures on a 128x64 OLED display.
+In this lesson we will use the Pico W to get a weather forecast from a web service and display the current and forecasted temperatures on a 128x64 OLED display.  The display above shows the city and current temperature on the top row of the display and then a plot of the predicted temperatures for the next 120 hours.  The max temperature is 87 degrees and the minimum is 60 degrees Fahrenheit.
 
 ## Calling the Weather API
 
 We will use the same method as in the [previous lesson](./08-get-weather.md) to get the weather forecast.  However, in this lesson we will not just plot the temperature on the Thonny plot screen, we will use a OLED screen.
 
-To do this we will need to write a function that will display the temperature data.  The function will display the current location city name, the current temperature, and then draw a plot of the next 40 3-hour intervals.
+To do this we will need to write a function that will display the temperature data.  The function will display the current location city name, the current temperature, and then draw a plot of the next 40 3-hour intervals.  This lesson is a bit harder because we have to manually do all the work of scaling and plotting our data.  This is all done for us in the prior Thonny plotting lab.
 
 To achieve this we will need to scale the data to fit the display grid.  We will reserve the top 10 pixels for the city and current temp and then draw the plot on the remaining 54 pixel high and 128 pixel wide plot region.
 
