@@ -95,6 +95,7 @@ nav:
     - MAC Address: wireless/05-mac-address.md
     - UPIP: wireless/06-upip.md
     - Get Weather Forecast: wireless/08-get-weather.md
+    - Display Forecast on OLED: wireless/09-get-weather-display.md
     - Advanced Labs: wireless/11-advanced-labs.md
     - With Display: wireless/20-display.md
   - Robots:
