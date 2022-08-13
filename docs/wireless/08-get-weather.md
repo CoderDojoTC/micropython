@@ -121,8 +121,9 @@ Here is a plot of the temp and the "feels like" temp using the Thonny Plotter pa
 
 ![Wireless Forecast Thonny Plot](../img/network-forecast-thonny-plot.png)
 
-Each line has a
-1. label string
+Each line has:
+
+1. a label string
 2. a colon
 3. the numeric value 
    
@@ -131,9 +132,9 @@ for each value plotted.  There can be multiple values per line.
 Here is that format:
 
 ```
-Temperature:  63 Feels Like:  63.52
-Temperature:  62 Feels Like:  62.56
-Temperature:  70 Feels Like:  69.69
+Temperature: 63 Feels Like:  63.52
+Temperature: 62 Feels Like:  62.56
+Temperature: 70 Feels Like:  69.69
 ```
 
 ## Sample Code
