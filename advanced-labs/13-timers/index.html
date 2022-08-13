@@ -2753,7 +2753,7 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <li>A <strong>PERIODIC</strong> Timer will continually fire events in the future at periodic intervals.</li>
 <li>A <strong>ONE_SHOT</strong> Timer will fire an event once and then stop.</li>
 </ol>
-<p>Both of these Timer objects need a callback function to be specified when the are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.</p>
+<p>Both of these Timer objects need a callback function to be specified when they are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.</p>
 <p>Periodic Timers are usually initialized with a <code>period</code> parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.</p>
 <p>One-shot Timers are also initialized with a <code>period</code> parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.</p>
 <p>Here is how both Periodic and one-shot timers are setup:</p>
@@ -2775,8 +2775,12 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <h2 id="using-frequency-on-periodic-timers">Using Frequency on Periodic Timers</h2>
 <p>A Periodic Timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">move_pixel</span><span class="p">)</span> <span class="c1"># 50ms between events</span>
-<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">move_pixel</span><span class="p">)</span> <span class="c1"># 20 events per second</span>
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># 50ms between events</span>
+<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">move_pixel</span><span class="p">)</span> 
+<span class="c1"># 20 events per second</span>
+<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">move_pixel</span><span class="p">)</span> 
 </code></pre></div>
 </td></tr></table>
 <p>You can always convert between the two by taking the inverse and multiplying by 1000.</p>
@@ -2788,12 +2792,12 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <h2 id="sample-timer-program">Sample Timer Program</h2>
 <p>In the following program we will create timer that will toggle the built-in LED on the Raspberry Pi Pico every second.  We will create a new function called <code>toggle_led()</code> that will toggle the builtin LED on and off each time it is called.  There are three key lines in this program.  </p>
 <ol>
-<li>imports the Timer library</li>
-<li>create the uninitialized timer object</li>
-<li>initliaze the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)</li>
+<li>line 1 imports the Timer library</li>
+<li>line 7 creates the uninitialized timer object</li>
+<li>line 17 initialize the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)</li>
 </ol>
 <h2 id="sample-code-to-toggle-the-builtin-led">Sample Code to Toggle the Builtin LED</h2>
-<p>```python</p>
+<p>Here is a sample code to toggle the builtin LED on the Raspberry Pi Pico and off.</p>
 <p>```python
 from machine import Pin, Timer
 from utime import sleep</p>
