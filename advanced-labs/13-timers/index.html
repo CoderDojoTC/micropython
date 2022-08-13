@@ -1933,6 +1933,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#limites-on-the-number-of-timers" class="md-nav__link">
+    Limites on the Number of Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawbacks-of-timers" class="md-nav__link">
+    Drawbacks of Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2727,6 +2755,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#limites-on-the-number-of-timers" class="md-nav__link">
+    Limites on the Number of Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawbacks-of-timers" class="md-nav__link">
+    Drawbacks of Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2798,59 +2854,134 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 </ol>
 <h2 id="sample-code-to-toggle-the-builtin-led">Sample Code to Toggle the Builtin LED</h2>
 <p>Here is a sample code to toggle the builtin LED on the Raspberry Pi Pico and off.</p>
-<p>```python
-from machine import Pin, Timer
-from utime import sleep</p>
-<h1 id="create-an-led-object-using-the-onboard-led">create an LED object using the onboard LED</h1>
-<p>myLED = machine.Pin("LED", machine.Pin.OUT)</p>
-<h1 id="create-an-uninitialized-timer-object">create an uninitialized timer object</h1>
-<p>myTimer = Timer()</p>
-<h1 id="create-a-function-to-be-called-when-the-timer-goes-off">create a function to be called when the timer goes off</h1>
-<h1 id="this-function-just-toggles-the-onboard-led">this function just toggles the onboard LED</h1>
-<p>def toggle_led(timer):
-    myLED.toggle()</p>
-<h1 id="initialize-the-timer-object-to-tick-every-second-1000-milliseconds">initialize the timer object to tick every second (1,000 milliseconds)</h1>
-<p>myTimer.init(period=1000, mode=Timer.PERIODIC, callback=toggle_led)</p>
-<p>while True:
-    sleep(10)
-    print('just sleeping here')
-````</p>
-<h2 id="sample-code-to-animate-an-led-strip-with-a-timer">Sample Code to Animate an LED Strip With a Timer</h2>
-<p>Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn.  This function will be called every time the timer goes off.</p>
-<p>```python
-from machine import Pin, Timer
-from utime import sleep
-from neopixel import NeoPixel</p>
-<p>NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 8
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)</p>
-<h1 id="create-an-uninitialized-timer-object_1">create an uninitialized timer object</h1>
-<p>myTimer = Timer()</p>
-<p>counter = 0</p>
-<h1 id="a-callback-function-use-this-with-a-timer-that-triggers-20-times-a-second">a callback function.  Use this with a timer that triggers 20 times a second</h1>
-<p>def move_pixel(myTimer):
-    global counter
-    for i in range(0, NUMBER_PIXELS):
-        if i == counter:
-            strip[i] = (10,0,0)
-        else:
-            strip[i] = (0,0,10)
-        strip.write()
-    counter += 1
-    if counter &gt; NUMBER_PIXELS:
-        counter = 0</p>
-<h1 id="initialize-the-timer-object-to-tick-20-times-per-second-50-milliseconds">initialize the timer object to tick 20 times per second (50 milliseconds)</h1>
-<p>myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel)</p>
-<p>while True:
-    print('Just sleeping here.  The timer is doing all the work flashing the LED...', counter)
-    sleep(5) # sleep for five seconds
-````</p>
-<h2 id="number-of-timers">Number of Timers</h2>
-<p>In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Other implementations may have different limits, typically around 32 timers.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="c1"># create an LED object using the onboard LED</span>
+<span class="n">myLED</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># create an uninitialized timer object</span>
+<span class="n">myTimer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+
+<span class="c1"># create a function to be called when the timer goes off</span>
+<span class="c1"># this function just toggles the onboard LED</span>
+<span class="k">def</span> <span class="nf">toggle_led</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
+    <span class="n">myLED</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+
+<span class="c1"># initialize the timer object to tick every second (1,000 milliseconds)</span>
+<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">toggle_led</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;just sleeping here&#39;</span><span class="p">)</span>
+<span class="err">````</span>
+
+<span class="c1">## Sample Code to Animate an LED Strip With a Timer</span>
+
+<span class="n">Many</span> <span class="n">times</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">animate</span> <span class="n">an</span> <span class="n">LED</span> <span class="n">strip</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">complicate</span> <span class="n">up</span> <span class="n">your</span> <span class="n">main</span> <span class="n">event</span> <span class="n">loop</span> <span class="k">with</span> <span class="n">this</span> <span class="n">code</span><span class="o">.</span>  <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">you</span> <span class="n">might</span> <span class="n">want</span> <span class="n">to</span> <span class="n">light</span> <span class="n">up</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">strip</span> <span class="k">with</span> <span class="n">a</span> <span class="n">pattern</span> <span class="n">of</span> <span class="n">motion</span> <span class="n">on</span> <span class="n">the</span> <span class="n">LED</span> <span class="n">strip</span><span class="o">.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">do</span> <span class="n">this</span> <span class="n">by</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">new</span> <span class="n">function</span> <span class="n">that</span> <span class="n">will</span> <span class="n">conditionally</span> <span class="n">turn</span> <span class="n">one</span> <span class="n">pixel</span> <span class="n">to</span> <span class="n">a</span> <span class="n">color</span> <span class="ow">and</span> <span class="n">increment</span> <span class="n">a</span> <span class="k">global</span> <span class="n">variable</span> <span class="n">that</span> <span class="n">keeps</span> <span class="n">track</span> <span class="n">of</span> <span class="n">which</span> <span class="n">pixel</span> <span class="n">to</span> <span class="n">turn</span><span class="o">.</span>  <span class="n">This</span> <span class="n">function</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="n">every</span> <span class="n">time</span> <span class="n">the</span> <span class="n">timer</span> <span class="n">goes</span> <span class="n">off</span><span class="o">.</span>
+
+<span class="err">```</span><span class="n">python</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># create an uninitialized timer object</span>
+<span class="n">myTimer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># a callback function.  Use this with a timer that triggers 20 times a second</span>
+<span class="k">def</span> <span class="nf">move_pixel</span><span class="p">(</span><span class="n">myTimer</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">counter</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="n">NUMBER_PIXELS</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># initialize the timer object to tick 20 times per second (50 milliseconds)</span>
+<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">move_pixel</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just sleeping here.  The timer is doing all the work flashing the LED...&#39;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># sleep for five seconds</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="limites-on-the-number-of-timers">Limites on the Number of Timers</h2>
+<p>In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Because there are no specific hardware limits, these are often referred to as "virtual" timers.  The number of virtual timers is limited by the amount of memory available to the microcontroller.</p>
+<p>Other implementations of MicroPython on different hardware have stricter limits placed on the number of timers.  The ESP32 MicroPython port currently only has four hardware timers and a numeric ID of 0 to 3 must be used when you setup these timers. For the <a href="https://docs.pyboard.org/en/latest/timers.html">pyboard</a> has a limit of 14 timers.  Be aware of these limits if you are interested in creating portable MicroPython code.</p>
 <h2 id="drawbacks-of-timers">Drawbacks of Timers</h2>
-<p>Unfortuantly, differ</p>
+<p>Unfortunately, different hardware implementations of MicroPython have different ways to setup and use timers.  Some hardware requires timers to each have an ID tied to a specific resource.  Because of this, be cautious about using timers in your code if you require portability between hardware.</p>
+<p>Timers also can call interrupts, but in multi-core systems these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.</p>
+<p>Timers are often use to call interrupts, and there are special limitations on what can and can't be done within an interrupts in most systems.  For example you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.</p>
+<p>In general, doing complex logic within Timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method.  This will make your code easier to understand and maintain.</p>
 <h2 id="references">References</h2>
 <ol>
+<li><a href="https://docs.micropython.org/en/latest/library/machine.Timer.html">MicroPython Timers</a></li>
 <li><a href="https://docs.micropython.org/en/latest/rp2/quickref.html">MicroPython Documentation on Timers on the RP2040</a></li>
 </ol>
 <h2 id="exercises">Exercises</h2>
