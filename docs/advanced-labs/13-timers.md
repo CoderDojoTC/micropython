@@ -117,18 +117,27 @@ myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel)
 while True:
     print('Just sleeping here.  The timer is doing all the work flashing the LED...', counter)
     sleep(5) # sleep for five seconds
-````
+```
 
-## Number of Timers
+## Limites on the Number of Timers
 
-In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Other implementations may have different limits, typically around 32 timers.
+In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Because there are no specific hardware limits, these are often referred to as "virtual" timers.  The number of virtual timers is limited by the amount of memory available to the microcontroller.
+
+Other implementations of MicroPython on different hardware have stricter limits placed on the number of timers.  The ESP32 MicroPython port currently only has four hardware timers and a numeric ID of 0 to 3 must be used when you setup these timers. For the [pyboard](https://docs.pyboard.org/en/latest/timers.html) has a limit of 14 timers.  Be aware of these limits if you are interested in creating portable MicroPython code.
 
 ## Drawbacks of Timers
 
-Unfortuantly, differ
+Unfortunately, different hardware implementations of MicroPython have different ways to setup and use timers.  Some hardware requires timers to each have an ID tied to a specific resource.  Because of this, be cautious about using timers in your code if you require portability between hardware.
+
+Timers also can call interrupts, but in multi-core systems these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.
+
+Timers are often use to call interrupts, and there are special limitations on what can and can't be done within an interrupts in most systems.  For example you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.
+
+In general, doing complex logic within Timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method.  This will make your code easier to understand and maintain.
 
 ## References
 
+1. [MicroPython Timers](https://docs.micropython.org/en/latest/library/machine.Timer.html)
 1. [MicroPython Documentation on Timers on the RP2040](https://docs.micropython.org/en/latest/rp2/quickref.html)
 
 ## Exercises
