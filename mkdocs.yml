@@ -121,6 +121,7 @@ nav:
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
     - Rshell: advanced-labs/11-rshell.md
+    - Timers: advanced-labs/13-timers.md
     - TinyML: advanced-labs/20-tinyml.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md

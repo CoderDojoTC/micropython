@@ -71,11 +71,12 @@ returns
 Hello, Lisa. You are 12.
 ```
 
-Formatted string support was added to MicroPython in release 1.17.  Most formats except the date and time formats now work on MicroPython.
+Formatted string support was added to MicroPython in release 1.17.  Most formats work except the date and time formats.  For these we must write our own formatting functions.
 
 * Also known as: f-strings
 * Also known as: Literal String Interpolation
 * From Python Enhancement Proposal: PEP 498
+* [Official Python documentation on string formatting](https://docs.python.org/3/library/string.html#string-formatting)
 * Link to Formatted Strings Docs: [formatted strings](https://www.python.org/dev/peps/pep-0498/)
 * PyFormat library for formatting strings: [PyFormat.info](https://pyformat.info/)
 

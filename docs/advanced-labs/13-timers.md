@@ -1,0 +1,134 @@
+# Timers in MicroPython
+
+![Timer Tutorial Banner](../img/timer-tutorial-banner.png)
+When clocks are used to trigger future events, they are called timers.  Timers are used to efficiently use CPU resources.  In microcontrollers, the work of keeping track of timers is frequently delegated to hardware outside of the main CPU loop.  This makes your microcontroller more efficient, more reliable, and makes your code easier to read.
+
+## Types of Timers
+
+Timers are used to schedule events in the future.  There are two types:
+
+1. A **PERIODIC** Timer will continually fire events in the future at periodic intervals.
+2. A **ONE_SHOT** Timer will fire an event once and then stop.
+
+Both of these Timer objects need a callback function to be specified when the are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.
+
+Periodic Timers are usually initialized with a `period` parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.
+
+One-shot Timers are also initialized with a `period` parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.
+
+Here is how both Periodic and one-shot timers are setup:
+
+```python
+myOneShotTimer = Timer()
+# call once in 10 seconds from now
+myOneShotTimer.init(mode=Timer.ONE_SHOT, callback=myCallbackFunction, period=10000)
+
+# call every two seconds
+myPeriodicTimer = Timer()
+myPeriodicTimer.init(mode=Timer.PERIODIC, callback=myCallbackFunction, period=2000) 
+```
+
+## Using Frequency on Periodic Timers
+
+A Periodic Timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:
+
+```python
+myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel) # 50ms between events
+myTimer.init(freq=20, mode=Timer.PERIODIC, callback=move_pixel) # 20 events per second
+```
+
+You can always convert between the two by taking the inverse and multiplying by 1000.
+
+```python
+frequency = 1 / period * 1000
+period = 1 / frequency * 1000
+```
+
+## Sample Timer Program
+
+In the following program we will create timer that will toggle the built-in LED on the Raspberry Pi Pico every second.  We will create a new function called ```toggle_led()``` that will toggle the builtin LED on and off each time it is called.  There are three key lines in this program.  
+
+1. imports the Timer library
+2. create the uninitialized timer object
+3. initliaze the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)
+
+## Sample Code to Toggle the Builtin LED
+
+```python
+
+```python
+from machine import Pin, Timer
+from utime import sleep
+
+# create an LED object using the onboard LED
+myLED = machine.Pin("LED", machine.Pin.OUT)
+
+# create an uninitialized timer object
+myTimer = Timer()
+
+# create a function to be called when the timer goes off
+# this function just toggles the onboard LED
+def toggle_led(timer):
+    myLED.toggle()
+
+# initialize the timer object to tick every second (1,000 milliseconds)
+myTimer.init(period=1000, mode=Timer.PERIODIC, callback=toggle_led)
+
+while True:
+    sleep(10)
+    print('just sleeping here')
+````
+
+## Sample Code to Animate an LED Strip With a Timer
+
+Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn.  This function will be called every time the timer goes off.
+
+```python
+from machine import Pin, Timer
+from utime import sleep
+from neopixel import NeoPixel
+
+NEOPIXEL_PIN = 0
+NUMBER_PIXELS = 8
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
+# create an uninitialized timer object
+myTimer = Timer()
+
+counter = 0
+# a callback function.  Use this with a timer that triggers 20 times a second
+def move_pixel(myTimer):
+    global counter
+    for i in range(0, NUMBER_PIXELS):
+        if i == counter:
+            strip[i] = (10,0,0)
+        else:
+            strip[i] = (0,0,10)
+        strip.write()
+    counter += 1
+    if counter > NUMBER_PIXELS:
+        counter = 0
+
+# initialize the timer object to tick 20 times per second (50 milliseconds)
+myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel)
+
+while True:
+    print('Just sleeping here.  The timer is doing all the work flashing the LED...', counter)
+    sleep(5) # sleep for five seconds
+````
+
+## Number of Timers
+
+In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Other implementations may have different limits, typically around 32 timers.
+
+## Drawbacks of Timers
+
+Unfortuantly, differ
+
+## References
+
+1. [MicroPython Documentation on Timers on the RP2040](https://docs.micropython.org/en/latest/rp2/quickref.html)
+
+## Exercises
+
+1. Can you change the frequency of the times

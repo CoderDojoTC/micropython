@@ -18,6 +18,7 @@
         "NEOPIXEL",
         "neopixels",
         "OLED",
+        "ONESHOT",
         "photosensor",
         "Pinout",
         "pydub",
