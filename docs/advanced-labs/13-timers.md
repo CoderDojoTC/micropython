@@ -10,7 +10,7 @@ Timers are used to schedule events in the future.  There are two types:
 1. A **PERIODIC** Timer will continually fire events in the future at periodic intervals.
 2. A **ONE_SHOT** Timer will fire an event once and then stop.
 
-Both of these Timer objects need a callback function to be specified when the are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.
+Both of these Timer objects need a callback function to be specified when they are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.
 
 Periodic Timers are usually initialized with a `period` parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.
 
@@ -33,8 +33,10 @@ myPeriodicTimer.init(mode=Timer.PERIODIC, callback=myCallbackFunction, period=20
 A Periodic Timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:
 
 ```python
-myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel) # 50ms between events
-myTimer.init(freq=20, mode=Timer.PERIODIC, callback=move_pixel) # 20 events per second
+# 50ms between events
+myTimer.init(period=50, mode=Timer.PERIODIC, callback=move_pixel) 
+# 20 events per second
+myTimer.init(freq=20, mode=Timer.PERIODIC, callback=move_pixel) 
 ```
 
 You can always convert between the two by taking the inverse and multiplying by 1000.
@@ -48,13 +50,13 @@ period = 1 / frequency * 1000
 
 In the following program we will create timer that will toggle the built-in LED on the Raspberry Pi Pico every second.  We will create a new function called ```toggle_led()``` that will toggle the builtin LED on and off each time it is called.  There are three key lines in this program.  
 
-1. imports the Timer library
-2. create the uninitialized timer object
-3. initliaze the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)
+1. line 1 imports the Timer library
+2. line 7 creates the uninitialized timer object
+3. line 17 initialize the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)
 
 ## Sample Code to Toggle the Builtin LED
 
-```python
+Here is a sample code to toggle the builtin LED on the Raspberry Pi Pico and off.
 
 ```python
 from machine import Pin, Timer
