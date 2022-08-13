@@ -3109,7 +3109,7 @@ extracts the city name and current temperature and then calls the display_weathe
 <span class="c1">#print(&quot;IP Address:&quot;, wlan.ifconfig()[0])</span>
 
 <span class="n">base</span> <span class="o">=</span> <span class="s1">&#39;http://api.openweathermap.org/data/2.5/forecast?units=imperial&amp;&#39;</span>
-<span class="n">location</span> <span class="o">=</span> <span class="s1">&#39;5037649&#39;</span> <span class="c1"># twin cities</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s1">&#39;5037649&#39;</span> <span class="c1"># Minneapolis, MN USA</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;id=&#39;</span> <span class="o">+</span> <span class="n">location</span> <span class="o">+</span> <span class="s1">&#39;&amp;appid=&#39;</span> <span class="o">+</span> <span class="n">secrets</span><span class="o">.</span><span class="n">appid</span>
 <span class="c1">#print(url)</span>
 
@@ -3124,7 +3124,7 @@ extracts the city name and current temperature and then calls the display_weathe
     <span class="n">city</span> <span class="o">=</span> <span class="n">weather</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
     <span class="n">current_temp</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">weather</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">][</span><span class="s1">&#39;temp&#39;</span><span class="p">])</span>
     <span class="n">display_weather</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Going to sleep for one hour&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Going to sleep for one hour.&#39;</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">3600</span><span class="p">)</span> <span class="c1"># sleep one hour</span>
 </code></pre></div>
 </td></tr></table>
