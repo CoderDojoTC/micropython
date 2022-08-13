@@ -2734,10 +2734,10 @@
                 
                 <h1 id="get-weather-on-an-oled-display">Get Weather on an OLED Display</h1>
 <p><img alt="Network Weather Display" src="../../img/network-weather-display.jpg" /></p>
-<p>In this lesson we will use the Pico W to get a weather forecast from a web service and display the current and forecasted temperatures on a 128x64 OLED display.</p>
+<p>In this lesson we will use the Pico W to get a weather forecast from a web service and display the current and forecasted temperatures on a 128x64 OLED display.  The display above shows the city and current temperature on the top row of the display and then a plot of the predicted temperatures for the next 120 hours.  The max temperature is 87 degrees and the minimum is 60 degrees Fahrenheit.</p>
 <h2 id="calling-the-weather-api">Calling the Weather API</h2>
 <p>We will use the same method as in the <a href="../08-get-weather/">previous lesson</a> to get the weather forecast.  However, in this lesson we will not just plot the temperature on the Thonny plot screen, we will use a OLED screen.</p>
-<p>To do this we will need to write a function that will display the temperature data.  The function will display the current location city name, the current temperature, and then draw a plot of the next 40 3-hour intervals.</p>
+<p>To do this we will need to write a function that will display the temperature data.  The function will display the current location city name, the current temperature, and then draw a plot of the next 40 3-hour intervals.  This lesson is a bit harder because we have to manually do all the work of scaling and plotting our data.  This is all done for us in the prior Thonny plotting lab.</p>
 <p>To achieve this we will need to scale the data to fit the display grid.  We will reserve the top 10 pixels for the city and current temp and then draw the plot on the remaining 54 pixel high and 128 pixel wide plot region.</p>
 <p>To scale the data we will need to find the min and max temperatures.  These will also be displayed on the screen.  The scale is then the ratio of the graph height over the temperature range.  For example if the range of temperatures is 27 degrees and the height of the display is 54 we will need to scale the temperature vertically by 2.</p>
 <p>The horizontal axis will go from 0 to 120.  Since we have 40 points, each point will occur every 3rd pixel. We can then look at the difference between the current point and the next point to interpolate the dots between the two points.</p>
