@@ -3,6 +3,8 @@
 ![Timer Tutorial Banner](../img/timer-tutorial-banner.png)
 When clocks are used to trigger future events, they are called timers.  Timers are used to efficiently use CPU resources.  In microcontrollers, the work of keeping track of timers is frequently delegated to hardware outside of the main CPU loop.  This makes your microcontroller more efficient, more reliable, and makes your code easier to read.
 
+Timers work independently of the main CPU's clock.  As a result, they are called *asynchronous* objects.  Using timers can be both efficient and reliable, but they can be complex to debug.  Errors within Timers and interrupts can be difficult to get information on.
+
 ## Types of Timers
 
 Timers are used to schedule events in the future.  There are two types:
@@ -119,7 +121,11 @@ while True:
     sleep(5) # sleep for five seconds
 ```
 
-## Limites on the Number of Timers
+## Removing a Timer
+
+The ```Timer.deinit()``` can be used to remove a timer from the system.  This is useful if you want to stop a timer that is currently running.  If you have many timers that are each using memory, it is a good practice to remove them when you are done with them.
+
+## Limits on the Number of Timers
 
 In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Because there are no specific hardware limits, these are often referred to as "virtual" timers.  The number of virtual timers is limited by the amount of memory available to the microcontroller.
 
@@ -142,4 +148,6 @@ In general, doing complex logic within Timers and interrupts is not a good idea.
 
 ## Exercises
 
-1. Can you change the frequency of the times
+1. Can you change the frequency of the times in the sample code above?
+2. How much memory do you think a timer will use?  How many timers can be used on a RP2040 with 264K of memory?
+3. What if you wanted a timer to check in on the health of your program?  Could it reboot the Raspberry Pi using ```machine.reset()``` if it gets stuck?  Hint: See [Watchdog Timers](https://docs.micropython.org/en/latest/library/machine.WDT.html)
