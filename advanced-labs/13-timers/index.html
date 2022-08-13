@@ -1934,8 +1934,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limites-on-the-number-of-timers" class="md-nav__link">
-    Limites on the Number of Timers
+  <a href="#removing-a-timer" class="md-nav__link">
+    Removing a Timer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limits-on-the-number-of-timers" class="md-nav__link">
+    Limits on the Number of Timers
   </a>
   
 </li>
@@ -2756,8 +2763,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limites-on-the-number-of-timers" class="md-nav__link">
-    Limites on the Number of Timers
+  <a href="#removing-a-timer" class="md-nav__link">
+    Removing a Timer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limits-on-the-number-of-timers" class="md-nav__link">
+    Limits on the Number of Timers
   </a>
   
 </li>
@@ -2803,6 +2817,7 @@
                 <h1 id="timers-in-micropython">Timers in MicroPython</h1>
 <p><img alt="Timer Tutorial Banner" src="../../img/timer-tutorial-banner.png" />
 When clocks are used to trigger future events, they are called timers.  Timers are used to efficiently use CPU resources.  In microcontrollers, the work of keeping track of timers is frequently delegated to hardware outside of the main CPU loop.  This makes your microcontroller more efficient, more reliable, and makes your code easier to read.</p>
+<p>Timers work independently of the main CPU's clock.  As a result, they are called <em>asynchronous</em> objects.  Using timers can be both efficient and reliable, but they can be complex to debug.  Errors within Timers and interrupts can be difficult to get information on.</p>
 <h2 id="types-of-timers">Types of Timers</h2>
 <p>Timers are used to schedule events in the future.  There are two types:</p>
 <ol>
@@ -2971,7 +2986,9 @@ When clocks are used to trigger future events, they are called timers.  Timers a
     <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># sleep for five seconds</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="limites-on-the-number-of-timers">Limites on the Number of Timers</h2>
+<h2 id="removing-a-timer">Removing a Timer</h2>
+<p>The <code>Timer.deinit()</code> can be used to remove a timer from the system.  This is useful if you want to stop a timer that is currently running.  If you have many timers that are each using memory, it is a good practice to remove them when you are done with them.</p>
+<h2 id="limits-on-the-number-of-timers">Limits on the Number of Timers</h2>
 <p>In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Because there are no specific hardware limits, these are often referred to as "virtual" timers.  The number of virtual timers is limited by the amount of memory available to the microcontroller.</p>
 <p>Other implementations of MicroPython on different hardware have stricter limits placed on the number of timers.  The ESP32 MicroPython port currently only has four hardware timers and a numeric ID of 0 to 3 must be used when you setup these timers. For the <a href="https://docs.pyboard.org/en/latest/timers.html">pyboard</a> has a limit of 14 timers.  Be aware of these limits if you are interested in creating portable MicroPython code.</p>
 <h2 id="drawbacks-of-timers">Drawbacks of Timers</h2>
@@ -2986,7 +3003,9 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 </ol>
 <h2 id="exercises">Exercises</h2>
 <ol>
-<li>Can you change the frequency of the times</li>
+<li>Can you change the frequency of the times in the sample code above?</li>
+<li>How much memory do you think a timer will use?  How many timers can be used on a RP2040 with 264K of memory?</li>
+<li>What if you wanted a timer to check in on the health of your program?  Could it reboot the Raspberry Pi using <code>machine.reset()</code> if it gets stuck?  Hint: See <a href="https://docs.micropython.org/en/latest/library/machine.WDT.html">Watchdog Timers</a></li>
 </ol>
                 
               
