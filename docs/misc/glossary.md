@@ -43,6 +43,18 @@ The connectors are available in male and female ends and are typically sold in l
 * Also known as: Jumper Wires
 * [Sample eBay Search for Jumper Wires](https://www.ebay.com/sch/92074/i.html?_from=R40&_nkw=jumper+wire+cables)
 
+
+#### ESP32
+A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
+
+Typical costs for the ESP32 is are around $10 US on eBay.
+
+* [Sample on eBay](https://www.ebay.com/itm/ESP32-ESP-32S-NodeMCU-Development-Board-2-4GHz-WiFi-Bluetooth-Dual-Mode-CP2102/392899357234) $5
+* [Sample on Amazon](https://www.amazon.com/HiLetgo-ESP-WROOM-32-Development-Microcontroller-Integrated/dp/B0718T232Z/ref=sr_1_1_sspa) $11
+* [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
+* [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
+* [Sample eBay Search for ESP32 from $5 to $20](https://www.ebay.com/sch/i.html?_from=R40&_nkw=esp32&_sacat=175673&LH_TitleDesc=0&LH_BIN=1&_udhi=20&rt=nc&_udlo=5)
+
 #### Formatted Strings
 
 The ability to use a simplified syntax to format strings by added the letter "f" before the string.  Values within curly braces are formatted from variables.
@@ -59,25 +71,16 @@ returns
 Hello, Lisa. You are 12.
 ```
 
-Formatted string support was added to MicroPython in release 1.17 
+Formatted string support was added to MicroPython in release 1.17.  Most formats except the date and time formats now work on MicroPython.
 
 * Also known as: f-strings
 * Also known as: Literal String Interpolation
 * From Python Enhancement Proposal: PEP 498
-* [Link to Formatted Strings Docs]([formatted strings](https://www.python.org/dev/peps/pep-0498/))
-
-#### ESP32
-A series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
-
-Typical costs for the ESP32 is are around $10 US on eBay.
-
-* [Sample on eBay](https://www.ebay.com/itm/ESP32-ESP-32S-NodeMCU-Development-Board-2-4GHz-WiFi-Bluetooth-Dual-Mode-CP2102/392899357234) $5
-* [Sample on Amazon](https://www.amazon.com/HiLetgo-ESP-WROOM-32-Development-Microcontroller-Integrated/dp/B0718T232Z/ref=sr_1_1_sspa) $11
-* [Sample on Sparkfun](https://www.sparkfun.com/products/13907) $21
-* [ESP32 Quick Reference](http://docs.micropython.org/en/latest/esp32/quickref.html)
-* [Sample eBay Search for ESP32 from $5 to $20](https://www.ebay.com/sch/i.html?_from=R40&_nkw=esp32&_sacat=175673&LH_TitleDesc=0&LH_BIN=1&_udhi=20&rt=nc&_udlo=5)
+* Link to Formatted Strings Docs: [formatted strings](https://www.python.org/dev/peps/pep-0498/)
+* PyFormat library for formatting strings: [PyFormat.info](https://pyformat.info/)
 
 #### Framebuffer
+
 A region of your microcontroller RAM that stores a bitmap image of your display.
 
 For a 128X64 monochrome display this would be 128 * 64 = 8,192 bits or 1,024 bytes (1K).  Color displays must store up to 8 bytes per color for each color (red, green and blue).
@@ -94,22 +97,25 @@ I2C is similar to SPI, it's a synchronous protocol because it uses a clock line.
 * Also Known as: Inter-integrated Circuit
 * See also: [SPI](#spi)
 
-#### Micropython
+#### MicroPython
 A set of Python libraries and tools developed specifically for microcontrollers.
 
-Micropython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
+MicroPython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
 
 * See also: [CircuitPython](#circuitpython)
 
 #### MPG Shell
-A simple micropython shell based file explorer for ESP8266 and WiPy Micropython based devices.
+A simple MicroPython shell based file explorer for ESP8266 and WiPy MicroPython based devices.
 
 The shell is a helper for up/downloading files to the ESP8266 (over serial line and Websockets) and WiPy (serial line and telnet). It basically offers commands to list and upload/download files on the flash FS of the device.
 
 [GitHub Repo for MPFShell](https://github.com/wendlers/mpfshell)
 
-#### OLED
-Organic polymer light emitting diode.
+#### OLED Display
+
+OLED (Organic polymer light emitting diode) dispays are small but bright displays with high contrast, low power and a wide viewing angle.  We use these displays throughout our labs.  The small displays are around 1" (diagonal) and only cost around $4 to $5.  Larger 2.24" displays cost around $20.  These displays work both with 4-wire I2C and 7-wire SPI connections.
+
+* See: [Graph Displays](../displays/graph/01-intro.md)
 
 #### Raspberry Pi Foundation
 The company that builds the Raspberry Pi hardware and provides some software.

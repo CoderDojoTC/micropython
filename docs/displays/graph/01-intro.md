@@ -1,4 +1,4 @@
-# Introduction to OLED displays
+# Introduction to OLED Displays
 
 ![](../../img/robot-oled-four-colors.jpg)<br/>
 Four colors of 2.44" OLED displays from DIY More.  We can purchase them on EBay for around $18 each.
