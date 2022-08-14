@@ -7,7 +7,7 @@ Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico
 
 ## Installing Thonny
 
-The best way to install Thonny is to go to the Thonny web site an look for the "Download" are for your opeating system.  That link is here:
+The best way to install Thonny is to go to the Thonny web site an look for the "Download" area for your operating system.  That link is here:
 
 [https://thonny.org/](https://thonny.org/)
 
@@ -111,7 +111,7 @@ Type "help()" for more information.
 
 ## Plotting Values on Thonny
 
-If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidentally hook up at potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incoming data caused by spikes on the power rails.
+If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidentally hook up a potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incoming data caused by spikes on the power rails.
 
 ## Background on Thonny
 
