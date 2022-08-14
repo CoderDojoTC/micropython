@@ -54,7 +54,7 @@ In the following program we will create timer that will toggle the built-in LED 
 
 1. line 1 imports the Timer library
 2. line 7 creates the uninitialized timer object
-3. line 17 initialize the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)
+3. line 16 initialize the timer object to indicate how often to trigger the timer, the mode (periodic) and the callback function (toggle_led)
 
 ## Sample Code to Toggle the Builtin LED
 
@@ -81,7 +81,7 @@ myTimer.init(period=1000, mode=Timer.PERIODIC, callback=toggle_led)
 while True:
     sleep(10)
     print('just sleeping here')
-````
+```
 
 ## Sample Code to Animate an LED Strip With a Timer
 
