@@ -1920,6 +1920,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hardware-vs-virtual-software-timers" class="md-nav__link">
+    Hardware vs. Virtual Software Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-timer-program" class="md-nav__link">
     Sample Timer Program
   </a>
@@ -1955,15 +1962,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#drawbacks-of-timers" class="md-nav__link">
-    Drawbacks of Timers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#drawbacks-of-timers-and-isrs" class="md-nav__link">
+    Drawbacks of Timers and ISRs
   </a>
   
 </li>
@@ -1971,6 +1971,13 @@
         <li class="md-nav__item">
   <a href="#exercises" class="md-nav__link">
     Exercises
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -2756,6 +2763,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hardware-vs-virtual-software-timers" class="md-nav__link">
+    Hardware vs. Virtual Software Timers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-timer-program" class="md-nav__link">
     Sample Timer Program
   </a>
@@ -2791,15 +2805,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#drawbacks-of-timers" class="md-nav__link">
-    Drawbacks of Timers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#drawbacks-of-timers-and-isrs" class="md-nav__link">
+    Drawbacks of Timers and ISRs
   </a>
   
 </li>
@@ -2807,6 +2814,13 @@
         <li class="md-nav__item">
   <a href="#exercises" class="md-nav__link">
     Exercises
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -2835,12 +2849,12 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <h2 id="types-of-timers">Types of Timers</h2>
 <p>Timers are used to schedule events in the future.  There are two types:</p>
 <ol>
-<li>A <strong>PERIODIC</strong> Timer will continually fire events in the future at periodic intervals.</li>
-<li>A <strong>ONE_SHOT</strong> Timer will fire an event once and then stop.</li>
+<li>A <strong>PERIODIC</strong> timer will continually fire events in the future at periodic intervals.</li>
+<li>A <strong>ONE_SHOT</strong> timer will fire an event once and then stop.</li>
 </ol>
-<p>Both of these Timer objects need a callback function to be specified when they are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.</p>
-<p>Periodic Timers are usually initialized with a <code>period</code> parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.</p>
-<p>One-shot Timers are also initialized with a <code>period</code> parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.</p>
+<p>Both of these timer objects need a callback function to be specified when they are initialized.  These callback functions are also called interrupt service routines (ISRs).  This is the function that will be executed when the timer gets triggered.  So we must define an ISR function before timers are properly initialized.</p>
+<p>Periodic timers are usually initialized with a <code>period</code> parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.</p>
+<p>One-shot timers are also initialized with a <code>period</code> parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.</p>
 <p>Here is how both Periodic and one-shot timers are setup:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -2852,13 +2866,13 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <span class="c1"># call once in 10 seconds from now</span>
 <span class="n">myOneShotTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">ONE_SHOT</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">myCallbackFunction</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 
-<span class="c1"># call every two seconds</span>
+<span class="c1"># call every two seconds until the timer is deactivated</span>
 <span class="n">myPeriodicTimer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 <span class="n">myPeriodicTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">myCallbackFunction</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span> 
 </code></pre></div>
 </td></tr></table>
 <h2 id="using-frequency-on-periodic-timers">Using Frequency on Periodic Timers</h2>
-<p>A Periodic Timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:</p>
+<p>A Periodic timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -2874,6 +2888,8 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 <span class="n">period</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">frequency</span> <span class="o">*</span> <span class="mi">1000</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="hardware-vs-virtual-software-timers">Hardware vs. Virtual Software Timers</h2>
+<p>Older microcontrollers have fixed hardware associated with each timer.  These are call "hardware timers".  When you initialize a hardware timer, you specify what set of hardware to use using a fixed ID (0,1,2,3 etc.).  On the Raspberry Pi Pico all timers are "virtual" and are implemented in software. All virtual timers have an ID of -1 and the timer ID does not need to be specified.</p>
 <h2 id="sample-timer-program">Sample Timer Program</h2>
 <p>In the following program we will create timer that will toggle the built-in LED on the Raspberry Pi Pico every second.  We will create a new function called <code>toggle_led()</code> that will toggle the builtin LED on and off each time it is called.  There are three key lines in this program.  </p>
 <ol>
@@ -2925,7 +2941,7 @@ When clocks are used to trigger future events, they are called timers.  Timers a
 </code></pre></div>
 </td></tr></table>
 <h2 id="sample-code-to-animate-an-led-strip-with-a-timer">Sample Code to Animate an LED Strip With a Timer</h2>
-<p>Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn.  This function will be called every time the timer goes off.</p>
+<p>Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn on.  This function will be called every time the timer goes off.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2989,26 +3005,28 @@ When clocks are used to trigger future events, they are called timers.  Timers a
     <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># sleep for five seconds</span>
 </code></pre></div>
 </td></tr></table>
+<p>For example, if a robot has a set of "modes" like driving forward, turning left, turning right, backing up etc.  You can use a timer to flash the LED strip in different colors with different patterns to indicate the robot is in different modes.</p>
 <h2 id="removing-a-timer">Removing a Timer</h2>
 <p>The <code>Timer.deinit()</code> can be used to remove a timer from the system.  This is useful if you want to stop a timer that is currently running.  If you have many timers that are each using memory, it is a good practice to remove them when you are done with them.</p>
 <h2 id="limits-on-the-number-of-timers">Limits on the Number of Timers</h2>
 <p>In MicroPython on the RP2040, there are no limits placed on the number of timers other than you must have enough memory available.  Because there are no specific hardware limits, these are often referred to as "virtual" timers.  The number of virtual timers is limited by the amount of memory available to the microcontroller.</p>
 <p>Other implementations of MicroPython on different hardware have stricter limits placed on the number of timers.  The ESP32 MicroPython port currently only has four hardware timers and a numeric ID of 0 to 3 must be used when you setup these timers. For the <a href="https://docs.pyboard.org/en/latest/timers.html">pyboard</a> has a limit of 14 timers.  Be aware of these limits if you are interested in creating portable MicroPython code.</p>
-<h2 id="drawbacks-of-timers">Drawbacks of Timers</h2>
+<h2 id="drawbacks-of-timers-and-isrs">Drawbacks of Timers and ISRs</h2>
 <p>Unfortunately, different hardware implementations of MicroPython have different ways to setup and use timers.  Some hardware requires timers to each have an ID tied to a specific resource.  Because of this, be cautious about using timers in your code if you require portability between hardware.</p>
-<p>Timers also can call interrupts, but in multi-core systems these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.</p>
-<p>Timers are often use to call interrupts, and there are special limitations on what can and can't be done within an interrupts in most systems.  For example you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.</p>
-<p>In general, doing complex logic within Timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method.  This will make your code easier to understand and maintain.</p>
-<h2 id="references">References</h2>
-<ol>
-<li><a href="https://docs.micropython.org/en/latest/library/machine.Timer.html">MicroPython Timers</a></li>
-<li><a href="https://docs.micropython.org/en/latest/rp2/quickref.html">MicroPython Documentation on Timers on the RP2040</a></li>
-</ol>
+<p>As we mentioned, timers need callback functions are a type of function called interrupt service requests (ISRs). In multi-core systems like the RP2040 these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.</p>
+<p>There are special limitations on what can and can't be done within interrupts in most systems.  For example, you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.</p>
+<p>In general, doing complex logic within timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method that is easy to debug.  This will make your code easier to understand and maintain.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Can you change the frequency of the times in the sample code above?</li>
 <li>How much memory do you think a timer will use?  How many timers can be used on a RP2040 with 264K of memory?</li>
 <li>What if you wanted a timer to check in on the health of your program?  Could it reboot the Raspberry Pi using <code>machine.reset()</code> if it gets stuck?  Hint: See <a href="https://docs.micropython.org/en/latest/library/machine.WDT.html">Watchdog Timers</a></li>
+</ol>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://docs.micropython.org/en/latest/library/machine.Timer.html">MicroPython Timers</a></li>
+<li><a href="https://docs.micropython.org/en/latest/rp2/quickref.html">MicroPython Documentation on Timers on the RP2040</a></li>
+<li><a href="https://www.engineersgarage.com/micropython-time-related-functions-timers-interrupts-in-esp8266-and-esp32/">Engineers Garage on Time and Timers in MicroPython</a></li>
 </ol>
                 
               
