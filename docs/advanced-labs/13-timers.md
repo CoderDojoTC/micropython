@@ -9,14 +9,14 @@ Timers work independently of the main CPU's clock.  As a result, they are called
 
 Timers are used to schedule events in the future.  There are two types:
 
-1. A **PERIODIC** Timer will continually fire events in the future at periodic intervals.
-2. A **ONE_SHOT** Timer will fire an event once and then stop.
+1. A **PERIODIC** timer will continually fire events in the future at periodic intervals.
+2. A **ONE_SHOT** timer will fire an event once and then stop.
 
-Both of these Timer objects need a callback function to be specified when they are initialized.  This is the function that will be executed when the timer gets triggered.  So we must define a function before Timers are properly initialized.
+Both of these timer objects need a callback function to be specified when they are initialized.  These callback functions are also called interrupt service routines (ISRs).  This is the function that will be executed when the timer gets triggered.  So we must define an ISR function before timers are properly initialized.
 
-Periodic Timers are usually initialized with a `period` parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.
+Periodic timers are usually initialized with a `period` parameter.  This is the amount of time in milliseconds between each event.  They are useful for doing like checking if new data is available on a network connection or checking if a sensor is still working.
 
-One-shot Timers are also initialized with a `period` parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.
+One-shot timers are also initialized with a `period` parameter often called a "timeout" period.  This is the amount of time in milliseconds before the timer will fire.  One-shot timers are used if you want to do something in the future but don't want to deal with it now.  You can think of this as a reminder service.
 
 Here is how both Periodic and one-shot timers are setup:
 
@@ -25,14 +25,14 @@ myOneShotTimer = Timer()
 # call once in 10 seconds from now
 myOneShotTimer.init(mode=Timer.ONE_SHOT, callback=myCallbackFunction, period=10000)
 
-# call every two seconds
+# call every two seconds until the timer is deactivated
 myPeriodicTimer = Timer()
 myPeriodicTimer.init(mode=Timer.PERIODIC, callback=myCallbackFunction, period=2000) 
 ```
 
 ## Using Frequency on Periodic Timers
 
-A Periodic Timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:
+A Periodic timer can be configured to use either a period or a frequency as a parameter.  The frequency is the number of times the timer will fire per second.  The period is the amount of time in milliseconds between each event.  The frequency is used to calculate the period. The following are equivalent:
 
 ```python
 # 50ms between events
@@ -47,6 +47,9 @@ You can always convert between the two by taking the inverse and multiplying by 
 frequency = 1 / period * 1000
 period = 1 / frequency * 1000
 ```
+
+## Hardware vs. Virtual Software Timers
+Older microcontrollers have fixed hardware associated with each timer.  These are call "hardware timers".  When you initialize a hardware timer, you specify what set of hardware to use using a fixed ID (0,1,2,3 etc.).  On the Raspberry Pi Pico all timers are "virtual" and are implemented in software. All virtual timers have an ID of -1 and the timer ID does not need to be specified.
 
 ## Sample Timer Program
 
@@ -85,7 +88,7 @@ while True:
 
 ## Sample Code to Animate an LED Strip With a Timer
 
-Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn.  This function will be called every time the timer goes off.
+Many times you want to animate an LED strip but not complicate up your main event loop with this code.  For example, you might want to light up the entire strip with a pattern of motion on the LED strip.  You can do this by creating a new function that will conditionally turn one pixel to a color and increment a global variable that keeps track of which pixel to turn on.  This function will be called every time the timer goes off.
 
 ```python
 from machine import Pin, Timer
@@ -121,6 +124,8 @@ while True:
     sleep(5) # sleep for five seconds
 ```
 
+For example, if a robot has a set of "modes" like driving forward, turning left, turning right, backing up etc.  You can use a timer to flash the LED strip in different colors with different patterns to indicate the robot is in different modes.
+
 ## Removing a Timer
 
 The ```Timer.deinit()``` can be used to remove a timer from the system.  This is useful if you want to stop a timer that is currently running.  If you have many timers that are each using memory, it is a good practice to remove them when you are done with them.
@@ -131,23 +136,25 @@ In MicroPython on the RP2040, there are no limits placed on the number of timers
 
 Other implementations of MicroPython on different hardware have stricter limits placed on the number of timers.  The ESP32 MicroPython port currently only has four hardware timers and a numeric ID of 0 to 3 must be used when you setup these timers. For the [pyboard](https://docs.pyboard.org/en/latest/timers.html) has a limit of 14 timers.  Be aware of these limits if you are interested in creating portable MicroPython code.
 
-## Drawbacks of Timers
+## Drawbacks of Timers and ISRs
 
 Unfortunately, different hardware implementations of MicroPython have different ways to setup and use timers.  Some hardware requires timers to each have an ID tied to a specific resource.  Because of this, be cautious about using timers in your code if you require portability between hardware.
 
-Timers also can call interrupts, but in multi-core systems these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.
+As we mentioned, timers need callback functions are a type of function called interrupt service requests (ISRs). In multi-core systems like the RP2040 these interrupts can only be called from the core that executed the timer.  This means that if you are using a timer to trigger an interrupt, you must make sure that the interrupt is only called from the core that is executing the timer.
 
-Timers are often use to call interrupts, and there are special limitations on what can and can't be done within an interrupts in most systems.  For example you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.
+There are special limitations on what can and can't be done within interrupts in most systems.  For example, you are not allowed to allocate dynamic memory within an interrupt.  Your interrupt handler should be a short function that performs the minimum work to change external variables.  This is because the interrupt handler is called in a separate thread and can't allocate memory.
 
-In general, doing complex logic within Timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method.  This will make your code easier to understand and maintain.
-
-## References
-
-1. [MicroPython Timers](https://docs.micropython.org/en/latest/library/machine.Timer.html)
-1. [MicroPython Documentation on Timers on the RP2040](https://docs.micropython.org/en/latest/rp2/quickref.html)
+In general, doing complex logic within timers and interrupts is not a good idea.  If you are interested in doing complex logic, you should use a different method that is easy to debug.  This will make your code easier to understand and maintain.
 
 ## Exercises
 
 1. Can you change the frequency of the times in the sample code above?
 2. How much memory do you think a timer will use?  How many timers can be used on a RP2040 with 264K of memory?
 3. What if you wanted a timer to check in on the health of your program?  Could it reboot the Raspberry Pi using ```machine.reset()``` if it gets stuck?  Hint: See [Watchdog Timers](https://docs.micropython.org/en/latest/library/machine.WDT.html)
+
+
+## References
+
+1. [MicroPython Timers](https://docs.micropython.org/en/latest/library/machine.Timer.html)
+1. [MicroPython Documentation on Timers on the RP2040](https://docs.micropython.org/en/latest/rp2/quickref.html)
+2. [Engineers Garage on Time and Timers in MicroPython](https://www.engineersgarage.com/micropython-time-related-functions-timers-interrupts-in-esp8266-and-esp32/)
