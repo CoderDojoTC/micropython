@@ -122,6 +122,7 @@ nav:
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
     - Rshell: advanced-labs/11-rshell.md
     - Timers: advanced-labs/13-timers.md
+    - Memory Management: advanced-labs/14-memory-management.md
     - TinyML: advanced-labs/20-tinyml.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
