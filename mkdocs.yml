@@ -55,20 +55,24 @@ nav:
     - Non-Graphical:
       - Introduction: displays/non-graph/01-intro.md
       - 7 Segment Display: displays/non-graph/seven-segment.md
+      - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
       - Character LCD: displays/non-graph/10-character-lcd-display.md
     - Graphical Displays:
       - Introduction: displays/graph/01-intro.md
       - Graphic LCD: displays/graph/15-cu1609c-led.md
       - Basic Drawing: displays/graph/03-basic-drawing.md
       - Drawing with Bitmaps: displays/graph/03-bitmaps.md
+      - Custom Drawing Functions: displays/graph/04-extended-drawing-functions.md
       - Color LCD ST7789V: displays/graph/14-lcd-st7789V.md
+      - TFT LI9341: displays/graph/16-tft-li9341.md
       - LCD Waveshare: displays/graph/11-lcd-waveshare.md
       - E-Paper: displays/graph/12-e-paper-display.md
-      - OLED Setup: oled//graph/02-oled-setup.md
+      - OLED Setup: displays/graph/02-oled-setup.md
       - OLED SSD1306 I2C: displays/graph/11-oled-ssd1306-i2c.md
       - OLED SSD1306 SPI V1: displays/graph/12-oled-ssd1306-spi-v1.md
       - OLED SSD1306 SPI V2: displays/graph/11-oled-ssd1306-spi.md
       - OLED SH1106 I2C Example: displays/graph/11-oled-sh1106-i2c.md
+      - OLED SSD 1352: displays/graph/17-ssd1352.md
       - OLED Bounce: displays/graph/10-oled-bounce.md
       - OLED Pot: displays/graph/12-oled-pot.md
       - OLED Ping: displays/graph/11-oled-ping.md

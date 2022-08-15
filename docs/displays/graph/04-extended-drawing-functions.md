@@ -1,5 +1,7 @@
 # Extending Drawing Functions
 
+Although there are a number of drawing functions available in most of the standard graphics libraries, most of them lack some basic shapes such as a circle.  To draw circles on your display, you will need to add your own Python functions.  Here are some examples of these custom drawing functions.
+
 ## Circle
 
 If we assume we have a 64x128 display we can call two circle functions to draw eyes
