@@ -18,7 +18,7 @@
     
     
       
-        <title>OLED SSD1351 MicroPython Driver - MicroPython for Kids</title>
+        <title>OLED SSD 1352 - MicroPython for Kids</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              OLED SSD1351 MicroPython Driver
+              OLED SSD 1352
             
           </span>
         </div>
@@ -921,12 +921,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
       
       <label class="md-nav__link" for="nav-8">
         Displays
@@ -991,6 +993,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../non-graph/03-10-bar-leds/" class="md-nav__link">
+        10 Bar LEDs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../non-graph/10-character-lcd-display/" class="md-nav__link">
         Character LCD
       </a>
@@ -1007,12 +1021,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2" checked>
       
       <label class="md-nav__link" for="nav-8-2">
         Graphical Displays
@@ -1079,8 +1095,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../04-extended-drawing-functions/" class="md-nav__link">
+        Custom Drawing Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../14-lcd-st7789V/" class="md-nav__link">
         Color LCD ST7789V
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-tft-li9341/" class="md-nav__link">
+        TFT LI9341
       </a>
     </li>
   
@@ -1115,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oled/graph/02-oled-setup.md" class="md-nav__link">
+      <a href="../02-oled-setup/" class="md-nav__link">
         OLED Setup
       </a>
     </li>
@@ -1166,6 +1206,70 @@
       <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OLED SSD 1352
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OLED SSD 1352
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-shapes" class="md-nav__link">
+    Drawing Shapes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1351-micropython-driver" class="md-nav__link">
+    SSD1351 MicroPython Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1351-datasheet" class="md-nav__link">
+    SSD1351 Datasheet
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2644,6 +2748,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-shapes" class="md-nav__link">
+    Drawing Shapes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1351-micropython-driver" class="md-nav__link">
+    SSD1351 MicroPython Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssd1351-datasheet" class="md-nav__link">
+    SSD1351 Datasheet
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2660,7 +2793,176 @@
                 
                 
                 <h1 id="oled-ssd1351-micropython-driver">OLED SSD1351 MicroPython Driver</h1>
-<p>https://github.com/rdagger/micropython-ssd1351</p>
+<p>The SSD1351 is a $40 color OLED measures 1.5" diagonal and contains 128x128 RGB pixels.  It supports a SPI interface.</p>
+<h2 id="drawing-shapes">Drawing Shapes</h2>
+<p>This demo shows how to draw shapes on the display.  It starts out with simple lines and rectangles then progresses to more complex shapes such as circles and ellipses.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;SSD1351 demo (shapes).&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">ssd1351</span> <span class="kn">import</span> <span class="n">Display</span><span class="p">,</span> <span class="n">color565</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
+
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Test code.&quot;&quot;&quot;</span>
+    <span class="c1"># Baud rate of 14500000 seems about the max</span>
+    <span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">14500000</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">23</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;spi started&#39;</span><span class="p">)</span>
+    <span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">),</span> <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;display started&#39;</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color565</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_hline</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_vline</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_hrect</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_hline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">coords</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">],</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="p">[</span><span class="mi">122</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">]]</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_lines</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_polygon</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+                         <span class="n">rotate</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_circle</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_ellipse</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+
+
+<span class="n">test</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="ssd1351-micropython-driver">SSD1351 MicroPython Driver</h2>
+<p>The driver is here
+<a href="https://github.com/rdagger/micropython-ssd1351">RDagger GitHub</a></p>
+<p><a href="https://github.com/rdagger/micropython-ssd1351/blob/master/ssd1351.py">SSD1351 MicroPython Driver on RDagger GitHub</a></p>
+<h2 id="ssd1351-datasheet">SSD1351 Datasheet</h2>
+<p><a href="https://newhavendisplay.com/content/app_notes/SSD1351.pdf">Datasheet on NewHaven Displays</a></p>
                 
               
               
@@ -2675,6 +2977,41 @@
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../11-oled-sh1106-i2c/" title="OLED SH1106 I2C Example" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  OLED SH1106 I2C Example
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../10-oled-bounce/" title="OLED Bounce" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  OLED Bounce
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">

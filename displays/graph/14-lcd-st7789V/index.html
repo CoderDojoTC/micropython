@@ -993,6 +993,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../non-graph/03-10-bar-leds/" class="md-nav__link">
+        10 Bar LEDs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../non-graph/10-character-lcd-display/" class="md-nav__link">
         Character LCD
       </a>
@@ -1073,6 +1085,18 @@
     <li class="md-nav__item">
       <a href="../03-bitmaps/" class="md-nav__link">
         Drawing with Bitmaps
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-extended-drawing-functions/" class="md-nav__link">
+        Custom Drawing Functions
       </a>
     </li>
   
@@ -1196,6 +1220,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../16-tft-li9341/" class="md-nav__link">
+        TFT LI9341
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../11-lcd-waveshare/" class="md-nav__link">
         LCD Waveshare
       </a>
@@ -1220,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oled/graph/02-oled-setup.md" class="md-nav__link">
+      <a href="../02-oled-setup/" class="md-nav__link">
         OLED Setup
       </a>
     </li>
@@ -1270,6 +1306,18 @@
     <li class="md-nav__item">
       <a href="../11-oled-sh1106-i2c/" class="md-nav__link">
         OLED SH1106 I2C Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-ssd1352/" class="md-nav__link">
+        OLED SSD 1352
       </a>
     </li>
   
@@ -2855,7 +2903,7 @@
 </ul>
 <p>Note: The ST7789 uses a SPI interfaces but not a true standard SPI protocol. The device only uses MOSI (DIN) to send data from master to slave for LCD display.  Only four wires are needed to connect from the Pico to the device.</p>
 <h2 id="device-interface">Device Interface</h2>
-<p><img alt="" src="../img/st7789-lcd-back.png" /></p>
+<p><img alt="" src="../../../img/st7789-lcd-back.png" /></p>
 <h2 id="interface">Interface</h2>
 <ol>
 <li>VCC  Power (3.3V input)</li>
@@ -3032,7 +3080,7 @@ For most LCD controllers, the communication method of the controller can be conf
 </ol>
 <h2 id="timing-diagram">Timing Diagram</h2>
 <p>You can see what data needs to be changing from the timing diagram below:</p>
-<p><img alt="" src="../img/st7789-lcd-timing.png" /></p>
+<p><img alt="" src="../../../img/st7789-lcd-timing.png" /></p>
 <ol>
 <li>The SPI communication protocol of the data transmission uses control bits: clock phase (CPHA) and clock polarity (CPOL)</li>
 <li>CPOL defines the level while the synchronization clock is idle. If CPOL=0, then it is LOW.  </li>
@@ -3064,7 +3112,7 @@ For most LCD controllers, the communication method of the controller can be conf
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../03-bitmaps/" title="Drawing with Bitmaps" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../04-extended-drawing-functions/" title="Custom Drawing Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -3073,19 +3121,19 @@ For most LCD controllers, the communication method of the controller can be conf
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Drawing with Bitmaps
+                  Custom Drawing Functions
                 </span>
               </div>
             </a>
           
           
-            <a href="../11-lcd-waveshare/" title="LCD Waveshare" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../16-tft-li9341/" title="TFT LI9341" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  LCD Waveshare
+                  TFT LI9341
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
