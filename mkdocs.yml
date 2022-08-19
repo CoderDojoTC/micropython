@@ -80,7 +80,7 @@ nav:
       - OLED Pixel Draw: displays/graph/13-pixel-draw.md
       - OLED Patterns: displays/graph/15-oled-patterns.md
       - Random Hearts: displays/graph/14-random-hearts.md
-      - NeoPixel Matrix: displays/graph/16-neopixel-matrix.md
+      - NeoPixel Matrix: displays/graph/18-neopixel-matrix.md
       - OLED References: displays/graph/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
