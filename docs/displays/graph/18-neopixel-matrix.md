@@ -4,15 +4,37 @@
 
 ## Introduction
 
-This is a display that uses a NeoPixel matrix to display information.
+This lesson uses MicroPython to control display that uses a 8X32 matrix of WS2812 RGB LEDs to display information.  The entire display is controlled by three wires, a ground, +5V, and a serial data signal.  We will use the MicroPython builtin NeoPixel library to control the display.  You can use many of the programs in the [NeoPixel Basics](../basics/../../basics/05-neopixel.md) lesson to control the display.  The key difference is that we will need to convert matrix coordinates to NeoPixel index numbers.
+
+## Purchasing Hardware
+
+You can purchase a matrix of 8X32 WS2812 RGB LED on eBay for about $12 on [eBay](https://www.ebay.com/itm/255390906966) or about [$100](https://www.adafruit.com/product/2294) on Adafruit.  They are also available in 16X16 versions and the devices can be chained together to make larger displays.  On our version tested here, we have a total of 8*32 = 256 pixels.
+
+![WS2811B 8X32 Matrix](../../img/ws2811B-8x32-matrix.png)
+
+## Basic Software Setup
 
 We must first create a function that will draw a pixel at a given x and y position.  This is
 complicated by the fact that the matrix is not a regular grid, but rather a grid that is connected
-in a zig-zag pattern.
+in a zig-zag serpentine pattern illustrated below.
 
+![Matrix Mapping Function](../../img/matrix-mapping-function.png)
 
+Note that the math for doing even and odd columns is different.  The even columns are drawn from the top down and the odd columns are drawn from the bottom to the top which is the order the pixels are wired together in the matrix.
+
+To use the functions that draw pixels, we must first create a function that will convert the x and y coordinates to a NeoPixel index.  This is done by the following function.  We will then pass this function into the library that will draw characters on the screen.
 
 ```python
+from machine import Pin
+from neopixel import NeoPixel
+
+NEOPIXEL_PIN = 0
+ROWS = 8
+COLS = 32
+NUMBER_PIXELS = ROWS * COLS
+# Allocate memory for the NeoPixel matrix
+matrix = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
 def write_pixel(x, y, value):
     if y >= 0 and y < ROWS and x >=0 and x < COLS:
         # odd count rows 1, 3, 5 the wire goes from bottup
@@ -22,9 +44,83 @@ def write_pixel(x, y, value):
             strip[x*ROWS + y] = value
 ```
 
-## Hardware
+## Testing Your Write Pixel Function
 
-Our matrix is 8X32, so we have 8 columns and 32 rows.  We have a total of 8*32 = 256 pixels.
+We can then test the function by calling it at four corners with different colors.
+
+```python
+# draw four colors at each corner of the matrix
+write_pixel(0, 0, (255, 0, 0)) # draw a red pixel at the top left corner
+write_pixel(7, 0, (0, 255, 0)) # draw a green pixel at the lower left corner
+write_pixel(0, 7, (0, 0, 255)) # draw a blue pixel at the top right corner
+write_pixel(7, 7, (255, 255, 255)) # draw a white pixel at the lower right corner
+```
+
+## Bounce a Ball
+
+To test the write_pixel() function, lets write a function that will draw a ball at a given x and y position.  We will move the ball around the screen and reverse the direction when the ball hits the edge of the screen.
+
+```python
+# Bounce a ball around a NeoPixel Matrix
+from neopixel import NeoPixel
+from utime import sleep
+
+NEOPIXEL_PIN = 0
+ROWS = 8
+COLS = 32
+NUMBER_PIXELS = ROWS * COLS
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
+# matrix = [[0 for _ in range(cols)] for _ in range(rows)]
+def clear():
+    for i in range(0, NUMBER_PIXELS):
+        strip[i] = (0,0,0)
+    strip.write()
+
+def write_pixel(x, y, value):
+    if y >= 0 and y < ROWS and x >=0 and x < COLS:
+        # odd count rows 1, 3, 5 the wire goes from bottup
+        if x % 2: 
+            strip[(x+1)*ROWS - y - 1] = value             
+        else: # even count rows, 0, 2, 4 the wire goes from the top down up
+            strip[x*ROWS + y] = value
+
+def show():
+    strip.write()
+
+brightness=1
+x=0
+y=0
+dx = 1
+dy = 1
+counter = 0
+while True:
+    if x <= 0:
+        dx = 1
+    if y <= 0:
+        dy = 1
+    if x >= COLS-1:
+        dx = -1
+    if y >= ROWS-1:
+        dy = -1
+    print(x,y)
+    if counter < 100:
+        write_pixel(x, y, (brightness,0,0)) # blue
+    elif counter < 200:
+        write_pixel(x, y, (0,brightness,0)) # blue
+    elif counter < 300:
+        write_pixel(x, y, (0,0,brightness)) # blue
+    show()
+    x += dx
+    y += dy
+    counter += 1
+    if counter > 300:
+        counter = 0
+    if not counter % 150:
+        x += 1
+    sleep(.1)
+```
+
 
 ## Bitmap LIbrary
 
