@@ -1349,8 +1349,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    Hardware
+  <a href="#purchasing-hardware" class="md-nav__link">
+    Purchasing Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-software-setup" class="md-nav__link">
+    Basic Software Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-write-pixel-function" class="md-nav__link">
+    Testing Your Write Pixel Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bounce-a-ball" class="md-nav__link">
+    Bounce a Ball
   </a>
   
 </li>
@@ -2788,8 +2809,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    Hardware
+  <a href="#purchasing-hardware" class="md-nav__link">
+    Purchasing Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-software-setup" class="md-nav__link">
+    Basic Software Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-write-pixel-function" class="md-nav__link">
+    Testing Your Write Pixel Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bounce-a-ball" class="md-nav__link">
+    Bounce a Ball
   </a>
   
 </li>
@@ -2835,17 +2877,44 @@
                 <h1 id="neopixel-matrix-display">NeoPixel Matrix Display</h1>
 <p><img alt="" src="../../../img/neopixel-matrix.gif" /></p>
 <h2 id="introduction">Introduction</h2>
-<p>This is a display that uses a NeoPixel matrix to display information.</p>
+<p>This lesson uses MicroPython to control display that uses a 8X32 matrix of WS2812 RGB LEDs to display information.  The entire display is controlled by three wires, a ground, +5V, and a serial data signal.  We will use the MicroPython builtin NeoPixel library to control the display.  You can use many of the programs in the <a href="../../../basics/05-neopixel/">NeoPixel Basics</a> lesson to control the display.  The key difference is that we will need to convert matrix coordinates to NeoPixel index numbers.</p>
+<h2 id="purchasing-hardware">Purchasing Hardware</h2>
+<p>You can purchase a matrix of 8X32 WS2812 RGB LED on eBay for about $12 on <a href="https://www.ebay.com/itm/255390906966">eBay</a> or about <a href="https://www.adafruit.com/product/2294">$100</a> on Adafruit.  They are also available in 16X16 versions and the devices can be chained together to make larger displays.  On our version tested here, we have a total of 8*32 = 256 pixels.</p>
+<p><img alt="WS2811B 8X32 Matrix" src="../../../img/ws2811B-8x32-matrix.png" /></p>
+<h2 id="basic-software-setup">Basic Software Setup</h2>
 <p>We must first create a function that will draw a pixel at a given x and y position.  This is
 complicated by the fact that the matrix is not a regular grid, but rather a grid that is connected
-in a zig-zag pattern.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+in a zig-zag serpentine pattern illustrated below.</p>
+<p><img alt="Matrix Mapping Function" src="../../../img/matrix-mapping-function.png" /></p>
+<p>Note that the math for doing even and odd columns is different.  The even columns are drawn from the top down and the odd columns are drawn from the bottom to the top which is the order the pixels are wired together in the matrix.</p>
+<p>To use the functions that draw pixels, we must first create a function that will convert the x and y coordinates to a NeoPixel index.  This is done by the following function.  We will then pass this function into the library that will draw characters on the screen.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ROWS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">COLS</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="n">ROWS</span> <span class="o">*</span> <span class="n">COLS</span>
+<span class="c1"># Allocate memory for the NeoPixel matrix</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">ROWS</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">COLS</span><span class="p">:</span>
         <span class="c1"># odd count rows 1, 3, 5 the wire goes from bottup</span>
         <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span> 
@@ -2854,8 +2923,138 @@ in a zig-zag pattern.</p>
             <span class="n">strip</span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">ROWS</span> <span class="o">+</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="hardware">Hardware</h2>
-<p>Our matrix is 8X32, so we have 8 columns and 32 rows.  We have a total of 8*32 = 256 pixels.</p>
+<h2 id="testing-your-write-pixel-function">Testing Your Write Pixel Function</h2>
+<p>We can then test the function by calling it at four corners with different colors.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># draw four colors at each corner of the matrix</span>
+<span class="n">write_pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># draw a red pixel at the top left corner</span>
+<span class="n">write_pixel</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># draw a green pixel at the lower left corner</span>
+<span class="n">write_pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span> <span class="c1"># draw a blue pixel at the top right corner</span>
+<span class="n">write_pixel</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span> <span class="c1"># draw a white pixel at the lower right corner</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="bounce-a-ball">Bounce a Ball</h2>
+<p>To test the write_pixel() function, lets write a function that will draw a ball at a given x and y position.  We will move the ball around the screen and reverse the direction when the ball hits the edge of the screen.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Bounce a ball around a NeoPixel Matrix</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ROWS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">COLS</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="n">ROWS</span> <span class="o">*</span> <span class="n">COLS</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># matrix = [[0 for _ in range(cols)] for _ in range(rows)]</span>
+<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">ROWS</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">COLS</span><span class="p">:</span>
+        <span class="c1"># odd count rows 1, 3, 5 the wire goes from bottup</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span> 
+            <span class="n">strip</span><span class="p">[(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">ROWS</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>             
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># even count rows, 0, 2, 4 the wire goes from the top down up</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">ROWS</span> <span class="o">+</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="k">def</span> <span class="nf">show</span><span class="p">():</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="n">brightness</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">COLS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">ROWS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="n">brightness</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># blue</span>
+    <span class="k">elif</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">brightness</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># blue</span>
+    <span class="k">elif</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">write_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">brightness</span><span class="p">))</span> <span class="c1"># blue</span>
+    <span class="n">show</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">150</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="bitmap-library">Bitmap LIbrary</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
