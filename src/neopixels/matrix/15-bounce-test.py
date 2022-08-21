@@ -1,5 +1,4 @@
-# import MatrixBuffer
-
+# Bounce a ball around a NeoPixel Matrix
 from neopixel import NeoPixel
 from utime import sleep
 
