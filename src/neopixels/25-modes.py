@@ -1,16 +1,16 @@
 # moving rainbow
 from machine import Pin
-from neopixel import NeoPixel
+from neopixelgrb import NeoPixel2
 from utime import sleep, ticks_ms
 from urandom import randint
 
 NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NUMBER_PIXELS = 50
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
-strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel2(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 BUTTON_PIN_1 = 15
 BUTTON_PIN_2 = 14
