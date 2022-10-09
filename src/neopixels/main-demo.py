@@ -129,19 +129,28 @@ def moving_rainbow(counter, delay):
         strip[counter] = (0,0,0)
     sleep(delay)
 
-def candle(delay):
+def candle_rnd():
      green = 50 + randint(0,155)
      red = green + randint(0,50)
      strip[randint(0,NUMBER_PIXELS - 1)] = (red, green, 0)
      strip.write()
-     sleep(delay)
 
-def random_color(delay):
+def candle(delay):
+    for i in range(0, 5):
+        candle_rnd()
+        sleep(delay)
+
+def random_color_pixel():
     random_offset = randint(0, NUMBER_PIXELS-1)
     random_color = randint(0, 255)
     strip[random_offset] = wheel(random_color)
     strip.write()
-    sleep(delay)
+    
+
+def random_color(delay):
+    for i in range(0, 5):
+        random_color_pixel()
+        sleep(delay)
 
 HALF_LENGTH = round(NUMBER_PIXELS/2)
 def bounce(counter, color, delay):
@@ -219,6 +228,7 @@ def cylon_scanner(delay):
             state = 0
             counter = 0
             #print('switching to forward', counter)
+
 # Global variables
 mode = 0
 counter = 0
@@ -231,27 +241,27 @@ while True:
     if mode == 0:
         moving_rainbow(counter, .05)
     elif mode == 1:
-        move_dot(counter, red, .05)
+        move_dot(counter, red, .03)
     elif mode == 2:
-        move_dot(counter, green, .05)
+        move_dot(counter, green, .03)
     elif mode == 3:
-        move_dot(counter, blue, .05)
+        move_dot(counter, blue, .03)
     elif mode == 4:  
-        comet_tail(counter, red, .01)
+        comet_tail(counter, red, .003)
     elif mode == 5:  
-        comet_tail(counter, green, .01)
+        comet_tail(counter, green, .003)
     elif mode == 6:  
-        comet_tail(counter, blue, .01)
+        comet_tail(counter, blue, .003)
     elif mode == 7:  
         candle(.01)
     elif mode == 8:  
         random_color(.01)
     elif mode == 9:  
-        bounce(counter, red, .15)
+        bounce(counter, red, .1)
     elif mode == 10: 
         running_lights(counter, blue, 4, .2)
     elif mode == 11: 
-        rainbow_cycle(counter, .05)
+        rainbow_cycle(counter, .03)
     elif mode == 12: 
         cylon_scanner(.05)
     else:
@@ -259,4 +269,8 @@ while True:
 
     counter += 1
     # wrap the counter using modulo
-    counter = counter % NUMBER_PIXELS
+    if counter > NUMBER_PIXELS -1 :
+        counter = 0
+        mode += 1
+        if mode > mode_count - 2:
+            mode = 0
