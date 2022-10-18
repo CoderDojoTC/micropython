@@ -56,7 +56,7 @@ nav:
     - 7 Segment Display: displays/non-graph/seven-segment.md
     - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
     - Character LCD: displays/non-graph/10-character-lcd-display.md
-  - DisplaysL Graphical:
+  - Displays Graphical:
     - Introduction: displays/graph/01-intro.md
     - Graphic LCD: displays/graph/15-cu1609c-led.md
     - Basic Drawing: displays/graph/03-basic-drawing.md
