@@ -1104,13 +1104,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
       
       <label class="md-nav__link" for="nav-9">
-        DisplaysL Graphical
+        Displays Graphical
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="DisplaysL Graphical" data-md-level="1">
+      <nav class="md-nav" aria-label="Displays Graphical" data-md-level="1">
         <label class="md-nav__title" for="nav-9">
           <span class="md-nav__icon md-icon"></span>
-          DisplaysL Graphical
+          Displays Graphical
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2886,15 +2886,19 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Setup - run once</span>
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Setup - run once</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span> <span class="c1"># Get the Pin function from the machine module.</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># Get the sleep library from the time module.</span>
 
 <span class="c1"># This is the built-in green LED on the Pico.</span>
 <span class="n">BUILT_IN_LED_PIN</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="c1"># change this to the following named pin on the &quot;W&quot;</span>
+<span class="c1"># BUILT_IN_LED_PIN = Pin(&quot;LED&quot;, Pin.OUT)</span>
+
 <span class="c1"># The line below indicates we are configuring this as an output (not input)</span>
 <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">BUILT_IN_LED_PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-
 
 <span class="c1"># Main loop: Repeat the forever...</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
