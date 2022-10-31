@@ -4,3 +4,5 @@ site
 secrets.py
 __pycache__
 ~$*
+.venv
+venv
