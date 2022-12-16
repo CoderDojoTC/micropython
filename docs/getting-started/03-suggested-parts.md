@@ -39,6 +39,12 @@ We like the 1/2 size boards that have 400 connection points.  We like to mount t
 ## Hookup Wire
 Use 22 gauge wire.  Get a large spool of black and red and smaller spools of other colors.  We use 
 
+## Breakable 40-Pin Headers
+
+If you purchase the Raspberry Pi Pico kit that does not have the header pins soldered in, you can use the following to add your own header pins in so the Pico's can be used with the header pins.
+
+[40 pin Breakable Pin Header 2.54mm Single Row Male Header Connector Kit on eBay](https://www.ebay.com/itm/223971948942).  I purchased 12 of these for $5 or $4.24 per pack of 12 when I purchase 4 packs.
+
 ## Male-to-Male Breadboard Jumper Wires
 You can use 22 gauge wire to build your projects, however kids that don't have fine motor skills sometimes get frustrated with raw wires.  You can purchase a Jumper Wire Kit with 65 jumpers on EBay for under $2 that has nice plastic ends that are easier to use.
 

@@ -28,6 +28,10 @@ The Raspberry Pi RP2040 is a custom silicon microcontroller built by the [Raspbe
 * Created using the TSMC 40LP (40 nano meter low power) manufacturing process
 * USB mass-storage boot mode with UF2 support, for drag-and-drop programming
 
+## Runtimes
+
+![Micropython.org RP2 Runtime Page](https://micropython.org/download/rp2-pico/)
+
 ## USB Cable
 The Raspberry Pi Pico uses a USB-micro connector.  You can purchase USB Micro-B to USB-A or USB-C (Mac) cables on e-bay for under $2 or for $5 at Microcenter.
 ![usb-micro-to-c](../img/usb-micro-to-c.png) - image from ebay

@@ -2,6 +2,7 @@
     "editor.fontSize": 10,
     "cSpell.words": [
 <<<<<<< HEAD
+<<<<<<< HEAD
         "Adafruit",
         "Ampy",
         "Barchart",
@@ -48,6 +49,9 @@
         "vals",
         "vline"
 =======
+=======
+        "Adafruit",
+>>>>>>> af6fd1582dc5f2125614460b5b9ee404db3c02df
         "AGND",
         "allowfullscreen",
         "Autoshutdown",
@@ -56,22 +60,27 @@
         "ffprobe",
         "Framebuffers",
         "microcontroller",
+        "microsite",
         "microswitch",
         "microswitches",
         "milliamp",
         "milliamps",
         "mkdocs",
         "NEOPIXEL",
+        "neopixels",
         "OLED",
+        "ONESHOT",
         "photosensor",
         "Pinout",
         "pydub",
         "rshell",
         "SMPS",
         "solderless",
+        "SSID",
         "Thonny",
         "TTGO",
         "urandom",
+        "urequests",
         "usbmodem",
         "utime",
         "VBUS",
@@ -81,7 +90,15 @@
 >>>>>>> 0b6e3f501f3a042f5782a2d74206aa085657872c
 =======
         "VSYS",
+<<<<<<< HEAD
         "waveshare"
 >>>>>>> d971679f78e0ee95dd3ed75e2093e8a733d65f3f
+=======
+        "waveshare",
+        "WLAN"
+    ],
+    "markdown.experimental.validate.ignoreLinks": [
+        "../img/pi-w.png"
+>>>>>>> af6fd1582dc5f2125614460b5b9ee404db3c02df
     ]
 }

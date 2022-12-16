@@ -1,4 +1,6 @@
 .DS_Store
 .vscode/*
 site
+secrets.py
+__pycache__
 ~$*

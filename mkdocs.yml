@@ -27,6 +27,7 @@ nav:
     - Motor: basics/04-motor.md
     - Servo: basics/04-servo.md
     - NeoPixel: basics/05-neopixel.md
+    - Wireless: basics/06-wireless.md
   - Sensors:
     - Introduction: sensors/01-intro.md
     - Photosensor: sensors/02-photosensor.md
@@ -41,7 +42,7 @@ nav:
     - Accelerometer Compass: sensors/06-accelerometer-compass.md
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
-    - Compass: 11-compass.md
+    - Compass: sensors/11-compass.md
   - Motors and Servos:
     - Introduction: motors/01-intro.md
     - Transistor Lab: motors/02-transistor.md
@@ -50,32 +51,36 @@ nav:
     - Controller Board: motors/05-controller-board.md
     - Servos: motors/06-servos.md
     - Stepper Motors: motors/07-stepper-motors.md
-  - Displays:
-    - Non-Graphical:
-      - Introduction: displays/01-intro.md
-      - 7 Segment Display: displays/seven-segment.md
-      - Character LCD: displays/10-character-lcd-display.md
-    - Graphical Displays:
-      - Introduction: oled/01-intro.md
-      - Graphic LCD: displays/15-cu1609c-led.md
-      - Basic Drawing: oled/03-oled-drawing.md
-      - Drawing with Bitmaps: displays/03-bitmaps.md
-      - Color LCD ST7789V: displays/14-lcd-st7789V.md
-      - LCD Waveshare: displays/11-lcd-waveshare.md
-      - E-Paper: displays/12-e-paper-display.md
-      - OLED Setup: oled/02-oled-setup.md
-      - OLED SSD1306 I2C: oled/11-oled-ssd1306-i2c.md
-      - OLED SSD1306 SPI V1: oled/12-oled-ssd1306-spi-v1.md
-      - OLED SSD1306 SPI V2: oled/11-oled-ssd1306-spi.md
-      - OLED SH1106 I2C Example: oled/11-oled-sh1106-i2c.md
-      - OLED Bounce: oled/10-oled-bounce.md
-      - OLED Pot: oled/12-oled-pot.md
-      - OLED Ping: oled/11-oled-ping.md
-      - OLED Pong: oled/11-pong.md
-      - OLED Pixel Draw: oled/13-pixel-draw.md
-      - OLED Patterns: oled/15-oled-patterns.md
-      - Random Hearts: oled/14-random-hearts.md
-      - OLED References: oled/40-oled-references.md
+  - Displays - Non-Graphical:
+    - Introduction: displays/non-graph/01-intro.md
+    - 7 Segment Display: displays/non-graph/seven-segment.md
+    - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
+    - Character LCD: displays/non-graph/10-character-lcd-display.md
+  - Displays Graphical:
+    - Introduction: displays/graph/01-intro.md
+    - Graphic LCD: displays/graph/15-cu1609c-led.md
+    - Basic Drawing: displays/graph/03-basic-drawing.md
+    - Drawing with Bitmaps: displays/graph/03-bitmaps.md
+    - Custom Drawing Functions: displays/graph/04-extended-drawing-functions.md
+    - Color LCD ST7789V: displays/graph/14-lcd-st7789V.md
+    - TFT LI9341: displays/graph/16-tft-li9341.md
+    - LCD Waveshare: displays/graph/11-lcd-waveshare.md
+    - E-Paper: displays/graph/12-e-paper-display.md
+    - OLED Setup: displays/graph/02-oled-setup.md
+    - OLED SSD1306 I2C: displays/graph/11-oled-ssd1306-i2c.md
+    - OLED SSD1306 SPI V1: displays/graph/12-oled-ssd1306-spi-v1.md
+    - OLED SSD1306 SPI V2: displays/graph/11-oled-ssd1306-spi.md
+    - OLED SH1106 I2C Example: displays/graph/11-oled-sh1106-i2c.md
+    - OLED SSD 1352: displays/graph/17-ssd1352.md
+    - OLED Bounce: displays/graph/10-oled-bounce.md
+    - OLED Pot: displays/graph/12-oled-pot.md
+    - OLED Ping: displays/graph/11-oled-ping.md
+    - OLED Pong: displays/graph/11-pong.md
+    - OLED Pixel Draw: displays/graph/13-pixel-draw.md
+    - OLED Patterns: displays/graph/15-oled-patterns.md
+    - Random Hearts: displays/graph/14-random-hearts.md
+    - NeoPixel Matrix: displays/graph/18-neopixel-matrix.md
+    - OLED References: displays/graph/40-oled-references.md
   - Sound and Music:
     - Introduction: sound/01-intro.md
     - Playing a Tone: sound/02-play-tone.md
@@ -85,6 +90,18 @@ nav:
     - Eight Key Piano: sound/06-eight-key-piano.md
     - Playing Audio File: sound/07-play-audio-file.md
     - Converting Audio Files: sound/09-converting-mp3-to-wav.md
+  - Wireless:
+    - Introduction: wireless/01-intro.md
+    - Connecting to WiFi: wireless/02-connecting-to-wifi.md
+    - HTTP GET: wireless/03-http-get.md
+    - Web Server: wireless/04-web-server.md
+    - Web Server NeoPixel: wireless/07-web-server-rgb-neopixels.md
+    - MAC Address: wireless/05-mac-address.md
+    - UPIP: wireless/06-upip.md
+    - Get Weather Forecast: wireless/08-get-weather.md
+    - Display Forecast on OLED: wireless/09-get-weather-display.md
+    - Advanced Labs: wireless/11-advanced-labs.md
+    - With Display: wireless/20-display.md
   - Robots:
     - Introduction: robots/01-intro.md
     - Base Bot: robots/02-base-bot.md
@@ -108,7 +125,12 @@ nav:
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
     - Rshell: advanced-labs/11-rshell.md
+<<<<<<< HEAD
     - Machine Learning: advanced-labs/12-machine-learning.md
+=======
+    - Timers: advanced-labs/13-timers.md
+    - Memory Management: advanced-labs/14-memory-management.md
+>>>>>>> af6fd1582dc5f2125614460b5b9ee404db3c02df
     - TinyML: advanced-labs/20-tinyml.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
@@ -127,8 +149,8 @@ nav:
     - Maker Pi RP2040 Robot:
       - Introduction: kits/maker-pi-rp2040-robot/01-intro.md 
       - Assembly: kits/maker-pi-rp2040-robot/02-assembly.md
-      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
+      - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
       - Square Lab: kits/maker-pi-rp2040-robot/07b-drive-square-lab.md
       - Servo Lab: kits/maker-pi-rp2040-robot/08-servo-lab.md
       - Scanner Test: kits/maker-pi-rp2040-robot/09-i2c-scanner-test.md
@@ -165,7 +187,7 @@ site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/CoderDojoTC/micropython'
 
-# CoderDojo Standards from here down
+# CoderDojo Microsite Standards from here down
 edit_uri: 'blob/master/docs'
 theme:
   # should be name: material
@@ -181,8 +203,9 @@ plugins:
   # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - attr_list
   - pymdownx.highlight:
       linenums: true
-  - pymdownx.details
-  - pymdownx.superfences
+
