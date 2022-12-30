@@ -3,8 +3,8 @@ from rotary import Rotary
 from time import sleep
 
 # GPIO Pins 16 and 17 are for the encoder pins. 18 is the button press switch.
-ENCODER_A = 16
-ENCODER_B = 17
+ENCODER_A = 14
+ENCODER_B = 15
 SWITCH = 18
 rotary = Rotary(ENCODER_A, ENCODER_B, SWITCH)
 val = 0
