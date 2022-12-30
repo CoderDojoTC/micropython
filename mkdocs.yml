@@ -132,7 +132,7 @@ nav:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md
       - Debugging SPI: debugging/29-debugging-spi.md
-  - Kits:
+  - Project Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
       - Introduction: kits/maker-pi-rp2040/01-intro.md
@@ -170,6 +170,7 @@ nav:
       - Getting Started: kits/neopixel/01-getting-started.md
       - Simple Patterns: kits/neopixel/02-simple-pattern.md
       - Buttons: kits/neopixel/03-buttons.md
+      - Rotary Neopixel: projects/03-notary-neopixel.md
   # - Project Ideas: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md

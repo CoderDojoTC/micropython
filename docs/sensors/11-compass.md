@@ -6,7 +6,11 @@ This lab will use the popular HML5883L chip to show how we can sense a magnetic 
 
 ## About the HML5883L
 
-The HML5883L
+The HMC5883L is a multi-chip module able to measure magnetic sensing. It can communicate with an I2C digital interface with other devices in order to let creating applications such as low-cost compass, being used in many electronic fields like mobile phones, netbooks, consumer electronics, auto navigation systems, and personal navigation devices.
+
+The module works with a low voltage supply (from 2.16 to 3.6V) and also has a low power consumption (100 μA).
+
+HMC5883L has a 1° to 2° degrees heading accuracy, which is enough for a wide number of applications. It also allows setting its internal gain to increase resolution with a 3-bit gain control register. But increasing gain also increases noise effects.
 
 ## Pinout
 
@@ -102,3 +106,4 @@ while True:
 
 1. [PPPPE80 Magnetometer Compass with Raspberry PI Pico: GY-271 HMC5883L wiring and use with MicroPython](https://peppe8o.com/magnetometer-compass-with-raspberry-pi-pico-gy-271-hmc5883l-wiring-and-use-with-micropython/)
 1. [PPPPE80 driver](https://github.com/peppe8o/rpi-pico-peppe8o/blob/main/libraries/hmc5883l.py)
+3. [Data Sheet](https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf)
