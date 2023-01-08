@@ -1,5 +1,7 @@
 # MicroPython Compass Lab
 
+[Digital Compass Lab Video](https://www.youtube.com/shorts/ed3TPN7XvnM)
+
 ![](../img/compass-hmc5883l-on-breadboard.jpg)
 
 This lab will use the popular HML5883L chip to show how we can sense a magnetic field and allow our robots to sense the direction they are going.
