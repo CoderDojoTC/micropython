@@ -758,6 +758,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sampling-data" class="md-nav__link">
     Sampling data
   </a>
@@ -2739,6 +2746,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sampling-data" class="md-nav__link">
     Sampling data
   </a>
@@ -2763,10 +2777,23 @@
                 
                 
                 <h1 id="reading-a-potentiometer">Reading a Potentiometer</h1>
-<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This
-pin can be used with an external reference if better ADC performance is required.
-AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7K_M1COfm54?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<p><a href="https://youtu.be/7K_M1COfm54">Video Demo</a></p>
+<p>In this lab we will hook up a Potentiometer to the <a href="../../misc/glossary/#analog-to-digital-converter">Analog to Digital Converter</a> of the Raspberry Pi Pico.</p>
+<h2 id="connections">Connections</h2>
+<p>Potentiometers have three wires:</p>
+<ol>
+<li>The ground rail</li>
+<li>The center tap</li>
+<li>The positive rail</li>
+</ol>
+<p>The rails are hooked up to fixed reference voltages.  As you turn the know, the center tap returns a value that varies between the ground and the positive rail voltages.</p>
+<p>On many microcontrollers, the positive voltage is very "noisy" in that it contains voltage that varies as the components draw power.  The Raspberry Pi has a special region for high-quality data gathering that is isolated from this noise.  To use this section you <strong>MUST</strong> hook the rails to the right pins.</p>
+<p>ADC_VREF is the ADC power supply (and reference) voltage, and is generated on Pico by filtering the 3.3V supply. This pin can be used with an external reference if better ADC performance is required.</p>
+<p>AGND is the ground reference for GPIO26-29, there is a separate analog ground plane running under these signals and
 terminating at this pin.</p>
+<p>&lt;!-- -&gt;
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -2781,7 +2808,7 @@ p[Pico]--&gt;|GP26 pin=26 ADC0 31 row=10| tap(Center Tap)
     neg(Negative) --- pot(Potentiometer)
     tap(Center Tap) --- pot(Potentiometer)
 </code></pre></div>
-</td></tr></table>
+</td></tr></table></p>
 <p>Connect the positive to pin 35 ADC_REF (row 6 on the breadboard) and the negative to pin 33 AGND (row 8 on the breadboard).  The Pico has special noise reduction circuits to avoid power supply jitter on these reference pins.</p>
 <h2 id="sampling-data">Sampling data</h2>
 <p>Sometimes the data coming from your Potentiometer is noisy.  You can sample the value multiple times and then average the values.</p>
