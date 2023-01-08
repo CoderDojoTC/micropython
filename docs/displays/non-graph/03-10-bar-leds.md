@@ -1,10 +1,31 @@
 # Ten Bar LED Display
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SooCyURMsPE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+![](../img/led-bar-graph-10-segments.png)
+
 ## Goals for the Lesson
 
-Our goal is to learn how to use python lists to turn on and off a row of 10 LEDs.
+ These LED displays can be purchased on eBay for around 40 cents each in quantity 10.  These displays are ideal for showing a reading such as a battery charge or a signal strength.
 
-Connect each of the LEDs through a 330 ohm resistor.
+ Our goal is to learn how to use python lists to turn on and off a row of 10 LEDs.
+
+## Circuit
+
+![](../img/led-10-segment-package-circuit.png)
+
+The LEDs come in a dual-in-line package with each of the LEDs connected by the pins aligned across the package.
+
+In the circuit below, I connected the positive (anode) of each LED to a GPIO pin and the negative (cathode) through a 330-ohm resistor to the GND rail of the solderless breadboard.
+
+![](../img/led-10-segment-circuit.png)
+
+Note!  You **MUST** use a current limiting resistor or you will burn out the LED.
+
+One end of each of the bars will go to one of the power rails and the other to a GIPO pin.  I used the pis on the lower part of the Raspberry Pi Pico for this demo.
+
+## Programming
 
 We will create a list that has each of the GPIO pins for output.
 
