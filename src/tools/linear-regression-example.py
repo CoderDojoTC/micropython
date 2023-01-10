@@ -6,10 +6,12 @@ x = xplot_values[:, 0]
 y = xplot_values[:, 1]
 
 # Fit a linear regression model
-model = np.polyfit(x, y, 1)
+model = np.polyfit(x, y, 2)
+
+print(model)
 
 # Get the slope and intercept of the line
-slope, intercept = model
+slope, intercept, sq = model
 
 # Print the equation of the line
 print(f"y = {slope:.2f}x + {intercept:.2f}")

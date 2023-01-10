@@ -1,5 +1,7 @@
 # MicroPython Compass Lab
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5zzkBOZh2k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 [Digital Compass Lab Video](https://www.youtube.com/shorts/ed3TPN7XvnM)
 
 ![](../img/compass-hmc5883l-on-breadboard.jpg)
