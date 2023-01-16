@@ -1,6 +1,6 @@
 # Avago APDS-9960 Gesture Sensor
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2OcbC_e4nNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2OcbC_e4nNI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 The APDS-9960 is an I2C device with advanced Gesture detection, Proximity detection, Digital Ambient Light Sense (ALS) and Color Sense (RGBC). It incorporates an IR LED and factory-calibrated LED driver.
 
