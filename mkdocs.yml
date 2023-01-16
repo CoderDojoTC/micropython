@@ -43,6 +43,7 @@ nav:
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
     - Compass: sensors/11-compass.md
+    - Gesture: sensors/13-gesture.md
   - Motors and Servos:
     - Introduction: motors/01-intro.md
     - Transistor Lab: motors/02-transistor.md
@@ -55,6 +56,7 @@ nav:
     - Introduction: displays/non-graph/01-intro.md
     - 7 Segment Display: displays/non-graph/seven-segment.md
     - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
+    - 8x8 LED Matrix: displays/non-graph/04-8x8-led-matrix.md
     - Character LCD: displays/non-graph/10-character-lcd-display.md
   - Displays Graphical:
     - Introduction: displays/graph/01-intro.md

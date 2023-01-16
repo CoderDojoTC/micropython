@@ -19,11 +19,12 @@ WIDTH = 128
 HEIGHT = 64
 SCK=machine.Pin(2)
 SDL=machine.Pin(3)
-spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
-
 RES = machine.Pin(4)
 DC = machine.Pin(5)
 CS = machine.Pin(6)
+spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
+print(spi)
+
 
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 oled.poweron()
