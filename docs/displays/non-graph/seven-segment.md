@@ -27,7 +27,7 @@ segment_maps = {}
 
 for segment, pin in pin_segments.items():
     segment_maps[segment] = Pin(pin, Pin.OUT)
-    
+
 other_pin_maps = {}
 
 for feature, pin in pin_others.items():
@@ -37,19 +37,19 @@ digit_maps = {}
 
 for digit, pin in pin_digits.items():
     digit_maps[digit] = Pin(pin, Pin.OUT)
-    
+
 other_maps = {}
 
 for feature, pin in pin_control_others.items():
     other_maps[feature] = Pin(pin, Pin.OUT)
-    
+
 
 def render_digit_display(show_digit=1, number=8, decimal=False):
-    
+
     # turn everything off
     for segment, mask in segment_masks.items():
         segment_maps[segment].value(1)
-        
+
     other_pin_maps['decimal'].value(1)
 
     # turn on the digit required to be displayed
@@ -59,30 +59,30 @@ def render_digit_display(show_digit=1, number=8, decimal=False):
             # print("\n\nDigit: {} - Pin: {} - Number: {}\n".format(digit, pin, number))
         else:
             digit_pin.value(0)
-            
+
     utime.sleep(0.001)
 
     display_number_bitmap = number_bitmaps[number]
-    
-    # check every 
+
+    # check every
     for segment, mask in segment_masks.items():
         # print("segment: {}\nmask: {}".format(segment, mask))
-            
+
         if display_number_bitmap & mask == mask:
             # print("segment OFF: {}".format(segment))
             segment_maps[segment].value(0)
         else:
             segment_maps[segment].value(1)
-    
+
     # show decimal
     if decimal:
         other_pin_maps['decimal'].value(0)
     else:
         other_pin_maps['decimal'].value(1)
-        
+
     utime.sleep(0.001)
 
-    
+
 def render_feature_display(show_colon=False, show_dash=False):
     if show_colon:
         other_pin_maps['colon'].value(0)
@@ -90,18 +90,18 @@ def render_feature_display(show_colon=False, show_dash=False):
     else:
         other_pin_maps['colon'].value(0)
         other_maps['colon'].value(0)
-        
+
     if show_dash:
         other_pin_maps['dash'].value(0)
         other_maps['dash'].value(1)
     else:
         other_pin_maps['dash'].value(0)
         other_maps['dash'].value(0)
- 
+
 while True:
-    
+
     lt_year, lt_month, lt_mday, lt_hour, lt_minute, lt_second, lt_weekday, lt_yearday = utime.localtime()
-    
+
     # testing out all the features of the display
     digit_1_decimal = (lt_second % 4 == 0)
     digit_2_decimal = (lt_second % 4 == 1)
@@ -112,10 +112,10 @@ while True:
     render_digit_display(2, lt_minute % 10, digit_2_decimal)
     render_digit_display(3, lt_second // 10, digit_3_decimal)
     render_digit_display(4, lt_second % 10, digit_4_decimal)
-    
+
     if (lt_second % 2 == 0):
         render_feature_display(True, False)
     else:
         render_feature_display(False, True)
-    
+
      ```

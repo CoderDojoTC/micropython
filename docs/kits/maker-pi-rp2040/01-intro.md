@@ -28,9 +28,9 @@ All our robots are built around a RP2040 and a motor driver with a few low-cost 
 * 4 red motor status LEDs buttons for displaying motors A and B, forward and backward
 * 7 Grove Ports on GPs 1:0,1; 2:2,3; 3:4,5; 4:16,17; 5:6,26; 6:26,27 and 7:7,28
 * 4 servo connectors on ports GP12, GP13, GP14 and GP15
-* Piezzo buzzer on port GP22
+* Piezo buzzer on port GP22
 * On/Off switch on GP22 which can be used to mute the sound
-* Phillps head screwdriver that works on the header pins - really convenient for students!
+* Phillips head screwdriver that works on the header pins - really convenient for students!
 * 4 [Grove Connectors](https://wiki.seeedstudio.com/Grove_System/)
 * Rubber mounting feet
 * Pins numbers clearly labeled both on top and bottom of the board
@@ -69,7 +69,7 @@ There are literally hundreds of sensors that have Grove connectors on them.  In 
 1. [**Collision Avoidance Robot**](20-collision-avoidance-robot.md) - this lab joins our motor and sensor labs with a SmartCar chassis to create a robot that avoids collisions.
 2. Collision Robot with Modes - TBD
 3. Adjustable Collision Avoidance - the adjusta bot! TBD
-4. Adding a display 
+4. Adding a display
 
 ## Basis for a Low-Cost Robot Kit
 

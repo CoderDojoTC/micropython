@@ -4,7 +4,7 @@ Using an IDE such as Thonny you can copy one file at a time to the Raspberry Pi 
 
 Rshell was written by David Hyland.  The source code and installations are documented on Dave's GitHub repository here: [https://github.com/dhylands/rshell](https://github.com/dhylands/rshell).  Dave added support for the Raspberry Pi Pico in release [0.0.30](https://github.com/dhylands/rshell/releases/tag/v0.0.30) in March of 2021.
 
-Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive RPEL commands.
+Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive REPL commands.
 
 
 ## Conda Setup

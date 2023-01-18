@@ -1,11 +1,11 @@
 # Cytron Maker Nano RP2040
 
-The [Cytron Nano RP2040](https://www.cytron.io/maker-nano-rp2040-simplifying-projects-with-raspberry-pi-rp2040) is a low-cost ($9), high-functionality board.  
+The [Cytron Nano RP2040](https://www.cytron.io/maker-nano-rp2040-simplifying-projects-with-raspberry-pi-rp2040) is a low-cost ($9), high-functionality board.
 
 ## features
 
 1. Low cost: $9
-2. 14 GIPO blue LEDs
+2. 14 GPIO blue LEDs
 3. 2 RGB LEDs (Neopixels)
 4. 1 Piezo buzzer
 5. 2 4-wire JST-SH ports (with Grove connectors)

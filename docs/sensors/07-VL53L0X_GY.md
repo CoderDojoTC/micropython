@@ -8,11 +8,11 @@ The VL53L0X is a low-cost ($5) time-of-flight light-based distance sensor that i
 The VL53L0X integrates a  group of Single Photon Avalanche Diodes (SPAD) and embeds ST Electronic's second generation FlightSense™ patented technology.  The VL53L0X’s 940 nm  emitter Vertical Cavity Surface-Emitting Laser (VCSEL), is safe for kids and totally invisible to the human eye.  Coupled with internal physical infrared filters, the sensor enables longer ranging distance, higher immunity to ambient light, and better robustness to cover glass optical crosstalk.
 
 ## Circuit
-Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GIPO pins 16 and 17.
+Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GPIO pins 16 and 17.
 
 ## I2C Scanner Test
 
-We first run the I2C scanner program to verify that the sensor is connected correct and is responding to the I2C bus scan.
+We first run the I2C scanner program to verify that the sensor is connected correctly and is responding to the I2C bus scan.
 
 ```py
 import machine
