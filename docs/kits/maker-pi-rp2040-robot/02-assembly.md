@@ -18,7 +18,12 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
     1. mounting braket
     2. 2 M2 6mm screws and nuts
 
-You will need to provide 4 AA batteries and a Micro USB connector that works with your PC or Mac.
+4. You will need to provide 4 AA batteries and a Micro USB connector that works with your PC or Mac.
+
+6. You will need a drill and 1/8th inch drill bit to put holes on additional mounting spots.
+
+8. You should have a hot-glue gun available as well.
+
 
 ## Assemble the SmartCar Chassis
 
@@ -97,7 +102,7 @@ Connect the Maker Pi RP2040 board to the top with the USB connector facing the r
 
  ![Maker Pi RP2040 Motor Connections](../img/maker-pi-rp2040-motor-connections.jpg)
 
-Here is a short video of the assembly of a SmartCar Chassis.  Note that this video puts the battery on the top, where we put it on the bottom.
+Here is a short video of the assembly of a SmartCar Chassis.  **Note that this video puts the battery on the top, where we put it on the bottom.**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lgCERugoVL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
