@@ -5,7 +5,7 @@ from utime import sleep, ticks_ms
 from urandom import randint
 
 NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NUMBER_PIXELS = 60
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)

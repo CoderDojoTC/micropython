@@ -89,8 +89,8 @@ from machine import Pin
 from time import sleep
 from neopixel import NeoPixel
 
-NUMBER_PIXELS = 8
-LED_PIN = 22
+NUMBER_PIXELS = 60
+LED_PIN = 0
 
 strip = NeoPixel(Pin(LED_PIN), NUMBER_PIXELS)
         

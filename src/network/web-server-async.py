@@ -29,6 +29,7 @@ def connect_to_network():
     wlan.config(pm = 0xa11140)  # Disable power-save mode
     wlan.connect(ssid, password)
 
+    # max number of seconds to wait before we timeout
     max_wait = 10
     while max_wait > 0:
         if wlan.status() < 0 or wlan.status() >= 3:

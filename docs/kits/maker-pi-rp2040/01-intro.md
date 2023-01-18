@@ -112,3 +112,4 @@ One of the things I love about this board is how incredibly easy it is for stude
 * [Adafruit Cytron Maker Pi RP2040 reseller](https://www.adafruit.com/product/5129) - out of stock as of Aug. 15th 2021
 * [1300 mah battery](https://www.cytron.io/p-lipo-rechargeable-battery-3.7v-1300mah)
 * [Ultrasonic Sensor Video on YouTube](https://www.youtube.com/watch?v=mn1nqgEkufA)
+* [Circuit Schematic](https://drive.google.com/file/d/1Zp8GYO8x7ThObB1G8RIZx2YdqrXtdUc0/view)

@@ -2,7 +2,7 @@ from neopixel import NeoPixel
 from utime import sleep
 
 NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 10
+NUMBER_PIXELS = 12
 
 strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
