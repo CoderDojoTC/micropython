@@ -3313,7 +3313,7 @@
 <li>RST  Reset, low active</li>
 <li>BL   Backlight - tie to GND to turn the backlight on</li>
 </ol>
-<p>Although the device has eight wires, your Pico only needs a few of them to be controlled by the GIPO ports.</p>
+<p>Although the device has eight wires, your Pico only needs a few of them to be controlled by the GPIO ports.</p>
 <h2 id="uploading-the-st7789v-python-firmware">Uploading the ST7789V Python Firmware</h2>
 <p>The firmware contains pre-compiled objects for various devices with the st7789 C driver and frozen python font files.</p>
 <p>The library for the driver is delivered as a single firmware.uf2 file available here:</p>
@@ -3481,7 +3481,7 @@ For most LCD controllers, the communication method of the controller can be conf
 <p><img alt="" src="../../../img/st7789-lcd-timing.png" /></p>
 <ol>
 <li>The SPI communication protocol of the data transmission uses control bits: clock phase (CPHA) and clock polarity (CPOL)</li>
-<li>CPOL defines the level while the synchronization clock is idle. If CPOL=0, then it is LOW.  </li>
+<li>CPOL defines the level while the synchronization clock is idle. If CPOL=0, then it is LOW.</li>
 <li>CPHA defines at whish clock’s tick the data transmission starts. CPHL=0 – at the first one, otherwise at the second one</li>
 </ol>
 <p>This combination of two bits provides 4 modes of SPI data transmission. The commonly used is SPI0 mode, i.e. GPHL=0 and CPOL=0.</p>

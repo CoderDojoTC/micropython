@@ -3252,9 +3252,9 @@ Figure: VL53L0X in the GY-530 package.</p>
 <p>The VL53L0X is a low-cost ($5) time-of-flight light-based distance sensor that is easy to use.  It comes packaged in a I2C board and gives precise distance measurements up to 1.5 meters away.  It measures the time that light pulses take to travel to an object and back to estimate distance.  Light travels about 1 foot every nanosecond, so the timing inside this little chip must be very accurate.</p>
 <p>The VL53L0X integrates a  group of Single Photon Avalanche Diodes (SPAD) and embeds ST Electronic's second generation FlightSense™ patented technology.  The VL53L0X’s 940 nm  emitter Vertical Cavity Surface-Emitting Laser (VCSEL), is safe for kids and totally invisible to the human eye.  Coupled with internal physical infrared filters, the sensor enables longer ranging distance, higher immunity to ambient light, and better robustness to cover glass optical crosstalk.</p>
 <h2 id="circuit">Circuit</h2>
-<p>Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GIPO pins 16 and 17.</p>
+<p>Hook the VCC to the 3.3 out of the Pico, the GND of the sensor to andy of the GND pins of the Pico and then connect the Clock and Data to two pins such as GPIO pins 16 and 17.</p>
 <h2 id="i2c-scanner-test">I2C Scanner Test</h2>
-<p>We first run the I2C scanner program to verify that the sensor is connected correct and is responding to the I2C bus scan.</p>
+<p>We first run the I2C scanner program to verify that the sensor is connected correctly and is responding to the I2C bus scan.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
