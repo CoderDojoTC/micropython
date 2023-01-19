@@ -10,5 +10,5 @@ These devices are easy to use since they have an internal analog to digital conv
 
 ## References
 
-
+https://docs.micropython.org/en/latest/esp8266/tutorial/dht.html
 [DHT22 Datasheet (PDF)](http://j5d2v7d7.stackpathcdn.com/wp-content/uploads/2021/01/DHT22.pdf)
