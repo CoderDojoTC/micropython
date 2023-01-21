@@ -105,7 +105,7 @@ nav:
     - Advanced Labs: wireless/11-advanced-labs.md
     - With Display: wireless/20-display.md
   - Robots:
-    - Introduction: robots/01-intro.md
+    - Introduction: robots/index.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
     - Face Bot: robots/04-face-bot.md
@@ -137,7 +137,7 @@ nav:
   - Project Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
-      - Introduction: kits/maker-pi-rp2040/01-intro.md
+      - Introduction: kits/maker-pi-rp2040/index.md
       - Getting Started: kits/maker-pi-rp2040/01-getting-started.md
       - Blue LED Lab: kits/maker-pi-rp2040/02-blue-led-lab.md
       - NeoPixel Lab: kits/maker-pi-rp2040/03-neopixel-lab.md
@@ -145,7 +145,7 @@ nav:
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up/Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
     - Maker Pi RP2040 Robot:
-      - Introduction: kits/maker-pi-rp2040-robot/01-intro.md 
+      - Introduction: kits/maker-pi-rp2040-robot/index.md 
       - Assembly: kits/maker-pi-rp2040-robot/02-assembly.md
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
       - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
@@ -159,6 +159,7 @@ nav:
       - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
       - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
       - Ping Servo Meter: kits/maker-pi-rp2040-robot/24-ping-servo-meter.md
+      - Line Follower: kits/maker-pi-rp2040-robot/25-line-follower.md
     - Maker Pi Pico:
       - Introduction: kits/maker-pi-pico/01-intro.md
       - Running Lights: kits/maker-pi-pico/02-running-lights.md
