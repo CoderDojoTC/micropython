@@ -18,7 +18,7 @@ You can see a close-up of each of the colors and their connections in the pictur
 
 ![](../../img/harness-2.jpg)
 
-At the other end of the cable we need to make a small change in the order of the cable.  Here are the changes:
+At the other end of the cable, we need to make a small change in the order of the cable.  Here are the changes:
 
 1. We separate the red wire from the rest of the group and connect the red to the 3.3V regulated output of the Raspberry Pi Pico.
 2. We move the back GND wire two be in between the blue and purple CS and DC wires.  This allows the row of all the wires to be connected in a single block of wires.
@@ -39,9 +39,62 @@ We have found that once we create these cable assemblies with hot glue to keep t
 !!! Warning
     Note that we still MUST make sure that the black wire in the wiring harness is connected to the GND.  It is easy to get the cable reversed so make sure to double-check the cable orientation before you use it.
 
-    ## Building A Harness for the Cytron Maker Pi RP2040 Board
+### Sample Python Code
 
-    We can also make a display harness for the [Cytron Maker Pi RP2040 Board](../../kits/maker-pi-rp2040/).  To do this we will need
-    to use three grove connectors.  We use all four wires of the first Grove connector, two of the data signals on the second and just a single wire on the third Grove connector.  This connector is shown below.
+```py
+from machine import Pin
 
-    ![Cytron Make Pi RP2040](../../img/cytron-display-harness.jpg)
+# Customize these GPIO numbers for your layout
+# Note these are not breadboard row numbers
+# The breadboard row numbers are 4,5,6,7 and 9 with GND on row 8
+SCL_PIN = 2
+SDA_PIN = 3
+RES_PIN = 4
+DC_PIN = 5
+CS_PIN = 6
+
+# create the Pin objects
+scl=Pin(SCL_PIN)
+sda=Pin(SDA_PIN)
+res=Pin(RES_PIN)
+dc=Pin(DC_PIN)
+cs = Pin(CS_PIN)
+
+spi=machine.SPI(0, sck=scl, mosi=sda)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, dc, res, cs)
+```
+
+## Building A Harness for the Cytron Maker Pi RP2040 Board
+
+We can also make a display harness for the [Cytron Maker Pi RP2040 Board](../../kits/maker-pi-rp2040/).  To do this we will need
+to use three grove connectors.  We use all four wires of the first Grove connector, two of the data signals on the second and just a single wire on the third Grove connector.  This connector is shown below.
+
+![Cytron Make Pi RP2040](../../img/cytron-display-harness.jpg)
+
+The MicroPython code for this harness is the following:
+
+```py
+from machine import Pin
+
+# Customize these GPIO pin numbers for your layout
+SCL_PIN = 2
+SDA_PIN = 3
+RES_PIN = 4
+DC_PIN = 5
+CS_PIN = 16
+
+# create the Pin objects
+scl=Pin(SCL_PIN)
+sda=Pin(SDA_PIN)
+res=Pin(RES_PIN)
+dc=Pin(DC_PIN)
+cs = Pin(CS_PIN)
+
+spi=machine.SPI(0, sck=scl, mosi=sda)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, dc, res, cs)
+```
+
+!!! Note
+    This code is exactly the same as the Pico version above
+    with the exception of the CS_PIN which was on GPIO 6
+    but we now moved it to GPIO 16.
