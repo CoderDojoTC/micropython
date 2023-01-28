@@ -60,6 +60,7 @@ nav:
     - Character LCD: displays/non-graph/10-character-lcd-display.md
   - Displays Graphical:
     - Introduction: displays/graph/01-intro.md
+    - Wiring Harness: displays/19-wiring-harness.md
     - Graphic LCD: displays/graph/15-cu1609c-led.md
     - Basic Drawing: displays/graph/03-basic-drawing.md
     - Drawing with Bitmaps: displays/graph/03-bitmaps.md
