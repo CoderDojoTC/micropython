@@ -12,22 +12,22 @@ for 120 connectors.  Make sure to get the Male-Female version.
 
 We then will separate 7 of these wires making sure to put the black and red colors in the GND and VCC edge of the group of wires.
 
-![Harness ](../../img/harness-1.jpg)
+![Harness 1](../../img/harness-1.jpg)
 
 You can see a close-up of each of the colors and their connections in the picture below.
 
-![](../../img/harness-2.jpg)
+![Harness 2](../../img/harness-2.jpg)
 
 At the other end of the cable, we need to make a small change in the order of the cable.  Here are the changes:
 
 1. We separate the red wire from the rest of the group and connect the red to the 3.3V regulated output of the Raspberry Pi Pico.
 2. We move the back GND wire two be in between the blue and purple CS and DC wires.  This allows the row of all the wires to be connected in a single block of wires.
    
-![](../../img/harness-3.jpg)
+![Harness 3](../../img/harness-3.jpg)
 
 We can then plug this group of wires directly into the breadboard from breadboard rows 3 to 9.  This is shown below.
 
-![](../../img/harness-4.jpg)
+![Harness 4](../../img/harness-4.jpg)
 
 We designed these connections with the following rules:
 
@@ -39,7 +39,15 @@ We have found that once we create these cable assemblies with hot glue to keep t
 !!! Warning
     Note that we still MUST make sure that the black wire in the wiring harness is connected to the GND.  It is easy to get the cable reversed so make sure to double-check the cable orientation before you use it.
 
-### Sample Python Code
+## Cable Wiring Diagram
+
+Here is the detailed wiring diagram showing the
+wires as they route from the back of the OLED display
+to the pins on the breadboard:
+
+![Wiring Diagram Circuit](../../img/harness-5.jpg)
+
+## Sample Python Code
 
 ```py
 from machine import Pin
