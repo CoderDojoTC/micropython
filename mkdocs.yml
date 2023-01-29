@@ -119,7 +119,6 @@ nav:
     - Internal Temperature: advanced-labs/03-internal-temperature.md
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
-    - Circuit Python: circuit-python/01-intro.md
     - Conda Environment Setup: advanced-labs/04-conda-env.md
     - OS Functions: advanced-labs/05-os-functions.md
     - I2C Scanner: advanced-labs/06-i2c.md

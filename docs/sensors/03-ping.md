@@ -4,7 +4,7 @@ The HC-SR04 is a low cost ($4) sensor that measures the distance to an object in
 ## Wiring Diagram
 
 1. Connect GND to any GND pin on the Pico
-2. Connnect VCC to VBUS or 5 Volt power
+2. Connect VCC to VBUS or 5 Volt power
 3. Connect Trigger to pin 15.  With USB on the top, this pin is the bottom left corner.
 4. Connect Echo to pin 14.  One up from bottom left corner.
 
@@ -46,4 +46,7 @@ while True:
 
 ## OLED
 
-See the OLED example here: [OLED Ping Example](../oled/11-oled-ping.md)
+If you have a small OLED screen, you can also display the results
+of the distance measurement directly on an OLED screen.
+
+See the OLED example here: [OLED Ping Example](../displays/graph/11-oled-ping.md)

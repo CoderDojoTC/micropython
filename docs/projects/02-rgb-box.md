@@ -1,6 +1,6 @@
 # Raspberry Pi RGB Box
 
-![RGB Box](../../img/rgb-box.png)
+![RGB Box](../img/rgb-box.png)
 
 This is a box with three potentiometers and a NeoPixel strip.  Changing the potentiometers changes the mix of Red, Green and Blue colors.  We use this at many science fairs or demonstration projects that has kids as young as three years old!  As the kids learn to adjust the knobs, we say "Hey, your a programmer!".
 
@@ -10,11 +10,11 @@ Before you do this project, it is a good idea to get familiar with the [Potentio
 
 ## Required Tools
 
-Although we will be using a solderless breadboard to connect the components, we use a hot-glue gun to make sure the wires don't get dislocated when the box get bumped around.
+Although we will be using a solderless breadboard to connect the components, we use a hot-glue gun to make sure the wires don't get dislocated when the box gets bumped around.
 
 1. Soldering iron (unless you have pre-solders potentiometers)
 2. Hot glue gun (for securing the wires to the breadboard)
-3. Drill (for putting hole in the box)
+3. Drill (for putting a hole in the box)
 
 ## Parts List
 
@@ -27,7 +27,7 @@ Although we will be using a solderless breadboard to connect the components, we 
 7. Power switch (optional) (50 cents)
 8. Clear plastic box (4)
 
-With a bit of clever shopping you can get the total part costs: under about $15.  If you purchase the parts in Quantity 10+ you can get the costs under $10/kit.
+With a bit of clever shopping, you can get the total part costs: under about $15.  If you purchase the parts in Quantity 10+ you can get the costs under $10/kit.
 
 ## Circuit Diagram
 
@@ -36,7 +36,7 @@ TBD
 ## Assembly
 Solder six-inches of hookup wire to each of the three pins on the three potentiometers.
 
-![Potentiometer Hookups](../../img/rgb-box-potentiometer-hookups.png)
+![Potentiometer Hookups](../img/rgb-box-potentiometer-hookups.png)
 
 ## Sample Code
 
