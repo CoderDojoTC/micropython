@@ -45,7 +45,7 @@ Here is the detailed wiring diagram showing the
 wires as they route from the back of the OLED display
 to the pins on the breadboard:
 
-![Wiring Diagram Circuit](../../img/harness-5.jpg)
+![Wiring Diagram Circuit](../../img/harness-5.png)
 
 ## Sample Python Code
 
