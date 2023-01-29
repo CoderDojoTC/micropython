@@ -2329,22 +2329,50 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/12-string-formatting/" class="md-nav__link">
+        String Formatting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-labs/15-measuring-vsys/" class="md-nav__link">
+        Measuring Battery Voltage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_17" type="checkbox" id="__nav_13_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_19" type="checkbox" id="__nav_13_19" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_13_17">
+        <label class="md-nav__link" for="__nav_13_19">
           Debugging
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="__nav_13_17">
+        <label class="md-nav__title" for="__nav_13_19">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -3262,7 +3290,7 @@
 
 <h1 id="get-the-weather-forecast">Get the Weather Forecast</h1>
 <p>This demo uses the free web service <a href="http://openweathermap.org">Open Weather Map</a>.</p>
-<p>The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three hour intervals for the next 40 intervals at your specified location.</p>
+<p>The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three-hour intervals for the next 40 intervals at your specified location.</p>
 <p>You can see this using the UNIX curl command:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3273,7 +3301,7 @@
 <span class="s1">      appid=f2b1...&#39;</span>
 </code></pre></div>
 </td></tr></table>
-<p>In this example, we are asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis, MN in the USA.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the <a href="https://www.geonames.org/5037649/minneapolis.html">GeoNames</a> to find your city ID number.</p>
+<p>In this example, we are asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis, MN in the USA.  You can use the Open Weather site to find the id for your city or specify the longitude and latitude of the point you want to get weather forecasts for.  You can also use the <a href="https://www.geonames.org/5037649/minneapolis.html">GeoNames</a> to find your city ID number.</p>
 <h2 id="how-to-use-the-open-weather-map-api">How to Use the Open Weather Map API</h2>
 <p>To use this service, you must register and get an API key.  You then put your key in the secrets.py file:</p>
 <p>Content of secrets.py
@@ -3407,7 +3435,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>The bulk of the data is in the list structure with 40 items with a small set of data before and after the list.  The data about the HTTP status (200) and the count (40) is before the list and the data about the city is after the list.</p>
-<p>Each block of data in the list JSON object contains data about the main data (temperature, min, max, pressure, humidity), cloud cover, wind speed and visibility.  It is up to you to decide what data you would like to display within this data.  Once you decide what data you want to access you can use JSON path statements to pull the right data out.  For example to get the main temperature for each time period you would run:</p>
+<p>Each block of data in the list JSON object contains data about the main data (temperature, min, max, pressure, humidity), cloud cover, wind speed and visibility.  It is up to you to decide what data you would like to display within this data.  Once you decide what data you want to access you can use JSON path statements to pull the right data out.  For example, to get the main temperature for each time period you would run:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
