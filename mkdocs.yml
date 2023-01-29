@@ -131,6 +131,8 @@ nav:
     - Timers: advanced-labs/13-timers.md
     - Memory Management: advanced-labs/14-memory-management.md
     - TinyML: advanced-labs/20-tinyml.md
+    - String Formatting: advanced-labs/12-string-formatting.md
+    - Measuring Battery Voltage: advanced-labs/15-measuring-vsys.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md

@@ -2,7 +2,7 @@
 
 This demo uses the free web service [Open Weather Map](http://openweathermap.org).
 
-The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three hour intervals for the next 40 intervals at your specified location.
+The Open Weather Map service returns the predicted temperatures and conditions (sun, cloudy, rain etc.) for three-hour intervals for the next 40 intervals at your specified location.
 
 You can see this using the UNIX curl command:
 
@@ -13,7 +13,7 @@ curl 'http://api.openweathermap.org/data/2.5/forecast?\
       appid=f2b1...'
 ```
 
-In this example, we are asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis, MN in the USA.  You can use the Open Weather site to find the id for your city or specify the long and lat of the point you want to get weather forecasts for.  You can also use the [GeoNames](https://www.geonames.org/5037649/minneapolis.html) to find your city ID number.
+In this example, we are asking it to use US standard Fahrenheit (imperial units) for the city with id 5037649 which is Minneapolis, MN in the USA.  You can use the Open Weather site to find the id for your city or specify the longitude and latitude of the point you want to get weather forecasts for.  You can also use the [GeoNames](https://www.geonames.org/5037649/minneapolis.html) to find your city ID number.
 
 ## How to Use the Open Weather Map API
 
@@ -100,7 +100,7 @@ The service returns a JSON file with the following format:
 
 The bulk of the data is in the list structure with 40 items with a small set of data before and after the list.  The data about the HTTP status (200) and the count (40) is before the list and the data about the city is after the list.
 
-Each block of data in the list JSON object contains data about the main data (temperature, min, max, pressure, humidity), cloud cover, wind speed and visibility.  It is up to you to decide what data you would like to display within this data.  Once you decide what data you want to access you can use JSON path statements to pull the right data out.  For example to get the main temperature for each time period you would run:
+Each block of data in the list JSON object contains data about the main data (temperature, min, max, pressure, humidity), cloud cover, wind speed and visibility.  It is up to you to decide what data you would like to display within this data.  Once you decide what data you want to access you can use JSON path statements to pull the right data out.  For example, to get the main temperature for each time period you would run:
 
 ```python
 # get the temp and humidity for the next 40 3-hour intervals

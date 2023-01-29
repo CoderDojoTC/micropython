@@ -77,6 +77,18 @@ display.pixel(127, 31, 1)
 display.show()
 ```
 
+## Using ChatGPT to convert CircuitPython to MicroPython
+
+ChatGPT does a good job of automatically converting CircuitPython to MicroPython.  In your prompt you just add the following instruction:
+
+```
+Convert the following CircuitPython code to MicroPython:
+```
+
+An example of this working with the basic blink example is shown below:
+
+![](../img/circuitpython-to-micropython-chatgpt.png)
+
 ## Trend analysis
 
 As of March 2021, MicroPython is about two to four times more popular than CircuitPython.
