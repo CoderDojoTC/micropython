@@ -163,7 +163,7 @@ nav:
       - Ping Servo Meter: kits/maker-pi-rp2040-robot/24-ping-servo-meter.md
       - Line Follower: kits/maker-pi-rp2040-robot/25-line-follower.md
     - Maker Pi Pico:
-      - Introduction: kits/maker-pi-pico/01-intro.md
+      - Introduction: kits/maker-pi-pico/index.md
       - Running Lights: kits/maker-pi-pico/02-running-lights.md
       - SD Card Reader: kits/maker-pi-pico/09-micro-sd-card-reader.md
     - Maker Nano RP2040:

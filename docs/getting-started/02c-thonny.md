@@ -1,13 +1,14 @@
 # Thonny Python IDE
-A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.
+
+A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first-time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.
 
 We strongly suggest that classes begin with Thonny for the first several weeks.  As students want to do more complex functions such as build automatic deployment scripts other IDEs are more appropriate.
 
-Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history see the [Thonny Release History](https://github.com/thonny/thonny/blob/master/CHANGELOG.rst).  We suggest checking this link monthly for updates.
+Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history, see the [Thonny Release History](https://github.com/thonny/thonny/blob/master/CHANGELOG.rst).  We suggest checking this link monthly for updates.
 
 ## Installing Thonny
 
-The best way to install Thonny is to go to the Thonny web site an look for the "Download" area for your operating system.  That link is here:
+The best way to install Thonny is to go to the Thonny website an look for the "Download" area for your operating system.  That link is here:
 
 [https://thonny.org/](https://thonny.org/)
 
@@ -79,6 +80,7 @@ For further help on a specific object, type help(obj)
 For a list of available modules, type help('modules')
 >>>
 ```
+
 ## Save Options
 You can save a python file in Thonny to either the Pico or to your local computer's file system.
 
@@ -90,6 +92,7 @@ first stop execution of any program you are running.
 After you start up Thonny there will be a button in the lower right corner.
 
 After you click on it you will see the following:
+
 ```
 Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
 Writing to /Volumes/RPI-RP2/firmware
