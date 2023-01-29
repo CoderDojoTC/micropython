@@ -106,7 +106,7 @@ Done!
 Although you can hold down the BOOTSEL button as you are plugging in the Pico, there is a much easier way.  Just type the following into the Thonny shell:
 
 ```sh
->>>machine.bootloader()
+machine.bootloader()
 ```
 
 This will make the Pico go into the Bootloader Mode and mount the file system.  You can then copy the bootloader file using the drag-and-drop from your file system or use a UNIX copy command.  Once the copy is finished the Pico will automaticaly restart using the new uf2 file.
@@ -133,6 +133,11 @@ while True:
 ```
 Press the Play Button
 
+## Adding GND Markers
+
+One of the key disadvantages 
+
+![](../img/pico-on-breadboard-with-gnd-markers.jpg)
 ## References
 
 ### Getting Started Guide
