@@ -1,46 +1,43 @@
-import machine
+from machine import Pin
 from utime import sleep
 from math import sqrt
-from ssd1306 import SSD1306_I2C
-OLED_RESET = machine.Pin(15, machine.Pin.OUT)
-OLED_RESET.low()
-sleep(.1)
-OLED_RESET.high()
-i2c = machine.I2C(0, sda=machine.Pin(0), scl=machine.Pin(1))
+import ssd1306
 
-oled = SSD1306_I2C(128, 64, i2c)
+WIDTH = 128
+HEIGHT = 64
+clock=Pin(2) #SCL
+data=Pin(3) #SDA
+RES = machine.Pin(4)
+DC = machine.Pin(5)
+CS = machine.Pin(6)
 
-def draw_circle(cx, cy, r, color):
-    print('cx=', cx, ' cy=', cy, ' r=', r, sep='')
+spi=machine.SPI(0, sck=clock, mosi=data)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
+
+def circle(cx, cy, r, color):
     diameter = r*2
-    oled.pixel(cx, cy, 1)
-    # outline the circile
-    #oled.rect(cx-r, cy-r, r*2, r*2, 1)
     upper_left_x = cx - r
-    upper_left_y = cy - r
-
-    print('ul-x=', upper_left_x, ' ul-y=', upper_left_y, ' d=', diameter, sep='')
-    
+    upper_left_y = cy - r 
     # scan through all pixels and only turn on pixels within r of the center
     for i in range(upper_left_x, upper_left_x + diameter):
         for j in range(upper_left_y, upper_left_y + diameter):
             # distance of the current point (i, j) from the center (cx, cy)
             d = sqrt( (i - cx) ** 2 + (j - cy) ** 2 )
-            fill = 0
             if d < r:
                 oled.pixel(i, j, color)
-                fill = 1
-            # print(i, j, d, fill)
 
-
-# draw_circle(10, 20, 5, 1)
-oled.rect(0, 0, 128, 64, 1)
-oled.show()
-
-# oled.rect(50-6, 10-6, 12, 12, 1)
-draw_circle(20, 20, 4, 1)
-draw_circle(40, 30, 10, 1)
-draw_circle(70, 40, 5, 1)
-draw_circle(100, 20, 15, 1)
-draw_circle(100, 20, 5, 0)
-oled.show()
+HALF_WIDTH = int(WIDTH/2)
+HALF_HEIGHT = int(HEIGHT/2)
+while True:
+    for rad in range(1,HALF_HEIGHT+2):
+        circle(HALF_WIDTH, HALF_HEIGHT, rad, 1)
+        oled.show()
+        sleep(.1)
+    sleep(3)
+    oled.fill(1)
+    for rad in range(1,HALF_HEIGHT+2):
+        circle(HALF_WIDTH, HALF_HEIGHT, rad, 0)
+        oled.show()
+        sleep(.1)
+    oled.fill(0)
+    sleep(3)
