@@ -17,7 +17,7 @@
     
     
       
-        <title>Drawing with Bitmaps - MicroPython for Kids</title>
+        <title>Timing Drawing Speed - MicroPython for Kids</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drawing-bitmaps-with-micropython" class="md-skip">
+        <a href="#timing-drawing-speed" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drawing with Bitmaps
+              Timing Drawing Speed
             
           </span>
         </div>
@@ -1150,14 +1150,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       
       
@@ -1234,114 +1232,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Drawing with Bitmaps
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../03-bitmaps/" class="md-nav__link">
         Drawing with Bitmaps
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#framebuffers" class="md-nav__link">
-    Framebuffers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#block-image-transfers-blit" class="md-nav__link">
-    Block Image Transfers (blit)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blit-functions-are-efficient" class="md-nav__link">
-    Blit Functions Are Efficient
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-bytearrays" class="md-nav__link">
-    Working with ByteArrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-solid-block-of-pixels" class="md-nav__link">
-    Creating a Solid Block of Pixels
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-encoding-options" class="md-nav__link">
-    Image Encoding Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Image Encoding Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vertical-least-significant-bit-layout" class="md-nav__link">
-    Vertical Least Significant Bit Layout
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#horizontal" class="md-nav__link">
-    Horizontal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3256,70 +3151,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#framebuffers" class="md-nav__link">
-    Framebuffers
+  <a href="#sample-function-timer-code" class="md-nav__link">
+    Sample Function Timer Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-image-transfers-blit" class="md-nav__link">
-    Block Image Transfers (blit)
+  <a href="#sample-function-code" class="md-nav__link">
+    Sample Function Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#blit-functions-are-efficient" class="md-nav__link">
-    Blit Functions Are Efficient
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-bytearrays" class="md-nav__link">
-    Working with ByteArrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-solid-block-of-pixels" class="md-nav__link">
-    Creating a Solid Block of Pixels
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-encoding-options" class="md-nav__link">
-    Image Encoding Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Image Encoding Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vertical-least-significant-bit-layout" class="md-nav__link">
-    Vertical Least Significant Bit Layout
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#horizontal" class="md-nav__link">
-    Horizontal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#comparing-two-circle-drawing-algorithms" class="md-nav__link">
+    Comparing Two Circle Drawing Algorithms
   </a>
   
 </li>
@@ -3336,63 +3183,164 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/03-bitmaps.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/05-timing-draw-speed.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="drawing-bitmaps-with-micropython">Drawing Bitmaps with MicroPython</h1>
-<h2 id="framebuffers">Framebuffers</h2>
-<p>A <a href="../../../misc/glossary/#framebuffer">Framebuffer</a> is the core data structure we use when drawing bitmaps. </p>
-<h2 id="block-image-transfers-blit">Block Image Transfers (blit)</h2>
-<p>The basic function we use to draw a rectangular region of the screen is called the <code>blit()</code> function:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">frame_buffer</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<p>This function moves all the data within any frame buffer to the given (x,y) position of the display.  The function will check the dimensions of the frame buffer to know how much data to move to the display.  You just need to tell the function where to start drawing.</p>
-<h2 id="blit-functions-are-efficient">Blit Functions Are Efficient</h2>
-<p>Blit operations can be much more efficient then the <code>display.show()</code> function when you are just updating a small region of the screen.  This is because the <code>display.show()</code> function transfers the entire screen image each time it is called.  Using <code>blit</code> functions can be written to only update the area of the screen that changes.</p>
-<p>For example, if you are writing a video game that has a ball moving across the screen, you only need to update the pixels around the ball, not the entire screen image.  The exact performance difference between <code>show()</code> and <code>blit()</code> operations will depend on the size of the screen, the size of the blit update and the speed of the transfer of data from the framebuffer to the display device.</p>
-<p>The key disadvantage of using <code>blit()</code> functions is that you must consider what other artifacts there are on the screen that you might overwrite.  Keeping track of the differences requires more computation by the microcontroller.  The more powerful your microcontroller is relative to the communication speed, the more difference computations you can do.</p>
-<p>Not all display drivers will let you write directly from the microcontroller resident image directly to a region of the display.  Sometimes you must follow your blit() operations with a show() to transfer the entire framebuffer to the display.</p>
-<h2 id="working-with-bytearrays">Working with ByteArrays</h2>
-<p>MicroPython blit operations use a data representation format for images called a ByteArray.  These are sequences of the bytes that will be sent in a blit operation.  They are coded using the following notation:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">my_bytearray</span> <span class="o">=</span> <span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\xFF\xFF\xBF\xDF\xEF\xF7\xFF\xFB\xFF\xFD</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-<p>Note that the letter <code>b</code> begins the parameter to show the Python interpreter that the all the characters between the double quotes are byte array values.  The characters <code>\x</code> indicate that there are hexadecimals useds to encode the bit values.</p>
-<h2 id="creating-a-solid-block-of-pixels">Creating a Solid Block of Pixels</h2>
-<p>Sometimes you want to update an entire region of the screen with a block of pixels that are all on or off.  You can do this with the following steps</p>
+<h1 id="timing-drawing-speed">Timing Drawing Speed</h1>
+<p>If you are writing a video game and want fast drawing times for objects on the screen, there are several different algorithms you can try.  You can use the MicroPython <code>time_us</code> function to
+record the time before and after you call a drawing function and return the difference
+to get an idea of the time saved in different versions of your drawing functions.</p>
+<h2 id="sample-function-timer-code">Sample Function Timer Code</h2>
+<h2 id="sample-function-code">Sample Function Code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># create a 10x10 matrix of on pixels</span>
-<span class="c1"># allocate an array of 20 bytes = </span>
-<span class="n">on_buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="c1"># put all 1&#39;s in that buffer</span>
-<span class="n">on_buffer</span><span class="p">[:]</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">20</span>
-<span class="c1"># create a frame buffer using monochrome </span>
-<span class="n">on_square</span> <span class="o">=</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="n">on_buffer</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">framebuf</span><span class="o">.</span><span class="n">MONO_HLSB</span><span class="p">)</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">ticks_us</span>
 
-<span class="n">oled</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">my_function</span><span class="p">()</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time in microseconds:&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="image-encoding-options">Image Encoding Options</h2>
-<p>There are several alternate methods to encode the bits of an image into a byte array.  The bits can be coded left to right or top to bottom.  You can also put the bits in most-significant bit first or least-significant bit first.  All these options and controlled when you interface with a framebuffer.</p>
-<h3 id="vertical-least-significant-bit-layout">Vertical Least Significant Bit Layout</h3>
-<p>framebuf.MONO_VLSB
-Monochrome (1-bit) color format This defines a mapping where the bits in a byte are vertically mapped with bit 0 being nearest the top of the screen. Consequently each byte occupies 8 vertical pixels. Subsequent bytes appear at successive horizontal locations until the rightmost edge is reached. Further bytes are rendered at locations starting at the leftmost edge, 8 pixels lower.</p>
-<h3 id="horizontal">Horizontal</h3>
-<p>MONO_HLSB. Monochrome (1-bit) color format This defines a mapping where the bits in a byte are horizontally mapped. Each byte occupies 8 horizontal pixels with bit 7 being the leftmost. Subsequent bytes appear at successive horizontal locations until the rightmost edge is reached.</p>
-<h2 id="references">References</h2>
-<p><a href="https://www.youtube.com/watch?v=a7MzPA0T_MM">MicroPython Bitmap Tool Video</a> - this video created by Lucky Resistor
-is a good overview of the image formats used by MicroPython.</p>
+<p>MicroPython also supports the <code>ticks_cpu()</code> function which could return a smaller granularity
+for precise time measurements.  However, on the Raspberry Pi implementation, the results are exactly
+the same as the <code>ticks_us()</code> function.</p>
+<h2 id="comparing-two-circle-drawing-algorithms">Comparing Two Circle Drawing Algorithms</h2>
+<p>In the following code, we compare two circle drawing algorithms.</p>
+<ol>
+<li><strong>Row Scanner Method</strong> - this method scans each pixel in the square around the circle and turns it on if the pixel is within a distance range.  It must calculate the distance of each pixel and compare</li>
+<li>that distance to both the inside and outside distances.  The time-consuming operations are to calculate the squares of the x and y distances.</li>
+<li><strong>Point Draw Method</strong> - this method walks around the circle and for each degree, it draws a single pixel at the edge of the circle.  Each point uses the <code>sine()</code> and <code>cosine()</code> functions to calculate the x and y distance from the center of the circle to that point.</li>
+</ol>
+<p>For small circles, it is very inefficient to calculate all 360 points.  Scanning all the points in a 5X5 grid only takes 25 calculations.  However, the larger the circle becomes, the more points there are to calculate in the row scanner method.  A 20X20 circle will need to run the distance calculation 400 times.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_cpu</span><span class="p">,</span> <span class="n">ticks_us</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">ssd1306</span>
+
+<span class="c1"># this is the built-in LED on the Pico</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">clock</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">RES</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">DC</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">spi</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">clock</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">oled</span> <span class="o">=</span> <span class="n">ssd1306</span><span class="o">.</span><span class="n">SSD1306_SPI</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">spi</span><span class="p">,</span> <span class="n">DC</span><span class="p">,</span> <span class="n">RES</span><span class="p">,</span> <span class="n">CS</span><span class="p">)</span>
+
+<span class="c1"># </span>
+<span class="k">def</span> <span class="nf">fast_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="c1"># draw points around a circle skiping every 4th one</span>
+    <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="c1"># we can save 5% of the time by only doing this once</span>
+        <span class="n">radians</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">x_pos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">radians</span><span class="p">))</span>
+        <span class="n">y_pos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">))</span>
+        <span class="c1"># check if we are within range</span>
+        <span class="c1">#if 0 &lt;= x_pos &lt; 128 and 0 &lt;= y_pos &lt; 64:</span>
+        <span class="c1"># we can cut another 5% by not doing these checks</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">diameter1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">diameter2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">y_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">y_pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x_pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">x_pos</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_pos</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="n">diameter1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">x_pos</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_pos</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">diameter2</span><span class="p">):</span>
+                <span class="n">oled</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">circle</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard scanner circle draw time in cpu ticks&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">fast_circle</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fast draw time in cpu ticks&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition challenge">
+<p class="admonition-title">Challenge</p>
+<ol>
+<li>Write a program that compares drawing speed for various sizes of circles.</li>
+<li>Modify the circle function to use the most efficient algorithm</li>
+<li>If you have a small circle, how many points do you need to not make the circle appear broken?  Try changing the number of points calculated in the line <code>`for theta in range(0, 360, 2):</code>.  Can you dynamically change the number of points skipped as the circle becomes smaller?</li>
+<li>Can you add a parameter to the circle function that only draws every 3rd point?</li>
+</ol>
+</div>
 
               
             </article>
@@ -3403,41 +3351,6 @@ is a good overview of the image formats used by MicroPython.</p>
       
         
   <footer class="md-footer">
-    
-      <div class="md-footer-nav">
-        <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="../03-basic-drawing/" title="Basic Drawing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Previous
-                  </span>
-                  Basic Drawing
-                </span>
-              </div>
-            </a>
-          
-          
-            <a href="../04-extended-drawing-functions/" title="Custom Drawing Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span class="md-footer-nav__direction">
-                    Next
-                  </span>
-                  Custom Drawing Functions
-                </span>
-              </div>
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-              </div>
-            </a>
-          
-        </nav>
-      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
