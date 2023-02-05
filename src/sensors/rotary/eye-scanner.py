@@ -33,6 +33,9 @@ ONE_THIRD_HEIGHT = int(HEIGHT/3)
 # draw readability
 ON = 1
 OFF = 0
+NO_FILL = 0
+FILL = 1
+
 
 clock=Pin(2) #SCL
 data=Pin(3) #SDA
@@ -43,20 +46,7 @@ CS = machine.Pin(6)
 spi=machine.SPI(0, sck=clock, mosi=data)
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
-# make an fb for an eye
-eye = bytearray(QUARTER_WIDTH * 24)
-eyeBuf = framebuf.FrameBuffer(eye, 51, 31, framebuf.MONO_HLSB)
-fill = 1 # 0 is no fill center
-x = 25
-y = 15
-width = 25
-height = 15
-# draw background eye in white
-eyeBuf.ellipse(x, y, width, height, ON, fill)
-# draw puple in black
-#eyeBuf.ellipse(x, y, 5, 5, OFF, fill)
 
-eye_dist_from_top = 7
 # copy onto display
 
 bottom_row_text_vpos = 57
@@ -67,35 +57,35 @@ def draw_face_grid():
     oled.hline(0, ONE_THIRD_HEIGHT, WIDTH, 1)
 
 phm = 18 # puple horizontal movement
+eye_dist_from_top = 21
+eyeWidth = 27
+eyeHeight = 10
+mouth_vpos = 45
+mouth_width = 40
 
+def draw_face(eye_direction):
+    oled.fill(0)
+    # draw_face_grid()
+    start = ticks_us()
+    # left eye
+    oled.ellipse(32, eye_dist_from_top, eyeWidth, eyeHeight, ON, FILL)
+    oled.ellipse(32+i, eye_dist_from_top, 5, 5, OFF, FILL)
+    # right eye
+    oled.ellipse(94, eye_dist_from_top, eyeWidth, eyeHeight, ON, FILL)
+    oled.ellipse(94+i, eye_dist_from_top, 5, 5, OFF, FILL)
+    # draw mouth
+    # draw bottom half by doing a bitwise and of 8 and 4
+    oled.ellipse(HALF_WIDTH, mouth_vpos, mouth_width, 10, ON, NO_FILL, 12)
+    end = ticks_us()
+    drawTime = end - start
+    oled.text(str(drawTime), 0, bottom_row_text_vpos)
+    oled.show()
+    
 while True:
     for i in range(-phm, phm):
-        oled.fill(0)
-        draw_face_grid()
-        start = ticks_us()
-        # left eye
-        oled.blit(eyeBuf, 7, eye_dist_from_top)
-        oled.ellipse(32+i, eye_dist_from_top + 14, 5, 5, OFF, fill)
-        # right eye
-        oled.blit(eyeBuf, 70, eye_dist_from_top)
-        oled.ellipse(94+i, eye_dist_from_top + 14, 5, 5, OFF, fill)
-        end = ticks_us()
-        drawTime = end - start
-        oled.text(str(drawTime), 0, bottom_row_text_vpos)
-        oled.show()
-        sleep(.05)
+        draw_face(i)
+        sleep(.005)
     for i in range(phm, -phm, -1):
-        oled.fill(0)
-        draw_face_grid()
-        start = ticks_us()
-        # left eye
-        oled.blit(eyeBuf, 7, eye_dist_from_top)
-        oled.ellipse(32+i, eye_dist_from_top + 14, 5, 5, OFF, fill)
-        # right eye
-        oled.blit(eyeBuf, 70, eye_dist_from_top)
-        oled.ellipse(94+i, eye_dist_from_top + 14, 5, 5, OFF, fill)
-        end = ticks_us()
-        drawTime = end - start
-        oled.text(str(drawTime), 0, bottom_row_text_vpos)
-        oled.show()
-        sleep(.05)     
+        draw_face(i)
+        sleep(.005)
+
