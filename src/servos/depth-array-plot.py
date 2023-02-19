@@ -2,8 +2,8 @@ import numpy as np
 import plotly.graph_objs as go
 
 # Create a 2D array of x and y coordinates
-x = np.arange(0, 50)
-y = np.arange(0, 50)
+x = np.arange(0, 40)
+y = np.arange(0, 40)
 xx, yy = np.meshgrid(x, y)
 
 # Create a 2D array of depth values
@@ -27,13 +27,13 @@ depth = np.array([
 [0, 0, 12, 18, 23, 33, 41, 51, 61, 61, 65, 72, 76, 70, 68, 70, 69, 74, 69, 70, 78, 86, 85, 97, 98, 99, 88, 82, 80, 77, 75, 79, 86, 93],
 [-4, -1, 2, 24, 32, 33, 44, 52, 51, 66, 66, 70, 68, 68, 61, 72, 76, 70, 69, 70, 70, 68, 71, 80, 75, 73, 75, 73, 69, 71, 70, 72, 73, 92],
 [8, 4, 10, 16, 26, 30, 43, 51, 49, 60, 64, 65, 75, 72, 74, 74, 71, 70, 65, 65, 69, 68, 67, 75, 64, 74, 73, 71, 72, 67, 80, 73, 81, 97],
-[14, 3, 8, 23, 841, 38, 36, 51, 52, 55, 68, 66, 74, 73, 67, 76, 73, 74, 66, 71, 65, 73, 66, 66, 68, 72, 68, 77, 69, 68, 68, 76, 79, 99],
+[14, 3, 8, 23, 30, 38, 36, 51, 52, 55, 68, 66, 74, 73, 67, 76, 73, 74, 66, 71, 65, 73, 66, 66, 68, 72, 68, 77, 69, 68, 68, 76, 79, 99],
 ])
 
 # Create a 3D plot of depth data
 fig = go.Figure(data=[go.Surface(z=depth, x=xx, y=yy)])
 fig.update_layout(title='3D Plot of Depth Data',
-                  scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Depth'))
+                  scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Distance From ToF Sensor'))
 
 # Show the plot
 fig.show()
