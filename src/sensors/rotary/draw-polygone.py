@@ -1,23 +1,16 @@
 '''
+Test of the MicroPython framebuf poly drawing function
 
-FrameBuffer.ellipse(x, y, xr, yr, c)
+    from array import array
+    
+    my_array = array('h', [60,10, 50,60, 40,30])
+    display.poly(0,0, my_array, ON, FILL)
 
-FrameBuffer.ellipse(x, y, xr, yr, c[, f, m])¶
-Draw an ellipse at the given location. Radii xr and yr define the geometry; equal values cause 
-a circle to be drawn. The c parameter defines the color.
-
-The optional f parameter can be set to True to fill the ellipse. Otherwise just a one 
-pixel outline is drawn.
-
-The optional m parameter enables drawing to be restricted to certain quadrants of the ellipse. 
-The LS four bits determine which quadrants are to be drawn, with bit 0 specifying Q1, b1 Q2, b2 Q3 
-and b3 Q4. 
-Quadrants are numbered counterclockwise with Q1 being top right.
 '''
 
 from machine import Pin
 from utime import sleep, ticks_us
-from math import sqrt
+from array import array
 import framebuf
 import ssd1306
 
@@ -35,7 +28,6 @@ ON = 1
 OFF = 0
 NO_FILL = 0
 FILL = 1
-
 
 clock=Pin(2) #SCL
 data=Pin(3) #SDA
@@ -68,11 +60,8 @@ def draw_face(eye_direction):
     # draw_face_grid()
     start = ticks_us()
     # left eye
-    oled.ellipse(32, eye_dist_from_top, eyeWidth, eyeHeight, ON, FILL)
-    oled.ellipse(32+i, eye_dist_from_top, 5, 5, OFF, FILL)
-    # right eye
-    oled.ellipse(94, eye_dist_from_top, eyeWidth, eyeHeight, ON, FILL)
-    oled.ellipse(94+i, eye_dist_from_top, 5, 5, OFF, FILL)
+    my_array = array('h', [60,10, 50,60, 40,30])
+    oled.poly(0,0, my_array, ON, FILL)
     # draw mouth
     # draw bottom half by doing a bitwise and of 8 and 4
     oled.ellipse(HALF_WIDTH, mouth_vpos, mouth_width, 10, ON, NO_FILL, 12)
