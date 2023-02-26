@@ -177,6 +177,7 @@ nav:
       - Simple Patterns: kits/neopixel/02-simple-pattern.md
       - Buttons: kits/neopixel/03-buttons.md
       - Rotary Neopixel: projects/03-notary-neopixel.md
+    - MicroBit: kits/microbit.md
   # - Project Ideas: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
