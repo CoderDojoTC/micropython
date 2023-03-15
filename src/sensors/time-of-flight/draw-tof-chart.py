@@ -7,14 +7,14 @@ from neopixel import NeoPixel
 # OLED Display dimentions
 HEIGHT = 64
 WIDTH = 128
-CS = machine.Pin(6)
-DC = machine.Pin(5)
-SCK=machine.Pin(2)
-SDA=machine.Pin(3)
+clock=Pin(2)
+data=Pin(3)
 RES = machine.Pin(4)
-spi=machine.SPI(0,sck=SCK, mosi=SDA)
-oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
+DC = machine.Pin(5)
+CS = machine.Pin(6)
 
+spi=machine.SPI(0, sck=clock, mosi=data)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
 sda=Pin(26) # Grove connector 6
 scl=Pin(27) # Colors on ToF sensor are RBYW (red, black, yello white)
