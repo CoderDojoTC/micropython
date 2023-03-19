@@ -1312,8 +1312,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-spi-driver-code" class="md-nav__link">
-    Sample SPI Driver Code
+  <a href="#sample-spi-hello-world-example" class="md-nav__link">
+    Sample SPI Hello World Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-random-rectangles" class="md-nav__link">
+    Draw Random Rectangles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-color-lists" class="md-nav__link">
+    Draw Color Lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-update-speed" class="md-nav__link">
+    Screen Update Speed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ball-bounce-animation" class="md-nav__link">
+    Ball Bounce Animation
   </a>
   
 </li>
@@ -3215,8 +3243,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-spi-driver-code" class="md-nav__link">
-    Sample SPI Driver Code
+  <a href="#sample-spi-hello-world-example" class="md-nav__link">
+    Sample SPI Hello World Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-random-rectangles" class="md-nav__link">
+    Draw Random Rectangles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-color-lists" class="md-nav__link">
+    Draw Color Lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-update-speed" class="md-nav__link">
+    Screen Update Speed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ball-bounce-animation" class="md-nav__link">
+    Ball Bounce Animation
   </a>
   
 </li>
@@ -3248,16 +3304,64 @@
 
 <h1 id="li9341-tdf-display">LI9341 TDF Display</h1>
 <p><img alt="ILI 9341 Display Demo" src="../../../img/ili9341-demo.png" /></p>
-<p>This is a $10 240X320 color display that is easy to set up on the Raspberry Pi Pico using the SPI interface.</p>
-<p>Sample $10 part on <a href="https://www.amazon.com/dp/B0BMVXNQ22?psc=1&amp;ref=ppx_yo2ov_dt_b_product_details">Amazon</a></p>
+<p>This is a 3.2" $10 240X320 color display that is easy to set up on the Raspberry Pi Pico using the SPI interface.  The hardware supports a touch screen and an SD card, but we could not locate drivers for these components.</p>
+<p>Sample $10 part on <a href="https://www.amazon.com/dp/B0BMVXNQ22?psc=1&amp;ref=ppx_yo2ov_dt_b_product_details">Amazon</a> or <a href="https://www.ebay.com/itm/385436352305?hash=item59bdcbff31:g:QjwAAOSwoy1j9vw7">ebay</a></p>
+<p><img alt="ILI 9341 Display Demo" src="../../../img/ili9341-listing.png" /></p>
 <p>The TFT uses a 16-bit representation of the color of each pixel:</p>
 <ol>
 <li>5-bits for red</li>
 <li>6-bits for green</li>
 <li>5-bits for blue</li>
 </ol>
-<p>This requires us to include the <code>color565</code> library for doing color operations.</p>
-<h2 id="sample-spi-driver-code">Sample SPI Driver Code</h2>
+<p>This requires us to include the <code>color565</code> library for doing color operations.  So for example, to get the color yellow, you would need to do the following:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">yellow</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="sample-spi-hello-world-example">Sample SPI Hello World Example</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># print out &quot;Hello World!&quot; using the rotation=3 using 32-bit high font</span>
+<span class="c1"># the default is white text on a black background</span>
+<span class="kn">from</span> <span class="nn">ili934x</span> <span class="kn">import</span> <span class="n">ILI9341</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
+<span class="kn">import</span> <span class="nn">tt32</span>
+
+<span class="c1"># Use these PIN definitions.  SCK must be on 2 and data (SDL) on 3</span>
+<span class="n">SCK_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MISO_PIN</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># labeled SDI(MOSI) on the back of the display</span>
+<span class="n">DC_PIN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RESET_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CS_PIN</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># mosi=Pin(23)</span>
+<span class="c1"># miso=Pin(MISO_PIN)</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">20000000</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">MISO_PIN</span><span class="p">),</span><span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">SCK_PIN</span><span class="p">))</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">ILI9341</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CS_PIN</span><span class="p">),</span> <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DC_PIN</span><span class="p">),</span> <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">RESET_PIN</span><span class="p">),</span> <span class="n">w</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">erase</span><span class="p">()</span>
+<span class="n">display</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="n">tt32</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="draw-random-rectangles">Draw Random Rectangles</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3297,52 +3401,383 @@
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># test of printing multiple fonts to the ILI9341 on an M5Stack using H/W SP</span>
-<span class="c1"># MIT License; Copyright (c) 2017 Jeffrey N. Magee</span>
-
-<span class="kn">from</span> <span class="nn">ili934xnew</span> <span class="kn">import</span> <span class="n">ILI9341</span><span class="p">,</span> <span class="n">color565</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ili934x</span> <span class="kn">import</span> <span class="n">ILI9341</span><span class="p">,</span> <span class="n">color565</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
-<span class="kn">import</span> <span class="nn">m5stack</span>
-<span class="kn">import</span> <span class="nn">tt14</span>
-<span class="kn">import</span> <span class="nn">glcdfont</span>
-<span class="kn">import</span> <span class="nn">tt14</span>
-<span class="kn">import</span> <span class="nn">tt24</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">320</span>
+<span class="n">HALF_WIDTH</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
+<span class="n">HALF_HEIGHT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">HEIGHT</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ROTATION</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># landscape with 0,0 in upper left and pins on left</span>
+
+<span class="n">SCK_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MISO_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">DC_PIN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RST_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CS_PIN</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># mosi=Pin(23)</span>
+<span class="c1"># miso=Pin(MISO_PIN)</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">20000000</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">MISO_PIN</span><span class="p">),</span> <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">SCK_PIN</span><span class="p">))</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">ILI9341</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CS_PIN</span><span class="p">),</span> <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DC_PIN</span><span class="p">),</span> <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">RST_PIN</span><span class="p">),</span> <span class="n">w</span><span class="o">=</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">ROTATION</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">erase</span><span class="p">()</span>
+
+<span class="c1"># color defintions converted to 565 represnetations</span>
+<span class="n">black</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cyan</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">magenta</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">light_gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">)</span>
+<span class="n">dark_gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">brown</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 150 for the green and blue wash out the colors</span>
+<span class="n">pink</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">purple</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">lavender</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">beige</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="c1"># by definition, maroon is 50% of the red on, but 128 is way too bright</span>
+<span class="n">maroon</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">olive</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">turquoise</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">208</span><span class="p">)</span>
+<span class="n">dark_green</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">color_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">white</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">magenta</span><span class="p">,</span>
+              <span class="n">gray</span><span class="p">,</span> <span class="n">light_gray</span><span class="p">,</span> <span class="n">dark_gray</span><span class="p">,</span> <span class="n">brown</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">purple</span><span class="p">,</span> <span class="n">lavender</span><span class="p">,</span>
+              <span class="n">beige</span><span class="p">,</span> <span class="n">maroon</span><span class="p">,</span> <span class="n">olive</span><span class="p">,</span> <span class="n">turquoise</span><span class="p">,</span> <span class="n">dark_green</span><span class="p">,</span> <span class="n">black</span><span class="p">]</span>
+<span class="n">color_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_list</span><span class="p">)</span>
+
+<span class="c1"># Draw forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># rect_fill(x, y, width, height, color)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HALF_WIDTH</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HALF_HEIGHT</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HALF_WIDTH</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HALF_HEIGHT</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">color_list</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_num</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fill_rectangle(&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="draw-color-lists">Draw Color Lists</h2>
+<p>One of the best ways to study the color values is to display a rectangle
+and list the color name and values under the rectangle.</p>
+<p>Here is a sample program that will do this.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ili934x</span> <span class="kn">import</span> <span class="n">ILI9341</span><span class="p">,</span> <span class="n">color565</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 <span class="kn">import</span> <span class="nn">tt32</span>
 
-<span class="n">fonts</span> <span class="o">=</span> <span class="p">[</span><span class="n">glcdfont</span><span class="p">,</span><span class="n">tt14</span><span class="p">,</span><span class="n">tt24</span><span class="p">,</span><span class="n">tt32</span><span class="p">]</span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">320</span>
+<span class="n">HALF_WIDTH</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
+<span class="n">HALF_HEIGHT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">HEIGHT</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ROTATION</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># landscape with 0,0 in upper left and pins on left</span>
+<span class="n">SCK_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MISO_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">DC_PIN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RST_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CS_PIN</span> <span class="o">=</span> <span class="mi">6</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;Now is the time for all good men to come to the aid of the party.&#39;</span>
-
-<span class="n">power</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_LED_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="n">power</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span>
-    <span class="mi">2</span><span class="p">,</span>
-    <span class="n">baudrate</span><span class="o">=</span><span class="mi">40000000</span><span class="p">,</span>
-    <span class="n">miso</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_MISO_PIN</span><span class="p">),</span>
-    <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_MOSI_PIN</span><span class="p">),</span>
-    <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_CLK_PIN</span><span class="p">))</span>
-
-<span class="n">display</span> <span class="o">=</span> <span class="n">ILI9341</span><span class="p">(</span>
-    <span class="n">spi</span><span class="p">,</span>
-    <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_CS_PIN</span><span class="p">),</span>
-    <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_DC_PIN</span><span class="p">),</span>
-    <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">m5stack</span><span class="o">.</span><span class="n">TFT_RST_PIN</span><span class="p">),</span>
-    <span class="n">w</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span>
-    <span class="n">h</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span>
-    <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
+<span class="c1"># mosi=Pin(23)</span>
+<span class="c1"># miso=Pin(MISO_PIN)</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">20000000</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">MISO_PIN</span><span class="p">),</span><span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">SCK_PIN</span><span class="p">))</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">ILI9341</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CS_PIN</span><span class="p">),</span> <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DC_PIN</span><span class="p">),</span> <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">RST_PIN</span><span class="p">),</span> <span class="n">w</span><span class="o">=</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">ROTATION</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="n">tt32</span><span class="p">)</span>
 <span class="n">display</span><span class="o">.</span><span class="n">erase</span><span class="p">()</span>
-<span class="n">display</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ff</span> <span class="ow">in</span> <span class="n">fonts</span><span class="p">:</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># color defintions convered to 565 represnetations</span>
+<span class="n">black</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cyan</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">magenta</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">light_gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">)</span>
+<span class="n">dark_gray</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">brown</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># 150 for the green and blue wash out the colors</span>
+<span class="n">pink</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">purple</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">lavender</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">beige</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="c1"># by definition, maroon is 50% of the red on, but 128 is way too bright</span>
+<span class="n">maroon</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">105</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">olive</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">turquoise</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">208</span><span class="p">)</span>
+<span class="n">dark_green</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">color_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">white</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">magenta</span><span class="p">,</span>
+              <span class="n">gray</span><span class="p">,</span> <span class="n">light_gray</span><span class="p">,</span> <span class="n">dark_gray</span><span class="p">,</span> <span class="n">brown</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">purple</span><span class="p">,</span> <span class="n">lavender</span><span class="p">,</span>
+              <span class="n">beige</span><span class="p">,</span> <span class="n">maroon</span><span class="p">,</span> <span class="n">olive</span><span class="p">,</span> <span class="n">turquoise</span><span class="p">,</span> <span class="n">dark_green</span><span class="p">,</span> <span class="n">black</span><span class="p">]</span>
+<span class="n">color_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;white (255,255,255)&#39;</span><span class="p">,</span> <span class="s1">&#39;red (255,0,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;green (0,255,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;blue (0,0,255)&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow (255,255,0)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;cyan (0,255,255)&#39;</span><span class="p">,</span> <span class="s1">&#39;magenta (255,0,255)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;gray (128,128,128)&#39;</span><span class="p">,</span> <span class="s1">&#39;light gray (192,192,192)&#39;</span><span class="p">,</span> <span class="s1">&#39;dark gray (64,64,64)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;brown (165,42,42)&#39;</span><span class="p">,</span> <span class="s1">&#39;orange (255,60,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;pink (255,130,130)&#39;</span><span class="p">,</span> <span class="s1">&#39;purple (128,0,128)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;lavender (150,150,200)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;beige (200,200,150)&#39;</span><span class="p">,</span> <span class="s1">&#39;maroon (105,0,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;olive (128,128,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;turquoise (64,224,208)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;dark green (0,100,0)&#39;</span><span class="p">,</span> <span class="s1">&#39;black (0,0,0)&#39;</span><span class="p">]</span>
+<span class="n">color_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_list</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">black</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_num</span><span class="p">):</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="o">-</span><span class="mi">33</span><span class="p">,</span> <span class="n">color_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="c1"># black behind the white text</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">black</span><span class="p">)</span>
+
+        <span class="n">display</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">HEIGHT</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">color_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">color_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="screen-update-speed">Screen Update Speed</h2>
+<p>One large disadvantage of this display is the very slow refresh rate.  Transmitting the entire screen of 240X320 with two bytes per pixel takes
+a long time over SPI.  This makes this setup difficult to use for animation.</p>
+<h2 id="ball-bounce-animation">Ball Bounce Animation</h2>
+<p>Here is a very slow "ball bounce" animation that is slow and has a lot of flicker.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ili934x</span> <span class="kn">import</span> <span class="n">ILI9341</span><span class="p">,</span> <span class="n">color565</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">320</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
+<span class="n">ROTATION</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># landscape with 0,0 in upper left and pins on left</span>
+<span class="n">SCK_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MISO_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">DC_PIN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RST_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CS_PIN</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># mosi=Pin(23)</span>
+<span class="c1"># miso=Pin(MISO_PIN)</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">20000000</span><span class="p">,</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">MISO_PIN</span><span class="p">),</span><span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">SCK_PIN</span><span class="p">))</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">ILI9341</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span> <span class="n">cs</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CS_PIN</span><span class="p">),</span> <span class="n">dc</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DC_PIN</span><span class="p">),</span> <span class="n">rst</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">RST_PIN</span><span class="p">),</span> <span class="n">w</span><span class="o">=</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">ROTATION</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">erase</span><span class="p">()</span>
+
+<span class="c1"># color defintions convered to 565 represnetations</span>
+<span class="n">black</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">color565</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="c1"># ok, not really a circle - just a square for now</span>
+<span class="k">def</span> <span class="nf">draw_ball</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="c1"># draw a single pixel</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">fill_rectangle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+<span class="n">ball_size</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1"># start in the middle of the screen</span>
+<span class="n">current_x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">current_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># start going down to the right</span>
+<span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># delay_time = .0001</span>
+
+<span class="c1"># Bounce forever</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># draw the square ball in white</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span> <span class="n">ball_size</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">.1</span><span class="p">)</span>
+    <span class="c1"># the erase the old ball takes too long and causes a flicker</span>
+    <span class="n">draw_ball</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span><span class="n">current_y</span><span class="p">,</span><span class="n">ball_size</span><span class="p">,</span> <span class="n">black</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># right edge test</span>
+    <span class="k">if</span> <span class="n">current_x</span> <span class="o">&gt;</span> <span class="n">WIDTH</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># top edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># bottom edge test</span>
+    <span class="k">if</span> <span class="n">current_y</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span> <span class="o">-</span> <span class="n">ball_size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">direction_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># update the ball</span>
+    <span class="n">current_x</span> <span class="o">=</span> <span class="n">current_x</span> <span class="o">+</span> <span class="n">direction_x</span>
+    <span class="n">current_y</span> <span class="o">=</span> <span class="n">current_y</span> <span class="o">+</span> <span class="n">direction_y</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="references">References</h2>
-<p>https://github.com/jeffmer/micropython-ili9341</p>
-<p><a href="https://www.amazon.com/s?k=TFT+display&amp;tag=all3dp0c-20">HiLetgo ILI9341 2.8" SPI TFT LCD Display Touch Panel 240X320 with PCB 5V/3.3V STM32</a></p>
-<p><a href="https://github.com/jeffmer/micropython-ili9341">Jeff Mer MicroPytho Driver for the LIL9341 Display</a></p>
+<ol>
+<li>
+<p><a href="https://github.com/jeffmer/micropython-ili9341">Jeffmer's GitHub library which includes four fonts</a> - the sizes are 8, 14, 24 and 32 pixels.</p>
+</li>
+<li>
+<p><a href="https://www.amazon.com/s?k=TFT+display&amp;tag=all3dp0c-20">Amazon HiLetgo ILI9341 2.8" SPI TFT LCD Display Touch Panel 240X320 with PCB 5V/3.3V STM32</a></p>
+</li>
+<li>
+<p><a href="https://www.ebay.com/itm/304736177265">ebay Listing</a></p>
+</li>
+</ol>
 
               
             </article>
