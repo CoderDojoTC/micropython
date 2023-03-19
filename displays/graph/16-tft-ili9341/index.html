@@ -17,7 +17,7 @@
     
     
       
-        <title>TFT LI9341 - MicroPython for Kids</title>
+        <title>TFT ILI9341 - MicroPython for Kids</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TFT LI9341
+              TFT ILI9341
             
           </span>
         </div>
@@ -1288,12 +1288,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          TFT LI9341
+          TFT ILI9341
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        TFT LI9341
+        TFT ILI9341
       </a>
       
         
@@ -3240,14 +3240,23 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/16-tft-li9341.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/CoderDojoTC/micropython/blob/master/docs/displays/graph/16-tft-ili9341.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
 <h1 id="li9341-tdf-display">LI9341 TDF Display</h1>
-<p>This is a $18 240X320 color display that is easy to setup.</p>
+<p><img alt="ILI 9341 Display Demo" src="../../../img/ili9341-demo.png" /></p>
+<p>This is a $10 240X320 color display that is easy to set up on the Raspberry Pi Pico using the SPI interface.</p>
+<p>Sample $10 part on <a href="https://www.amazon.com/dp/B0BMVXNQ22?psc=1&amp;ref=ppx_yo2ov_dt_b_product_details">Amazon</a></p>
+<p>The TFT uses a 16-bit representation of the color of each pixel:</p>
+<ol>
+<li>5-bits for red</li>
+<li>6-bits for green</li>
+<li>5-bits for blue</li>
+</ol>
+<p>This requires us to include the <code>color565</code> library for doing color operations.</p>
 <h2 id="sample-spi-driver-code">Sample SPI Driver Code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
