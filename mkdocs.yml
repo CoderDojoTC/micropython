@@ -66,7 +66,7 @@ nav:
     - Drawing with Bitmaps: displays/graph/03-bitmaps.md
     - Custom Drawing Functions: displays/graph/04-extended-drawing-functions.md
     - Color LCD ST7789V: displays/graph/14-lcd-st7789V.md
-    - TFT LI9341: displays/graph/16-tft-li9341.md
+    - TFT ILI9341: displays/graph/16-tft-ili9341.md
     - LCD Waveshare: displays/graph/11-lcd-waveshare.md
     - E-Paper: displays/graph/12-e-paper-display.md
     - OLED Setup: displays/graph/02-oled-setup.md
