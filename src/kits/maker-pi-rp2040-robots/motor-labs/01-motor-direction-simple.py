@@ -3,7 +3,7 @@ from time import sleep
 
 # power is 0 to 65025
 # 3700 just barely moves a DC motor sometimes
-POWER_LEVEL = 4400
+POWER_LEVEL = 30000
 # lower right pins with USB on top
 FORWARD_PIN = 8
 REVERSE_PIN = 9
