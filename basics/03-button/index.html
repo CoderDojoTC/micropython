@@ -644,6 +644,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#two-button-example" class="md-nav__link">
+    Two Button Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -3264,6 +3271,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#two-button-example" class="md-nav__link">
+    Two Button Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -3435,6 +3449,109 @@ This is the connection diagram that shows how the button is connected to the GPI
 
 <span class="c1"># This is for only printing when a new button press count value happens</span>
 <span class="n">old_presses</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># only print on change in the button_presses value</span>
+    <span class="k">if</span> <span class="n">button_presses</span> <span class="o">!=</span> <span class="n">old_presses</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">button_presses</span><span class="p">)</span>
+        <span class="n">builtin_led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+        <span class="n">old_presses</span> <span class="o">=</span> <span class="n">button_presses</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="two-button-example">Two Button Example</h2>
+<p>This example uses two buttons.  One adds one to a counter, and the other decrements the counter.  In the IRQ we look for the string '''14''' in the incoming pin event string.  If the string is present, then we increment the <code>button_presses</code> variable. If it is not, then we decrement the counter.</p>
+<p>This example is useful whenever you have two buttons that control the <code>mode</code> of a microcontroller.</p>
+<p>Note that you can tune the delay period.  If you have clean buttons and you want to allow for fast double-click events you can lower the time.  200 milliseconds is good for low-cost noisy buttons that may have many spikes in the open and closing transitions.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="c1"># Sample two button Raspberry Pi Pico MicroPython example</span>
+<span class="c1"># with a debounce delay value of 200ms in the interrupt handler</span>
+<span class="c1"># https://www.coderdojotc.org/micropython/basics/03-button/</span>
+
+<span class="c1"># these are the pins in the lower-left corner (USB on top)</span>
+<span class="n">BUTTON_PIN_A</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">BUTTON_PIN_B</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">button_presses</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the count of times the button has been pressed.  A is +1, B is -1</span>
+<span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the last time we pressed the button</span>
+
+<span class="c1"># we toggle the builtin LED to get visual feedback</span>
+<span class="n">builtin_led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1"># The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail</span>
+<span class="n">button_a</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_A</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">button_b</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_B</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+
+<span class="c1"># this is the interrupt callback handler</span>
+<span class="c1"># get in and out quickly</span>
+<span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">button_presses</span><span class="p">,</span> <span class="n">last_time</span>
+    <span class="n">new_time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="c1"># if it has been more that 1/5 of a second since the last event, we have a new event</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="c1"># print(pin)</span>
+        <span class="k">if</span> <span class="s1">&#39;14&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+            <span class="n">button_presses</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">button_presses</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
+
+<span class="c1"># now we register the handler functions when either of the buttons is pressed</span>
+<span class="n">button_a</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_callback</span><span class="p">)</span>
+<span class="n">button_b</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_callback</span><span class="p">)</span>
+
+<span class="c1"># This is for only printing when a new button press count value happens</span>
+<span class="n">old_presses</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">button_presses</span><span class="p">)</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># only print on change in the button_presses value</span>
     <span class="k">if</span> <span class="n">button_presses</span> <span class="o">!=</span> <span class="n">old_presses</span><span class="p">:</span>
