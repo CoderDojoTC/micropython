@@ -61,11 +61,11 @@ color_num = len(color_list)
 display.fill_rectangle(0, 0, WIDTH, HEIGHT, black)
 while True:
     for i in range(0, color_num):
-        display.fill_rectangle(10, 10, WIDTH-10, HEIGHT-60, color_list[i])
+        display.fill_rectangle(0, 0, WIDTH, HEIGHT-33, color_list[i])
         # black behind the white text
-        display.fill_rectangle(10, HEIGHT-50, WIDTH, 32, black)
+        display.fill_rectangle(0, HEIGHT-32, WIDTH, 32, black)
         
-        display.set_pos(10,HEIGHT-50)
+        display.set_pos(0,HEIGHT-32)
         display.print(color_names[i])
         print(color_names[i])
         sleep(1)
