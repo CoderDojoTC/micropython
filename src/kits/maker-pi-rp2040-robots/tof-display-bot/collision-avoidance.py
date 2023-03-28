@@ -47,12 +47,12 @@ i2c=machine.I2C(1, sda=sda, scl=scl, freq=400000)
 
 WIDTH = 128
 HEIGHT = 64
-SCK=machine.Pin(2)
-SDL=machine.Pin(3)
+SCK=Pin(2)
+SDL=Pin(3)
+RES = machine.Pin(4)
+DC = machine.Pin(5)
+CS = machine.Pin(6)
 spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
-CS = machine.Pin(0)
-DC = machine.Pin(1)
-RES = machine.Pin(5)
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
 # Create a VL53L0X object
@@ -190,16 +190,6 @@ def play_turn_right():
 def play_turn_left():
     playnote(700, 0.1)
 
-# The Maker Pi RP2040 has 13 fantastic blue GPIO status LEDs
-# remove 0, 1, 2 and 3 for the I2C busees and remove 26,27 and 28 for the pots
-#blue_led_pins = [4,  5,  6,  7, 16, 17]
-# dist_scale =    [2, 4, 6, 8, 10, 13, 16, 20, 25, 35, 50, 75, 100]
-#dist_scale =    [4, 8, 16, 24, 50]
-
-#number_leds = len(blue_led_pins)
-#distance_per_led = (MAX_DIST - TURN_DISTANCE) / number_leds
-#led_ports = []
-# time for each LED to display
 delay = .05
 
 # time of flight calibration parameters
