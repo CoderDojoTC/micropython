@@ -1,6 +1,6 @@
 # Using Visual Studio Code to Program MicroPython
 
-Although the [Thonney IDE](02c-thonny.md) is a great way for kids to start programming in Python on the Raspberry Pi Pico, it has limited advanced features and no large library of extensions.
+Although the [Thonny IDE](02c-thonny.md) is a great way for kids to start programming in Python on the Raspberry Pi Pico, it has limited advanced features and no large library of extensions.
 
 For intermediate to advanced Python developers, the Visual Studio Code IDE is a good options when it is used with an appropriate extension such as the [Pico Go](https://marketplace.visualstudio.com/items?itemName=ChrisWood.pico-go) extension by Chris Wood.
 

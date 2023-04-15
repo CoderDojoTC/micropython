@@ -7,7 +7,7 @@ import neopixel
 import ssd1306
 import random
 import VL53L0X
-from neopixel import Neopixel
+from neopixel import NeoPixel
 import framebuf
 
 # key parameters
@@ -36,12 +36,14 @@ STATE_MACHINE = 0
 NEOPIXEL_PIN = 18
 
 # The Neopixels on the Maker Pi RP2040 are the GRB variety, not RGB
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, NEOPIXEL_PIN, "GRB")
-strip.brightness(100)
+strip = strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-sda=machine.Pin(16)
-scl=machine.Pin(17)
-i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+TOF_DATA_PIN = 26
+TOF_CLOCK_PIN = 27
+
+sda=machine.Pin(TOF_DATA_PIN) # row one on our standard Pico breadboard
+scl=machine.Pin(TOF_CLOCK_PIN) # row two on our standard Pico breadboard
+i2c=machine.I2C(1, sda=sda, scl=scl, freq=400000)
 
 WIDTH = 128
 HEIGHT = 64
@@ -103,27 +105,27 @@ def forward():
     turn_motor_on(left_forward)
     turn_motor_off(right_reverse)
     turn_motor_off(left_reverse)
-    strip.set_pixel(0, green)
-    strip.set_pixel(1, green)
-    strip.show()
+    strip[0] = green
+    strip[1] = green
+    strip.write()
 
 def reverse():
     turn_motor_on(right_reverse)
     turn_motor_on(left_reverse)
     turn_motor_off(right_forward)
     turn_motor_off(left_forward)
-    strip.set_pixel(0, purple)
-    strip.set_pixel(1, purple)
-    strip.show()
+    strip[0] = purple
+    strip[1] = purple
+    strip.write()
 
 def turn_right():
     turn_motor_on(right_forward)
     turn_motor_on(left_reverse)
     turn_motor_off(right_reverse)
     turn_motor_off(left_forward)
-    strip.set_pixel(0, red)
-    strip.set_pixel(1, red)
-    strip.show()
+    strip[0] = red
+    strip[1] = red
+    strip.write()
     play_turn_right()
     
 def turn_left():
@@ -131,9 +133,9 @@ def turn_left():
     turn_motor_on(left_forward)
     turn_motor_off(right_forward)
     turn_motor_off(left_reverse)
-    strip.set_pixel(0, blue)
-    strip.set_pixel(1, blue)
-    strip.show()
+    strip[0] = blue
+    strip[1] = blue
+    strip.write()
     play_turn_left()
 
 def stop():
@@ -141,9 +143,9 @@ def stop():
     turn_motor_off(right_reverse)
     turn_motor_off(left_forward)
     turn_motor_off(left_reverse)
-    strip.set_pixel(0, yellow)
-    strip.set_pixel(1, yellow)
-    strip.show()
+    strip[0] = yellow
+    strip[1] = yellow
+    strip.write()
 
 def sound_off():
     buzzer.duty_u16(0)
@@ -295,8 +297,8 @@ def cycle_neopixels():
     global color_cycle
     for i in range(0, NUMBER_PIXELS):
         # print(wheel(counter))
-        strip.set_pixel(i, wheel(color_cycle))
-    strip.show()
+        strip[i] = wheel(color_cycle)
+    strip.write()
     color_cycle += 5
     color_cycle = color_cycle % 255
 

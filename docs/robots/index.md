@@ -1,6 +1,6 @@
-# Introduction to CoderDojo Pico Robots
+# Introduction to MicroPython Robots
 
-Robots are the most powerful learning machines in our CoderDojo projects.  They allow our students to control motion with their own programs.  Not only are they incredibly fun for our students, they learn [computational thinking](https://www.coderdojotc.org/CoderDojoTC/computational-thinking/) and enable them to quickly proceed to our advanced AI Racing League projects.
+Robots are the most powerful learning machines in our curriculum.  They allow our students to control motion with their own programs.  Not only are they incredibly **fun** for our students, our students learn [computational thinking](https://www.coderdojotc.org/CoderDojoTC/computational-thinking/) and enable them to quickly proceed to our advanced AI Racing League projects.
 
 The Raspberry Pi Pico and the Maker Pi RP2040 components have truly been transformative for our clubs.  Instead of being trapped in the 2K RAM on our Arduino systems and being forced to learn "C", our students are programming in their favorite Python language!
 
@@ -12,7 +12,12 @@ This section of the course takes you on a tour of our base $25 collision avoidan
 
 Note that the $25 price assumes you purchase low-cost parts from suppliers like eBay.  You can lower the cost per robot by purchasing the parts in higher quantities for classroom use.  You can also purchase older Arduino robot kits and upgrade the processors to use the Raspberry Pi Pico.
 
-Our base robot is a collision avoidance robot that is ideal for teaching beginning robotics principals.  The robots have one ore more distance sensors on the front and will continue to move forward until they get near an object in front of them.  They then will reverse and turn in another direction.  We test our robots on the floor in a "Robot Corral" that has six inch high walls.  Students can adjust various parameters to allow the robot to navigate around the corral without colliding with the walls.
+!!! Note
+    This section only covers using the Raspberry Pi Pico robots with external motor drivers.  We now have
+    many additional robot lessons that use the [Cytron Maker Pi RP2040](../kits/maker-pi-rp2040-robot/index.md) robotics board.  These robots are still low-cost ($20) but have much more integrated power and are easier for
+    younger students to use since they don't require any breadboards or soldering.
+
+Our base robot is a collision avoidance robot that is ideal for teaching beginning robotics principles.  The robots have one or more distance sensors on the front and will continue to move forward until they get near an object in front of them.  They then will reverse and turn in another direction.  We test our robots on the floor in a "Robot Corral" that has six-inch high walls.  Students can adjust various parameters to allow the robot to navigate around the corral without colliding with the walls.
 
 ![Robot Journey Map](../img/kids-in-robot-corral.jpg)
 

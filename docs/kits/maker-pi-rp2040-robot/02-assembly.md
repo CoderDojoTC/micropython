@@ -4,7 +4,7 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
 
 1. A SmartCar Chassis
     1. Two 3 to 6-volt DC geared hobby motors and wheels
-    2. Plexiglass (acrylic) main board
+    2. Plexiglass (acrylic) main-board
     3. Screws and nuts
     4. 4 AA battery pack
     5. Power switch
@@ -13,15 +13,15 @@ This kit is a $25 robot kit that we will use in our CoderDojo robotics classes. 
     2. 4x Grove to female header cables
     3. Screwdriver
     4. Silicone rubber feet (pack of 4)
-3. Ultrasonce sensor
-    1. mounting braket
+3. Ultrasonic sensor
+    1. mounting bracket
     2. 2 M2 6mm screws and nuts
 
 You will need to provide 4 AA batteries and a Micro USB connector that works with your PC or Mac.
 
 ## Assemble the SmartCar Chassis
 
-In this version of the kit the wires are pre-soldered onto the motors.
+In this version of the kit, the wires are pre-soldered onto the motors.
 
 Here is the robot kit in all the packaging:
 ![](../../img/IMG_0146.jpg)
@@ -43,10 +43,10 @@ Next, we position the battery pack on the BOTTOM so that we have more room on th
 I used a 1/8th inch drill bit to put holes where the battery pack should be mounted.
 ![](../../img/IMG_0164.jpg)
 
-Next, I put the flat head screws in the battery pack.  We want to make sure the top of the screw is all the way in so that it does not get in the way of the battery.
+Next, I put the flat-head screws in the battery pack.  We want to make sure the top of the screw is all the way in so that it does not get in the way of the battery.
 ![](../../img/IMG_0166.jpg)
 
-Next we mount the rubber feat on the bottom of the Maker Pi RP2040 circuit board so that we have some space between the PC board and the main chassis.  I use the space next to the four corners to mount the feet.  Note that we must put the drag wheel on before we put the PC board on top of the chassis.
+Next, we mount the rubber feet on the bottom of the Maker Pi RP2040 circuit board so that we have some space between the PC board and the main chassis.  I use the space next to the four corners to mount the feet.  Note that we must put the drag wheel on before we put the PC board on top of the chassis.
 ![](../../img/IMG_0167.jpg)
 
 Next, we put the four screws and spacers in the four holes at the bottom rear of the robot directly behind the battery pack.
@@ -89,12 +89,12 @@ Don't worry about getting the connections all correct.  They can be adjusted in 
 Press the wheels on the motors.
 ![](../../img/IMG_0181.jpg)
 
-Lastly we connect the battery to the VIN jumper, making sure to connect the red wire to the "+" terminal and the black wire to the "-" terminal.
+Lastly, we connect the battery to the VIN jumper, making sure to connect the red wire to the "+" terminal and the black wire to the "-" terminal.
 ![](../../img/IMG_0186.jpg)
 
 Connect the Maker Pi RP2040 board to the top with the USB connector facing the rear.
 
- ![Maker Pi RP2040 Motor Connections](../img/maker-pi-rp2040-motor-connections.jpg)
+ ![Maker Pi RP2040 Motor Connections](../../img/maker-pi-rp2040-motor-connections.jpg)
 
 Here is a short video of the assembly of a SmartCar Chassis.  Note that this video puts the battery on the top, where we put it on the bottom.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lgCERugoVL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -102,8 +102,4 @@ Here is a short video of the assembly of a SmartCar Chassis.  Note that this vid
 
 ![](../../img/maker-pi-rp2040-robot-bottom.jpg)
 There are many videos online how to assemble to motors to the chassis.  The trick is orienting the motors correctly and making sure the bolts don't get in the way of the wheels.
-
-
-   ![Maker Pi RP2040 Motor Connections](../img/maker-pi-rp2040-motor-connections.jpg)
-
 

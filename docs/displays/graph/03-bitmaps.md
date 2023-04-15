@@ -33,6 +33,22 @@ my_bytearray = (b"\xFF\xFF\xFF\xBF\xDF\xEF\xF7\xFF\xFB\xFF\xFD")
 
 Note that the letter ```b``` begins the parameter to show the Python interpreter that the all the characters between the double quotes are byte array values.  The characters ```\x``` indicate that there are hexadecimals useds to encode the bit values.
 
+## Creating a Solid Block of Pixels
+
+Sometimes you want to update an entire region of the screen with a block of pixels that are all on or off.  You can do this with the following steps
+
+```python
+# create a 10x10 matrix of on pixels
+# allocate an array of 20 bytes = 
+on_buffer = bytearray(20)
+# put all 1's in that buffer
+on_buffer[:] = b'\xff' * 20
+# create a frame buffer using monochrome 
+on_square = framebuf.FrameBuffer(on_buffer, 10, 10, framebuf.MONO_HLSB)
+
+oled.blit(logo, i, 0)
+```
+
 ## Image Encoding Options
 
 There are several alternate methods to encode the bits of an image into a byte array.  The bits can be coded left to right or top to bottom.  You can also put the bits in most-significant bit first or least-significant bit first.  All these options and controlled when you interface with a framebuffer.
@@ -40,6 +56,9 @@ There are several alternate methods to encode the bits of an image into a byte a
 ### Vertical Least Significant Bit Layout
 framebuf.MONO_VLSB
 Monochrome (1-bit) color format This defines a mapping where the bits in a byte are vertically mapped with bit 0 being nearest the top of the screen. Consequently each byte occupies 8 vertical pixels. Subsequent bytes appear at successive horizontal locations until the rightmost edge is reached. Further bytes are rendered at locations starting at the leftmost edge, 8 pixels lower.
+
+### Horizontal
+MONO_HLSB. Monochrome (1-bit) color format This defines a mapping where the bits in a byte are horizontally mapped. Each byte occupies 8 horizontal pixels with bit 7 being the leftmost. Subsequent bytes appear at successive horizontal locations until the rightmost edge is reached.
 
 ## References
 

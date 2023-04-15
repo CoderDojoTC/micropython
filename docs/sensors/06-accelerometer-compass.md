@@ -58,3 +58,7 @@ while True:
 
     utime.sleep_ms(1000)
 ```
+
+## References
+
+[MEMS YouTube Video](https://www.youtube.com/watch?v=9X4frIQo7x0) The ingenious micro mechanisms inside your phone

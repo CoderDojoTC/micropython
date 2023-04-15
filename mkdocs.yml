@@ -43,6 +43,7 @@ nav:
     - Time of Flight Distance: sensors/07-VL53L0X_GY.md
     - Rotary Encoder: sensors/10-rotary-encoder.md
     - Compass: sensors/11-compass.md
+    - Gesture: sensors/13-gesture.md
   - Motors and Servos:
     - Introduction: motors/01-intro.md
     - Transistor Lab: motors/02-transistor.md
@@ -55,15 +56,17 @@ nav:
     - Introduction: displays/non-graph/01-intro.md
     - 7 Segment Display: displays/non-graph/seven-segment.md
     - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
+    - 8x8 LED Matrix: displays/non-graph/04-8x8-led-matrix.md
     - Character LCD: displays/non-graph/10-character-lcd-display.md
   - Displays Graphical:
     - Introduction: displays/graph/01-intro.md
+    - Wiring Harness: displays/graph/19-wiring-harness.md
     - Graphic LCD: displays/graph/15-cu1609c-led.md
     - Basic Drawing: displays/graph/03-basic-drawing.md
     - Drawing with Bitmaps: displays/graph/03-bitmaps.md
     - Custom Drawing Functions: displays/graph/04-extended-drawing-functions.md
     - Color LCD ST7789V: displays/graph/14-lcd-st7789V.md
-    - TFT LI9341: displays/graph/16-tft-li9341.md
+    - TFT ILI9341: displays/graph/16-tft-ili9341.md
     - LCD Waveshare: displays/graph/11-lcd-waveshare.md
     - E-Paper: displays/graph/12-e-paper-display.md
     - OLED Setup: displays/graph/02-oled-setup.md
@@ -103,7 +106,7 @@ nav:
     - Advanced Labs: wireless/11-advanced-labs.md
     - With Display: wireless/20-display.md
   - Robots:
-    - Introduction: robots/01-intro.md
+    - Introduction: robots/index.md
     - Base Bot: robots/02-base-bot.md
     - Rainbow Bot: robots/03-rainbow-bot.md
     - Face Bot: robots/04-face-bot.md
@@ -116,7 +119,6 @@ nav:
     - Internal Temperature: advanced-labs/03-internal-temperature.md
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
-    - Circuit Python: circuit-python/01-intro.md
     - Conda Environment Setup: advanced-labs/04-conda-env.md
     - OS Functions: advanced-labs/05-os-functions.md
     - I2C Scanner: advanced-labs/06-i2c.md
@@ -128,14 +130,17 @@ nav:
     - Timers: advanced-labs/13-timers.md
     - Memory Management: advanced-labs/14-memory-management.md
     - TinyML: advanced-labs/20-tinyml.md
+    - String Formatting: advanced-labs/12-string-formatting.md
+    - Operating System: advanced-labs/11-os.md
+    - Measuring Battery Voltage: advanced-labs/15-measuring-vsys.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md
       - Debugging SPI: debugging/29-debugging-spi.md
-  - Kits:
+  - Project Kits:
     - Introduction: kits/01-intro.md
     - Maker Pi RP2040:
-      - Introduction: kits/maker-pi-rp2040/01-intro.md
+      - Introduction: kits/maker-pi-rp2040/index.md
       - Getting Started: kits/maker-pi-rp2040/01-getting-started.md
       - Blue LED Lab: kits/maker-pi-rp2040/02-blue-led-lab.md
       - NeoPixel Lab: kits/maker-pi-rp2040/03-neopixel-lab.md
@@ -143,7 +148,7 @@ nav:
       - Sound Lab: kits/maker-pi-rp2040/05-sound-lab.md
       - Up/Down Mode Lab: kits/maker-pi-rp2040/06-up-down-lab.md
     - Maker Pi RP2040 Robot:
-      - Introduction: kits/maker-pi-rp2040-robot/01-intro.md 
+      - Introduction: kits/maker-pi-rp2040-robot/index.md 
       - Assembly: kits/maker-pi-rp2040-robot/02-assembly.md
       - Motor Lab: kits/maker-pi-rp2040-robot/07-motor-connection-lab.md
       - Up/Down Motor Speed Lab: kits/maker-pi-rp2040-robot/06-up-down-motor-lab.md
@@ -157,8 +162,9 @@ nav:
       - Collision Avoidance Time-of-Flight: kits/maker-pi-rp2040-robot/20-collision-avoidance-robot.md
       - Collision Avoidance Ping: kits/maker-pi-rp2040-robot/21-collision-avoidance-ping.md
       - Ping Servo Meter: kits/maker-pi-rp2040-robot/24-ping-servo-meter.md
+      - Line Follower: kits/maker-pi-rp2040-robot/25-line-follower.md
     - Maker Pi Pico:
-      - Introduction: kits/maker-pi-pico/01-intro.md
+      - Introduction: kits/maker-pi-pico/index.md
       - Running Lights: kits/maker-pi-pico/02-running-lights.md
       - SD Card Reader: kits/maker-pi-pico/09-micro-sd-card-reader.md
     - Maker Nano RP2040:
@@ -170,6 +176,8 @@ nav:
       - Getting Started: kits/neopixel/01-getting-started.md
       - Simple Patterns: kits/neopixel/02-simple-pattern.md
       - Buttons: kits/neopixel/03-buttons.md
+      - Rotary Neopixel: projects/03-notary-neopixel.md
+    - MicroBit: kits/microbit.md
   # - Project Ideas: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
@@ -205,3 +213,8 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
 
+extra:
+  analytics:
+    provider: google
+    # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
+    property: G-DS16K4YVRR

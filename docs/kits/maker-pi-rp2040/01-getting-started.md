@@ -23,9 +23,9 @@ You can now repeat this process with the [Raspberry Pi MicroPython Runtime](http
 
 If you have never used MicroPython, the Raspberry Pi Foundation has a nice [Getting Started Guide](https://www.raspberrypi.org/documentation/microcontrollers/micropython.html) that can be helpful.
 
-## Get Familiar with your IDE (Thonney) and the Basic Programs
+## Get Familiar with your IDE (Thonny) and the Basic Programs
 
-There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.  Once you turn on the board you should be able to configure Thonny to use the Raspberry Pi MicroPython interface.  When you press the Stop/Reset button you should see the MicroPython RPEL prompt.
+There are many Integrated Development Environments (IDEs) that work with the Raspberry Pi RP2040 chip.  The one you chose just should support MicroPython and be able to upload and run new programs.  Once you turn on the board you should be able to configure Thonny to use the Raspberry Pi MicroPython interface.  When you press the Stop/Reset button you should see the MicroPython REPL prompt.
 
 ![](../../img/thonny-micropython-pico.png)
 
@@ -39,5 +39,5 @@ Use the [Motor Connection Lab](../maker-pi-rp2040-robot/07-motor-connection-lab.
 MicroPython on the RP2040 is the most powerful low-cost system on the market today.  With 264K of RAM, it will take a LOT of work to run out of memory.  But with all things new, there is a lock of good documentation, drivers and sample code.  To help you along, we suggest the following resources:
 
 1. The [MicroPython Raspsberry Pi Forum](https://forum.micropython.org/viewforum.php?f=21&sid=73745cabd6bbdacfd3e78419d5064dfe).  Be sure use the search to check for prior questions.
-2.  
+2.
 

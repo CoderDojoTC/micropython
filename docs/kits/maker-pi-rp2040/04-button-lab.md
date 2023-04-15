@@ -1,6 +1,6 @@
 # Two Button Press
 
-We learned how to write code to monitor a button press in the [Button Lab](../../intro/03-button.md).
+We learned how to write code to monitor a button press in the [Button Lab](../../basics/03-button.md).
 
 Recall we talked about how to remove the "debounce noise" when a button is pressed by adding a timer to make sure we had a clean transition (debouncing the switch):
 

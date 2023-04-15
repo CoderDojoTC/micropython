@@ -1,13 +1,14 @@
 # Thonny Python IDE
-A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.
+
+A lightweight Python integrated development environment (IDE) that is ideal for beginners writing simple Python programs for first-time users.  It has been modified to work well with the Raspberry Pi Pico.  It supports different ways of stepping through the code, step-by-step expression evaluation, detailed visualization of the call stack and a mode for explaining the concepts of references and heap.
 
 We strongly suggest that classes begin with Thonny for the first several weeks.  As students want to do more complex functions such as build automatic deployment scripts other IDEs are more appropriate.
 
-Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history see the [Thonny Release History](https://github.com/thonny/thonny/blob/master/CHANGELOG.rst).  We suggest checking this link monthly for updates.
+Thonny 3.3.3 (2021-01-21) was the first version to support the Raspberry Pi Pico.  There have also been several enhancements since that release.  For a release history, see the [Thonny Release History](https://github.com/thonny/thonny/blob/master/CHANGELOG.rst).  We suggest checking this link monthly for updates.
 
 ## Installing Thonny
 
-The best way to install Thonny is to go to the Thonny web site an look for the "Download" are for your opeating system.  That link is here:
+The best way to install Thonny is to go to the Thonny website an look for the "Download" area for your operating system.  That link is here:
 
 [https://thonny.org/](https://thonny.org/)
 
@@ -37,7 +38,7 @@ sudo apt-get upgrade thonny
 ```
 
 #### Running help()
-You can enter the help() function in the main script area and then press the Play button.  This will tell you 
+You can enter the help() function in the main script area and then press the Play button.  This will tell you
 
 ```
 MicroPython v1.14 on 2021-02-02; Raspberry Pi Pico with RP2040
@@ -77,8 +78,9 @@ Useful control commands:
 
 For further help on a specific object, type help(obj)
 For a list of available modules, type help('modules')
->>> 
+>>>
 ```
+
 ## Save Options
 You can save a python file in Thonny to either the Pico or to your local computer's file system.
 
@@ -90,6 +92,7 @@ first stop execution of any program you are running.
 After you start up Thonny there will be a button in the lower right corner.
 
 After you click on it you will see the following:
+
 ```
 Downloading 465408 bytes from https://github.com/raspberrypi/micropython/releases/download/pico-20210120/pico_micropython_20210121.uf2
 Writing to /Volumes/RPI-RP2/firmware
@@ -111,11 +114,11 @@ Type "help()" for more information.
 
 ## Plotting Values on Thonny
 
-If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidently hook up at potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incomming data cause by spikes on the power rails.
+If you are reading sensor values and want to see a nice plot of the values, you can use Thonny's Plot function to view the values.  Simply add numeric print values to your main loop and they will be displayed in the plot window.  This is very useful for any analog to digital conversions and can be used as a simple tool to view anomalies in incoming data.  For example if you accidentally hook up a potentiometer's positive rail to 3.3OUT instead of the 3.3REF you will see noise in the incoming data caused by spikes on the power rails.
 
 ## Background on Thonny
 
-MicroPython was originally developed by Damien George and first released in 2014.  However, MicroPython did not have a development environment that was easy for students to use.  Thonny was developed to provide an easy to use tool just for MicroPython development.  Thonney was created at the [University of Tartu Institute of Computer Science](https://www.cs.ut.ee/en) in Estonia for this purpose.  They continue to support Thonny.
+MicroPython was originally developed by Damien George and first released in 2014.  However, MicroPython did not have a development environment that was easy for students to use.  Thonny was developed to provide an easy to use tool just for MicroPython development.  Thonny was created at the [University of Tartu Institute of Computer Science](https://www.cs.ut.ee/en) in Estonia for this purpose.  They continue to support Thonny.
 
 Several feature for Thonny were sponsored by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation) and we continue to see a close relationship between the Raspberry Pi Foundation and the Thonny development team.
 
