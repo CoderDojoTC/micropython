@@ -1,6 +1,16 @@
 # Micropython Glossary of Terms
 <!-- Link to this by using [TERM](glossary#term-id 
-The format is used to generate a concept graph for this course
+The format is used to generate a concept graph for this course.
+
+Sample Prompt:
+Create a Glossy of Terms for a high school robotics class.
+Return the results in alphabetical order using raw
+markdown format with each term being in a
+level 4 header and the definition text in the body.
+Include terms related to batteries, buttons, displays,
+microcontrollers, programming, python, MicroPython,
+sensors, displays, potentiometers, LEDs, neopixels,
+DC motors, motor controllers, PWM, interrupts, and debugging.
 -->
 
 
@@ -90,6 +100,11 @@ For a 128X64 monochrome display this would be 128 * 64 = 8,192 bits or 1,024 byt
 * [MicroPython Documentation on FrameBuffer](https://docs.micropython.org/en/latest/library/framebuf.html)
 ]
 
+#### Interrupts
+A type of signal used to pause a program and execute a different program.  We
+use interrupts to pause our program and execute a different program when a
+button is pressed.
+
 #### I2C
 A communications protocol common in microcontroller-based systems, particularly for interfacing with sensors, memory devices and liquid crystal displays.
 
@@ -99,6 +114,7 @@ I2C is similar to SPI, it's a synchronous protocol because it uses a clock line.
 * See also: [SPI](#spi)
 
 #### MicroPython
+
 A set of Python libraries and tools developed specifically for microcontrollers.
 
 MicroPython was originally developed by Damien George and first released in 2014.  It includes many of the features of mainstream Python, while adding a range of new ones designed to take advantage of the facilities available on Raspberry Pi Pico and other microcontroller boards like the ESP32.
@@ -116,6 +132,8 @@ The shell is a helper for up/downloading files to the ESP8266 (over serial line 
 
 OLED (Organic polymer light emitting diode) dispays are small but bright displays with high contrast, low power and a wide viewing angle.  We use these displays throughout our labs.  The small displays are around 1" (diagonal) and only cost around $4 to $5.  Larger 2.24" displays cost around $20.  These displays work both with 4-wire I2C and 7-wire SPI connections.
 
+Typical chips that control the OLED include the SSD1306 driver chips.
+
 * See: [Graph Displays](../displays/graph/01-intro.md)
 
 #### Raspberry Pi Foundation
@@ -124,20 +142,27 @@ The company that builds the Raspberry Pi hardware and provides some software.
 #### Raspberry Pi Pico
 A microcontroller designed by the Raspberry Pi foundation for doing real-time control systems.
 
-The Pico was introduces in 2020 with a retail list price of $4.  It was a key development because it used a custom chip that had 100 times the RAM of an Arduino Nano.
+The Pico was introduced in 2020 with a retail list price of $4.  It was a key development because it used a custom chip that had 100 times the RAM of an Arduino Nano.
 
-#### Pico Pinout
-The Pico pinout has
+#### Pico Pinout Diagram
+
+The Pico pinout diagram shows you the ways that each Pin can be used.  Different colors are used for GPIO numbers, I2C, and SPI interfaces.
 
 ![](../img/pi-pico-pinout.png)
 
 * [Pinout PDF](https://datasheets.raspberrypi.org/pico/Pico-R3-A4-Pinout.pdf)
 
+#### PWM
+A type of output signal used to control items with continuous values.  For example, we use PWM to control the brightness of a light or the speed of a motor.  We use pulse-width modulation (PWM) to control the speed of our DC motors.
+
+![](../img/PWM-duty-cycle.png)
+
 #### RP2040 chip
 A custom chip created by the [Raspberry Pi Foundation](raspberry-pi-foundation) to power the [Raspberry Pi Pico](#raspberry-pi-pico).
 
 #### rshell
-A simple micropython shell which runs on the host and uses MicroPython's raw-REPL to send python snippets to the pyboard in order to get filesystem information, and to copy files to and from MicroPython's filesystem.
+
+A MicroPython shell that runs on the host and uses MicroPython's raw-REPL to send python snippets to the pyboard in order to get filesystem information, and to copy files to and from MicroPython's filesystem.
 
 It also has the ability to invoke the regular REPL, so rshell can be used as a terminal emulator as well.
 
