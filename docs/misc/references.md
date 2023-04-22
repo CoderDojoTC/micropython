@@ -25,6 +25,12 @@
 ## Components References
 11. [2.42" OLED Display from DIY More](https://www.diymore.cc/collections/hot-products/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow)
 
+## Variations of the the Raspberry Pi Pico
+
+1. [WeAct RP2040 board adds 16MB flash, USB-C port to Raspberry Pi Pico form factor](https://www.cnx-software.com/2022/07/13/weact-rp2040-board-adds-16mb-flash-usb-c-port-to-raspberry-pi-pico-form-factor/) - JULY 13, 2022 BY JEAN-LUC AUFRANC (CNXSOFT) - CNX SOFTWARE – EMBEDDED SYSTEMS NEWS
+
+
+
 ## Open-Source References
 
 1. [Open Source Guide](https://opensource.guide/)

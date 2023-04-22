@@ -85,7 +85,7 @@ nav:
     - NeoPixel Matrix: displays/graph/18-neopixel-matrix.md
     - OLED References: displays/graph/40-oled-references.md
   - Sound and Music:
-    - Introduction: sound/01-intro.md
+    - Introduction: sound/index.md
     - Playing a Tone: sound/02-play-tone.md
     - Playing Three Tones: sound/03-play-three-tones.md
     - Playing a Scale: sound/04-play-scale.md
@@ -115,7 +115,7 @@ nav:
     - IR Sensor Bot: robots/03-ir-sensor-bot.md
     - FAQs: robots/20-faqs.md
   - Advanced Labs:
-    - Introduction: advanced-labs/01-intro.md
+    - Introduction: advanced-labs/index.md
     - Internal Temperature: advanced-labs/03-internal-temperature.md
     - Interrupt Handlers: advanced-labs/02-interrupt-handlers.md
     - Timing Functions: advanced-labs/03-timing-functions.md
@@ -174,7 +174,7 @@ nav:
     - NeoPixel:
       - Introduction: kits/neopixel/index.md
       - Getting Started: kits/neopixel/01-getting-started.md
-      - Simple Patterns: kits/neopixel/02-simple-pattern.md
+      - Simple Patterns: kits/neopixel/02-simple-patterns.md
       - Buttons: kits/neopixel/03-buttons.md
       - Rotary Neopixel: projects/03-notary-neopixel.md
     - MicroBit: kits/microbit.md
