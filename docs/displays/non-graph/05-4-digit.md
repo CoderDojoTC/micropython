@@ -1,12 +1,13 @@
 # Four Digit LED Display
 
-In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the tm1637 library to communicate
+In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the **tm1637** library to communicate
 with the four-digit display.  Some of these displays also have a "colon"
 between the hour and minute digits that flashes every second.
 
 You can purchase 4-digit LED displays on eBay for about $2 each.
 
-![](./../img/4-digit-led-display.png)
+![](../img/4-digit-led-display.png)
+![](../img/4-digit-led-display-clock.png)
 
 ![](./img/../../../img/4-digit-7-segment-colon.png)
 
@@ -113,3 +114,7 @@ while True:
             if hour == 24:
                 hour = 0
 ```
+
+## References
+
+[Mcauser GitHub Repo](https://github.com/mcauser/micropython-tm1637)
