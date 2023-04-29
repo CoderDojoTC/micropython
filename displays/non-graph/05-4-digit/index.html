@@ -3337,6 +3337,7 @@ of the Pico.  We will connect Data to GP0 and Clock to GP1.</p>
 <p>We can create a simple clock by using the <code>localtime()</code> function when the
 programs first starts up and then we just update the time after the sleep() functions run for a second.  This also can updates the colon between the hours
 and minutes.</p>
+<p><code>localtime()</code> returns an array of numbers for date, hour, minute and second.  In our example here, we only need the hour and minutes.</p>
 <p><img alt="4 Digit Clock" src="../../../img/4-digit-clock.png" /></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3368,7 +3369,9 @@ and minutes.</p>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># a simple clock that only grabs the time from the server on startup</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># a simple clock that only grabs the time from the server on startup</span>
 <span class="kn">import</span> <span class="nn">tm1637</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">localtime</span>
@@ -3377,7 +3380,7 @@ and minutes.</p>
 
 <span class="n">now</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">()</span>
 <span class="n">hour</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="c1"># use AM/PM</span>
+<span class="c1"># use AM/PM 12 hour time</span>
 <span class="k">if</span> <span class="n">hour</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
     <span class="n">hour</span> <span class="o">=</span> <span class="n">hour</span> <span class="o">-</span> <span class="mi">12</span>
 <span class="n">minute</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -3386,8 +3389,10 @@ and minutes.</p>
 
 <span class="c1"># update from the first time</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># turn the colon on</span>
     <span class="n">tm</span><span class="o">.</span><span class="n">numbers</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span><span class="n">minute</span><span class="p">,</span><span class="n">colon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># turn the colon off</span>
     <span class="n">tm</span><span class="o">.</span><span class="n">numbers</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span><span class="n">minute</span><span class="p">,</span><span class="n">colon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">sec</span> <span class="o">=</span> <span class="n">sec</span> <span class="o">+</span> <span class="mi">1</span>
