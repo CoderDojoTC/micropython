@@ -48,6 +48,8 @@ We can create a simple clock by using the ```localtime()``` function when the
 programs first starts up and then we just update the time after the sleep() functions run for a second.  This also can updates the colon between the hours
 and minutes.
 
+```localtime()``` returns an array of numbers for date, hour, minute and second.  In our example here, we only need the hour and minutes.
+
 ![4 Digit Clock](../../img/4-digit-clock.png)
 
 ```py
@@ -60,7 +62,7 @@ tm = tm1637.TM1637(clk=Pin(1), dio=Pin(0))
 
 now = localtime()
 hour = now[3]
-# use AM/PM
+# use AM/PM 12 hour time
 if hour > 12:
     hour = hour - 12
 minute = now[4]
@@ -69,8 +71,10 @@ print(hour, ':', minute, ' ', sec, sep='')
 
 # update from the first time
 while True:
+    # turn the colon on
     tm.numbers(hour,minute,colon=True)
     sleep(0.5)
+    # turn the colon off
     tm.numbers(hour,minute,colon=False)
     sleep(0.5)
     sec = sec + 1
