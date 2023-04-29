@@ -117,4 +117,5 @@ while True:
 
 ## References
 
-[Mcauser GitHub Repo](https://github.com/mcauser/micropython-tm1637)
+* [Nerd Cave YouTube Tutorial](https://www.youtube.com/watch?v=D68XtvZlk00)
+* [Mike Causer's GitHub Repo with TM-1637 driver](https://github.com/mcauser/micropython-tm1637)
