@@ -1180,6 +1180,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#clock" class="md-nav__link">
     Clock
   </a>
@@ -3236,6 +3243,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    Connections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#clock" class="md-nav__link">
     Clock
   </a>
@@ -3275,13 +3289,24 @@
 
 
 <h1 id="four-digit-led-display">Four Digit LED Display</h1>
-<p>In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the <strong>tm1637</strong> library to communicate
+<p>In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the <a href="https://github.com/mcauser/micropython-tm1637"><strong>tm1637</strong></a> library to communicate
 with the four-digit display.  Some of these displays also have a "colon"
 between the hour and minute digits that flashes every second.</p>
 <p>You can purchase 4-digit LED displays on eBay for about $2 each.</p>
-<p><img alt="" src="../img/4-digit-led-display.png" />
-<img alt="" src="../img/4-digit-led-display-clock.png" /></p>
+<p><img alt="" src="../img/4-digit-led-display.png" /></p>
+<p><img alt="" src="../img/4-digit-led-display-clock.png" /></p>
 <p><img alt="" src="../../../img/4-digit-7-segment-colon.png" /></p>
+<h2 id="connections">Connections</h2>
+<p>These displays have four pins:</p>
+<ol>
+<li>Ground</li>
+<li>Power (3.2 v or 5 v)</li>
+<li>Data</li>
+<li>Clock</li>
+</ol>
+<p>In our examples, we will connect the power to our 3.3 regulated output
+of the Pico.  We will connect Data to GP0 and Clock to GP1.</p>
+<p>The following example 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3293,22 +3318,21 @@ between the hour and minute digits that flashes every second.</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">import</span> <span class="nn">tm1637</span>
 
+<span class="c1"># data and clock pins</span>
 <span class="n">DIO_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">CLK_PIN</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">DELAY</span> <span class="o">=</span> <span class="mf">0.5</span>
-
 <span class="n">tm</span> <span class="o">=</span> <span class="n">tm1637</span><span class="o">.</span><span class="n">TM1637</span><span class="p">(</span><span class="n">clk</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CLK_PIN</span><span class="p">),</span> <span class="n">dio</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DIO_PIN</span><span class="p">))</span>
 
-<span class="c1"># all segments off</span>
+<span class="c1"># display &quot;1234&quot;</span>
 <span class="n">tm</span><span class="o">.</span><span class="n">write</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
-</td></tr></table>
+</td></tr></table></p>
+<p>The <code>tm.write()</code> function takes a sequence of numbers and will shifts them in from right to left.  </p>
 <h2 id="clock">Clock</h2>
 <p>We can create a simple clock by using the <code>localtime()</code> function when the
 programs first starts up and then we just update the time after the sleep() functions run for a second.  This also can updates the colon between the hours
