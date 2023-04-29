@@ -6,11 +6,11 @@ between the hour and minute digits that flashes every second.
 
 You can purchase 4-digit LED displays on eBay for about $2 each.
 
-![](../img/4-digit-led-display.png)
+![](../../img/4-digit-led-display.png)
 
-![](../img/4-digit-led-display-clock.png)
+![](../../img/4-digit-led-display-clock.png)
 
-![](./img/../../../img/4-digit-7-segment-colon.png)
+![](../../img/4-digit-7-segment-colon.png)
 
 ## Connections
 
