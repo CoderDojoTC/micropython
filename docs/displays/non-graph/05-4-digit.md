@@ -1,31 +1,46 @@
 # Four Digit LED Display
 
-In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the **tm1637** library to communicate
+In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the [**tm1637**](https://github.com/mcauser/micropython-tm1637) library to communicate
 with the four-digit display.  Some of these displays also have a "colon"
 between the hour and minute digits that flashes every second.
 
 You can purchase 4-digit LED displays on eBay for about $2 each.
 
 ![](../img/4-digit-led-display.png)
+
 ![](../img/4-digit-led-display-clock.png)
 
 ![](./img/../../../img/4-digit-7-segment-colon.png)
 
+## Connections
+
+These displays have four pins:
+
+1. Ground
+2. Power (3.2 v or 5 v)
+3. Data
+4. Clock
+
+In our examples, we will connect the power to our 3.3 regulated output
+of the Pico.  We will connect Data to GP0 and Clock to GP1.
+
+The following example 
 ```py
 from machine import Pin
 from time import sleep
 import tm1637
 
+# data and clock pins
 DIO_PIN = 0
 CLK_PIN = 1
 
-DELAY = 0.5
-
 tm = tm1637.TM1637(clk=Pin(CLK_PIN), dio=Pin(DIO_PIN))
 
-# all segments off
+# display "1234"
 tm.write([1, 2, 3, 4])
 ```
+
+The ```tm.write()``` function takes a sequence of numbers and will shifts them in from right to left.  
 
 ## Clock
 
