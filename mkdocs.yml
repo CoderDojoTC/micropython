@@ -58,6 +58,7 @@ nav:
     - 10 Bar LEDs: displays/non-graph/03-10-bar-leds.md
     - 8x8 LED Matrix: displays/non-graph/04-8x8-led-matrix.md
     - Character LCD: displays/non-graph/10-character-lcd-display.md
+    - 4 Digit LED: displays/non-graph/05-4-digit.md
   - Displays Graphical:
     - Introduction: displays/graph/01-intro.md
     - Wiring Harness: displays/graph/19-wiring-harness.md
