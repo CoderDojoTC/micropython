@@ -135,6 +135,7 @@ nav:
     - String Formatting: advanced-labs/12-string-formatting.md
     - Operating System: advanced-labs/11-os.md
     - Measuring Battery Voltage: advanced-labs/15-measuring-vsys.md
+    - File System: advanced-labs/17-file-system.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md

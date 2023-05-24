@@ -3,17 +3,17 @@
 from machine import Pin, I2C
 import VL53L0X
 from utime import sleep
-from neopixel import Neopixel
+from neopixel import NeoPixel
 
-NUMBER_PIXELS = 20
-STATE_MACHINE = 0
-LED_PIN = 16
-strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
+NEOPIXEL_PIN = 12
+NUMBER_PIXELS = 8
 
-# Grove Connector 1
-sda=machine.Pin(0) # white Grove wire
-scl=machine.Pin(1) # yellow Grove wire
-i2c=machine.I2C(0,sda=sda, scl=scl, freq=400000)
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
+# Grove Connector 4
+I2C0_SDA_PIN = 26
+I2C0_SCL_PIN = 27
+i2c=machine.I2C(1,sda=machine.Pin(I2C0_SDA_PIN), scl=machine.Pin(I2C0_SCL_PIN), freq=400000)
 
 tof = VL53L0X.VL53L0X(i2c)
 
@@ -22,7 +22,7 @@ tof = VL53L0X.VL53L0X(i2c)
 def valmap(value, istart, istop, ostart, ostop):
   return int(ostart + (ostop - ostart) * ((value - istart) / (istop - istart)))
 
-MIN_DIST = 50
+MIN_DIST = 20
 max_dist = 0
 tof.start()
 while True:
@@ -30,10 +30,11 @@ while True:
     if dist < 8000: # values over 8000 are no signal
         if dist > max_dist:
             max_dist = dist
-        index = valmap(dist, 50, max_dist, 0, 19)
+        # map from min and max to 0 to NUMBER_PIXELS-1
+        index = valmap(dist, MIN_DIST, max_dist, 0, NUMBER_PIXELS-1)
         print(dist, index)
-        strip.set_pixel(index, (255,0,0))
-        strip.show()
+        strip[index] = (255,0,0)
+        strip.write()
         sleep(.05) # below this we get a flicker
-        strip.set_pixel(index, (0,0,0))
-        strip.show()
+        strip[index] = (0,0,0)
+        strip.write()
