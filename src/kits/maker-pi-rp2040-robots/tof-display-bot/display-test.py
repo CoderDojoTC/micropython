@@ -3,12 +3,16 @@ import ssd1306
 
 WIDTH = 128
 HEIGHT = 64
+
 SCK=machine.Pin(2)
 SDL=machine.Pin(3)
+
 spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
-CS = machine.Pin(0)
-DC = machine.Pin(1)
-RES = machine.Pin(5)
+
+RES = machine.Pin(14)
+DC = machine.Pin(15)
+CS = machine.Pin(13)
+
 oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
 
 while True:
