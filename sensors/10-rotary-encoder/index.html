@@ -909,8 +909,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-rotory-class" class="md-nav__link">
-    The Rotory Class
+  <a href="#the-rotary-class" class="md-nav__link">
+    The Rotary Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-scheduler" class="md-nav__link">
+    Using a Scheduler
   </a>
   
 </li>
@@ -3292,8 +3299,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-rotory-class" class="md-nav__link">
-    The Rotory Class
+  <a href="#the-rotary-class" class="md-nav__link">
+    The Rotary Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-scheduler" class="md-nav__link">
+    Using a Scheduler
   </a>
   
 </li>
@@ -3346,8 +3360,8 @@
 
 <h1 id="rotary-encoder">Rotary Encoder</h1>
 <p><img alt="Rotary Encoder" src="../../img/rotary-encoder.png" /></p>
-<p>A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, an rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects.</p>
-<p>Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be "debounced" to get a good quality signal.</p>
+<p>A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, a rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects to change the color or patterns in an LED strip.</p>
+<p>Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order the two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be <a href="../../basics/03-button/">debounced</a> to get a good quality signal.</p>
 <p><img alt="Directional Encoders" src="../../img/Incremental_directional_encoder.gif" /></p>
 <h2 id="learning-how-to-monitor-the-rotary-switch-transitions">Learning How to Monitor the Rotary Switch Transitions</h2>
 <p>We will be using a low-cost ($1 USD) encoder that has five connectors, three for the direction and one for a momentary switch that is closed when you press the knob in.  Here is the circuit that we will be using:</p>
@@ -3560,8 +3574,12 @@ while True:
     time.sleep(.1)
 </code></pre></div>
 </td></tr></table>
-<h2 id="the-rotory-class">The Rotory Class</h2>
-<p>I started with <a href="https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py">this rotary class</a>.  However, my setup did not work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.</p>
+<h2 id="the-rotary-class">The Rotary Class</h2>
+<p>Here is one rotary class:</p>
+<p><a href="https://github.com/miketeachman/micropython-rotary">Mike Teachman Rotary Class</a>.  This is preferred since
+it does not call a slow scheduler within an interrupt.</p>
+<h2 id="using-a-scheduler">Using a Scheduler</h2>
+<p>There is another class <a href="https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py">Gurgle Apps Rotary Encoder</a> that uses a scheduler within an interrupt which is not a best practice.  However, we can show how this does work work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3741,6 +3759,34 @@ RuntimeError: schedule queue full
 </code></pre></div>
 </td></tr></table>
 <p>This error did not seem to impact the execution of the code.  My suspicion is that this is a bug in the Micropython firmware.</p>
+<p>As a fix, you can use the try/except block an catch any runtime error.  The pass function is a no-op (no operation)</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">rotary_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin</span><span class="p">):</span>
+        <span class="n">new_status</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt_pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">clk_pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">new_status</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_status</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">transition</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_status</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">new_status</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">transition</span> <span class="o">==</span> <span class="mb">0b1110</span><span class="p">:</span>
+                <span class="n">micropython</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call_handlers</span><span class="p">,</span> <span class="n">Rotary</span><span class="o">.</span><span class="n">ROT_CW</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">transition</span> <span class="o">==</span> <span class="mb">0b1101</span><span class="p">:</span>
+                <span class="n">micropython</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call_handlers</span><span class="p">,</span> <span class="n">Rotary</span><span class="o">.</span><span class="n">ROT_CCW</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_status</span> <span class="o">=</span> <span class="n">new_status</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://githubmemory.com/repo/miketeachman/micropython-rotary/issues/14">Counter get stuck on "schedule queue full"</a> - suggest using a try/catch</li>
