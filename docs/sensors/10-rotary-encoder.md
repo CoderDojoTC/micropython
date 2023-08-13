@@ -2,9 +2,9 @@
 
 ![Rotary Encoder](../img/rotary-encoder.png)
 
-A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, an rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects.
+A rotary encoder, or more specifically a directional rotary encoder, may look similar to a potentiometer in some ways.  Both have a knob that you turn to adjust a value.  But unlike a potentiometer, a rotary encoder is far more flexible in the range and precision of values it can control.  Our students love to use them in their projects to change the color or patterns in an LED strip.
 
-Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order that two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be "debounced" to get a good quality signal.
+Rotary encoders can be thought of as two concentric rings of switches that go on and off as you turn the knob.  The switches are placed so that you can tell the direction of rotation by the order the two switches get turned on and off.  They turn on and off quickly so we need a high-quality function to quickly detect their changes.  And as we learned in the Button lab, switches can be noisy and have a complex state transition that must be [debounced](../basics/03-button.md) to get a good quality signal.
 
 ![Directional Encoders](../img/Incremental_directional_encoder.gif)
 
@@ -153,9 +153,17 @@ while True:
     time.sleep(.1)
 ```
 
-## The Rotory Class
+## The Rotary Class
 
-I started with [this rotary class](https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py).  However, my setup did not work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.
+Here is one rotary class:
+
+[Mike Teachman Rotary Class](https://github.com/miketeachman/micropython-rotary).  This is preferred since
+it does not call a slow scheduler within an interrupt.
+
+
+## Using a Scheduler
+
+There is another class [Gurgle Apps Rotary Encoder](https://github.com/gurgleapps/rotary-encoder/blob/main/rotary.py) that uses a scheduler within an interrupt which is not a best practice.  However, we can show how this does work work with the one she created.  The numbers incremented, but they didn't decrement.  I had to change the pins to use the PULL_DOWN settings in the init method.
 
 ```py
 import machine
@@ -275,6 +283,23 @@ micropython.schedule(self.call_handlers, Rotary.ROT_CCW)
 
 This error did not seem to impact the execution of the code.  My suspicion is that this is a bug in the Micropython firmware.
 
+As a fix, you can use the try/except block an catch any runtime error.  The pass function is a no-op (no operation)
+
+```py
+    def rotary_change(self, pin):
+        new_status = (self.dt_pin.value() << 1) | self.clk_pin.value()
+        if new_status == self.last_status:
+            return
+        transition = (self.last_status << 2) | new_status
+        try:
+            if transition == 0b1110:
+                micropython.schedule(self.call_handlers, Rotary.ROT_CW)
+            elif transition == 0b1101:
+                micropython.schedule(self.call_handlers, Rotary.ROT_CCW)
+        except RuntimeError:
+            pass
+        self.last_status = new_status
+```
 ## References
 
 1. [Counter get stuck on "schedule queue full"](https://githubmemory.com/repo/miketeachman/micropython-rotary/issues/14) - suggest using a try/catch
