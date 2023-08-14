@@ -2210,6 +2210,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../11-mpremote/" class="md-nav__link">
+        MicroPython Remote
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -2438,18 +2452,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_20" type="checkbox" id="__nav_13_20" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_21" type="checkbox" id="__nav_13_21" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_13_20">
+        <label class="md-nav__link" for="__nav_13_21">
           Debugging
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Debugging" data-md-level="2">
-        <label class="md-nav__title" for="__nav_13_20">
+        <label class="md-nav__title" for="__nav_13_21">
           <span class="md-nav__icon md-icon"></span>
           Debugging
         </label>
@@ -3415,7 +3429,14 @@
 
 
 <h1 id="using-rshell-on-the-raspberry-pi-pico">Using rshell on the Raspberry Pi Pico</h1>
-<p>Using an IDE such as Thonny you can copy one file at a time to the Raspberry Pi Pico by creating a new file and doing a copy/paste of the code into that new file.  However, this process becomes slow and tedious if you want to copy a large number of files.  To do this we will use the "remote shell" program from the command line.  In our classes we often want to copy a dozen or more files to a new robot for student to try out.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MicroPython now has standarized file transfers with the new "MicroPython Remote" or mpremote commands.
+See the <a href="https://docs.micropython.org/en/latest/reference/mpremote.html">mpremote</a> docs for details.
+We will be updating all our documentation to use this standard.</p>
+</div>
+<p>Using an IDE such as Thonny you can copy many files at a time to the Raspberry Pi Pico by using the GUI. </p>
+<p>However, this process becomes error prone if you want to copy a large number of files.  To do this we will use the "remote shell" program from the command line.  In our classes we often want to copy a dozen or more files to a new robot for student to try out.</p>
 <p>Rshell was written by David Hyland.  The source code and installations are documented on Dave's GitHub repository here: <a href="https://github.com/dhylands/rshell">https://github.com/dhylands/rshell</a>.  Dave added support for the Raspberry Pi Pico in release <a href="https://github.com/dhylands/rshell/releases/tag/v0.0.30">0.0.30</a> in March of 2021.</p>
 <p>Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive REPL commands.</p>
 <h2 id="conda-setup">Conda Setup</h2>
@@ -3576,7 +3597,7 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../10-converting-circuitpython-to-micropython/" title="Converting CircuitPython" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../11-mpremote/" title="MicroPython Remote" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -3585,7 +3606,7 @@ cp ~Documents/ws/micropython/src/kits/maker-pi-rp2040-robots/*.py /pico/lib
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Converting CircuitPython
+                  MicroPython Remote
                 </span>
               </div>
             </a>
