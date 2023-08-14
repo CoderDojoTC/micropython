@@ -1,28 +1,42 @@
 # MicroPython Remote
 
 MicroPython now has a standard format for all remote access.  The program
-is called [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html)
+is called [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html).  There is
+ample documentation on the site, and there is a higher chance it will include the latest features.
 
-The full list of supported commands are:
+## Why Use MicroPython Remote
 
-1. connect
-1. disconnect
-1. resume
-1. soft_reset
-1. repl
-1. eval
-1. exec
-1. run
-1. fs - file system commands like copy, move, rename
-1. df
-1. edit
-1. mip
-1. mount
-1. unmount
-1. rtc
-1. sleep
-1. reset
-1. bootloader
+There are three main reasons to use **mpremote**:
+
+1. Setting up a new device with many device drivers, data files and code.
+2. Automatically updating software to get new versions and fix bugs such as security patches.
+3. Moving data back and forth from your Pico to and from your host computer or a cloud server on the internet,
+
+
+## List of Commands
+
+A partial list of the most frequently used commands are:
+
+1. **connect** - connect to a remote device
+2. **disconnect** - disconnect from a remote device
+3. **resume** - maintain existing interpreter state for subsequent commands.  Useful for multiple REPL commands without soft resets between the commands.
+4. **soft_reset** - perform a soft-reset of the device which will clear out the Python heap and restart the interpreter. 
+5. **repl** - enter the line-at-time REPL Python interpreter loop on the connected device.
+6. **eval** - evaluate a string you give as a parameter on the pico using the MicroPython interpreter.
+7. **exec** - execute a string and potentially run it in the background.
+8. **run** - run a script from the local filesystem on the Pico
+9.  **fs** - file system commands like copy, move, rename.  Examples below.
+10. **df** - print size/used/free statistics for teach of the device filesystems
+11. **edit** - edit a file locally.  This will copy the file to your local file systems, launch your ```$EDITOR``` program and then copy the file back to the Pico.
+12. **mip** - intaller.  Like pip but it runs on the pico.  It install packages from micropython-lib (or GitHub) using the mip tool.  This can be useful if you want to automatically upgrade your software and restart the device.  If you have a wireless Pico "W" you can get new software directly from the Internet without ever needing a hardline to the Pico.
+13. **mount** - mount the local directory on your PC onto the remote device (the Pico).  This will allow you to use local files directly from your MicroPython code.
+14. **unmount** - unmount a local directory.  This happens automatically when mpremote terminates.
+15. **rtc** - get or set the real-time clock - useful if you want to keep clocks in sync
+16. **sleep** - (delay) n seconds before executing the next command
+17. **reset** - hard reset the device.  It will then rerun the main.py if it finds it.
+18. **bootloader** - This will make the device enter its bootloader mode so it can get an new uf2 file.  Useful if you need to upgrade to a new version of MicroPython.
+
+Note that you can only be connected to one remote device at a time to use many commands.
 
 ## Installing
 
@@ -163,10 +177,9 @@ all the ```mkdir``` and copy (```cp```) file shell commands in a single UNIX she
 Here are the steps:
 
 1. Update the Pico with a new image
-2. Rename the image to be a file system such as '/pico' by copying the 
-3. Make a /lib directory
-4. Copy all the drivers for your projects to /lib directory
-5. Copy the default startup program to the /main.py
-6. Have a sequence of "labs" that start with numbers such as 01_blink.py, 02_button.py etc.
+2. Make a /lib directory using the ```mkdir```
+3. Copy all the drivers for your projects to /lib directory.  The drivers you use will be dependent on the hardware you use.  For example if your kit has a display you might need to load the ssd1306.py display driver into the /lib directory.
+4. Copy the default startup program to the /main.py
+5. Have a sequence of "labs" that start with numbers such as 01_blink.py, 02_button.py etc.
 
 If you follow these steps, then when the students connect to the Pico using Thonny they will see all the labs in the right order from simple to the most complex.
