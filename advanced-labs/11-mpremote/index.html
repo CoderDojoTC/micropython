@@ -2246,6 +2246,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#why-use-micropython-remote" class="md-nav__link">
+    Why Use MicroPython Remote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-commands" class="md-nav__link">
+    List of Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing" class="md-nav__link">
     Installing
   </a>
@@ -3331,6 +3345,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#why-use-micropython-remote" class="md-nav__link">
+    Why Use MicroPython Remote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-commands" class="md-nav__link">
+    List of Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing" class="md-nav__link">
     Installing
   </a>
@@ -3424,28 +3452,38 @@
 
 <h1 id="micropython-remote">MicroPython Remote</h1>
 <p>MicroPython now has a standard format for all remote access.  The program
-is called <a href="https://docs.micropython.org/en/latest/reference/mpremote.html">mpremote</a></p>
-<p>The full list of supported commands are:</p>
+is called <a href="https://docs.micropython.org/en/latest/reference/mpremote.html">mpremote</a>.  There is
+ample documentation on the site, and there is a higher chance it will include the latest features.</p>
+<h2 id="why-use-micropython-remote">Why Use MicroPython Remote</h2>
+<p>There are three main reasons to use <strong>mpremote</strong>:</p>
 <ol>
-<li>connect</li>
-<li>disconnect</li>
-<li>resume</li>
-<li>soft_reset</li>
-<li>repl</li>
-<li>eval</li>
-<li>exec</li>
-<li>run</li>
-<li>fs - file system commands like copy, move, rename</li>
-<li>df</li>
-<li>edit</li>
-<li>mip</li>
-<li>mount</li>
-<li>unmount</li>
-<li>rtc</li>
-<li>sleep</li>
-<li>reset</li>
-<li>bootloader</li>
+<li>Setting up a new device with many device drivers, data files and code.</li>
+<li>Automatically updating software to get new versions and fix bugs such as security patches.</li>
+<li>Moving data back and forth from your Pico to and from your host computer or a cloud server on the internet,</li>
 </ol>
+<h2 id="list-of-commands">List of Commands</h2>
+<p>A partial list of the most frequently used commands are:</p>
+<ol>
+<li><strong>connect</strong> - connect to a remote device</li>
+<li><strong>disconnect</strong> - disconnect from a remote device</li>
+<li><strong>resume</strong> - maintain existing interpreter state for subsequent commands.  Useful for multiple REPL commands without soft resets between the commands.</li>
+<li><strong>soft_reset</strong> - perform a soft-reset of the device which will clear out the Python heap and restart the interpreter. </li>
+<li><strong>repl</strong> - enter the line-at-time REPL Python interpreter loop on the connected device.</li>
+<li><strong>eval</strong> - evaluate a string you give as a parameter on the pico using the MicroPython interpreter.</li>
+<li><strong>exec</strong> - execute a string and potentially run it in the background.</li>
+<li><strong>run</strong> - run a script from the local filesystem on the Pico</li>
+<li><strong>fs</strong> - file system commands like copy, move, rename.  Examples below.</li>
+<li><strong>df</strong> - print size/used/free statistics for teach of the device filesystems</li>
+<li><strong>edit</strong> - edit a file locally.  This will copy the file to your local file systems, launch your <code>$EDITOR</code> program and then copy the file back to the Pico.</li>
+<li><strong>mip</strong> - intaller.  Like pip but it runs on the pico.  It install packages from micropython-lib (or GitHub) using the mip tool.  This can be useful if you want to automatically upgrade your software and restart the device.  If you have a wireless Pico "W" you can get new software directly from the Internet without ever needing a hardline to the Pico.</li>
+<li><strong>mount</strong> - mount the local directory on your PC onto the remote device (the Pico).  This will allow you to use local files directly from your MicroPython code.</li>
+<li><strong>unmount</strong> - unmount a local directory.  This happens automatically when mpremote terminates.</li>
+<li><strong>rtc</strong> - get or set the real-time clock - useful if you want to keep clocks in sync</li>
+<li><strong>sleep</strong> - (delay) n seconds before executing the next command</li>
+<li><strong>reset</strong> - hard reset the device.  It will then rerun the main.py if it finds it.</li>
+<li><strong>bootloader</strong> - This will make the device enter its bootloader mode so it can get an new uf2 file.  Useful if you need to upgrade to a new version of MicroPython.</li>
+</ol>
+<p>Note that you can only be connected to one remote device at a time to use many commands.</p>
 <h2 id="installing">Installing</h2>
 <p>The first time:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install --user mpremote
@@ -3608,9 +3646,8 @@ all the <code>mkdir</code> and copy (<code>cp</code>) file shell commands in a s
 <p>Here are the steps:</p>
 <ol>
 <li>Update the Pico with a new image</li>
-<li>Rename the image to be a file system such as '/pico' by copying the </li>
-<li>Make a /lib directory</li>
-<li>Copy all the drivers for your projects to /lib directory</li>
+<li>Make a /lib directory using the <code>mkdir</code></li>
+<li>Copy all the drivers for your projects to /lib directory.  The drivers you use will be dependent on the hardware you use.  For example if your kit has a display you might need to load the ssd1306.py display driver into the /lib directory.</li>
 <li>Copy the default startup program to the /main.py</li>
 <li>Have a sequence of "labs" that start with numbers such as 01_blink.py, 02_button.py etc.</li>
 </ol>
