@@ -187,3 +187,4 @@ Remember to test and calibrate in real-world scenarios for optimal performance.
 
 * [MEMS YouTube Video](https://www.youtube.com/watch?v=9X4frIQo7x0) The ingenious micro mechanisms inside your phone
 * [LSM6DS3 IIC/SPI 3 Axis Accelerometer Gyroscope 6 Degrees Sensor Transfer Module](https://www.ebay.com/itm/285038122433) - on Ebay for $3 each - IIC and SPI
+* [SparkFun LSM6DS3 Breakout Hookup Guide](https://learn.sparkfun.com/tutorials/lsm6ds3-breakout-hookup-guide/all)

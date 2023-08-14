@@ -128,6 +128,7 @@ nav:
     - Minicom: advanced-labs/08-minicom.md
     - SD Card Reader: advanced-labs/09-micro-sd-card-reader.md
     - Converting CircuitPython: advanced-labs/10-converting-circuitpython-to-micropython.md
+    - MicroPython Remote: advanced-labs/11-mpremote.md
     - Rshell: advanced-labs/11-rshell.md
     - Timers: advanced-labs/13-timers.md
     - Memory Management: advanced-labs/14-memory-management.md
@@ -136,6 +137,7 @@ nav:
     - Operating System: advanced-labs/11-os.md
     - Measuring Battery Voltage: advanced-labs/15-measuring-vsys.md
     - File System: advanced-labs/17-file-system.md
+
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md
