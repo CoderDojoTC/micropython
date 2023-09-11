@@ -127,6 +127,10 @@ NTP update attempt # 1 of 5 failed! Retrying in 15 seconds..
 
 Note that connecting to the NTP server failed the first time but worked on the second attempt.
 
-This program assumes you have a config.py file in the same folder that the clock.py program runs.  
+This program assumes you have a config.py file in the same folder that the clock.py program runs.
+
+## References
+
+[NikoKun](https://www.reddit.com/r/raspberrypipico/comments/16f07ww/a_pico_powered_clock/)
 
 
