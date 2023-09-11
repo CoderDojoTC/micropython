@@ -4,6 +4,9 @@
 
 The Raspberry Pi RP2040 is a custom silicon microcontroller built by the [Raspberry Pi Foundation](glossary#raspberry-pi-foundation).  The RP2040 is used in the Raspberry Pi Pico with a retail list prices of $4.  With 264K SRAM, it has around 100 times the RAM of an Arduino Uno (2K).  It is ideal for projects that need more RAM such as projects that require drawing to an OLED display.
 
+![](../img/pico-h-microcenter.png)
+"H" is with headers.
+
 ## Specs
 
 * RP2040 microcontroller chip designed by Raspberry Pi Foundation

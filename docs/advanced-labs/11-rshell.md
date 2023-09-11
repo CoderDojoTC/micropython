@@ -1,9 +1,10 @@
 # Using rshell on the Raspberry Pi Pico
 
 !!! Note
-    MicroPython now has standarized file transfers with the new "MicroPython Remote" or mpremote commands.
+    MicroPython now has standardized file transfers with the new "MicroPython Remote" or mpremote commands.
     See the [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) docs for details.
     We will be updating all our documentation to use this standard.
+    This page is mostly for older systems.
 
 Using an IDE such as Thonny you can copy many files at a time to the Raspberry Pi Pico by using the GUI. 
 
