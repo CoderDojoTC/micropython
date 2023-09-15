@@ -1,15 +1,32 @@
 import ntptime, network
 from machine import RTC
 from utime import sleep, sleep_ms, time, localtime, mktime
-import config.py
+import ssd1306
+
+import config
 # wifi_ssid =
 # wifi_pass =
+
+led = machine.Pin('LED', machine.Pin.OUT)
+
+SCL=machine.Pin(2) # SPI CLock
+SDA=machine.Pin(3) # SPI Data
+spi=machine.SPI(0, sck=SCL, mosi=SDA)
+
+RES = machine.Pin(4)
+DC = machine.Pin(5)
+CS = machine.Pin(6)
+
+oled = ssd1306.SSD1306_SPI(128, 64, spi, DC, RES, CS)
 
 # US Central
 timeZone = -6
 # try one of these
 ntptime.host = 'us.pool.ntp.org' #'time.nist.gov' #'pool.ntp.org'
 ntptime.timeout = 10
+
+# global variable for holding the current time array year, month, day, hour, minute, second
+current_time = [] * 8
 
 def wifiConnect():
     wifi = network.WLAN(network.STA_IF)
@@ -37,10 +54,12 @@ def dst():
     dst_end = mktime((year, 11, (1 - weekday) % 7 + 1, 2, 0, 0, 0, 0))
     return dst_start <= time() < dst_end
 
+maxtries = 5
+timetries = 0
+timeset = False
+
 def setRTC():
-    timeset = False
-    timetries = 0
-    maxtries = 5
+    global maxtries, current_time, timetries, timeset
     while not timeset and timetries < maxtries:
         timetries += 1
         try:
@@ -55,6 +74,7 @@ def setRTC():
             tz_offset = (timeZone + 1) * 3600 if dst() else timeZone * 3600
             #tz_offset = timeZone * 3600 # without daylight savings
             myt = localtime(time() + tz_offset)
+            current_time = myt
             rtc.datetime((myt[0], myt[1], myt[2], myt[6], myt[3], myt[4], myt[5], 0))
             sleep_ms(200)
             dtime = rtc.datetime()
@@ -75,7 +95,65 @@ def update():
         sleep_ms(100)
     return wifi, success
 
-if __name__ == '__main__':
-    while True:
-        update()
-        sleep(60)
+def timeStrFmt():
+    hour = current_time[3]
+    if hour > 12:
+        hour = hour - 12
+        am_pm = ' pm'
+    else: am_pm = ' am'
+    # format minutes and seconds with leading zeros
+    minutes = "{:02d}".format(current_time[4])
+    seconds = "{:02d}".format(current_time[5])
+    return str(hour) + ':' + minutes + ':' + seconds + am_pm
+
+def dateStrFmt():
+    return  str(current_time[1]) + '/' + str(current_time[2]) + '/' + str(current_time[0])
+
+def update_clock(timeStr, dateStr):
+    oled.fill(0)
+    oled.text(timeStr, 10, 10, 1)
+    oled.text(dateStr, 10, 20, 1)
+    oled.show()
+
+def update_wifi_status():
+    oled.fill(0)
+    oled.text('n: ' + config.wifi_ssid , 0, 0, 1)
+    oled.text('tries: ' + str(timetries), 0, 10, 1)
+    if timeset:
+        oled.text('Connection OK', 0, 20, 1)
+    else:
+        oled.text('CONNECTION ERROR', 0, 20, 1)
+    oled.text('host: ' + ntptime.host, 0, 30, 1)
+    oled.show()
+
+second_counter = 0
+minute_counter = 0
+hour_counter = 0
+update()
+update_wifi_status()
+sleep(3)
+
+# run this loop every second
+while True:
+    update_clock(timeStrFmt(), dateStrFmt())
+    # print(localtime())
+    print(dateStrFmt(), timeStrFmt())
+    led.toggle()
+    sleep(1)
+    # check the time server every hour
+    if second_counter > 59:
+        second_counter = 0
+        if minute_counter > 59:
+            minute_counter = 0
+            if hour_counter > 23:
+                # get a new time from the network time server
+                update()
+                hour_counter = 0
+            else:
+                hour_counter += 1
+        else:
+            minute_counter += 1
+    else:
+        second_counter += 1
+        current_time[5] += 1
+        

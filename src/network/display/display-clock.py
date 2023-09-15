@@ -1,9 +1,21 @@
-import ntptime, network
-from machine import RTC
-from utime import sleep, sleep_ms, time, localtime, mktime
-import config.py
-# wifi_ssid =
-# wifi_pass =
+from machine import Pin
+import network
+import ntptime
+import ssd1306
+# where we keep the WiFi password
+import secrets
+from utime import sleep, ticks_ms, ticks_diff
+
+WIDTH = 128
+HEIGHT = 64
+SCK=machine.Pin(2)
+SDL=machine.Pin(3)
+spi=machine.SPI(0,baudrate=100000,sck=SCK, mosi=SDL)
+CS = machine.Pin(4)
+DC = machine.Pin(5)
+RES = machine.Pin(6)
+oled = ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, DC, RES, CS)
+oled.poweron()
 
 # US Central
 timeZone = -6
@@ -37,7 +49,11 @@ def dst():
     dst_end = mktime((year, 11, (1 - weekday) % 7 + 1, 2, 0, 0, 0, 0))
     return dst_start <= time() < dst_end
 
+timestr = ''
+datestr = ''
+dtime = []
 def setRTC():
+    global timestr, datestr, dtime
     timeset = False
     timetries = 0
     maxtries = 5
@@ -58,7 +74,10 @@ def setRTC():
             rtc.datetime((myt[0], myt[1], myt[2], myt[6], myt[3], myt[4], myt[5], 0))
             sleep_ms(200)
             dtime = rtc.datetime()
+            # set globals
+            # hh:mm in 12hr am/pm format
             timestr = '%2d:%02d%s' %(12 if dtime[4] == 0 else dtime[4] if dtime[4] < 13 else dtime[4] - 12, dtime[5], 'am' if dtime[4] < 12 else 'pm')
+            # mm/dd/yy
             datestr = f'{dtime[1]}/{dtime[2]}/{dtime[0] % 100}'
             # print('Time set to:', timestr, datestr)
             print(timestr, datestr)
@@ -75,7 +94,13 @@ def update():
         sleep_ms(100)
     return wifi, success
 
-if __name__ == '__main__':
-    while True:
-        update()
-        sleep(60)
+def update_display():
+    global timestr, datestr,dtime
+    oled.fill(0)
+    oled.text(timestr + ' ' + datestr, 0, 10, 1)
+    oled.show()
+
+while True:
+    update()
+    update_display()
+    sleep(60)
