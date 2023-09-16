@@ -60,22 +60,46 @@ def drawDigit(digit, x, y, size):
 def update_screen(digit_val):
     oled.fill(0)
     oled.text('Clock Digit Lab', 0, 0, 1)
-    dr = digit radius
+    dr = 10 # digit radius
     dch = 26 # digit center hight
-    lm = 10 # left margin
-    dw = 26 # digit width
-    cm = 0
+    lm = 10 # left margin for all 4-digits
+    dw = 24 # digit width (2*dr + spacing between digits
+    cm = 8 # colon left margin
+    
     # draw the hour digits
-    drawDigit(digit_val, lm, dch, 10)
-    drawDigit(digit_val, lm+dw, dch, 10)
+    hour = localtime()[3]
+    if hour > 12:
+        hour = hour - 12
+        am_pm = 'pm'
+    else:
+        am_pm = 'am'
+    if hour < 10:
+        # just draw the second digit
+        drawDigit(hour, lm+dw, dch, dr)
+    else:
+        # we have 10, 11 or 12 so the first digit is 1
+        drawDigit(1, lm, dch, dr)
+        # subtract 10 from the second digit
+        drawDigit(hour-10, lm+dw, dch, dr)
+       
     # draw the colon
-    draw_colon(lm+dw*2+cm,dch-4)
+    if localtime()[5] % 2:
+        draw_colon(lm+dw*2+cm-16,dch-5)
+    
     # draw the minutes
-    drawDigit(digit_val, lm+dw*3+cm, dch, 10)
-    drawDigit(digit_val, 110, dch, 10)
+    minutes = localtime()[4]
+    # value, x, y, size
+    # left minute digit after the colon
+    drawDigit(minutes // 10, lm+dw*2+cm, dch, dr)
+    # right minute digit
+    drawDigit(minutes % 10, lm+dw*3+cm+2, dch, dr)
+    
     # draw the AM/PM
-    oled.text(timeStrFmt(), 0, 46, 1)
-    oled.text(str(digit_val), 0, 54, 1)
+    oled.text(am_pm, lm+dw*4+cm-8, dch+3, 1)
+    
+    #oled.text(timeStrFmt(), 0, 46, 1)
+    oled.text(str(localtime()[5]), 0, 54)
+    #oled.text(str(digit_val), 0, 54, 1)
 
     oled.show()
 
