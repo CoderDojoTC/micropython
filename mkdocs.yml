@@ -184,6 +184,7 @@ nav:
       - Buttons: kits/neopixel/03-buttons.md
       - Rotary Neopixel: projects/03-notary-neopixel.md
     - MicroBit: kits/microbit.md
+    - RFID RC522: kits/rfid-rc522/index.md
   # - Project Ideas: misc/projects.md
   - Glossary: misc/glossary.md
   - References: misc/references.md
