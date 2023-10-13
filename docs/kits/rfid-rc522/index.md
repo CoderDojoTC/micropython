@@ -19,7 +19,7 @@ community.
 |3.3V|3.3v Out|Red|
 
 ### Wires at the RC522
-![](./rc522-wires.pngrc522-wires)
+![](./rc522-wires.png)
 
 ### Wires at the Pico
 
