@@ -45,45 +45,51 @@ IRQ_PIN = 7 # Brown, OUT but not used in the reader demo
 ## Reader
 
 ```py
-import mfrc522
-from os import uname
+from mfrc522 import MFRC522
+import utime
 
 
 def uidToString(uid):
-	mystring = ""
-	for i in uid:
-		mystring = "%02X" % i + mystring
-	return mystring
+    mystring = ""
+    for i in uid:
+        mystring = "%02X" % i + mystring
+    return mystring
     
-def do_read():
+              
+reader = MFRC522(spi_id=0,sck=2,miso=4,mosi=3,cs=1,rst=0)
 
-	if uname()[0] == 'WiPy':
-		rdr = mfrc522.MFRC522("GP14", "GP16", "GP15", "GP22", "GP17")
-	elif uname()[0] == 'esp32':
-		rdr = mfrc522.MFRC522(sck=18,mosi=23,miso=19,rst=22,cs=21)
-	else:
-		raise RuntimeError("Unsupported platform")
+print("")
+print("Please place card on reader")
+print("")
 
-	print("")
-	print("Place card before reader to read from address 0x08")
-	print("")
 
-	try:
-		while True:
 
-			(stat, tag_type) = rdr.request(rdr.REQIDL)
+PreviousCard = [0]
 
-			if stat == rdr.OK:
-        
-				(stat, uid) = rdr.SelectTagSN()
-        	
-				if stat == rdr.OK:
-					print("Card detected %s" % uidToString(uid))
-				else:
-					print("Authentication error")
+try:
+    while True:
 
-	except KeyboardInterrupt:
-		print("Bye")
+        reader.init()
+        (stat, tag_type) = reader.request(reader.REQIDL)
+        #print('request stat:',stat,' tag_type:',tag_type)
+        if stat == reader.OK:
+            (stat, uid) = reader.SelectTagSN()
+            if uid == PreviousCard:
+                continue
+            if stat == reader.OK:
+                print("Card detected {}  uid={}".format(hex(int.from_bytes(bytes(uid),"little",False)).upper(),reader.tohexstring(uid)))
+                defaultKey = [255,255,255,255,255,255]
+                reader.MFRC522_DumpClassic1K(uid, Start=0, End=64, keyA=defaultKey)
+                print("Done")
+                PreviousCard = uid
+            else:
+                pass
+        else:
+            PreviousCard=[0]
+        utime.sleep_ms(50)                
+
+except KeyboardInterrupt:
+    pass
 ```
 
 ## References
