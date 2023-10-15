@@ -204,11 +204,24 @@ theme:
   # should be name: material
   name: material
   logo: img/coderdojo-logo.png
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
   palette:
     primary: '#642580'
     accent: '#41BAC1'
-  custom_dir: 'theme'
+  # custom_dir: 'theme'
   include_sidebar: true
+  features:
+    - content.code.copy
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    # this adds the prev and next icons in the footer
+    - navigation.footer
 plugins:
   - search
   # - mermaid2 - takes too long to build - use a screen image for now
