@@ -94,5 +94,6 @@ except KeyboardInterrupt:
 
 ## References
 
+* [How To Electronics: Using RC522 RFID Reader Module with Raspberry Pi Pico](https://how2electronics.com/using-rc522-rfid-reader-module-with-raspberry-pi-pico/)
 * [Dan J Perron Driver](https://github.com/danjperron/micropython-mfrc522/blob/master/mfrc522.py)
 * [Microcontrollers Lab Tutorial](https://microcontrollerslab.com/raspberry-pi-pico-rfid-rc522-micropython/)
