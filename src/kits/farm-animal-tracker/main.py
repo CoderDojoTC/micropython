@@ -12,9 +12,15 @@ i2c = machine.I2C(0, sda=machine.Pin(16), scl=machine.Pin(17))
 # setup the display driver using the i2c interface
 oled = SSD1306_I2C(128, 64, i2c)
 
-print("Bring TAG closer...")
-print("")
- 
+def my_function(myCard):
+    if myCard == "980505127":
+        return "Animal-1"
+    elif myCard == "1535192762":
+        return "Animal-2"
+    elif myCard == "2760850942":
+        return "Animal-3"
+    else:
+        return "Unknown!"
  
 while True:
     reader.init()
@@ -23,10 +29,22 @@ while True:
         (stat, uid) = reader.SelectTagSN()
         if stat == reader.OK:
             card = int.from_bytes(bytes(uid),"little",False)
-            print("CARD ID: "+str(card))
+            
             oled.fill(0)
             oled.show()
             oled.text(str(card), 0, 0)
-            oled.text("Line2", 0, 15)
+            oled.text(my_function(str(card)), 0, 15)
             oled.show()
-utime.sleep_ms(500) 
+            
+            print("ID: "+str(card))
+            print(my_function(str(card)))
+
+    else:
+        print("Waiting for animal.")
+        oled.fill(0)
+        oled.show()
+        oled.text("Waiting for", 0, 0)
+        oled.text("animal.", 0, 15)
+        oled.show()
+            
+utime.sleep_ms(500)

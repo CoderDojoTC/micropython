@@ -1,0 +1,67 @@
+Design Rule Check Report
+------------------------
+
+Report Written:     Thursday, November 02, 2023
+Design Path:        C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v3.pcb
+Design Title:       
+Created:            10/19/2023 11:11:24 AM
+Last Saved:         11/2/2023 8:53:39 PM
+Editing Time:       269 min
+Units:              thou (precision 0)
+
+
+Results
+=======
+
+Drill Hole to Drill Hole error (D-D) at (9750 10700) on layer "[All]".
+
+Number of errors found : 1
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks        Yes
+Pads and Vias Yes
+Shapes        Yes
+Text          Yes
+Board         Yes
+Drills        Yes
+Components    Yes
+
+
+Manufacturing
+
+==============
+
+Drill Breakout                  Yes
+Drill Backoff                   Yes
+Silkscreen Overlap              Yes
+Copper Text In Board            Yes
+Min Track Width                 Yes
+Min Annular Ring                Yes
+Min Paste Size                  Yes
+Vias In Pads                    Yes
+Unplated Vias                   Yes
+Unplated Pads With Inner Tracks Yes
+
+
+Nets
+
+=====
+
+Net Completion               Yes
+Dangling Tracks              Yes
+Net Track Length Differences No
+Nets without Components      No
+Nets on No Connect pins      No
+Nets on No Connect pins      No
+
+
+
+End Of Report.

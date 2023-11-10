@@ -1,16 +1,11 @@
 G04 DesignSpark PCB Gerber Version 11.0 Build 5877*
-G04 #@! TF.Part,Single*
-G04 #@! TF.FileFunction,Copper,L1,Top*
-G04 #@! TF.FilePolarity,Positive*
 %FSLAX35Y35*%
 %MOIN*%
 %ADD13C,0.01500*%
 %ADD14C,0.02000*%
 %ADD12C,0.02500*%
-G04 #@! TA.AperFunction,WasherPad*
 %ADD15C,0.06000*%
 %ADD16R,0.06000X0.04000*%
-G04 #@! TD.AperFunction*
 X0Y0D02*
 D02*
 D12*
