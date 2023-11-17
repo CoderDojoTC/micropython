@@ -1,0 +1,73 @@
+Design Rule Check Report
+------------------------
+
+Report Written:     Thursday, November 16, 2023
+Design Path:        C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5.pcb
+Design Title:       
+Created:            10/19/2023 10:11:24 AM
+Last Saved:         11/16/2023 10:09:12 PM
+Editing Time:       362 min
+Units:              thou (precision 0)
+
+
+Results
+=======
+
+Gap in Net "N0004" between (9150,10750) and (9150,10650) 
+    N0004.
+Gap in Net "N0012" between (10050,11000) and (10750,11000) 
+    N0012.
+Gap in Net "N0015" between (10050,10600) and (10050,11200) 
+    N0015.
+Dangling Track from (9150,10050) to (9195,10050) on layer Top Copper
+
+Number of errors found : 4
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks        Yes
+Pads and Vias Yes
+Shapes        Yes
+Text          Yes
+Board         Yes
+Drills        Yes
+Components    Yes
+
+
+Manufacturing
+
+==============
+
+Drill Breakout                  Yes
+Drill Backoff                   Yes
+Silkscreen Overlap              Yes
+Copper Text In Board            Yes
+Min Track Width                 Yes
+Min Annular Ring                Yes
+Min Paste Size                  Yes
+Vias In Pads                    Yes
+Unplated Vias                   Yes
+Unplated Pads With Inner Tracks Yes
+
+
+Nets
+
+=====
+
+Net Completion               Yes
+Dangling Tracks              Yes
+Net Track Length Differences No
+Nets without Components      No
+Nets on No Connect pins      No
+Nets on No Connect pins      No
+
+
+
+End Of Report.

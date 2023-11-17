@@ -1,0 +1,210 @@
+Plot Report
+-----------
+
+Report Written:     Thursday, November 16, 2023
+Design Path:        C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5.pcb
+Design Title:       
+Created:            10/19/2023 10:11:24 AM
+Last Saved:         11/16/2023 10:12:49 PM
+Editing Time:       364 min
+Units:              thou (precision 0)
+
+
+Device Settings
+===============
+
+
+Gerber Settings
+===============
+
+    Leading zero suppression.
+    G01 assumed throughout.
+    Line termination <*> <CR> <LF>.
+    3.5 format absolute inches.
+    Format commands defined in Gerber file.
+    Aperture table defined in Gerber file.
+    Hardware arcs allowed.
+
+
+Drill Settings
+==============
+
+    Excellon Format 2
+    Format 2.4 absolute in inches.
+    Zero suppression Leading
+
+
+
+Plots Output
+============
+
+    Plot Job: "C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5.mop"
+
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Top Silkscreen.gbr
+
+    Layers:
+    ------------------
+    Top Silkscreen
+
+    D-Code Shape  (thou)
+    -----------------------
+    D10    Round 5.00
+    D11    Round 1.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Top Copper.gbr
+
+    Layers:
+    --------------
+    Top Copper
+
+    D-Code Shape  (thou)
+    ----------------------------------------------
+    D13    Round 15.00
+    D23    Rectangle 55.00 X 75.00  Rotation 90
+    D24    Rectangle 55.00 X 75.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Top Copper (Resist).gbr
+
+    Layers:
+    --------------
+    Top Copper
+
+    D-Code Shape  (thou)
+    ----------------------------------------------
+    D25    Rectangle 65.00 X 85.00  Rotation 90
+    D26    Rectangle 65.00 X 85.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Top Assembly.gbr
+
+    Layers:
+    ----------------
+    Top Assembly
+
+    D-Code Shape  (thou)
+    ----------------------------------------------
+    D10    Round 5.00
+    D23    Rectangle 55.00 X 75.00  Rotation 90
+    D24    Rectangle 55.00 X 75.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Bottom Copper.gbr
+
+    Layers:
+    -----------------
+    Bottom Copper
+
+    D-Code Shape  (thou)
+    ----------------------------------------------
+    D13    Round 15.00
+    D23    Rectangle 55.00 X 75.00  Rotation 90
+    D24    Rectangle 55.00 X 75.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Bottom Resist.gbr
+
+    Layers:
+    -----------------
+    Bottom Resist
+
+    D-Code Shape  (thou)
+    ----------------------------------------------
+    D28    Rectangle 61.00 X 81.00  Rotation 90
+    D29    Rectangle 61.00 X 81.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Gerber Drill Data - [Through Hole].gbr
+
+    Layers:
+    ------------------
+    [Through Hole]
+
+    D-Code Shape  (thou)
+    -----------------------
+    D73    Round 35.00
+
+NC Drill Output
+===============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - NC Drill Data - [Through Hole].drl
+
+    Output:
+    ---------------------------
+    Plated Round Drill Holes
+    Plated Slots
+
+    Tool  Size          Count   ID
+    -------------------------------------
+    T001  0.0350 inches 92    D
+    -------------------------------------
+    Total               92
+    -------------------------------------
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - NC Drill Data - [Through Hole] (Unplated).drl
+
+    Output:
+    -----------------------------
+    Unplated Round Drill Holes
+    Unplated Slots
+
+    Tool  Size Count   ID
+    ----------------------------
+    ----------------------------
+    Total      0
+    ----------------------------
+
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Drill Ident Drawing - [Through Hole].gbr
+
+    Layers:
+    ------------------
+    [Through Hole]
+
+
+Drill Ident Drawing
+===================
+
+    Drill Plated Size Shape ID
+    -----------------------------------
+    35    Y      100  Round D
+
+    D-Code Shape  (thou)
+    -----------------------
+    D10    Round 5.00
+    D21    Round 100.00
+
+Gerber Output
+=============
+
+C:\Users\carlb\OneDrive\Documents\GitHub\micropython\src\kits\farm-animal-tracker\PICO_FarmAnimalManager_v5 - Board Outline.gbr
+
+    Layers:
+    ------------------
+    Board Outlines
+
+    D-Code Shape  (thou)
+    -----------------------
+    D10    Round 5.00
+
+End Of Report.
