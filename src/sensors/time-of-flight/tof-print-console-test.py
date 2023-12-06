@@ -4,7 +4,7 @@ import VL53L0X
 
 sda=machine.Pin(16) # row one on our standard Pico breadboard
 scl=machine.Pin(17) # row two on our standard Pico breadboard
-i2c=I2C(0, sda=sda, scl=scl)
+i2c=machine.I2C(0, sda=sda, scl=scl, freq=400000)
 
 # Create a VL53L0X object time of flight distance sensor object
 tof = VL53L0X.VL53L0X(i2c)
