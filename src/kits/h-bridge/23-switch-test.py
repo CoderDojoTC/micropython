@@ -1,3 +1,4 @@
+# swith status with no debounce logic
 from machine import Pin
 
 builtin_led = Pin(25)
@@ -17,6 +18,8 @@ ul_val = 0
 ll_val = 0
 ur_val = 0
 lr_val = 0
+
+counter = 0
 while True:
     # only print on change in the button_presses value
     
@@ -27,6 +30,7 @@ while True:
         else: print("Upper Right = Off")
         builtin_led.toggle()
         ul_val = new_ul_switch
+        counter += 1
     
     new_ll_switch = ll_switch.value()
     if ll_val != new_ll_switch:
@@ -35,6 +39,7 @@ while True:
         else: print("Lower Left = Off")
         builtin_led.toggle()
         ll_val = new_ll_switch
+        counter += 1
     
  
     new_ur_switch = ur_switch.value()
@@ -44,11 +49,13 @@ while True:
         else: print("Upper Right = Off")
         builtin_led.toggle()
         ur_val = new_ur_switch
+        counter += 1
         
     new_lr_switch = lr_switch.value()
-    if lr_val != new_ll_switch:
+    if lr_val != new_lr_switch:
         if new_lr_switch == 0:
-            print("Lower Left = On")
-        else: print("Lower Left = Off")
+            print("Lower Right = On")
+        else: print("Lower Right = Off")
         builtin_led.toggle()
-        ll_val = new_ll_switch        
+        lr_val = new_lr_switch
+        counter += 1
