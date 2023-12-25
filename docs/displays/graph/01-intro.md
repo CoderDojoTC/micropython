@@ -38,3 +38,7 @@ print("Device found at decimal", i2c.scan())
 ```
 
 If you don't see a return value of "60" or similar, then you need to check your wiring and make sure that you have an I2C (not an SPI) device.
+
+## References
+
+* [Wokwi web-based simulator of OLED display](https://wokwi.com/projects/359558101922696193)

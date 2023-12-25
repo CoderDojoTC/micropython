@@ -22,19 +22,17 @@ tof = VL53L0X.VL53L0X(i2c)
 def valmap(value, istart, istop, ostart, ostop):
   return int(ostart + (ostop - ostart) * ((value - istart) / (istop - istart)))
 
-MIN_DIST = 20
-max_dist = 0
+MIN_DIST = 30
+MAX_DIST = 300
 tof.start()
 while True:
-    dist = tof.read()
-    if dist < 8000: # values over 8000 are no signal
-        if dist > max_dist:
-            max_dist = dist
-        # map from min and max to 0 to NUMBER_PIXELS-1
-        index = valmap(dist, MIN_DIST, max_dist, 0, NUMBER_PIXELS-1)
-        print(dist, index)
-        strip[index] = (255,0,0)
-        strip.write()
-        sleep(.05) # below this we get a flicker
-        strip[index] = (0,0,0)
-        strip.write()
+    dist = tof.read() - MIN_DIST
+    if dist > MAX_DIST: 
+        dist = 300
+    index = valmap(dist, MIN_DIST, MAX_DIST, 0, NUMBER_PIXELS-1)
+    print(dist, index)
+    strip[index] = (255,0,0)
+    strip.write()
+    sleep(.05) # below this we get a flicker
+    strip[index] = (0,0,0)
+    strip.write()

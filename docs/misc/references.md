@@ -34,3 +34,7 @@
 ## Open-Source References
 
 1. [Open Source Guide](https://opensource.guide/)
+
+## Coding General
+
+* [Sam Altman on Coding](https://www.youtube.com/shorts/OK0YhF3NMpQ)
