@@ -20,7 +20,7 @@
     
     
       
-        <title>MIDI with MicroPython - MicroPython for Kids</title>
+        <title>Index - MicroPython for Kids</title>
       
     
     
@@ -80,11 +80,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#midi-with-micropython" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -116,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MIDI with MicroPython
+              Index
             
           </span>
         </div>
@@ -1094,43 +1089,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ascending-notes" class="md-nav__link">
-    Ascending Notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1148,59 +1106,9 @@
   
 
 
-<h1 id="midi-with-micropython">MIDI with MicroPython</h1>
-<div class="admonition warnining">
-<p class="admonition-title">Warnining</p>
-<p>I am not an expert on MIDI and I don't have any MIDI gear.  This is
-mostly a collection of material I have for students that want
-to use MicroPython to generate music.</p>
-</div>
-<h2 id="sample-code">Sample Code</h2>
-<h3 id="ascending-notes">Ascending Notes</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Play Test MIDI Ascending Notes</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">UART</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">31250</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">rx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">uart</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">parity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">led</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="n">note</span> <span class="o">=</span> <span class="mi">24</span>
+  <h1>Index</h1>
 
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">midimessage</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x90</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span>
-    <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">midimessage</span><span class="p">)</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
-    <span class="c1"># change third parameter to be 0</span>
-    <span class="n">midimessage</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x90</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="c1"># pause 1/8 of a second</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.125</span><span class="p">)</span>
-    <span class="n">note</span> <span class="o">+=</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">note</span> <span class="o">&gt;</span> <span class="mi">64</span><span class="p">:</span>
-        <span class="n">note</span><span class="o">=</span><span class="mi">24</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="references">References</h2>
-<p><a href="https://www.ebay.com/itm/134794678425?hash=item1f62639099:g:WbcAAOSwvMxk0qof">Raspberry Pi Pico MIDI Development Board Midimuso</a> for $20 US.  This board has all the MIDI connectors on it.</p>
-<p><a href="https://diyelectromusic.wordpress.com/">Simple DIY electromusic Project</a></p>
-<p><a href="https://github.com/diyelectromusic/sdemp/tree/main/src/SDEMP/Micropython">DIY Electro Music SDEMP MicroPython Code on GitHub</a></p>
-<p><a href="https://barbarach.com/pico-midi-external-switches/">Pico MIDI by Barb Arach</a></p>
-<p><a href="https://docs.google.com/viewer?url=https%3A%2F%2Fmidimuso.co.uk%2Fwp-content%2Fuploads%2F2023%2F07%2FpicoMIDI_manual-2.pdf">PicoMIDI manual v1.0</a></p>
+
 
 
   
