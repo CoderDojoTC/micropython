@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#8x8-led-matrix" class="md-skip">
+        <a href="#max7219-8x8-led-matrix" class="md-skip">
           Skip to content
         </a>
       
@@ -1321,8 +1321,62 @@
   
 
 
-<h1 id="8x8-led-matrix">8x8 LED Matrix</h1>
-<p>This is a low-cost and easy-to-program device that is perfect for small projects.</p>
+<h1 id="max7219-8x8-led-matrix">MAX7219 8x8 LED Matrix</h1>
+<p><img alt="MAX7219 " src="../../../img/max7219-8x8-led.png" />
+<img alt="MAX7219 " src="../../../img/led-matrix-display-back.png" /></p>
+<p>This is a low-cost ($3) and easy-to-program device that is perfect for small projects that don't
+need a full graphical display.  You will be surprised at how creative our students are with
+just an 8x8 display!</p>
+<p><a href="https://www.ebay.com/sch/i.html?_nkw=MAX7219+8x8+matrix">eBay Search for "MAX7219 8x8 matrix"</a></p>
+<p>The device comes with five connectors:</p>
+<ol>
+<li>Power (VCC)</li>
+<li>Ground (GND)</li>
+<li>Clock (SCK)</li>
+<li>Data (MOSI)</li>
+<li>Chip Select (CS)</li>
+</ol>
+<p>We can communicate with the device using the standard SPI interface.  There is also
+an 8x8 driver supplied by <a href="https://github.com/mcauser/micropython-max7219">Mike Causer</a> Here is an excerpt of how we
+configured the driver to use a single display:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">SPI</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">max7219</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">CLOCK_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DATA_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CS_PIN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">spi0</span><span class="o">=</span><span class="n">SPI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">polarity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sck</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">CLOCK_PIN</span><span class="p">),</span> <span class="n">mosi</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">DATA_PIN</span><span class="p">))</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">CS_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">max7219</span><span class="o">.</span><span class="n">Matrix8x8</span><span class="p">(</span><span class="n">spi0</span><span class="p">,</span> <span class="n">cs</span> <span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># display text a x=0, y=0 and state = 1 (on)</span>
+<span class="n">matrix</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">matrix</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>You can change the last parameter from "1" to "4" if you have 4 displays wired together:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">max7219</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SPI</span>
+<span class="n">spi</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">max7219</span><span class="o">.</span><span class="n">Matrix8x8</span><span class="p">(</span><span class="n">spi0</span><span class="p">,</span> <span class="n">cs</span> <span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>The displays can also be "cascaded"</p>
 <h2 id="basic-program">Basic Program</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
