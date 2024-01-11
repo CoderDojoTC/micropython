@@ -42,3 +42,4 @@ If you don't see a return value of "60" or similar, then you need to check your 
 ## References
 
 * [Wokwi web-based simulator of OLED display](https://wokwi.com/projects/359558101922696193)
+* [Mike Causer's Awesome MicroPython Display Drivers](https://github.com/mcauser/awesome-micropython?tab=readme-ov-file#display)
