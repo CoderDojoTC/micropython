@@ -1096,6 +1096,8 @@
       
         
       
+        
+      
     
     
       
@@ -1350,7 +1352,8 @@
 
 
 <h1 id="four-digit-led-display">Four Digit LED Display</h1>
-<p>In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the <a href="https://github.com/mcauser/micropython-tm1637"><strong>tm1637</strong></a> library to communicate
+<p>In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.<br />
+These clocks will use <a href="https://github.com/mcauser/micropython-tm1637">Mike Causer's <strong>tm1637</strong></a> library to communicate
 with the four-digit display.  Some of these displays also have a "colon"
 between the hour and minute digits that flashes every second.</p>
 <p>You can purchase 4-digit LED displays on eBay for about $2 each.</p>
@@ -1360,10 +1363,10 @@ between the hour and minute digits that flashes every second.</p>
 <h2 id="connections">Connections</h2>
 <p>These displays have four pins:</p>
 <ol>
-<li>Ground</li>
+<li>Ground (GND)</li>
 <li>Power (3.2 v or 5 v)</li>
-<li>Data</li>
-<li>Clock</li>
+<li>Data (DIO)</li>
+<li>Clock (CLK)</li>
 </ol>
 <p>In our examples, we will connect the power to our 3.3 regulated output
 of the Pico.  We will connect Data to GP0 and Clock to GP1.</p>
@@ -1395,7 +1398,8 @@ of the Pico.  We will connect Data to GP0 and Clock to GP1.</p>
 <p>The <code>tm.write()</code> function takes a sequence of numbers and will shifts them in from right to left.  </p>
 <h2 id="clock">Clock</h2>
 <p>We can create a simple clock by using the <code>localtime()</code> function when the
-programs first starts up and then we just update the time after the sleep() functions run for a second.  This also can updates the colon between the hours
+programs first starts up and then we just update the time after the sleep() functions run for a second. 
+This also can updates the colon between the hours
 and minutes.</p>
 <p><code>localtime()</code> returns an array of numbers for date, hour, minute and second.  In our example here, we only need the hour and minutes.</p>
 <p><img alt="4 Digit Clock" src="../../../img/4-digit-clock.png" /></p>
