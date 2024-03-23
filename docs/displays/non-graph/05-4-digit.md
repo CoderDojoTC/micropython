@@ -1,6 +1,7 @@
 # Four Digit LED Display
 
-In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  These clocks will use the [**tm1637**](https://github.com/mcauser/micropython-tm1637) library to communicate
+In this lesson, we will use a 4-digit LED display to create a clock that displays the time of day.  
+These clocks will use [Mike Causer's **tm1637**](https://github.com/mcauser/micropython-tm1637) library to communicate
 with the four-digit display.  Some of these displays also have a "colon"
 between the hour and minute digits that flashes every second.
 
@@ -16,10 +17,10 @@ You can purchase 4-digit LED displays on eBay for about $2 each.
 
 These displays have four pins:
 
-1. Ground
+1. Ground (GND)
 2. Power (3.2 v or 5 v)
-3. Data
-4. Clock
+3. Data (DIO)
+4. Clock (CLK)
 
 In our examples, we will connect the power to our 3.3 regulated output
 of the Pico.  We will connect Data to GP0 and Clock to GP1.
@@ -45,7 +46,8 @@ The ```tm.write()``` function takes a sequence of numbers and will shifts them i
 ## Clock
 
 We can create a simple clock by using the ```localtime()``` function when the
-programs first starts up and then we just update the time after the sleep() functions run for a second.  This also can updates the colon between the hours
+programs first starts up and then we just update the time after the sleep() functions run for a second. 
+This also can updates the colon between the hours
 and minutes.
 
 ```localtime()``` returns an array of numbers for date, hour, minute and second.  In our example here, we only need the hour and minutes.

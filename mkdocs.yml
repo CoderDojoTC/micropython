@@ -138,7 +138,11 @@ nav:
     - Operating System: advanced-labs/11-os.md
     - Measuring Battery Voltage: advanced-labs/15-measuring-vsys.md
     - File System: advanced-labs/17-file-system.md
-
+    - Spectrum Analyzer: 
+      - Introduction: advanced-labs/30-spectrum-analyzer/index.md
+      - Test Incomming: advanced-labs/30-spectrum-analyzer/01-test-incoming-sound.md
+      - Gain Pot: advanced-labs/30-spectrum-analyzer/02-gain-pot.md
+      - Display Scroll:  advanced-labs/30-spectrum-analyzer/display-scroll.md
     - Debugging:
       - Debugging Python: debugging/28-debugging-python.md
       - Debugging I2C: debugging/29a-debugging-i2c.md

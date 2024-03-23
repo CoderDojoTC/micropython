@@ -132,6 +132,23 @@ print('Freeing the block of memory')
 gc.mem_free(ptr)
 show_memory()
 ```
+
+## Image Size
+
+You can determine how much space we have available on the Pico flash after programming an ELF or UF2 file. For example, if we have an ELF file that's 1 MB and we were to program via openocd, then where should we offset my user data in flash? (i.e. XIP_BASE + OFFSET)
+
+With an elf or uf2 file, using ```picotool info -a``` on it will show the start and end of the binary (the start is usually 0x10000000 unless you did something to change it).
+
+Inside your code, you can use the symbols defined by the linker script __flash_binary_start (defined here) and __flash_binary_end (defined here) like this:
+
+```c
+extern char __flash_binary_start;  // defined in linker script
+extern char __flash_binary_end;    // defined in linker script
+uintptr_t start = (uintptr_t) &__flash_binary_start;
+uintptr_t end = (uintptr_t) &__flash_binary_end;
+printf("Binary starts at %08x and ends at %08x, size is %08x\n", start, end, end-start);
+```
+
 ## References
 
 * [Code that Prints Memory Block Types](https://github.com/micropython/micropython/blob/fabaa6143745cf09928dfc13367ddc91e0eb9ad2/py/gc.c#L837-L856)

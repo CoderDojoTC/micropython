@@ -30,7 +30,6 @@
 1. [WeAct RP2040 board adds 16MB flash, USB-C port to Raspberry Pi Pico form factor](https://www.cnx-software.com/2022/07/13/weact-rp2040-board-adds-16mb-flash-usb-c-port-to-raspberry-pi-pico-form-factor/) - JULY 13, 2022 BY JEAN-LUC AUFRANC (CNXSOFT) - CNX SOFTWARE – EMBEDDED SYSTEMS NEWS
 
 
-
 ## Open-Source References
 
 1. [Open Source Guide](https://opensource.guide/)
@@ -38,3 +37,11 @@
 ## Coding General
 
 * [Sam Altman on Coding](https://www.youtube.com/shorts/OK0YhF3NMpQ)
+
+## Getting Started Videos
+
+* [Raspberry Pi Pico W LESSON 1: Write Your First Program for Absolute Beginners](https://www.youtube.com/watch?v=SL4_oU9t8Ss) by Paul McWhorter.  A nice gentle introduction to getting started with Thonny on the Raspberry Pi Pico.
+
+## Snake Game
+
+[Micropython Snake Game](https://github.com/hwiguna/HariFun_203_PicoSnake)
