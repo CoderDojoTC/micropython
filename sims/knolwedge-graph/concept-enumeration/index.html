@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching MicroPython to CoderDojo Twin Cities students.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Learning Concept Enumeration - MicroPython for Kids</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DS16K4YVRR"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DS16K4YVRR",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DS16K4YVRR",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-concept-enumeration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MicroPython for Kids" class="md-header__button md-logo" aria-label="MicroPython for Kids" data-md-component="logo">
+      
+  <img src="../../../img/coderdojo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython for Kids
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Learning Concept Enumeration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MicroPython for Kids" class="md-nav__button md-logo" aria-label="MicroPython for Kids" data-md-component="logo">
+      
+  <img src="../../../img/coderdojo-logo.png" alt="logo">
+
+    </a>
+    MicroPython for Kids
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CoderDojoTC/micropython" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://coderdojotc.github.io/CoderDojoTC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CoderDojo Mentor Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroPython Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../intro/01-about/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../getting-started/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../basics/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Basic Examples
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sensors/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sensors
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../motors/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Motors and Servos
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../displays/non-graph/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Displays - Non-Graphical
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../displays/graph/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Displays Graphical
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sound/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sound and Music
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../wireless/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Wireless
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../robots/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Robots
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../advanced-labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Advanced Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../kits/01-intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/30-colophon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Colophon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#original-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Original List
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="learning-concept-enumeration">Learning Concept Enumeration</h1>
+<h2 id="prompt">Prompt</h2>
+<p>```linenums="0"
+Raspberry Pi Pico, and solderless breadboards.
+In our labs, we also use many parts such as photosensors, potentiometers, LEDs, resistors, transistors, time-0f-flight sensors, WS2812B LED strips, 128x64 OLED displays, motors, and the Cytron Maker Pi RP2040, which has the same RP2040 microcontroller.</p>
+<p>We have a lot of material and lesson plans right now, but I would like an overall list of the 200 key concepts we need to cover in this course.</p>
+<p>For this course, please create a list of the core learning concepts that we need to present in this course and the order in which they should be taught.</p>
+<p>Please create a list of the 200 most essential concepts
+in this course. 
+Return the concept's preferred label in a numbered list for each learning concept.
+Make sure that the concept names are distinct and not synonyms.  Don't repeat</p>
+<p>Start with the most basic foundational concepts and then
+proceed to the most complex concepts. Return just one concept label per line.
+Avoid using acronyms or abbreviations.</p>
+<h2 id="response">Response</h2>
+<p>ChatGPT o1-preview Thought for 22 seconds</p>
+<ol>
+<li>Intro to Computational Thinking</li>
+<li>Problem Decomposition</li>
+<li>Pattern Recognition</li>
+<li>Abstraction</li>
+<li>Algorithm Design</li>
+<li>Basic Programming Concepts</li>
+<li>Variables</li>
+<li>Data Types</li>
+<li>Operators</li>
+<li>Control Structures</li>
+<li>Conditional Statements</li>
+<li>Loops</li>
+<li>Functions</li>
+<li>Introduction to MicroPython</li>
+<li>Setting Up MicroPython Environment</li>
+<li>Syntax</li>
+<li>Variables</li>
+<li>Data Types</li>
+<li>Input and Output</li>
+<li>Working with Strings</li>
+<li>Working with Numbers</li>
+<li>Lists</li>
+<li>Tuples</li>
+<li>Dictionaries</li>
+<li>Functions</li>
+<li>Modules</li>
+<li>Exception Handling</li>
+<li>The Raspberry Pi Pico</li>
+<li>The Thonny IDE</li>
+<li>Microcontroller Basics</li>
+<li>Understanding GPIO Pins</li>
+<li>Solderless Breadboards</li>
+<li>Breadboard Usage</li>
+<li>Circuit Basics</li>
+<li>Ohm's Law</li>
+<li>Resistors in Circuits</li>
+<li>LEDs in Circuits</li>
+<li>Using Resistors with LEDs</li>
+<li>Current Limiting Resistors</li>
+<li>Connecting LEDs</li>
+<li>Blinking an LED with MicroPython</li>
+<li>Digital Output Signals</li>
+<li>Digital Input Signals</li>
+<li>Reading Button Inputs</li>
+<li>Debouncing Switches</li>
+<li>Pull-up and Pull-down Resistors</li>
+<li>Controlling Multiple LEDs</li>
+<li>Using Breadboard Jumpers</li>
+<li>Potentiometers in Circuits</li>
+<li>Reading Analog Inputs</li>
+<li>Analog-to-Digital Conversion</li>
+<li>Using ADC</li>
+<li>Reading Potentiometer Values</li>
+<li>LED Brightness with PWM</li>
+<li>Pulse Width Modulation</li>
+<li>Using Pulse Width Modulation</li>
+<li>Fading an LED with PWM</li>
+<li>Controlling Servo Motors</li>
+<li>Servo Motors</li>
+<li>DC Motors</li>
+<li>Transistors as Switches</li>
+<li>Transistors Motors Control</li>
+<li>Transistor Bias Resistors</li>
+<li>Transistors Power</li>
+<li>Photocells</li>
+<li>Making a Night Light</li>
+<li>Voltage Dividers</li>
+<li>Voltage Dividers and Sensors</li>
+<li>Time-of-Flight Sensors</li>
+<li>Interfacing Time-of-Flight Sensors</li>
+<li>I2C Protocol</li>
+<li>SPI Protocol</li>
+<li>Connecting Inter-Integrated Circuit Devices</li>
+<li>LED Displays</li>
+<li>OLED Displays</li>
+<li>Display Drawing</li>
+<li>Drawing Circles and Ellipse</li>
+<li>Drawing Polygons</li>
+<li>Changing Fonts</li>
+<li>Advanced I2C</li>
+<li>Advanced SPI</li>
+<li>WS2812B LED Strips</li>
+<li>LED Strip Code</li>
+<li>Moving Pixels on LED Strips</li>
+<li>LED Strip Patterns</li>
+<li>LED Strip Button Demos</li>
+<li>Sensors and Actuators</li>
+<li>Integrating Multiple Sensors</li>
+<li>Event-Driven Programming</li>
+<li>Interrupts</li>
+<li>Using Interrupts with GPIO Pins</li>
+<li>Debouncing with Interrupts</li>
+<li>Timers</li>
+<li>Delays and Timing Functions</li>
+<li>Using the Time Module</li>
+<li>Data Logging with MicroPython</li>
+<li>Storing Data on Raspberry Pi Pico</li>
+<li>File Handling</li>
+<li>USB</li>
+<li>UART</li>
+<li>Introduction to Sensors</li>
+<li>Temperature Sensors</li>
+<li>Interfacing Temperature Sensors</li>
+<li>Humidity Sensors</li>
+<li>Using DHT11 and DHT22 Sensors</li>
+<li>Reading Sensor Data</li>
+<li>Interpreting Sensor Data</li>
+<li>Calibrating Sensors</li>
+<li>Introduction to Actuators</li>
+<li>Controlling Relays</li>
+<li>Relays</li>
+<li>Relays Safety</li>
+<li>Stepper Motors</li>
+<li>Controlling Stepper Motors</li>
+<li>Using Stepper Motor Drivers</li>
+<li>Advanced PWM</li>
+<li>Generating Sound with Buzzers</li>
+<li>Using Piezoelectric Buzzers</li>
+<li>Generating Tones and Melodies</li>
+<li>Infrared Communication</li>
+<li>Using Infrared Sensors</li>
+<li>Infrared Remote Control</li>
+<li>Ultrasonic Sensors</li>
+<li>Time-of-Flight Sensors</li>
+<li>Serial Communication Protocols</li>
+<li>I2C vs SPI vs UART</li>
+<li>Data Communication Principles</li>
+<li>Wireless Communication Basics</li>
+<li>Bluetooth Low Energy</li>
+<li>Wi-Fi Connectivity</li>
+<li>Python Modules</li>
+<li>IoT</li>
+<li>Connecting to the Internet</li>
+<li>Sending Data to Web Servers</li>
+<li>Hypertext Transfer Protocol Basics</li>
+<li>MQTT</li>
+<li>IoT Applications</li>
+<li>Cloud Services Integration</li>
+<li>Data Visualization Tools</li>
+<li>Programming Best Practices</li>
+<li>Code Optimization Techniques</li>
+<li>Debugging Techniques</li>
+<li>Using Debugging Tools</li>
+<li>Version Control Systems</li>
+<li>Using Git for Code Management</li>
+<li>Collaborative Coding Practices</li>
+<li>Documentation Standards</li>
+<li>Commenting Code Effectively</li>
+<li>Advanced MicroPython Features</li>
+<li>Object-Oriented Programming</li>
+<li>Classes and Objects</li>
+<li>Inheritance and Polymorphism</li>
+<li>Encapsulation in OOP</li>
+<li>Designing Reusable Code</li>
+<li>Memory Management</li>
+<li>Managing Resources Efficiently</li>
+<li>Energy Efficiency</li>
+<li>Sleep Modes in Microcontrollers</li>
+<li>Battery-Powered Projects</li>
+<li>Power Management Techniques</li>
+<li>Advanced Electronics Concepts</li>
+<li>Capacitors in Circuits</li>
+<li>Inductors and Coils</li>
+<li>Diodes and Rectification</li>
+<li>Voltage Regulation</li>
+<li>Using Voltage Regulators</li>
+<li>Building Power Supplies</li>
+<li>Analog Signals vs. Digital Signals</li>
+<li>Signal Conditioning</li>
+<li>Filtering Noise in Circuits</li>
+<li>Interference and Shielding</li>
+<li>Electromagnetic Compatibility</li>
+<li>Circuit Design Principles</li>
+<li>Using Simulation Tools</li>
+<li>Prototyping Techniques</li>
+<li>Schematic Diagram Reading</li>
+<li>Understanding Datasheets</li>
+<li>Component Specifications</li>
+<li>Safety in Electronics</li>
+<li>Electrostatic Discharge Precautions</li>
+<li>Soldering Techniques</li>
+<li>Printed Circuit Board Design</li>
+<li>Using PCB Design Software</li>
+<li>Fabricating Custom PCB</li>
+<li>Advanced Sensor Integration</li>
+<li>Gesture Recognition Sensors</li>
+<li>Touch Sensors</li>
+<li>Environmental Monitoring</li>
+<li>Robotics Basics</li>
+<li>Building Simple Robots</li>
+<li>Line-Following Robots</li>
+<li>Obstacle Avoidance Robots</li>
+<li>Control Systems Basics</li>
+<li>Feedback Mechanisms</li>
+<li>PID Controllers</li>
+<li>Machine Learning Concepts</li>
+<li>Using MicroPython for AI</li>
+<li>Edge Computing</li>
+<li>Ethics in Technology</li>
+<li>Future Trends in Computing</li>
+</ol>
+<h2 id="original-list">Original List</h2>
+<ul>
+<li>Introduction to Computational Thinking</li>
+<li>Problem Decomposition</li>
+<li>Pattern Recognition</li>
+<li>Abstraction</li>
+<li>Algorithm Design</li>
+<li>Basic Programming Concepts</li>
+<li>Variables in Programming</li>
+<li>Data Types in Programming</li>
+<li>Operators in Programming</li>
+<li>Control Structures in Programming</li>
+<li>Conditional Statements</li>
+<li>Loops in Programming</li>
+<li>Functions in Programming</li>
+<li>Introduction to MicroPython</li>
+<li>Setting Up MicroPython Environment</li>
+<li>Syntax in MicroPython</li>
+<li>Variables in MicroPython</li>
+<li>Data Types in MicroPython</li>
+<li>Input and Output in MicroPython</li>
+<li>Working with Strings in MicroPython</li>
+<li>Working with Numbers in MicroPython</li>
+<li>Lists in MicroPython</li>
+<li>Tuples in MicroPython</li>
+<li>Dictionaries in MicroPython</li>
+<li>Functions in MicroPython</li>
+<li>Modules in MicroPython</li>
+<li>Exception Handling in MicroPython</li>
+<li>Introduction to Raspberry Pi Pico</li>
+<li>Setting Up Raspberry Pi Pico</li>
+<li>Microcontroller Basics</li>
+<li>Understanding GPIO Pins</li>
+<li>Breadboard Basics</li>
+<li>Solderless Breadboard Usage</li>
+<li>Circuit Basics</li>
+<li>Ohm's Law</li>
+<li>Resistors in Circuits</li>
+<li>LEDs in Circuits</li>
+<li>Using Resistors with LEDs</li>
+<li>Current Limiting Resistors</li>
+<li>Connecting LEDs to Raspberry Pi Pico</li>
+<li>Blinking an LED with MicroPython</li>
+<li>Digital Output Signals</li>
+<li>Digital Input Signals</li>
+<li>Reading Button Inputs</li>
+<li>Debouncing Switches</li>
+<li>Pull-up and Pull-down Resistors</li>
+<li>Controlling Multiple LEDs</li>
+<li>Using Breadboard Jumpers</li>
+<li>Potentiometers in Circuits</li>
+<li>Reading Analog Inputs</li>
+<li>Analog-to-Digital Conversion</li>
+<li>Using the ADC on Raspberry Pi Pico</li>
+<li>Reading Potentiometer Values</li>
+<li>Controlling LED Brightness with Pulse Width Modulation</li>
+<li>Pulse Width Modulation</li>
+<li>Using Pulse Width Modulation in MicroPython</li>
+<li>Fading an LED with Pulse Width Modulation</li>
+<li>Controlling Servo Motors</li>
+<li>Using Servo Motors with Raspberry Pi Pico</li>
+<li>Interfacing Direct Current Motors</li>
+<li>Transistors as Switches</li>
+<li>Using Transistors to Control Motors</li>
+<li>Understanding NPN Transistors</li>
+<li>Understanding PNP Transistors</li>
+<li>Using Photocells in Circuits</li>
+<li>Reading Light Levels with Photocells</li>
+<li>Voltage Dividers</li>
+<li>Using Voltage Dividers with Sensors</li>
+<li>Time-of-Flight Sensors</li>
+<li>Interfacing Time-of-Flight Sensors</li>
+<li>Inter-Integrated Circuit Communication Protocol</li>
+<li>Using Inter-Integrated Circuit in MicroPython</li>
+<li>Connecting Inter-Integrated Circuit Devices</li>
+<li>Organic Light-Emitting Diode Displays</li>
+<li>Using 128x64 Organic Light-Emitting Diode Displays</li>
+<li>Displaying Text on Organic Light-Emitting Diode Displays</li>
+<li>Displaying Graphics on Organic Light-Emitting Diode Displays</li>
+<li>Understanding Display Coordinates</li>
+<li>Using Fonts on Organic Light-Emitting Diode Displays</li>
+<li>Serial Peripheral Interface Communication Protocol</li>
+<li>Using Serial Peripheral Interface in MicroPython</li>
+<li>WS2812B Light-Emitting Diode Strips</li>
+<li>Controlling WS2812B Light-Emitting Diodes</li>
+<li>Using Neopixel Library</li>
+<li>Creating Color Effects on WS2812B Light-Emitting Diodes</li>
+<li>Programming Color Patterns</li>
+<li>Sensors and Actuators</li>
+<li>Integrating Multiple Sensors</li>
+<li>Event-Driven Programming</li>
+<li>Interrupts in MicroPython</li>
+<li>Using Interrupts with GPIO Pins</li>
+<li>Debouncing with Interrupts</li>
+<li>Timers in MicroPython</li>
+<li>Delays and Timing Functions</li>
+<li>Using the Time Module</li>
+<li>Data Logging with MicroPython</li>
+<li>Storing Data on Raspberry Pi Pico</li>
+<li>File Handling in MicroPython</li>
+<li>Communicating with Personal Computer over Serial</li>
+<li>Using Universal Asynchronous Receiver-Transmitter Communication</li>
+<li>Introduction to Sensors</li>
+<li>Temperature Sensors</li>
+<li>Interfacing Temperature Sensors</li>
+<li>Humidity Sensors</li>
+<li>Using DHT11 and DHT22 Sensors</li>
+<li>Reading Sensor Data</li>
+<li>Interpreting Sensor Data</li>
+<li>Calibrating Sensors</li>
+<li>Introduction to Actuators</li>
+<li>Controlling Relays</li>
+<li>Using Relays with Raspberry Pi Pico</li>
+<li>Safety Precautions with Relays</li>
+<li>Stepper Motors</li>
+<li>Controlling Stepper Motors</li>
+<li>Using Stepper Motor Drivers</li>
+<li>Advanced Pulse Width Modulation Techniques</li>
+<li>Generating Sound with Buzzers</li>
+<li>Using Piezoelectric Buzzers</li>
+<li>Generating Tones and Melodies</li>
+<li>Infrared Communication</li>
+<li>Using Infrared Sensors</li>
+<li>Infrared Remote Control</li>
+<li>Ultrasonic Sensors</li>
+<li>Measuring Distance with Ultrasonic Sensors</li>
+<li>Serial Communication Protocols</li>
+<li>Inter-Integrated Circuit vs Serial Peripheral Interface vs Universal Asynchronous Receiver-Transmitter</li>
+<li>Data Communication Principles</li>
+<li>Wireless Communication Basics</li>
+<li>Bluetooth Low Energy</li>
+<li>Wi-Fi Connectivity</li>
+<li>Using ESP8266 Modules</li>
+<li>Internet of Things Concepts</li>
+<li>Connecting to the Internet</li>
+<li>Sending Data to Web Servers</li>
+<li>Hypertext Transfer Protocol Basics</li>
+<li>Using Message Queuing Telemetry Transport Protocol</li>
+<li>Building Internet of Things Applications</li>
+<li>Cloud Services Integration</li>
+<li>Data Visualization Tools</li>
+<li>Programming Best Practices</li>
+<li>Code Optimization Techniques</li>
+<li>Debugging Techniques</li>
+<li>Using Debugging Tools</li>
+<li>Version Control Systems</li>
+<li>Using Git for Code Management</li>
+<li>Collaborative Coding Practices</li>
+<li>Documentation Standards</li>
+<li>Commenting Code Effectively</li>
+<li>Advanced MicroPython Features</li>
+<li>Object-Oriented Programming</li>
+<li>Classes and Objects in MicroPython</li>
+<li>Inheritance and Polymorphism</li>
+<li>Encapsulation in Object-Oriented Programming</li>
+<li>Designing Reusable Code</li>
+<li>Memory Management</li>
+<li>Managing Resources Efficiently</li>
+<li>Energy Efficiency in Programming</li>
+<li>Sleep Modes in Microcontrollers</li>
+<li>Battery-Powered Projects</li>
+<li>Power Management Techniques</li>
+<li>Advanced Electronics Concepts</li>
+<li>Capacitors in Circuits</li>
+<li>Inductors and Coils</li>
+<li>Diodes and Rectification</li>
+<li>Voltage Regulation</li>
+<li>Using Voltage Regulators</li>
+<li>Building Power Supplies</li>
+<li>Analog Signals vs. Digital Signals</li>
+<li>Signal Conditioning</li>
+<li>Filtering Noise in Circuits</li>
+<li>Interference and Shielding</li>
+<li>Electromagnetic Compatibility</li>
+<li>Circuit Design Principles</li>
+<li>Using Simulation Tools</li>
+<li>Prototyping Techniques</li>
+<li>Schematic Diagram Reading</li>
+<li>Understanding Datasheets</li>
+<li>Component Specifications</li>
+<li>Safety in Electronics</li>
+<li>Electrostatic Discharge Precautions</li>
+<li>Soldering Techniques</li>
+<li>Introduction to Printed Circuit Board Design</li>
+<li>Using Printed Circuit Board Design Software</li>
+<li>Fabricating Custom Printed Circuit Boards</li>
+<li>Advanced Sensor Integration</li>
+<li>Gesture Recognition Sensors</li>
+<li>Touch Sensors</li>
+<li>Environmental Monitoring</li>
+<li>Robotics Basics</li>
+<li>Building Simple Robots</li>
+<li>Line-Following Robots</li>
+<li>Obstacle Avoidance Robots</li>
+<li>Control Systems Basics</li>
+<li>Feedback Mechanisms</li>
+<li>Proportional-Integral-Derivative Controllers</li>
+<li>Machine Learning Concepts</li>
+<li>Using MicroPython for Artificial Intelligence</li>
+<li>Edge Computing</li>
+<li>Ethics in Technology</li>
+<li>Future Trends in Computing</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>

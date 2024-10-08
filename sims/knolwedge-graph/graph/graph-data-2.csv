@@ -1,0 +1,197 @@
+ID,Concept Name,Dependencies (IDs),Group ID
+1,Intro to Computational Thinking,,1
+2,Problem Decomposition,1,1
+3,Pattern Recognition,1,1
+4,Abstraction,1,1
+5,Algorithm Design,1|2|3|4,1
+6,Basic Programming Concepts,1|5,2
+7,Variables in Programming,6,2
+8,Data Types in Programming,6|7,2
+9,Operators,6|7|8,2
+10,Control Structures,6|7|8|9,2
+11,Conditional Statements,10|9,2
+12,Loops,10,2
+13,General Functions in Programming,6|7|8|10,2
+14,Introduction to MicroPython,6,3
+15,Setting Up MicroPython Environment,14,3
+16,Syntax in MicroPython,14|15,3
+17,Functions in MicroPython,13|16,3
+18,Modules in MicroPython,16|17,3
+19,Input and Output,16|7|8,3
+20,Working with Strings,8|16,3
+21,Working with Numbers,8|16,3
+22,Lists,8|16,3
+23,Tuples,8|16,3
+24,Dictionaries,8|16,3
+25,Exception Handling,16|10,3
+26,Microcontroller Basics,,4
+27,The Raspberry Pi Pico,26,4
+28,Understanding GPIO Pins,26|27,4
+29,Solderless Breadboards,32,4
+30,Breadboard Usage,29|32,4
+31,Circuit Basics,,5
+32,Ohm's Law,31,5
+33,Resistors in Circuits,31|32,5
+34,LEDs in Circuits,31,5
+35,Using Resistors with LEDs,33|34|32,5
+36,Current Limiting Resistors,33|35,5
+37,Connecting LEDs,34|30,5
+38,Blinking an LED with MicroPython,37|16|28,3
+39,Digital Output Signals,28|16,4
+40,Digital Input Signals,28|16,4
+41,Reading Button Inputs,40|30,4
+42,Debouncing Switches,41|10,3
+43,Pull-up and Pull-down Resistors,33|41,5
+44,Controlling Multiple LEDs,37|38|16,4
+45,Using Breadboard Jumpers,30,4
+46,Potentiometers in Circuits,31|33,5
+47,Reading Analog Inputs,46|28,6
+48,Analog-to-Digital Conversion,47,5
+49,Using ADC in MicroPython,48|16,3
+50,Reading Potentiometer Values,49|46,6
+51,Pulse Width Modulation Fundamentals,6|10,7
+52,Implementing Pulse Width Modulation in MicroPython,51|16,3
+53,LED Brightness Control with Pulse Width Modulation,52|37,7
+54,Fading LEDs Using Pulse Width Modulation,53|12,7
+55,Advanced Pulse Width Modulation Techniques,54|52,7
+56,Servo Motors Overview,31,7
+57,Controlling Servo Motors,52|28|56,7
+58,DC Motors Overview,31,7
+59,Transistors as Switches,31|33,5
+60,Controlling Motors with Transistors,59|58,7
+61,Transistor Biasing Resistors,59|33,5
+62,Power Management with Transistors,59|61,7
+63,Photocells,31|33,6
+64,Making a Night Light,63|28|16,6
+65,Voltage Dividers,33|31,5
+66,Voltage Dividers and Sensors,65|63,6
+67,Time-of-Flight Sensors,31|28,6
+68,Interfacing Time-of-Flight Sensors,67|16,6
+69,I2C Protocol,70|16,8
+70,SPI Protocol,28|16,8
+71,Connecting I2C Devices,69|28,8
+72,LED Displays Overview,34|31,4
+73,Organic Light-Emitting Diode Displays,72,4
+74,Display Drawing,73|16,4
+75,Drawing Circles and Ellipses,74,4
+76,Drawing Polygons,74,4
+77,Changing Fonts,74,4
+78,Advanced I2C,69|16,8
+79,Advanced SPI,70|16,8
+80,WS2812B LED Strips,34|31,4
+81,LED Strip Code,80|16,3
+82,Moving Pixels on LED Strips,81|12,7
+83,LED Strip Patterns,81|82,7
+84,LED Strip Button Demos,83|41,7
+85,Sensors and Actuators,31|28,6
+86,Integrating Multiple Sensors,85|16,6
+87,Event-Driven Programming,6|10,2
+88,Interrupts,28|87,8
+89,Using Interrupts with GPIO Pins,88|28,8
+90,Debouncing with Interrupts,89|42,8
+91,Timers,6|16,3
+92,Delays and Timing Functions,91|16,3
+93,Using the Time Module,92|16,3
+94,Data Logging with MicroPython,16|97,3
+95,Storing Data on Raspberry Pi Pico,94|27,4
+96,File Handling,16|95,3
+97,Universal Serial Bus Communication,27|16,8
+98,Universal Asynchronous Receiver-Transmitter Communication,27|16,8
+99,Introduction to Sensors,31,6
+100,Temperature Sensors,99|28,6
+101,Interfacing Temperature Sensors,100|16,6
+102,Humidity Sensors,99|28,6
+103,Using DHT11 and DHT22 Sensors,101|102,6
+104,Reading Sensor Data,103|16,6
+105,Interpreting Sensor Data,104,6
+106,Calibrating Sensors,105,6
+107,Introduction to Actuators,31,7
+108,Controlling Relays,107|16,7
+109,Relays Overview,107,7
+110,Relays Safety,109,7
+111,Stepper Motors,31,7
+112,Controlling Stepper Motors,111|16,7
+113,Using Stepper Motor Drivers,112|28,7
+114,Generating Sound with Buzzers,31|28,7
+115,Using Piezoelectric Buzzers,114|16,7
+116,Generating Tones and Melodies,115|12,7
+117,Infrared Communication,28|16,8
+118,Using Infrared Sensors,117|31,8
+119,Infrared Remote Control,118|16,8
+120,Ultrasonic Sensors,99|28,6
+121,Serial Communication Protocols,27|16,8
+122,I2C vs SPI vs UART,69|70|98,8
+123,Data Communication Principles,121,8
+124,Wireless Communication Basics,123,8
+125,Bluetooth Low Energy,124|27,9
+126,Wi-Fi Connectivity,124|27,9
+127,Python Modules Overview,16,2
+128,Internet of Things Concepts,124|27,9
+129,Connecting to the Internet,126|16,9
+130,Sending Data to Web Servers,129|16,9
+131,Hypertext Transfer Protocol Basics,130,9
+132,Message Queuing Telemetry Transport Protocol,130,9
+133,IoT Applications,128|130,9
+134,Cloud Services Integration,133,9
+135,Data Visualization Tools,134,9
+136,Programming Best Practices,6,10
+137,Code Optimization Techniques,136,10
+138,Debugging Techniques,16|136,10
+139,Using Debugging Tools,138,10
+140,Version Control Systems,6,10
+141,Using Git for Code Management,140,10
+142,Collaborative Coding Practices,141,10
+143,Documentation Standards,136,10
+144,Commenting Code Effectively,136,10
+145,Advanced MicroPython Features,16,3
+146,Object-Oriented Programming,6|136,10
+147,Classes and Objects,146,10
+148,Inheritance and Polymorphism,147,10
+149,Encapsulation in Object-Oriented Programming,147,10
+150,Designing Reusable Code,146|149,10
+151,Memory Management,16|136,10
+152,Managing Resources Efficiently,151,10
+153,Energy Efficiency in Programming,152,10
+154,Sleep Modes in Microcontrollers,153|27,10
+155,Battery-Powered Projects,154,10
+156,Power Management Techniques,155,10
+157,Advanced Electronics Concepts,31,5
+158,Capacitors in Circuits,157,5
+159,Inductors and Coils,157,5
+160,Diodes and Rectification,157,5
+161,Voltage Regulation,160,5
+162,Using Voltage Regulators,161,5
+163,Building Power Supplies,162,5
+164,Analog Signals vs Digital Signals,31|157,5
+165,Signal Conditioning,164|157,5
+166,Filtering Noise in Circuits,165,5
+167,Interference and Shielding,166,5
+168,Electromagnetic Compatibility,167,5
+169,Circuit Design Principles,157,5
+170,Using Simulation Tools,169,5
+171,Prototyping Techniques,169,5
+172,Schematic Diagram Reading,169,5
+173,Understanding Datasheets,169,5
+174,Component Specifications,173,5
+175,Safety in Electronics,157,5
+176,Electrostatic Discharge Precautions,175,5
+177,Soldering Techniques,175,5
+178,Printed Circuit Board Design,169,5
+179,Using PCB Design Software,178,5
+180,Fabricating Custom PCBs,179,5
+181,Advanced Sensor Integration,85|157,6
+182,Gesture Recognition Sensors,181|28,6
+183,Touch Sensors,181|28,6
+184,Environmental Monitoring,181|105,6
+185,Robotics Basics,31|157,4
+186,Building Simple Robots,185|16,4
+187,Line-Following Robots,186|83,4
+188,Obstacle Avoidance Robots,186|120,4
+189,Control Systems Basics,185,10
+190,Feedback Mechanisms,189,10
+191,Proportional-Integral-Derivative Controllers,190,10
+192,Machine Learning Concepts,6|136,10
+193,Using MicroPython for Artificial Intelligence,192|16,10
+194,Edge Computing,193|128,10
+195,Ethics in Technology,6,10
+196,Future Trends in Computing,195,10
