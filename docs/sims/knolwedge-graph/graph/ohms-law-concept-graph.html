@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+<a href="concept-dependency-graph.md">Back to Concept Dependency Graph Law</a>
+<script type="text/javascript">
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: "Ohm's Law", color: "wheat", size: 150, x: 150, y: 0, fixed: true,font: { size: 24 }},
+        {id: 2, label: 'Voltage', color: "tan"},
+        {id: 3, label: 'Current', color: "tan"},
+        {id: 4, label: 'Resistance', color: "tan"},
+        {id: 5, label: 'Linear Equations', color: "coral", shape: "box", x: -150, y: 0, fixed: true}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 2, arrows: 'to', label: 'DEPENDS_ON' },
+        {from: 1, to: 3, arrows: 'to', label: 'DEPENDS_ON' },
+        {from: 1, to: 4, arrows: 'to', label: 'DEPENDS_ON' },
+        {from: 1, to: 5, arrows: 'to', label: 'DEPENDS_ON' }
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+        edges: {
+            arrows: {
+              to: { enabled: true, scaleFactor: 1 }  // Enable arrows by default
+            },
+            color: {
+               color: 'black',    // Set arrow and edge color to black
+               inherit: false     // Prevent inheriting color from nodes
+            },
+            width: 4  // Set edge width to 4 (weight)
+        }
+    };
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+<h4>Try the following actions:</h4>
+<ol>
+    <li>Drag nodes</li>
+    <li>Zoom in and out</li>
+    <li>Pan by dragging background</li>
+</ol>
+</body>
+</html>

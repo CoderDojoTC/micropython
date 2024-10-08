@@ -14,3 +14,7 @@ Topics include:
 8. Using the minicom tool to move files to and from you PC from your microcontroller
 9. Reading files from a SD card
 10. Converting CircuitPython code and drivers to MicroPython
+
+## References
+
+[Wokwi ESP32 Simulator for the Raspberry Pi Pico](https://wokwi.com/pi-pico)

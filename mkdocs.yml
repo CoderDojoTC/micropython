@@ -190,6 +190,16 @@ nav:
     - MicroBit: kits/microbit.md
     - RFID RC522: kits/rfid-rc522/index.md
   # - Project Ideas: misc/projects.md
+
+  - Sims:
+    - Introduction: sims/index.md
+    - Knowledge Graphs:
+      - Introduction: sims/knowledge-graph/index.md
+      - Concept Enumeration: sims/knowledge-graph/concept-enumeration.md
+      - Concept Dependency: sims/knowledge-graph/concept-dependency.md
+      - Graph Demo: sims/knowledge-graph/graph/index.md
+    - Breadboard: sims/breadboard/index.md
+
   - Glossary: misc/glossary.md
   - References: misc/references.md
   - Contributing: misc/contributing.md
