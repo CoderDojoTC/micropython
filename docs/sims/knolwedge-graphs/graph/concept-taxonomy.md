@@ -1,5 +1,7 @@
 # Concept Taxonomy
 
+[Run the Category Colors MicroSim](./category-colors.html)
+
 ## Prompt
 
 ```linenums="0"
