@@ -194,7 +194,6 @@ nav:
   - Sims:
     - Introduction: sims/index.md
     - Knowledge Graphs:
-    - sims/knolwedge-graphs/index.md
       - Introduction: sims/knowledge-graphs/index.md
       - Concept Enumeration: sims/knowledge-graphs/concept-enumeration.md
       - Concept Dependency: sims/knowledge-graphs/concept-dependency.md
