@@ -195,7 +195,7 @@ nav:
     - Introduction: sims/index.md
     - Knowledge Graphs:
       - Introduction: sims/knowledge-graphs/index.md
-      - Concept Enumeration: sims/knowledge-graphs/concept-enumeration.md
+      - Concept Enumeration: sims/knowledge-graphs/concept-dependency.md
       - Concept Dependency: sims/knowledge-graphs/concept-dependency.md
       - Graph Demo: sims/knowledge-graph/graph/index.md
     - Breadboard: sims/breadboard/index.md

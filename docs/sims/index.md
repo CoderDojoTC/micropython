@@ -1,6 +1,6 @@
 # Simulators for Learning MicroPython
 
-* [Knowledge Graph](./knolwedge-graph/index.md)
+* [Knowledge Graph](./knowledge-graphs/index.md)
 
 * [Wokwi](https://wokwi.com/micropython)
 

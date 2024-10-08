@@ -26,8 +26,6 @@ Covers the basic principles and strategies of computational thinking, essential 
 -   Abstraction (4)
 -   Algorithm Design (5)
 
-* * * *
-
 ### 2. Programming Fundamentals
 
 **Description:**
@@ -44,7 +42,6 @@ Introduces the core concepts of programming that are applicable across various p
 -   Loops (12)
 -   General Functions in Programming (13)
 
-* * * *
 
 ### 3. MicroPython Programming
 
