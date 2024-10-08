@@ -111,6 +111,8 @@ Here are 11 categories of the concepts
 
 [Category Colors Demo](./category-colors.html)
 
+[Cat Colors V3 DEBUG](./cat-colors-3.html)
+
 ## Reference
 
 [Vis.js Network Layout Methods](https://visjs.github.io/vis-network/docs/network/#methodLayout)

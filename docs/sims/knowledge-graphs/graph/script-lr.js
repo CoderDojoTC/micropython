@@ -52,7 +52,6 @@ loadCSV(function(data) {
     var options = {
         layout: {
             hierarchical: {
-              
               direction: 'LR',  // Left to right
               sortMethod: 'directed',  // Sort nodes based on dependencies
               nodeSpacing: 50,  // Adjust spacing if needed

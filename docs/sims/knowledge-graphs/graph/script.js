@@ -20,6 +20,9 @@ function parseCSV(data) {
     
     //
     lines.forEach(function(line) {
+        // Skip the header row
+        // if (index === 0) return;
+
         var parts = line.split(',');
         var id = parts[0].trim();
         var label = parts[1].trim();
