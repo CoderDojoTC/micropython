@@ -5,3 +5,5 @@ TinyML is designed to help you do machine learning and embedded systems.  Once y
 ## References
 * [UCTRONICS RP2040 Dev Board for TinyMLd](https://www.tindie.com/products/uctronics/rp2040-dev-board-for-tinyml-arducam-pico4ml/) - $50.00 US
 * [Harvard Fundamentals of TinyML Course](https://pll.harvard.edu/course/fundamentals-tinyml) - free without certificate.
+* [EMLearn GitHub Repo for Machine Learning](https://github.com/emlearn/emlearn-micropython/)
+* [EMLearn YouTube Video](https://www.youtube.com/watch?v=S3GjLr0ZIE0)
