@@ -10,7 +10,7 @@ Using an IDE such as Thonny you can copy many files at a time to the Raspberry P
 
 However, this process becomes error prone if you want to copy a large number of files.  To do this we will use the "remote shell" program from the command line.  In our classes we often want to copy a dozen or more files to a new robot for student to try out.
 
-Rshell was written by David Hyland.  The source code and installations are documented on Dave's GitHub repository here: [https://github.com/dhylands/rshell](https://github.com/dhylands/rshell).  Dave added support for the Raspberry Pi Pico in release [0.0.30](https://github.com/dhylands/rshell/releases/tag/v0.0.30) in March of 2021.
+Rshell was written by Dave Hylands.  The source code and installations are documented on Dave's GitHub repository here: [https://github.com/dhylands/rshell](https://github.com/dhylands/rshell).  Dave added support for the Raspberry Pi Pico in release [0.0.30](https://github.com/dhylands/rshell/releases/tag/v0.0.30) in March of 2021.
 
 Rshell's primary use is to to get filesystem information on the pico (ls), and to copy files to and from MicroPython's filesystem.  It can also be used as a terminal to run interactive REPL commands.
 
