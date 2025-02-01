@@ -1,0 +1,51 @@
+.md-header__button.md-logo {
+    margin: 0;
+    padding: 0;
+}
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    height: 48px;
+    width: 70px;
+}
+
+/* Custom styling for Prompt Admonition */
+.admonition.prompt {
+    background-color: #f4f8ff; /* Light blue background */
+    border-left: 5px solid #0056d6; /* Blue border */
+    font-family: Arial, Helvetica, sans-serif/* Monospace font for prompts */
+    padding: 1rem;
+}
+
+.admonition.prompt .admonition-title {
+    color: #0056d6; /* Blue title color */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+    position: relative;
+}
+
+.admonition.prompt .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0056d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.admonition.prompt .copy-button:hover {
+    background-color: #0041a4; /* Darker blue on hover */
+}
+
+.copy-button::before {
+    content: "\f0c5"; /* Clipboard icon from Font Awesome */
+    font-family: "Font Awesome 5 Free";
+    margin-right: 0.3rem;
+    font-weight: 900;
+}
