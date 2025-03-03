@@ -45,3 +45,7 @@
 ## Snake Game
 
 [Micropython Snake Game](https://github.com/hwiguna/HariFun_203_PicoSnake)
+
+## Turing the Raspberry Pi Pico into a Logic Analyzer
+
+[Make a 100MHz 24 Channel Logic Analyzer from your favorite Raspberry Pi Pico](https://www.youtube.com/watch?v=Obd1PiW7RO8&t=1s) - In this video you will learn how to setup the Raspberry Pi Pico so it can be used as a 24 channel signal analyzer. You will also see some examples using the signal analyzer decoding some different protocols like a UART, I2C-bus and 1-wire. 
